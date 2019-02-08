@@ -313,6 +313,15 @@
     (=>big5-cdp		. #x8766)	; &A-CDP-8766;
     ))
 (define-char
+  '((ideographic-radical . 87)	; ⽖
+    (ideographic-strokes . 0)
+    (total-strokes	 . 3)
+    (=ucs-itaiji-001	. #x722B)	; &U-i001+722B;
+    (->subsumptive
+     ((==ucs-itaiji-001	  . #x722B)	; &g2-U-i001+722B;
+      ))
+    ))
+(define-char
   '((<-denotational@component
      ((=>big5-cdp	  . #x89E3)	; &A-GT-K00278;
       ))
