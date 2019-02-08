@@ -237,6 +237,25 @@
     ))
 (define-char
   '((ideographic-radical . 14)	; ⼍
+    (ideographic-strokes . 2)
+    (total-strokes	 . 4)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5196)	; 冖
+      )
+     ((=ucs		  . #x53C8)	; 又
+      ))
+    (=gt-k		. 00827)	; &GT-K00827;
+    (=gt-pj-k1		. #x4260)	; &GT-K00827; [34-64]
+    (->subsumptive
+     ((==gt-k		  . 00827)	; &g2-GT-K00827;
+      (==gt-pj-k1	  . #x4260)	; &g2-GT-K00827; [34-64]
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 14)	; ⼍
     (ideographic-strokes . 3)
     (total-strokes	 . 5)
     (hanyu-dazidian	1 303 3)
