@@ -1,3 +1,11 @@
+2019-02-07  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R003-Dot.el (A-cgnU+20082): New abstract node.
+	(U-00020082): Apply new conventions for glyph granularity.
+	(GT-K02142): New character; use `<-subsumptive' for BC-87D5.
+	(U+20082-itaiji-001): New character; use `<-denotational' for
+	A-cgnU+20082.
+
 2019-02-06  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R096-Jade.el (U-00024A26): New character.
