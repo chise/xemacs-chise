@@ -1,3 +1,14 @@
+2019-02-08  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R048-Work.el (UU+5DE5): Add `<-denotational@component'
+	for A-compU+571F.
+
+	* Ideograph-R014-Cover.el (GT-K00827): New character.
+
+2019-02-07  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R087-Claw.el (U+722B-itaiji-001): New character.
+
 2019-02-07  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R003-Dot.el (A-cgnU+20082): New abstract node.
