@@ -17,6 +17,9 @@
   '((<-denotational
      ((=ucs		  . #x5DE5)	; 工
       ))
+    (<-denotational@component
+     ((=>ucs@component	  . #x571F)	; &A-compU+571F;
+      ))
     (ideographic-radical . 48)	; ⼯
     (ideographic-strokes . 0)
     (total-strokes	 . 3)
