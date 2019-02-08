@@ -11722,6 +11722,23 @@
       )
      ((=ucs		  . #x248E9)	; 𤣩
       )
+     ((=ucs		  . #x7317)	; 猗
+      ))
+    (=ucs		. #x24A26)	; 𤨦
+    (->subsumptive
+     ((==ucs@iso	  . #x24A26)	; &g2-IU-00024A26;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 96)	; ⽟
+    (ideographic-strokes . 11)
+    (total-strokes	 . 15)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x248E9)	; 𤣩
+      )
      ((=ucs-itaiji-001	  . #x54C0)	; &U-i001+54C0;
       ))
     (=ucs		. #x2C38A)	; 𬎊
