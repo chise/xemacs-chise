@@ -71,6 +71,32 @@
     ))
 (define-char
   '((ideographic-radical . 99)	; ⽢
+    (ideographic-strokes . 0)
+    (total-strokes	 . 5)
+    (=big5-cdp		. #x88C8)	; &CDP-88C8;
+    (->subsumptive
+     ((==big5-cdp	  . #x88C8)	; &g2-CDP-88C8;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 99)	; ⽢
+    (ideographic-strokes . 1)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=big5-cdp	  . #x88C8)	; &CDP-88C8;
+      )
+     ((=ucs		  . #x4E00)	; 一
+      ))
+    (=big5-cdp		. #x8B72)	; &CDP-8B72;
+    (->subsumptive
+     ((==big5-cdp	  . #x8B72)	; &g2-CDP-8B72;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 99)	; ⽢
     (ideographic-strokes . 3)
     (total-strokes	 . 8)
     (=ucs		. #x24BBB)	; 𤮻
