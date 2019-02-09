@@ -1,5 +1,13 @@
 2019-02-08  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R007-Two.el (A-IWDSU+4E93): New abstract node; use
+	`<-denotational@component' for A-IWDSU+4EA2.
+	(U+4E93): Add `<-denotational@component' for A-IWDSU+4E93; add
+	`sound@ja/on'; add `<-ancient' for U+5176; add `->mistakable' for
+	U+4EA3; add representative nodes.
+
+2019-02-08  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R059-Bristle.el (U+38CD): Add `ideographic-structure';
 	add `sound@ja/on'; add `<-vulgar' for U+53F0; add representative
 	nodes.

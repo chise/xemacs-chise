@@ -609,7 +609,28 @@
     (=ucs-var-003	. #x4E92)	; &U-v003+4E92;
     ))
 (define-char
-  '((ideographic-radical . 7)	; ⼆
+  '((<-denotational@component
+     ((=>ucs@iwds-1	  . #x4EA2)	; &A-IWDSU+4EA2;
+      ))
+    (ideographic-radical . 7)	; ⼆
+    (ideographic-strokes . 2)
+    (total-strokes	 . 4)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x4E00)	; 一
+      )
+     ((=>ucs@component	  . #x4E0C)	; &A-compU+4E0C;
+      (=>iwds-1		  .  0221)	; &A-compU+4E0C;
+      ))
+    (=>ucs@iwds-1	. #x4E93)	; &A-IWDSU+4E93;
+    ))
+(define-char
+  '((<-denotational@component
+     ((=>ucs@iwds-1	  . #x4E93)	; &A-IWDSU+4E93;
+      ))
+    (ideographic-radical . 7)	; ⼆
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
     (hanyu-dazidian	1 10 3)
@@ -621,6 +642,7 @@
       )
      ((=ucs		  . #x4E0C)	; 丌
       ))
+    (sound@ja/on	"ki")
     (=ucs		. #x4E93)	; 亓
     (=gb2312		. #x5841)	; &I-G0-5841; [56-33]
     (=cns11643-2	. #x2131)	; &I-C2-2131; [01-17]
@@ -629,6 +651,38 @@
     (=gt-k		. 00421)	; &I-GT-K00421;
     (=gt-pj-2		. #x3231)	; &I-GT-00336; [18-17]
     (=daikanwa		. 00256)	; &I-M-00256;
+    (<-ancient
+     ((=ucs		  . #x5176)	; 其
+      (=daikanwa	  . 01472)	; &I-M-01472;
+      ))
+    (<-ancient$_1*sources
+     jiyun daikanwa)
+    (<-ancient*sources
+     jiyun daikanwa)
+    (->mistakable
+     ((=ucs		  . #x4EA3)	; 亣
+      (=daikanwa	  . 00289)	; &I-M-00289;
+      ))
+    (->mistakable*sources
+     kangxi-biansi-2char daikanwa)
+    (->subsumptive
+     ((==ucs@unicode	  . #x4E93)	; &g2-GT-00336;
+      (==gb2312		  . #x5841)	; &g2-GT-00336; [56-33]
+      (==cns11643-2	  . #x2131)	; &g2-GT-00336; [01-17]
+      (==gt		  . 00336)	; &g2-GT-00336;
+      (==gt-k		  . 00421)	; &g2-GT-00336;
+      (==daikanwa	  . 00256)	; &g2-GT-00336;
+      (->subsumptive
+       ((===daikanwa	    . 00256)	; &R-M-00256;
+	)
+       ((===cns11643-2	    . #x2131)	; &R-C2-2131; [01-17]
+	)
+       ((===gt		    . 00336)	; &R-GT-00336;
+	(===gt-k	    . 00421)	; &R-GT-00336;
+	)
+       ((===ucs@unicode	    . #x4E93)	; &R-UU+4E93;
+	))
+      ))
     ))
 (define-char
   '((decimal-digit-value . 5)
