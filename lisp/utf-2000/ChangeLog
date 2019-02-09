@@ -1,3 +1,17 @@
+2019-02-09  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R015-Ice.el (U+51AC): Add `sound@ja/on/{kan|go}'.
+	(U-0002F81A): Add some relations for other characters.
+	(U+34C6): New character.
+	(A-U+51AC-itaiji-003): New abstract character.
+	(U+51AC-itaiji-003): New character; use `<-denotational' for
+	A-U+51AC-itaiji-003.
+	(U-000205E3): New character.
+	(U-00020600): Use `->denotational' and `->subsumptive'.
+	(U+51DC): Add `sound@ja/on/{kan|go}'.
+	(UU+51DC): Add some relations for other characters.
+	(U-00020621): Use `->denotational' and `->subsumptive'.
+
 2019-02-08  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R029-Again.el (M-03172): Unify U-00020B48, MJ032041
@@ -12,6 +26,9 @@
 	(U+4E93): Add `<-denotational@component' for A-IWDSU+4E93; add
 	`sound@ja/on'; add `<-ancient' for U+5176; add `->mistakable' for
 	U+4EA3; add representative nodes.
+
+	* Ideograph-R099-Sweet.el (BC-88C8): New character.
+	(BC-8B72): New character.
 
 2019-02-08  MORIOKA Tomohiko  <tomo.git@chise.org>
 
