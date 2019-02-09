@@ -1,5 +1,12 @@
 2019-02-08  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R029-Again.el (M-03172): Unify U-00020B48, MJ032041
+	and KOSEKI-036760; add `ideographic-structure'.
+	(U-00020B43): Apply new conventions for glyph granularity; add
+	`<-denotational' for A-IWDSU+81E4.
+	(U-00020B48): Apply new conventions for glyph granularity; unify
+	M-03172.
+
 	* Ideograph-R007-Two.el (A-IWDSU+4E93): New abstract node; use
 	`<-denotational@component' for A-IWDSU+4EA2.
 	(U+4E93): Add `<-denotational@component' for A-IWDSU+4E93; add
