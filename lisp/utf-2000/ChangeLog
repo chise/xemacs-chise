@@ -1,5 +1,15 @@
 2019-02-08  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R059-Bristle.el (U+38CD): Add `ideographic-structure';
+	add `sound@ja/on'; add `<-vulgar' for U+53F0; add representative
+	nodes.
+	(A-J0-4927): Add `ideographic-structure'; unify A-IWDSU+5F65 and
+	B-ABDB.
+	(U+5F65): Add `ideographic-structure'; add `sound@ja/on'; move
+	B-ABDB to A-IWDSU+5F65.
+	(U+5F66): Add `ideographic-structure'.
+	(U-000224B6): New character.
+
 	* Ideograph-R040-Roof.el (U-000219F3): New character.
 	(U-00021ACA): New character.
 	(GT-09284): Unify hanaJU+21AFA; add representative node.

@@ -255,9 +255,33 @@
   '((ideographic-radical . 59)	; ⼺
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x53F0)	; 台
+      )
+     ((=ucs		  . #x5F61)	; 彡
+      ))
+    (sound@ja/on	"tai")
     (=ucs		. #x38CD)	; 㣍
     (=cns11643-3	. #x2872)	; &I-C3-2872; [08-82]
     (=daikanwa		. 09976)	; &I-M-09976;
+    (<-vulgar
+     ((=ucs		  . #x53F0)	; 台
+      ))
+    (->subsumptive
+     ((==ucs@unicode	  . #x38CD)	; &g2-M-09976;
+      (==cns11643-3	  . #x2872)	; &g2-M-09976; [08-82]
+      (==daikanwa	  . 09976)	; &g2-M-09976;
+      (->subsumptive
+       ((===daikanwa	    . 09976)	; &R-M-09976;
+	)
+       ((===cns11643-3	    . #x2872)	; &R-C3-2872; [08-82]
+	)
+       ((===ucs@unicode	    . #x38CD)	; &R-UU+38CD;
+	))
+      ))
     ))
 (define-char
   '((=>ucs		. #x2248C)	; 𢒌
@@ -319,20 +343,40 @@
   '((ideographic-radical . 59)	; ⼺
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs		  . #x4EA7)	; 产
+      )
+     ((=ucs		  . #x5F61)	; 彡
+      ))
+    (=>ucs@iwds-1	. #x5F65)	; &J97-4927;
+    (=ucs@big5		. #x5F65)	; &J97-4927;
     (=>jis-x0208	. #x4927)	; &J97-4927; [41-07]
     (=>jis-x0213-1	. #x4927)	; &J97-4927; [41-07]
+    (=big5		. #xABDB)	; &I-B-ABDB;
     ))
 (define-char
   '((<-denotational
-     ((=>jis-x0208	  . #x4927)	; &J97-4927; [41-07]
+     ((=>ucs@iwds-1	  . #x5F65)	; &J97-4927;
+      (=>jis-x0208	  . #x4927)	; &J97-4927; [41-07]
       ))
     (ideographic-radical . 59)	; ⼺
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=gt-k		  . 02299)	; &GT-K02299;
+      )
+     ((=ucs		  . #x5F61)	; 彡
+      ))
+    (sound@ja/on	"geN")
     (=ucs		. #x5F65)	; 彥
     (=adobe-japan1-4	. 13996)	; &I-AJ1-13996;
     (=cns11643-1	. #x507D)	; &I-C1-507D; [48-93]
-    (=big5		. #xABDB)	; &I-B-ABDB;
     (=daikanwa		. 09980)	; &I-M-09980;
     (=shinjigen		.  2313)	; 彥
     (=jef-china3	. #x4DA1)	; &I-JC3-4DA1;
@@ -362,11 +406,21 @@
     ))
 (define-char
   '((<-denotational
-     ((=>jis-x0208	  . #x4927)	; &J97-4927; [41-07]
+     ((=>ucs@iwds-1	  . #x5F65)	; &J97-4927;
+      (=>jis-x0208	  . #x4927)	; &J97-4927; [41-07]
       ))
     (ideographic-radical . 59)	; ⼺
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs@unicode	  . #x4EA7)	; &G0-327A;
+      (=gb2312		  . #x327A)	; &G0-327A; [18-90]
+      )
+     ((=ucs		  . #x5F61)	; 彡
+      ))
     (=ucs		. #x5F66)	; 彦
     (=adobe-japan1-0	. 03481)	; &I-AJ1-03481;
     (=jis-x0208		. #x4927)	; &I-J90-4927; [41-07]
@@ -1949,6 +2003,42 @@
       )
      ((==ucs@cns	  . #x224B8)	; &g2-CU+224B8;
       (==cns11643-7	  . #x5336)	; &g2-CU+224B8; [51-22]
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 59)	; ⼺
+    (ideographic-strokes . 18)
+    (total-strokes	 . 21)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=>ucs@iwds-1	  . #x5F65)	; &J97-4927;
+      (=>jis-x0208	  . #x4927)	; &J97-4927; [41-07]
+      )
+     ((=>ucs@iwds-1	  . #x8C61)	; &A-IWDSU+8C61;
+      (=>iwds-1		  .  0359)	; &A-IWDSU+8C61;
+      ))
+    (=ucs		. #x224B6)	; 𢒶
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x224B6)	; 𢒶
+      ))
+    (ideographic-radical . 59)	; ⼺
+    (ideographic-strokes . 18)
+    (total-strokes	 . 21)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5F65)	; 彥
+      )
+     ((=ucs		  . #x8C61)	; 象
+      ))
+    (=ucs@iso		. #x224B6)	; &U-000224B6;
+    (->subsumptive
+     ((==ucs@iso	  . #x224B6)	; &g2-IU-000224B6;
       ))
     ))
 (define-char
