@@ -133,6 +133,23 @@
       ))
     ))
 (define-char
+  '((ideographic-radical . 89)	; ⽘
+    (ideographic-strokes . 0)
+    (total-strokes	 . 4)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x3405)	; 㐅
+      )
+     ((=ucs		  . #x3405)	; 㐅
+      ))
+    (=ucs-itaiji-001	. #x723B)	; &U-i001+723B;
+    (->subsumptive
+     ((==ucs-itaiji-001	  . #x723B)	; &g2-U-i001+723B;
+      ))
+    ))
+(define-char
   '((=>ucs		. #x3E1A)	; 㸚
     (ideographic-radical . 89)	; ⽘
     (ideographic-strokes . 4)

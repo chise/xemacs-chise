@@ -5460,11 +5460,109 @@
       )
      ((=ucs		  . #x7CF8)	; 糸
       )
+     ((=ucs		  . #x2124A)	; 𡉊
+      ))
+    (=ucs		. #x26007)	; 𦀇
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x26007)	; 𦀇
+      ))
+    (ideographic-radical . 120)	; ⽷
+    (ideographic-strokes . 6)
+    (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x7CF8)	; 糸
+      )
      ((=big5-cdp	  . #x8767)	; &CDP-8767;
       ))
     (===hng-khi		. 06391)	; &HNG010-06391;
+    (<-HNG@chise
+     ((=ucs		  . #x26007)	; 𦀇
+      )
+     ((=ucs		  . #x26030)	; 𦀰
+      ))
     (<-formed
      ((=ucs		  . #x7D93)	; 經
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x26007)	; 𦀇
+      ))
+    (ideographic-radical . 120)	; ⽷
+    (ideographic-strokes . 6)
+    (total-strokes	 . 12)
+    (hanyu-dazidian	5 3392 4)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x7CF8)	; 糸
+      )
+     ((=ucs@iso		  . #x2124A)	; &C6-2435;
+      (=cns11643-6	  . #x2435)	; &C6-2435; [04-21]
+      (=daikanwa	  . 04893)	; &I-M-04893;
+      ))
+    (=ucs@iso		. #x26007)	; &C6-4C6B;
+    (=cns11643-6	. #x4C6B)	; &C6-4C6B; [44-75]
+    (->subsumptive
+     ((=hanziku-9	  . #xBE69)	; &HZK09-BE69;
+      )
+     ((==ucs@iso	  . #x26007)	; &g2-IU-00026007;
+      (==cns11643-6	  . #x4C6B)	; &g2-IU-00026007; [44-75]
+      (->subsumptive
+       ((===cns11643-6	    . #x4C6B)	; &R-C6-4C6B; [44-75]
+	)
+       ((===ucs@iso	    . #x26007)	; &R-U-00026007;
+	))
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((==>ucs@bucs	  . #x7D93)	; &BUCS+7D93;
+      ))
+    (ideographic-radical . 120)	; ⽷
+    (ideographic-strokes . 7)
+    (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x7CF8)	; 糸
+      )
+     ((=ucs		  . #x21264)	; 𡉤
+      ))
+    (=ucs		. #x26030)	; 𦀰
+    (<-formed
+     ((=ucs		  . #x7D93)	; 經
+      ))
+    (<-formed*sources
+     hng)
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((name		    . "CJK RADICAL SILK")
+	(=ucs		    . #x2EAF)	; ⺯
+	)
+       ((=ucs		    . #x21264)	; 𡉤
+	))
+      (==ucs@iso	  . #x26030)	; &g2-IU-00026030;
+      )
+     ((===hng-khm	  . 04820)	; &HNG011-04820;
+      (<-HNG@chise
+       ((=ucs		    . #x26030)	; 𦀰
+	))
+      )
+     ((===hng-khi	  . 06392)	; &HNG010-06392;
+      (<-HNG@chise
+       ((=ucs		    . #x26030)	; 𦀰
+	))
       ))
     ))
 (define-char
@@ -7993,21 +8091,6 @@
   '((ideographic-radical . 120)	; ⽷
     (ideographic-strokes . 6)
     (total-strokes	 . 12)
-    (=ucs		. #x26007)	; 𦀇
-    (=cns11643-6	. #x4C6B)	; &I-C6-4C6B; [44-75]
-    ))
-(define-char
-  '((=>ucs		. #x26007)	; 𦀇
-    (ideographic-radical . 120)	; ⽷
-    (ideographic-strokes . 6)
-    (total-strokes	 . 12)
-    (hanyu-dazidian	5 3392 4)
-    (=hanziku-9		. #xBE69)	; &HZK09-BE69;
-    ))
-(define-char
-  '((ideographic-radical . 120)	; ⽷
-    (ideographic-strokes . 6)
-    (total-strokes	 . 12)
     (=ucs		. #x26008)	; 𦀈
     (->subsumptive
      ((hanyu-dazidian	  5 3393 6)
@@ -10210,41 +10293,6 @@
       (=hanziku-9	  . #xBFEE)	; &HZK09-BFEE;
       )
      ((=ucs@iso		  . #x26028)	; &U-00026028;
-      ))
-    ))
-(define-char
-  '((ideographic-radical . 120)	; ⽷
-    (ideographic-strokes . 7)
-    (total-strokes	 . 13)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((=ucs		  . #x7CF8)	; 糸
-      )
-     ((=ucs		  . #x21264)	; 𡉤
-      ))
-    (=ucs		. #x26030)	; 𦀰
-    (<-formed
-     ((=ucs		  . #x7D93)	; 經
-      ))
-    (<-formed*sources
-     hng)
-    (->subsumptive
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	(=ucs		    . #x2FF0)	; ⿰
-	)
-       ((name		    . "CJK RADICAL SILK")
-	(=ucs		    . #x2EAF)	; ⺯
-	)
-       ((=ucs		    . #x21264)	; 𡉤
-	))
-      (==ucs@iso	  . #x26030)	; &g2-IU-00026030;
-      )
-     ((===hng-khm	  . 04820)	; &HNG011-04820;
-      )
-     ((===hng-khi	  . 06392)	; &HNG010-06392;
       ))
     ))
 (define-char
