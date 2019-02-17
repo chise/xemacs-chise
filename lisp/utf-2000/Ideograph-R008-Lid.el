@@ -292,7 +292,10 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 8)	; ⼇
+  '((<-denotational@component
+     ((=>ucs@iwds-1	  . #x4E93)	; &A-IWDSU+4E93;
+      ))
+    (ideographic-radical . 8)	; ⼇
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
     (hanyu-dazidian	1 279 7)
@@ -1796,6 +1799,7 @@
       )
      ((=>ucs@iwds-1	  . #x56DE)	; &A-IWDSU+56DE;
       ))
+    (sound@ja/on	"riN")
     (=ucs		. #x342D)	; 㐭
     ))
 (define-char
@@ -1819,14 +1823,19 @@
     (=big5-cdp		. #x8BE5)	; &I-CDP-8BE5;
     (=daikanwa		. 00300)	; &I-M-00300;
     (=shinjigen		.  2230)	; &C4-2534;
+    (<-interchangeable@ancient
+     ((=ucs@unicode	  . #x61CD)	; &AJ1-04919;
+      (=adobe-japan1-0	  . 04919)	; &AJ1-04919;
+      ))
     (<-original
      ((=ucs@unicode	  . #x5EE9)	; &AJ1-04756;
       (=adobe-japan1-0	  . 04756)	; &AJ1-04756;
       (=jis-x0208	  . #x5729)	; &I-J90-5729; [55-09]
+      (=daikanwa	  . 09515)	; &I-M-09515;
       (=shinjigen	  .  2229)	; &AJ1-04756;
       ))
     (<-original*sources
-     shinjigen)
+     zhengzitong daikanwa shinjigen)
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
