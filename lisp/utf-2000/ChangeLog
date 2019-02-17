@@ -1,5 +1,39 @@
 2019-02-09  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R089-Double-X.el (U+723B-itaiji-001): New character.
+
+	* Ideograph-R064-Hand.el (A-IWDSU+22A6B): New abstract node.
+	(U-00022A6B): Apply new conventions for glyph granularity; add
+	`<-denotational@component' for A-IWDSU+22A6B.
+	(A-IWDSU+6264): New abstract node.
+	(U+6264): Add `<-denotational' for A-IWDSU+6264; add
+	`ideographic-structure'; add `sound@ja/on/{kan|go}'; add some
+	relations for other characters; add representative nodes.
+	(U-00022A81): Apply new conventions for glyph granularity; add
+	`<-denotational' for A-IWDSU+6264; unify MH-0201.
+
+	* Ideograph-R026-Seal.el (U+537C): Add `ideographic-structure';
+	add `sound@ja/on/{kan|go}'.
+	(C2-2973): Unify CU+537C, MJ007908 and KOSEKI-033210; add some
+	relations for other characters; add representative nodes.
+	(UU+537C): Add representative nodes.
+
+	* Ideograph-R010-Legs.el (A-IWDSU+513F): Add
+	`<-denotational@component' for A-IWDSU+4E37.
+	(A-U+5152-itaiji-002): New abstract node; use `<-denotational' for
+	BUCS+5152.
+	(U+5152-itaiji-002): New character; use `<-denotational' for
+	A-U+5152-itaiji-002.
+	(U+5152-itaiji-003): Ditto.
+	(U+5140): Add `ideographic-structure'; delete
+	`<-mistakable@component' for GT-K00264; apply new conventions for
+	glyph granularity.
+	(U+5143): Add A-IWDSU+4E93 as a target of
+	`<-denotational@component'.
+	(U-00020484): Apply new conventions for glyph granularity.
+
+2019-02-09  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R015-Ice.el (U+51AC): Add `sound@ja/on/{kan|go}'.
 	(U-0002F81A): Add some relations for other characters.
 	(U+34C6): New character.
@@ -53,6 +87,11 @@
 
 2019-02-07  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R124-Feather.el (A-GT-K08568): New abstract node.
+	(U+7FDF-itaiji-003): New character; use `<-denotational' for
+	A-GT-K08568.
+	(U+7FDF-itaiji-004): Likewise.
+
 	* Ideograph-R100-Life.el (U-00024BF4): New character.
 
 	* Ideograph-R087-Claw.el (U+722B-itaiji-001): New character.
@@ -84,6 +123,12 @@
 	`<-same' and `<-formed' for UU+80FD; add `<-formed' and `<-same'
 	for U+800F.
 	(CU+43A0): Add `<-formed' and `<-same' for UU+611E.
+
+	* Ideograph-R120-Silk.el (U-00026007): Use `->denotational' and
+	`->subsumptive'; add `<-denotational' for BUCS+7D93.
+	(HNG-KHI0639-1): Use U-00026007 instead of BUCS+7D93 as its
+	mother; add `<-HNG@chise' for U-00026007 and U-00026030.
+	(U-00026030): Add `<-denotational' for BUCS+7D93.
 
 	* Ideograph-R094-Dog.el (U-00024817): Use `->denotational' and
 	`->subsumptive'.
