@@ -1,3 +1,33 @@
+2019-02-16  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R032-Earth.el (A-compU+571F): New abstract node.
+	(IWDS1-0312): Unify A-IWDSU+571F instead of A-compU+571F; add
+	A-compU+571F as a target of `<-denotational@component'.
+	(U+5725): Apply new conventions for glyph granularity.
+	(U-0002124A): Use `->denotational' and `->subsumptive'; add
+	`<-denotational@component' for A-compU+2124A.
+	(BC-8767): New character; use `<-denotational' for U-0002124A.
+	(U-00021264): Add `<-denotational@component' for A-compU+2124A.
+	(U-0002125D): Add `<-denotational@component' for A-IWDSU+2125D;
+	add `ideographic-structure'; add `sound@ja/on'; add `<-ancient'
+	for U+57FA; add representative nodes.
+	(U+5756): Apply new conventions for glyph granularity; add
+	`<-denotational@component' for A-IWDSU+2125D.
+	(U+57FA): Add `sound@ja/on'; add some relations for other
+	characters.
+	(A-compU+2124A): New abstract node.
+	(A-IWDSU+2125D): New abstract node.
+
+	* Ideograph-R008-Lid.el (U+4EA3): Add `<-denotational@component'
+	for A-IWDSU+4E93.
+	(U+342D): Add `sound@ja/on'.
+	(UU+342D): Add `<-interchangeable@ancient' for UU+61CD; add
+	sources of `<-original' for UU+5EE9.
+
+	* Ideograph-R001-One.el (U+4E0C): Add `sound@ja/on'; add
+	`<-ancient' for U+5176.
+	(GT-K04312): New character.
+
 2019-02-09  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R089-Double-X.el (U+723B-itaiji-001): New character.
