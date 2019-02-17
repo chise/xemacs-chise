@@ -1113,6 +1113,7 @@
     (ideographic-strokes . 2)
     (total-strokes	 . 3)
     (hanyu-dazidian	1 9 1)
+    (sound@ja/on	"ki")
     (=ucs		. #x4E0C)	; 丌
     (=adobe-japan1-5	. 19140)	; &I-AJ1-19140;
     (=gb2312		. #x5822)	; &I-G0-5822; [56-02]
@@ -1122,6 +1123,12 @@
     (=gt		. 00015)	; &I-GT-00015;
     (=gt-pj-2		. #x3028)	; &I-GT-00015; [16-08]
     (=daikanwa		. 00015)	; &I-M-00015;
+    (<-ancient
+     ((=ucs		  . #x5176)	; 其
+      (=daikanwa	  . 01472)	; &I-M-01472;
+      ))
+    (<-ancient*sources
+     jiyun daikanwa)
     (->subsumptive
      ((==ucs@unicode	  . #x4E0C)	; &g2-AJ1-19140;
       (==adobe-japan1-5	  . 19140)	; &g2-AJ1-19140;
@@ -5249,6 +5256,25 @@
     (total-strokes	 . 8)
     (=gt		. 00080)	; &GT-00080;
     (=gt-pj-11		. #x4B60)	; &GT-00080; [43-64]
+    ))
+(define-char
+  '((ideographic-radical . 1)	; ⼀
+    (ideographic-strokes . 7)
+    (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
+      (=ucs		  . #x2FF4)	; ⿴
+      )
+     ((=ucs		  . #x5EFF)	; 廿
+      )
+     ((=ucs-itaiji-001	  . #x723B)	; &U-i001+723B;
+      ))
+    (=gt-k		. 04312)	; &GT-K04312;
+    (=gt-pj-k1		. #x3F71)	; &GT-K04312; [31-81]
+    (->subsumptive
+     ((==gt-k		  . 04312)	; &g2-GT-K04312;
+      (==gt-pj-k1	  . #x3F71)	; &g2-GT-K04312; [31-81]
+      ))
     ))
 (define-char
   '((ideographic-radical . 1)	; ⼀
