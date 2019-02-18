@@ -1062,8 +1062,25 @@
   '((ideographic-radical . 128)	; ⽿
     (ideographic-strokes . 4)
     (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x8033)	; 耳
+      )
+     ((=ucs		  . #x53CC)	; 双
+      ))
     (=ucs		. #x8042)	; 聂
     (=gb2312		. #x4474)	; &I-G0-4474; [36-84]
+    (<-simplified@CN
+     ((=ucs		  . #x8076)	; 聶
+      (=gb12345		  . #x4474)	; 聶 [36-84]
+      ))
+    (->subsumptive
+     ((==ucs@unicode	  . #x8042)	; &g2-UU+8042;
+      (==ucs@JP/hanazono  . nil)
+      (==gb2312		  . #x4474)	; &g2-UU+8042; [36-84]
+      ))
     ))
 (define-char
   '((ideographic-radical . 128)	; ⽿
@@ -2217,6 +2234,23 @@
     (total-strokes	 . 13)
     (=ucs		. #x26582)	; 𦖂
     (=cns11643-6	. #x5663)	; &I-C6-5663; [54-67]
+    ))
+(define-char
+  '((ideographic-radical . 128)	; ⽿
+    (ideographic-strokes . 7)
+    (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x8033)	; 耳
+      )
+     ((=gt-k		  . 03387)	; &GT-K03387;
+      ))
+    (=ucs		. #x2C69B)	; 𬚛
+    (->subsumptive
+     ((==ucs@iso	  . #x2C69B)	; &g2-IU-0002C69B;
+      ))
     ))
 (define-char
   '((ideographic-radical . 128)	; ⽿
