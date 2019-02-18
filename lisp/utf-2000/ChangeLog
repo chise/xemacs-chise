@@ -1,4 +1,10 @@
+2019-02-18  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R005-Second.el (U-000200D7): New character.
+
 2019-02-17  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R055-Two-Hands.el (U-0002234C): New character.
 
 	* Ideograph-R012-Eight.el (GT-K00264): Add `<-denotational' for
 	U+5140; add U+4E0C as a target of
