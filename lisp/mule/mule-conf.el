@@ -5742,7 +5742,7 @@
 	       registry "-ja-.*-ucs-0"
 	       mother =ucs@JP/hanazono
 	       min-code #x2E00
-               max-code #x9FCC
+               max-code #x9FEA
 	       ;; max-code #xA4CF
 	       ))
   (make-charset
