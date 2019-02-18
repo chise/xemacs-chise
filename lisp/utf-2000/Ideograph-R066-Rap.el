@@ -9129,6 +9129,13 @@
     (=jis-x0213-2	. #x2D67)	; &I-JX2-2D67; [13-71]
     (=big5		. #xF248)	; &I-B-F248;
     (=daikanwa		. 13427)	; &I-M-13427;
+    (<-formed
+     ((=ucs@unicode	  . #x729B)	; &AJ1-16969;
+      (=adobe-japan1-5	  . 16969)	; &AJ1-16969;
+      )
+     ((=ucs@unicode	  . #x6C02)	; &AJ1-17906;
+      (=adobe-japan1-5	  . 17906)	; &AJ1-17906;
+      ))
     (<-interchangeable
      ((=ucs@unicode	  . #x729B)	; &AJ1-16969;
       (=adobe-japan1-5	  . 16969)	; &AJ1-16969;
