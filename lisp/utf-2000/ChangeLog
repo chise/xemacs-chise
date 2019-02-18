@@ -1,5 +1,28 @@
 2019-02-17  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R012-Eight.el (GT-K00264): Add `<-denotational' for
+	U+5140; add U+4E0C as a target of
+	`<-formed@component/connect-above'; delete `->mistakable' for
+	U+4E0C.
+	(U+51AC-itaiji-002): New character; use `<-denotational' for
+	A-cgnU+20082.
+	(U-0002050F): Apply new conventions for glyph granularity.
+	(A-BC-8747): New abstract node; use `<-denotational' for
+	A-cgnU+20082.
+	(BC-8747-var-002): New character; use `<-denotational' for
+	A-BC-8747.
+	(BC-8747-var-003): Ditto.
+	(GT-K03387): New character.
+	(BC-8747): New character; use `<-denotational' for A-BC-8747.
+	(U+5176): Modify structure; add `sound@ja/on/{kan|go}'; add some
+	relations for other characters
+	(U-00020513): Apply new conventions for glyph granularity.
+	(U-00020519): Likewise.
+	(U-0002051D): Likewise.
+	(U-0002051E): Likewise.
+
+2019-02-17  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R066-Rap.el (UU+6584): Add `<-formed' for UU+729B and
 	UU+6C02.
 
