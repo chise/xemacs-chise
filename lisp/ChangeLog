@@ -1,3 +1,8 @@
+2019-02-17  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-conf.el (=ucs-bmp-cjk@JP/hanazono): Use #x9FEA instead
+	of #x9FCC as the value of `max-code'.
+
 2019-01-05  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* mule/mule-charset.el (default-coded-charset-priority-list): Add
