@@ -1,5 +1,16 @@
 2019-02-18  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R003-Dot.el (U+4E3D): Add IWDS1-0178.
+
+	* Ideograph-R001-One.el (U+4E3D): Add IWDS1-0178.
+
+2019-02-18  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R022-Right-Open-Box.el (UU+5321): Add
+	`<-interchangeable@ancient' for UU+6047; add `<-original' for
+	UU+7736.
+	(U+9FA8): New character.
+
 	* Ideograph-R005-Second.el (U-000200D7): New character.
 
 2019-02-17  MORIOKA Tomohiko  <tomo.git@chise.org>
