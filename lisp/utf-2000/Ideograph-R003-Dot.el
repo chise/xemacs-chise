@@ -1017,6 +1017,7 @@
      daikanwa gt ucs)
     (ideographic-radical@cns . 1)	; ⼀
     (=ucs		. #x4E3D)	; 丽
+    (=>iwds-1		.  0178)	; 丽
     ))
 (define-char
   '((<-denotational
