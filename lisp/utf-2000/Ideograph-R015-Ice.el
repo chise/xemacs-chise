@@ -5600,16 +5600,21 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 15)	; ⼎
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
-      (=ucs		  . #x2FF8)	; ⿸
-      )
-     ((=ucs		  . #x7592)	; 疒
-      )
-     ((=ucs		  . #x7A1F)	; 稟
+  '((<-denotational
+     ((=ucs		  . #x765B)	; 癛
       ))
-    (sound@ja/on	"riN")
+    (ideographic-radical . 15)	; ⼎
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=>ucs@iwds-1	  . #x4E8C)	; &A-IWDSU+4E8C;
+      (=>iwds-1		  .  0047)	; &A-IWDSU+4E8C;
+      )
+     ((=ucs		  . #x5EE9)	; 廩
+      ))
+    (sound@ja/on/go	"riN" "goN")
+    (sound@ja/on/kan	"riN" "kiN")
     (=ucs		. #x20621)	; 𠘡
     ))
 (define-char
@@ -5621,13 +5626,13 @@
     (total-strokes	 . 18)
     (hanyu-dazidian	1 302 8)
     (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
-      (=ucs		  . #x2FF8)	; ⿸
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=ucs		  . #x7592)	; 疒
+     ((=ucs		  . #x51AB)	; 冫
       )
-     ((=ucs@unicode	  . #x7A1F)	; &AJ1-05915;
-      (=adobe-japan1-0	  . 05915)	; &AJ1-05915;
+     ((=ucs@unicode	  . #x5EE9)	; &AJ1-04756;
+      (=adobe-japan1-0	  . 04756)	; &AJ1-04756;
       ))
     (=ucs@iso		. #x20621)	; &C7-3E7B;
     (=cns11643-7	. #x3E7B)	; &C7-3E7B; [30-91]
