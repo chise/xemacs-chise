@@ -1,3 +1,28 @@
+2019-02-19  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R015-Ice.el (U-00020621): Add `<-denotational' for
+	U+765B; modify ideographic-structure.
+
+	* Ideograph-R009-Man.el (U+4EC9): Add `<-denotational@component'
+	for A-IWDSU+4EC9; add `sound@ja/on'; add `<-interchangeable' for
+	IU+201B0; add representative nodes.
+	(U-000201A6): Use `->denotational' and `->subsumptive'.
+	(U+3433): Add `<-denotational@component' for A-IWDSU+4EC9; apply
+	new conventions for glyph granularity.
+	(U+4F08): Add `sound@ja/on'; add `<-formed' for UU+61CD; add
+	representative nodes.
+	(U-000201B0): Apply new conventions for glyph granularity.
+	(U+344C): Likewise.
+	(A-cgnU+4F96): New abstract node.
+	(U+4F96): Add `<-denotational' for A-cgnU+4F96.
+	(UU+4F96): Delete `=>ucs@iwds-1'.
+	(A-U+4F96-itaiji-002): New abstract character; use
+	`<-denotational' for A-cgnU+4F96.
+	(U+4F96-itaiji-002): Use A-U+4F96-itaiji-002 instead of U+4F96 as
+	its mother.
+	(U-000203E5): New character.
+	(A-IWDSU+4EC9): New abstract node.
+
 2019-02-18  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R003-Dot.el (U+4E3D): Add IWDS1-0178.
