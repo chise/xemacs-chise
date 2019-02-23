@@ -2007,7 +2007,8 @@
      ((=ucs		  . #x5C45)	; 居
       (=daikanwa	  . 07663)	; &I-M-07663;
       )
-     ((=ucs		  . #x8A18)	; 記
+     ((=ucs@unicode	  . #x8A18)	; &AJ1-01607;
+      (=adobe-japan1-0	  . 01607)	; &AJ1-01607;
       (=daikanwa	  . 35244)	; &I-M-35244;
       )
      ((=ucs@unicode	  . #x5FCC)	; &AJ1-01587;
