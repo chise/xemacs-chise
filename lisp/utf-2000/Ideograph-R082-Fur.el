@@ -3900,6 +3900,15 @@
   '((ideographic-radical . 82)	; ⽑
     (ideographic-strokes . 11)
     (total-strokes	 . 15)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=>gt-k		  . 08568)	; &A-GT-K08568;
+      )
+     ((=ucs		  . #x6BDB)	; 毛
+      ))
+    (sound@ja/on	"sEHu")
     (=ucs		. #x23BF0)	; 𣯰
     ))
 (define-char
@@ -3909,7 +3918,46 @@
     (ideographic-radical . 82)	; ⽑
     (ideographic-strokes . 11)
     (total-strokes	 . 15)
-    (=daikanwa		. 16957)	; &M-16957;
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs-itaiji-003	  . #x7FDF)	; &U-i003+7FDF;
+      )
+     ((=ucs		  . #x6BDB)	; 毛
+      ))
+    (=mj		. 039109)	; &MJ039109;
+    (=koseki		. 191820)	; &MJ039109;
+    (=daikanwa		. 16957)	; &I-M-16957;
+    (<-formed
+     ((=ucs@unicode	  . #x776B)	; &AJ1-05825;
+      (=adobe-japan1-0	  . 05825)	; &AJ1-05825;
+      )
+     ((=ucs		  . #x2F949)	; 䀹
+      ))
+    (<-formed$_1*sources
+     koseki mj)
+    (<-formed$_2*sources
+     koseki@mj)
+    (<-formed*sources
+     koseki mj)
+    (<-same
+     ((=ucs@unicode	  . #x776B)	; &AJ1-05825;
+      (=adobe-japan1-0	  . 05825)	; &AJ1-05825;
+      (=daikanwa	  . 23469)	; &I-M-23469;
+      ))
+    (<-same*sources
+     zihui-bu daikanwa)
+    (->subsumptive
+     ((==mj		  . 039109)	; &g2-MJ039109;
+      (==koseki		  . 191820)	; &g2-MJ039109;
+      (==daikanwa	  . 16957)	; &g2-MJ039109;
+      (->subsumptive
+       ((===daikanwa	    . 16957)	; &R-M-16957;
+	)
+       ((===mj		    . 039109)	; &R-MJ039109;
+	))
+      ))
     ))
 (define-char
   '((<-denotational
@@ -3918,11 +3966,21 @@
     (ideographic-radical . 82)	; ⽑
     (ideographic-strokes . 11)
     (total-strokes	 . 15)
-    (=>>ucs@iso		. #x23BF0)	; &G-IU+23BF0;
-    (->subsumptive
-     ((=ucs@iso		  . #x23BF0)	; &U-00023BF0;
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=cns11643-7	  . #x2430)	; &C7-2430; [04-16]
+     ((=ucs-itaiji-004	  . #x7FDF)	; &U-i004+7FDF;
+      )
+     ((=ucs		  . #x6BDB)	; 毛
+      ))
+    (=ucs@iso		. #x23BF0)	; &C7-2430;
+    (=cns11643-7	. #x2430)	; &C7-2430; [04-16]
+    (->subsumptive
+     ((==ucs@iso	  . #x23BF0)	; &g2-IU-00023BF0;
+      )
+     ((==ucs@cns	  . #x23BF0)	; &g2-CU+23BF0;
+      (==cns11643-7	  . #x2430)	; &g2-CU+23BF0; [04-16]
       ))
     ))
 (define-char

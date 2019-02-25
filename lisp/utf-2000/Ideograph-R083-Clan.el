@@ -108,18 +108,17 @@
   '((ideographic-radical . 83)	; ⽒
     (ideographic-strokes . 1)
     (total-strokes	 . 5)
-    (=ucs		. #x6C11)	; 民
+    (=>ucs@cognate	. #x6C11)	; &A-cgnU+6C11;
     ))
 (define-char
   '((<-denotational
-     ((=ucs		  . #x6C11)	; 民
+     ((=>ucs@cognate	  . #x6C11)	; &A-cgnU+6C11;
       ))
     (ideographic-radical . 83)	; ⽒
     (ideographic-strokes . 1)
     (total-strokes	 . 5)
-    (=>ucs@iwds-1	. #x6C11)	; &AJ1-03773;
-    (=ucs@unicode	. #x6C11)	; &AJ1-03773;
-    (=adobe-japan1-0	. 03773)	; &AJ1-03773;
+    (=ucs		. #x6C11)	; 民
+    (=adobe-japan1-0	. 03773)	; &I-AJ1-03773;
     (=jis-x0208		. #x4C31)	; &I-J90-4C31; [44-17]
     (=gb2312		. #x4371)	; &I-G0-4371; [35-81]
     (=ks-x1001		. #x5A45)	; &I-K0-5A45; [58-37]
@@ -130,7 +129,7 @@
     (=gt-k		. 01008)	; &I-GT-K01008;
     (=gt-pj-1		. #x4C31)	; &I-GT-21804; [44-17]
     (=daikanwa		. 17028)	; &I-M-17028;
-    (=shinjigen		.  4039)	; &AJ1-03773;
+    (=shinjigen		.  4039)	; 民
     (->subsumptive
      ((==ucs@unicode	  . #x6C11)	; &g2-AJ1-03773;
       (==adobe-japan1-0	  . 03773)	; &g2-AJ1-03773;
@@ -178,12 +177,27 @@
     ))
 (define-char
   '((<-denotational
-     ((=ucs		  . #x6C11)	; 民
+     ((=>ucs@cognate	  . #x6C11)	; &A-cgnU+6C11;
       ))
     (ideographic-radical . 83)	; ⽒
     (ideographic-strokes . 1)
     (total-strokes	 . 5)
     (===hng-khm		. 04040)	; &HNG011-04040;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@cognate	  . #x6C11)	; &A-cgnU+6C11;
+      ))
+    (ideographic-radical . 83)	; ⽒
+    (ideographic-strokes . 1)
+    (total-strokes	 . 4)
+    (===hng-kar		. 10160)	; &HNG018-10160;
+    (<-avoiding-taboo
+     ((=ucs		  . #x6C11)	; 民
+      ))
+    (<-formed
+     ((=ucs		  . #x6C11)	; 民
+      ))
     ))
 (define-char
   '((ideographic-radical . 83)	; ⽒
@@ -198,17 +212,19 @@
      ((=ucs		  . #x4E36)	; 丶
       ))
     (=ucs		. #x2B795)	; 𫞕
-    ))
-(define-char
-  '((ideographic-radical . 83)	; ⽒
-    (ideographic-strokes . 1)
-    (total-strokes	 . 4)
-    (===hng-kar		. 10160)	; &HNG018-10160;
-    (<-avoiding-taboo
-     ((=ucs		  . #x6C11)	; 民
-      ))
+    (=mj		. 057933)	; &I-MJ057933;
+    (=koseki		. 192560)	; 𫞕
     (<-formed
-     ((=ucs		  . #x6C11)	; 民
+     ((=ucs		  . #x6C0F)	; 氏
+      ))
+    (<-formed$_1*sources
+     koseki mj)
+    (<-formed*sources
+     koseki mj)
+    (->subsumptive
+     ((==ucs@JP/hanazono  . #x2B795)	; &g2-MJ057933;
+      (==mj		  . 057933)	; &g2-MJ057933;
+      (==koseki		  . 192560)	; &g2-MJ057933;
       ))
     ))
 (define-char
