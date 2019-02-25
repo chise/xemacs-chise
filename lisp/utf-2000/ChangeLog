@@ -1,3 +1,20 @@
+2019-02-22  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R083-Clan.el (A-cgnU+6C11): Changed from U+6C11.
+	(AJ1-03773): Unify U+6C11 instead of A-IWDSU+6C11 and UU+6C11; use
+	A-cgnU+6C11 instead of U+6C11 as its mother.
+	(HNG-KHM0404-0): Use A-cgnU+6C11 instead of U+6C11 as its mother.
+	(HNG-KAR1016-0): Add `<-denotational' for A-cgnU+6C11.
+	(U-0002B795): Unify MJ057933 and KOSEKI-192560.
+
+	* Ideograph-R082-Fur.el (U-00023BF0): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R066-Rap.el (U+6543): Apply new conventions for glyph
+	granularity.
+	(U+656F): Add `ideographic-structure'; add `sound@ja/on/{kan|go}';
+	add some relations for other characters.
+
 2019-02-20  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R053-Dotted-Cliff.el (U-0002AA8C): New character.
