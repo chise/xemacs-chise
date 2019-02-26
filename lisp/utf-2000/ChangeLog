@@ -1,3 +1,9 @@
+2019-02-25  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R087-Claw.el (U-000244EF): Apply new conventions for
+	glyph granularity.
+	(GT-K00367): Use U-000244EF instead of A-cgnU+722A as its mother.
+
 2019-02-22  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R083-Clan.el (A-cgnU+6C11): Changed from U+6C11.
