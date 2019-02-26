@@ -58,8 +58,73 @@
       ))
     ))
 (define-char
+  '((ideographic-radical . 87)	; ⽖
+    (ideographic-strokes . 0)
+    (total-strokes	 . 4)
+    (sound@ja/on	"sIyAu")
+    (=ucs		. #x244EF)	; 𤓯
+    ))
+(define-char
   '((<-denotational
-     ((=>ucs@cognate	  . #x722A)	; &A-cgnU+722A;
+     ((=ucs		  . #x244EF)	; 𤓯
+      ))
+    (ideographic-radical . 87)	; ⽖
+    (ideographic-strokes . 0)
+    (total-strokes	 . 4)
+    (=ucs@cns		. #x244EF)	; &MJ040208;
+    (=mj		. 040208)	; &MJ040208;
+    (=cns11643-5	. #x214B)	; &I-C5-214B; [01-43]
+    (=koseki		. 221360)	; &MJ040208;
+    (=daikanwa		. 19654)	; &I-M-19654;
+    (<-formed
+     ((=ucs		  . #x638C)	; 掌
+      ))
+    (<-formed$_1*sources
+     koseki mj)
+    (<-formed*sources
+     koseki mj)
+    (<-same
+     ((=ucs		  . #x638C)	; 掌
+      (=daikanwa	  . 12248)	; &I-M-12248;
+      ))
+    (<-same*sources
+     zhengzitong daikanwa)
+    (->mistakable
+     ((=ucs		  . #x722A)	; 爪
+      (=daikanwa	  . 19653)	; &I-M-19653;
+      ))
+    (->mistakable*sources
+     kangxi-biansi-2char daikanwa)
+    (->subsumptive
+     ((==ucs@cns	  . #x244EF)	; &g2-MJ040208;
+      (==mj		  . 040208)	; &g2-MJ040208;
+      (==cns11643-5	  . #x214B)	; &g2-MJ040208; [01-43]
+      (==koseki		  . 221360)	; &g2-MJ040208;
+      (==daikanwa	  . 19654)	; &g2-MJ040208;
+      (->subsumptive
+       ((===daikanwa	    . 19654)	; &R-M-19654;
+	)
+       ((===mj		    . 040208)	; &R-MJ040208;
+	)
+       ((===cns11643-5	    . #x214B)	; &R-C5-214B; [01-43]
+	))
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x244EF)	; 𤓯
+      ))
+    (ideographic-radical . 87)	; ⽖
+    (ideographic-strokes . 0)
+    (total-strokes	 . 4)
+    (=ucs@iso		. #x244EF)	; &U-000244EF;
+    (->subsumptive
+     ((==ucs@iso	  . #x244EF)	; &g2-IU-000244EF;
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x244EF)	; 𤓯
       ))
     (ideographic-radical . 87)	; ⽖
     (ideographic-strokes . 0)
@@ -81,19 +146,6 @@
     (->subsumptive
      ((==gt-k		  . 00367)	; &g2-GT-K00367;
       (==gt-pj-k1	  . #x4E57)	; &g2-GT-K00367; [46-55]
-      ))
-    ))
-(define-char
-  '((ideographic-radical . 87)	; ⽖
-    (ideographic-strokes . 0)
-    (total-strokes	 . 4)
-    (=ucs		. #x244EF)	; 𤓯
-    (->subsumptive
-     ((=daikanwa	  . 19654)	; &M-19654;
-      )
-     ((=ucs@iso		  . #x244EF)	; &U-000244EF;
-      )
-     ((=cns11643-5	  . #x214B)	; &C5-214B; [01-43]
       ))
     ))
 (define-char
