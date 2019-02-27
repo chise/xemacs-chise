@@ -47980,7 +47980,8 @@
 	)
        ((=ucs		    . #x53E3)	; 口
 	)
-       ((=ucs@jis	    . #x5E7E)	; &AJ1-01586;
+       ((=ucs@cns	    . #x5E7E)	; &AJ1-01586;
+	(=ucs@jis	    . #x5E7E)	; &AJ1-01586;
 	(=ucs@ks	    . #x5E7E)	; &AJ1-01586;
 	(=adobe-japan1-0    . 01586)	; &AJ1-01586;
 	))
