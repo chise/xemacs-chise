@@ -12444,14 +12444,67 @@
     ))
 (define-char
   '((ideographic-radical . 38)	; ⼥
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x4E3D)	; 丽
+      )
+     ((=ucs		  . #x5973)	; 女
+      ))
+    (sound@ja/on	"rei")
+    (=ucs		. #x5A6F)	; 婯
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5A6F)	; 婯
+      ))
+    (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
-    (=ucs		. #x5A6F)	; 婯
-    (->subsumptive
-     ((=ucs@unicode	  . #x5A6F)	; &M-06444;
-      (=daikanwa	  . 06444)	; &M-06444;
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=cns11643-3	  . #x3534)	; &C3-3534; [21-20]
+     ((=ucs@cns		  . #x4E3D)	; &GT-00145;
+      (=cns11643-3	  . #x2740)	; &GT-00145; [07-32]
+      (=daikanwa	  . 00104)	; &I-M-00104;
+      )
+     ((=ucs		  . #x5973)	; 女
+      ))
+    (=ucs@unicode	. #x5A6F)	; &MJ009808;
+    (=mj		. 009808)	; &MJ009808;
+    (=cns11643-3	. #x3534)	; &I-C3-3534; [21-20]
+    (=koseki		. 073520)	; &MJ009808;
+    (=daikanwa		. 06444)	; &I-M-06444;
+    (<-formed
+     ((=ucs@unicode	  . #x9E97)	; &AJ1-04023;
+      (=adobe-japan1-0	  . 04023)	; &AJ1-04023;
+      ))
+    (<-formed$_1*sources
+     koseki mj)
+    (<-same
+     ((=ucs@unicode	  . #x9E97)	; &AJ1-04023;
+      (=adobe-japan1-0	  . 04023)	; &AJ1-04023;
+      (=daikanwa	  . 47663)	; &I-M-47663;
+      ))
+    (<-same*sources
+     zhengzitong daikanwa)
+    (->subsumptive
+     ((==koseki		  . 073520)	; &g2-M-06444;
+      (==daikanwa	  . 06444)	; &g2-M-06444;
+      )
+     ((==ucs@unicode	  . #x5A6F)	; &g2-MJ009808;
+      (==ucs@JP/hanazono  . nil)
+      (==mj		  . 009808)	; &g2-MJ009808;
+      (->subsumptive
+       ((===mj		    . 009808)	; &R-MJ009808;
+	)
+       ((===ucs@unicode	    . #x5A6F)	; &R-UU+5A6F;
+	))
+      )
+     ((==ucs@cns	  . #x5A6F)	; &g2-CU+5A6F;
+      (==cns11643-3	  . #x3534)	; &g2-CU+5A6F; [21-20]
       ))
     ))
 (define-char
