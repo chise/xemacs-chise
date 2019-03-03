@@ -1,3 +1,20 @@
+2019-03-01  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R086-Fire.el (U+714A): Add `ideographic-structure';
+	add `sound@ja/on/{kan|go}'.
+	(UU+714A): Add `ideographic-structure'; add JU+7156 as a target of
+	`<-formed'; add `<-same' for JU+7156 and UU+6684.
+	(U+7156): Add `ideographic-structure'; add `sound@ja/on/{kan|go}'.
+	(JU+7156): Add `ideographic-structure'; add some relations for
+	other characters.
+	(U+7157): Apply new conventions for glyph granularity.
+	(U+718A): Likewise.
+	(U+718B): Use `->denotational' and `->subsumptive'.
+	(U+9FA6): New character.
+	(U+71F8): Use `->denotational' and `->subsumptive'.
+	(U-00024470): New character.
+	(U-000244E3): New character.
+
 2019-02-26  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R104-Sickness.el (U+75B9): Apply new conventions for
