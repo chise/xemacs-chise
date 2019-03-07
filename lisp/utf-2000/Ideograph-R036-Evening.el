@@ -425,9 +425,24 @@
     ))
 (define-char
   '((ideographic-radical . 36)	; ⼣
+    (=>ucs@cognate	. #x5919)	; &A-cgnU+5919;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@cognate	  . #x5919)	; &A-cgnU+5919;
+      ))
+    (ideographic-radical . 36)	; ⼣
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
     (hanyu-dazidian	2 861 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
+      (=ucs		  . #x2FF5)	; ⿵
+      )
+     ((=ucs		  . #x51E0)	; 几
+      )
+     ((=ucs		  . #x6B79)	; 歹
+      ))
     (=ucs		. #x5919)	; 夙
     (=adobe-japan1-0	. 02386)	; &I-AJ1-02386;
     (=jis-x0208		. #x3D48)	; &I-J90-3D48; [29-40]
@@ -441,6 +456,57 @@
     (=gt-pj-1		. #x3D48)	; &I-GT-07277; [29-40]
     (=daikanwa		. 05755)	; &I-M-05755;
     (=shinjigen		.  1545)	; 夙
+    (->subsumptive
+     ((==ucs@unicode	  . #x5919)	; &g2-AJ1-02386;
+      (==adobe-japan1-0	  . 02386)	; &g2-AJ1-02386;
+      (==gb2312		  . #x596D)	; &g2-AJ1-02386; [57-77]
+      (==ks-x1001	  . #x6254)	; &g2-AJ1-02386; [66-52]
+      (==jis-x0208	  . #x3D48)	; &g2-AJ1-02386; [29-40]
+      (==cns11643-1	  . #x4768)	; &g2-AJ1-02386; [39-72]
+      (==jis-x0213-1	  . #x3D48)	; &g2-AJ1-02386; [29-40]
+      (==gt		  . 07277)	; &g2-AJ1-02386;
+      (==gt-k		  . 01641)	; &g2-AJ1-02386;
+      (==daikanwa	  . 05755)	; &g2-AJ1-02386;
+      (==shinjigen	  .  1545)	; &g2-AJ1-02386;
+      (->subsumptive
+       ((===daikanwa	    . 05755)	; &R-M-05755;
+	)
+       ((===jis-x0208	    . #x3D48)	; &R-J0-3D48; [29-40]
+	(===jis-x0213-1	    . #x3D48)	; &R-J0-3D48; [29-40]
+	)
+       ((===adobe-japan1-0  . 02386)	; &R-AJ1-02386;
+	)
+       ((===cns11643-1	    . #x4768)	; &R-C1-4768; [39-72]
+	)
+       ((===gt		    . 07277)	; &R-GT-07277;
+	(===gt-k	    . 01641)	; &R-GT-07277;
+	)
+       ((===ucs@ks	    . #x5919)	; &R-K0-6254;
+	(===ks-x1001	    . #x6254)	; &R-K0-6254; [66-52]
+	)
+       ((===ucs@unicode	    . #x5919)	; &R-UU+5919;
+	))
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@cognate	  . #x5919)	; &A-cgnU+5919;
+      ))
+    (ideographic-radical . 36)	; ⼣
+    (ideographic-strokes . 4)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
+      (=ucs		  . #x2FF5)	; ⿵
+      )
+     ((=gt-k		  . 00369)	; &GT-K00369;
+      )
+     ((=big5-cdp	  . #x8B5E)	; &CDP-8B5E;
+      ))
+    (=ucs-itaiji-001	. #x5919)	; &U-i001+5919;
+    (->subsumptive
+     ((==ucs-itaiji-001	  . #x5919)	; &g2-U-i001+5919;
+      ))
     ))
 (define-char
   '((ideographic-radical . 36)	; ⼣
