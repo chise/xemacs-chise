@@ -1,3 +1,28 @@
+2019-03-06  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R036-Evening.el (A-cgnU+5919): New abstract node.
+	(U+5919): Add `<-denotational' for A-cgnU+5919; add
+	`ideographic-structure'; add representative nodes.
+	(U+5919-itaiji-001): New character; use `<-denotational' for
+	A-cgnU+5919.
+
+	* Ideograph-R022-Right-Open-Box.el (U+531D): Apply new conventions
+	for glyph granularity.
+
+	* Ideograph-R016-Table.el (U-000221BB): Apply new conventions for
+	glyph granularity.
+	(U+34D8): Use `->denotational' and `->subsumptive'.
+
+2019-03-05  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R074-Moon.el (U-00023361): Apply new conventions for
+	glyph granularity.
+	(U+671E): Add `sound@ja/on'; add `<-formed' and
+	`<-interchangeable' for U+7A18; add `<-same' for U+671F.
+	(U+671F): Add `ideographic-structure'; add
+	`sound@ja/on/{kan|go|conventional}'; add some relations for other
+	characters.
+
 2019-03-01  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R086-Fire.el (U+714A): Add `ideographic-structure';

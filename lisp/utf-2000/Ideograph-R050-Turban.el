@@ -93,7 +93,8 @@
     (<-formed*sources
      hng)
     (->vulgar
-     ((=ucs		  . #x531D)	; 匝
+     ((=ucs@unicode	  . #x531D)	; &AJ1-02779;
+      (=adobe-japan1-0	  . 02779)	; &AJ1-02779;
       (=daikanwa	  . 02599)	; &I-M-02599;
       ))
     (->vulgar*sources
