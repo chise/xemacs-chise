@@ -1,3 +1,16 @@
+2019-03-07  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R009-Man.el (U-000201FD): New character.
+	(U-0002A72C): Apply new conventions for glyph granularity.
+	(BUCS+5080): Separated from U+5080.
+	(U+5080): Separate BUCS+5080; add `<-denotational' for BUCS+5080;
+	add `sound@ja/on/{kan|go}'.
+	(JU+5080): Add some relations for other characters.
+	(U-000203BA): Apply new conventions for glyph granularity.
+	(U-00020424): Likewise.
+	(U-00020426): Add `sound@ja/on'; add some relations for other
+	characters.
+
 2019-03-06  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R036-Evening.el (A-cgnU+5919): New abstract node.
