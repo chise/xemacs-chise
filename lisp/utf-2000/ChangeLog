@@ -1,3 +1,12 @@
+2019-03-13  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R062-Halberd.el (U+620C): Add `<-interchangeable' for
+	U+460F; add representative nodes.
+	(U+620D): Apply new conventions for glyph granularity.
+
+	* Ideograph-R032-Earth.el (U-00021244): Use `->denotational' and
+	`->subsumptive'.
+
 2019-03-12  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R046-Mountain.el (U+37A6): Add
