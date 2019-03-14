@@ -5448,6 +5448,29 @@
 		  mother	=ucs-itaiji-008
 		  min-code #x20000 max-code #x2FFFF
 		  registry "ucs00\\.itaiji008-2"))
+  (make-charset '=>ucs-itaiji-008
+		"Abstract characters corresponding with uXXXX-itaiji-008 of GlyphWiki"
+		'(long-name	"UCS-itaiji-008 characters"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+                  ;; =>iso-ir	177
+		  mother	=ucs))
+  (make-charset '=>ucs-bmp-itaiji-008
+		"uXXXX-itaiji-008's abstract characters in BMP"
+		'(long-name	"UCS-BMP-itaiji-008 characters"
+		  chars		256
+		  dimension	2
+		  columns	2
+		  graphic	2
+		  direction	l2r
+                  ;; =>iso-ir	177
+		  mother	=>ucs-itaiji-008
+		  min-code #x2E00
+		  max-code #x9FCC
+		  registry "ucs\\.itaiji008-0"))
 
   (make-charset '=ucs-itaiji-009
 		"uXXXX-itaiji-009 glyphs of GlyphWiki"
