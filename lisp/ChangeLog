@@ -1,5 +1,8 @@
 2019-03-15  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
+	settings for `=daijiten', `==daijiten' and `===daijiten'.
+
 	* mule/mule-charset.el (default-coded-charset-priority-list): Add
 	`=daijiten', `==daijiten' and `===daijiten'.
 
