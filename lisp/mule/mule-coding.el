@@ -5,7 +5,7 @@
 ;; Copyright (C) 1995 Amdahl Corporation.
 ;; Copyright (C) 1995 Sun Microsystems.
 ;; Copyright (C) 1997, 1999, 2002, 2003, 2004, 2005, 2006, 2008, 2009,
-;;   2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018 MORIOKA Tomohiko
+;;   2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019 MORIOKA Tomohiko
 
 ;; This file is part of XEmacs.
 
@@ -231,6 +231,7 @@
 	  ((=ruimoku-v6		. isolated)   "I-RUI6-" 4 X)
 	  ( =ruimoku-v6				"RUI6-" 4 X)
 	  ((=daikanwa@rev2	. isolated)	"I-M-"	5 d)
+	  ((=daijiten		. isolated)   "I-DJT-"	5 d)
 	  ((=gt-k		. isolated)    "I-GT-K" 5 d)
 	  ((=cbeta		. isolated)	 "I-CB" 5 d)
 	  ((=big5-cdp		. isolated)    "I-CDP-" 4 X)
@@ -339,12 +340,15 @@
 	  ( =daikanwa				  "M-"	5 d)
 	  ( =daikanwa@rev2			"r2M-"	5 d)
 	  ( =daikanwa@rev1			"r1M-"	5 d)
+	  ( =daijiten				"DJT-"	5 d)
 	  (==daikanwa/ho		       "g2-M-H" 4 d)
 	  (==daikanwa/+p		       "g2-M-p" 5 d)
 	  (==daikanwa				"g2-M-"	5 d)
+	  (==daijiten			      "g2-DJT-"	5 d)
 	  (===daikanwa/ho			"R-M-H" 4 d)
 	  (===daikanwa/+p			"R-M-p" 5 d)
 	  (===daikanwa				"R-M-"	5 d)
+	  (===daijiten			      "R-DJT-"	5 d)
 	  ( =ks-x1001				  "K0-" 4 X)
 	  (==ks-x1001			       "g2-K0-" 4 X)
 	  (===ks-x1001				"R-K0-" 4 X)
