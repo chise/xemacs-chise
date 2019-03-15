@@ -4948,12 +4948,37 @@
   '((ideographic-radical . 116)	; ⽳
     (ideographic-strokes . 10)
     (total-strokes	 . 15)
-    (=ucs		. #x259D7)	; 𥧗
-    (->subsumptive
-     ((=daikanwa	  . 25606)	; &M-25606;
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=ucs@iso		  . #x259D7)	; &C5-4F2B;
-      (=cns11643-5	  . #x4F2B)	; &C5-4F2B; [47-11]
+     ((=ucs		  . #x7A74)	; 穴
+      )
+     ((=gt-k		  . 06749)	; &GT-K06749;
+      ))
+    (sound@ja/on	"kiku")
+    (=ucs		. #x259D7)	; 𥧗
+    (=mj		. 043497)	; &I-MJ043497;
+    (=cns11643-5	. #x4F2B)	; &I-C5-4F2B; [47-11]
+    (=koseki		. 286510)	; 𥧗
+    (=daikanwa		. 25606)	; &I-M-25606;
+    (->subsumptive
+     ((==mj		  . 043497)	; &g2-MJ043497;
+      (==koseki		  . 286510)	; &g2-MJ043497;
+      (==daikanwa	  . 25606)	; &g2-MJ043497;
+      (->subsumptive
+       ((===daikanwa	    . 25606)	; &R-M-25606;
+	)
+       ((===mj		    . 043497)	; &R-MJ043497;
+	))
+      )
+     ((==ucs@iso	  . #x259D7)	; &g2-IU-000259D7;
+      (==cns11643-5	  . #x4F2B)	; &g2-IU-000259D7; [47-11]
+      (->subsumptive
+       ((===cns11643-5	    . #x4F2B)	; &R-C5-4F2B; [47-11]
+	)
+       ((===ucs@iso	    . #x259D7)	; &R-U-000259D7;
+	))
       ))
     ))
 (define-char
