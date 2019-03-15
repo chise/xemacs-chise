@@ -1,7 +1,7 @@
 ;;; char-db-util.el --- Character Database utility -*- coding: utf-8-er; -*-
 
 ;; Copyright (C) 1998,1999,2000,2001,2002,2003,2004,2005,2006,2007,
-;;   2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018 MORIOKA Tomohiko.
+;;   2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019 MORIOKA Tomohiko.
 
 ;; Author: MORIOKA Tomohiko <tomo@kanji.zinbun.kyoto-u.ac.jp>
 ;; Keywords: CHISE, Character Database, ISO/IEC 10646, UCS, Unicode, MULE.
@@ -734,6 +734,7 @@
 		 =>>adobe-japan1-6 =+>adobe-japan1-6
 		 =>cbeta =cbeta =>>cbeta ==cbeta ===cbeta
 		 =zinbun-oracle =>zinbun-oracle
+		 =daijiten ==daijiten ===daijiten
 		 ===hng-jou ===hng-keg ===hng-dng ===hng-mam
 		 ===hng-drt ===hng-kgk ===hng-myz ===hng-kda
 		 ===hng-khi ===hng-khm ===hng-hok ===hng-kyd ===hng-sok
