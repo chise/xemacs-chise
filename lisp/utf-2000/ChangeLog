@@ -1,3 +1,16 @@
+2019-03-14  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R116-Cave.el (U-000259D7): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R096-Jade.el (U+74CC): Add `ideographic-structure';
+	add `sound@ja/on'; add some relations for other characters.
+	(U-00024ABF): Apply new conventions for glyph granularity.
+	(IU+24ABF): Unify M-21342.
+
+	* Ideograph-R087-Claw.el (A-GT-K04632): New abstract character.
+	(GT-K04632): New character; use `<-denotational' for A-GT-K04632.
+
 2019-03-13  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R030-Mouth.el (U+5482): Apply new conventions for
