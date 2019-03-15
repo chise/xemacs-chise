@@ -2849,6 +2849,39 @@
 		  direction	l2r
 		  mother	=>>daikanwa/ho))
 
+  (make-charset '=daijiten
+		"Daijiten dictionary glyphs"
+		`(long-name	"Daijiten dictionary"
+		  chars		256
+		  dimension	2
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  registry	"Daijiten-*"
+		  min-code	#xE50000
+		  max-code	,(+ #xE50000 14923)
+		  code-offset	#xE50000))
+  (make-charset '==daijiten
+		"Daijiten dictionary glyph-forms"
+		`(long-name	"Daijiten dictionary"
+		  chars		256
+		  dimension	2
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  mother	=daijiten
+		  registry	"Daijiten-*"))
+  (make-charset '===daijiten
+		"Daijiten dictionary glyph-images"
+		`(long-name	"Daijiten dictionary"
+		  chars		256
+		  dimension	2
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  mother	==daijiten
+		  registry	"Daijiten-*"))
+
   (make-charset '=shinjigen
 		"Kadokawa ShinJigen dictionary (common parts)"
 		`(long-name	"Shinjigen common parts"
@@ -2978,39 +3011,6 @@
       (setq hzk-min (1+ hzk-max)
 	    hzk-max (+ hzk-min 65535))
       (setq i (1+ i))))
-
-  (make-charset '=daijiten
-		"Daijiten dictionary glyphs"
-		`(long-name	"Daijiten dictionary"
-		  chars		256
-		  dimension	2
-		  columns	2
-		  graphic	2
-		  direction	l2r
-		  registry	"Daijiten-*"
-		  min-code	#xE50000
-		  max-code	,(+ #xE50000 14923)
-		  code-offset	#xE50000))
-  (make-charset '==daijiten
-		"Daijiten dictionary glyph-forms"
-		`(long-name	"Daijiten dictionary"
-		  chars		256
-		  dimension	2
-		  columns	2
-		  graphic	2
-		  direction	l2r
-		  mother	=daijiten
-		  registry	"Daijiten-*"))
-  (make-charset '===daijiten
-		"Daijiten dictionary glyph-images"
-		`(long-name	"Daijiten dictionary"
-		  chars		256
-		  dimension	2
-		  columns	2
-		  graphic	2
-		  direction	l2r
-		  mother	==daijiten
-		  registry	"Daijiten-*"))
 
   (make-charset '===hng-jou "HNG:誠實論卷八（P.2179）"
 		'(long-name "HNG/P2179"

@@ -1,3 +1,8 @@
+2019-03-15  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* char-db-util.el (char-db-insert-ccs-feature): Format
+	`=daijiten', `==daijiten' and `===daijiten' as decimal.
+
 2019-03-14  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R116-Cave.el (U-000259D7): Apply new conventions for
