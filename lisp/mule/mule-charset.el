@@ -422,6 +422,7 @@ DESCRIPTION (string) is the description string of the charset."
 	  =ucs-bmp-cjk-compat
           =ucs-bmp-cjk-compat@unicode
           =ucs-sip@JP/hanazono
+	  =daijiten
 	  =cbeta
 	  =jef-china3
 	  chinese-isoir165
@@ -475,6 +476,7 @@ DESCRIPTION (string) is the description string of the charset."
 	  ==gt-pj-k2
 	  ==hanyo-denshi/tk/mf-01
 	  ==daikanwa
+	  ==daijiten
 	  ==cbeta
 	  ==jef-china3
 	  ==ucs-bmp-cjk-compat@JP
@@ -514,6 +516,7 @@ DESCRIPTION (string) is the description string of the charset."
 	  ===ucs-sip-ext-b@iso
 	  ===ucs-sip@iso
 	  ===ruimoku-v6
+	  ===daijiten
 	  ===hng-jou ; 01
 	  ===hng-keg ; 02
 	  ===hng-dng ; 03
