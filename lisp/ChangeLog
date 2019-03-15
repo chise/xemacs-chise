@@ -1,3 +1,13 @@
+2019-03-15  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`=daijiten', `==daijiten' and `===daijiten'.
+
+	* mule/mule-conf.el (=daijiten): New coded-charset for XEmacs
+	CHISE.
+	(==daijiten): Ditto.
+	(===daijiten): Ditto.
+
 2019-03-14  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* mule/mule-charset.el (default-coded-charset-priority-list): Add
