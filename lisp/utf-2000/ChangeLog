@@ -1,5 +1,10 @@
 2019-03-13  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R030-Mouth.el (U+5482): Apply new conventions for
+	glyph granularity.
+
+2019-03-13  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R062-Halberd.el (U+620C): Add `<-interchangeable' for
 	U+460F; add representative nodes.
 	(U+620D): Apply new conventions for glyph granularity.
