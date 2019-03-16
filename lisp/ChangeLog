@@ -1,3 +1,8 @@
+2019-03-16  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-conf.el (=daijiten): Use 14924 instead of 14923 as the
+	last number of its code.
+
 2019-03-15  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
