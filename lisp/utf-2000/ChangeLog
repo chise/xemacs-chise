@@ -3,6 +3,30 @@
 	* char-db-util.el (char-db-insert-ccs-feature): Format
 	`=daijiten', `==daijiten' and `===daijiten' as decimal.
 
+2019-03-15  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R079-Weapon.el (A-cgnU+3C7F): New abstract node.
+	(A-IWDSU+3C7F): New abstract node; use `<-denotational' for
+	A-cgnU+3C7F; unify IWDS1-0381.
+	(U+3C7F): Apply new conventions for glyph granularity; use
+	`<-denotational' for A-IWDSU+3C7F.
+	(U-00023A8A): Add `<-denotational' for A-IWDSU+3C7F.
+	(A-CB09290): New abstract node; use `<-denotational' for
+	A-cgnU+3C7F.
+	(CB09290): New character; use `<-denotational' for A-CB09290.
+	(U-00023A8E): Apply new conventions for glyph granularity.
+	(UU+6BBC): Add some relations for other characters.
+	(U-00023A9B): Apply new conventions for glyph granularity.
+	(U+3C84): Add `ideographic-structure'; add `sound@ja/on'.
+	(M-49200): Add `ideographic-structure'; unify MJ001985 and
+	KOSEKI-188940.
+	(UU+3C84): Add `ideographic-structure'.
+	(U-00023AA5): Apply new conventions for glyph granularity.
+	(U-00023AB3): Likewise.
+
+	* Ideograph-R033-Scholar.el (A-GT-K01189): New abstract node.
+	(GT-K01189): New character; use `<-denotational' for A-GT-K01189.
+
 2019-03-14  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R116-Cave.el (U-000259D7): Apply new conventions for
