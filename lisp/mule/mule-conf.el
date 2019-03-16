@@ -2859,7 +2859,7 @@
 		  direction	l2r
 		  registry	"Daijiten-*"
 		  min-code	#xE50000
-		  max-code	,(+ #xE50000 14923)
+		  max-code	,(+ #xE50000 14924)
 		  code-offset	#xE50000))
   (make-charset '==daijiten
 		"Daijiten dictionary glyph-forms"
