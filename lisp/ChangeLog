@@ -1,3 +1,11 @@
+2019-03-18  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
+	setting for `==>daijiten'.
+
+	* mule/mule-conf.el (==>daijiten): New coded-charset for XEmacs
+	CHISE.
+
 2019-03-16  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* mule/mule-conf.el (=daijiten): Use 14924 instead of 14923 as the
