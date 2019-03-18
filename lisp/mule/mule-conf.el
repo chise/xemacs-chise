@@ -2851,7 +2851,7 @@
 
   (make-charset '=daijiten
 		"Daijiten dictionary glyphs"
-		`(long-name	"Daijiten dictionary"
+		`(long-name	"Daijiten glyphs"
 		  chars		256
 		  dimension	2
 		  columns	2
@@ -2863,7 +2863,7 @@
 		  code-offset	#xE50000))
   (make-charset '==daijiten
 		"Daijiten dictionary glyph-forms"
-		`(long-name	"Daijiten dictionary"
+		`(long-name	"Daijiten glyph-forms"
 		  chars		256
 		  dimension	2
 		  columns	2
@@ -2873,7 +2873,7 @@
 		  registry	"Daijiten-*"))
   (make-charset '===daijiten
 		"Daijiten dictionary glyph-images"
-		`(long-name	"Daijiten dictionary"
+		`(long-name	"Daijiten glyph-images"
 		  chars		256
 		  dimension	2
 		  columns	2
@@ -2881,7 +2881,17 @@
 		  direction	l2r
 		  mother	==daijiten
 		  registry	"Daijiten-*"))
-
+  (make-charset '==>daijiten
+		"Jishu of Daijiten dictionary"
+		`(long-name	"Daijiten jishu"
+		  chars		256
+		  dimension	2
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  mother	=daijiten
+		  registry	"Daijiten-*"))
+  
   (make-charset '=shinjigen
 		"Kadokawa ShinJigen dictionary (common parts)"
 		`(long-name	"Shinjigen common parts"
