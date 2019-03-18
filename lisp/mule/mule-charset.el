@@ -636,6 +636,7 @@ DESCRIPTION (string) is the description string of the charset."
 	  =>>gt
 	  =>cns11643-1
 	  =>cns11643-7
+	  ==>daijiten
 	  =>cbeta
 	  =>zinbun-oracle
 	  =+>adobe-japan1-6
