@@ -1,3 +1,11 @@
+2019-03-18  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* char-db-util.el (char-db-insert-ccs-feature): Format
+	`==>daijiten' as decimal.
+	(insert-char-attributes): Add code for `<-denotational@usage';
+	delete code for `->ideographic-component-forms' because it has
+	been abolished.
+
 2019-03-15  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* char-db-util.el (char-db-insert-ccs-feature): Format

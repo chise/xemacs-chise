@@ -734,7 +734,7 @@
 		 =>>adobe-japan1-6 =+>adobe-japan1-6
 		 =>cbeta =cbeta =>>cbeta ==cbeta ===cbeta
 		 =zinbun-oracle =>zinbun-oracle
-		 =daijiten ==daijiten ===daijiten
+		 =daijiten ==daijiten ===daijiten ==>daijiten
 		 ===hng-jou ===hng-keg ===hng-dng ===hng-mam
 		 ===hng-drt ===hng-kgk ===hng-myz ===hng-kda
 		 ===hng-khi ===hng-khm ===hng-hok ===hng-kyd ===hng-sok
@@ -944,6 +944,12 @@
 				       line-breaking
 				       ccss readable)
       (setq attributes (delq '<-denotational@component attributes)))
+    (when (and (memq '<-denotational@usage attributes)
+	       (setq value (get-char-attribute char '<-denotational@usage)))
+      (char-db-insert-relation-feature char '<-denotational@usage value
+				       line-breaking
+				       ccss readable)
+      (setq attributes (delq '<-denotational@usage attributes)))
     (when (and (memq 'name attributes)
 	       (setq value (get-char-attribute char 'name)))
       (insert (format
@@ -1232,17 +1238,6 @@
 	    (setq strokes value)))
       (setq attributes (delq 'cns-strokes attributes))
       )
-    ;; (when (and (memq 'shinjigen-1-radical attributes)
-    ;;            (setq value (get-char-attribute char 'shinjigen-1-radical)))
-    ;;   (unless (eq value radical)
-    ;;     (insert (format "(shinjigen-1-radical . %S)\t; %c%s"
-    ;;                     value
-    ;;                     (ideographic-radical value)
-    ;;                     line-breaking))
-    ;;     (or radical
-    ;;         (setq radical value)))
-    ;;   (setq attributes (delq 'shinjigen-1-radical attributes))
-    ;;   )
     ;; (when (and (memq 'ideographic- attributes)
     ;;            (setq value (get-char-attribute char 'ideographic-)))
     ;;   (insert "(ideographic-       ")
@@ -1327,28 +1322,11 @@
 		      line-breaking))
       (setq attributes (delq '->mojikyo attributes))
       )
-    ;; (when (and (memq 'hanyu-dazidian-vol attributes)
-    ;;            (setq value (get-char-attribute char 'hanyu-dazidian-vol)))
-    ;;   (insert (format "(hanyu-dazidian-vol  . %d)%s"
-    ;;                   value line-breaking))
-    ;;   (setq attributes (delq 'hanyu-dazidian-vol attributes))
-    ;;   )
-    ;; (when (and (memq 'hanyu-dazidian-page attributes)
-    ;;            (setq value (get-char-attribute char 'hanyu-dazidian-page)))
-    ;;   (insert (format "(hanyu-dazidian-page . %d)%s"
-    ;;                   value line-breaking))
-    ;;   (setq attributes (delq 'hanyu-dazidian-page attributes))
-    ;;   )
-    ;; (when (and (memq 'hanyu-dazidian-char attributes)
-    ;;            (setq value (get-char-attribute char 'hanyu-dazidian-char)))
-    ;;   (insert (format "(hanyu-dazidian-char . %d)%s"
-    ;;                   value line-breaking))
-    ;;   (setq attributes (delq 'hanyu-dazidian-char attributes))
-    ;;   )
     (unless readable
       (dolist (ignored '(composition
 			 ->denotational <-subsumptive ->ucs-unified
-			 ->ideographic-component-forms))
+			 ;; ->ideographic-component-forms
+			 ))
 	(setq attributes (delq ignored attributes))))
     (while attributes
       (setq name (car attributes))
