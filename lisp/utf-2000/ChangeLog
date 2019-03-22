@@ -1,5 +1,18 @@
 2019-03-18  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R003-Dot.el:
+	- Add Daijiten numbers.
+	- Use `<-denotational@usage' instead of `<-denotational' for BUCS
+	  (super abstract) character objects.
+	(U-00020083): New character.
+
+	* Ideograph-R002-Line.el:
+	- Add Daijiten numbers.
+	- Use `<-denotational@usage' instead of `<-denotational' for BUCS
+	  (super abstract) character objects.
+
+2019-03-18  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* char-db-util.el (char-db-insert-ccs-feature): Format
 	`==>daijiten' as decimal.
 	(insert-char-attributes): Add code for `<-denotational@usage';
