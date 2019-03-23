@@ -874,7 +874,7 @@
 	(=ucs		    . #x2E85)	; ⺅
 	)
        ((==ucs@ks	    . #x53C8)	; &g2-M-03115;
-	(=gt-k		    . 00065)	; &g2-M-03115;
+	(==daikanwa	    . 03115)	; &g2-M-03115;
 	))
       (==daikanwa	  . 00353)	; &g2-M-00353;
       (==cbeta		  . 04556)	; &g2-M-00353;
@@ -24815,11 +24815,7 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 9)	; ⼈
-    (==>ucs@bucs	. #x500B)	; &BUCS+500B;
-    ))
-(define-char
-  '((<-denotational
+  '((<-denotational@usage
      ((==>ucs@bucs	  . #x500B)	; &BUCS+500B;
       ))
     (ideographic-radical . 9)	; ⼈
@@ -62959,4 +62955,9 @@
       ))
     (=ucs		. #x204F2)	; 𠓲
     (=hanziku-1		. #xCF5A)	; &I-HZK01-CF5A;
+    ))
+(define-char
+  '((ideographic-radical . 9)	; ⼈
+    (==>ucs@bucs	. #x500B)	; &BUCS+500B;
+    (==>daijiten	. 00048)	; &BUCS+500B;
     ))
