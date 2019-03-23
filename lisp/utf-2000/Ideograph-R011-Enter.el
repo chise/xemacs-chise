@@ -1346,11 +1346,7 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 11)	; ⼊
-    (==>ucs@bucs	. #x5169)	; &BUCS+5169;
-    ))
-(define-char
-  '((<-denotational
+  '((<-denotational@usage
      ((==>ucs@bucs	  . #x5169)	; &BUCS+5169;
       ))
     (ideographic-radical . 11)	; ⼊
@@ -2266,4 +2262,9 @@
 	))
       (==ucs@iso	  . #x204FF)	; &g2-IU-000204FF;
       ))
+    ))
+(define-char
+  '((ideographic-radical . 11)	; ⼊
+    (==>ucs@bucs	. #x5169)	; &BUCS+5169;
+    (==>daijiten	. 00591)	; &BUCS+5169;
     ))

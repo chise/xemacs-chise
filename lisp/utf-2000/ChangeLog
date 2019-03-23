@@ -1,3 +1,9 @@
+2019-03-22  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R009-Man.el (U+500B): Use `<-denotational@usage'
+	instead of `<-denotational' for BUCS+500B.
+	(BUCS+500B): Unify A2-DJT-00048.
+
 2019-03-18  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R003-Dot.el:
@@ -12,6 +18,10 @@
 	  (super abstract) character objects.
 
 2019-03-18  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R011-Enter.el (U+5169): Use `<-denotational@usage'
+	instead of `<-denotational' for BUCS+5169.
+	(BUCS+5169): Unify A2-DJT-00591.
 
 	* char-db-util.el (char-db-insert-ccs-feature): Format
 	`==>daijiten' as decimal.
