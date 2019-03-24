@@ -1,5 +1,9 @@
 2019-03-23  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R014-Cover.el: Add some Daijiten numbers.
+
+2019-03-23  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R018-Knife.el (U+5209): Apply new conventions for
 	glyph granularity.
 	(U+520F): Likewise.
