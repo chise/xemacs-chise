@@ -405,13 +405,7 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 11)	; ⼊
-    (ideographic-strokes . 2)
-    (total-strokes	 . 4)
-    (==>ucs@bucs	. #x5167)	; &BUCS+5167;
-    ))
-(define-char
-  '((<-denotational
+  '((<-denotational@usage
      ((==>ucs@bucs	  . #x5167)	; &BUCS+5167;
       ))
     (ideographic-radical@ucs . 13)	; ⼌
@@ -515,6 +509,12 @@
       )
      ((===hng-kak	  . 00180)	; &HNG017-00180;
       ))
+    ))
+(define-char
+  '((ideographic-radical . 11)	; ⼊
+    (ideographic-strokes . 2)
+    (total-strokes	 . 4)
+    (==>ucs@bucs	. #x5167)	; &BUCS+5167;
     ))
 (define-char
   '((ideographic-radical . 11)	; ⼊
