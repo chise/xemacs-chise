@@ -1,9 +1,35 @@
+2019-03-25  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R087-Claw.el (IWDS1-0314): Use `<-denotational@usage'
+	instead of `<-denotational' for BUCS+722D.
+	(U+5176-itaiji-009): New character; use `<-denotational' for
+	A-GT-K04632.
+	(IWDS1-0315): Add `<-denotational@usage' for BUCS+7232.
+	(U+7232): Add `ideographic-structure'.
+	(JU+7232): Likewise.
+	(UU+7232): Likewise.
+	(BUCS+7232): New abstract node; unify A2-DJT-07032.
+	(BUCS+722D): New abstract node; unify A2-DJT-07028.
+
+	* Ideograph-R086-Fire.el (GT-K04548): New character.
+	(IWDS1-0315): Add `<-denotational@usage' for BUCS+7232.
+	(U+7121): Add `<-denotational@usage' for BUCS+7121.
+	(BUCS+7232): New abstract node; unify A2-DJT-07032.
+	(BUCS+7121): New abstract node; unify A2-DJT-06872.
+
 2019-03-24  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R011-Enter.el (IWDS1-0148): Use `<-denotational@usage'
 	instead of `<-denotational' for BUCS+5167.
 
 2019-03-23  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R016-Table.el (A-M-01740): Unify IWDS1-0041; add
+	`<-denotational@usage' for A2-DJT-00701.
+	(U+51E2): Unify DJT-00700.
+	(DJT-00083): New character; use `<-subsumptive' for U+51E2.
+	(U+51E3): Add representative nodes.
+	(A2-DJT-00701): New abstract node.
 
 	* Ideograph-R014-Cover.el: Add some Daijiten numbers.
 

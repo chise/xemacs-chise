@@ -2811,6 +2811,17 @@
     ))
 (define-char
   '((ideographic-radical . 86)	; ⽕
+    (ideographic-strokes . 4)
+    (total-strokes	 . 8)
+    (=gt-k		. 04548)	; &GT-K04548;
+    (=gt-pj-k1		. #x3158)	; &GT-K04548; [17-56]
+    (->subsumptive
+     ((==gt-k		  . 04548)	; &g2-GT-K04548;
+      (==gt-pj-k1	  . #x3158)	; &g2-GT-K04548; [17-56]
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 86)	; ⽕
     (ideographic-strokes . 5)
     (total-strokes	 . 9)
     (ideographic-structure
@@ -4333,7 +4344,10 @@
     (=ucs@iso		. #x241C7)	; &U-000241C7;
     ))
 (define-char
-  '((ideographic-radical@simplified . 86)	; ⽕
+  '((<-denotational@usage
+     ((==>ucs@bucs	  . #x7232)	; &BUCS+7232;
+      ))
+    (ideographic-radical@simplified . 86)	; ⽕
     (ideographic-radical@traditional . 87)	; ⽖
     (=>ucs@iwds-1	. #x7232)	; &A-IWDSU+7232;
     (=ucs@big5		. #x70BA)	; &A-IWDSU+7232;
@@ -8402,12 +8416,23 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 86)	; ⽕
+  '((<-denotational@usage
+     ((==>ucs@bucs	  . #x7121)	; &BUCS+7121;
+      ))
+    (ideographic-radical . 86)	; ⽕
     (ideographic-strokes . 8)
     (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=big5-cdp	  . #x8BBE)	; &CDP-8BBE;
+      )
+     ((=ucs		  . #x706C)	; 灬
+      ))
     (=ucs		. #x7121)	; 無
     (=adobe-japan1-0	. 03777)	; &I-AJ1-03777;
-    (=jis-x0208		. #x4C35)	; &I-J90-4C35; [44-21]
+    (=jis-x0208		. #x4C35)	; &J90-4C35; [44-21]
     (=ks-x1001		. #x596D)	; &I-K0-596D; [57-77]
     (=cns11643-1	. #x6052)	; &I-C1-6052; [64-50]
     (=jis-x0213-1	. #x4C35)	; &I-JX1-4C35; [44-21]
@@ -27668,4 +27693,15 @@
     (hanyu-dazidian	3 2250 21)
     (=ucs		. #x244E4)	; 𤓤
     (=hanziku-6		. #xD1C4)	; &I-HZK06-D1C4;
+    ))
+(define-char
+  '((ideographic-radical@simplified . 86)	; ⽕
+    (ideographic-radical@traditional . 87)	; ⽖
+    (==>ucs@bucs	. #x7232)	; &BUCS+7232;
+    (==>daijiten	. 07032)	; &BUCS+7232;
+    ))
+(define-char
+  '((ideographic-radical . 86)	; ⽕
+    (==>ucs@bucs	. #x7121)	; &BUCS+7121;
+    (==>daijiten	. 06872)	; &BUCS+7121;
     ))
