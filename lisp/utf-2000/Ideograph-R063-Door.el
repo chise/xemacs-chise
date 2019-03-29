@@ -920,11 +920,7 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 63)	; ⼾
-    (==>ucs@bucs	. #x6240)	; &BUCS+6240;
-    ))
-(define-char
-  '((<-denotational
+  '((<-denotational@usage
      ((==>ucs@bucs	  . #x6240)	; &BUCS+6240;
       ))
     (ideographic-radical . 63)	; ⼾
@@ -2242,4 +2238,9 @@
      ((=ucs@iso		  . #x22A62)	; &C5-7022;
       (=cns11643-5	  . #x7022)	; &C5-7022; [80-02]
       ))
+    ))
+(define-char
+  '((ideographic-radical . 63)	; ⼾
+    (==>ucs@bucs	. #x6240)	; &BUCS+6240;
+    (==>daijiten	. 03647)	; &BUCS+6240;
     ))
