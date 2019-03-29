@@ -1,3 +1,9 @@
+2019-03-27  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R009-Man.el (IWDS1-0148): Use `<-denotational@usage'
+	instead of `<-denotational' for BUCS+5167.
+	(A2-DJT-00170): New abstract node.
+
 2019-03-25  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R087-Claw.el (IWDS1-0314): Use `<-denotational@usage'
@@ -24,6 +30,10 @@
 
 2019-03-23  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R063-Door.el (U+6240): Use `<-denotational@usage'
+	instead of `<-denotational' for BUCS+6240.
+	(BUCS+6240): Unify A2-DJT-03647.
+
 	* Ideograph-R016-Table.el (A-M-01740): Unify IWDS1-0041; add
 	`<-denotational@usage' for A2-DJT-00701.
 	(U+51E2): Unify DJT-00700.
@@ -38,6 +48,9 @@
 	* Ideograph-R018-Knife.el (U+5209): Apply new conventions for
 	glyph granularity.
 	(U+520F): Likewise.
+
+	* Ideograph-R015-Ice.el (U+51B5): Add `<-denotational@usage' for
+	A2-DJT-00143.
 
 2019-03-22  MORIOKA Tomohiko  <tomo.git@chise.org>
 
