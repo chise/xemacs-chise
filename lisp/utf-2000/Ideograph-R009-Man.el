@@ -1686,7 +1686,7 @@
     (=cbeta		. 04469)	; &I-CB04469;
     ))
 (define-char
-  '((<-denotational
+  '((<-denotational@usage
      ((==>ucs@bucs	  . #x5167)	; &BUCS+5167;
       ))
     (ideographic-radical@ucs . 13)	; ⼌
@@ -62960,4 +62960,8 @@
   '((ideographic-radical . 9)	; ⼈
     (==>ucs@bucs	. #x500B)	; &BUCS+500B;
     (==>daijiten	. 00048)	; &BUCS+500B;
+    ))
+(define-char
+  '((ideographic-radical . 9)	; ⼈
+    (==>daijiten	. 00170)	; &A2-DJT-00170;
     ))
