@@ -984,7 +984,11 @@
       ))
     ))
 (define-char
-  '((ideographic-radical@r007 . 7)	; ⼆
+  '((<-denotational@usage
+     ((ideographic-radical . 7)	; ⼆
+      (==>daijiten	  . 00143)	; &A2-DJT-00143;
+      ))
+    (ideographic-radical@r007 . 7)	; ⼆
     (ideographic-radical@r007*sources
      daikanwa=00267)
     (ideographic-radical@r015 . 15)	; ⼎
