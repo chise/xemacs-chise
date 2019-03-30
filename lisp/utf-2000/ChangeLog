@@ -1,5 +1,8 @@
 2019-03-30  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* char-db-util.el (char-db-coded-charset-priority-list): Add
+	`==>daijiten'.
+
 	* Ideograph-R029-Again.el:
 	- Add Daijiten numbers.
 	- Use `<-denotational@usage' instead of `<-denotational' for BUCS
