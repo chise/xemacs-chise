@@ -268,6 +268,7 @@
     =>jis-x0213-1@2004
     =>jis-x0213-2
     ==>ucs@bucs
+    ==>daijiten
     =>iwds-1
     ;; =>ucs@hanyo-denshi
     =>ucs@iso
