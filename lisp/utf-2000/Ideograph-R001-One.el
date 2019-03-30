@@ -118,9 +118,7 @@
     ))
 (define-char
   '((<-denotational@usage
-     ((ideographic-radical . 1)	; ⼀
-      (daijiten-pages	  12)
-      (==>daijiten	  . 00002)	; &A2-DJT-00002;
+     ((==>daijiten	  . 00002)	; &A2-DJT-00002;
       ))
     (ideographic-radical . 1)	; ⼀
     (ideographic-strokes . 1)
@@ -199,9 +197,7 @@
      ((=>ucs@component	  . #x4E02)	; &A-compU+4E02;
       ))
     (<-denotational@usage
-     ((ideographic-radical . 1)	; ⼀
-      (daijiten-pages	  13)
-      (==>daijiten	  . 00003)	; &A2-DJT-00003;
+     ((==>daijiten	  . 00003)	; &A2-DJT-00003;
       ))
     (ideographic-radical . 1)	; ⼀
     (ideographic-strokes . 1)
@@ -365,9 +361,7 @@
       (=>iwds-1		  .  0141)	; &A-IWDSU+4E03;
       ))
     (<-denotational@usage
-     ((ideographic-radical . 1)	; ⼀
-      (daijiten-pages	  13 14)
-      (==>daijiten	  . 00004)	; &A2-DJT-00004;
+     ((==>daijiten	  . 00004)	; &A2-DJT-00004;
       ))
     (decimal-digit-value . 7)
     (digit-value	 . 7)
@@ -679,9 +673,7 @@
     ))
 (define-char
   '((<-denotational@usage
-     ((ideographic-radical . 1)	; ⼀
-      (daijiten-pages	  15)
-      (==>daijiten	  . 00005)	; &A2-DJT-00005;
+     ((==>daijiten	  . 00005)	; &A2-DJT-00005;
       ))
     (numeric-value	. 10000)
     (ideographic-radical . 1)	; ⼀
@@ -989,9 +981,7 @@
      ((=>ucs@component	  . #x4E0A)	; &A-compU+4E0A;
       ))
     (<-denotational@usage
-     ((ideographic-radical . 1)	; ⼀
-      (daijiten-pages	  24 25 26)
-      (==>daijiten	  . 00008)	; &A2-DJT-00008;
+     ((==>daijiten	  . 00008)	; &A2-DJT-00008;
       ))
     (ideographic-radical . 1)	; ⼀
     (ideographic-strokes . 2)
@@ -1091,9 +1081,7 @@
     ))
 (define-char
   '((<-denotational@usage
-     ((ideographic-radical . 1)	; ⼀
-      (daijiten-pages	  27)
-      (==>daijiten	  . 00009)	; &A2-DJT-00009;
+     ((==>daijiten	  . 00009)	; &A2-DJT-00009;
       ))
     (ideographic-radical . 1)	; ⼀
     (ideographic-strokes . 2)
@@ -1196,9 +1184,7 @@
       (=>iwds-1		  .  0221)	; &A-compU+4E0C;
       ))
     (<-denotational@usage
-     ((ideographic-radical . 1)	; ⼀
-      (daijiten-pages	  28)
-      (==>daijiten	  . 00010)	; &A2-DJT-00010;
+     ((==>daijiten	  . 00010)	; &A2-DJT-00010;
       ))
     (ideographic-radical . 1)	; ⼀
     (ideographic-strokes . 2)
@@ -1284,14 +1270,11 @@
     ))
 (define-char
   '((<-denotational@usage
-     ((ideographic-radical . 61)	; ⼼
-      (==>daijiten	  . 03366)	; &A2-DJT-03366;
+     ((==>daijiten	  . 03366)	; &A2-DJT-03366;
       )
-     ((ideographic-radical . 61)	; ⼼
-      (==>daijiten	  . 03462)	; &A2-DJT-03462;
+     ((==>daijiten	  . 03462)	; &A2-DJT-03462;
       )
-     ((ideographic-radical . 144)	; ⾏
-      (==>daijiten	  . 10630)	; &A2-DJT-10630;
+     ((==>daijiten	  . 10630)	; &A2-DJT-10630;
       ))
     (ideographic-radical . 1)	; ⼀
     (ideographic-strokes . 2)
@@ -1500,9 +1483,7 @@
     ))
 (define-char
   '((<-denotational@usage
-     ((ideographic-radical . 1)	; ⼀
-      (daijiten-pages	  28 29 30 31)
-      (==>daijiten	  . 00013)	; &A2-DJT-00013;
+     ((==>daijiten	  . 00013)	; &A2-DJT-00013;
       ))
     (ideographic-radical . 1)	; ⼀
     (ideographic-strokes . 3)
@@ -1604,9 +1585,7 @@
     ))
 (define-char
   '((<-denotational@usage
-     ((ideographic-radical . 1)	; ⼀
-      (daijiten-pages	  28)
-      (==>daijiten	  . 00011)	; &A2-DJT-00011;
+     ((==>daijiten	  . 00011)	; &A2-DJT-00011;
       ))
     (ideographic-radical . 1)	; ⼀
     (sound@ja/kun	"ata-H+eru" "kumi+suru" "azuka+r5")
@@ -1832,9 +1811,7 @@
       (=>iwds-1		  .  0326)	; &A-compU+4E0F;
       ))
     (<-denotational@usage
-     ((ideographic-radical . 1)	; ⼀
-      (daijiten-pages	  32)
-      (==>daijiten	  . 00014)	; &A2-DJT-00014;
+     ((==>daijiten	  . 00014)	; &A2-DJT-00014;
       ))
     (ideographic-radical . 1)	; ⼀
     (ideographic-strokes . 3)
@@ -1897,9 +1874,7 @@
       (=>iwds-1		  .  0326)	; &A-compU+4E0F;
       ))
     (<-denotational@usage
-     ((ideographic-radical . 1)	; ⼀
-      (daijiten-pages	  32)
-      (==>daijiten	  . 00015)	; &A2-DJT-00015;
+     ((==>daijiten	  . 00015)	; &A2-DJT-00015;
       ))
     (ideographic-radical . 1)	; ⼀
     (ideographic-strokes . 3)
@@ -2656,9 +2631,7 @@
       (=>iwds-1		  .  0114)	; &A-compU+4E14;
       ))
     (<-denotational@usage
-     ((ideographic-radical . 1)	; ⼀
-      (daijiten-pages	  32)
-      (==>daijiten	  . 00020)	; &A2-DJT-00020;
+     ((==>daijiten	  . 00020)	; &A2-DJT-00020;
       ))
     (ideographic-radical . 1)	; ⼀
     (ideographic-strokes . 4)
@@ -2738,9 +2711,7 @@
     ))
 (define-char
   '((<-denotational@usage
-     ((ideographic-radical . 1)	; ⼀
-      (daijiten-pages	  32)
-      (==>daijiten	  . 00023)	; &A2-DJT-00023;
+     ((==>daijiten	  . 00023)	; &A2-DJT-00023;
       ))
     (ideographic-radical . 1)	; ⼀
     (ideographic-strokes . 4)
@@ -3071,9 +3042,7 @@
     ))
 (define-char
   '((<-denotational@usage
-     ((ideographic-radical . 1)	; ⼀
-      (daijiten-pages	  34)
-      (==>daijiten	  . 00026)	; &A2-DJT-00026;
+     ((==>daijiten	  . 00026)	; &A2-DJT-00026;
       ))
     (ideographic-radical . 1)	; ⼀
     (ideographic-strokes . 4)
@@ -3203,9 +3172,7 @@
     ))
 (define-char
   '((<-denotational@usage
-     ((ideographic-radical . 1)	; ⼀
-      (daijiten-pages	  34)
-      (==>daijiten	  . 00027)	; &A2-DJT-00027;
+     ((==>daijiten	  . 00027)	; &A2-DJT-00027;
       ))
     (ideographic-radical . 1)	; ⼀
     (ideographic-strokes . 4)
@@ -3521,9 +3488,7 @@
       (=>iwds-1		  .  0368)	; &A-IWDSU+4E1A;
       ))
     (<-denotational@usage
-     ((ideographic-radical . 21)	; ⼔
-      (daijiten-pages	  274 275)
-      (==>daijiten	  . 00941)	; &A2-DJT-00941;
+     ((==>daijiten	  . 00941)	; &A2-DJT-00941;
       ))
     (ideographic-radical . 1)	; ⼀
     (ideographic-strokes . 4)
@@ -3843,9 +3808,7 @@
     ))
 (define-char
   '((<-denotational@usage
-     ((ideographic-radical . 1)	; ⼀
-      (daijiten-pages	  35)
-      (==>daijiten	  . 00028)	; &A2-DJT-00028;
+     ((==>daijiten	  . 00028)	; &A2-DJT-00028;
       ))
     (ideographic-radical . 1)	; ⼀
     (ideographic-strokes . 5)
@@ -3907,9 +3870,7 @@
     ))
 (define-char
   '((<-denotational@usage
-     ((ideographic-radical . 1)	; ⼀
-      (daijiten-pages	  35)
-      (==>daijiten	  . 00029)	; &A2-DJT-00029;
+     ((==>daijiten	  . 00029)	; &A2-DJT-00029;
       ))
     (ideographic-radical . 1)	; ⼀
     (ideographic-strokes . 5)
@@ -4047,8 +4008,7 @@
      ((=>ucs@iwds-1	  . #x20018)	; &A-IWDSU+20018;
       ))
     (<-denotational@usage
-     ((ideographic-radical . 37)	; ⼤
-      (==>daijiten	  . 01947)	; &A2-DJT-01947;
+     ((==>daijiten	  . 01947)	; &A2-DJT-01947;
       ))
     (ideographic-radical . 1)	; ⼀
     (ideographic-strokes . 5)
@@ -4159,9 +4119,7 @@
     ))
 (define-char
   '((<-denotational@usage
-     ((ideographic-radical . 1)	; ⼀
-      (daijiten-pages	  34)
-      (==>daijiten	  . 00026)	; &A2-DJT-00026;
+     ((==>daijiten	  . 00026)	; &A2-DJT-00026;
       ))
     (ideographic-radical . 1)	; ⼀
     (ideographic-strokes . 5)
@@ -4764,9 +4722,7 @@
     ))
 (define-char
   '((<-denotational@usage
-     ((ideographic-radical . 1)	; ⼀
-      (daijiten-pages	  35)
-      (==>daijiten	  . 00035)	; &A2-DJT-00035;
+     ((==>daijiten	  . 00035)	; &A2-DJT-00035;
       ))
     (ideographic-radical . 1)	; ⼀
     (ideographic-strokes . 6)
@@ -5271,8 +5227,7 @@
     ))
 (define-char
   '((<-denotational@usage
-     ((ideographic-radical . 117)	; ⽴
-      (==>daijiten	  . 08361)	; &A2-DJT-08361;
+     ((==>daijiten	  . 08361)	; &A2-DJT-08361;
       ))
     (ideographic-radical . 1)	; ⼀
     (=ucs		. #x4E26)	; 並
@@ -6119,9 +6074,7 @@
     ))
 (define-char
   '((<-denotational@usage
-     ((ideographic-radical . 1)	; ⼀
-      (daijiten-pages	  36)
-      (==>daijiten	  . 00042)	; &A2-DJT-00042;
+     ((==>daijiten	  . 00042)	; &A2-DJT-00042;
       ))
     (ideographic-radical . 1)	; ⼀
     (=ucs		. #x20041)	; 𠁁
