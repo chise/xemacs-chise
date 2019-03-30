@@ -350,6 +350,7 @@
     =ucs-itaiji-009
     =ucs-itaiji-010
     =ucs-itaiji-011
+    =ucs-itaiji-012
     =>ucs-itaiji-001
     =>ucs-itaiji-002
     =>ucs-itaiji-003
@@ -737,7 +738,8 @@
 		 =daijiten ==daijiten ===daijiten ==>daijiten
 		 ===hng-jou ===hng-keg ===hng-dng ===hng-mam
 		 ===hng-drt ===hng-kgk ===hng-myz ===hng-kda
-		 ===hng-khi ===hng-khm ===hng-hok ===hng-kyd ===hng-sok
+		 ===hng-khi ===hng-khm ===hng-fhs ===hng-hok
+		 ===hng-kyd ===hng-sok
 		 ===hng-yhk ===hng-kak ===hng-kar ===hng-kae
 		 ===hng-sys ===hng-tsu ===hng-tzj
 		 ===hng-hos ===hng-nak ===hng-jhk
