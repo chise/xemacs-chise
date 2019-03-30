@@ -1,8 +1,26 @@
 2019-03-30  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R029-Again.el:
+	- Add Daijiten numbers.
+	- Use `<-denotational@usage' instead of `<-denotational' for BUCS
+	  (super abstract) character objects.
+	(A-GT-K03405): New abstract node; unify A-U+2D1B2-itaiji-001.
+	(GT-K03405): New character; use `<-denotational' for A-GT-K03405;
+	unify U+2D1B2-itaiji-001.
+	(U-0002D1B2): New character.
+
+2019-03-30  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* char-db-util.el (char-db-coded-charset-priority-list): Add
 	`=ucs-itaiji-012'.
 	(char-db-insert-ccs-feature): Format `===hng-fhs' as decimal.
+
+2019-03-29  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R013-Down-Box.el:
+	- Add Daijiten numbers.
+	- Use `<-denotational@usage' instead of `<-denotational' for BUCS
+	  (super abstract) character objects.
 
 2019-03-28  MORIOKA Tomohiko  <tomo.git@chise.org>
 
