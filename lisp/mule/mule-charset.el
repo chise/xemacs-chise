@@ -527,6 +527,7 @@ DESCRIPTION (string) is the description string of the charset."
 	  ===hng-kda ; 09
 	  ===hng-khi ; 10
 	  ===hng-khm ; 11
+	  ===hng-fhs ; 12
 	  ===hng-hok ; 13
 	  ===hng-kyd ; 14
 	  ===hng-sok ; 15

@@ -1,3 +1,12 @@
+2019-03-28  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R010-Legs.el (U-0002D030): New character.
+
+	* Ideograph-R006-Hook.el:
+	- Add Daijiten numbers.
+	- Use `<-denotational@usage' instead of `<-denotational' for BUCS
+	  (super abstract) character objects.
+
 2019-03-27  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R009-Man.el (IWDS1-0148): Use `<-denotational@usage'
