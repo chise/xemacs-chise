@@ -9,6 +9,28 @@
 	unify U+2D1B2-itaiji-001.
 	(U-0002D1B2): New character.
 
+	* Ideograph-R008-Lid.el:
+	- Add Daijiten numbers.
+	- Use `<-denotational@usage' instead of `<-denotational' for BUCS
+	  (super abstract) character objects.
+
+	* Ideograph-R001-One.el:
+	- Add Daijiten numbers.
+	- Use `<-denotational@usage' instead of `<-denotational' for BUCS
+	  (super abstract) character objects.
+	- Add glyph-images of HNG-FHS.
+	(U+20018-itaiji-001): New character; use `<-denotational@component'
+	for A-IWDSU+20018.
+	(U-00020018): Add `<-denotational@component' for A-IWDSU+20018.
+	(A-M-00052): Unify A-cgnU+2B826.
+	(IU+2B826): Delete `=>ucs@iwds-1'.
+	(HNG-KHM0396-0): Add `<-HNG@chise' for U-0002B826, U-0002B742 and
+	U-00020A44.
+	(HNG-KHM0344-0): Ditto.
+	(U-0002B742): New character; use `<-denotational' for A-cgnU+2B826.
+	(U-0002002C): Apply new conventions for glyph granularity.
+	(A-IWDSU+20018): New abstract node.
+
 2019-03-30  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* char-db-util.el (char-db-coded-charset-priority-list): Add
