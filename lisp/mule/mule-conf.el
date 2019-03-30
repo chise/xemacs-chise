@@ -3102,6 +3102,14 @@
 		  graphic	2
 		  columns	2
 		  direction	l2r))
+  (make-charset '===hng-fhs "HNG:P2195妙法蓮華經卷六"
+		'(long-name "HNG/P2195"
+		  chars		256
+		  dimension	2
+		  registry	"hng-12$"
+		  graphic	2
+		  columns	2
+		  direction	l2r))
   (make-charset '===hng-hok "HNG:妙法蓮華經卷八（S.2577）"
 		'(long-name "HNG/S2577"
 		  chars		256
