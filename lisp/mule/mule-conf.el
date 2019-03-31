@@ -3198,6 +3198,14 @@
 		  graphic	2
 		  columns	2
 		  direction	l2r))
+  (make-charset '===hng-kkh "HNG:金剛般若經（京都国立博物館本）"
+		'(long-name "HNG/京博金般"
+		  chars		256
+		  dimension	2
+		  registry	"hng-27$"
+		  graphic	2
+		  columns	2
+		  direction	l2r))
   (make-charset '===hng-nak "HNG:華嚴孔目（高山寺本）"
 		'(long-name "HNG/華厳孔目"
 		  chars		256

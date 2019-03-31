@@ -1,8 +1,7 @@
 ;; -*- coding: utf-8-mcs-er -*-
 (define-char
   '((<-denotational@usage
-     ((ideographic-radical . 2)	; ⼁
-      (==>daijiten	  . 00044)	; &A2-DJT-00044;
+     ((==>daijiten	  . 00044)	; &A2-DJT-00044;
       ))
     (ideographic-radical . 2)	; ⼁
     (ideographic-strokes . 0)
@@ -24,8 +23,7 @@
     ))
 (define-char
   '((<-denotational@usage
-     ((ideographic-radical . 2)	; ⼁
-      (==>daijiten	  . 00045)	; &A2-DJT-00045;
+     ((==>daijiten	  . 00045)	; &A2-DJT-00045;
       ))
     (name		. "KATAKANA DIGRAPH KOTO")
     (ideographic-radical . 2)	; ⼁
@@ -48,8 +46,7 @@
      ((=>ucs@component	  . #x4E29)	; &A-compU+4E29;
       ))
     (<-denotational@usage
-     ((ideographic-radical . 2)	; ⼁
-      (==>daijiten	  . 00046)	; &A2-DJT-00046;
+     ((==>daijiten	  . 00046)	; &A2-DJT-00046;
       ))
     (ideographic-radical . 2)	; ⼁
     (=ucs		. #x4E29)	; 丩
@@ -313,8 +310,7 @@
     ))
 (define-char
   '((<-denotational@usage
-     ((ideographic-radical . 2)	; ⼁
-      (==>daijiten	  . 00049)	; &A2-DJT-00049;
+     ((==>daijiten	  . 00049)	; &A2-DJT-00049;
       ))
     (ideographic-radical . 2)	; ⼁
     (ideographic-strokes . 2)
@@ -383,8 +379,7 @@
     ))
 (define-char
   '((<-denotational@usage
-     ((ideographic-radical . nil)
-      (==>daijiten	  . 01915)	; &A2-DJT-01915;
+     ((==>daijiten	  . 01915)	; &A2-DJT-01915;
       ))
     (ideographic-radical . 2)	; ⼁
     (ideographic-strokes . 2)
@@ -482,8 +477,7 @@
     ))
 (define-char
   '((<-denotational@usage
-     ((ideographic-radical . 2)	; ⼁
-      (==>daijiten	  . 00055)	; &A2-DJT-00055;
+     ((==>daijiten	  . 00055)	; &A2-DJT-00055;
       ))
     (script		Katakana Ideograph)
     (ideographic-radical . 2)	; ⼁
@@ -509,8 +503,7 @@
     ))
 (define-char
   '((<-denotational@usage
-     ((ideographic-radical . 2)	; ⼁
-      (==>daijiten	  . 00051)	; &A2-DJT-00051;
+     ((==>daijiten	  . 00051)	; &A2-DJT-00051;
       ))
     (ideographic-radical . 2)	; ⼁
     (ideographic-strokes . 3)
@@ -584,8 +577,7 @@
     ))
 (define-char
   '((<-denotational@usage
-     ((ideographic-radical . 2)	; ⼁
-      (==>daijiten	  . 00054)	; &A2-DJT-00054;
+     ((==>daijiten	  . 00054)	; &A2-DJT-00054;
       ))
     (ideographic-radical . 2)	; ⼁
     (ideographic-strokes . 3)
@@ -715,8 +707,7 @@
     ))
 (define-char
   '((<-denotational@usage
-     ((ideographic-radical . 2)	; ⼁
-      (==>daijiten	  . 00052)	; &A2-DJT-00052;
+     ((==>daijiten	  . 00052)	; &A2-DJT-00052;
       ))
     (ideographic-radical . 2)	; ⼁
     (ideographic-strokes . 3)
@@ -764,8 +755,7 @@
     ))
 (define-char
   '((<-denotational@usage
-     ((ideographic-radical . nil)
-      (==>daijiten	  . 00053)	; &A2-DJT-00053;
+     ((==>daijiten	  . 00053)	; &A2-DJT-00053;
       ))
     (ideographic-radical . 2)	; ⼁
     (ideographic-strokes . 3)
@@ -1042,8 +1032,7 @@
     ))
 (define-char
   '((<-denotational@usage
-     ((ideographic-radical . 2)	; ⼁
-      (==>daijiten	  . 00059)	; &A2-DJT-00059;
+     ((==>daijiten	  . 00059)	; &A2-DJT-00059;
       ))
     (ideographic-radical . 2)	; ⼁
     (ideographic-strokes . 6)
@@ -1117,8 +1106,7 @@
     ))
 (define-char
   '((<-denotational@usage
-     ((ideographic-radical . 2)	; ⼁
-      (==>daijiten	  . 00060)	; &A2-DJT-00060;
+     ((==>daijiten	  . 00060)	; &A2-DJT-00060;
       ))
     (ideographic-radical . 2)	; ⼁
     (ideographic-strokes . 7)
@@ -1533,8 +1521,7 @@
     ))
 (define-char
   '((<-denotational@usage
-     ((ideographic-radical . 2)	; ⼁
-      (==>daijiten	  . 00061)	; &A2-DJT-00061;
+     ((==>daijiten	  . 00061)	; &A2-DJT-00061;
       ))
     (ideographic-radical . 2)	; ⼁
     (ideographic-structure
@@ -1853,8 +1840,7 @@
     ))
 (define-char
   '((<-denotational@usage
-     ((ideographic-radical . 163)	; ⾢
-      (==>daijiten	  . 12176)	; &A2-DJT-12176;
+     ((==>daijiten	  . 12176)	; &A2-DJT-12176;
       ))
     (ideographic-radical . 2)	; ⼁
     (=daijiten		. 00047)	; &DJT-00047;
@@ -1869,8 +1855,7 @@
     ))
 (define-char
   '((<-denotational@usage
-     ((ideographic-radical . 2)	; ⼁
-      (==>daijiten	  . 00056)	; &A2-DJT-00056;
+     ((==>daijiten	  . 00056)	; &A2-DJT-00056;
       ))
     (script		Katakana Ideograph)
     (ideographic-radical . 2)	; ⼁
@@ -1888,8 +1873,7 @@
     ))
 (define-char
   '((<-denotational@usage
-     ((ideographic-radical . 2)	; ⼁
-      (==>daijiten	  . 00058)	; &A2-DJT-00058;
+     ((==>daijiten	  . 00058)	; &A2-DJT-00058;
       ))
     (script		Katakana Ideograph)
     (ideographic-radical . 2)	; ⼁
