@@ -1,8 +1,7 @@
 ;; -*- coding: utf-8-mcs-er -*-
 (define-char
   '((<-denotational@usage
-     ((ideographic-radical . 6)	; ⼅
-      (==>daijiten	  . 00123)	; &A2-DJT-00123;
+     ((==>daijiten	  . 00123)	; &A2-DJT-00123;
       ))
     (ideographic-radical . 6)	; ⼅
     (ideographic-strokes . 0)
@@ -56,8 +55,7 @@
     ))
 (define-char
   '((<-denotational@usage
-     ((ideographic-radical . 6)	; ⼅
-      (==>daijiten	  . 00124)	; &A2-DJT-00124;
+     ((==>daijiten	  . 00124)	; &A2-DJT-00124;
       ))
     (ideographic-radical . 6)	; ⼅
     (ideographic-strokes . 0)
@@ -106,8 +104,7 @@
     ))
 (define-char
   '((<-denotational@usage
-     ((ideographic-radical . 6)	; ⼅
-      (==>daijiten	  . 00125)	; &A2-DJT-00125;
+     ((==>daijiten	  . 00125)	; &A2-DJT-00125;
       ))
     (ideographic-radical . 6)	; ⼅
     (ideographic-strokes . 1)
@@ -380,8 +377,7 @@
     ))
 (define-char
   '((<-denotational@usage
-     ((ideographic-radical . 6)	; ⼅
-      (==>daijiten	  . 00126)	; &A2-DJT-00126;
+     ((==>daijiten	  . 00126)	; &A2-DJT-00126;
       ))
     (ideographic-radical . 6)	; ⼅
     (ideographic-strokes . 3)
