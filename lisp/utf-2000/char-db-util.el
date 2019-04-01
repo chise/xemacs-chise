@@ -195,10 +195,12 @@
     =gt
     =gt-k
     =daikanwa
+    =daijiten
     =daikanwa@rev2
     =daikanwa@rev1
     =daikanwa/+p
     ==daikanwa
+    ==daijiten
     =cbeta
     ideograph-hanziku-1
     ideograph-hanziku-2
