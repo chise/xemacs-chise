@@ -5,6 +5,16 @@
 
 2019-03-30  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R026-Seal.el:
+	- Add Daijiten numbers.
+	- Use `<-denotational@usage' instead of `<-denotational' for BUCS
+	  (super abstract) character objects.
+
+	* Ideograph-R007-Two.el:
+	- Add Daijiten numbers.
+	- Use `<-denotational@usage' instead of `<-denotational' for BUCS
+	  (super abstract) character objects.
+
 	* char-db-util.el (char-db-coded-charset-priority-list): Add
 	`==>daijiten'.
 

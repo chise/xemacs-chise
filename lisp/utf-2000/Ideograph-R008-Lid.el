@@ -203,8 +203,7 @@
      ((=>ucs@iwds-1	  . #x4EA2)	; &A-IWDSU+4EA2;
       ))
     (<-denotational@usage
-     ((ideographic-radical . 8)	; ⼇
-      (==>daijiten	  . 00151)	; &A2-DJT-00151;
+     ((==>daijiten	  . 00151)	; &A2-DJT-00151;
       ))
     (ideographic-radical . 8)	; ⼇
     (ideographic-strokes . 2)
@@ -548,8 +547,7 @@
     ))
 (define-char
   '((<-denotational@usage
-     ((ideographic-radical . 8)	; ⼇
-      (==>daijiten	  . 00152)	; &A2-DJT-00152;
+     ((==>daijiten	  . 00152)	; &A2-DJT-00152;
       ))
     (ideographic-radical . 8)	; ⼇
     (ideographic-strokes . 4)
@@ -741,8 +739,7 @@
     ))
 (define-char
   '((<-denotational@usage
-     ((ideographic-radical . 8)	; ⼇
-      (==>daijiten	  . 00153)	; &A2-DJT-00153;
+     ((==>daijiten	  . 00153)	; &A2-DJT-00153;
       ))
     (ideographic-radical . 8)	; ⼇
     (ideographic-strokes . 4)
@@ -931,8 +928,7 @@
     ))
 (define-char
   '((<-denotational@usage
-     ((ideographic-radical . 8)	; ⼇
-      (==>daijiten	  . 00154)	; &A2-DJT-00154;
+     ((==>daijiten	  . 00154)	; &A2-DJT-00154;
       ))
     (ideographic-radical . 8)	; ⼇
     (ideographic-strokes . 4)
@@ -1644,8 +1640,7 @@
     ))
 (define-char
   '((<-denotational@usage
-     ((ideographic-radical . 8)	; ⼇
-      (==>daijiten	  . 00156)	; &A2-DJT-00156;
+     ((==>daijiten	  . 00156)	; &A2-DJT-00156;
       ))
     (ideographic-radical . 8)	; ⼇
     (ideographic-structure
@@ -1865,8 +1860,7 @@
     ))
 (define-char
   '((<-denotational@usage
-     ((ideographic-radical . 8)	; ⼇
-      (==>daijiten	  . 00158)	; &A2-DJT-00158;
+     ((==>daijiten	  . 00158)	; &A2-DJT-00158;
       ))
     (ideographic-radical . 8)	; ⼇
     (ideographic-structure
@@ -2050,8 +2044,7 @@
     ))
 (define-char
   '((<-denotational@usage
-     ((ideographic-radical . 8)	; ⼇
-      (==>daijiten	  . 00160)	; &A2-DJT-00160;
+     ((==>daijiten	  . 00160)	; &A2-DJT-00160;
       ))
     (ideographic-radical . 8)	; ⼇
     (ideographic-structure
@@ -2755,8 +2748,7 @@
     ))
 (define-char
   '((<-denotational@usage
-     ((ideographic-radical . 8)	; ⼇
-      (==>daijiten	  . 00165)	; &A2-DJT-00165;
+     ((==>daijiten	  . 00165)	; &A2-DJT-00165;
       ))
     (ideographic-radical . 8)	; ⼇
     (ideographic-structure
@@ -3863,8 +3855,7 @@
     ))
 (define-char
   '((<-denotational@usage
-     ((ideographic-radical . 8)	; ⼇
-      (==>daijiten	  . 00166)	; &A2-DJT-00166;
+     ((==>daijiten	  . 00166)	; &A2-DJT-00166;
       ))
     (ideographic-radical . 8)	; ⼇
     (ideographic-structure
@@ -5377,8 +5368,7 @@
     ))
 (define-char
   '((<-denotational@usage
-     ((ideographic-radical . 8)	; ⼇
-      (==>daijiten	  . 00167)	; &A2-DJT-00167;
+     ((==>daijiten	  . 00167)	; &A2-DJT-00167;
       ))
     (ideographic-radical . 8)	; ⼇
     (hanyu-dazidian	1 294 12)
