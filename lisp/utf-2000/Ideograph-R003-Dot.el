@@ -1,8 +1,7 @@
 ;; -*- coding: utf-8-mcs-er -*-
 (define-char
   '((<-denotational@usage
-     ((ideographic-radical . 3)	; ⼂
-      (==>daijiten	  . 00062)	; &A2-DJT-00062;
+     ((==>daijiten	  . 00062)	; &A2-DJT-00062;
       ))
     (ideographic-radical . 3)	; ⼂
     (ideographic-strokes . 0)
@@ -57,8 +56,7 @@
     ))
 (define-char
   '((<-denotational@usage
-     ((ideographic-radical . 3)	; ⼂
-      (==>daijiten	  . 00064)	; &A2-DJT-00064;
+     ((==>daijiten	  . 00064)	; &A2-DJT-00064;
       ))
     (name		. "VERTICAL IDEOGRAPHIC ITERATION MARK")
     (ideographic-radical . 3)	; ⼂
@@ -200,8 +198,7 @@
     ))
 (define-char
   '((<-denotational@usage
-     ((ideographic-radical . 3)	; ⼂
-      (==>daijiten	  . 00065)	; &A2-DJT-00065;
+     ((==>daijiten	  . 00065)	; &A2-DJT-00065;
       ))
     (ideographic-radical . 3)	; ⼂
     (ideographic-strokes . 2)
@@ -254,8 +251,7 @@
       (=>iwds-1		  .  0346)	; &A-compU+51E1;
       ))
     (<-denotational@usage
-     ((ideographic-radical . 3)	; ⼂
-      (==>daijiten	  . 00068)	; &A2-DJT-00068;
+     ((==>daijiten	  . 00068)	; &A2-DJT-00068;
       ))
     (ideographic-radical . 3)	; ⼂
     (ideographic-strokes . 2)
@@ -379,8 +375,7 @@
     ))
 (define-char
   '((<-denotational@usage
-     ((ideographic-radical . 3)	; ⼂
-      (==>daijiten	  . 00068)	; &A2-DJT-00068;
+     ((==>daijiten	  . 00068)	; &A2-DJT-00068;
       ))
     (ideographic-radical . 3)	; ⼂
     (ideographic-strokes . 2)
@@ -433,8 +428,7 @@
     ))
 (define-char
   '((<-denotational@usage
-     ((ideographic-radical . 3)	; ⼂
-      (==>daijiten	  . 00066)	; &A2-DJT-00066;
+     ((==>daijiten	  . 00066)	; &A2-DJT-00066;
       ))
     (ideographic-radical . 3)	; ⼂
     (ideographic-strokes . 2)
@@ -586,8 +580,7 @@
     ))
 (define-char
   '((<-denotational@usage
-     ((ideographic-radical . 3)	; ⼂
-      (==>daijiten	  . 00069)	; &A2-DJT-00069;
+     ((==>daijiten	  . 00069)	; &A2-DJT-00069;
       ))
     (ideographic-radical . 3)	; ⼂
     (=>ucs@cognate	. #x4E39)	; &A-cgnU+4E39;
@@ -801,8 +794,7 @@
       (=>iwds-1		  .  0201)	; &A-compU+4E3B;
       ))
     (<-denotational@usage
-     ((ideographic-radical . 3)	; ⼂
-      (==>daijiten	  . 00070)	; &A2-DJT-00070;
+     ((==>daijiten	  . 00070)	; &A2-DJT-00070;
       ))
     (ideographic-radical . 3)	; ⼂
     (ideographic-strokes . 4)
@@ -959,8 +951,7 @@
     ))
 (define-char
   '((<-denotational@usage
-     ((ideographic-radical . 3)	; ⼂
-      (==>daijiten	  . 00071)	; &A2-DJT-00071;
+     ((==>daijiten	  . 00071)	; &A2-DJT-00071;
       ))
     (ideographic-radical . 3)	; ⼂
     (ideographic-strokes . 4)
