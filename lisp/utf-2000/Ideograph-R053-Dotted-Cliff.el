@@ -3641,8 +3641,8 @@
       )
      ((=ucs		  . #x5E7F)	; 广
       )
-     ((==>ucs@bucs	  . #x5351)	; &BUCS+5351;
-      (=>ucs@component	  . #x5351)	; &BUCS+5351;
+     ((=>ucs@component	  . #x5351)	; &A-compU+5351;
+      (=>iwds-1		  .  0287)	; &A-compU+5351;
       ))
     (=ucs		. #x5EB3)	; 庳
     ))
