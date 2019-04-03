@@ -1,3 +1,16 @@
+2019-04-02  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R024-Ten.el (IWDS1-0287): Separate BUCS+5351; add
+	`<-denotational@usage' for BUCS+5351.
+	(IU+24C1E): Unify DJT-07492.
+	(BUCS+5351): Unify A2-DJT-01003; separate A-cgnU+5351 and
+	IWDS1-0287.
+
+	* Ideograph-R004-Slash.el:
+	- Add Daijiten numbers.
+	- Use `<-denotational@usage' instead of `<-denotational' for BUCS
+	  (super abstract) character objects.
+
 2019-04-01  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* char-db-util.el (char-db-coded-charset-priority-list): Add
