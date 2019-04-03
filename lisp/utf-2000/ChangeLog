@@ -1,3 +1,11 @@
+2019-04-03  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R001-One.el (U-0002233D): Add `<-denotational@usage'
+	forr A2-DJT-03022; use `ideographic-{radical|strokes}@ucs' instead
+	of `ideographic-{radical|strokes}@cns'; add
+	`ideographic-structure'; unify DJT-03022; add representative
+	nodes.
+
 2019-04-02  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R020-Wrap.el (U+5301): Unify DJT-00089; add

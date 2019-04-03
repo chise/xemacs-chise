@@ -5554,28 +5554,94 @@
       ))
     ))
 (define-char
-  '((ideographic-radical@cns . 55)	; ⼶
-    (ideographic-strokes@cns . 5)
-    (ideographic-radical@cns*sources
+  '((<-denotational@usage
+     ((==>daijiten	  . 03022)	; &A2-DJT-03022;
+      ))
+    (ideographic-radical@ucs . 55)	; ⼶
+    (ideographic-strokes@ucs . 5)
+    (ideographic-radical@ucs*sources
      daikanwa=09608 cns11643)
     (ideographic-radical@gt . 1)	; ⼀
     (ideographic-strokes@gt . 7)
     (ideographic-radical@gt*sources
      daikanwa=00060 gt)
     (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5345)	; 卅
+      )
+     ((=ucs		  . #x5345)	; 卅
+      ))
     (=ucs		. #x2233D)	; 𢌽
     (=cns11643-5	. #x262E)	; &I-C5-262E; [06-14]
     (=gt		. 00083)	; &I-GT-00083;
     (=gt-pj-2		. #x304C)	; &I-GT-00083; [16-44]
+    (=daijiten		. 03022)	; &I-DJT-03022;
     (=jef-china3	. #x8EF3)	; &I-JC3-8EF3;
+    (<-simplified@JP/buddhism
+     ((ideographic-combination
+       ((=ucs		    . #x6D85)	; 涅
+	)
+       ((=ucs		    . #x69C3)	; 槃
+	))
+      ))
+    (<-simplified@JP/buddhism*sources
+     daijiten daikanwa)
     (->subsumptive
-     ((ideographic-radical . 1)	; ⼀
-      (ideographic-strokes . 7)
-      (=daikanwa	  . 00060)	; &M-00060;
-      )
-     ((ideographic-radical . 55)	; ⼶
-      (ideographic-strokes . 5)
-      (=daikanwa	  . 09608)	; &M-09608;
+     ((==ucs@iso	  . #x2233D)	; &g2-GT-00083;
+      (==cns11643-5	  . #x262E)	; &g2-GT-00083; [06-14]
+      (==gt		  . 00083)	; &g2-GT-00083;
+      (==daijiten	  . 03022)	; &g2-GT-00083;
+      (==jef-china3	  . #x8EF3)	; &g2-GT-00083;
+      (->subsumptive
+       ((ideographic-radical . 1)	; ⼀
+	(ideographic-strokes . 7)
+	(=daikanwa	    . 00060)	; &M-00060;
+	(<-simplified@JP/buddhism
+	 ((ideographic-combination
+	   ((=ucs		. #x6D85)	; 涅
+	    )
+	   ((=ucs		. #x69C3)	; 槃
+	    ))
+	  ))
+	(->subsumptive
+	 ((==daikanwa	      . 00060)	; &g2-M-00060;
+	  (->subsumptive
+	   ((===daikanwa	. 00060)	; &R-M-00060;
+	    )
+	   ((===gt		. 00083)	; &R-GT-00083;
+	    ))
+	  ))
+	)
+       ((ideographic-radical . 55)	; ⼶
+	(ideographic-strokes . 5)
+	(=daikanwa	    . 09608)	; &M-09608;
+	(<-simplified@JP/buddhism
+	 ((ideographic-combination
+	   ((=ucs		. #x6D85)	; 涅
+	    )
+	   ((=ucs		. #x69C3)	; 槃
+	    ))
+	  ))
+	(<-simplified@JP/buddhism*sources
+	 daikanwa)
+	(->subsumptive
+	 ((==daikanwa	      . 09608)	; &g2-M-09608;
+	  (->subsumptive
+	   ((===daikanwa	. 09608)	; &R-M-09608;
+	    )
+	   ((===daijiten	. 03022)	; &R-DJT-03022;
+	    )
+	   ((===cns11643-5	. #x262E)	; &R-C5-262E; [06-14]
+	    )
+	   ((===ucs@iso		. #x2233D)	; &R-U-0002233D;
+	    ))
+	  ))
+	)
+       ((===jef-china3	    . #x8EF3)	; &R-JC3-8EF3;
+	))
       ))
     ))
 (define-char
