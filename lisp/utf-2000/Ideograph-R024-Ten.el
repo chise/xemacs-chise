@@ -1925,15 +1925,17 @@
     (=cns11643-5	. #x2540)	; &I-C5-2540; [05-32]
     ))
 (define-char
-  '((ideographic-radical . 24)	; ⼗
-    (==>ucs@bucs	. #x5351)	; &BUCS+5351;
-    (=>ucs@component	. #x5351)	; &BUCS+5351;
-    (=>iwds-1		.  0287)	; &BUCS+5351;
+  '((<-denotational@usage
+     ((==>ucs@bucs	  . #x5351)	; &BUCS+5351;
+      ))
+    (ideographic-radical . 24)	; ⼗
+    (=>ucs@component	. #x5351)	; &A-compU+5351;
+    (=>iwds-1		.  0287)	; &A-compU+5351;
     ))
 (define-char
   '((<-denotational
-     ((==>ucs@bucs	  . #x5351)	; &BUCS+5351;
-      (=>ucs@component	  . #x5351)	; &BUCS+5351;
+     ((=>ucs@component	  . #x5351)	; &A-compU+5351;
+      (=>iwds-1		  .  0287)	; &A-compU+5351;
       ))
     (ideographic-radical . 24)	; ⼗
     (=ucs		. #x5351)	; 卑
@@ -2069,8 +2071,8 @@
     ))
 (define-char
   '((<-denotational
-     ((==>ucs@bucs	  . #x5351)	; &BUCS+5351;
-      (=>ucs@component	  . #x5351)	; &BUCS+5351;
+     ((=>ucs@component	  . #x5351)	; &A-compU+5351;
+      (=>iwds-1		  .  0287)	; &A-compU+5351;
       ))
     (ideographic-radical . 24)	; ⼗
     (=ucs		. #x24C1E)	; 𤰞
@@ -2093,6 +2095,7 @@
       (=gt		  . 03509)	; &I-GT-03509;
       (=gt-pj-2		  . #x4854)	; &I-GT-03509; [40-52]
       (=daikanwa	  . 02739)	; &I-M-02739;
+      (=daijiten	  . 07492)	; &I-DJT-07492;
       (=shinjigen	  .  0831)	; &MJ041343;
       (<-vulgar
        ((=ucs@unicode	    . #x5351)	; &AJ1-13378;
@@ -2110,9 +2113,12 @@
 	(==hanyo-denshi/ks  . 031790)	; &g2-MJ041343;
 	(==gt		    . 03509)	; &g2-MJ041343;
 	(==daikanwa	    . 02739)	; &g2-MJ041343;
+	(==daijiten	    . 07492)	; &g2-MJ041343;
 	(==shinjigen	    .  0831)	; &g2-MJ041343;
 	(->subsumptive
 	 ((===daikanwa	      . 02739)	; &R-M-02739;
+	  )
+	 ((===daijiten	      . 07492)	; &R-DJT-07492;
 	  )
 	 ((===hanyo-denshi/ks . 031790)	; &R-HD-KS-031790;
 	  (=hanyo-denshi/ks/mf . #x0C6B)	; &R-HD-KS-031790;
@@ -3781,4 +3787,9 @@
     (hanyu-dazidian	1 67 10)
     (=ucs		. #x209CB)	; 𠧋
     (=hanziku-1		. #xB1D2)	; &I-HZK01-B1D2;
+    ))
+(define-char
+  '((ideographic-radical . 24)	; ⼗
+    (==>ucs@bucs	. #x5351)	; &BUCS+5351;
+    (==>daijiten	. 01003)	; &BUCS+5351;
     ))
