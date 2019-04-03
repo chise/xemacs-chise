@@ -1,5 +1,13 @@
 2019-04-02  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R020-Wrap.el (U+5301): Unify DJT-00089; add
+	`<-denotational@usage' for A2-DJT-00089.
+	(GT-K06749): New character.
+	(U-000208EE): Add `ideographic-structure'; add
+	`sound@ja/on/{kan|go}'; add `<-wrong' for U-00020904; add
+	representative nodes.
+	(U-00020904): Use `->subsumptive'.
+
 	* Ideograph-R024-Ten.el (IWDS1-0287): Separate BUCS+5351; add
 	`<-denotational@usage' for BUCS+5351.
 	(IU+24C1E): Unify DJT-07492.
