@@ -745,7 +745,7 @@
 		 ===hng-kyd ===hng-sok
 		 ===hng-yhk ===hng-kak ===hng-kar ===hng-kae
 		 ===hng-sys ===hng-tsu ===hng-tzj
-		 ===hng-hos ===hng-nak ===hng-jhk
+		 ===hng-hos ===hng-kkh ===hng-nak ===hng-jhk
 		 ===hng-hod ===hng-gok ===hng-ink ===hng-nto
 		 ===hng-nkm ===hng-k24 ===hng-nkk
 		 ===hng-kcc ===hng-kcj ===hng-kbk ===hng-sik
