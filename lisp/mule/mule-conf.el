@@ -3422,6 +3422,14 @@
 		  graphic	2
 		  columns	2
 		  direction	l2r))
+  (make-charset '===hng-sab "HNG:阿毘達磨大毘婆沙論卷百七十八(正倉院本)"
+		'(long-name "HNG/正毘178"
+		  chars		256
+		  dimension	2
+		  registry	"hng-71$"
+		  graphic	2
+		  columns	2
+		  direction	l2r))
   (make-charset '===hng-smk "HNG:西夏版妙法蓮華經卷一"
 		'(long-name "HNG/西夏法華"
 		  chars		256
