@@ -1,3 +1,14 @@
+2019-04-05  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
+	setting for `===hng-ykk'.
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`===hng-ykk'.
+
+	* mule/mule-conf.el (===hng-ykk): New coded-charset for XEmacs
+	CHISE.
+
 2019-03-31  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
