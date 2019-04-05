@@ -5,6 +5,16 @@
 
 2019-04-05  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R012-Eight.el:
+	- Add Daijiten numbers.
+	- Use `<-denotational@usage' instead of `<-denotational' for BUCS
+	  (super abstract) character objects.
+
+	* Ideograph-R012-Eight.el:
+	- Add Daijiten numbers.
+	- Use `<-denotational@usage' instead of `<-denotational' for BUCS
+	  (super abstract) character objects.
+
 	* Ideograph-R005-Second.el:
 	- Add Daijiten numbers.
 	- Use `<-denotational@usage' instead of `<-denotational' for BUCS
