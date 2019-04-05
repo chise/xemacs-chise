@@ -5396,7 +5396,8 @@
       )
      ((=ucs		  . #x4EA0)	; 亠
       )
-     ((=ucs@unicode	  . #x820B)	; &UU+820B;
+     ((=ucs@unicode	  . #x820B)	; &DJT-09634;
+      (=daijiten	  . 09634)	; &DJT-09634;
       ))
     (=ucs@unicode	. #x4EB9)	; &MJ006491;
     (=mj		. 006491)	; &MJ006491;

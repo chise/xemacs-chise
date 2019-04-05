@@ -752,7 +752,7 @@
 		 ===hng-skk ===hng-kyu ===hng-ksk ===hng-wan
 		 ===hng-okd ===hng-wad ===hng-kmi
 		 ===hng-zkd ===hng-doh ===hng-jyu
-		 ===hng-tzs ===hng-kss ===hng-kyo
+		 ===hng-tzs ===hng-kss ===hng-kyo ===hng-ykk
 		 ===hng-smk
 		 =shuowen-jiguge ===shuowen-jiguge4 ===shuowen-jiguge5))
 	 ;; (string-match "^=adobe-" (symbol-name name))

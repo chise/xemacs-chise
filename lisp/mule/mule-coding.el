@@ -454,6 +454,7 @@
 	  (===hng-tzs			      "HNG060-" 5 d)
 	  (===hng-kss			      "HNG064-" 5 d)
 	  (===hng-kyo			      "HNG066-" 5 d)
+	  (===hng-ykk			      "HNG068-" 5 d)
 	  (===hng-smk			      "HNG074-" 5 d)
 	  (=shuowen-jiguge		   "SW-JIGUGE-" 5 d)
 	  (===shuowen-jiguge4		  "SW-JIGUGE4-" 5 d)

@@ -3414,6 +3414,14 @@
 		  graphic	2
 		  columns	2
 		  direction	l2r))
+  (make-charset '===hng-ykk "HNG:守屋本藥師功徳經"
+		'(long-name "HNG/藥師功徳"
+		  chars		256
+		  dimension	2
+		  registry	"hng-68$"
+		  graphic	2
+		  columns	2
+		  direction	l2r))
   (make-charset '===hng-smk "HNG:西夏版妙法蓮華經卷一"
 		'(long-name "HNG/西夏法華"
 		  chars		256
