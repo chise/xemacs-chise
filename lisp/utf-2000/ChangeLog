@@ -1,5 +1,10 @@
 2019-04-05  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R002-Line.el (HNG-YKK0332-0): New glyph; use
+	`<-subsumptive' for g2-UU+4E2D.
+
+2019-04-05  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* char-db-util.el (char-db-insert-ccs-feature): Format
 	`===hng-sab' as decimal.
 
