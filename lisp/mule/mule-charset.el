@@ -569,6 +569,7 @@ DESCRIPTION (string) is the description string of the charset."
 	  ===hng-ykk ; 68
 	  ===hng-sab ; 71
 	  ===hng-wks ; 72
+	  ===hng-wke ; 73
 	  ===hng-smk ; 74
 	  =shuowen-jiguge
 	  ===shuowen-jiguge4

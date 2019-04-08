@@ -1,3 +1,14 @@
+2019-04-08  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
+	setting for `===hng-wke'.
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`===hng-wke'.
+
+	* mule/mule-conf.el (===hng-wke): New coded-charset for XEmacs
+	CHISE.
+
 2019-04-07  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
