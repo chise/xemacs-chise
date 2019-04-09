@@ -548,6 +548,7 @@ DESCRIPTION (string) is the description string of the charset."
 	  ===hng-nto ; 34
 	  ===hng-nkm ; 36
 	  ===hng-k24 ; 37
+	  ===hng-ini ; 38
 	  ===hng-nkk ; 39
 	  ===hng-kcc ; 41
 	  ===hng-kcj ; 42
