@@ -3270,6 +3270,14 @@
 		  graphic	2
 		  columns	2
 		  direction	l2r))
+  (make-charset '===hng-ini "HNG:日本書紀卷二(鴨脚本)"
+		'(long-name "HNG/鴨脚紀2"
+		  chars		256
+		  dimension	2
+		  registry	"hng-38$"
+		  graphic	2
+		  columns	2
+		  direction	l2r))
   (make-charset '===hng-nkk "HNG:日本書紀 卷二（兼方本）"
 		'(long-name "HNG/兼方紀2"
 		  chars		256

@@ -747,7 +747,7 @@
 		 ===hng-sys ===hng-tsu ===hng-tzj
 		 ===hng-hos ===hng-kkh ===hng-nak ===hng-jhk
 		 ===hng-hod ===hng-gok ===hng-ink ===hng-nto
-		 ===hng-nkm ===hng-k24 ===hng-nkk
+		 ===hng-nkm ===hng-k24 ===hng-ini ===hng-nkk
 		 ===hng-kcc ===hng-kcj ===hng-kbk ===hng-sik
 		 ===hng-skk ===hng-kyu ===hng-ksk ===hng-wan
 		 ===hng-okd ===hng-wad ===hng-kmi
