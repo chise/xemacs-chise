@@ -317,7 +317,10 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 11)	; ⼊
+  '((<-denotational@component
+     ((=>ucs@iwds-1	  . #x4ED0)	; &A-IWDSU+4ED0;
+      ))
+    (ideographic-radical . 11)	; ⼊
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
     (hanyu-dazidian	1 103 6)
@@ -329,10 +332,11 @@
       )
      ((=ucs		  . #x5341)	; 十
       ))
+    (sound@ja/on/go	"tou")
+    (sound@ja/on/kan	"tAu")
     (=ucs		. #x204DD)	; 𠓝
     (=cns11643-5	. #x2135)	; &I-C5-2135; [01-21]
     (=daikanwa		. 01420)	; &I-M-01420;
-    (=hanziku-1		. #xB944)	; &I-HZK01-B944;
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -350,6 +354,8 @@
        ((===daikanwa	    . 01420)	; &R-M-01420;
 	)
        ((===ucs@iso	    . #x204DD)	; &R-U-000204DD;
+	)
+       ((=hanziku-1	    . #xB944)	; &HZK01-B944;
 	))
       )
      ((ideographic-structure

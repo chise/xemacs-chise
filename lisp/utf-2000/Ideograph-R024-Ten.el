@@ -3403,6 +3403,14 @@
     ))
 (define-char
   '((ideographic-radical . 24)	; ⼗
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=big5-cdp	  . #x857A)	; &CDP-857A;
+      )
+     ((=>ucs@iwds-1	  . #x4ED0)	; &A-IWDSU+4ED0;
+      ))
     (=ucs		. #x209B5)	; 𠦵
     ))
 (define-char
@@ -3413,12 +3421,19 @@
     (ideographic-strokes . 11)
     (total-strokes	 . 13)
     (hanyu-dazidian	1 66 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=big5-cdp	  . #x857A)	; &CDP-857A;
+      )
+     ((=ucs		  . #x4ED0)	; 仐
+      ))
     (=ucs@iso		. #x209B5)	; &C6-5077;
     (=cns11643-6	. #x5077)	; &C6-5077; [48-87]
     (=daikanwa		. 02764)	; &I-M-02764;
     (<-ancient
-     ((=ucs@unicode	  . #x5E2B)	; &AJ1-02211;
-      (=adobe-japan1-0	  . 02211)	; &AJ1-02211;
+     ((=ucs		  . #x5E2B)	; 師
       (=daikanwa	  . 08916)	; &I-M-08916;
       ))
     (<-ancient*sources

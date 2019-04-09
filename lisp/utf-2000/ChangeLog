@@ -5,6 +5,18 @@
 
 2019-04-08  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R011-Enter.el (U-000204DD): Add
+	`<-denotational@component' for A-IWDSU+4ED0; add
+	`sound@ja/on/{kan|go}'; apply new conventions for glyph
+	granularity.
+
+	* Ideograph-R007-Two.el (U+51B5): Add A2-DJT-06058 into
+	`<-denotational@usage'.
+	(U-0002F81B): Add <-denotational@usage' for A2-DJT-00143.
+
+	* Ideograph-R024-Ten.el (U-000209B5): Add `ideographic-structure'.
+	(IU+209B5): Likewise.
+
 	* Ideograph-R001-One.el: Add glyph-images of HNG-WKS.
 
 2019-04-07  MORIOKA Tomohiko  <tomo.git@chise.org>
