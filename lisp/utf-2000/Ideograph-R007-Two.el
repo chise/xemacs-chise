@@ -1373,6 +1373,8 @@
 (define-char
   '((<-denotational@usage
      ((==>daijiten	  . 00143)	; &A2-DJT-00143;
+      )
+     ((==>daijiten	  . 06058)	; &A2-DJT-06058;
       ))
     (ideographic-radical@r007 . 7)	; ⼆
     (ideographic-radical@r007*sources
@@ -1387,6 +1389,9 @@
 (define-char
   '((<-denotational
      ((=ucs		  . #x51B5)	; 况
+      ))
+    (<-denotational@usage
+     ((==>daijiten	  . 00143)	; &A2-DJT-00143;
       ))
     (=>ucs*		. #x51B5)	; 况
     (ideographic-radical . 7)	; ⼆
