@@ -453,6 +453,7 @@
 	  (===hng-doh			      "HNG057-" 5 d)
 	  (===hng-jyu			      "HNG058-" 5 d)
 	  (===hng-tzs			      "HNG060-" 5 d)
+	  (===hng-sai			      "HNG061-" 5 d)
 	  (===hng-kss			      "HNG064-" 5 d)
 	  (===hng-kyo			      "HNG066-" 5 d)
 	  (===hng-ykk			      "HNG068-" 5 d)
