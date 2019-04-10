@@ -3406,6 +3406,14 @@
 		  graphic	2
 		  columns	2
 		  direction	l2r))
+  (make-charset '===hng-sai "HNG:最上秘密那拏天經(東禪寺版日本寫本)"
+		'(long-name "HNG/最上秘密"
+		  chars		256
+		  dimension	2
+		  registry	"hng-61$"
+		  graphic	2
+		  columns	2
+		  direction	l2r))
   (make-charset '===hng-kss "HNG:華嚴信種義（明惠自筆）"
 		'(long-name "HNG/華嚴信種"
 		  chars		256

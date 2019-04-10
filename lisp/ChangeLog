@@ -1,3 +1,14 @@
+2019-04-10  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
+	setting for `===hng-sai'.
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`===hng-sai'.
+
+	* mule/mule-conf.el (===hng-sai): New coded-charset for XEmacs
+	CHISE.
+
 2019-04-09  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
