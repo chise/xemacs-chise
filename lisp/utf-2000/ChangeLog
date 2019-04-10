@@ -1,3 +1,8 @@
+2019-04-10  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* char-db-util.el (char-db-insert-ccs-feature): Format
+	`===hng-sai' as decimal.
+
 2019-04-09  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R021-Spoon.el: Add Daijiten numbers.
