@@ -3414,6 +3414,14 @@
 		  graphic	2
 		  columns	2
 		  direction	l2r))
+  (make-charset '===hng-kad "HNG:大般若經卷八十(春日版)"
+		'(long-name "HNG/春日般若"
+		  chars		256
+		  dimension	2
+		  registry	"hng-62$"
+		  graphic	2
+		  columns	2
+		  direction	l2r))
   (make-charset '===hng-kss "HNG:華嚴信種義（明惠自筆）"
 		'(long-name "HNG/華嚴信種"
 		  chars		256
