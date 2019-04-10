@@ -1,5 +1,35 @@
 2019-04-09  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R021-Spoon.el: Add Daijiten numbers.
+	(U+5315): Use `<-denotational@component' instead of
+	`<-denotational' for A-IWDSU+5315.
+	(U-0002090E): Likewise.
+	(A-IWDSU+352B): New abstract node.
+	(U+352B): Add `<-denotational@component' for A-IWDSU+352B.
+
+2019-04-09  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R009-Man.el (A-IWDSU+4ED0): New abstract node.
+	(U+4ED0): Add `<-denotational@component' for A-IWDSU+4ED0; add
+	`sound@ja/on'; add `<-simplified@misc' for UU+5098; add
+	representative nodes.
+	(U+4F1E): Apply new conventions for glyph granularity; use
+	`<-denotational@usage' instead of `<-denotational' for BUCS+5098.
+	(A-IWDSU+5002): Use `<-denotational@usage' instead of
+	`<-denotational' for BUCS+5002.
+	(U+345D): Apply new conventions for glyph granularity.
+	(U+505B): Add `ideographic-structure'; add `sound@ja/on/{kan|go}'.
+	(UU+505B): Unify MJ006921 and KOSEKI-010090; add representative
+	nodes.
+	(CU+505B): Add representative node.
+	(U-000202C1): Apply new conventions for glyph granularity.
+	(U+5098): Likewise; use `<-denotational@usage' instead of
+	`<-denotational' for BUCS+5098.
+	(U-000203A4): Apply new conventions for glyph granularity.
+	(BUCS+5002): Unify A2-DJT-02902.
+
+	* Ideograph-R001-One.el: Add glyph-images of HNG-INI.
+
 	* char-db-util.el (char-db-insert-ccs-feature): Format
 	`===hng-ini' as decimal.
 
