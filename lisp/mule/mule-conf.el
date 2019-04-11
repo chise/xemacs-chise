@@ -3446,6 +3446,14 @@
 		  graphic	2
 		  columns	2
 		  direction	l2r))
+  (make-charset '===hng-saa "HNG:阿毘達磨大毘婆沙論卷百七十(正倉院本)"
+		'(long-name "HNG/正毘170"
+		  chars		256
+		  dimension	2
+		  registry	"hng-70$"
+		  graphic	2
+		  columns	2
+		  direction	l2r))
   (make-charset '===hng-sab "HNG:阿毘達磨大毘婆沙論卷百七十八(正倉院本)"
 		'(long-name "HNG/正毘178"
 		  chars		256
