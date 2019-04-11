@@ -570,6 +570,7 @@ DESCRIPTION (string) is the description string of the charset."
 	  ===hng-kss ; 64
 	  ===hng-kyo ; 66
 	  ===hng-ykk ; 68
+	  ===hng-saa ; 70
 	  ===hng-sab ; 71
 	  ===hng-wks ; 72
 	  ===hng-wke ; 73
