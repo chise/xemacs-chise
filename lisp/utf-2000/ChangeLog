@@ -5,6 +5,17 @@
 
 2019-04-10  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R014-Cover.el:
+	- Add Daijiten numbers.
+	- Use `<-denotational@usage' instead of `<-denotational' for BUCS
+	  (super abstract) character objects.
+	(BUCS+5197): Moved to Ideograph-R040-Roof.el.
+	(A-U+21A5C-itaiji-001): New abstract node; unify
+	A-U+21A5C-itaiji-002.
+	(U+21A5C-itaiji-001): New character; use `<-denotational' for
+	A-U+21A5C-itaiji-001.
+	(U+21A5C-itaiji-002): Ditto.
+
 	* Ideograph-R002-Line.el (HNG-KAD0122-0): New glyph; use
 	`<-subsumptive' for g2-UU+4E2D.
 
