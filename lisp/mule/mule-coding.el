@@ -458,6 +458,7 @@
 	  (===hng-kss			      "HNG064-" 5 d)
 	  (===hng-kyo			      "HNG066-" 5 d)
 	  (===hng-ykk			      "HNG068-" 5 d)
+	  (===hng-saa			      "HNG070-" 5 d)
 	  (===hng-sab			      "HNG071-" 5 d)
 	  (===hng-wks			      "HNG072-" 5 d)
 	  (===hng-wke			      "HNG073-" 5 d)
