@@ -3494,6 +3494,14 @@
 		  graphic	2
 		  columns	2
 		  direction	l2r))
+  (make-charset '===hng-sts "HNG:四分律卷第二十(正倉院唐經)"
+		'(long-name "HNG/正四分20"
+		  chars		256
+		  dimension	2
+		  registry	"hng-78$"
+		  graphic	2
+		  columns	2
+		  direction	l2r))
 
   (make-charset '=cbeta "CBETA private characters"
 		'(long-name	"CBETA PUA"
