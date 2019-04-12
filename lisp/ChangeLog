@@ -1,6 +1,17 @@
 2019-04-12  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
+	setting for `===hng-sts'.
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`===hng-sts'.
+
+	* mule/mule-conf.el (===hng-sts): New coded-charset for XEmacs
+	CHISE.
+
+2019-04-12  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
 	setting for `===hng-sgs'.
 
 	* mule/mule-charset.el (default-coded-charset-priority-list): Add
