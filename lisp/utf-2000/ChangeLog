@@ -1,3 +1,8 @@
+2019-04-12  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* char-db-util.el (char-db-insert-ccs-feature): Format
+	`===hng-sgs' as decimal.
+
 2019-04-11  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R001-One.el: Add glyph-images of HNG-SAA.
