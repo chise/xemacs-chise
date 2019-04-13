@@ -2505,6 +2505,28 @@
     ))
 (define-char
   '((ideographic-radical . 38)	; ⼥
+    (ideographic-strokes . 4)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x9FB6)	; 龶
+      )
+     ((=ucs		  . #x5973)	; 女
+      ))
+    (=gt-k		. 03349)	; &GT-K03349;
+    (=gt-pj-k1		. #x4459)	; &GT-K03349; [36-57]
+    (<-formed
+     ((=ucs		  . #x97CB)	; 韋
+      ))
+    (->subsumptive
+     ((==gt-k		  . 03349)	; &g2-GT-K03349;
+      (==gt-pj-k1	  . #x4459)	; &g2-GT-K03349; [36-57]
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
     (=ucs		. #x36B0)	; 㚰
