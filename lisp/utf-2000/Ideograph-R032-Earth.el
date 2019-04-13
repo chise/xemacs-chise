@@ -12879,7 +12879,10 @@
      ucs)
     ))
 (define-char
-  '((ideographic-radical . 32)	; ⼟
+  '((<-denotational@usage
+     ((==>daijiten	  . 00944)	; &A2-DJT-00944;
+      ))
+    (ideographic-radical . 32)	; ⼟
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -15928,7 +15931,7 @@
       )
      ((=ucs		  . #x5774)	; 坴
       )
-     ((=gt-k		  . 00604)	; &GT-K00604;
+     ((=gt-k		  . 00604)	; &DJT-00054;
       ))
     (=ucs@iso		. #x21390)	; &C6-474A;
     (=cns11643-6	. #x474A)	; &C6-474A; [39-42]
@@ -17376,24 +17379,7 @@
       ))
     ))
 (define-char
-  '((=>ucs		. #x213B0)	; 𡎰
-    (ideographic-radical . 32)	; ⼟
-    (ideographic-strokes . 10)
-    (total-strokes	 . 13)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((=ucs		  . #x571F)	; 土
-      )
-     ((=daikanwa	  . 07716)	; &M-07716;
-      ))
-    (=daikanwa		. 05334)	; &M-05334;
-    (=cbeta		. 00092)	; &I-CB00092;
-    ))
-(define-char
-  '((morohashi-daikanwa	5334 0 0)
-    (ideographic-radical . 32)	; ⼟
+  '((ideographic-radical . 32)	; ⼟
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
     (ideographic-structure
@@ -17404,8 +17390,36 @@
       )
      ((=ucs		  . #x5C56)	; 屖
       ))
+    (sound@ja/on	"ti")
     (=ucs		. #x213B0)	; 𡎰
     (=cns11643-6	. #x514B)	; &I-C6-514B; [49-43]
+    (=daikanwa		. 05334)	; &I-M-05334;
+    (=cbeta		. 00092)	; &I-CB00092;
+    (<-formed
+     ((=daikanwa	  . 05404)	; &M-05404;
+      ))
+    (<-formed$_1*sources
+     jiyun)
+    (<-same
+     ((=daikanwa	  . 05404)	; &M-05404;
+      ))
+    (<-same*sources
+     jiyun daikanwa)
+    (->subsumptive
+     ((==ucs@iso	  . #x213B0)	; &g2-M-05334;
+      (==cns11643-6	  . #x514B)	; &g2-M-05334; [49-43]
+      (==daikanwa	  . 05334)	; &g2-M-05334;
+      (==cbeta		  . 00092)	; &g2-M-05334;
+      (->subsumptive
+       ((===daikanwa	    . 05334)	; &R-M-05334;
+	)
+       ((===cbeta	    . 00092)	; &R-CB00092;
+	)
+       ((===cns11643-6	    . #x514B)	; &R-C6-514B; [49-43]
+	)
+       ((===ucs@iso	    . #x213B0)	; &R-U-000213B0;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 32)	; ⼟
