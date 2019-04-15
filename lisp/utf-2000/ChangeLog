@@ -1,5 +1,9 @@
 2019-04-12  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R042-Small.el (BC-885E-var-003): New character; use
+	`<-denotational@component' for U-00021B54.
+	(BC-885E): Likewise.
+
 	* Ideograph-R038-Woman.el (GT-K03349): New character.
 
 	* Ideograph-R002-Line.el (HNG-STS0117-0): New glyph; use
@@ -114,6 +118,13 @@
 
 	* char-db-util.el (char-db-insert-ccs-feature): Format
 	`===hng-wks' as decimal.
+
+2019-04-06  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R051-Dry.el:
+	- Add Daijiten numbers.
+	- Use `<-denotational@usage' instead of `<-denotational' for BUCS
+	  (super abstract) character objects.
 
 2019-04-05  MORIOKA Tomohiko  <tomo.git@chise.org>
 
