@@ -2,6 +2,15 @@
 
 	* Ideograph-R008-Lid.el (U+7AD2): Add `ideographic-structure'.
 
+2019-04-13  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R071-Not.el (A-compU+65E0): Changed from U+65E0; add
+	`<-denotational@usage' for BUCS+7121.
+	(AJ1-05088): Unify U+65E0 instead of A-IWDSU+65E0 and UU+65E0; use
+	A-compU+65E0 instead of U+65E0 as its mother.
+	(U+65E0-itaiji-001): Use A-compU+65E0 instead of U+65E0 as its
+	mother.
+
 2019-04-12  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R042-Small.el (BC-885E-var-003): New character; use
