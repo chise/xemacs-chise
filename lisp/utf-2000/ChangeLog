@@ -1,3 +1,7 @@
+2019-04-15  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R008-Lid.el (U+7AD2): Add `ideographic-structure'.
+
 2019-04-12  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R042-Small.el (BC-885E-var-003): New character; use
