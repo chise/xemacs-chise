@@ -2606,6 +2606,14 @@
     (ideographic-radical@misc*sources
      daikanwa=00310 cbeta)
     (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=big5-cdp	  . #x8BAE)	; &CDP-8BAE;
+      )
+     ((=ucs		  . #x53EF)	; 可
+      ))
     (=ucs		. #x7AD2)	; 竒
     (=adobe-japan1-0	. 04549)	; &I-AJ1-04549;
     (=jis-x0208		. #x5474)	; &I-J90-5474; [52-84]
