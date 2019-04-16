@@ -1,5 +1,28 @@
 2019-04-15  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R015-Ice.el:
+	- Add Daijiten numbers.
+	- Use `<-denotational@usage' instead of `<-denotational' for BUCS
+	  (super abstract) character objects.	
+	(A-IWDSU+51AD): New abstract node.
+	(U+51AD): Add `<-denotational' for A-IWDSU+51AD; add
+	`ideographic-structure'.
+
+	* Ideograph-R013-Down-Box.el (U+5195): Add
+	`<-denotational@component' for A-IWDSU+5195; add
+	`ideographic-structure'.
+	(U-00020564): Add `<-denotational@component' for A-IWDSU+5195; use
+	IWDS1-0118 instead of U+5183 as a component.
+	(IU+20564): Use <CJK RADICAL SUN> instead of U+5183 as a
+	component.
+	(H4-E3AB): Likewise.
+	(A-IWDSU+5195): New abstract node.
+
+	* Ideograph-R007-Two.el (U+51B5): Add `ideographic-structure'.
+
+	* Ideograph-R003-Dot.el (U+4E3E): Use U+5174 instead of GT-K02290
+	as a component.
+
 	* Ideograph-R008-Lid.el (U+7AD2): Add `ideographic-structure'.
 
 2019-04-13  MORIOKA Tomohiko  <tomo.git@chise.org>
