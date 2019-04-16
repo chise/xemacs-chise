@@ -1309,7 +1309,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
       (=ucs		  . #x2FF5)	; ⿵
       )
-     ((=gt-k		  . 02290)	; &GT-K02290;
+     ((=ucs		  . #x5174)	; 兴
       )
      ((=big5-cdp	  . #x8BF1)	; &CDP-8BF1;
       ))
