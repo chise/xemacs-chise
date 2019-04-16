@@ -1384,6 +1384,15 @@
      daikanwa=01620 jis-x0208@1997)
     (ideographic-strokes . 5)
     (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=>ucs@iwds-1	  . #x4E8C)	; &A-IWDSU+4E8C;
+      (=>iwds-1		  .  0047)	; &A-IWDSU+4E8C;
+      )
+     ((=ucs		  . #x5144)	; 兄
+      ))
     (=ucs		. #x51B5)	; 况
     ))
 (define-char
