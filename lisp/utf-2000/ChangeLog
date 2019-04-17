@@ -1,3 +1,10 @@
+2019-04-17  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* dumped-chars.el (system-char-db-source-file-list): Add
+	"additional-idc".
+
+	* additional-idc.el: New file.
+
 2019-04-15  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R015-Ice.el:
