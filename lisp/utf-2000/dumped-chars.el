@@ -305,6 +305,7 @@
 	"Oracle-Bones"
 	"ShuoWen"
 	"ruimoku6"
+	"additional-idc"
 	"additional-precomposed"
 	"maps-conf"
 	"ccs-tcvn5712.el"))
