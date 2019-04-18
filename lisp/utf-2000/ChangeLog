@@ -1,3 +1,10 @@
+2019-04-18  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R029-Again.el (U+53D5-itaiji-001): New character; use
+	`<-denotational@usage' for A2-DJT-01126.
+
+	* Ideograph-R017-Open-Box.el (GT-K03099): New character.
+
 2019-04-17  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R010-Legs.el (U-0002048E): Apply new conventions for
