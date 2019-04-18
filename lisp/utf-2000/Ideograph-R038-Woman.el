@@ -20390,6 +20390,40 @@
     ))
 (define-char
   '((ideographic-radical . 38)	; ⼥
+    (ideographic-strokes . 11)
+    (total-strokes	 . 14)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5973)	; 女
+      )
+     ((=>ucs-itaiji-001	  . #x6578)	; &A-U-i001+6578;
+      ))
+    (=ucs		. #x2182F)	; 𡠯
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2182F)	; 𡠯
+      ))
+    (ideographic-radical . 38)	; ⼥
+    (ideographic-strokes . 11)
+    (total-strokes	 . 14)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5973)	; 女
+      )
+     ((=ucs-itaiji-001	  . #x6578)	; &U-i001+6578;
+      ))
+    (=ucs@iso		. #x2182F)	; &U-0002182F;
+    (->subsumptive
+     ((==ucs@iso	  . #x2182F)	; &g2-IU-0002182F;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 38)	; ⼥
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
