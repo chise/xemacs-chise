@@ -878,6 +878,43 @@
     (=ucs-var-001	. #x21249)	; &U-v001+21249;
     ))
 (define-char
+  '((<-denotational
+     ((=ucs		  . #x21249)	; 𡉉
+      ))
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>gt-k		  . 01189)	; &A-GT-K01189;
+      )
+     ((=ucs		  . #x4E00)	; 一
+      ))
+    (=>big5-cdp		. #x8D44)	; &A-CDP-8D44;
+    (<-formed@component/connect-below
+     ((=ucs		  . #x21249)	; 𡉉
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>big5-cdp	  . #x8D44)	; &A-CDP-8D44;
+      ))
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=gt-k		  . 01189)	; &U-i002+21249;
+      )
+     ((=ucs		  . #x4E00)	; 一
+      ))
+    (=big5-cdp		. #x8D44)	; &CDP-8D44;
+    (<-formed@component/connect-below
+     ((=ucs-var-001	  . #x21249)	; &U-v001+21249;
+      ))
+    (->subsumptive
+     ((==big5-cdp	  . #x8D44)	; &g2-CDP-8D44;
+      ))
+    ))
+(define-char
   '((ideographic-radical . 32)	; ⼟
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
@@ -1546,6 +1583,32 @@
     (->subsumptive
      ((==ucs@JP/hanazono  . #x2D37B)	; &g2-MJ059446;
       (==mj		  . 059446)	; &g2-MJ059446;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 32)	; ⼟
+    (ideographic-strokes . 3)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x53E3)	; 口
+      )
+     ((=ucs		  . #x571F)	; 土
+      ))
+    (=gt-k		. 01821)	; &GT-K01821;
+    (=gt-pj-k1		. #x4570)	; &GT-K01821; [37-80]
+    (->subsumptive
+     ((==gt-k		  . 01821)	; &g2-GT-K01821;
+      (==gt-pj-k1	  . #x4570)	; &g2-GT-K01821; [37-80]
+      )
+     ((=gt-k		  . 01822)	; &GT-K01822;
+      (=gt-pj-k1	  . #x4E39)	; &GT-K01822; [46-25]
+      (->subsumptive
+       ((==gt-k		    . 01822)	; &g2-GT-K01822;
+	(==gt-pj-k1	    . #x4E39)	; &g2-GT-K01822; [46-25]
+	))
       ))
     ))
 (define-char
@@ -15107,8 +15170,11 @@
       )
      ((=ucs		  . #x571F)	; 土
       ))
-    (=ucs@iso		. #x2136F)	; &C6-4744;
-    (=cns11643-6	. #x4744)	; &C6-4744; [39-36]
+    (=ucs@iso		. #x2136F)	; &GT-06597;
+    (=cns11643-6	. #x4744)	; &GT-06597; [39-36]
+    (=gt		. 06597)	; &I-GT-06597;
+    (=gt-k		. 09256)	; &I-GT-K09256;
+    (=gt-pj-2		. #x612E)	; &I-GT-06597; [65-14]
     (=daikanwa		. 05281)	; &I-M-05281;
     (<-Small-Seal
      ((=ucs@cns		  . #x5794)	; &AJ1-21334;
@@ -15119,15 +15185,20 @@
     (<-Small-Seal*sources
      zhengzitong daikanwa)
     (->subsumptive
-     ((==ucs@iso	  . #x2136F)	; &g2-M-05281;
-      (==cns11643-6	  . #x4744)	; &g2-M-05281; [39-36]
-      (==daikanwa	  . 05281)	; &g2-M-05281;
+     ((==ucs@iso	  . #x2136F)	; &g2-GT-06597;
+      (==cns11643-6	  . #x4744)	; &g2-GT-06597; [39-36]
+      (==gt		  . 06597)	; &g2-GT-06597;
+      (==gt-k		  . 09256)	; &g2-GT-06597;
+      (==daikanwa	  . 05281)	; &g2-GT-06597;
       (->subsumptive
        ((===daikanwa	    . 05281)	; &R-M-05281;
 	)
        ((===ucs@iso	    . #x2136F)	; &R-U-0002136F;
 	)
        ((===cns11643-6	    . #x4744)	; &R-C6-4744; [39-36]
+	)
+       ((===gt		    . 06597)	; &R-GT-06597;
+	(===gt-k	    . 09256)	; &R-GT-06597;
 	))
       ))
     ))
@@ -15166,6 +15237,30 @@
     (=ucs-itaiji-001	. #x2136F)	; &U-i001+2136F;
     (->subsumptive
      ((==ucs-itaiji-001	  . #x2136F)	; &g2-U-i001+2136F;
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs-itaiji-001	  . #x2136F)	; &A-U-i001+2136F;
+      ))
+    (ideographic-radical . 32)	; ⼟
+    (ideographic-strokes . 9)
+    (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs@unicode	  . #x38B4)	; &C6-307A;
+      (=cns11643-6	  . #x307A)	; &C6-307A; [16-90]
+      (=daikanwa	  . 09776)	; &I-M-09776;
+      )
+     ((=ucs		  . #x571F)	; 土
+      ))
+    (=gt-k		. 09257)	; &GT-K09257;
+    (=gt-pj-k1		. #x5A4D)	; &GT-K09257; [58-45]
+    (->subsumptive
+     ((==gt-k		  . 09257)	; &g2-GT-K09257;
+      (==gt-pj-k1	  . #x5A4D)	; &g2-GT-K09257; [58-45]
       ))
     ))
 (define-char
