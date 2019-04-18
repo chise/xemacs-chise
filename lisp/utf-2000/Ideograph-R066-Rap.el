@@ -3759,6 +3759,41 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
+     ((=gt-k		  . 03349)	; &GT-K03349;
+      )
+     ((=>ucs@component	  . #x6535)	; &A-compU+6535;
+      (=>iwds-1		  .  0194)	; &A-compU+6535;
+      ))
+    (=>ucs-itaiji-001	. #x6578)	; &A-U-i001+6578;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs-itaiji-001	  . #x6578)	; &A-U-i001+6578;
+      ))
+    (ideographic-radical . 66)	; ⽁
+    (ideographic-strokes . 7)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=gt-k		  . 03349)	; &GT-K03349;
+      )
+     ((=ucs		  . #x6535)	; 攵
+      ))
+    (=ucs-itaiji-001	. #x6578)	; &U-i001+6578;
+    (->subsumptive
+     ((==ucs-itaiji-001	  . #x6578)	; &g2-U-i001+6578;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 66)	; ⽁
+    (ideographic-strokes . 7)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
      ((=ucs-itaiji-001	  . #x21D42)	; &U-i001+21D42;
       )
      ((=ucs		  . #x6535)	; 攵
