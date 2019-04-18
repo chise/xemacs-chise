@@ -2156,6 +2156,15 @@
     ))
 (define-char
   '((ideographic-radical . 7)	; ⼆
+    (ideographic-strokes . 8)
+    (total-strokes	 . 10)
+    (=big5-cdp-itaiji-001 . #x87A5)	; &CDP-i001-87A5;
+    (->subsumptive
+     ((==big5-cdp-itaiji-001 . #x87A5)	; &g2-CDP-i001-87A5;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 7)	; ⼆
     (ideographic-strokes . 9)
     (total-strokes	 . 11)
     (hanyu-dazidian	1 26 9)
