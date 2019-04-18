@@ -3862,12 +3862,30 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 10)	; ⼉
+  '((<-denotational
+     ((=>ucs@iwds-1	  . #x9CEC)	; &A-IWDSU+9CEC;
+      ))
+    (ideographic-radical . 10)	; ⼉
     (ideographic-strokes . 7)
     (total-strokes	 . 9)
     (hanyu-dazidian	8 9 23)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=big5-cdp	  . #x8CBB)	; &CDP-8CBB;
+      )
+     ((=ucs		  . #x513F)	; 儿
+      ))
     (=ucs		. #x2048E)	; 𠒎
-    (=hanziku-12	. #xEBA6)	; &I-HZK12-EBA6;
+    (->subsumptive
+     ((==ucs@iso	  . #x2048E)	; &g2-IU-0002048E;
+      (->subsumptive
+       ((===ucs@iso	    . #x2048E)	; &R-U-0002048E;
+	)
+       ((=hanziku-12	    . #xEBA6)	; &HZK12-EBA6;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 10)	; ⼉
