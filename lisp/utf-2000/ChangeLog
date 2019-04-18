@@ -1,5 +1,16 @@
 2019-04-17  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R032-Earth.el (A-BC-8D44): New abstract node; use
+	`<-denotational' for U-00021249.
+	(BC-8D44): New character; use `<-denotational' for A-BC-8D44.
+	(GT-K01821): New character.
+	(GT-K01822): New character; use `<-subsumptive' for GT-K01821.
+	(IU+2136F): Unify GT-06597 and GT-K09256.
+	(GT-K09257): New character; use `<-denotational' for
+	A-U+2136F-itaiji-001.
+
+	* Ideograph-R007-Two.el (BC-87A5-itaiji-001): New character.
+
 	* dumped-chars.el (system-char-db-source-file-list): Add
 	"additional-idc".
 
@@ -29,6 +40,12 @@
 
 	* Ideograph-R003-Dot.el (U+4E3E): Use U+5174 instead of GT-K02290
 	as a component.
+
+	* Ideograph-R066-Rap.el (A-U+6578-itaiji-001): New abstract node.
+	(U+6578-itaiji-001): New character; use `<-denotational' for
+	A-U+6578-itaiji-001.
+
+	* Ideograph-R038-Woman.el (U-0002182F): New character.
 
 	* Ideograph-R008-Lid.el (U+7AD2): Add `ideographic-structure'.
 
