@@ -1,5 +1,16 @@
 2019-04-17  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R010-Legs.el (U-0002048E): Apply new conventions for
+	glyph granularity; add `<-denotational' for A-IWDSU+9CEC.
+
+	* Ideograph-R005-Second.el (U+340A): New character; add
+	`<-denotational@component' for A-IWDSU+340A.
+	(U+340B): Ditto.
+	(A-IWDSU+340A): New abstract node.
+	(A-U+340A-itaiji-001): New abstract node.
+	(U+340A-itaiji-001): New character; use `<-denotational' for
+	A-U+340A-itaiji-001.
+
 	* Ideograph-R032-Earth.el (A-BC-8D44): New abstract node; use
 	`<-denotational' for U-00021249.
 	(BC-8D44): New character; use `<-denotational' for A-BC-8D44.
