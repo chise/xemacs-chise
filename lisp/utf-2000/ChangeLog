@@ -1,5 +1,39 @@
 2019-04-18  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R031-Enclosure.el (U+56D8): Use `<-denotational@usage'
+	instead of `<-denotational' for BUCS+56DE; unify DJT-01604.
+	(A-IWDSU+56DE): Use `<-denotational@usage' instead of
+	`<-denotational' for BUCS+56DE.
+	(U+56DE-itaiji-002): Likewise.
+	(A-U+26270-itaiji-001): New abstract node.
+	(U+26270-itaiji-001): New character; use `<-denotational' for
+	A-U+26270-itaiji-001.
+	(U-000211EB): Apply new conventions for glyph granularity.
+	(M-04780): Unify IU+211EB, MJ032867 and KOSEKI-054570; add
+	`<-denotational' for U-000211EB.
+	(U-000211ED): Unify M-04781, MJ032869 and KOSEKI-054580; apply new
+	conventions for glyph granularity.
+	(U-000211E7): Unify M-04782; apply new conventions for glyph
+	granularity.
+	(U-000211E6): Unify M-04783; apply new conventions for glyph
+	granularity.
+	(U-000211EC): Apply new conventions for glyph granularity.
+	(M-04784): Unify IU+211EC; add `<-denotational' for U-000211EC.
+	(U-000211EE): Unify M-04785; apply new conventions for glyph
+	granularity.
+	(U-000211E9): Apply new conventions for glyph granularity.
+	(M-04786): Unify IU+211E9; add `<-denotational' for U-000211E9.
+	(U+5706): Use `<-denotational@usage' instead of `<-denotational'
+	for BUCS+5713; apply new conventions for glyph granularity.
+	(A-IWDSU+5713): New abstract node; use `<-denotational@usage' for
+	BUCS+5713.
+	(U+570E): Add `sound@ja/on'; add `<-denotational' for
+	A-IWDSU+5713.
+	(U+5713): Add `<-denotational' for A-IWDSU+5713.
+	(A2-DJT-01607): New abstract node.
+	(BUCS+5713): Unify A2-DJT-01645.
+	(BUCS+56DE): Unify A2-DJT-01609.
+
 	* Ideograph-R029-Again.el (U+53D5-itaiji-001): New character; use
 	`<-denotational@usage' for A2-DJT-01126.
 
@@ -39,7 +73,7 @@
 	* Ideograph-R015-Ice.el:
 	- Add Daijiten numbers.
 	- Use `<-denotational@usage' instead of `<-denotational' for BUCS
-	  (super abstract) character objects.	
+	  (super abstract) character objects.
 	(A-IWDSU+51AD): New abstract node.
 	(U+51AD): Add `<-denotational' for A-IWDSU+51AD; add
 	`ideographic-structure'.
