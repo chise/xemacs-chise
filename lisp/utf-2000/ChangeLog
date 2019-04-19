@@ -1,3 +1,29 @@
+2019-04-19  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R033-Scholar.el (U+58F1): Apply new conventions for
+	glyph granularity.
+	(U-0002152A): New character.
+	(M-05659): Unify IU+2152A, MJ033292 and KOSEKI-064790; use
+	`<-denotational' for U-0002152A.
+	(U-0002152B): New character.
+	(M-05660): Unify IU+2152B; use `<-denotational' for U-0002152B.
+	(U+58F9): Apply new conventions for glyph granularity.
+	(U-00021539): Likewise.
+	(U+5901): Add `ideographic-structure'; add `sound@ja/on'.
+	(U-0002153E): Apply new conventions for glyph granularity.
+	(U-0002154B): Likewise.
+	(U-00021548): Add `sound@ja/on'.
+	(IU+21548): Unify MJ033309, KOSEKI-065090 and M-05687.
+	(U-0002154D): Apply new conventions for glyph granularity.
+
+	* Ideograph-R008-Lid.el (U+4EA9): Use `->subsumptive'.
+	(A-cgnU+20181): Changed from U-00020181.
+	(A-IWDSU+20181): Unify U-00020181; omit `=>ucs@iwds-1' and
+	`=+>ucs@iso'; use A-cgnU+20181 instead of U-00020181 as its
+	mother.
+	(IU+20181): Add `<-same' for MJ022559.
+	(H1-E255): Use A-cgnU+20181 instead of U-00020181 as its mother.
+
 2019-04-18  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R031-Enclosure.el (U+56D8): Use `<-denotational@usage'
@@ -33,6 +59,9 @@
 	(A2-DJT-01607): New abstract node.
 	(BUCS+5713): Unify A2-DJT-01645.
 	(BUCS+56DE): Unify A2-DJT-01609.
+
+	* Ideograph-R043-Lame.el (U-00021BC3): New character; use
+	`<-denotational@component' for A-IWDSU+352B.
 
 	* Ideograph-R029-Again.el (U+53D5-itaiji-001): New character; use
 	`<-denotational@usage' for A2-DJT-01126.
