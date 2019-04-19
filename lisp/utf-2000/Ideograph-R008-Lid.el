@@ -1547,6 +1547,7 @@
   '((ideographic-radical . 8)	; ⼇
     (ideographic-strokes . 5)
     (total-strokes	 . 7)
+    (hanyu-dazidian	1 284 2)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
@@ -1557,23 +1558,21 @@
       ))
     (=ucs		. #x4EA9)	; 亩
     (=gb2312		. #x4436)	; &I-G0-4436; [36-22]
-    ))
-(define-char
-  '((=>ucs		. #x4EA9)	; 亩
-    (ideographic-radical . 8)	; ⼇
-    (ideographic-strokes . 5)
-    (total-strokes	 . 7)
-    (hanyu-dazidian	1 284 2)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-      (=ucs		  . #x2FF1)	; ⿱
-      )
-     ((=ucs@jis		  . #x4EA0)	; &AJ1-04110;
-      (=adobe-japan1-0	  . 04110)	; &AJ1-04110;
-      )
-     ((=ucs		  . #x7530)	; 田
+    (=big5-cdp		. #x8DCA)	; &I-CDP-8DCA;
+    (<-simplified@CN
+     ((=ucs		  . #x755D)	; 畝
+      (=gb12345		  . #x4436)	; 畝 [36-22]
       ))
-    (=big5-cdp		. #x8DCA)	; &CDP-8DCA;
+    (->subsumptive
+     ((==ucs@unicode	  . #x4EA9)	; &g2-CDP-8DCA;
+      (==gb2312		  . #x4436)	; &g2-CDP-8DCA; [36-22]
+      (==big5-cdp	  . #x8DCA)	; &g2-CDP-8DCA;
+      (->subsumptive
+       ((===big5-cdp	    . #x8DCA)	; &R-CDP-8DCA;
+	)
+       ((===ucs@unicode	    . #x4EA9)	; &R-UU+4EA9;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 8)	; ⼇
@@ -4312,11 +4311,11 @@
   '((ideographic-radical . 8)	; ⼇
     (ideographic-strokes . 13)
     (total-strokes	 . 15)
-    (=ucs		. #x20181)	; 𠆁
+    (=>ucs@cognate	. #x20181)	; &A-cgnU+20181;
     ))
 (define-char
   '((<-denotational
-     ((=ucs		  . #x20181)	; 𠆁
+     ((=>ucs@cognate	  . #x20181)	; &A-cgnU+20181;
       ))
     (ideographic-radical . 8)	; ⼇
     (ideographic-strokes . 13)
@@ -4329,21 +4328,28 @@
       )
      ((=>ucs-itaiji-001	  . #x3F0C)	; &A-U-i001+3F0C;
       ))
-    (=>ucs@iwds-1	. #x20181)	; &A-IWDSU+20181;
-    (=+>ucs@iso		. #x20181)	; &A-IWDSU+20181;
+    (sound@ja/on	"ra")
+    (=ucs		. #x20181)	; 𠆁
     (->subsumptive
-     ((hanyu-dazidian	  1 292 4)
-      (ideographic-structure
+     ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((=big5-cdp	    . #x8DCA)	; &CDP-8DCA;
+       ((=ucs		    . #x4EA9)	; 亩
 	)
        ((=ucs-itaiji-001    . #x3F0C)	; &U-i001+3F0C;
 	))
       (=ucs@iso		  . #x20181)	; &C5-4B71;
       (=cns11643-5	  . #x4B71)	; &C5-4B71; [43-81]
       (=daikanwa	  . 00330)	; &I-M-00330;
+      (<-same
+       ((=mj		    . 022559)	; &MJ022559;
+	(=daikanwa	    . 31658)	; &I-M-31658;
+	))
+      (<-same$_1*sources
+       pianhai daikanwa)
+      (<-same*sources
+       pianhai daikanwa)
       (->subsumptive
        ((==daikanwa	    . 00330)	; &g2-M-00330;
 	)
@@ -4356,11 +4362,12 @@
     ))
 (define-char
   '((<-denotational
-     ((=ucs		  . #x20181)	; 𠆁
+     ((=>ucs@cognate	  . #x20181)	; &A-cgnU+20181;
       ))
     (ideographic-radical . 8)	; ⼇
     (ideographic-strokes . 13)
     (total-strokes	 . 15)
+    (hanyu-dazidian	1 292 4)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
