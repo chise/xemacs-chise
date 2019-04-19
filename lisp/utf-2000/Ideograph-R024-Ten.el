@@ -1684,6 +1684,15 @@
   '((ideographic-radical . 24)	; ⼗
     (ideographic-strokes . 5)
     (total-strokes	 . 7)
+    (=>ucs@cognate	. #x20991)	; &A-cgnU+20991;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@cognate	  . #x20991)	; &A-cgnU+20991;
+      ))
+    (ideographic-radical . 24)	; ⼗
+    (ideographic-strokes . 5)
+    (total-strokes	 . 7)
     (=ucs		. #x20991)	; 𠦑
     ))
 (define-char
@@ -1707,6 +1716,22 @@
       ))
     (<-vulgar*sources
      yupian daikanwa shinjigen)
+    (->subsumptive
+     ((==ucs@iso	  . #x20991)	; &g2-CDP-88D8;
+      (==cns11643-6	  . #x2639)	; &g2-CDP-88D8; [06-25]
+      (==big5-cdp	  . #x88D8)	; &g2-CDP-88D8;
+      (==daikanwa	  . 02732)	; &g2-CDP-88D8;
+      (==shinjigen	  .  0911)	; &g2-CDP-88D8;
+      (->subsumptive
+       ((===daikanwa	    . 02732)	; &R-M-02732;
+	)
+       ((===big5-cdp	    . #x88D8)	; &R-CDP-88D8;
+	)
+       ((===cns11643-6	    . #x2639)	; &R-C6-2639; [06-25]
+	)
+       ((===ucs@iso	    . #x20991)	; &R-U-00020991;
+	))
+      ))
     ))
 (define-char
   '((<-denotational
@@ -1719,7 +1744,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=ucs		  . #x20991)	; 𠦑
+     ((=>ucs@cognate	  . #x20991)	; &A-cgnU+20991;
       ))
     (ideographic-radical . 24)	; ⼗
     (ideographic-strokes . 5)
@@ -1731,7 +1756,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=ucs		  . #x20991)	; 𠦑
+     ((=>ucs@cognate	  . #x20991)	; &A-cgnU+20991;
       ))
     (ideographic-radical . 24)	; ⼗
     (ideographic-strokes . 5)
