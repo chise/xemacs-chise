@@ -1,5 +1,15 @@
 2019-04-19  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R024-Ten.el (A-cgnU+20991): Changed from U-00020991.
+	(U-00020991): New abstract node; use `<-denotational' for
+	A-cgnU+20991.
+	(IU+20991): Add representative node.
+	(CB07083): Use A-cgnU+20991 instead of U-00020991 as its mother.
+	(BC-8846): Likewise.
+
+	* Ideograph-R015-Ice.el (U-000205E6): Apply new conventions for
+	glyph granularity.
+
 	* Ideograph-R033-Scholar.el (U+58F1): Apply new conventions for
 	glyph granularity.
 	(U-0002152A): New character.
