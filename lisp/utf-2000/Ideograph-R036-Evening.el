@@ -243,6 +243,22 @@
     ))
 (define-char
   '((ideographic-radical . 36)	; ⼣
+    (=>ucs@cognate	. #x5917)	; &A-cgnU+5917;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@cognate	  . #x5917)	; &A-cgnU+5917;
+      ))
+    (ideographic-radical . 36)	; ⼣
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5915)	; 夕
+      )
+     ((=>ucs@component	  . #x5DF1)	; &A-compU+5DF1;
+      (=>iwds-1		  .  0120)	; &A-compU+5DF1;
+      ))
     (=ucs		. #x5917)	; 夗
     ))
 (define-char
@@ -321,6 +337,26 @@
 	)
        ((===mj		    . 009434)	; &R-MJ009434;
 	))
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@cognate	  . #x5917)	; &A-cgnU+5917;
+      ))
+    (ideographic-radical . 36)	; ⼣
+    (ideographic-strokes . 2)
+    (total-strokes	 . 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5902)	; 夂
+      )
+     ((=ucs		  . #x353E)	; 㔾
+      ))
+    (=ucs-itaiji-001	. #x5917)	; &U-i001+5917;
+    (->subsumptive
+     ((==ucs-itaiji-001	  . #x5917)	; &g2-U-i001+5917;
       ))
     ))
 (define-char
@@ -820,17 +856,56 @@
   '((ideographic-radical . 36)	; ⼣
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>ucs@component	  . #x5915)	; &A-compU+5915;
+      )
+     ((=ucs		  . #x706C)	; 灬
+      ))
+    (=>ucs@component	. #x2158B)	; &A-compU+2158B;
+    ))
+(define-char
+  '((<-denotational@component
+     ((=>ucs@component	  . #x2158B)	; &A-compU+2158B;
+      ))
+    (ideographic-radical . 36)	; ⼣
+    (ideographic-strokes . 4)
+    (total-strokes	 . 7)
     (hanyu-dazidian	2 863 4)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5915)	; 夕
+      )
+     ((=ucs		  . #x706C)	; 灬
+      ))
+    (sound@ja/on	"eki")
     (=ucs		. #x2158B)	; 𡖋
     (=cns11643-6	. #x266D)	; &I-C6-266D; [06-77]
     (=daikanwa		. 05761)	; &I-M-05761;
-    (=hanziku-3		. #xADC6)	; &I-HZK03-ADC6;
     (<-ancient
      ((=ucs		  . #x4EA6)	; 亦
       (=daikanwa	  . 00293)	; &I-M-00293;
       ))
     (<-ancient*sources
      zihui-bu daikanwa)
+    (->subsumptive
+     ((==ucs@iso	  . #x2158B)	; &g2-M-05761;
+      (==cns11643-6	  . #x266D)	; &g2-M-05761; [06-77]
+      (==daikanwa	  . 05761)	; &g2-M-05761;
+      (->subsumptive
+       ((===daikanwa	    . 05761)	; &R-M-05761;
+	)
+       ((===cns11643-6	    . #x266D)	; &R-C6-266D; [06-77]
+	)
+       ((===ucs@iso	    . #x2158B)	; &R-U-0002158B;
+	)
+       ((=hanziku-3	    . #xADC6)	; &HZK03-ADC6;
+	))
+      ))
     ))
 (define-char
   '((<-denotational
