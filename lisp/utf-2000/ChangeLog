@@ -1,5 +1,14 @@
 2019-04-19  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R036-Evening.el (A-cgnU+5917): New abstract node.
+	(U+5917): Add `<-denotational' for A-cgnU+5917; add
+	`ideographic-structure'.
+	(U+5917-itaiji-001): New character; use `<-denotational' for
+	A-cgnU+5917.
+	(A-compU+2158B): New abstract node.
+	(U-0002158B): Apply new conventions for glyph granularity; add
+	`<-denotational@component' for A-compU+2158B.
+
 	* Ideograph-R024-Ten.el (A-cgnU+20991): Changed from U-00020991.
 	(U-00020991): New abstract node; use `<-denotational' for
 	A-cgnU+20991.
