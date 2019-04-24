@@ -1,3 +1,10 @@
+2019-04-23  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R060-Step.el (U-0002BE4D): New character.
+	(U-000224D5): Add `ideographic-structure'; add `sound@ja/on'; add
+	`<-formed' and `<-same' for U+5198; add representative nodes.
+	(U-00022503): Use `->denotational' and `->subsumptive'.
+
 2019-04-22  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R052-Short-Thread.el (A-IWDSU+5E7A): Use
