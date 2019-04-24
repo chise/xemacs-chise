@@ -336,6 +336,18 @@
     (ideographic-radical . 3)	; ⼂
     (ideographic-strokes . 2)
     (total-strokes	 . 3)
+    (=ucs-itaiji-001	. #x4E38)	; &U-i001+4E38;
+    (->subsumptive
+     ((==ucs-itaiji-001	  . #x4E38)	; &g2-U-i001+4E38;
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x4E38)	; 丸
+      ))
+    (ideographic-radical . 3)	; ⼂
+    (ideographic-strokes . 2)
+    (total-strokes	 . 3)
     (=big5-cdp		. #x8753)	; &CDP-8753;
     (->subsumptive
      ((==big5-cdp	  . #x8753)	; &g2-CDP-8753;
