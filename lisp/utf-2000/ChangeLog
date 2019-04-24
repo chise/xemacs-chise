@@ -1,3 +1,12 @@
+2019-04-22  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R052-Short-Thread.el (A-IWDSU+5E7A): Use
+	`<-denotational@usage' instead of `<-denotational' for BUCS+5E7A.
+	(U-000221BB): Apply new conventions for glyph description.
+	(U-000221BC): Apply new conventions for glyph granularity.
+	(U+5E7E): Likewise.
+	(BUCS+5E7A): Unify A2-DJT-02906.
+
 2019-04-19  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R036-Evening.el (A-cgnU+5917): New abstract node.
@@ -86,6 +95,14 @@
 	`<-denotational@usage' for A2-DJT-01126.
 
 	* Ideograph-R017-Open-Box.el (GT-K03099): New character.
+
+2019-04-17  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R046-Mountain.el (A-GT-K02930): New abstract node;
+	unify A-U+21D5D-itaiji-001.
+	(GT-K02930): New character; use `<-denotational@component' for
+	A-GT-K02930; unify U+21D5D-itaiji-001.
+	(U-0002D5C9): New character.
 
 2019-04-17  MORIOKA Tomohiko  <tomo.git@chise.org>
 
