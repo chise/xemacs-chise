@@ -1,3 +1,8 @@
+2019-04-24  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R003-Dot.el (U+4E38-itaiji-001): New character; use
+	`<-denotational' for U+4E38.
+
 2019-04-23  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R060-Step.el (U-0002BE4D): New character.
