@@ -1,3 +1,36 @@
+2019-04-25  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R072-Sun.el (U+3AD0): Apply new conventions for glyph
+	granularity.
+	(U-00023146): Add `sound@ja/on'.
+	(IU+23146): Unify MJ037617 and KOSEKI-154610; add U+7A18 into
+	`<-ancient'; add `<-formed' for U+671F.
+	(U-00023173): Add `sound@ja/on'.
+	(IU+23173): Add `<-same' for U+6603.
+	(U+5192): Use `<-denotational@usage' instead of `<-denotational'
+	for BUCS+5192.
+	(U+663C): Add `<-denotational@usage' for A2-DJT-04542; unify
+	DJT-00040.
+	(U-000231F3): Apply new conventions for glyph granularity.
+	(A2-DJT-04542): New abstract node.
+
+2019-04-24  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R057-Bow.el (A-BC-8CC4): Add
+	`<-denotational@component' for A-cgnU+223A5.
+	(U-000223A6): Apply new conventions for glyph description.
+	(U-000223A7): Add `<-ancient' for U+4E43; add `->mistakable' for
+	U-00022399; add representative nodes.
+	(U-000223AA): Apply new conventions for glyph description.
+	(A-IWDSU+223AB): New abstract node.
+	(U-000223A9): Apply new conventions for glyph description; add
+	`<-denotational' for A-IWDSU+223AB.
+	(U-000223A5): Add `sound@ja/on'.
+	(IU+223A5): Add `<-denotational@usage' for BUCS+5377; unify
+	DJT-00141; add `<-formed' for JU+5377; add `<-same' for UU+7CFE.
+	(U-000223AB): Use `->denotational' and `->subsumptive'; add
+	`<-denotational' for A-IWDSU+223AB.
+
 2019-04-24  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R003-Dot.el (U+4E38-itaiji-001): New character; use
