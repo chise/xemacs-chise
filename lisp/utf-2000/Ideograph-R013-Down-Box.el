@@ -2890,7 +2890,45 @@
   '((ideographic-radical . 13)	; ⼌
     (ideographic-strokes . 7)
     (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>ucs@component	  . #x65E5)	; &A-compU+65E5;
+      (=>iwds-1		  .  0118)	; &A-compU+65E5;
+      )
+     ((=ucs		  . #x7F52)	; 罒
+      ))
+    (=>big5-cdp		. #x8CBF)	; &A-CDP-8CBF;
+    ))
+(define-char
+  '((<-denotational
+     ((=>big5-cdp	  . #x8CBF)	; &A-CDP-8CBF;
+      ))
+    (ideographic-radical . 13)	; ⼌
+    (ideographic-strokes . 7)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((name		  . "CJK RADICAL SUN")
+      (=ucs		  . #x2E9C)	; ⺜
+      )
+     ((name		  . "CJK RADICAL EYE")
+      (=ucs		  . #x2EAB)	; ⺫
+      ))
     (=big5-cdp		. #x8CBF)	; &CDP-8CBF;
+    (<-formed@component
+     ((=ucs@unicode	  . #x5192)	; &C1-5023;
+      (=gb2312		  . #x4330)	; &C1-5023; [35-16]
+      (=ks-x1001	  . #x5933)	; &I-K0-5933; [57-19]
+      (=cns11643-1	  . #x5023)	; &I-C1-5023; [48-03]
+      (=daikanwa	  . 01538)	; &I-M-01538;
+      ))
+    (->subsumptive
+     ((==big5-cdp	  . #x8CBF)	; &g2-CDP-8CBF;
+      ))
     ))
 (define-char
   '((<-denotational@usage
@@ -3597,13 +3635,16 @@
      ((=+>ucs@unicode	  . #x514D)	; &o-J0-4C48;
       (=+>jis-x0208	  . #x4C48)	; &o-J0-4C48; [44-40]
       ))
-    (=+>ucs@ks		. #x5195)	; &o-CU+2F8D3;
-    (=+>ucs@cns		. #x2F8D3)	; &o-CU+2F8D3;
+    (=+>ucs@ks		. #x5195)	; &o-J78-514B;
+    (=+>ucs@cns		. #x2F8D3)	; &o-J78-514B;
+    (=+>jis-x0208@1978	. #x514B)	; &o-J78-514B; [49-43]
+    (=+>adobe-japan1-0	. 07816)	; &o-J78-514B;
     ))
 (define-char
   '((<-denotational
-     ((=+>ucs@ks	  . #x5195)	; &o-CU+2F8D3;
-      (=+>ucs@cns	  . #x2F8D3)	; &o-CU+2F8D3;
+     ((=+>ucs@ks	  . #x5195)	; &o-J78-514B;
+      (=+>ucs@cns	  . #x2F8D3)	; &o-J78-514B;
+      (=+>adobe-japan1-0  . 07816)	; &o-J78-514B;
       ))
     (=>ucs*		. #x5195)	; 冕
     (ideographic-radical@ucs . 13)	; ⼌
