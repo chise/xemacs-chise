@@ -1,5 +1,25 @@
 2019-04-25  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R013-Down-Box.el (A-BC-8CBF): New abstract node.
+	(BC-8CBF): Add `<-denotational' for A-BC-8CBF; add
+	`ideographic-structure'; add `<-formed@component' for UU+5192.
+	(o-KU+5195): Unify o-J78-514B and o-AJ1-07816.
+
+	* Ideograph-R064-Hand.el (U+630A): Add `ideographic-structure';
+	add `sound@ja/on'; add representative nodes.
+	(U-00022AF8): Add `sound@ja/on'.
+	(A-IU+22AF8): Abolished.
+	(IU+22AF8): Use U-00022AF8 instead of A-IU+22AF8 as its mother;
+	unify MJ036767 and KOSEKI-135500.
+	(CB04188): Use U-00022AF8 instead of A-IU+22AF8 as its mother.
+	(U+6335): Apply new conventions for glyph granularity.
+	(U+6342): Add `sound@ja/on'; add `->formed' for IU+22AF8; add
+	representative nodes.
+	(U+3A0C): Apply new conventions for glyph granularity.
+	(U+63D2): Add `sound@ja/on/{kan|go}'.
+
+2019-04-25  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R072-Sun.el (U+3AD0): Apply new conventions for glyph
 	granularity.
 	(U-00023146): Add `sound@ja/on'.
