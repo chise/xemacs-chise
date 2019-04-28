@@ -1290,8 +1290,9 @@
     (=hanyo-denshi/jt	. #xAEA3)	; &I-HD-JT-AEA3;
     (=daikanwa		. 14298)	; &I-M-14298;
     (<-interchangeable
-     ((=ucs@cns		. #x7E35)	; &GT-35897;
-      (=daikanwa	  . 27829)	; &GT-35897;
+     ((=ucs@cns		  . #x7E35)	; &GT-35897;
+      (=cns11643-1	  . #x7471)	; &GT-35897; [84-81]
+      (=daikanwa	  . 27829)	; &I-M-27829;
       )
      ((=ucs@cns		  . #x5E54)	; &AJ1-14125;
       (=adobe-japan1-4	  . 14125)	; &AJ1-14125;
@@ -1306,8 +1307,8 @@
       (=daikanwa	  . 18166)	; &I-M-18166;
       )
      ((=ucs@unicode	  . #x883B)	; &AJ1-06572;
-      (=adobe-japan1-0	  . 06572)	; &I-AJ1-06572;
-      (=daikanwa 	  . 33914)	; &AJ1-06572;
+      (=adobe-japan1-0	  . 06572)	; &AJ1-06572;
+      (=daikanwa	  . 33914)	; &I-M-33914;
       ))
     (<-interchangeable$_1*sources
      shuowen-tongxun-dingsheng daikanwa)
@@ -2912,7 +2913,8 @@
     (=daijiten		. 04670)	; &I-DJT-04670;
     (=jef-china3	. #x51AD)	; &I-JC3-51AD;
     (<-interchangeable
-     ((=daikanwa 	  . 14753)	; &AJ1-05183;
+     ((=ucs		  . #x6840)	; 桀
+      (=daikanwa	  . 14753)	; &I-M-14753;
       )
      ((=ucs@unicode	  . #x66F7)	; &MJ013488;
       (=mj		  . 013488)	; &MJ013488;
