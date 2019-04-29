@@ -1279,10 +1279,32 @@
       )
      ((=ucs		  . #x5B50)	; 子
       ))
+    (sound@ja/on	"si")
     (=ucs		. #x5B60)	; 孠
     (=cns11643-3	. #x2848)	; &I-C3-2848; [08-40]
     (=daikanwa		. 06961)	; &I-M-06961;
     (=cbeta		. 05980)	; &I-CB05980;
+    (<-ancient
+     ((=ucs		  . #x55E3)	; 嗣
+      (=daikanwa	  . 04109)	; &I-M-04109;
+      ))
+    (<-ancient*sources
+     shuowen daikanwa)
+    (->subsumptive
+     ((==ucs@unicode	  . #x5B60)	; &g2-M-06961;
+      (==cns11643-3	  . #x2848)	; &g2-M-06961; [08-40]
+      (==daikanwa	  . 06961)	; &g2-M-06961;
+      (==cbeta		  . 05980)	; &g2-M-06961;
+      (->subsumptive
+       ((===daikanwa	    . 06961)	; &R-M-06961;
+	)
+       ((===cns11643-3	    . #x2848)	; &R-C3-2848; [08-40]
+	)
+       ((===ucs@unicode	    . #x5B60)	; &R-UU+5B60;
+	)
+       ((===cbeta	    . 05980)	; &R-CB05980;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 39)	; ⼦
@@ -2849,14 +2871,114 @@
     ))
 (define-char
   '((ideographic-radical . 39)	; ⼦
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
+      (=ucs		  . #x2FF9)	; ⿹
+      )
+     ((=>ucs@cognate	  . #x3C7F)	; &A-cgnU+3C7F;
+      )
+     ((=ucs		  . #x5B50)	; 子
+      ))
+    (=>ucs@cognate	. #x3745)	; &A-cgnU+3745;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@cognate	  . #x3745)	; &A-cgnU+3745;
+      ))
+    (ideographic-radical . 39)	; ⼦
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
-    (=ucs		. #x3745)	; 㝅
-    (->subsumptive
-     ((=daikanwa	  . 07012)	; &M-07012;
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
+      (=ucs		  . #x2FF9)	; ⿹
       )
-     ((=ucs@unicode	  . #x3745)	; &C4-3C67;
-      (=cns11643-4	  . #x3C67)	; &C4-3C67; [28-71]
+     ((=ucs		  . #x23A8A)	; 𣪊
+      )
+     ((=ucs		  . #x5B50)	; 子
+      ))
+    (sound@ja/on/go	"ku" "nu")
+    (sound@ja/on/kan	"kou" "dou")
+    (=ucs		. #x3745)	; 㝅
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x3745)	; 㝅
+      ))
+    (ideographic-radical . 39)	; ⼦
+    (ideographic-strokes . 10)
+    (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
+      (=ucs		  . #x2FF9)	; ⿹
+      )
+     ((=ucs@iso		  . #x23A8A)	; &GT-K07489;
+      (=gt-k		  . 07489)	; &GT-K07489;
+      )
+     ((=ucs		  . #x5B50)	; 子
+      ))
+    (=ucs@unicode	. #x3745)	; &C4-3C67;
+    (=cns11643-4	. #x3C67)	; &C4-3C67; [28-71]
+    (=daikanwa		. 07012)	; &I-M-07012;
+    (->formed
+     ((=daikanwa	  . 16692)	; &M-16692;
+      )
+     ((=ucs		  . #xFA54)	; 穀
+      (=daikanwa	  . 25221)	; &I-M-25221;
+      )
+     ((=ucs		  . #x370C)	; 㜌
+      (=daikanwa	  . 06612)	; &I-M-06612;
+      )
+     ((=daikanwa	  . 05670)	; &M-05670;
+      )
+     ((=daikanwa	  . 07510)	; &M-07510;
+      )
+     ((=daikanwa	  . 03793)	; &M-03793;
+      ))
+    (->formed$_1*sources
+     jiyun daikanwa)
+    (->formed$_2*sources
+     jiyun daikanwa)
+    (->formed$_3*sources
+     jiyun daikanwa)
+    (->formed$_4*sources
+     jiyun daikanwa)
+    (->formed$_5*sources
+     jiyun daikanwa)
+    (->formed$_6*sources
+     jiyun daikanwa)
+    (->formed*sources
+     jiyun daikanwa)
+    (->subsumptive
+     ((==daikanwa	  . 07012)	; &g2-M-07012;
+      )
+     ((==ucs@unicode	  . #x3745)	; &g2-UU+3745;
+      (==ucs@JP/hanazono  . nil)
+      (==cns11643-4	  . #x3C67)	; &g2-UU+3745; [28-71]
+      (->subsumptive
+       ((===cns11643-4	    . #x3C67)	; &R-C4-3C67; [28-71]
+	)
+       ((===ucs@unicode	    . #x3745)	; &R-UU+3745;
+	))
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@cognate	  . #x3745)	; &A-cgnU+3745;
+      ))
+    (ideographic-radical . 39)	; ⼦
+    (ideographic-strokes . 9)
+    (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
+      (=ucs		  . #x2FF9)	; ⿹
+      )
+     ((=cbeta		  . 09290)	; &CB09290;
+      )
+     ((=ucs		  . #x5B50)	; 子
+      ))
+    (=cbeta		. 11418)	; &CB11418;
+    (->subsumptive
+     ((==cbeta		  . 11418)	; &g2-CB11418;
       ))
     ))
 (define-char
