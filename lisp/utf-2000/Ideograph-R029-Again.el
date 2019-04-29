@@ -759,6 +759,7 @@
      ((=ucs		  . #x53C8)	; 又
       ))
     (=big5-cdp		. #x8BA1)	; &CDP-8BA1;
+    (=ucs-var-001	. #x20B1B)	; &CDP-8BA1;
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -4758,11 +4759,12 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=>ucs@component	  . #x65E5)	; &A-compU+65E5;
-      (=>iwds-1		  .  0118)	; &A-compU+65E5;
+     ((=>big5-cdp	  . #x8CBF)	; &A-CDP-8CBF;
       )
-     ((=gt-k		  . 03405)	; &U-i001+2D1B2;
+     ((=ucs		  . #x53C8)	; 又
       ))
+    (sound@ja/on/go	"maN")
+    (sound@ja/on/kan	"baN")
     (=ucs		. #x66FC)	; 曼
     (=big5		. #xB0D2)	; &I-B-B0D2;
     ))
@@ -4791,6 +4793,39 @@
     (=cns11643-1	. #x5937)	; &I-C1-5937; [57-23]
     (=hanyo-denshi/jt	. #xAEA3)	; &I-HD-JT-AEA3;
     (=daikanwa		. 14298)	; &I-M-14298;
+    (<-interchangeable
+     ((=ucs@cns		  . #x7E35)	; &GT-35897;
+      (=cns11643-1	  . #x7471)	; &GT-35897; [84-81]
+      (=daikanwa	  . 27829)	; &I-M-27829;
+      )
+     ((=ucs@cns		  . #x5E54)	; &AJ1-14125;
+      (=adobe-japan1-4	  . 14125)	; &AJ1-14125;
+      (=daikanwa	  . 09050)	; &I-M-09050;
+      )
+     ((=ucs@cns		  . #x842C)	; &C1-655C;
+      (=cns11643-1	  . #x655C)	; &C1-655C; [69-60]
+      (=daikanwa	  . 31339)	; &I-M-31339;
+      )
+     ((=ucs@cns		  . #x6F2B)	; &MJ015854;
+      (=mj		  . 015854)	; &MJ015854;
+      (=daikanwa	  . 18166)	; &I-M-18166;
+      )
+     ((=ucs@unicode	  . #x883B)	; &AJ1-06572;
+      (=adobe-japan1-0	  . 06572)	; &AJ1-06572;
+      (=daikanwa	  . 33914)	; &I-M-33914;
+      ))
+    (<-interchangeable$_1*sources
+     shuowen-tongxun-dingsheng daikanwa)
+    (<-interchangeable$_2*sources
+     shuowen-tongxun-dingsheng daikanwa)
+    (<-interchangeable$_3*sources
+     shuowen-tongxun-dingsheng daikanwa)
+    (<-interchangeable$_4*sources
+     chuci-zhu daikanwa)
+    (<-interchangeable$_5*sources
+     shiwen daikanwa)
+    (<-interchangeable*sources
+     daikanwa)
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x66FC)	; 曼
