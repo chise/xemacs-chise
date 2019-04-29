@@ -1,3 +1,16 @@
+2019-04-28  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R039-Child.el (U+5B60): Add `sound@ja/on'; add
+	`<-ancient' for U+55E3; add representative nodes.
+	(A-cgnU+3745): New abstract node.
+	(U+3745): Apply new conventions for glyph granularity; add
+	`<-denotational' for A-cgnU+3745.
+	(CB11418): New character; use `<-denotational' for A-cgnU+3745.
+
+	* Ideograph-R029-Again.el (BC-8BA1): Unify U+20B1B-var-001.
+	(U+66FC): Add `sound@ja/on/{kan|go}'; modify structure.
+	(CU+66FC): Add some relations for other characters.
+
 2019-04-27  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R073-Say.el: Add Daijiten numbers.
