@@ -2218,6 +2218,26 @@
     (ideographic-radical . 12)	; ⼋
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
+    (=>iwds-1*note	"110+139a")
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x76EE)	; 目
+      )
+     ((=>ucs@component	  . #x5C22)	; &A-compU+5C22;
+      (=>iwds-1		  .  0099)	; &A-compU+5C22;
+      ))
+    (=ucs		. #x5177)	; 具
+    (=>iwds-1		.  11039)	; 具
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5177)	; 具
+      ))
+    (ideographic-radical . 12)	; ⼋
+    (ideographic-strokes . 6)
+    (total-strokes	 . 8)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
@@ -2226,13 +2246,15 @@
       )
      ((=ucs		  . #x516B)	; 八
       ))
-    (=ucs		. #x5177)	; 具
-    (=>jis-x0208	. #x3671)	; 具 [22-81]
-    (=>jis-x0213-1	. #x3671)	; 具 [22-81]
+    (=>ucs@unicode	. #x5177)	; &J97-3671;
+    (=>jis-x0208	. #x3671)	; &J97-3671; [22-81]
+    (=>jis-x0213-1	. #x3671)	; &J97-3671; [22-81]
+    (=>iwds-1		.  0110)	; &J97-3671;
     ))
 (define-char
   '((<-denotational
-     ((=ucs		  . #x5177)	; 具
+     ((=>ucs@unicode	  . #x5177)	; &J97-3671;
+      (=>jis-x0208	  . #x3671)	; &J97-3671; [22-81]
       ))
     (=>ucs*		. #x5177)	; 具
     (ideographic-radical . 12)	; ⼋
@@ -2307,7 +2329,8 @@
     ))
 (define-char
   '((<-denotational
-     ((=ucs		  . #x5177)	; 具
+     ((=>ucs@unicode	  . #x5177)	; &J97-3671;
+      (=>jis-x0208	  . #x3671)	; &J97-3671; [22-81]
       ))
     (ideographic-radical . 12)	; ⼋
     (ideographic-strokes . 6)
@@ -2376,6 +2399,35 @@
        ((===hng-khi	    . 02630)	; &HNG010-02630;
 	)
        ((===hng-khm	    . 02090)	; &HNG011-02090;
+	))
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5177)	; 具
+      ))
+    (ideographic-radical . 12)	; ⼋
+    (ideographic-strokes . 6)
+    (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x76EE)	; 目
+      )
+     ((=ucs		  . #x5927)	; 大
+      ))
+    (=gt-k		. 04005)	; &GT-K04005;
+    (=gt-pj-k1		. #x406A)	; &GT-K04005; [32-74]
+    (->subsumptive
+     ((==gt-k		  . 04005)	; &g2-GT-K04005;
+      (==gt-pj-k1	  . #x406A)	; &g2-GT-K04005; [32-74]
+      )
+     ((=gt-k		  . 04006)	; &GT-K04006;
+      (=gt-pj-k1	  . #x6A5B)	; &GT-K04006; [74-59]
+      (->subsumptive
+       ((==gt-k		    . 04006)	; &g2-GT-K04006;
+	(==gt-pj-k1	    . #x6A5B)	; &g2-GT-K04006; [74-59]
 	))
       ))
     ))
