@@ -1,3 +1,13 @@
+2019-04-29  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R012-Eight.el (U+5177): Separate A-J0-3671.
+	(A-J0-3671): Add `<-denotational' for U+5177; unify A-UU+5177 and
+	IWDS1-0110.
+	(U-0002F811): Use A-UU+5177 instead of U+5177 as its mother.
+	(UU+5177): Ditto.
+	(GT-K04005): New character; use `<-denotational' for U+5177.
+	(GT-K04006): New character; use `<-subsumptive' for GT-K04005.
+
 2019-04-28  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R039-Child.el (U+5B60): Add `sound@ja/on'; add
