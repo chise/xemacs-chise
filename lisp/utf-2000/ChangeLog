@@ -1,3 +1,25 @@
+2019-04-30  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R040-Roof.el:
+	- Add Daijiten numbers.
+	- Use `<-denotational@usage' instead of `<-denotational' for BUCS
+	  (super abstract) character objects.
+	(U+5B93-itaiji-001): New character.
+	(U-000219EE): Use `->denotational' and `->subsumptive'; add
+	`<-denotational@component' for A-IWDSU+219EE.
+	(U-00021A07): Likewise.
+	(U+5BCD-itaiji-002): New character.
+	(U-00021A5C): Add `<-denotational' for A-cgnU+21A5C.
+	(U+21A5C-var-002): New character; use `<-denotational' for
+	U-00021A5C.
+	(U+21A5C-var-004): Likewise.
+	(U+21A5C-var-005): Likewise.
+	(A-cgnU+21A5C): New abstract node.
+	(U+21A5C-itaiji-003): New character; use `<-denotational' for
+	A-cgnU+21A5C.
+	(U-00021B0A): Use `->denotational' and `->subsumptive'.
+	(A-IWDSU+219EE): New abstract node.
+
 2019-04-29  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R012-Eight.el (U+5177): Separate A-J0-3671.
