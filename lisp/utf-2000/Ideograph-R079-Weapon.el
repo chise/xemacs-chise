@@ -3758,6 +3758,14 @@
   '((ideographic-radical . 79)	; ⽎
     (ideographic-strokes . 13)
     (total-strokes	 . 17)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
+      (=ucs		  . #x2FF9)	; ⿹
+      )
+     ((=ucs		  . #x23A8A)	; 𣪊
+      )
+     ((=ucs		  . #x5B5A)	; 孚
+      ))
     (=ucs		. #x23ACC)	; 𣫌
     ))
 (define-char
@@ -3767,14 +3775,32 @@
     (ideographic-radical . 79)	; ⽎
     (ideographic-strokes . 13)
     (total-strokes	 . 17)
-    (=>>daikanwa	. 16692)	; &G-M-16692;
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
+      (=ucs		  . #x2FF9)	; ⿹
+      )
+     ((=ucs@iso		  . #x23A8A)	; &GT-K07489;
+      (=gt-k		  . 07489)	; &GT-K07489;
+      )
+     ((=ucs@jis		  . #x5B5A)	; &MJ010060;
+      (=ucs@ks		  . #x5B5A)	; &MJ010060;
+      (=mj		  . 010060)	; &MJ010060;
+      ))
+    (=daikanwa		. 16692)	; &M-16692;
+    (<-formed
+     ((=ucs@unicode	  . #x3745)	; &C4-3C67;
+      (=cns11643-4	  . #x3C67)	; &C4-3C67; [28-71]
+      (=daikanwa	  . 07012)	; &I-M-07012;
+      ))
+    (<-same
+     ((=ucs@unicode	  . #x3745)	; &C4-3C67;
+      (=cns11643-4	  . #x3C67)	; &C4-3C67; [28-71]
+      (=daikanwa	  . 07012)	; &I-M-07012;
+      ))
+    (<-same*sources
+     zhengzitong daikanwa)
     (->subsumptive
-     ((=daikanwa	  . 16692)	; &M-16692;
-      (<-same
-       ((=daikanwa	    . 07012)	; &M-07012;
-	))
-      (<-same*sources
-       zhengzitong daikanwa)
+     ((==daikanwa	  . 16692)	; &g2-M-16692;
       ))
     ))
 (define-char
@@ -3784,8 +3810,27 @@
     (ideographic-radical . 79)	; ⽎
     (ideographic-strokes . 13)
     (total-strokes	 . 17)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
+      (=ucs		  . #x2FF9)	; ⿹
+      )
+     ((=ucs@iso		  . #x23A8A)	; &GT-K07489;
+      (=gt-k		  . 07489)	; &GT-K07489;
+      )
+     ((=ucs@unicode	  . #x5B5A)	; &MJ010061;
+      (=mj		  . 010061)	; &MJ010061;
+      ))
     (=ucs@iso		. #x23ACC)	; &C7-3866;
     (=cns11643-7	. #x3866)	; &C7-3866; [24-70]
+    (->subsumptive
+     ((==ucs@iso	  . #x23ACC)	; &g2-IU-00023ACC;
+      (==cns11643-7	  . #x3866)	; &g2-IU-00023ACC; [24-70]
+      (->subsumptive
+       ((===cns11643-7	    . #x3866)	; &R-C7-3866; [24-70]
+	)
+       ((===ucs@iso	    . #x23ACC)	; &R-U-00023ACC;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 79)	; ⽎

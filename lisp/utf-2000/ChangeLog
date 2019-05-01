@@ -1,5 +1,18 @@
 2019-04-30  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R079-Weapon.el (U-00023ACC): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R033-Scholar.el (U-00021535): Use `->denotational' and
+	`->subsumptive'.
+
+	* Ideograph-R024-Ten.el (IU+20991): Unify KOSEKI-031740.
+	(U+20991-var-006): New character; use `<-denotational' for
+	U-00020991.
+	(MJ031741): Likewise.
+
+2019-04-30  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R040-Roof.el:
 	- Add Daijiten numbers.
 	- Use `<-denotational@usage' instead of `<-denotational' for BUCS

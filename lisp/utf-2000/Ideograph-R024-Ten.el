@@ -1706,8 +1706,14 @@
     (=ucs@iso		. #x20991)	; &C6-2639;
     (=cns11643-6	. #x2639)	; &C6-2639; [06-25]
     (=big5-cdp		. #x88D8)	; &I-CDP-88D8;
+    (=koseki		. 031740)	; &C6-2639;
     (=daikanwa		. 02732)	; &I-M-02732;
     (=shinjigen		.  0911)	; &C6-2639;
+    (<-formed
+     ((=ucs		  . #x53D4)	; 叔
+      ))
+    (<-formed$_1*sources
+     koseki)
     (<-vulgar
      ((=ucs		  . #x53D4)	; 叔
       (=jis-x0208	  . #x3D47)	; &I-J90-3D47; [29-39]
@@ -1720,6 +1726,7 @@
      ((==ucs@iso	  . #x20991)	; &g2-CDP-88D8;
       (==cns11643-6	  . #x2639)	; &g2-CDP-88D8; [06-25]
       (==big5-cdp	  . #x88D8)	; &g2-CDP-88D8;
+      (==koseki		  . 031740)	; &g2-CDP-88D8;
       (==daikanwa	  . 02732)	; &g2-CDP-88D8;
       (==shinjigen	  .  0911)	; &g2-CDP-88D8;
       (->subsumptive
@@ -1741,6 +1748,34 @@
     (ideographic-strokes . 5)
     (total-strokes	 . 7)
     (=ucs-var-003	. #x20991)	; &U-v003+20991;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x20991)	; 𠦑
+      ))
+    (ideographic-radical . 24)	; ⼗
+    (ideographic-strokes . 5)
+    (total-strokes	 . 7)
+    (=ucs-var-006	. #x20991)	; &U-v006+20991;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x20991)	; 𠦑
+      ))
+    (ideographic-radical . 24)	; ⼗
+    (ideographic-strokes . 5)
+    (total-strokes	 . 7)
+    (=mj		. 031741)	; &MJ031741;
+    (<-formed
+     ((=ucs		  . #x53D4)	; 叔
+      ))
+    (<-formed$_1*sources
+     koseki@mj)
+    (<-formed*sources
+     koseki mj)
+    (->subsumptive
+     ((==mj		  . 031741)	; &g2-MJ031741;
+      ))
     ))
 (define-char
   '((<-denotational
