@@ -17670,13 +17670,52 @@
   '((ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
+      (=ucs		  . #x2FF9)	; ⿹
+      )
+     ((=ucs		  . #x23A8A)	; 𣪊
+      )
+     ((=ucs		  . #x5973)	; 女
+      ))
+    (sound@ja/on/go	"nu" "ku")
+    (sound@ja/on/kan	"dou" "kou")
     (=ucs		. #x370C)	; 㜌
+    (=cns11643-4	. #x3C64)	; &I-C4-3C64; [28-68]
+    (=daikanwa		. 06612)	; &I-M-06612;
+    (<-formed
+     ((=ucs@unicode	  . #x3745)	; &C4-3C67;
+      (=cns11643-4	  . #x3C67)	; &C4-3C67; [28-71]
+      (=daikanwa	  . 07012)	; &I-M-07012;
+      )
+     ((=ucs		  . #x7789)	; 瞉
+      ))
+    (<-formed$_1*sources
+     jiyun)
+    (<-formed$_2*sources
+     jiyun)
+    (<-same
+     ((=ucs@unicode	  . #x3745)	; &C4-3C67;
+      (=cns11643-4	  . #x3C67)	; &C4-3C67; [28-71]
+      (=daikanwa	  . 07012)	; &I-M-07012;
+      )
+     ((=ucs		  . #x7789)	; 瞉
+      (=daikanwa	  . 23565)	; &I-M-23565;
+      ))
+    (<-same$_1*sources
+     jiyun daikanwa)
+    (<-same$_2*sources
+     jiyun daikanwa)
+    (<-same*sources
+     jiyun daikanwa)
     (->subsumptive
-     ((=daikanwa	  . 06612)	; &M-06612;
+     ((==daikanwa	  . 06612)	; &g2-M-06612;
       )
-     ((=ucs@unicode	  . #x370C)	; &UU+370C;
+     ((==ucs@unicode	  . #x370C)	; &g2-UU+370C;
+      (==ucs@JP/hanazono  . nil)
       )
-     ((=cns11643-4	  . #x3C64)	; &C4-3C64; [28-68]
+     ((==ucs@cns	  . #x370C)	; &g2-CU+370C;
+      (==cns11643-4	  . #x3C64)	; &g2-CU+370C; [28-68]
       ))
     ))
 (define-char

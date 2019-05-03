@@ -1,5 +1,25 @@
 2019-05-01  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R044-Corpse.el:
+	- Add Daijiten numbers.
+	- Use `<-denotational@usage' instead of `<-denotational' for BUCS
+	  (super abstract) character objects.
+	(U+5C3A-itaiji-002): New character.
+	(U+5C65-itaiji-002): New character.
+	(A-U+5C65-itaiji-003): New abstract node.
+	(U+5C65-itaiji-003): New character; use `<-denotational' for
+	U+5C65-itaiji-003.
+	(U+5C5C): Add `ideographic-structure'; add `sound@ja/on/{kan|go}';
+	add some relations for other characters; add representative nodes.
+	(U-00021C95): Apply new conventions for glyph granularity.
+	(U+5C5F): Likewise.
+	(A-MJ057371): Unify U-0002D56D.
+
+	* Ideograph-R038-Woman.el (U+370C): Apply new conventions for
+	glyph granularity.
+
+2019-05-01  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R080-Do-Not.el (U+6BCD-itaiji-004): New character; use
 	`<-denotational' for IWDS1-0182.
 	(U+6BCF-itaiji-001): New character; use `<-denotational' for
