@@ -1,3 +1,10 @@
+2019-05-01  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R080-Do-Not.el (U+6BCD-itaiji-004): New character; use
+	`<-denotational' for IWDS1-0182.
+	(U+6BCF-itaiji-001): New character; use `<-denotational' for
+	A-IWDSU+6BCF.
+
 2019-04-30  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R079-Weapon.el (U-00023ACC): Apply new conventions for

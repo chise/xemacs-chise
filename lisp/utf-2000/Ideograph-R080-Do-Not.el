@@ -108,6 +108,19 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=>ucs@component	  . #x6BCB)	; &A-compU+6BCB;
+      (=>iwds-1		  .  0182)	; &A-compU+6BCB;
+      ))
+    (ideographic-radical . 80)	; ⽏
+    (ideographic-strokes . 1)
+    (total-strokes	 . 5)
+    (=ucs-itaiji-004	. #x6BCD)	; &U-i004+6BCD;
+    (<-formed@component
+     ((=ucs		  . #x6BCD)	; 母
+      ))
+    ))
+(define-char
   '((<-denotational@component
      ((=>ucs@component	  . #x7530)	; &A-compU+7530;
       (=>iwds-1		  .  0083)	; &A-compU+7530;
@@ -348,6 +361,28 @@
 	))
       )
      ((===hng-khi	  . 00950)	; &HNG010-00950;
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@iwds-1	  . #x6BCF)	; &J97-4B68;
+      (=>jis-x0208@1997	  . #x4B68)	; &J97-4B68; [43-72]
+      ))
+    (ideographic-radical . 80)	; ⽏
+    (ideographic-strokes . 3)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((name*		  . "ideographic component person for top")
+      (=ucs		  . #x20089)	; 𠂉
+      )
+     ((=ucs-itaiji-004	  . #x6BCD)	; &U-i004+6BCD;
+      ))
+    (=ucs-itaiji-001	. #x6BCF)	; &U-i001+6BCF;
+    (->subsumptive
+     ((==ucs-itaiji-001	  . #x6BCF)	; &g2-U-i001+6BCF;
       ))
     ))
 (define-char
