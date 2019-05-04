@@ -10624,7 +10624,7 @@
   '((ideographic-radical . 72)	; ⽇
     (ideographic-strokes . 8)
     (total-strokes	 . 12)
-    (=jis-x0208*notes	"Unknown char of JIS X 0208.")
+    (=jis-x0208*note	"Unknown char of JIS X 0208.")
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
