@@ -1338,19 +1338,95 @@
       ))
     ))
 (define-char
-  '((=>ucs		. #x21B7E)	; 𡭾
-    (ideographic-radical . 42)	; ⼩
+  '((ideographic-radical . 42)	; ⼩
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
-    (=daikanwa		. 07510)	; &M-07510;
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>ucs@iwds-1	  . #x5C0F)	; &A-IWDSU+5C0F;
+      (=>iwds-1		  .  0028)	; &A-IWDSU+5C0F;
+      )
+     ((=ucs		  . #x4E73)	; 乳
+      ))
+    (sound@ja/on/go	"nu")
+    (sound@ja/on/kan	"dou")
+    (=ucs		. #x21B7E)	; 𡭾
     ))
 (define-char
-  '((morohashi-daikanwa	7510 0 2)
+  '((<-denotational
+     ((=ucs		  . #x21B7E)	; 𡭾
+      ))
     (ideographic-radical . 42)	; ⼩
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
-    (=ucs		. #x21B7E)	; 𡭾
-    (=cns11643-5	. #x3171)	; &I-C5-3171; [17-81]
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5C0F)	; 小
+      )
+     ((=ucs@ks		  . #x4E73)	; &AJ1-13968;
+      (=adobe-japan1-4	  . 13968)	; &AJ1-13968;
+      ))
+    (=mj		. 034217)	; &MJ034217;
+    (=koseki		. 085390)	; &MJ034217;
+    (=daikanwa		. 07510)	; &I-M-07510;
+    (<-formed
+     ((=ucs@unicode	  . #x3745)	; &C4-3C67;
+      (=cns11643-4	  . #x3C67)	; &C4-3C67; [28-71]
+      (=daikanwa	  . 07012)	; &I-M-07012;
+      ))
+    (<-formed$_1*sources
+     jiyun)
+    (<-same
+     ((=ucs@unicode	  . #x3745)	; &C4-3C67;
+      (=cns11643-4	  . #x3C67)	; &C4-3C67; [28-71]
+      (=daikanwa	  . 07012)	; &I-M-07012;
+      ))
+    (<-same$_1*sources
+     jiyun daikanwa)
+    (<-same*sources
+     jiyun daikanwa)
+    (->subsumptive
+     ((==mj		  . 034217)	; &g2-MJ034217;
+      (==koseki		  . 085390)	; &g2-MJ034217;
+      (==daikanwa	  . 07510)	; &g2-MJ034217;
+      (->subsumptive
+       ((===daikanwa	    . 07510)	; &R-M-07510;
+	)
+       ((===mj		    . 034217)	; &R-MJ034217;
+	))
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x21B7E)	; 𡭾
+      ))
+    (ideographic-radical . 42)	; ⼩
+    (ideographic-strokes . 8)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5C0F)	; 小
+      )
+     ((=ucs@unicode	  . #x4E73)	; &AJ1-03285;
+      (=adobe-japan1-0	  . 03285)	; &AJ1-03285;
+      ))
+    (=ucs@iso		. #x21B7E)	; &C5-3171;
+    (=cns11643-5	. #x3171)	; &C5-3171; [17-81]
+    (->subsumptive
+     ((==ucs@iso	  . #x21B7E)	; &g2-IU-00021B7E;
+      (==cns11643-5	  . #x3171)	; &g2-IU-00021B7E; [17-81]
+      (->subsumptive
+       ((===cns11643-5	    . #x3171)	; &R-C5-3171; [17-81]
+	)
+       ((===ucs@iso	    . #x21B7E)	; &R-U-00021B7E;
+	))
+      ))
     ))
 (define-char
   '((=>ucs		. #x3779)	; 㝹
@@ -1576,6 +1652,42 @@
     (=ucs		. #x21B90)	; 𡮐
     (=cns11643-6	. #x4773)	; &I-C6-4773; [39-83]
     (=daikanwa		. 07521)	; &I-M-07521;
+    ))
+(define-char
+  '((ideographic-radical . 42)	; ⼩
+    (ideographic-strokes . 9)
+    (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>ucs@component	  . #x23942)	; &A-compU+23942;
+      (=>iwds-1		  .  0283)	; &A-compU+23942;
+      )
+     ((=ucs		  . #x4E73)	; 乳
+      ))
+    (=ucs		. #x21B91)	; 𡮑
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x21B91)	; 𡮑
+      ))
+    (ideographic-radical . 42)	; ⼩
+    (ideographic-strokes . 9)
+    (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5C11)	; 少
+      )
+     ((=ucs@unicode	  . #x4E73)	; &AJ1-03285;
+      (=adobe-japan1-0	  . 03285)	; &AJ1-03285;
+      ))
+    (=ucs@iso		. #x21B91)	; &U-00021B91;
+    (->subsumptive
+     ((==ucs@iso	  . #x21B91)	; &g2-IU-00021B91;
+      ))
     ))
 (define-char
   '((ideographic-radical . 42)	; ⼩
