@@ -1,5 +1,11 @@
 2019-05-03  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R042-Small.el (U-00021B7E): Use `->denotational' and
+	`->subsumptive'.
+	(U-00021B91): New character.
+
+2019-05-03  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R072-Sun.el (U+6683): Use `=jis-x0208*note' instead of
 	`=jis-x0208*notes'.
 
