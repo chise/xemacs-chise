@@ -1,3 +1,40 @@
+2019-05-04  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R057-Bow.el (U-000223A6): Use A-IWDSU+4EBA instead of
+	IWDS1-0146 in `ideographic-structure'.
+
+	* Ideograph-R019-Power.el (A-cgnU+52A9): Changed from U+52A9.
+	(AJ1-02431): Unify U+52A9 instead of A-IWDSU+52A9 and UU+52A9; use
+	A-cgnU+52A9 instead of U+52A9 as its mother; add
+	`<-denotational@component' for A-IWDSU+52A9.
+	(HNG-KHI0014-0): Use A-cgnU+52A9 instead of U+52A9 as its mother.
+	(U-0002084E): New character; use `<-denotational@component' for
+	A-IWDSU+52A9.
+	(U-0002D129): New character.
+	(U+52D7): Apply new conventions for glyph granularity.
+
+	* Ideograph-R009-Man.el (A-IWDSU+4EBA): New abstract node to
+	represent IWDS1-146,237.
+	(U+4EBA): Use A-IWDSU+4EBA instead of A-compU+4EBA as a target of
+	`<-denotational@component'.
+	(IWDS1-146): Unify A-IWDSU+201A2 instead of A-compU+4EBA; add
+	`<-denotational@component' for A-IWDSU+4EBA.
+	(U-000201A2): Add `<-denotational@component' for IWDS1-146.
+	(A-IWDSU+4EBC): Use A-IWDSU+4EBA instead of IWDS1-146 in
+	`ideographic-structure'.
+	(U+4EBD): Ditto.
+	(A-IWDSU+5166): Ditto; use `<-denotational@usage' instead of
+	`<-denotational' for BUCS+4EA1.
+	(A-IWDSU+4ED0): Use A-IWDSU+4EBA instead of IWDS1-146 in
+	`ideographic-structure'.
+	(U+3431): Ditto.
+	(U+4EFA): Ditto.
+	(U+4F1E): Ditto.
+	(U-0002A72C): Ditto.
+	(A-GT-K05990): Ditto.
+	(U+501D): Ditto.
+	(U+5098): Ditto.
+
 2019-05-03  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R042-Small.el (U-00021B7E): Use `->denotational' and
