@@ -6189,8 +6189,7 @@
     (=koseki		. 000940)	; 𬻝
     (=daijiten		. 00041)	; &I-DJT-00041;
     (<-formed
-     ((=jis-x0208	  . #x4C35)	; &J90-4C35; [44-21]
-      (=jis-x0213-1	  . #x4C35)	; &I-JX1-4C35; [44-21]
+     ((=ucs		  . #x7121)	; 無
       ))
     (<-formed*sources
      koseki mj)
