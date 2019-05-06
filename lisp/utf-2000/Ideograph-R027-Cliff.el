@@ -6,11 +6,19 @@
     (=>ucs@component	. #x5382)	; &A-compU+5382;
     ))
 (define-char
+  '((ideographic-radical . 27)	; ⼚
+    (ideographic-strokes . 0)
+    (total-strokes	 . 2)
+    (=>big5-cdp		. #x88E2)	; &A-CDP-88E2;
+    ))
+(define-char
   '((<-denotational@component
      ((=>ucs@component	  . #x4E06)	; &A-compU+4E06;
       (=>iwds-1		  .  0150)	; &A-compU+4E06;
       )
      ((=>ucs@component	  . #x5382)	; &A-compU+5382;
+      )
+     ((=>big5-cdp	  . #x88E2)	; &A-CDP-88E2;
       ))
     (ideographic-radical . 27)	; ⼚
     (ideographic-strokes . 0)
@@ -67,6 +75,18 @@
     (=ucs		. #x2E81)	; ⺁
     (<-formed@component
      ((=ucs		  . #x5382)	; 厂
+      ))
+    ))
+(define-char
+  '((<-denotational@component
+     ((=>big5-cdp	  . #x88E2)	; &A-CDP-88E2;
+      ))
+    (ideographic-radical . 27)	; ⼚
+    (ideographic-strokes . 0)
+    (total-strokes	 . 2)
+    (=big5-cdp		. #x88E2)	; &CDP-88E2;
+    (->subsumptive
+     ((==big5-cdp	  . #x88E2)	; &g2-CDP-88E2;
       ))
     ))
 (define-char
