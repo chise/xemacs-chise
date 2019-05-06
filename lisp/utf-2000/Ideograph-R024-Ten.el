@@ -1989,6 +1989,7 @@
      ((==>ucs@bucs	  . #x5351)	; &BUCS+5351;
       ))
     (ideographic-radical . 24)	; ⼗
+    (=>iwds-1*note	"190+287")
     (=>ucs@component	. #x5351)	; &A-compU+5351;
     (=>iwds-1		.  0287)	; &A-compU+5351;
     ))
@@ -1999,6 +2000,7 @@
       ))
     (ideographic-radical . 24)	; ⼗
     (=ucs		. #x5351)	; 卑
+    (=>iwds-1		.  0190)	; 卑
     ))
 (define-char
   '((<-denotational
