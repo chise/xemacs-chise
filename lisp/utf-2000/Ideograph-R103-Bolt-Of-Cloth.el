@@ -439,8 +439,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=>ucs@component	  . #x4EBA)	; &A-compU+4EBA;
-      (=>iwds-1		  .  0146)	; &A-compU+4EBA;
+     ((=>ucs@iwds-1	  . #x4EBA)	; &A-IWDSU+4EBA;
+      (=>iwds-1		  .  14623)	; &A-IWDSU+4EBA;
       )
      ((=big5-cdp	  . #x886A)	; &CDP-886A;
       ))

@@ -11,6 +11,11 @@
 	* Ideograph-R009-Man.el (U-0002B889): New character.
 	(CB02603): Add `ideographic-structure'.
 
+2019-05-05  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R103-Bolt-Of-Cloth.el (U-00024D18): Use A-IWDSU+4EBA
+	instead of IWDS1-0146 in `ideographic-structure'.
+
 2019-05-04  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R057-Bow.el (U-000223A6): Use A-IWDSU+4EBA instead of
