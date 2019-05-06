@@ -1,3 +1,16 @@
+2019-05-06  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R027-Cliff.el (A-BC-88E2): New abstract node.
+	(U+5382): Add A-BC-88E2 as a target `<-denotational@component'.
+	(BC-88E2): New character; use `<-denotational@component' for
+	A-BC-88E2.
+
+	* Ideograph-R024-Ten.el (IWDS1-0287): Add `=>iwds-1*note'.
+	(U+5351): Unify IWDS1-0190.
+
+	* Ideograph-R009-Man.el (U-0002B889): New character.
+	(CB02603): Add `ideographic-structure'.
+
 2019-05-04  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R057-Bow.el (U-000223A6): Use A-IWDSU+4EBA instead of
