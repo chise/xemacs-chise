@@ -1,5 +1,8 @@
 2019-05-06  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R007-Two.el (IWDS1-0047): Add
+	`<-denotational@component' for A-IWDSU+51AB.
+
 	* Ideograph-R027-Cliff.el (A-BC-88E2): New abstract node.
 	(U+5382): Add A-BC-88E2 as a target `<-denotational@component'.
 	(BC-88E2): New character; use `<-denotational@component' for
