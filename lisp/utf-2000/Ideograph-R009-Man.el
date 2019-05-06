@@ -3763,7 +3763,56 @@
   '((ideographic-radical . 9)	; ⼈
     (ideographic-strokes . 3)
     (total-strokes	 . 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>ucs@iwds-1	  . #x4EBA)	; &A-IWDSU+4EBA;
+      (=>iwds-1		  .  14623)	; &A-IWDSU+4EBA;
+      )
+     ((=ucs		  . #x5E72)	; 干
+      ))
+    (=ucs		. #x2B889)	; 𫢉
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2B889)	; 𫢉
+      ))
+    (ideographic-radical . 9)	; ⼈
+    (ideographic-strokes . 3)
+    (total-strokes	 . 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x201A2)	; 𠆢
+      )
+     ((=ucs		  . #x5E72)	; 干
+      ))
+    (=ucs@JP/hanazono	. #x2B889)	; &CDP-8D4A;
+    (=big5-cdp		. #x8D4A)	; &CDP-8D4A;
+    (->subsumptive
+     ((==ucs@JP/hanazono  . #x2B889)	; &g2-CDP-8D4A;
+      (==big5-cdp	  . #x8D4A)	; &g2-CDP-8D4A;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 9)	; ⼈
+    (ideographic-strokes . 3)
+    (total-strokes	 . 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((name*		  . "ideographic component person for top")
+      (=ucs		  . #x20089)	; 𠂉
+      )
+     ((=big5-cdp	  . #x88AF)	; &CDP-88AF;
+      ))
     (=cbeta		. 02603)	; &CB02603;
+    (->subsumptive
+     ((==cbeta		  . 02603)	; &g2-CB02603;
+      ))
     ))
 (define-char
   '((ideographic-radical . 9)	; ⼈
