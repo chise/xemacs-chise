@@ -3757,7 +3757,7 @@
 		  mother        =big5-cdp))
 
   (make-charset '=big5-cdp-var-001
-		"Big5-CDP-var-001 glyph-images of GlyphWiki"
+		"Big5-CDP-var-001 glyphs of GlyphWiki"
 		'(long-name     "Big5-CDP-var-001"
 		  chars         256
 		  dimension     2
@@ -3766,6 +3766,17 @@
 		  direction     l2r
 		  registry      "cdp\\.var-1$"
 		  mother        =big5-cdp))
+
+  (make-charset '=>big5-cdp-var-001
+		"Big5-CDP-var-001 abstract characters of GlyphWiki"
+		'(long-name     "Big5-CDP-var-001"
+		  chars         256
+		  dimension     2
+		  columns       2
+		  graphic       2
+		  direction     l2r
+		  registry      "cdp\\.var-1$"
+		  mother        =big5-cdp-var-001))
 
   (make-charset '=big5-cdp-var-002
 		"Big5-CDP-var-002 glyph-images of GlyphWiki"

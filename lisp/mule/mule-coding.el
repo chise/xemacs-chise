@@ -640,6 +640,7 @@
 	  (=>ucs-itaiji-007		    "A-U-i007+" 4 X)
 	  (=>ucs-itaiji-009		    "A-U-i009+" 4 X)
 	  (=>big5-cdp-itaiji-001	  "A-CDP-i001-" 4 X)
+	  (=>big5-cdp-var-001		  "A-CDP-v001-" 4 X)
 	  (=>ucs-itaiji-001@iwds-1	"A-IWDSU-i001+" 4 X)
 	  (=>big5-cdp@iwds-1		   "A-IWDSCDP-" 4 X)
 	  (=>big5-cdp@component		   "A-compCDP-" 4 X)
