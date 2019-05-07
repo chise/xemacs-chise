@@ -7,6 +7,9 @@
 	(A-BC-8961): Use U+9FB0 instead of A-BC-8661; add
 	`<-denotational@component' for A-BC-8661.
 
+	* char-db-util.el (char-db-coded-charset-priority-list): Add
+	`=>big5-cdp-var-001'.
+
 2019-05-06  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R024-Ten.el (A-IWDSU+51E1): Add
