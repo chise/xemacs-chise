@@ -712,7 +712,16 @@
       ))
     ))
 (define-char
-  '((<-denotational@usage
+  '((ideographic-radical . 2)	; ⼁
+    (ideographic-strokes . 3)
+    (total-strokes	 . 4)
+    (=>ucs@component	. #x4E30)	; &A-compU+4E30;
+    ))
+(define-char
+  '((<-denotational@component
+     ((=>ucs@component	  . #x4E30)	; &A-compU+4E30;
+      ))
+    (<-denotational@usage
      ((==>daijiten	  . 00052)	; &A2-DJT-00052;
       ))
     (ideographic-radical . 2)	; ⼁
@@ -760,7 +769,10 @@
       ))
     ))
 (define-char
-  '((<-denotational@usage
+  '((<-denotational@component
+     ((=>ucs@component	  . #x4E30)	; &A-compU+4E30;
+      ))
+    (<-denotational@usage
      ((==>daijiten	  . 00053)	; &A2-DJT-00053;
       ))
     (ideographic-radical . 2)	; ⼁
