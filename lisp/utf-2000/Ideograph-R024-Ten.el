@@ -81,9 +81,14 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 24)	; ⼗
+  '((<-denotational@component
+     ((=>ucs@iwds-1	  . #x4E38)	; &A-IWDSU+4E38;
+      (=>iwds-1		  .  65535)	; &A-IWDSU+4E38;
+      ))
+    (ideographic-radical . 24)	; ⼗
     (ideographic-strokes . 1)
     (total-strokes	 . 3)
+    (=>iwds-1*note	"55+346")
     (=>ucs@iwds-1	. #x51E1)	; &A-IWDSU+51E1;
     (=>iwds-1		.  55346)	; &A-IWDSU+51E1;
     ))
