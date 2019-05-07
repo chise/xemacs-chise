@@ -1,4 +1,36 @@
+2019-05-07  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R077-Stop.el (A-cgnU+6B62): New abstract node.
+	(U+6B62): Unify IWDS1-0206; add `<-denotational' for A-cgnU+6B62.
+	(U+9FB0): Apply new conventions for glyph granularity; unify
+	IWDS1-0393; add `<-denotational' for A-cgnU+6B62.
+	(A-BC-8961): Use U+9FB0 instead of A-BC-8661; add
+	`<-denotational@component' for A-BC-8661.
+
 2019-05-06  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R024-Ten.el (A-IWDSU+51E1): Add
+	`<-denotational@component' for A-IWDSU+4E38; add `=>iwds-1*note'.
+
+	* Ideograph-R002-Line.el (A-compU+4E30): New abstract node.
+	(U+4E2F): Add `<-denotational@component' for A-compU+4E30.
+	(U+4E30): Ditto.
+
+2019-05-06  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R040-Roof.el (IWDS1-0267): New abstract node; use
+	`<-denotational@component' for A-IWDSU+5BE7.
+	(A-IWDSU+5BE7): New abstract node; use `<-denotational@usage' for
+	A2-DJT-02392.
+	(U+5BDC): Add `<-denotational' for A-IWDSU+5BE7; add
+	`<-denotational@component' for IWDS1-0267; omit
+	`<-denotational@usage' for A2-DJT-02392.
+	(U+5BE7): Add `<-denotational' for A-IWDSU+5BE7; omit
+	`<-denotational@usage' for A2-DJT-02392.
+	(U-0002F86F): Add `<-denotational@component' for IWDS1-0267.
+
+	* Ideograph-R039-Child.el (U-0002194B): Copied from
+	Ideograph-R025-Divination.el.
 
 	* Ideograph-R007-Two.el (IWDS1-0047): Add
 	`<-denotational@component' for A-IWDSU+51AB.
@@ -55,6 +87,9 @@
 	(A-GT-K05990): Ditto.
 	(U+501D): Ditto.
 	(U+5098): Ditto.
+
+	* Ideograph-R113-Spirit.el (A-BC-8C6A): New abstract node.
+	(BC-8C6A): Add `<-denotational' for A-BC-8C6A.
 
 2019-05-03  MORIOKA Tomohiko  <tomo.git@chise.org>
 
