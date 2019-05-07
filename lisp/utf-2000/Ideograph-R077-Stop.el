@@ -3,7 +3,17 @@
   '((ideographic-radical . 77)	; ⽌
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
+    (=>ucs@cognate	. #x6B62)	; &A-cgnU+6B62;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@cognate	  . #x6B62)	; &A-cgnU+6B62;
+      ))
+    (ideographic-radical . 77)	; ⽌
+    (ideographic-strokes . 0)
+    (total-strokes	 . 4)
     (=ucs		. #x6B62)	; 止
+    (=>iwds-1		.  0206)	; 止
     ))
 (define-char
   '((<-denotational
@@ -70,30 +80,6 @@
       ))
     (ideographic-radical . 77)	; ⽌
     (ideographic-strokes . 0)
-    (total-strokes	 . 4)
-    (=ucs		. #x9FB0)	; 龰
-    (=big5-cdp		. #x8B68)	; &I-CDP-8B68;
-    (=gt-k		. 00440)	; &I-GT-K00440;
-    (=gt-pj-k1		. #x3675)	; 龰 [22-85]
-    (<-formed@component/connect-above
-     ((=ucs		  . #x6B62)	; 止
-      ))
-    (->subsumptive
-     ((==big5-cdp	  . #x8B68)	; &g2-CDP-8B68;
-      )
-     ((==ucs@unicode	  . #x9FB0)	; &g2-GT-K00440;
-      (==gt-k		  . 00440)	; &g2-GT-K00440;
-      (<-identical@component/connect-above
-       ((==big5-cdp	    . #x8B68)	; &g2-CDP-8B68;
-	))
-      ))
-    ))
-(define-char
-  '((<-denotational
-     ((=ucs		  . #x6B62)	; 止
-      ))
-    (ideographic-radical . 77)	; ⽌
-    (ideographic-strokes . 0)
     (total-strokes	 . 3)
     (=big5-cdp		. #x8960)	; &HD-KS-184490;
     (=hanyo-denshi/ks	. 184490)	; &HD-KS-184490;
@@ -132,6 +118,80 @@
       (<-formed@component/connect-right
        ((=ucs		    . #x6B62)	; 止
 	))
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@cognate	  . #x6B62)	; &A-cgnU+6B62;
+      ))
+    (ideographic-radical . 77)	; ⽌
+    (ideographic-strokes . 0)
+    (total-strokes	 . 4)
+    (=ucs		. #x9FB0)	; 龰
+    (=>iwds-1		.  0393)	; 龰
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x9FB0)	; 龰
+      ))
+    (<-denotational@component
+     ((=>big5-cdp	  . #x8661)	; &A-CDP-8661;
+      ))
+    (ideographic-radical . 77)	; ⽌
+    (ideographic-strokes . 0)
+    (total-strokes	 . 3)
+    (=>big5-cdp		. #x8961)	; &A-CDP-8961;
+    (<-formed@component/connect-above
+     ((=ucs		  . #x6B62)	; 止
+      ))
+    (->subsumptive
+     ((=big5-cdp	  . #x8961)	; &CDP-8961;
+      (->subsumptive
+       ((==big5-cdp	    . #x8961)	; &g2-CDP-8961;
+	))
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x9FB0)	; 龰
+      ))
+    (ideographic-radical . 77)	; ⽌
+    (ideographic-strokes . 0)
+    (total-strokes	 . 4)
+    (=ucs@unicode	. #x9FB0)	; &CDP-8B68;
+    (=big5-cdp		. #x8B68)	; &CDP-8B68;
+    (=gt-k		. 00440)	; &I-GT-K00440;
+    (=gt-pj-k1		. #x3675)	; &CDP-8B68; [22-85]
+    (<-formed@component/connect-above
+     ((=ucs		  . #x6B62)	; 止
+      ))
+    (->subsumptive
+     ((==big5-cdp	  . #x8B68)	; &g2-CDP-8B68;
+      )
+     ((==ucs@unicode	  . #x9FB0)	; &g2-GT-K00440;
+      (==gt-k		  . 00440)	; &g2-GT-K00440;
+      (==gt-pj-k1	  . #x3675)	; &g2-GT-K00440; [22-85]
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 77)	; ⽌
+    (ideographic-strokes . 0)
+    (total-strokes	 . 3)
+    (=>big5-cdp		. #x8661)	; &A-CDP-8661;
+    ))
+(define-char
+  '((<-denotational
+     ((=>big5-cdp	  . #x8661)	; &A-CDP-8661;
+      ))
+    (ideographic-radical . 77)	; ⽌
+    (ideographic-strokes . 0)
+    (total-strokes	 . 3)
+    (=big5-cdp		. #x8661)	; &CDP-8661;
+    (<-formed@component/connect-above
+     ((=ucs		  . #x6B62)	; 止
+      ))
+    (->subsumptive
+     ((==big5-cdp	  . #x8661)	; &g2-CDP-8661;
       ))
     ))
 (define-char
@@ -182,30 +242,6 @@
 (define-char
   '((ideographic-radical . 77)	; ⽌
     (ideographic-strokes . 0)
-    (total-strokes	 . 3)
-    (=>big5-cdp		. #x8661)	; &A-CDP-8661;
-    ))
-(define-char
-  '((<-denotational
-     ((=>big5-cdp	  . #x8661)	; &A-CDP-8661;
-      ))
-    (ideographic-radical . 77)	; ⽌
-    (ideographic-strokes . 0)
-    (total-strokes	 . 3)
-    (=>big5-cdp		. #x8961)	; &A-CDP-8961;
-    (<-formed@component/connect-above
-     ((=ucs		  . #x6B62)	; 止
-      ))
-    (->subsumptive
-     ((=big5-cdp	  . #x8961)	; &CDP-8961;
-      (->subsumptive
-       ((==big5-cdp	    . #x8961)	; &g2-CDP-8961;
-	))
-      ))
-    ))
-(define-char
-  '((ideographic-radical . 77)	; ⽌
-    (ideographic-strokes . 0)
     (total-strokes	 . 4)
     (=>big5-cdp		. #x88B1)	; &A-CDP-88B1;
     ))
@@ -217,21 +253,6 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
     (=big5-cdp-var-001	. #x88B1)	; &CDP-v001-88B1;
-    ))
-(define-char
-  '((<-denotational
-     ((=>big5-cdp	  . #x8661)	; &A-CDP-8661;
-      ))
-    (ideographic-radical . 77)	; ⽌
-    (ideographic-strokes . 0)
-    (total-strokes	 . 3)
-    (=big5-cdp		. #x8661)	; &CDP-8661;
-    (<-formed@component/connect-above
-     ((=ucs		  . #x6B62)	; 止
-      ))
-    (->subsumptive
-     ((==big5-cdp	  . #x8661)	; &g2-CDP-8661;
-      ))
     ))
 (define-char
   '((<-denotational
