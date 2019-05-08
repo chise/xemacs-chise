@@ -66,6 +66,8 @@
   '((<-denotational@component
      ((=>ucs@component	  . #x4E3B)	; &A-compU+4E3B;
       (=>iwds-1		  .  0201)	; &A-compU+4E3B;
+      )
+     ((=>ucs@component	  . #x4E30)	; &A-compU+4E30;
       ))
     (ideographic-radical . 100)	; ⽣
     (ideographic-radical@unicode . 32)	; ⼟
