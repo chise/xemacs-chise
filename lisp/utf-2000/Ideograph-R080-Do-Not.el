@@ -2,6 +2,17 @@
 (define-char
   '((ideographic-radical . 80)	; ⽏
     (ideographic-strokes . 0)
+    (=>iwds-1*note	"83+182")
+    (=>ucs@iwds-1	. #x6BCC)	; &A-IWDSU+6BCC;
+    (=>iwds-1		.  18283)	; &A-IWDSU+6BCC;
+    ))
+(define-char
+  '((<-denotational@component
+     ((=>ucs@iwds-1	  . #x6BCC)	; &A-IWDSU+6BCC;
+      (=>iwds-1		  .  18283)	; &A-IWDSU+6BCC;
+      ))
+    (ideographic-radical . 80)	; ⽏
+    (ideographic-strokes . 0)
     (=>ucs@component	. #x6BCB)	; &A-compU+6BCB;
     (=>iwds-1		.  0182)	; &A-compU+6BCB;
     ))

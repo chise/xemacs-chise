@@ -370,6 +370,7 @@
     (ideographic-radical . 1)	; ⼀
     (ideographic-strokes . 1)
     (total-strokes	 . 2)
+    (=>iwds-1*note	"140+141")
     (=>ucs@iwds-1	. #x4E03)	; &A-IWDSU+4E03;
     (=>iwds-1		.  0141)	; &A-IWDSU+4E03;
     ))
@@ -6723,11 +6724,19 @@
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@cognate	  . #x723E)	; &A-cgnU+723E;
+     ((=>ucs@iwds-1	  . #x723E)	; &A-IWDSU+723E;
       ))
     (ideographic-radical . 1)	; ⼀
     (ideographic-strokes . 13)
     (total-strokes	 . 14)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x4E00)	; 一
+      )
+     ((=>big5-cdp-itaiji-001 . #x88D6)	; &A-CDP-i001-88D6;
+      ))
     (=ucs		. #x2B743)	; 𫝃
     (<-formed
      ((=ucs		  . #x723E)	; 爾
@@ -6740,10 +6749,19 @@
     (ideographic-radical . 1)	; ⼀
     (ideographic-strokes . 13)
     (total-strokes	 . 14)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x4E00)	; 一
+      )
+     ((=big5-cdp-itaiji-001 . #x88D6)	; &CDP-i001-88D6;
+      ))
     (=hanyo-denshi/tk	. 01056730)	; &HD-TK-01056730;
+    (=hanyo-denshi/tk/mf-01 . #x1629)	; &HD-TK-01056730;
     (->subsumptive
      ((==hanyo-denshi/tk  . 01056730)	; &g2-HD-TK-01056730;
-      (=hanyo-denshi/tk/mf-01 . #x1629)	; &g2-HD-TK-01056730;
+      (==hanyo-denshi/tk/mf-01 . #x1629)	; &g2-HD-TK-01056730;
       ))
     ))
 (define-char
@@ -6753,6 +6771,16 @@
     (ideographic-radical . 1)	; ⼀
     (ideographic-strokes . 13)
     (total-strokes	 . 14)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
+      (=ucs		  . #x2FF3)	; ⿳
+      )
+     ((=ucs		  . #x4E00)	; 一
+      )
+     ((=ucs		  . #x4E37)	; 丷
+      )
+     ((=big5-cdp-var-001  . #x8569)	; &CDP-v001-8569;
+      ))
     (=ucs@iso		. #x2B743)	; &MJ058020;
     (=mj		. 058020)	; &MJ058020;
     (=hanyo-denshi/jt	. #xADA4)	; &I-HD-JT-ADA4;
@@ -6945,7 +6973,13 @@
     (=>ucs@component	. #x4E0A)	; &A-compU+4E0A;
     ))
 (define-char
-  '((ideographic-radical . 1)	; ⼀
+  '((<-denotational@component
+     ((=>ucs@iwds-1	  . #x4E38)	; &A-IWDSU+4E38;
+      (=>iwds-1		  .  65535)	; &A-IWDSU+4E38;
+      )
+     ((=>ucs@component	  . #x5EFE)	; &A-compU+5EFE;
+      ))
+    (ideographic-radical . 1)	; ⼀
     (=>ucs@component	. #x4E0C)	; &A-compU+4E0C;
     (=>iwds-1		.  0221)	; &A-compU+4E0C;
     ))

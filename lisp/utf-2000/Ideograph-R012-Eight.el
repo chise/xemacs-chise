@@ -4217,6 +4217,42 @@
       ))
     ))
 (define-char
+  '((ideographic-radical . 12)	; ⼋
+    (ideographic-strokes . 14)
+    (total-strokes	 . 16)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs		  . #x4EA7)	; 产
+      )
+     ((=ucs		  . #x517C)	; 兼
+      ))
+    (=ucs		. #x20533)	; 𠔳
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x20533)	; 𠔳
+      ))
+    (ideographic-radical . 12)	; ⼋
+    (ideographic-strokes . 14)
+    (total-strokes	 . 16)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs@unicode	  . #x4EA7)	; &G0-327A;
+      (=gb2312		  . #x327A)	; &G0-327A; [18-90]
+      )
+     ((=ucs@unicode	  . #x517C)	; &MJ007297;
+      (=mj		  . 007297)	; &MJ007297;
+      ))
+    (=ucs@iso		. #x20533)	; &U-00020533;
+    (->subsumptive
+     ((==ucs@iso	  . #x20533)	; &g2-IU-00020533;
+      ))
+    ))
+(define-char
   '((=>ucs		. #x20536)	; 𠔶
     (ideographic-radical . 12)	; ⼋
     (ideographic-strokes . 16)
