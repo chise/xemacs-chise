@@ -12,6 +12,13 @@
 
 2019-05-06  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R043-Lame.el (IWDS1-0099): Add
+	`<-denotational@component' for A-IWDSU+4E38.
+	(IWDS1-0250): Ditto.
+
+	* Ideograph-R003-Dot.el (A-IWDSU+4E37): Add
+	`<-denotational@component' for A-IWDSU+4E38.
+
 	* Ideograph-R024-Ten.el (A-IWDSU+51E1): Add
 	`<-denotational@component' for A-IWDSU+4E38; add `=>iwds-1*note'.
 
