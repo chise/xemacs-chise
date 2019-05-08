@@ -16472,10 +16472,19 @@
   '((ideographic-radical . 9)	; ⼈
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
-    (hanyu-dazidian	1 143 8)
     (sound@ja/on	"gu")
     (=ucs		. #x2020C)	; 𠈌
-    (=cns11643-4	. #x2535)	; &I-C4-2535; [05-21]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2020C)	; 𠈌
+      ))
+    (ideographic-radical . 9)	; ⼈
+    (ideographic-strokes . 6)
+    (total-strokes	 . 8)
+    (hanyu-dazidian	1 143 8)
+    (=ucs@iso		. #x2020C)	; &C4-2535;
+    (=cns11643-4	. #x2535)	; &C4-2535; [05-21]
     (=daikanwa		. 00611)	; &I-M-00611;
     (<-ancient
      ((=ucs@cns		  . #x865E)	; &C1-663E;
@@ -19726,7 +19735,7 @@
       )
      ((=ucs		  . #x4EBB)	; 亻
       )
-     ((=ucs@unicode	  . #x6C42)	; &MJ015049;
+     ((=ucs@unicode	  . #x6C42)	; 求
       (=mj		  . 015049)	; &MJ015049;
       ))
     (=>ucs@iwds-1	. #x4FC5)	; &AJ1-17266;
@@ -41218,6 +41227,7 @@
        ((=ucs		    . #x4EBB)	; 亻
 	)
        ((=ucs@jis	    . #x6CF0)	; &AJ1-02873;
+	(=ucs@ks	    . #x6CF0)	; &AJ1-02873;
 	(=adobe-japan1-0    . 02873)	; &AJ1-02873;
 	))
       (=ucs@jis		  . #x50A3)	; &AJ1-17276;
