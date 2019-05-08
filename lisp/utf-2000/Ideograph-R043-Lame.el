@@ -373,7 +373,11 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 43)	; ⼪
+  '((<-denotational@component
+     ((=>ucs@iwds-1	  . #x4E38)	; &A-IWDSU+4E38;
+      (=>iwds-1		  .  65535)	; &A-IWDSU+4E38;
+      ))
+    (ideographic-radical . 43)	; ⼪
     (ideographic-strokes . 0)
     (total-strokes	 . 3)
     (=>ucs@component	. #x5C22)	; &A-compU+5C22;
@@ -3079,7 +3083,11 @@
     (=cns11643-5	. #x7926)	; &I-C5-7926; [89-06]
     ))
 (define-char
-  '((ideographic-radical . 43)	; ⼪
+  '((<-denotational@component
+     ((=>ucs@iwds-1	  . #x4E38)	; &A-IWDSU+4E38;
+      (=>iwds-1		  .  65535)	; &A-IWDSU+4E38;
+      ))
+    (ideographic-radical . 43)	; ⼪
     (=>ucs@component	. #x5C24)	; &A-compU+5C24;
     (=>iwds-1		.  0250)	; &A-compU+5C24;
     ))
