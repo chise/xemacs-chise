@@ -566,7 +566,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=>big5-cdp	  . #x8CAF)	; &A-GT-K02231;
+     ((=>iwds-1		  .  1149)	; &A-GT-K02231;
       )
      ((=ucs		  . #x6BD4)	; 比
       ))
