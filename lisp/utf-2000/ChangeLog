@@ -1,4 +1,29 @@
+2019-05-08  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R012-Eight.el (U-00020533): New character.
+
+	* Ideograph-R009-Man.el (U-0002020C): Apply new conventions for
+	glyph granularity.
+
+2019-05-08  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R010-Legs.el (A-U+20486-itaiji-003): Use A-cgnBC-8CAF
+	instead of A-BC-8CAF in `ideographic-structure'.
+	(U-0002B918): New character; use `<-denotational' for
+	A-cgnU+2B918.
+	(A-cgnU+2B918): New abstract node.
+	(IWDS1-0214): Add `<-denotational@component' for A-IWDSU+4E38.
+	(A-compU+514D): Modify `=>iwds-1*note'.
+
 2019-05-07  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R001-One.el (IWDS1-0141): Add `=>iwds-1*note'.
+	(U-0002B743): Use A-IWDSU+723E instead of A-cgnU+723E as its
+	mother; add `ideographic-structure'.
+	(HD-TK01056730): Add `ideographic-structure'.
+	(IU+2B743): Add `ideographic-structure'.
+	(IWDS1-0221): Add `<-denotational@component' for A-IWDSU+4E38 and
+	A-compU+5EFE.
 
 	* Ideograph-R077-Stop.el (A-cgnU+6B62): New abstract node.
 	(U+6B62): Unify IWDS1-0206; add `<-denotational' for A-cgnU+6B62.
@@ -11,6 +36,12 @@
 	`=>big5-cdp-var-001'.
 
 2019-05-06  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R100-Life.el (U+9FB6): Add A-compU+4E30 as a target of
+	`<-denotational@component'.
+
+	* Ideograph-R080-Do-Not.el (A-IWDSU+6BCC): New abstract node.
+	(IWDS1-0182): Add `<-denotational@component' for A-IWDSU+6BCC.
 
 	* Ideograph-R043-Lame.el (IWDS1-0099): Add
 	`<-denotational@component' for A-IWDSU+4E38.
