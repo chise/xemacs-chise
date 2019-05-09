@@ -2020,6 +2020,40 @@
     ))
 (define-char
   '((ideographic-radical . 53)	; ⼴
+    (ideographic-strokes . 5)
+    (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs		  . #x5E7F)	; 广
+      )
+     ((=ucs		  . #x2D1B9)	; 𭆹
+      ))
+    (=ucs		. #x22201)	; 𢈁
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x22201)	; 𢈁
+      ))
+    (ideographic-radical . 53)	; ⼴
+    (ideographic-strokes . 5)
+    (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs		  . #x5E7F)	; 广
+      )
+     ((=ucs-var-004	  . #x2D1B9)	; &U-v004+2D1B9;
+      ))
+    (=ucs@iso		. #x22201)	; &U-00022201;
+    (->subsumptive
+     ((==ucs@iso	  . #x22201)	; &g2-IU-00022201;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 53)	; ⼴
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
     (=ucs		. #x22207)	; 𢈇
