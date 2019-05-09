@@ -4935,8 +4935,7 @@
       (=mj		  . 025914)	; &MJ025914;
       ))
     (<-same
-     ((=ucs@unicode	  . #x6C42)	; &MJ015049;
-      (=mj		  . 015049)	; &MJ015049;
+     ((=ucs		  . #x6C42)	; 求
       (=daikanwa	  . 17105)	; &I-M-17105;
       ))
     (<-same*sources
@@ -11677,7 +11676,8 @@
     (=daijiten		. 02384)	; &I-DJT-02384;
     (=cbeta		. 05871)	; &I-CB05871;
     (<-wrong
-     ((=ucs@jis		  . #x6FC5)	; &JSP-487B;
+     ((=ucs@cns		  . #x6FC5)	; &JSP-487B;
+      (=ucs@jis		  . #x6FC5)	; &JSP-487B;
       (=jis-x0212	  . #x487B)	; &JSP-487B; [40-91]
       (=cns11643-4	  . #x5122)	; &I-C4-5122; [49-02]
       (=daikanwa	  . 18445)	; &I-M-18445;
