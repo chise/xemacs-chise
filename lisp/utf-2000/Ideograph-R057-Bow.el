@@ -5807,15 +5807,15 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=>ucs@cognate	  . #x5F13)	; &A-cgnU+5F13;
+     ((=ucs		  . #x5F13)	; 弓
       )
-     ((=>ucs@cognate	  . #x723E)	; &A-cgnU+723E;
+     ((=>ucs@iwds-1	  . #x723E)	; &A-IWDSU+723E;
       ))
-    (=>ucs@cognate	. #x5F4C)	; &A-cgnU+5F4C;
+    (=ucs		. #x5F4C)	; 彌
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@cognate	  . #x5F4C)	; &A-cgnU+5F4C;
+     ((=ucs		  . #x5F4C)	; 彌
       ))
     (ideographic-radical . 57)	; ⼸
     (ideographic-strokes . 14)
@@ -5828,11 +5828,17 @@
       )
      ((=ucs		  . #x723E)	; 爾
       ))
-    (=ucs		. #x5F4C)	; 彌
+    (=+>ucs@unicode	. #x5F4C)	; &o-J0-573D;
+    (=+>jis-x0208	. #x573D)	; &o-J0-573D; [55-29]
+    (=+>jis-x0213-1	. #x573D)	; &o-J0-573D; [55-29]
+    (=+>adobe-japan1-0	. 04776)	; &o-J0-573D;
+    (=+>hanyo-denshi/jt . #xB11E)	; &o-J0-573D;
+    (=+>gt		. 12458)	; &o-J0-573D;
     ))
 (define-char
   '((<-denotational
-     ((=ucs		  . #x5F4C)	; 彌
+     ((=+>ucs@unicode	  . #x5F4C)	; &o-J0-573D;
+      (=+>jis-x0208	  . #x573D)	; &o-J0-573D; [55-29]
       ))
     (ideographic-radical . 57)	; ⼸
     (ideographic-strokes . 14)
@@ -5914,7 +5920,8 @@
     ))
 (define-char
   '((<-denotational
-     ((=ucs		  . #x5F4C)	; 彌
+     ((=+>ucs@unicode	  . #x5F4C)	; &o-J0-573D;
+      (=+>jis-x0208	  . #x573D)	; &o-J0-573D; [55-29]
       ))
     (ideographic-radical . 57)	; ⼸
     (ideographic-strokes . 14)
@@ -5948,7 +5955,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@cognate	  . #x5F4C)	; &A-cgnU+5F4C;
+     ((=ucs		  . #x5F4C)	; 彌
       ))
     (ideographic-radical . 57)	; ⼸
     (ideographic-strokes . 14)
