@@ -157,7 +157,11 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 31)	; ⼞
+  '((<-denotational@component
+     ((=>ucs@component	  . #x56D9)	; &A-compU+56D9;
+      (=>iwds-1		  .  2317)	; &A-compU+56D9;
+      ))
+    (ideographic-radical . 31)	; ⼞
     (ideographic-strokes . 2)
     (total-strokes	 . 5)
     (hanyu-dazidian	1 711 1)
@@ -169,6 +173,7 @@
       )
      ((=big5-cdp	  . #x8C78)	; &CDP-8C78;
       ))
+    (sound@ja/on	"iN")
     (=ucs		. #x56D9)	; 囙
     (=adobe-japan1-5	. 19270)	; &I-AJ1-19270;
     (=jis-x0212		. #x3672)	; &I-JSP-3672; [22-82]
@@ -179,10 +184,33 @@
     (<-vulgar
      ((=ucs		  . #x56E0)	; 因
       (=jis-x0208	  . #x3078)	; &I-J90-3078; [16-88]
+      (=daikanwa	  . 04693)	; &I-M-04693;
       (=shinjigen	  .  1300)	; 因
       ))
     (<-vulgar*sources
-     shinjigen)
+     zhengzitong daikanwa shinjigen)
+    (->subsumptive
+     ((==ucs@unicode	  . #x56D9)	; &g2-AJ1-19270;
+      (==adobe-japan1-5	  . 19270)	; &g2-AJ1-19270;
+      (==jis-x0212	  . #x3672)	; &g2-AJ1-19270; [22-82]
+      (==cns11643-4	  . #x216F)	; &g2-AJ1-19270; [01-79]
+      (==big5-cdp	  . #x8DE5)	; &g2-AJ1-19270;
+      (==daikanwa	  . 04678)	; &g2-AJ1-19270;
+      (==shinjigen	  .  1301)	; &g2-AJ1-19270;
+      (->subsumptive
+       ((===daikanwa	    . 04678)	; &R-M-04678;
+	)
+       ((===jis-x0212	    . #x3672)	; &R-JSP-3672; [22-82]
+	)
+       ((===adobe-japan1-5  . 19270)	; &R-AJ1-19270;
+	)
+       ((===big5-cdp	    . #x8DE5)	; &R-CDP-8DE5;
+	)
+       ((===cns11643-4	    . #x216F)	; &R-C4-216F; [01-79]
+	)
+       ((===ucs@unicode	    . #x56D9)	; &R-UU+56D9;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 31)	; ⼞
@@ -598,6 +626,10 @@
 (define-char
   '((<-denotational
      ((=>ucs@iwds-1	  . #x56DE)	; &A-IWDSU+56DE;
+      ))
+    (<-denotational@component
+     ((=>ucs@component	  . #x56D9)	; &A-compU+56D9;
+      (=>iwds-1		  .  2317)	; &A-compU+56D9;
       ))
     (ideographic-radical . 31)	; ⼞
     (ideographic-strokes . 3)
@@ -7687,6 +7719,12 @@
       (==ucs@cns	  . #x571E)	; &g2-CU+571E;
       (==cns11643-2	  . #x715A)	; &g2-CU+571E; [81-58]
       ))
+    ))
+(define-char
+  '((ideographic-radical . 31)	; ⼞
+    (=>iwds-1*note	"317b")
+    (=>ucs@component	. #x56D9)	; &A-compU+56D9;
+    (=>iwds-1		.  2317)	; &A-compU+56D9;
     ))
 (define-char
   '((ideographic-radical . 31)	; ⼞
