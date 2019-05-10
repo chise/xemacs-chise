@@ -1,5 +1,16 @@
 2019-05-08  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R041-Inch.el (U+5C0A): Use `<-denotational@usage'
+	instead of `<-denotational' for BUCS+5C0A; add
+	`ideographic-structure'.
+	(KU+5C0A): Add `ideographic-structure'; add `<-formed' for
+	IU+2235C; add `2235C' for JU+7F47.
+	(UU+5C0A): Add `ideographic-structure'.
+	(U-0002D53F): Use `<-denotational@usage' instead of
+	`<-denotational' for BUCS+5C0A.
+
+2019-05-08  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R057-Bow.el (U+5F4C): Changed from A-cgnU+5F4C.
 	(o-UU+5F4C): Changed from U+5F4C; use U+5F4C instead of
 	A-cgnU+5F4C as its mother.
@@ -8,6 +19,11 @@
 	(A-MJ011220): Use U+5F4C instead of A-cgnU+5F4C as its mother.
 
 	* Ideograph-R053-Dotted-Cliff.el (U-00022201): New character.
+
+	* Ideograph-R045-Sprout.el (U-00021D42): Add
+	`ideographic-structure'.
+	(U-00021D49): Apply new conventions for glyph granularity; add
+	`<-denotational@component' for A-IWDSU+21D48.
 
 	* Ideograph-R032-Earth.el (U-0002D37A): New character.
 
