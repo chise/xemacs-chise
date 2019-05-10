@@ -2160,12 +2160,57 @@
   '((ideographic-radical . 70)	; ⽅
     (ideographic-strokes . 11)
     (total-strokes	 . 15)
-    (=ucs		. #x3ACE)	; 㫎
-    (->subsumptive
-     ((=daikanwa	  . 13690)	; &M-13690;
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
       )
-     ((=ucs@unicode	  . #x3ACE)	; &C4-4A30;
-      (=cns11643-4	  . #x4A30)	; &C4-4A30; [42-16]
+     ((=cbeta		  . 12073)	; &U-i001+3AC3;
+      )
+     ((=ucs		  . #x8ECD)	; 軍
+      ))
+    (sound@ja/on	"ki" "koN")
+    (=ucs		. #x3ACE)	; 㫎
+    (=cns11643-4	. #x4A30)	; &I-C4-4A30; [42-16]
+    (=daikanwa		. 13690)	; &I-M-13690;
+    (<-formed
+     ((=ucs		  . #x5E51)	; 幑
+      ))
+    (<-formed$_1*sources
+     jiyun)
+    (<-interchangeable
+     ((=ucs		  . #x63EE)	; 揮
+      (=daikanwa	  . 12394)	; &I-M-12394;
+      ))
+    (<-interchangeable$_1*sources
+     yupian daikanwa)
+    (<-interchangeable*sources
+     yupian daikanwa)
+    (<-same
+     ((=ucs		  . #x5E51)	; 幑
+      (=daikanwa	  . 09041)	; &I-M-09041;
+      ))
+    (<-same$_1*sources
+     jiyun daikanwa)
+    (<-same*sources
+     jiyun daikanwa)
+    (->formed
+     ((=ucs		  . #x63EE)	; 揮
+      ))
+    (->formed$_1*sources
+     yupian)
+    (->formed*sources
+     yupian)
+    (->subsumptive
+     ((==ucs@unicode	  . #x3ACE)	; &g2-M-13690;
+      (==cns11643-4	  . #x4A30)	; &g2-M-13690; [42-16]
+      (==daikanwa	  . 13690)	; &g2-M-13690;
+      (->subsumptive
+       ((===daikanwa	    . 13690)	; &R-M-13690;
+	)
+       ((===cns11643-4	    . #x4A30)	; &R-C4-4A30; [42-16]
+	)
+       ((===ucs@unicode	    . #x3ACE)	; &R-UU+3ACE;
+	))
       ))
     ))
 (define-char

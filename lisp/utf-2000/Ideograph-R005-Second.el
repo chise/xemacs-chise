@@ -558,6 +558,34 @@
     (=hanziku-1		. #xAE47)	; &HZK01-AE47;
     ))
 (define-char
+  '((<-denotational
+     ((=ucs		  . #x200CF)	; 𠃏
+      ))
+    (ideographic-radical . 5)	; ⼄
+    (ideographic-strokes . 1)
+    (total-strokes	 . 2)
+    (=gt-k		. 00109)	; &GT-K00109;
+    (=gt-pj-k2		. #x4344)	; &GT-K00109; [35-36]
+    (->subsumptive
+     ((==gt-k		  . 00109)	; &g2-GT-K00109;
+      (==gt-pj-k2	  . #x4344)	; &g2-GT-K00109; [35-36]
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x200CF)	; 𠃏
+      ))
+    (ideographic-radical . 5)	; ⼄
+    (ideographic-strokes . 2)
+    (total-strokes	 . 3)
+    (=gt-k		. 00241)	; &GT-K00241;
+    (=gt-pj-k1		. #x6073)	; &GT-K00241; [64-83]
+    (->subsumptive
+     ((==gt-k		  . 00241)	; &g2-GT-K00241;
+      (==gt-pj-k1	  . #x6073)	; &g2-GT-K00241; [64-83]
+      ))
+    ))
+(define-char
   '((ideographic-radical . 5)	; ⼄
     (ideographic-strokes . 1)
     (total-strokes	 . 2)
@@ -2352,24 +2380,59 @@
     (=hanziku-1		. #xAEEC)	; &I-HZK01-AEEC;
     ))
 (define-char
-  '((ideographic-radical@ucs . 25)	; ⼘
-    (ideographic-strokes@ucs . 5)
-    (ideographic-radical@daikanwa . 5)	; ⼄
-    (ideographic-strokes@daikanwa . 6)
-    (ideographic-radical@daikanwa*sources
+  '((ideographic-radical@ucs . 5)	; ⼄
+    (ideographic-strokes@ucs . 6)
+    (ideographic-radical@ucs*sources
      daikanwa gt)
+    (ideographic-radical@ucs/code . 25)	; ⼘
+    (ideographic-strokes@ucs/code . 5)
     (total-strokes	 . 7)
-    (=ucs		. #x209DD)	; 𠧝
-    (->subsumptive
-     ((ideographic-radical . 5)	; ⼄
-      (ideographic-strokes . 6)
-      (=gt		  . 00248)	; &GT-00248;
-      (=gt-pj-2		  . #x3158)	; &GT-00248; [17-56]
-      (=daikanwa	  . 00189)	; &I-M-00189;
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
+      (=ucs		  . #x2FF9)	; ⿹
       )
-     ((ideographic-radical . 25)	; ⼘
-      (ideographic-strokes . 5)
-      (=ucs@iso		  . #x209DD)	; &U-000209DD;
+     ((=ucs		  . #x209D2)	; 𠧒
+      )
+     ((=ucs		  . #x516D)	; 六
+      ))
+    (sound@ja/on	"kyo")
+    (=ucs		. #x209DD)	; 𠧝
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x209DD)	; 𠧝
+      ))
+    (ideographic-radical . 5)	; ⼄
+    (ideographic-strokes . 6)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
+      (=ucs		  . #x2FF9)	; ⿹
+      )
+     ((=ucs-var-001	  . #x209D2)	; &U-v001+209D2;
+      )
+     ((=ucs		  . #x516D)	; 六
+      ))
+    (=ucs@iso		. #x209DD)	; &MJ031780;
+    (=mj		. 031780)	; &MJ031780;
+    (=koseki		. 002310)	; &MJ031780;
+    (=gt		. 00248)	; &I-GT-00248;
+    (=gt-pj-2		. #x3158)	; &I-GT-00248; [17-56]
+    (=daikanwa		. 00189)	; &I-M-00189;
+    (->subsumptive
+     ((==mj		  . 031780)	; &g2-MJ031780;
+      (==koseki		  . 002310)	; &g2-MJ031780;
+      (==gt		  . 00248)	; &g2-MJ031780;
+      (==daikanwa	  . 00189)	; &g2-MJ031780;
+      (->subsumptive
+       ((===daikanwa	    . 00189)	; &R-M-00189;
+	)
+       ((===mj		    . 031780)	; &R-MJ031780;
+	)
+       ((===gt		    . 00248)	; &R-GT-00248;
+	))
+      )
+     ((==ucs@iso	  . #x209DD)	; &g2-IU-000209DD;
       ))
     ))
 (define-char
@@ -5006,6 +5069,16 @@
     ))
 (define-char
   '((ideographic-radical . 5)	; ⼄
+    (=>iwds-1*note	"22+54+55+56+99+104+117+119+203+214+221+222+236+249+250+346")
+    (=>ucs@iwds-1	. #x4E38)	; &A-IWDSU+4E38;
+    (=>iwds-1		.  65535)	; &A-IWDSU+4E38;
+    ))
+(define-char
+  '((<-denotational@component
+     ((=>ucs@iwds-1	  . #x4E38)	; &A-IWDSU+4E38;
+      (=>iwds-1		  .  65535)	; &A-IWDSU+4E38;
+      ))
+    (ideographic-radical . 5)	; ⼄
     (=>ucs@component	. #x4E38)	; &A-compU+4E38;
     (=>iwds-1		.  0249)	; &A-compU+4E38;
     ))
@@ -5014,7 +5087,11 @@
     (=>ucs@component	. #x4E5D)	; &A-compU+4E5D;
     ))
 (define-char
-  '((ideographic-radical . 5)	; ⼄
+  '((<-denotational@component
+     ((=>ucs@iwds-1	  . #x4E38)	; &A-IWDSU+4E38;
+      (=>iwds-1		  .  65535)	; &A-IWDSU+4E38;
+      ))
+    (ideographic-radical . 5)	; ⼄
     (=>ucs@iwds-1	. #x4E5D)	; &A-IWDSU+4E5D;
     (=>iwds-1		.  0203)	; &A-IWDSU+4E5D;
     ))

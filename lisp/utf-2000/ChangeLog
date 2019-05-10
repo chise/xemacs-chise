@@ -1,3 +1,48 @@
+2019-05-09  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R005-Second.el (GT-K00109): New character; use
+	`<-denotational' for U-000200CF.
+	(GT-K00241): Ditto.
+	(U-000209DD): Apply new conventions for glyph granularity.
+	(A-IWDSU+4E38): New abstract node.
+	(IWDS1-0249): Add `<-denotational@component' for A-IWDSU+4E38.
+	(IWDS1-0203): Likewise.
+
+	* Ideograph-R070-Square.el (U+3ACE): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R060-Step.el (U-00022503): Add
+	`ideographic-structure'.
+	(IU+22503): Likewise.
+	(hanaJU+22503): New character; use `<-denotational' for
+	U-00022503.
+	(MJ035850): Add `ideographic-structure'.
+
+	* Ideograph-R031-Enclosure.el (U+56D9): Add
+	`<-denotational@component' for A-compU+56D9; add `sound@ja/on';
+	add representative nodes.
+	(U+56DE): Add `<-denotational@component' for A-compU+56D9.
+	(A-compU+56D9): New abstract node.
+
+	* Ideograph-R019-Power.el (U-0002085D): Add
+	`ideographic-structure'; add `sound@ja/on/{kan|go}'.
+	(U-00020862): Add `ideographic-structure'; add representative
+	nodes.
+
+	* Ideograph-R015-Ice.el (A-IWDSU+51AB): Unify IWDS1-47219 instead
+	of IWDS1-0219; add `=>iwds-1*note'.
+	(IWDS1-0219): Unify A-compU+51AB instead of A-IWDSU+51AB; add
+	`<-denotational@component' for A-IWDSU+51AB.
+	(U+34C9): Apply new conventions for glyph granularity.
+
+	* Ideograph-R014-Cover.el (A-IWDSU+5197): New abstract node.
+	(U+5197): Add `<-denotational@component' for A-IWDSU+5197; add
+	`ideographic-structure'.
+	(U-0002F817): Apply new conventions for glyph granularity.
+	(U-00020574): Likewise; add `<-denotational@component' for
+	A-IWDSU+5197.
+	(U-00020575): Likewise.
+
 2019-05-08  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R041-Inch.el (U+5C0A): Use `<-denotational@usage'

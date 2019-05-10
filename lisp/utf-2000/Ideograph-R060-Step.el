@@ -2509,6 +2509,22 @@
   '((ideographic-radical . 60)	; ⼻
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5F73)	; 彳
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((=>ucs@cognate	    . #x821F)	; &A-cgnU+821F;
+	)
+       ((=>ucs@component    . #x590A)	; &A-compU+590A;
+	(=>iwds-1	    .  0092)	; &A-compU+590A;
+	))
+      ))
     (sound@ja/on	"ri")
     (=ucs		. #x22503)	; 𢔃
     ))
@@ -2519,6 +2535,21 @@
     (ideographic-radical . 60)	; ⼻
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5F73)	; 彳
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((=hanyo-denshi/ks   . 338850)	; &HD-KS-338850;
+	)
+       ((=ucs		    . #x590A)	; 夊
+	))
+      ))
     (=ucs@iso		. #x22503)	; &C6-3F68;
     (=cns11643-6	. #x3F68)	; &C6-3F68; [31-72]
     (=koseki		. 114580)	; &C6-3F68;
@@ -2559,6 +2590,48 @@
     (ideographic-radical . 60)	; ⼻
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5F73)	; 彳
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((=ucs		    . #x821F)	; 舟
+	)
+       ((=ucs		    . #x5902)	; 夂
+	))
+      ))
+    (=ucs@JP/hanazono	. #x22503)	; &hanaJU+22503;
+    (->subsumptive
+     ((==ucs@JP/hanazono  . #x22503)	; &g2-hanaJU+22503;
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x22503)	; 𢔃
+      ))
+    (ideographic-radical . 60)	; ⼻
+    (ideographic-strokes . 9)
+    (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5F73)	; 彳
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((=ucs		    . #x821F)	; 舟
+	)
+       ((=ucs		    . #x590A)	; 夊
+	))
+      ))
     (=mj		. 035850)	; &MJ035850;
     (<-formed
      ((=ucs@unicode	  . #x5C65)	; &AJ1-03940;
