@@ -2370,8 +2370,27 @@
   '((ideographic-radical . 19)	; ⼒
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x21FEA)	; 𡿪
+      )
+     ((=ucs		  . #x529B)	; 力
+      ))
+    (sound@ja/on/go	"giti")
+    (sound@ja/on/kan	"gitu")
     (=ucs		. #x2085D)	; 𠡝
     (=daikanwa/ho	.  0053)	; 𠡝
+    (->subsumptive
+     ((==ucs@iso	  . #x2085D)	; &g2-M-H0053;
+      (==daikanwa/ho	  .  0053)	; &g2-M-H0053;
+      (->subsumptive
+       ((===daikanwa/ho	    .  0053)	; &R-M-H0053;
+	)
+       ((===ucs@iso	    . #x2085D)	; &R-U-0002085D;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 19)	; ⼒
@@ -3360,8 +3379,25 @@
   '((ideographic-radical . 19)	; ⼒
     (ideographic-strokes . 7)
     (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x239C4)	; 𣧄
+      )
+     ((=ucs		  . #x529B)	; 力
+      ))
     (=ucs		. #x20862)	; 𠡢
     (=cns11643-5	. #x282F)	; &I-C5-282F; [08-15]
+    (->subsumptive
+     ((==ucs@iso	  . #x20862)	; &g2-IU-00020862;
+      (==cns11643-5	  . #x282F)	; &g2-IU-00020862; [08-15]
+      (->subsumptive
+       ((===cns11643-5	    . #x282F)	; &R-C5-282F; [08-15]
+	)
+       ((===ucs@iso	    . #x20862)	; &R-U-00020862;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 19)	; ⼒
