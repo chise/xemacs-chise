@@ -41,7 +41,8 @@
     (=daijiten		. 00935)	; &I-DJT-00935;
     (=shinjigen		.  0783)	; 匕
     (<-interchangeable
-     ((=daikanwa	  . 14438)	; &M-14438;
+     ((=mj		  . 013594)	; &MJ013594;
+      (=daikanwa	  . 14438)	; &I-M-14438;
       )
      ((=ucs		  . #x6787)	; 枇
       (=daikanwa	  . 14528)	; &I-M-14528;
