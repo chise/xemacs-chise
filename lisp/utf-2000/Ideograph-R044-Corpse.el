@@ -718,8 +718,8 @@
       )
      ((=ucs		  . #x5C3A)	; 尺
       )
-     ((=>ucs@iwds-1	  . #x51AB)	; &A-IWDSU+51AB;
-      (=>iwds-1		  .  0219)	; &A-IWDSU+51AB;
+     ((=>ucs@component	  . #x51AB)	; &A-compU+51AB;
+      (=>iwds-1		  .  0219)	; &A-compU+51AB;
       ))
     (sound@ja/on	"ziN")
     (=ucs		. #x5C3D)	; 尽
@@ -1135,7 +1135,8 @@
     ))
 (define-char
   '((<-denotational@component
-     ((=>ucs@component	  . #x5C3F)	; &A-compU+5C3F;
+     ((=>ucs@iwds-1	  . #x5C3F)	; &A-IWDSU+5C3F;
+      (=>iwds-1		  .  0060)	; &A-IWDSU+5C3F;
       ))
     (<-denotational@usage
      ((==>daijiten	  . 02479)	; &A2-DJT-02479;
@@ -2025,7 +2026,8 @@
      ((=>ucs@component	  . #x3791)	; &A-compU+3791;
       ))
     (<-denotational@component
-     ((=>ucs@component	  . #x5C3F)	; &A-compU+5C3F;
+     ((=>ucs@iwds-1	  . #x5C3F)	; &A-IWDSU+5C3F;
+      (=>iwds-1		  .  0060)	; &A-IWDSU+5C3F;
       ))
     (ideographic-radical . 44)	; ⼫
     (ideographic-strokes . 5)
@@ -6205,9 +6207,10 @@
       )
      ((=ucs		  . #x5C38)	; 尸
       )
-     ((=>ucs@component	  . #x6C34)	; &A-compU+6C34;
+     ((=>ucs@cognate	  . #x6C34)	; &A-cgnU+6C34;
       ))
-    (=>ucs@component	. #x5C3F)	; &A-compU+5C3F;
+    (=>ucs@iwds-1	. #x5C3F)	; &A-IWDSU+5C3F;
+    (=>iwds-1		.  0060)	; &A-IWDSU+5C3F;
     ))
 (define-char
   '((ideographic-radical . 44)	; ⼫
