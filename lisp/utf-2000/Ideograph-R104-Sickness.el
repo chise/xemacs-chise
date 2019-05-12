@@ -666,6 +666,23 @@
   '((ideographic-radical . 104)	; ⽧
     (ideographic-strokes . 3)
     (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs		  . #x7592)	; 疒
+      )
+     ((=ucs		  . #x5E72)	; 干
+      ))
+    (=ucs		. #x24D32)	; 𤴲
+    (->subsumptive
+     ((==ucs@iso	  . #x24D32)	; &g2-IU-00024D32;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 104)	; ⽧
+    (ideographic-strokes . 3)
+    (total-strokes	 . 8)
     (=ucs		. #x24D33)	; 𤴳
     (=cns11643-5	. #x2738)	; &I-C5-2738; [07-24]
     ))

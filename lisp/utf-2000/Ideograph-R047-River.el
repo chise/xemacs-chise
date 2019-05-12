@@ -345,12 +345,87 @@
   '((ideographic-radical . 47)	; ⼮
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
-    (=ucs		. #x21FEB)	; 𡿫
-    (->subsumptive
-     ((=daikanwa	  . 08679)	; &M-08679;
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=ucs@iso		  . #x21FEB)	; &C6-245B;
-      (=cns11643-6	  . #x245B)	; &C6-245B; [04-59]
+     ((=ucs		  . #x4EA1)	; 亡
+      )
+     ((=ucs		  . #x5DDD)	; 川
+      ))
+    (sound@ja/on	"kWAu")
+    (=ucs		. #x21FEB)	; 𡿫
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x21FEB)	; 𡿫
+      ))
+    (ideographic-radical . 47)	; ⼮
+    (ideographic-strokes . 3)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=mj		  . 006462)	; &MJ006462;
+      )
+     ((=ucs		  . #x5DDD)	; 川
+      ))
+    (=mj		. 010765)	; &MJ010765;
+    (=koseki		. 098090)	; &MJ010765;
+    (=daikanwa		. 08679)	; &I-M-08679;
+    (<-same
+     ((=hanyo-denshi/ks	  . 346980)	; &HD-KS-346980;
+      (=daikanwa	  . 30953)	; &HD-KS-346980;
+      ))
+    (<-same$_1*sources
+     shiwen daikanwa)
+    (<-same*sources
+     shiwen daikanwa)
+    (->formed
+     ((=daikanwa	  . 18058)	; &M-18058;
+      ))
+    (->formed$_1*sources
+     jiyun daikanwa)
+    (->formed*sources
+     jiyun daikanwa)
+    (->subsumptive
+     ((==mj		  . 010765)	; &g2-MJ010765;
+      (==koseki		  . 098090)	; &g2-MJ010765;
+      (==daikanwa	  . 08679)	; &g2-MJ010765;
+      (->subsumptive
+       ((===daikanwa	    . 08679)	; &R-M-08679;
+	)
+       ((===mj		    . 010765)	; &R-MJ010765;
+	))
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x21FEB)	; 𡿫
+      ))
+    (ideographic-radical . 47)	; ⼮
+    (ideographic-strokes . 3)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs@unicode	  . #x4EA1)	; &MJ006463;
+      (=mj		  . 006463)	; &MJ006463;
+      )
+     ((=ucs		  . #x5DDD)	; 川
+      ))
+    (=ucs@iso		. #x21FEB)	; &C6-245B;
+    (=cns11643-6	. #x245B)	; &C6-245B; [04-59]
+    (->subsumptive
+     ((==ucs@iso	  . #x21FEB)	; &g2-IU-00021FEB;
+      (==cns11643-6	  . #x245B)	; &g2-IU-00021FEB; [04-59]
+      (->subsumptive
+       ((===cns11643-6	    . #x245B)	; &R-C6-245B; [04-59]
+	)
+       ((===ucs@iso	    . #x21FEB)	; &R-U-00021FEB;
+	))
       ))
     ))
 (define-char

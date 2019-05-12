@@ -1,3 +1,22 @@
+2019-05-10  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R009-Man.el (U+4ED3): Apply new conventions for glyph
+	granularity; use `<-denotational@usage' instead of
+	`<-denotational' for BUCS+5009.
+	(A-cgnU+4FC5): Changed from U+4FC5.
+	(AJ1-17266): Unify U+4FC5 instead of A-IWDSU+4FC5 and UU+4FC5; use
+	A-cgnU+4FC5 instead of U+4FC5 as its mother.
+	(U+5009): Apply new conventions for glyph granularity; use
+	`<-denotational@usage' instead of `<-denotational' for BUCS+5009.
+
+	* Ideograph-R047-River.el (U-00021FEB): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R044-Corpse.el (U+5C3F): Use IWDS1-0060 instead of
+	A-compU+5C3F as a target of `<-denotational@component'.
+	(GT-K04055): Ditto.
+	(IWDS1-0060): Changed from A-compU+5C3F; unify A-IWDSU+5C3F.
+
 2019-05-09  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R005-Second.el (GT-K00109): New character; use
@@ -62,6 +81,8 @@
 	(UU+5F4C): Use o-UU+5F4C instead of U+5F4C as its mother.
 	(HD-JT-B11E): Ditto.
 	(A-MJ011220): Use U+5F4C instead of A-cgnU+5F4C as its mother.
+
+	* Ideograph-R104-Sickness.el (U-00024D32): New character.
 
 	* Ideograph-R053-Dotted-Cliff.el (U-00022201): New character.
 
