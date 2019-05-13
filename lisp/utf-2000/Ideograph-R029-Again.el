@@ -3030,27 +3030,70 @@
   '((ideographic-radical . 29)	; ⼜
     (ideographic-strokes . 7)
     (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=>gt-k		  . 03610)	; &A-GT-K03610;
+      )
+     ((=ucs		  . #x53C8)	; 又
+      ))
+    (sound@ja/go	"ke" "kai" "ki")
+    (sound@ja/kun	"kWai" "kai" "ki")
+    (=ucs		. #x355F)	; 㕟
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x355F)	; 㕟
+      ))
+    (ideographic-radical . 29)	; ⼜
+    (ideographic-strokes . 7)
+    (total-strokes	 . 9)
     (hanyu-dazidian	1 397 11)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	(=ucs		    . #x2FF1)	; ⿱
-	)
-       ((name		    . "CJK RADICAL DIVINATION")
-	(=ucs		    . #x2E8A)	; ⺊
-	)
-       ((=ucs		    . #x20541)	; 𠕁
-	))
+     ((=gt-k		  . 03610)	; &U-i006+89E3;
       )
      ((=ucs		  . #x53C8)	; 又
       ))
-    (=ucs		. #x355F)	; 㕟
-    (=cns11643-4	. #x2857)	; &I-C4-2857; [08-55]
+    (=ucs@unicode	. #x355F)	; &C4-2857;
+    (=cns11643-4	. #x2857)	; &C4-2857; [08-55]
     (=big5-cdp		. #x8AC6)	; &I-CDP-8AC6;
     (=daikanwa		. 03162)	; &I-M-03162;
+    (<-same
+     ((=ucs		  . #x559F)	; 喟
+      (=daikanwa	  . 03963)	; &I-M-03963;
+      ))
+    (<-same$_1*sources
+     jiyun daikanwa)
+    (<-same*sources
+     jiyun daikanwa)
+    (<-wrong
+     ((=ucs@unicode	  . #x6B33)	; &C2-363B;
+      (=cns11643-2	  . #x363B)	; &C2-363B; [22-27]
+      (=daikanwa	  . 16082)	; &I-M-16082;
+      ))
+    (<-wrong$_1*sources
+     zhengzitong daikanwa)
+    (<-wrong*sources
+     zhengzitong daikanwa)
+    (->subsumptive
+     ((==ucs@unicode	  . #x355F)	; &g2-CDP-8AC6;
+      (==cns11643-4	  . #x2857)	; &g2-CDP-8AC6; [08-55]
+      (==big5-cdp	  . #x8AC6)	; &g2-CDP-8AC6;
+      (==daikanwa	  . 03162)	; &g2-CDP-8AC6;
+      (->subsumptive
+       ((===daikanwa	    . 03162)	; &R-M-03162;
+	)
+       ((===big5-cdp	    . #x8AC6)	; &R-CDP-8AC6;
+	)
+       ((===cns11643-4	    . #x2857)	; &R-C4-2857; [08-55]
+	)
+       ((===ucs@unicode	    . #x355F)	; &R-UU+355F;
+	))
+      ))
     ))
 (define-char
   '((<-denotational@usage
