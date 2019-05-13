@@ -2088,6 +2088,73 @@
       ))
     ))
 (define-char
+  '((ideographic-radical . 13)	; ⼌
+    (ideographic-strokes . 4)
+    (total-strokes	 . 6)
+    (=>gt-k		. 02039)	; &A-GT-K02039;
+    (=>big5-cdp-itaiji-001 . #x8BDC)	; &A-GT-K02039;
+    (=>iwds-1		.  0134)	; &A-GT-K02039;
+    ))
+(define-char
+  '((<-denotational
+     ((=>iwds-1		  .  0134)	; &A-GT-K02039;
+      ))
+    (ideographic-radical . 13)	; ⼌
+    (ideographic-strokes . 4)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
+      (=ucs		  . #x2FF5)	; ⿵
+      )
+     ((=big5-cdp	  . #x8C58)	; &CDP-8C58;
+      )
+     ((=ucs		  . #x4E05)	; 丅
+      ))
+    (=big5-cdp-itaiji-001 . #x8BDC)	; &CDP-i001-8BDC;
+    (->subsumptive
+     ((==big5-cdp-itaiji-001 . #x8BDC)	; &g2-CDP-i001-8BDC;
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>iwds-1		  .  0134)	; &A-GT-K02039;
+      ))
+    (ideographic-radical . 13)	; ⼌
+    (ideographic-strokes . 4)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
+      (=ucs		  . #x2FF5)	; ⿵
+      )
+     ((=ucs		  . #x5182)	; 冂
+      )
+     ((=big5-cdp-var-001  . #x89C4)	; &CDP-v001-89C4;
+      ))
+    (=big5-cdp-itaiji-002 . #x8BDC)	; &CDP-i002-8BDC;
+    ))
+(define-char
+  '((<-denotational
+     ((=>iwds-1		  .  0134)	; &A-GT-K02039;
+      ))
+    (ideographic-radical . 13)	; ⼌
+    (ideographic-strokes . 4)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
+      (=ucs		  . #x2FF5)	; ⿵
+      )
+     ((=ucs		  . #x5188)	; 冈
+      )
+     ((=ucs		  . #x4E05)	; 丅
+      ))
+    (=gt-k		. 02039)	; &GT-K02039;
+    (=gt-pj-k1		. #x6354)	; &GT-K02039; [67-52]
+    (->subsumptive
+     ((==gt-k		  . 02039)	; &g2-GT-K02039;
+      (==gt-pj-k1	  . #x6354)	; &g2-GT-K02039; [67-52]
+      ))
+    ))
+(define-char
   '((<-denotational@usage
      ((==>ucs@bucs	  . #x518F)	; &BUCS+518F;
       ))
