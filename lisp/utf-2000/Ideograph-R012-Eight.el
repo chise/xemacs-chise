@@ -1813,8 +1813,8 @@
      ((=>ucs@component	  . #x5EFF)	; &A-compU+5EFF;
       (=>iwds-1		  .  0303)	; &A-compU+5EFF;
       )
-     ((=>ucs@component	  . #x4E0C)	; &A-compU+4E0C;
-      (=>iwds-1		  .  0221)	; &A-compU+4E0C;
+     ((=>ucs@iwds-1	  . #x4E0C)	; &A-IWDSU+4E0C;
+      (=>iwds-1		  .  0221)	; &A-IWDSU+4E0C;
       ))
     (=ucs		. #x2050F)	; 𠔏
     ))
@@ -2846,8 +2846,8 @@
       )
      ((=gt-k		  . 01965)	; &GT-K01965;
       )
-     ((=>ucs@component	  . #x4E0C)	; &A-compU+4E0C;
-      (=>iwds-1		  .  0221)	; &A-compU+4E0C;
+     ((=>ucs@iwds-1	  . #x4E0C)	; &A-IWDSU+4E0C;
+      (=>iwds-1		  .  0221)	; &A-IWDSU+4E0C;
       ))
     (=ucs		. #x20513)	; 𠔓
     ))
@@ -3628,8 +3628,8 @@
       )
      ((=>ucs@iwds-1	  . #x8294)	; &A-IWDSU+8294;
       )
-     ((=>ucs@component	  . #x4E0C)	; &A-compU+4E0C;
-      (=>iwds-1		  .  0221)	; &A-compU+4E0C;
+     ((=>ucs@iwds-1	  . #x4E0C)	; &A-IWDSU+4E0C;
+      (=>iwds-1		  .  0221)	; &A-IWDSU+4E0C;
       ))
     (=ucs		. #x2051E)	; 𠔞
     ))
