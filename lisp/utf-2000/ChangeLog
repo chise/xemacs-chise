@@ -1,3 +1,12 @@
+2019-05-13  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R013-Down-Box.el (IWDS1-0134): New abstract node;
+	unify A-GT-K02039 and A-BC-8BDC-itaiji-001.
+	(BC-8BDC-itaiji-001): New character; use `<-denotational' for
+	IWDS1-0134.
+	(BC-8BDC-itaiji-002): Ditto.
+	(GT-K02039): Ditto.
+
 2019-05-11  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R079-Weapon.el (U-00023A8B): Apply new conventions for

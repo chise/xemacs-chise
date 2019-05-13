@@ -702,8 +702,8 @@
       )
      ((=ucs		  . #x4E00)	; 一
       )
-     ((=>ucs@component	  . #x4E0C)	; &A-compU+4E0C;
-      (=>iwds-1		  .  0221)	; &A-compU+4E0C;
+     ((=>ucs@iwds-1	  . #x4E0C)	; &A-IWDSU+4E0C;
+      (=>iwds-1		  .  0221)	; &A-IWDSU+4E0C;
       ))
     (=>ucs@iwds-1	. #x4E93)	; &A-IWDSU+4E93;
     ))
