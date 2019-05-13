@@ -931,12 +931,37 @@
   '((ideographic-radical . 79)	; ⽎
     (ideographic-strokes . 7)
     (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x6C42)	; 求
+      )
+     ((=ucs		  . #x6BB3)	; 殳
+      ))
     (=ucs		. #x23A8B)	; 𣪋
-    (=cns11643-4	. #x324C)	; &I-C4-324C; [18-44]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x23A8B)	; 𣪋
+      ))
+    (ideographic-radical . 79)	; ⽎
+    (ideographic-strokes . 7)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x6C42)	; 求
+      )
+     ((=ucs@unicode	  . #x6BB3)	; &MJ014908;
+      (=mj		  . 014908)	; &MJ014908;
+      ))
+    (=ucs@iso		. #x23A8B)	; &C4-324C;
+    (=cns11643-4	. #x324C)	; &C4-324C; [18-44]
     (=daikanwa		. 16630)	; &I-M-16630;
     (<-same
-     ((=ucs@unicode	  . #x6551)	; &AJ1-01657;
-      (=adobe-japan1-0	  . 01657)	; &AJ1-01657;
+     ((=ucs		  . #x6551)	; 救
       (=daikanwa	  . 13221)	; &I-M-13221;
       ))
     (<-same*sources
