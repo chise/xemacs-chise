@@ -1891,16 +1891,19 @@
     (=daikanwa		. 05731)	; &I-M-05731;
     (=shinjigen		.  1540)	; &C3-4646;
     (<-same
-     ((=ucs		  . #x22FCC)	; 𢿌
+     ((=ucs@iso		  . #x22FCC)	; &MJ037369;
+      (=mj		  . 037369)	; &MJ037369;
       (=daikanwa	  . 13355)	; &I-M-13355;
       ))
     (<-same*sources
      zhengzitong daikanwa)
     (<-vulgar
-     ((=ucs		  . #x22FCC)	; 𢿌
+     ((=ucs@iso		  . #x22FCC)	; &MJ037369;
+      (=mj		  . 037369)	; &MJ037369;
       ))
     (<-wrong
-     ((=ucs		  . #x22FCC)	; 𢿌
+     ((=ucs@iso		  . #x22FCC)	; &MJ037369;
+      (=mj		  . 037369)	; &MJ037369;
       ))
     (<-wrong*sources
      zhengzitong)
@@ -2341,6 +2344,9 @@
     (=hanyo-denshi/ks	. 065780)	; &HD-KS-065780;
     (=koseki		. 065780)	; &HD-KS-065780;
     (=daikanwa		. 05741)	; &I-M-05741;
+    (<-formed
+     ((=ucs		  . #x7331)	; 猱
+      ))
     (->formed
      ((=daikanwa	  . 20800)	; &M-20800;
       )

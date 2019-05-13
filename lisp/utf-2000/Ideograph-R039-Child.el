@@ -1002,6 +1002,7 @@
       )
      ((=ucs		  . #x5B50)	; 子
       ))
+    (sound@ja/on	"kWai")
     (=ucs		. #x2194B)	; 𡥋
     ))
 (define-char
@@ -1010,26 +1011,46 @@
       ))
     (ideographic-radical@ucs . 25)	; ⼘
     (ideographic-strokes@ucs . 5)
-    (ideographic-radical@daikanwa . 39)	; ⼦
-    (ideographic-strokes@daikanwa . 4)
+    (ideographic-radical@ucs*sources
+     daikanwa=02795 ucs)
+    (ideographic-strokes@ucs*sources
+     daikanwa=02795 ucs)
+    (ideographic-radical@ucs/code . 39)	; ⼦
+    (ideographic-strokes@ucs/code . 4)
+    (ideographic-radical@ucs/code*sources
+     daikanwa=06958)
+    (ideographic-strokes@ucs/code*sources
+     daikanwa=06958)
     (total-strokes	 . 7)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
       (=ucs		  . #x2FF8)	; ⿸
       )
-     ((=gt-k		  . 00880)	; &GT-K00880;
+     ((=ucs-itaiji-005	  . #x864D)	; &U-i005+864D;
       )
      ((=ucs		  . #x5B50)	; 子
       ))
-    (=ucs@iso		. #x2194B)	; &M-06958;
-    (=daikanwa		. 06958)	; &M-06958;
+    (=mj		. 033875)	; &MJ033875;
+    (=koseki		. 032410)	; &MJ033875;
     (->subsumptive
-     ((==ucs@iso	  . #x2194B)	; &g2-M-06958;
-      (==daikanwa	  . 06958)	; &g2-M-06958;
+     ((==mj		  . 033875)	; &g2-MJ033875;
+      (==koseki		  . 032410)	; &g2-MJ033875;
       (->subsumptive
-       ((===daikanwa	    . 06958)	; &R-M-06958;
+       ((ideographic-radical . 25)	; ⼘
+	(ideographic-strokes . 5)
+	(=daikanwa	    . 02795)	; &M-02795;
+	(->subsumptive
+	 ((==daikanwa	      . 02795)	; &g2-M-02795;
+	  ))
 	)
-       ((===ucs@iso	    . #x2194B)	; &R-U-0002194B;
+       ((ideographic-radical . 39)	; ⼦
+	(ideographic-strokes . 4)
+	(=daikanwa	    . 06958)	; &M-06958;
+	(->subsumptive
+	 ((==daikanwa	      . 06958)	; &g2-M-06958;
+	  ))
+	)
+       ((===mj		    . 033875)	; &R-MJ033875;
 	))
       ))
     ))

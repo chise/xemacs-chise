@@ -1,4 +1,20 @@
+2019-05-11  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R079-Weapon.el (U-00023A8B): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R042-Small.el (U-00021BB3): New character.
+
+	* Ideograph-R039-Child.el (U-0002194B): Apply new conventions for
+	glyph granularity.
+
 2019-05-10  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R035-Go-Slowly.el (CU+5912): Add `<-formed' for
+	U+7331.
+
+	* Ideograph-R029-Again.el (U+355F): Apply new conventions for
+	glyph granularity.
 
 	* Ideograph-R009-Man.el (U+4ED3): Apply new conventions for glyph
 	granularity; use `<-denotational@usage' instead of
