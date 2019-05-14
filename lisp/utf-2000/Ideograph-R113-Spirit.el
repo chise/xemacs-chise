@@ -1055,6 +1055,25 @@
     (=>big5-cdp		. #x8C6A)	; &A-CDP-8C6A;
     ))
 (define-char
+  '((ideographic-radical . 113)	; ⽰
+    (ideographic-strokes . 3)
+    (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x4E0A)	; 上
+      )
+     ((=ucs		  . #x793A)	; 示
+      ))
+    (=gt-k		. 04236)	; &GT-K04236;
+    (=gt-pj-k1		. #x5C68)	; &GT-K04236; [60-72]
+    (->subsumptive
+     ((==gt-k		  . 04236)	; &g2-GT-K04236;
+      (==gt-pj-k1	  . #x5C68)	; &g2-GT-K04236; [60-72]
+      ))
+    ))
+(define-char
   '((<-denotational
      ((=>big5-cdp	  . #x8C6A)	; &A-CDP-8C6A;
       ))
@@ -4645,6 +4664,23 @@
     (total-strokes	 . 10)
     (hanyu-dazidian	4 2390 18)
     (=hanziku-6		. #xEE56)	; &HZK06-EE56;
+    ))
+(define-char
+  '((ideographic-radical . 113)	; ⽰
+    (ideographic-strokes . 5)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
+      (=ucs		  . #x2FF5)	; ⿵
+      )
+     ((=ucs		  . #x620A)	; 戊
+      )
+     ((=ucs		  . #x793A)	; 示
+      ))
+    (=ucs		. #x2B004)	; 𫀄
+    (->subsumptive
+     ((==ucs@iso	  . #x2B004)	; &g2-IU-0002B004;
+      ))
     ))
 (define-char
   '((ideographic-radical . 113)	; ⽰
