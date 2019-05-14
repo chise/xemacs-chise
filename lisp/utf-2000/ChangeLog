@@ -1,3 +1,35 @@
+2019-05-14  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R077-Stop.el (A-BC-87F9): New abstract node.
+	(BC-87F9): New character; use `<-denotational' for A-BC-87F9.
+	(A-U+23944-itaiji-001): Add `ideographic-structure'.
+	(U+23944-itaiji-001): Likewise.
+	(A-GT-K01918): New abstract node.
+	(GT-K01918): New character; use `<-denotational' for A-GT-K01918.
+	(A-IWDSU+2396D): New abstract node.
+	(U-0002394E): Apply new conventions for glyph granularity; add
+	`<-denotational' for A-IWDSU+2396D.
+	(A-cgnU+2396C): New abstract node.
+	(M-16299): Add `<-denotational' for A-cgnU+2396C; add
+	`ideographic-structure'.
+	(U-0002396C): Apply new conventions for glyph granularity; add
+	`<-denotational' for A-cgnU+2396C.
+	(U-0002396D): Apply new conventions for glyph granularity; add
+	`<-denotational' for A-IWDSU+2396D.
+
+2019-05-13  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R062-Halberd.el (A-IWDSU+6226): New abstract node.
+	(U-000229D0): New character; use `<-denotational' for
+	A-IWDSU+6226.
+	(U-000229CD): Add `ideographic-structure'; add representative
+	nodes.
+	(U+6226): Add `<-denotational' for A-IWDSU+6226; add
+	`ideographic-structure'; add representative nodes.
+	(U-00022A06): New character.
+	(U+6230): Add `ideographic-structure'; add `sound@ja/on'; add some
+	relations for other characters.
+
 2019-05-13  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R005-Second.el (A-IWDSU+4E38): Add
