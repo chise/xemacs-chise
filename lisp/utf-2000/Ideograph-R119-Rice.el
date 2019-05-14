@@ -112,8 +112,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=>ucs@component	  . #x4EBA)	; &A-compU+4EBA;
-      (=>iwds-1		  .  0146)	; &A-compU+4EBA;
+     ((=>ucs@iwds-1	  . #x4EBA)	; &A-IWDSU+4EBA;
+      (=>iwds-1		  .  14623)	; &A-IWDSU+4EBA;
       )
      ((=ucs		  . #x7C73)	; 米
       ))
@@ -2646,7 +2646,7 @@
       )
      ((=ucs		  . #x7C73)	; 米
       )
-     ((=ucs@unicode	  . #x821B)	; &MJ021365;
+     ((=ucs@unicode	  . #x821B)	; 舛
       (=mj		  . 021365)	; &MJ021365;
       ))
     (=>ucs@iwds-1	. #x7CA6)	; &AJ1-18321;

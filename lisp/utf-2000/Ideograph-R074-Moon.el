@@ -424,8 +424,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=>ucs@component	  . #x4E0C)	; &A-compU+4E0C;
-      (=>iwds-1		  .  0221)	; &A-compU+4E0C;
+     ((=>ucs@iwds-1	  . #x4E0C)	; &A-IWDSU+4E0C;
+      (=>iwds-1		  .  0221)	; &A-IWDSU+4E0C;
       )
      ((=>ucs@component	  . #x6708)	; &A-compU+6708;
       (=>iwds-1		  .  0053)	; &A-compU+6708;
@@ -865,6 +865,20 @@
     ))
 (define-char
   '((ideographic-radical . 74)	; ⽉
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=>ucs@component	  . #x6708)	; &A-compU+6708;
+      (=>iwds-1		  .  0053)	; &A-compU+6708;
+      )
+     ((=>ucs@component	  . #x5C24)	; &A-compU+5C24;
+      (=>iwds-1		  .  0250)	; &A-compU+5C24;
+      ))
+    (=>cbeta		. 00159)	; &A-CB00159;
+    ))
+(define-char
+  '((ideographic-radical . 74)	; ⽉
     (ideographic-strokes . 4)
     (total-strokes	 . 8)
     (=>>big5-cdp	. #x8BB5)	; &G-CDP-8BB5;
@@ -874,6 +888,27 @@
       (=gt-pj-k2	  . #x4141)	; &GT-K04876; [33-33]
       )
      ((=big5-cdp	  . #x8BB5)	; &CDP-8BB5;
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>cbeta		  . 00159)	; &A-CB00159;
+      ))
+    (ideographic-radical . 74)	; ⽉
+    (ideographic-strokes . 4)
+    (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=>ucs@component	  . #x6708)	; &A-compU+6708;
+      (=>iwds-1		  .  0053)	; &A-compU+6708;
+      )
+     ((=ucs		  . #x5C24)	; 尤
+      ))
+    (=cbeta		. 00159)	; &CB00159;
+    (->subsumptive
+     ((==cbeta		  . 00159)	; &g2-CB00159;
       ))
     ))
 (define-char
