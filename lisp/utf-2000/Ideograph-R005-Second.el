@@ -5068,7 +5068,10 @@
     (=hanziku-1		. #xAFEA)	; &I-HZK01-AFEA;
     ))
 (define-char
-  '((ideographic-radical . 5)	; ⼄
+  '((<-denotational@component
+     ((=>ucs@component	  . #x4E0C)	; &A-compU+4E0C;
+      ))
+    (ideographic-radical . 5)	; ⼄
     (=>iwds-1*note	"22+54+55+56+99+104+117+119+203+214+221+222+236+249+250+346")
     (=>ucs@iwds-1	. #x4E38)	; &A-IWDSU+4E38;
     (=>iwds-1		.  65535)	; &A-IWDSU+4E38;
