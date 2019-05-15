@@ -1,3 +1,18 @@
+2019-05-15  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R005-Second.el (U-000200FC): Modify
+	`ideographic-structure'.
+	(CU+200FC): Add `ideographic-structure'; add representative nodes.
+	(IU+200FC): Apply new conventions for glyph granularity.
+
+2019-05-14  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R009-Man.el (U-000201B1): Apply new conventions for
+	glyph granularity; use U+6597-itaiji-003 in
+	`ideographic-structure'.
+	(CU+5135): Add `ideographic-structure'.
+	(UU+5135): Ditto; add represerntative; add representative node.
+
 2019-05-14  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R077-Stop.el (A-BC-87F9): New abstract node.
