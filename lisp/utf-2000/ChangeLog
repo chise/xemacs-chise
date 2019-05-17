@@ -1,3 +1,16 @@
+2019-05-16  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R046-Mountain.el (U-00021D48): New character; use
+	`<-denotational@component' for A-IWDSU+21D48.
+	(A-IWDSU+21D48): New abstract node.
+	(U-00021DA8): New character.
+	(U+37E5): Apply new conventions for glyph granularity.
+	(U+5D3F): Likewise.
+	(U-00021ED5): New character.
+	(U-00021F11): Apply new conventions for glyph granularity.
+	(U+380B): Use `->denotational' and `->subsumptive'.
+	(U-00021F99): Apply new conventions for glyph granularity.
+
 2019-05-15  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R005-Second.el (U-000200FC): Modify
