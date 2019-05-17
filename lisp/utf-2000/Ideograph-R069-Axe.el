@@ -74,6 +74,25 @@
     ))
 (define-char
   '((ideographic-radical . 69)	; ⽄
+    (ideographic-strokes . 0)
+    (total-strokes	 . 3)
+    (ideographic-structure
+     ((=ucs-itaiji-001	  . #x2FF6)	; &U-i001+2FF6;
+      )
+     ((=ucs		  . #x5341)	; 十
+      )
+     ((=ucs		  . #x4E36)	; 丶
+      ))
+    (=ucs-itaiji-003	. #x6597)	; &U-i003+6597;
+    (<-formed@component
+     ((=ucs		  . #x65A4)	; 斤
+      ))
+    (->subsumptive
+     ((==ucs-itaiji-003	  . #x6597)	; &g2-U-i003+6597;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 69)	; ⽄
     (ideographic-strokes . 1)
     (total-strokes	 . 5)
     (=ucs		. #x65A5)	; 斥

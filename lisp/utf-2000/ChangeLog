@@ -1,5 +1,29 @@
 2019-05-16  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R066-Rap.el (A-cgnU+6551): Changed from U+6551.
+	(AJ1-01657): Unify U+6551 instead of A-IWDSU+6551 and UU+6551; use
+	A-cgnU+6551 instead of U+6551 as its mother.
+	(HD-TK01036590): Apply new conventions for glyph granularity; use
+	A-cgnU+6551 instead of U+6551 as its mother.
+	(A-cgnU+656D): New abstract node.
+	(U+656D): Apply new conventions for glyph granularity; add
+	`<-denotational' for A-cgnU+656D.
+	(U-00022F99): Likewise.
+	(U-00022FCC): Apply new conventions for glyph granularity.
+
+2019-05-16  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R050-Turban.el (U+5E08): Add `ideographic-structure';
+	add `sound@ja/on'; add `<-simplified@CN' for U+5E2B.
+	(A-cgnU+5E2B): Changed from U+5E2B.
+	(AJ1-02211): Unify U+5E2B instead of A-IWDSU+5E2B and UU+5E2B; use
+	A-cgnU+5E2B instead of U+5E2B as its mother.
+	(MJ057421): Use A-cgnU+5E2B instead of U+5E2B as its mother.
+	(U+5E42): Use `<-denotational@usage' instead of `<-denotational'
+	for BUCS+51AA.
+	(UU+5E42): Unify DJT-02852.
+	(U-00022173): New character.
+
 	* Ideograph-R046-Mountain.el (U-00021D48): New character; use
 	`<-denotational@component' for A-IWDSU+21D48.
 	(A-IWDSU+21D48): New abstract node.
@@ -19,6 +43,8 @@
 	(IU+200FC): Apply new conventions for glyph granularity.
 
 2019-05-14  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R069-Axe.el (U+6597-itaiji-003): New character.
 
 	* Ideograph-R009-Man.el (U-000201B1): Apply new conventions for
 	glyph granularity; use U+6597-itaiji-003 in
