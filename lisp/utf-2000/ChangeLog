@@ -1,5 +1,52 @@
 2019-05-16  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R075-Tree.el (U+673A): Add `<-denotational@component'
+	for A-IWDSU+673A; add `ideographic-structure'; add `sound@ja/on';
+	add some relations for other characters; add representative nodes.
+	(U+673C): Apply new conventions for glyph granularity.
+	(U+674C): Likewise; add `<-denotational@component' for
+	A-IWDSU+673A.
+	(U-0002C09D): New character.
+	(U+6787): Add `ideographic-structure'; add `sound@ja/on/{kan|go}';
+	add some relations for other characters.
+	(U+67F6): Apply new conventions for glyph granularity.
+	(U+6816): Likewise.
+	(A-cgnU+6840): Changed from U+6840.
+	(AJ1-05183): Unify U+6840 instead of A-IWDSU+6840 and UU+6840; use
+	A-cgnU+6840 instead U+6840 as its mother; add
+	`sound@ja/on/{kan|go}'; add some relations for other characters.
+	(HNG-KAR0994-0): Use A-cgnU+6840 instead U+6840 as its mother.
+	(A-IU+23440): Abolished.
+	(IU+23440): Use U-00023440 instead of A-IU+23440 as its mother.
+	(H3-F7F9): Likewise.
+	(U-00023514): Apply new conventions for glyph granularity.
+	(MJ038091): New character; use `<-denotational' for U-00023514;
+	unify KOSEKI-169760 and M-15057.
+	(U-00023501): New character.
+	(U+69A4): Apply new conventions for glyph granularity.
+	(U+69BF0: Add `ideographic-structure'; add `sound@ja/on'; add
+	representative nodes.
+	(U+6A5F): Add `ideographic-structure'; add `sound@ja/on/{kan|go}'.
+	(JU+6A5F): Apply new conventions for glyph granularity.
+	(U+3BE5): Likewise.
+	(HD-TK01046710): New character; use `<-denotational' for
+	U-00023763.
+	(U-00023815): New character.
+	(A-U+6B1D-itaiji-002): New abstract node; unify
+	A-U+6B1D-itaiji-003.
+	(U+6B1D-itaiji-002): New character; use `<-denotational' for
+	A-U+6B1D-itaiji-002.
+	(U+6B1D-itaiji-003): Ditto.
+	(A-U+6B1D-itaiji-004): New abstract node.
+	(U+6B1D-itaiji-004): New character; use `<-denotational' for
+	A-U+6B1D-itaiji-004.
+	(U-0002AD26): New character.
+	(U-0002C155): New character.
+	(U-0002C158): New character.
+	(U-00023871): New character.
+	(A-IWDSU+673A): New abstract node.
+	(A2-DJT-05279): New abstract node.
+
 	* Ideograph-R066-Rap.el (A-cgnU+6551): Changed from U+6551.
 	(AJ1-01657): Unify U+6551 instead of A-IWDSU+6551 and UU+6551; use
 	A-cgnU+6551 instead of U+6551 as its mother.
