@@ -1,3 +1,16 @@
+2019-05-17  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R072-Sun.el (U-000231D3): New character.
+	(U+3B07): Add `sound@ja/on'.
+	(M-14060): Separate UU+3B07; add `ideographic-structure'; add
+	`->formed' for M-23503.
+	(C3-4153): Unify UU+3B07.
+	(U-000232AB): New character; use `<-denotational' for
+	A-IWDSU+232AD.
+	(U-000232AD): Ditto.
+	(U-000232AE): Apply new conventions for glyph granularity.
+	(A-IWDSU+232AD): New abstract node.
+
 2019-05-16  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R075-Tree.el (U+673A): Add `<-denotational@component'
