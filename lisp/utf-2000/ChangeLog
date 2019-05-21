@@ -1,5 +1,10 @@
 2019-05-19  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R028-Private.el (GT-K00873): New character.
+	(U+3557): Apply new conventions for glyph granularity.
+
+2019-05-19  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R043-Lame.el (U-00021BF8): Apply new conventions for
 	glyph granularity.
 	(U-00021C0A): Use `->denotational' and `->subsumptive'.
