@@ -548,6 +548,7 @@
 	  ( =>gt-k			       "A-GT-K" 5 d)
 	  ( =>zinbun-oracle		       "A-ZOB-" 4 d)
 	  (==>ucs@bucs				"BUCS+" 4 X)
+	  (==>ucs@esu			      "A2-ESU+" 4 X)
 	  (==>daijiten			      "A2-DJT-"	5 d)
 	  ( =>ucs@iwds-1		     "A-IWDSU+" 4 X)
 	  ( =>ucs@cognate		      "A-cgnU+" 4 X)

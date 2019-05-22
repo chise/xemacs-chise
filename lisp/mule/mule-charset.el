@@ -621,6 +621,7 @@ DESCRIPTION (string) is the description string of the charset."
 	  =>daikanwa
 	  ucs-bmp
 	  ==>ucs-bmp-cjk@bucs
+	  ==>ucs-sip@esu
 	  =>ucs-bmp-cjk@unicode
           =>ucs-bmp-cjk@cognate
           =>ucs-bmp-cjk@component
