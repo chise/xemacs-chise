@@ -3845,6 +3845,16 @@
 		  direction	l2r
 		  =>iso-ir	177
 		  mother	=ucs))
+  (make-charset '==>ucs@esu
+		"Extended Subset of Coded Character Sets (ESU)"
+		'(long-name	"BUCS abstract characters"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  =>iso-ir	177
+		  mother	==>ucs@bucs))
 
   (make-charset '=>iwds-1
 		"The IRG Working Document Series 1: List of UCV of Ideograhs."
@@ -6215,6 +6225,19 @@
 	       direction l2r
 	       registry "ucs00-2$"
 	       mother =>ucs@component
+	       min-code #x20000 max-code #x2FFFF
+	       code-offset #x20000))
+  (make-charset
+   '==>ucs-sip@esu
+   "UCS glyphs in UCS SIP of ESU"
+   '(long-name "ESU SIP"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       registry "ucs00-2$"
+	       mother ==>ucs@esu
 	       min-code #x20000 max-code #x2FFFF
 	       code-offset #x20000))
   (make-charset
