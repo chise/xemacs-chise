@@ -1,6 +1,9 @@
 ;; -*- coding: utf-8-mcs-er -*-
 (define-char
-  '((<-denotational@usage
+  '((<-denotational@component
+     ((=>ucs@component	  . #x4E00)	; &A-compU+4E00;
+      ))
+    (<-denotational@usage
      ((==>daijiten	  . 00072)	; &A2-DJT-00072;
       ))
     (ideographic-radical . 4)	; ⼃
