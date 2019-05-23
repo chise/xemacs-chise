@@ -1,6 +1,15 @@
 ;; -*- coding: utf-8-mcs-er -*-
 (define-char
-  '((<-denotational@usage
+  '((ideographic-radical . 1)	; ⼀
+    (ideographic-strokes . 0)
+    (total-strokes	 . 1)
+    (=>ucs@component	. #x4E00)	; &A-compU+4E00;
+    ))
+(define-char
+  '((<-denotational@component
+     ((=>ucs@component	  . #x4E00)	; &A-compU+4E00;
+      ))
+    (<-denotational@usage
      ((==>ucs@bucs	  . #x4E00)	; &BUCS+4E00;
       ))
     (decimal-digit-value . 1)
