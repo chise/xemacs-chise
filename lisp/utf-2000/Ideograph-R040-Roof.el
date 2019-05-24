@@ -8642,6 +8642,8 @@
       )
      ((=ucs		  . #x5950)	; 奐
       ))
+    (sound@ja/on/go	"gWaN")
+    (sound@ja/on/kan	"kWaN")
     (=ucs		. #x5BCF)	; 寏
     ))
 (define-char
@@ -8657,14 +8659,22 @@
       )
      ((=ucs		  . #x5B80)	; 宀
       )
-     ((=ucs@unicode	  . #x5950)	; &UU+5950;
-      (=gb12345		  . #x5B3C)	; &UU+5950; [59-28]
+     ((=ucs@unicode	  . #x5950)	; &AJ1-04551;
+      (=adobe-japan1-0	  . 04551)	; &AJ1-04551;
       ))
     (=ucs@unicode	. #x5BCF)	; &AJ1-21445;
     (=adobe-japan1-6	. 21445)	; &AJ1-21445;
     (=jis-x0212		. #x3A5E)	; &I-JSP-3A5E; [26-62]
     (=daikanwa		. 07234)	; &I-M-07234;
     (=jef-china3	. #x4ABB)	; &I-JC3-4ABB;
+    (->formed
+     ((=ucs		  . #x9662)	; 院
+      (=daikanwa	  . 41665)	; &I-M-41665;
+      ))
+    (->formed$_1*sources
+     shuowen daikanwa)
+    (->formed*sources
+     shuowen daikanwa)
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x5BCF)	; 寏
