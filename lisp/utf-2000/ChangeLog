@@ -1,5 +1,10 @@
 2019-05-22  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R040-Roof.el (U+5BCF): Add `sound@ja/on/{kan|go}'.
+	(UU+5BCF): Add `->formed' for U+9662.
+
+2019-05-22  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R004-Slash.el (U+4E3F): Add `<-denotational@component'
 	for A-cgnU+4E00.
 
