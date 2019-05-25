@@ -154,8 +154,8 @@
      ((=>ucs@component	  . #x5140)	; &A-compU+5140;
       (=>iwds-1		  .  0214)	; &A-compU+5140;
       )
-     ((=>ucs@component	  . #x4E0C)	; &A-compU+4E0C;
-      (=>iwds-1		  .  0221)	; &A-compU+4E0C;
+     ((=>ucs@iwds-1	  . #x4E0C)	; &A-IWDSU+4E0C;
+      (=>iwds-1		  .  0221)	; &A-IWDSU+4E0C;
       ))
     (ideographic-radical@ucs . 10)	; ⼉
     (ideographic-strokes@ucs . 1)
