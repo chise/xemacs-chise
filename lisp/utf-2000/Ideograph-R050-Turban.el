@@ -2098,6 +2098,15 @@
   '((ideographic-radical . 50)	; ⼱
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
+    (=>ucs@component	. #x5E1A)	; &A-compU+5E1A;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@component	  . #x5E1A)	; &A-compU+5E1A;
+      ))
+    (ideographic-radical . 50)	; ⼱
+    (ideographic-strokes . 5)
+    (total-strokes	 . 8)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
       (=ucs		  . #x2FF3)	; ⿳
@@ -2114,17 +2123,6 @@
 (define-char
   '((<-denotational
      ((=ucs		  . #x5E1A)	; 帚
-      ))
-    (ideographic-radical . 50)	; ⼱
-    (ideographic-strokes . 5)
-    (total-strokes	 . 8)
-    (=>ucs@iwds-1	. #x5E1A)	; &A-IWDSU+5E1A;
-    (=>ucs@unicode	. #x5E1A)	; &A-IWDSU+5E1A;
-    ))
-(define-char
-  '((<-denotational
-     ((=>ucs@iwds-1	  . #x5E1A)	; &A-IWDSU+5E1A;
-      (=>ucs@unicode	  . #x5E1A)	; &A-IWDSU+5E1A;
       ))
     (ideographic-radical . 50)	; ⼱
     (ideographic-strokes . 5)
@@ -2182,8 +2180,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@iwds-1	  . #x5E1A)	; &A-IWDSU+5E1A;
-      (=>ucs@unicode	  . #x5E1A)	; &A-IWDSU+5E1A;
+     ((=ucs		  . #x5E1A)	; 帚
       ))
     (ideographic-radical . 50)	; ⼱
     (ideographic-strokes . 5)
@@ -2221,7 +2218,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=ucs		  . #x5E1A)	; 帚
+     ((=>ucs@component	  . #x5E1A)	; &A-compU+5E1A;
       ))
     (ideographic-radical . 50)	; ⼱
     (ideographic-strokes . 5)
@@ -2242,6 +2239,33 @@
 	))
       ))
     (=ucs-itaiji-004	. #x5E1A)	; &U-i004+5E1A;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@component	  . #x5E1A)	; &A-compU+5E1A;
+      ))
+    (ideographic-radical . 50)	; ⼱
+    (ideographic-strokes . 5)
+    (total-strokes	 . 8)
+    (ideographic-structure
+     ((name		  . "IDEOGRAPHIC DESCRIPTION CHARACTER OVERLAID")
+      (=ucs		  . #x2FFB)	; ⿻
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((=adobe-japan1-4    . 15391)	; &AJ1-15391;
+	)
+       ((=ucs		    . #x5196)	; 冖
+	))
+      )
+     ((=ucs		  . #x5DFE)	; 巾
+      ))
+    (=ucs-itaiji-006	. #x5E1A)	; &U-i006+5E1A;
+    (->subsumptive
+     ((==ucs-itaiji-006	  . #x5E1A)	; &g2-U-i006+5E1A;
+      ))
     ))
 (define-char
   '((ideographic-radical . 50)	; ⼱
