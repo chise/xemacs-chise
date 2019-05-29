@@ -1,3 +1,45 @@
+2019-05-28  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R076-Lack.el (U+6B33): Apply new conventions for glyph
+	granularity.
+	(A-IWDSU+3C31): New abstract node.
+	(U+3C31): Add `<-denotational' for A-IWDSU+3C31; add
+	`ideographic-structure'.
+	(UU+3C31): Add `ideographic-structure'.
+	(U+6B3E): Likewise.
+	(UU+6B3E): Likewise; add some relations for other characters.
+	(U+6B3E-var-001): New character; use `<-denotational' for U+6B3E.
+	(U+6B40): Add `ideographic-structure'; add `<-formed' for UU+6B3E.
+	(U+6B43): Add `<-denotational' for A-IWDSU+3C31; add
+	`ideographic-structure'; add `sound@ja/on/{kan|go}'.
+	(UU+6B43): Add `ideographic-structure'; add some relations for
+	other characters.
+	(U-000238E8): Apply new conventions for glyph granularity.
+	(U+3C41): Add `ideographic-structure'; add `sound@ja/on'; add
+	`<-formed@shuowen' and `<-same' for UU+6B3E.
+	(U+3C42): Apply new conventions for glyph granularity.
+
+	* Ideograph-R001-One.el (U+20041-var-001): New character; use
+	`<-denotational' for U-00020041.
+
+2019-05-27  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R016-Table.el:
+	- Add Daijiten numbers.
+	- Use `<-denotational@usage' instead of `<-denotational' for BUCS
+	  (super abstract) character objects.
+	(U-00020628): Unify CB07225.
+	(AJ1-14041): Add `<-denotational@component' for
+	A-U+98A8-itaiji-007.
+	(A-U+98A8-itaiji-007): New abstract node.
+	(DJT-00702): Unify U+98A8-itaiji-007; add
+	`<-denotational@component' for A-U+98A8-itaiji-007.
+	(U+98A8-itaiji-009): New character.
+	(U-00020631): Add A2-ESU+20631 as a target of
+	`<-denotational@usage'.
+	(U+51EF): Apply new conventions for glyph granularity.
+	(A2-ESU+20631): New abstract node.
+
 2019-05-25  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R050-Turban.el (A-compU+5E1A): Changed from U+5E1A.
