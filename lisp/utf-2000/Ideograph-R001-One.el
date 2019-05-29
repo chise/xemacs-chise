@@ -6423,6 +6423,15 @@
     (ideographic-radical . 1)	; ⼀
     (ideographic-strokes . 10)
     (total-strokes	 . 11)
+    (=ucs-var-001	. #x20041)	; &U-v001+20041;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x20041)	; 𠁁
+      ))
+    (ideographic-radical . 1)	; ⼀
+    (ideographic-strokes . 10)
+    (total-strokes	 . 11)
     (=mj		. 056846)	; &MJ056846;
     (=hanyo-denshi/ks	. 001000)	; &MJ056846;
     (<-formed
