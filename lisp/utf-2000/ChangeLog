@@ -1,5 +1,26 @@
 2019-05-28  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R046-Mountain.el (U-00021D3C): Apply new conventions
+	for glyph granularity; add `<-denotational@component' for
+	A-IWDSU+5C82.
+	(U+5C82): Likewise.
+	(A-IWDSU+5C82): New abstract node.
+
+	* Ideograph-R038-Woman.el (A-cgnU+5A66): Changed from U+5A66.
+	(A-J0-4958): Unify U+5A66 instead of A-IWDSU+5A66 and A-UU+5A66.
+	(HNG-KAR0721-0): Use A-cgnU+5A66 instead of U+5A66 as its mother.
+	(g2-UU+5A66): Omit `ideographic-structure'.
+	(U-0002185A): Use `->denotational' and `->subsumptive'.
+
+2019-05-28  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R009-Man.el (U+4FB8): Add `sound@ja/on/{kan|go}'; add
+	some relations for other characters; add representative nodes.
+	(U+5017): Add `sound@ja/on/{kan|go}'.
+	(JU+5017): Add `<-formed' and `<-same' for UU+6191.
+	(U-000202AA): Apply new conventions for glyph granularity.
+	(U-00020344): Likewise.
+
 	* Ideograph-R076-Lack.el (U+6B33): Apply new conventions for glyph
 	granularity.
 	(A-IWDSU+3C31): New abstract node.
