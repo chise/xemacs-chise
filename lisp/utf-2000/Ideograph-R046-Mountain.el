@@ -299,12 +299,60 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 46)	; ⼭
+  '((<-denotational@component
+     ((=>ucs@iwds-1	  . #x5C82)	; &A-IWDSU+5C82;
+      ))
+    (ideographic-radical . 46)	; ⼭
     (ideographic-strokes . 2)
     (total-strokes	 . 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>ucs@component	  . #x5C6E)	; &A-compU+5C6E;
+      (=>iwds-1		  .  0096)	; &A-compU+5C6E;
+      )
+     ((=ucs		  . #x353E)	; 㔾
+      ))
+    (sound@ja/on	"ha")
     (=ucs		. #x21D3C)	; 𡴼
-    (=cns11643-6	. #x226F)	; &I-C6-226F; [02-79]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x21D3C)	; 𡴼
+      ))
+    (ideographic-radical . 46)	; ⼭
+    (ideographic-strokes . 2)
+    (total-strokes	 . 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5C71)	; 山
+      )
+     ((=ucs		  . #x353E)	; 㔾
+      ))
+    (=ucs@iso		. #x21D3C)	; &C6-226F;
+    (=cns11643-6	. #x226F)	; &C6-226F; [02-79]
     (=daikanwa		. 07881)	; &I-M-07881;
+    (<-same
+     ((=ucs		  . #x5C8A)	; 岊
+      (=daikanwa	  . 07925)	; &I-M-07925;
+      ))
+    (<-same*sources
+     pianhai-leibian daikanwa)
+    (->subsumptive
+     ((==ucs@iso	  . #x21D3C)	; &g2-M-07881;
+      (==cns11643-6	  . #x226F)	; &g2-M-07881; [02-79]
+      (==daikanwa	  . 07881)	; &g2-M-07881;
+      (->subsumptive
+       ((===daikanwa	    . 07881)	; &R-M-07881;
+	)
+       ((===cns11643-6	    . #x226F)	; &R-C6-226F; [02-79]
+	)
+       ((===ucs@iso	    . #x21D3C)	; &R-U-00021D3C;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 46)	; ⼭
@@ -441,6 +489,56 @@
      ((==ucs@JP/hanazono  . #x2D580)	; &g2-MJ057377;
       (==mj		  . 057377)	; &g2-MJ057377;
       (==koseki		  . 089460)	; &g2-MJ057377;
+      ))
+    ))
+(define-char
+  '((<-denotational@component
+     ((=>ucs@iwds-1	  . #x5C82)	; &A-IWDSU+5C82;
+      ))
+    (ideographic-radical . 46)	; ⼭
+    (ideographic-strokes . 3)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>ucs@component	  . #x5C6E)	; &A-compU+5C6E;
+      (=>iwds-1		  .  0096)	; &A-compU+5C6E;
+      )
+     ((=>ucs@component	  . #x5DF3)	; &A-compU+5DF3;
+      (=>iwds-1		  .  0121)	; &A-compU+5DF3;
+      ))
+    (=ucs		. #x5C82)	; 岂
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5C82)	; 岂
+      ))
+    (ideographic-radical . 46)	; ⼭
+    (ideographic-strokes . 3)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5C71)	; 山
+      )
+     ((=ucs		  . #x5DF1)	; 己
+      ))
+    (=ucs@unicode	. #x5C82)	; &G0-4671;
+    (=gb2312		. #x4671)	; &G0-4671; [38-81]
+    (<-simplified@CN
+     ((=ucs		  . #x8C48)	; 豈
+      (=gb12345		  . #x4671)	; 豈 [38-81]
+      ))
+    (->subsumptive
+     ((==ucs@unicode	  . #x5C82)	; &g2-UU+5C82;
+      (==gb2312		  . #x4671)	; &g2-UU+5C82; [38-81]
+      (->subsumptive
+       ((===ucs@unicode	    . #x5C82)	; &R-UU+5C82;
+	)
+       ((=hanziku-2	    . #xEEDC)	; &HZK02-EEDC;
+	))
       ))
     ))
 (define-char
@@ -1126,18 +1224,6 @@
     (total-strokes	 . 6)
     (=ucs		. #x5C81)	; 岁
     (=gb2312		. #x4B6A)	; &I-G0-4B6A; [43-74]
-    ))
-(define-char
-  '((ideographic-radical . 46)	; ⼭
-    (ideographic-strokes . 3)
-    (total-strokes	 . 6)
-    (=ucs		. #x5C82)	; 岂
-    (=gb2312		. #x4671)	; &I-G0-4671; [38-81]
-    (=hanziku-2		. #xEEDC)	; &I-HZK02-EEDC;
-    (<-simplified@CN
-     ((=ucs		  . #x8C48)	; 豈
-      (=gb12345		  . #x4671)	; 豈 [38-81]
-      ))
     ))
 (define-char
   '((ideographic-radical . 46)	; ⼭
@@ -22879,4 +22965,18 @@
       (=>iwds-1		  .  0120)	; &A-compU+5DF1;
       ))
     (=>ucs@iwds-1	. #x5C7A)	; &A-IWDSU+5C7A;
+    ))
+(define-char
+  '((ideographic-radical . 46)	; ⼭
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>ucs@component	  . #x5C6E)	; &A-compU+5C6E;
+      (=>iwds-1		  .  0096)	; &A-compU+5C6E;
+      )
+     ((=>ucs@component	  . #x5DF1)	; &A-compU+5DF1;
+      (=>iwds-1		  .  0120)	; &A-compU+5DF1;
+      ))
+    (=>ucs@iwds-1	. #x5C82)	; &A-IWDSU+5C82;
     ))
