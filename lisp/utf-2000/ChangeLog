@@ -1,3 +1,34 @@
+2019-05-30  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R084-Steam.el (GT-K00816): Unify HD-KS002130.
+	(U-00023C55): Apply new conventions for glyph granularity.
+	(U-00023C5A): Likewise.
+	(IU+23C5A): Unify M-17051.
+	(U-00023C5E): Add `ideographic-structure'; add some relations for
+	other characters; add representative nodes.
+
+	* Ideograph-R064-Hand.el (U-00022B56): New character.
+	(U+63EE): Add `ideographic-structure'; add `sound@ja/on/{kan|go}';
+	add some relations for other characters; add representative nodes.
+	(U-00022C2C): New character.
+	(U-00022C67): Apply new conventions for glyph granularity.
+	(U+3A24): Likewise.
+	(U-00022CE1): Add `ideographic-structure'; add representative
+	nodes.
+	(U+649D): Add `ideographic-structure'; add `sound@ja/on'.
+	(o-UU+649D): Add `ideographic-structure'.
+	(JU+649D): Add `ideographic-structure'; add some relations for
+	other characters; add representative nodes.
+	(U-0002F8C5): Add `ideographic-structure'; add representative
+	nodes.
+	(CU+649D): Likewise.
+	(U+64D3): Use `->denotational' and `->subsumptive'.
+	(U-00022D98): Likewise.
+	(U+3A63): Likewise.
+	(U-0002A3AE): Likewise.
+	(U-00022EAC): Add `ideographic-structure'; add representative
+	nodes.
+
 2019-05-29  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R093-Cow.el (U+725D): Apply new conventions for glyph
