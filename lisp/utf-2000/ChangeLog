@@ -1,3 +1,9 @@
+2019-05-31  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R001-One.el (U+532F-itaiji-003): New character; use
+	`<-denotational' for A-U+532F-itaiji-001.
+	(A-U+532F-itaiji-001): Unify A-U+532F-itaiji-003.
+
 2019-05-30  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R084-Steam.el (GT-K00816): Unify HD-KS002130.
