@@ -2332,7 +2332,10 @@
     (===hng-khm		. 04020)	; &HNG011-04020;
     ))
 (define-char
-  '((ideographic-radical . 79)	; ⽎
+  '((<-denotational@component
+     ((=>ucs@iwds-1	  . #x23AA0)	; &A-IWDSU+23AA0;
+      ))
+    (ideographic-radical . 79)	; ⽎
     (ideographic-strokes . 9)
     (total-strokes	 . 13)
     (ideographic-structure
@@ -2341,10 +2344,29 @@
       )
      ((=ucs		  . #x282A5)	; 𨊥
       )
-     ((=ucs		  . #x6BB3)	; 殳
+     ((=>ucs@component	  . #x6BB3)	; &A-compU+6BB3;
+      (=>iwds-1		  .  0220)	; &A-compU+6BB3;
       ))
     (=ucs		. #x23AA0)	; 𣪠
-    (=cns11643-6	. #x5421)	; &I-C6-5421; [52-01]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x23AA0)	; 𣪠
+      ))
+    (ideographic-radical . 79)	; ⽎
+    (ideographic-strokes . 9)
+    (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x282A5)	; 𨊥
+      )
+     ((=ucs@unicode	  . #x6BB3)	; &MJ014908;
+      (=mj		  . 014908)	; &MJ014908;
+      ))
+    (=ucs@iso		. #x23AA0)	; &GT-21354;
+    (=cns11643-6	. #x5421)	; &GT-21354; [52-01]
     (=big5-cdp		. #x8CF6)	; &I-CDP-8CF6;
     (=gt		. 21354)	; &I-GT-21354;
     (=gt-k		. 10381)	; &I-GT-K10381;
@@ -4755,4 +4777,8 @@
        ((=hanziku-6	    . #xBE6F)	; &HZK06-BE6F;
 	))
       ))
+    ))
+(define-char
+  '((ideographic-radical . 79)	; ⽎
+    (=>ucs@iwds-1	. #x23AA0)	; &A-IWDSU+23AA0;
     ))
