@@ -1,3 +1,17 @@
+2019-06-07  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R079-Weapon.el (U-00023AA0): Apply new conventions for
+	glyph granularity; add `<-denotational@component' for
+	A-IWDSU+23AA0.
+	(A-IWDSU+23AA0): New abstract node.
+
+	* Ideograph-R066-Rap.el (A-U+6544-itaiji-003): New abstract node.
+	(U+6544-itaiji-003): New character; use `<-denotational' for
+	A-U+6544-itaiji-003.
+
+	* Ideograph-R002-Line.el (U+4E2A): Apply new conventions for glyph
+	granularity.
+
 2019-05-31  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R001-One.el (U+532F-itaiji-003): New character; use
