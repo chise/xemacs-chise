@@ -1,3 +1,18 @@
+2019-06-09  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R032-Earth.el (U-0002D418): New character.
+	(CB07512): New character; use `<-denotational' for U-0002D418.
+
+2019-06-08  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R050-Turban.el (U+5E03): Use `->ancient' for UU+3C5B
+	instead of `->ancient@p=bu4' for U+3C5B.
+
+	* Ideograph-R042-Small.el (A-GT-K01804): New abstract node; unify
+	A-U+23470-itaiji-002.
+	(GT-K01804): New character; unify U+23470-itaiji-002; use
+	`<-denotational' for A-GT-K01804.
+
 2019-06-07  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R076-Lack.el (U+3C20): Apply new conventions for glyph

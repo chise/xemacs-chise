@@ -144,7 +144,8 @@
     (<-interchangeable*sources
      daikanwa)
     (->formed
-     ((=ucs		  . #x239D1)	; 𣧑
+     ((=ucs@iso		  . #x239D1)	; &C4-2677;
+      (=cns11643-4	  . #x2677)	; &C4-2677; [06-87]
       (=daikanwa	  . 16396)	; &I-M-16396;
       ))
     (->formed$_1*sources
