@@ -24484,6 +24484,44 @@
     ))
 (define-char
   '((ideographic-radical . 32)	; ⼟
+    (ideographic-strokes . 12)
+    (total-strokes	 . 15)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=>big5-cdp	  . #x8C6A)	; &A-CDP-8C6A;
+      )
+     ((=ucs		  . #x4F59)	; 余
+      ))
+    (=ucs		. #x2D418)	; 𭐘
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2D418)	; 𭐘
+      ))
+    (ideographic-radical . 32)	; ⼟
+    (ideographic-strokes . 12)
+    (total-strokes	 . 15)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=big5-cdp	  . #x8C6A)	; &CDP-8C6A;
+      )
+     ((=ucs@unicode	  . #x4F59)	; &AJ1-03880;
+      (=adobe-japan1-0	  . 03880)	; &AJ1-03880;
+      ))
+    (=ucs@JP/hanazono	. #x2D418)	; &CB07512;
+    (=cbeta		. 07512)	; &CB07512;
+    (->subsumptive
+     ((==cbeta		  . 07512)	; &g2-CB07512;
+      )
+     ((==ucs@JP/hanazono  . #x2D418)	; &g2-hanaJU+2D418;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 32)	; ⼟
     (ideographic-strokes . 13)
     (total-strokes	 . 16)
     (=ucs		. #x58C4)	; 壄
