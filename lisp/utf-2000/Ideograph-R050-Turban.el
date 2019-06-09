@@ -292,13 +292,18 @@
       (=mj		  . 013021)	; &MJ013021;
       (=daikanwa	  . 13359)	; &I-M-13359;
       ))
+    (<-interchangeable$_1*sources
+     shuowen-tongxun-dingsheng daikanwa)
     (<-interchangeable*sources
      shuowen-tongxun-dingsheng daikanwa)
-    (->ancient@p=bu4
-     ((=ucs		  . #x3C5B)	; 㱛
+    (->ancient
+     ((=ucs@unicode	  . #x3C5B)	; &C5-2662;
+      (=cns11643-5	  . #x2662)	; &C5-2662; [06-66]
       (=daikanwa	  . 16397)	; &I-M-16397;
       ))
-    (->ancient@p=bu4*sources
+    (->ancient$_1*sources
+     xu-zihui-bu daikanwa)
+    (->ancient*sources
      xu-zihui-bu daikanwa)
     (->subsumptive
      ((==ucs@unicode	  . #x5E03)	; &g2-AJ1-03533;
