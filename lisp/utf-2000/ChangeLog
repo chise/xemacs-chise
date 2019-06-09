@@ -1,5 +1,11 @@
 2019-06-07  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R076-Lack.el (U+3C20): Apply new conventions for glyph
+	granularity.
+	(U+3C20-var-001): New character; use `<-denotational' for U+3C20.
+
+2019-06-07  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R079-Weapon.el (U-00023AA0): Apply new conventions for
 	glyph granularity; add `<-denotational@component' for
 	A-IWDSU+23AA0.
