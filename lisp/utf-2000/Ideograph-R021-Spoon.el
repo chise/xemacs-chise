@@ -44,7 +44,8 @@
      ((=mj		  . 013594)	; &MJ013594;
       (=daikanwa	  . 14438)	; &I-M-14438;
       )
-     ((=ucs		  . #x6787)	; 枇
+     ((=ucs@unicode	  . #x6787)	; &AJ1-03470;
+      (=adobe-japan1-0	  . 03470)	; &AJ1-03470;
       (=daikanwa	  . 14528)	; &I-M-14528;
       ))
     (<-interchangeable$_1*sources

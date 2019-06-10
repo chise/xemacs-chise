@@ -22307,6 +22307,23 @@
   '((ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 12)
     (total-strokes	 . 15)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x68E5)	; 棥
+      )
+     ((=ucs		  . #x5973)	; 女
+      ))
+    (=ucs		. #x21874)	; 𡡴
+    (->subsumptive
+     ((==ucs@iso	  . #x21874)	; &g2-IU-00021874;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 38)	; ⼥
+    (ideographic-strokes . 12)
+    (total-strokes	 . 15)
     (=ucs		. #x21883)	; 𡢃
     (=shinjigen		.  1744)	; 𡢃
     (=cbeta		. 08135)	; &I-CB08135;
