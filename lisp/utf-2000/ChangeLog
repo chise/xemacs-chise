@@ -1,5 +1,14 @@
 2019-06-09  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R038-Woman.el (U-00021874): New character.
+
+	* Ideograph-R017-Open-Box.el (A-compU+51F5): New abstract node.
+	(U+51F5): Add `<-denotational@component' for A-compU+51F5.
+	(GT-K00386): New character; use `<-denotational@component' for
+	A-compU+51F5.
+
+2019-06-09  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R032-Earth.el (U-0002D418): New character.
 	(CB07512): New character; use `<-denotational' for U-0002D418.
 
@@ -32,6 +41,30 @@
 
 	* Ideograph-R002-Line.el (U+4E2A): Apply new conventions for glyph
 	granularity.
+
+2019-06-03  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R089-Double-X.el (U+3E1A): Use `->denotational' and
+	`->subsumptive'.
+	(A-BC-8569-var-001): New abstract node.
+	(A-BC-88D6-itaiji-001): New abstract node; use `<-denotational'
+	for A-IWDSBC-88D6.
+	(BC-88D6-itaiji-001): New character; use `<-denotational' for
+	A-BC-88D6-itaiji-001.
+	(BC-8569-var-001): New character; use `<-denotational' for
+	A-BC-8569-var-001.
+	(A-BC-8569): New abstract node; unify IWDS1-0109.
+	(A-IWDSBC-88D6): New abstract node.
+	(A-BC-88D6): Add `<-denotational' for A-IWDSBC-88D6; add
+	`ideographic-structure'.
+	(BC-8569): New character; use `<-denotational' for IWDS1-0109.
+	(BC-85AE): Add `ideographic-structure'.
+	(BC-88D6): Likewise.
+	(A-IWDSU+723E): Changed from A-cgnU+723E.
+	(U+723E): Add `ideographic-structure'; add `<-denotational' for
+	A-IWDSU+723E.
+	(UU+723E): Add `ideographic-structure'.
+	(MJ016763): Likewise.
 
 2019-05-31  MORIOKA Tomohiko  <tomo.git@chise.org>
 
