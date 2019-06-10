@@ -3,6 +3,15 @@
   '((ideographic-radical . 17)	; ⼐
     (ideographic-strokes . 0)
     (total-strokes	 . 2)
+    (=>ucs@component	. #x51F5)	; &A-compU+51F5;
+    ))
+(define-char
+  '((<-denotational@component
+     ((=>ucs@component	  . #x51F5)	; &A-compU+51F5;
+      ))
+    (ideographic-radical . 17)	; ⼐
+    (ideographic-strokes . 0)
+    (total-strokes	 . 2)
     (=ucs		. #x51F5)	; 凵
     ))
 (define-char
@@ -68,6 +77,20 @@
     (=cns11643-5	. #x2129)	; &I-C5-2129; [01-09]
     (<-unknown
      ((=ucs		  . #x51F5)	; 凵
+      ))
+    ))
+(define-char
+  '((<-denotational@component
+     ((=>ucs@component	  . #x51F5)	; &A-compU+51F5;
+      ))
+    (ideographic-radical . 17)	; ⼐
+    (ideographic-strokes . 0)
+    (total-strokes	 . 2)
+    (=gt-k		. 00386)	; &GT-K00386;
+    (=gt-pj-k1		. #x4921)	; &GT-K00386; [41-01]
+    (->subsumptive
+     ((==gt-k		  . 00386)	; &g2-GT-K00386;
+      (==gt-pj-k1	  . #x4921)	; &g2-GT-K00386; [41-01]
       ))
     ))
 (define-char
