@@ -1061,10 +1061,26 @@
     ))
 (define-char
   '((ideographic-radical . 2)	; ⼁
+    (=>big5-cdp		. #x8A6D)	; &A-CDP-8A6D;
+    ))
+(define-char
+  '((ideographic-radical . 2)	; ⼁
     (ideographic-strokes . 5)
     (total-strokes	 . 6)
     (hanyu-dazidian	1 30 1)
     (=big5-cdp		. #x866B)	; &CDP-866B;
+    ))
+(define-char
+  '((<-denotational
+     ((=>big5-cdp	  . #x8A6D)	; &A-CDP-8A6D;
+      ))
+    (ideographic-radical . 2)	; ⼁
+    (ideographic-strokes . 5)
+    (total-strokes	 . 6)
+    (=big5-cdp		. #x88BA)	; &CDP-88BA;
+    (->subsumptive
+     ((==big5-cdp	  . #x88BA)	; &g2-CDP-88BA;
+      ))
     ))
 (define-char
   '((<-denotational@usage
@@ -1139,6 +1155,18 @@
     (=gt		. 00116)	; &I-GT-00116;
     (=gt-pj-2		. #x305D)	; &I-GT-00116; [16-61]
     (=daikanwa		. 00081)	; &I-M-00081;
+    ))
+(define-char
+  '((<-denotational
+     ((=>big5-cdp	  . #x8A6D)	; &A-CDP-8A6D;
+      ))
+    (ideographic-radical . 2)	; ⼁
+    (ideographic-strokes . 6)
+    (total-strokes	 . 7)
+    (=big5-cdp		. #x8A6D)	; &CDP-8A6D;
+    (->subsumptive
+     ((==big5-cdp	  . #x8A6D)	; &g2-CDP-8A6D;
+      ))
     ))
 (define-char
   '((<-denotational@usage

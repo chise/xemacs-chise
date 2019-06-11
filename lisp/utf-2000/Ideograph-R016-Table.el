@@ -212,6 +212,15 @@
     (ideographic-radical . 16)	; ⼏
     (ideographic-strokes . 1)
     (total-strokes	 . 3)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
+      (=ucs		  . #x2FF5)	; ⿵
+      )
+     ((=>ucs@component	  . #x51E0)	; &A-compU+51E0;
+      (=>iwds-1		  .  0119)	; &A-compU+51E0;
+      )
+     ((=ucs		  . #x4E36)	; 丶
+      ))
     (sound@ja/kun	"oyo-so" "arayu-ru")
     (sound@ja/on/go	"bon")
     (sound@ja/on/kan	"han")
@@ -348,6 +357,48 @@
      ((=ucs		  . #x4E36)	; 丶
       ))
     (=ucs-var-001	. #x51E1)	; &U-v001+51E1;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x51E1)	; 凡
+      ))
+    (ideographic-radical . 16)	; ⼏
+    (ideographic-strokes . 1)
+    (total-strokes	 . 3)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=gt-k		  . 00049)	; &GT-K00049;
+      )
+     ((=ucs		  . #x4E5A)	; 乚
+      ))
+    (=ucs-itaiji-006	. #x51E1)	; &U-i006+51E1;
+    (->subsumptive
+     ((==ucs-itaiji-006	  . #x51E1)	; &g2-U-i006+51E1;
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x51E1)	; 凡
+      ))
+    (ideographic-radical . 16)	; ⼏
+    (ideographic-strokes . 1)
+    (total-strokes	 . 3)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
+      (=ucs		  . #x2FF5)	; ⿵
+      )
+     ((=ucs		  . #x513F)	; 儿
+      )
+     ((=ucs		  . #x4E36)	; 丶
+      ))
+    (=gt-k		. 00291)	; &GT-K00291;
+    (=gt-pj-k1		. #x545F)	; &GT-K00291; [52-63]
+    (->subsumptive
+     ((==gt-k		  . 00291)	; &g2-GT-K00291;
+      (==gt-pj-k1	  . #x545F)	; &g2-GT-K00291; [52-63]
+      ))
     ))
 (define-char
   '((<-denotational
