@@ -1,5 +1,13 @@
 2019-06-10  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R016-Table.el (U+51E1-itaiji-006): New character; use
+	`<-denotational' for U+51E1.
+	(GT-K00291): Ditto.
+
+	* Ideograph-R002-Line.el (A-BC-8A6D): New abstract node.
+	(BC-88BA): New character; use `<-denotational' for A-BC-8A6D.
+	(BC-8A6D): Ditto.
+
 	* Ideograph-R032-Earth.el (U+5807): Add `ideographic-structure'.
 	(A-UU+5807): New abstract node; use `<-denotational' for U+5807.
 	(UU+5807): Use A-UU+5807 instead of U+5807 as its mother.
