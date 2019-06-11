@@ -12079,12 +12079,37 @@
       (=>iwds-1		  .  0300)	; &A-compU+83EB;
       ))
     (ideographic-radical . 32)	; ⼟
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>ucs@component	  . #x5EFF)	; &A-compU+5EFF;
+      (=>iwds-1		  .  0303)	; &A-compU+5EFF;
+      )
+     ((=>big5-cdp	  . #x8A6D)	; &A-CDP-8A6D;
+      ))
     (=ucs		. #x5807)	; 堇
     (=>iwds-1		.  0276)	; 堇
     ))
 (define-char
   '((<-denotational
      ((=ucs		  . #x5807)	; 堇
+      ))
+    (ideographic-radical . 32)	; ⼟
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>ucs@component	  . #x5EFF)	; &A-compU+5EFF;
+      (=>iwds-1		  .  0303)	; &A-compU+5EFF;
+      )
+     ((=big5-cdp	  . #x8A6D)	; &CDP-8A6D;
+      ))
+    (=>ucs@unicode	. #x5807)	; &A-UU+5807;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@unicode	  . #x5807)	; &A-UU+5807;
       ))
     (ideographic-radical . 32)	; ⼟
     (ideographic-strokes . 8)
