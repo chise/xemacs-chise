@@ -1,3 +1,9 @@
+2019-06-10  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R032-Earth.el (U+5807): Add `ideographic-structure'.
+	(A-UU+5807): New abstract node; use `<-denotational' for U+5807.
+	(UU+5807): Use A-UU+5807 instead of U+5807 as its mother.
+
 2019-06-09  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R038-Woman.el (U-00021874): New character.
