@@ -1,5 +1,11 @@
 2019-06-12  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R002-Line.el (A-compU+4E2F): New abstract node; use
+	`<-denotational@component' for A-compU+4E30.
+	(U+4E2F): Add `<-denotational@component' for A-compU+4E2F.
+	(U+4E30): Use A-compU+4E2F instead of A-compU+4E30 as its mother.
+	(GT-00111): Add `<-denotational' for U+4E30.
+
 	* Ideograph-R065-Branch.el (U-0002D8D6): New character.
 	(U+2D8D6-var-001): New character; use `<-denotational' for
 	U-0002D8D6.
