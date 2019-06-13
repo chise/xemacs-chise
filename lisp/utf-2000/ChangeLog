@@ -1,3 +1,18 @@
+2019-06-12  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R065-Branch.el (U-0002D8D6): New character.
+	(U+2D8D6-var-001): New character; use `<-denotational' for
+	U-0002D8D6.
+	(M-13066): Unify U-00022EBC, MJ037186 and KOSEKI-146850.
+
+	* Ideograph-R044-Corpse.el (U-00021C2E): Apply new conventions for
+	glyph granularity.
+	(U+3790): Add `sound@ja/on'; add some relations for other
+	characters.
+	(GT-K04467): New character.
+	(U-00021C70): Add `ideographic-structure'; unify CB05163; add
+	representative nodes.
+
 2019-06-11  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R011-Enter.el (U-000204DC): Apply new conventions for
