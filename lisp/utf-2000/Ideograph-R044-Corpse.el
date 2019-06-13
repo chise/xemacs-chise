@@ -257,7 +257,8 @@
     (=cns11643-4	. #x2175)	; &I-C4-2175; [01-85]
     (=daikanwa		. 07633)	; &I-M-07633;
     (<-ancient
-     ((=ucs		  . #x6B79)	; 歹
+     ((=ucs@unicode	  . #x6B79)	; &AJ1-05349;
+      (=adobe-japan1-0	  . 05349)	; &AJ1-05349;
       (=daikanwa	  . 16359)	; &I-M-16359;
       )
      ((=ucs		  . #x239B5)	; 𣦵
@@ -902,11 +903,37 @@
   '((ideographic-radical . 44)	; ⼫
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>ucs@component	  . #x51F5)	; &A-compU+51F5;
+      )
+     ((=ucs		  . #x5C38)	; 尸
+      ))
     (=ucs		. #x21C2E)	; 𡰮
-    (=cns11643-6	. #x2451)	; &I-C6-2451; [04-49]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x21C2E)	; 𡰮
+      ))
+    (ideographic-radical . 44)	; ⼫
+    (ideographic-strokes . 3)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=gt-k		  . 00386)	; &GT-K00386;
+      )
+     ((=ucs		  . #x5C38)	; 尸
+      ))
+    (=ucs@iso		. #x21C2E)	; &C6-2451;
+    (=cns11643-6	. #x2451)	; &C6-2451; [04-49]
     (=daikanwa		. 07647)	; &I-M-07647;
     (<-ancient
-     ((=ucs		  . #x6B79)	; 歹
+     ((=ucs@unicode	  . #x6B79)	; &AJ1-05349;
+      (=adobe-japan1-0	  . 05349)	; &AJ1-05349;
       (=daikanwa	  . 16359)	; &I-M-16359;
       )
      ((=ucs		  . #x6B7A)	; 歺
@@ -1549,10 +1576,34 @@
       )
      ((=ucs		  . #x7ACB)	; 立
       ))
+    (sound@ja/on	"kyo")
     (=ucs		. #x3790)	; 㞐
     (=cns11643-3	. #x2852)	; &I-C3-2852; [08-50]
     (=daikanwa		. 07664)	; &I-M-07664;
     (=cbeta		. 05464)	; &I-CB05464;
+    (<-ancient
+     ((=ucs		  . #x5C45)	; 居
+      (=daikanwa	  . 07663)	; &I-M-07663;
+      ))
+    (<-ancient$_1*sources
+     yupian daikanwa)
+    (<-ancient*sources
+     yupian daikanwa)
+    (<-formed
+     ((=ucs@unicode	  . #x51E5)	; &AJ1-21188;
+      (=adobe-japan1-6	  . 21188)	; &AJ1-21188;
+      ))
+    (<-formed$_1*sources
+     jiyun)
+    (<-same
+     ((=ucs@unicode	  . #x51E5)	; &AJ1-21188;
+      (=adobe-japan1-6	  . 21188)	; &AJ1-21188;
+      (=daikanwa	  . 01744)	; &I-M-01744;
+      ))
+    (<-same$_1*sources
+     jiyun daikanwa)
+    (<-same*sources
+     jiyun daikanwa)
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
@@ -2167,6 +2218,27 @@
      ((==ucs@JP/hanazono  . #x2D558)	; &g2-MJ057369;
       (==mj		  . 057369)	; &g2-MJ057369;
       (==koseki		  . 087280)	; &g2-MJ057369;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 44)	; ⼫
+    (ideographic-strokes . 5)
+    (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
+      (=ucs		  . #x2FF5)	; ⿵
+      )
+     ((=ucs-itaiji-002	  . #x5C3A)	; &U-i002+5C3A;
+      )
+     ((=ucs@iso		  . #x20B9B)	; &C4-2147;
+      (=cns11643-4	  . #x2147)	; &C4-2147; [01-39]
+      (=daikanwa	  . 03230)	; &I-M-03230;
+      ))
+    (=gt-k		. 04467)	; &GT-K04467;
+    (=gt-pj-k1		. #x434D)	; &GT-K04467; [35-45]
+    (->subsumptive
+     ((==gt-k		  . 04467)	; &g2-GT-K04467;
+      (==gt-pj-k1	  . #x434D)	; &g2-GT-K04467; [35-45]
       ))
     ))
 (define-char
@@ -3475,8 +3547,28 @@
   '((ideographic-radical . 44)	; ⼫
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs		  . #x5C38)	; 尸
+      )
+     ((=ucs		  . #x8C55)	; 豕
+      ))
     (=ucs		. #x21C70)	; 𡱰
     (=cns11643-5	. #x2D26)	; &I-C5-2D26; [13-06]
+    (=cbeta		. 05163)	; &I-CB05163;
+    (->subsumptive
+     ((==ucs@iso	  . #x21C70)	; &g2-IU-00021C70;
+      (==cns11643-5	  . #x2D26)	; &g2-IU-00021C70; [13-06]
+      (->subsumptive
+       ((===cns11643-5	    . #x2D26)	; &R-C5-2D26; [13-06]
+	)
+       ((===ucs@iso	    . #x21C70)	; &R-U-00021C70;
+	))
+      )
+     ((==cbeta		  . 05163)	; &g2-CB05163;
+      ))
     ))
 (define-char
   '((ideographic-radical . 44)	; ⼫
