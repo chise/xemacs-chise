@@ -389,8 +389,7 @@
       )
      ((=ucs		  . #x6C14)	; 气
       )
-     ((=>ucs@iwds-1	  . #x6B79)	; &A-IWDSU+6B79;
-      (=>iwds-1		  .  1092)	; &A-IWDSU+6B79;
+     ((=ucs		  . #x6B79)	; 歹
       ))
     (sound@ja/on	"ki")
     (=ucs		. #x23C5A)	; 𣱚
@@ -409,7 +408,8 @@
      ((=ucs@unicode	  . #x6C14)	; &AJ1-05378;
       (=adobe-japan1-0	  . 05378)	; &AJ1-05378;
       )
-     ((=ucs		  . #x6B79)	; 歹
+     ((=ucs@unicode	  . #x6B79)	; &AJ1-05349;
+      (=adobe-japan1-0	  . 05349)	; &AJ1-05349;
       ))
     (=ucs@iso		. #x23C5A)	; &C6-2C4A;
     (=cns11643-6	. #x2C4A)	; &C6-2C4A; [12-42]
