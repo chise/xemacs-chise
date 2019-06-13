@@ -739,6 +739,15 @@
   '((<-denotational@component
      ((=>ucs@component	  . #x4E30)	; &A-compU+4E30;
       ))
+    (ideographic-radical . 2)	; ⼁
+    (ideographic-strokes . 3)
+    (total-strokes	 . 4)
+    (=>ucs@component	. #x4E2F)	; &A-compU+4E2F;
+    ))
+(define-char
+  '((<-denotational@component
+     ((=>ucs@component	  . #x4E2F)	; &A-compU+4E2F;
+      ))
     (<-denotational@usage
      ((==>daijiten	  . 00052)	; &A2-DJT-00052;
       ))
@@ -788,7 +797,7 @@
     ))
 (define-char
   '((<-denotational@component
-     ((=>ucs@component	  . #x4E30)	; &A-compU+4E30;
+     ((=>ucs@component	  . #x4E2F)	; &A-compU+4E2F;
       ))
     (<-denotational@usage
      ((==>daijiten	  . 00053)	; &A2-DJT-00053;
@@ -884,6 +893,24 @@
     (ideographic-radical . 2)	; ⼁
     (ideographic-strokes . 3)
     (total-strokes	 . 4)
+    (=gt		. 00111)	; &GT-00111;
+    (=gt-pj-9		. #x4A2C)	; &GT-00111; [42-12]
+    (<-formed@component/connect-right
+     ((=ucs@unicode	  . #x4E30)	; &MJ006350;
+      (=mj		  . 006350)	; &MJ006350;
+      ))
+    (<-unknown
+     ((=ucs@unicode	  . #x4E30)	; &MJ006350;
+      (=mj		  . 006350)	; &MJ006350;
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x4E30)	; 丰
+      ))
+    (ideographic-radical . 2)	; ⼁
+    (ideographic-strokes . 3)
+    (total-strokes	 . 4)
     (=+>ucs@cns		. #x4E30)	; &o-AJ1-15386;
     (=+>adobe-japan1-4	. 15386)	; &o-AJ1-15386;
     (->subsumptive
@@ -924,21 +951,6 @@
     (hanyu-dazidian	1 28 9)
     (=ucs		. #x20063)	; 𠁣
     (=big5-cdp		. #x88CF)	; &I-CDP-88CF;
-    ))
-(define-char
-  '((ideographic-radical . 2)	; ⼁
-    (ideographic-strokes . 3)
-    (total-strokes	 . 4)
-    (=gt		. 00111)	; &GT-00111;
-    (=gt-pj-9		. #x4A2C)	; &GT-00111; [42-12]
-    (<-formed@component/connect-right
-     ((=ucs@unicode	  . #x4E30)	; &MJ006350;
-      (=mj		  . 006350)	; &MJ006350;
-      ))
-    (<-unknown
-     ((=ucs@unicode	  . #x4E30)	; &MJ006350;
-      (=mj		  . 006350)	; &MJ006350;
-      ))
     ))
 (define-char
   '((<-denotational@usage
