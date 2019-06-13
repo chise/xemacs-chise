@@ -15005,19 +15005,90 @@
       ))
     ))
 (define-char
-  '((=>ucs		. #x21AE9)	; 𡫩
-    (ideographic-radical . 40)	; ⼧
+  '((ideographic-radical . 40)	; ⼧
     (ideographic-strokes . 15)
     (total-strokes	 . 18)
-    (=daikanwa		. 07361)	; &M-07361;
+    (sound@ja/on	"sai")
+    (=ucs		. #x21AE9)	; 𡫩
     ))
 (define-char
-  '((morohashi-daikanwa	7361 0 0)
+  '((<-denotational
+     ((=ucs		  . #x21AE9)	; 𡫩
+      ))
     (ideographic-radical . 40)	; ⼧
     (ideographic-strokes . 15)
     (total-strokes	 . 18)
-    (=ucs		. #x21AE9)	; 𡫩
-    (=cns11643-7	. #x3F42)	; &I-C7-3F42; [31-34]
+    (=ucs@iso		. #x21AE9)	; &C7-3F42;
+    (=cns11643-7	. #x3F42)	; &C7-3F42; [31-34]
+    (=daikanwa		. 07361)	; &I-M-07361;
+    (<-same
+     ((=ucs		  . #x585E)	; 塞
+      (=daikanwa	  . 05349)	; &I-M-05349;
+      ))
+    (<-same*sources
+     zihui-bu daikanwa)
+    (->subsumptive
+     ((==ucs@iso	  . #x21AE9)	; &g2-M-07361;
+      (==cns11643-7	  . #x3F42)	; &g2-M-07361; [31-34]
+      (==daikanwa	  . 07361)	; &g2-M-07361;
+      (->subsumptive
+       ((===daikanwa	    . 07361)	; &R-M-07361;
+	)
+       ((===cns11643-7	    . #x3F42)	; &R-C7-3F42; [31-34]
+	)
+       ((===ucs@iso	    . #x21AE9)	; &R-U-00021AE9;
+	))
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 40)	; ⼧
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
+      (=ucs		  . #x2FF3)	; ⿳
+      )
+     ((=ucs		  . #x5B80)	; 宀
+      )
+     ((=>ucs@iwds-1	  . #x73CF)	; &A-IWDSU+73CF;
+      )
+     ((=ucs		  . #x8C9D)	; 貝
+      ))
+    (sound@ja/on	"hou")
+    (=ucs		. #x2D51F)	; 𭔟
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2D51F)	; 𭔟
+      ))
+    (ideographic-radical . 40)	; ⼧
+    (ideographic-strokes . 15)
+    (total-strokes	 . 18)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
+      (=ucs		  . #x2FF3)	; ⿳
+      )
+     ((=ucs		  . #x5B80)	; 宀
+      )
+     ((=ucs		  . #x73A8)	; 玨
+      )
+     ((=ucs		  . #x8C9D)	; 貝
+      ))
+    (=ucs@JP/hanazono	. #x2D51F)	; &MJ059511;
+    (=mj		. 059511)	; &MJ059511;
+    (<-formed
+     ((=ucs@unicode	  . #x5BF6)	; &AJ1-04638;
+      (=adobe-japan1-0	  . 04638)	; &AJ1-04638;
+      ))
+    (<-formed$_1*sources
+     mj)
+    (<-formed*sources
+     mj)
+    (->subsumptive
+     ((==ucs@JP/hanazono  . #x2D51F)	; &g2-MJ059511;
+      (==mj		  . 059511)	; &g2-MJ059511;
+      (->subsumptive
+       ((===mj		    . 059511)	; &R-MJ059511;
+	))
+      ))
     ))
 (define-char
   '((<-denotational

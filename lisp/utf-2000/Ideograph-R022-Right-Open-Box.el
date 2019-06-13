@@ -74,6 +74,42 @@
     ))
 (define-char
   '((ideographic-radical . 22)	; ⼕
+    (ideographic-strokes . 2)
+    (total-strokes	 . 4)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
+      (=ucs		  . #x2FF7)	; ⿷
+      )
+     ((=>ucs@component	  . #x531A)	; &A-compU+531A;
+      (=>iwds-1		  .  0209)	; &A-compU+531A;
+      )
+     ((=>ucs@iwds-1	  . #x4EBA)	; &A-IWDSU+4EBA;
+      (=>iwds-1		  .  14623)	; &A-IWDSU+4EBA;
+      ))
+    (=ucs		. #x2092D)	; 𠤭
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2092D)	; 𠤭
+      ))
+    (ideographic-radical . 22)	; ⼕
+    (ideographic-strokes . 2)
+    (total-strokes	 . 4)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
+      (=ucs		  . #x2FF7)	; ⿷
+      )
+     ((=ucs		  . #x531A)	; 匚
+      )
+     ((=ucs		  . #x4EBA)	; 人
+      ))
+    (=ucs@iso		. #x2092D)	; &U-0002092D;
+    (->subsumptive
+     ((==ucs@iso	  . #x2092D)	; &g2-IU-0002092D;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 22)	; ⼕
     (ideographic-strokes . 3)
     (total-strokes	 . 5)
     (=ucs		. #x531B)	; 匛
