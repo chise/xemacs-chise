@@ -1,3 +1,22 @@
+2019-06-13  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R022-Right-Open-Box.el (U-0002092D): New character.
+
+	* Ideograph-R007-Two.el (A-BC-87A5): New abstract node.
+	(BC-87A5): New character; use `<-denotational' for A-BC-87A5.
+
+	* Ideograph-R072-Sun.el (U-0002D957): New character.
+	(U-0002D95C): New character.
+	(U-0002F8D2): Add `ideographic-structure'.
+	(U+661F): Use `<-denotational@usage' instead of `<-denotational'
+	for BUCS+661F.
+	(U+661F-itaiji-001): Ditto.
+	(U-0002D9AC): New character.
+	(U+66D0): Use `<-denotational@usage' instead of `<-denotational'
+	for BUCS+661F; add `sound@ja/on'; add `<-Small-Seal' for U+661F;
+	add representative nodes.
+	(U-0002DA12): New character.
+
 2019-06-12  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R002-Line.el (A-compU+4E2F): New abstract node; use
@@ -18,6 +37,10 @@
 	(GT-K04467): New character.
 	(U-00021C70): Add `ideographic-structure'; unify CB05163; add
 	representative nodes.
+
+	* Ideograph-R040-Roof.el (U-00021AE9): Use `->denotational' and
+	`->subsumptive'.
+	(U-0002D51F): New character.
 
 2019-06-11  MORIOKA Tomohiko  <tomo.git@chise.org>
 
