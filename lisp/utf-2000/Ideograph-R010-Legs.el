@@ -156,6 +156,8 @@
       )
      ((=>ucs@iwds-1	  . #x4E0C)	; &A-IWDSU+4E0C;
       (=>iwds-1		  .  0221)	; &A-IWDSU+4E0C;
+      )
+     ((=>ucs@iwds-1	  . #x65E0)	; &A-IWDSU+65E0;
       ))
     (ideographic-radical@ucs . 10)	; ⼉
     (ideographic-strokes@ucs . 1)

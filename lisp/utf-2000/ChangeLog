@@ -1,3 +1,8 @@
+2019-06-15  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R010-Legs.el (U+5140): Add A-IWDSU+65E0 as a target of
+	`<-denotational@component'.
+
 2019-06-13  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R061-Heart.el (U+5FCC): Add `ideographic-structure';
