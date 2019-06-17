@@ -1213,7 +1213,8 @@
     ))
 (define-char
   '((<-denotational
-     ((=>iwds-1		  .  0041)	; &IWDS1-041;
+     ((=>ucs@iwds-1	  . #x51E2)	; &A-IWDSU+51E2;
+      (=>iwds-1		  .  0041)	; &A-IWDSU+51E2;
       ))
     (ideographic-radical@ucs . 16)	; ⼏
     (ideographic-strokes@ucs . 1)
