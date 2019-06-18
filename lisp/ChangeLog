@@ -1,3 +1,8 @@
+2019-06-18  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
+	setting for `=>ucs@iwds-1/normalized'.
+
 2019-06-08  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* mule/mule-conf.el (=>ucs@iwds-1/normalized): New coded-charset

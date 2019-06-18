@@ -1,3 +1,8 @@
+2019-06-18  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* char-db-util.el (char-db-coded-charset-priority-list): Add
+	`=>ucs@iwds-1/normalized'.
+
 2019-06-16  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R013-Down-Box.el (BC-87F0): Add
