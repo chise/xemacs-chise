@@ -5,6 +5,9 @@
 
 2019-06-16  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R028-Private.el (U+342C-itaiji-001): Use A-cgnU+342C
+	instead of U+342C as its mother.
+
 	* Ideograph-R013-Down-Box.el (BC-87F0): Add
 	`<-denotational@component' for A-BC-87F0.
 	(A-BC-87F0): New abstract node; use `<-denotational@component' for
