@@ -2891,7 +2891,6 @@
      ((=ucs		  . #x52F9)	; 勹
       )
      ((=ucs@unicode	  . #x65E3)	; &AJ1-13701;
-      (=ucs@cns		  . #x2F8CB)	; &AJ1-13701;
       (=adobe-japan1-4	  . 13701)	; &AJ1-13701;
       ))
     (=daikanwa		. 02555)	; &M-02555;
