@@ -1,5 +1,14 @@
 2019-06-18  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R019-Power.el (A-IWDSU+52F3): New abstract node.
+	(U+52F2): Apply new conventions for glyph granularity; use
+	`<-denotational@usage' instead of `<-denotational' for BUCS+52F3.
+	(HD-JT-AE51): New character; use `<-denotational' for U+52F2.
+	(U+52F3): Use `<-denotational@usage' instead of `<-denotational'
+	for BUCS+52F3; add `ideographic-structure'.
+
+2019-06-18  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* char-db-util.el (char-db-coded-charset-priority-list): Add
 	`=>ucs@iwds-1/normalized'.
 
