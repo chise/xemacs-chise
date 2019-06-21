@@ -1,5 +1,11 @@
 2019-06-18  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R045-Sprout.el (U+5C6F-itaiji-006): New character; use
+	`<-denotational' for A-cgnU+5C6F.
+
+	* Ideograph-R031-Enclosure.el (U+56DF-itaiji-003): New character.
+	(U+56DF-itaiji-008): New character.
+
 	* Ideograph-R019-Power.el (A-IWDSU+52F3): New abstract node.
 	(U+52F2): Apply new conventions for glyph granularity; use
 	`<-denotational@usage' instead of `<-denotational' for BUCS+52F3.
