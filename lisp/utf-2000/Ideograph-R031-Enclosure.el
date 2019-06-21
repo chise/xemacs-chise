@@ -3310,6 +3310,37 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
       (=ucs		  . #x2FF4)	; ⿴
       )
+     ((=big5-cdp	  . #x8CC8)	; &CDP-8CC8;
+      )
+     ((=big5-cdp	  . #x88C0)	; &CDP-88C0;
+      ))
+    (=ucs-itaiji-003	. #x56DF)	; &U-i003+56DF;
+    (->subsumptive
+     ((==ucs-itaiji-003	  . #x56DF)	; &g2-U-i003+56DF;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 31)	; ⼞
+    (ideographic-strokes . 5)
+    (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
+      (=ucs		  . #x2FF4)	; ⿴
+      )
+     ((=big5-cdp	  . #x8CC8)	; &CDP-8CC8;
+      )
+     ((=ucs-itaiji-001	  . #x723B)	; &U-i001+723B;
+      ))
+    (=ucs-itaiji-008	. #x56DF)	; &U-i008+56DF;
+    ))
+(define-char
+  '((ideographic-radical . 31)	; ⼞
+    (ideographic-strokes . 5)
+    (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
+      (=ucs		  . #x2FF4)	; ⿴
+      )
      ((=ucs		  . #x56D7)	; 囗
       )
      ((=ucs		  . #x5360)	; 占

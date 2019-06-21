@@ -198,6 +198,26 @@
       ))
     (ideographic-radical . 45)	; ⼬
     (ideographic-strokes . 1)
+    (total-strokes	 . 4)
+    (ideographic-structure
+     ((name		  . "IDEOGRAPHIC DESCRIPTION CHARACTER OVERLAID")
+      (=ucs		  . #x2FFB)	; ⿻
+      )
+     ((=ucs		  . #x53E3)	; 口
+      )
+     ((=ucs		  . #x4E5A)	; 乚
+      ))
+    (=ucs-itaiji-006	. #x5C6F)	; &U-i006+5C6F;
+    (->subsumptive
+     ((==ucs-itaiji-006	  . #x5C6F)	; &g2-U-i006+5C6F;
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@cognate	  . #x5C6F)	; &A-cgnU+5C6F;
+      ))
+    (ideographic-radical . 45)	; ⼬
+    (ideographic-strokes . 1)
     (total-strokes	 . 3)
     (=big5-cdp		. #x8AF0)	; &CDP-8AF0;
     (=cbeta		. 04490)	; &I-CB04490;
