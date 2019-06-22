@@ -1,3 +1,10 @@
+2019-06-21  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R026-Seal.el (HD-TK01012400): New character; use
+	`<-subsumptive' for IU+20A10.
+	(U+536C-itaiji-001): New character; use `<-subsumptive' for
+	HD-TK01012400.
+
 2019-06-20  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R038-Woman.el (U+36A2): Add `ideographic-structure';
