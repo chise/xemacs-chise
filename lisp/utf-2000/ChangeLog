@@ -1,3 +1,11 @@
+2019-06-20  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R038-Woman.el (U+36A2): Add `ideographic-structure';
+	unify CB11985.
+	(U+5A76): Add `ideographic-structure'; add representative nodes.
+
+	* Ideograph-R029-Again.el (U+53E2-itaiji-001): New character.
+
 2019-06-18  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R045-Sprout.el (U+5C6F-itaiji-006): New character; use
