@@ -225,11 +225,21 @@
     (ideographic-strokes@cns*sources
      daikanwa=00395)
     (total-strokes	 . 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x4EBB)	; 亻
+      )
+     ((=ucs		  . #x5973)	; 女
+      ))
     (=ucs		. #x36A2)	; 㚢
     (=cns11643-3	. #x2174)	; &I-C3-2174; [01-84]
+    (=cbeta		. 11985)	; &I-CB11985;
     (->subsumptive
      ((ideographic-radical . 9)	; ⼈
       (ideographic-strokes . 3)
+      (sound@ja/on	  "bu")
       (=daikanwa	  . 00395)	; &M-00395;
       (<-ancient
        ((=ucs@unicode	    . #x4FAE)	; &AJ1-13382;
@@ -238,7 +248,7 @@
 	(=daikanwa	    . 00630)	; &I-M-00630;
 	))
       (<-ancient*sources
-       daikanwa)
+       jiyun daikanwa)
       (->mistakable
        ((=daikanwa	    . 06040)	; &M-06040;
 	))
@@ -269,6 +279,8 @@
 	 ((===ucs@unicode     . #x36A2)	; &R-UU+36A2;
 	  ))
 	))
+      )
+     ((==cbeta		  . 11985)	; &g2-CB11985;
       ))
     ))
 (define-char
@@ -12791,11 +12803,26 @@
   '((ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5973)	; 女
+      )
+     ((=ucs		  . #x5BA1)	; 审
+      ))
     (=ucs		. #x5A76)	; 婶
     (=gb2312		. #x4974)	; &I-G0-4974; [41-84]
     (<-simplified@CN
-     ((=ucs@unicode	  . #x5B38)	; &UU+5B38;
+     ((=ucs		  . #x5B38)	; 嬸
       (=gb12345		  . #x4974)	; 嬸 [41-84]
+      ))
+    (->subsumptive
+     ((==ucs@unicode	  . #x5A76)	; &g2-UU+5A76;
+      (==gb2312		  . #x4974)	; &g2-UU+5A76; [41-84]
+      (->subsumptive
+       ((===ucs@unicode	    . #x5A76)	; &R-UU+5A76;
+	))
       ))
     ))
 (define-char
