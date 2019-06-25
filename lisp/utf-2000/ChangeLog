@@ -1,3 +1,8 @@
+2019-06-24  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R014-Cover.el (GT-K01118): New character.
+	(GT-K01119): New character; use `<-subsumptive' for GT-K01118.
+
 2019-06-22  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* char-db-util.el (char-db-coded-charset-priority-list): Add
