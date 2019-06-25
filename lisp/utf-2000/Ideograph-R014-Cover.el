@@ -662,6 +662,32 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
+     ((=ucs		  . #x206A4)	; 𠚤
+      )
+     ((=ucs		  . #x5196)	; 冖
+      ))
+    (=gt-k		. 01118)	; &GT-K01118;
+    (=gt-pj-k1		. #x4634)	; &GT-K01118; [38-20]
+    (->subsumptive
+     ((==gt-k		  . 01118)	; &g2-GT-K01118;
+      (==gt-pj-k1	  . #x4634)	; &g2-GT-K01118; [38-20]
+      )
+     ((=gt-k		  . 01119)	; &GT-K01119;
+      (=gt-pj-k2	  . #x4067)	; &GT-K01119; [32-71]
+      (->subsumptive
+       ((==gt-k		    . 01119)	; &g2-GT-K01119;
+	(==gt-pj-k2	    . #x4067)	; &g2-GT-K01119; [32-71]
+	))
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 14)	; ⼍
+    (ideographic-strokes . 3)
+    (total-strokes	 . 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
      ((=ucs		  . #x5196)	; 冖
       )
      ((=big5-cdp	  . #x86D0)	; &CDP-86D0;
