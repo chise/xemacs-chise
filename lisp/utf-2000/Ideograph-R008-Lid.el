@@ -1406,16 +1406,16 @@
       ))
     ))
 (define-char
-  '((<-denotational@component
-     ((=>ucs@component	  . #x342C)	; &A-compU+342C;
-      (=>iwds-1		  .  0345)	; &A-compU+342C;
-      ))
-    (ideographic-radical . 8)	; ⼇
-    (=ucs		. #x342C)	; 㐬
+  '((ideographic-radical . 8)	; ⼇
+    (=>ucs@cognate	. #x342C)	; &A-cgnU+342C;
     ))
 (define-char
   '((<-denotational
-     ((=ucs		  . #x342C)	; 㐬
+     ((=>ucs@cognate	  . #x342C)	; &A-cgnU+342C;
+      ))
+    (<-denotational@component
+     ((=>ucs@component	  . #x342C)	; &A-compU+342C;
+      (=>iwds-1		  .  0345)	; &A-compU+342C;
       ))
     (ideographic-radical . 8)	; ⼇
     (ideographic-structure
@@ -1426,8 +1426,7 @@
       )
      ((=ucs		  . #x2BDA7)	; 𫶧
       ))
-    (=>ucs@iwds-1	. #x342C)	; &A-IWDSU+342C;
-    (=>ucs@unicode	. #x342C)	; &A-IWDSU+342C;
+    (=ucs		. #x342C)	; 㐬
     (->subsumptive
      ((ideographic-strokes . 5)
       (total-strokes	   . 7)
@@ -3858,6 +3857,43 @@
       ))
     (=ucs		. #x20171)	; 𠅱
     (=hanziku-1		. #xE1DA)	; &I-HZK01-E1DA;
+    ))
+(define-char
+  '((<-denotational@usage
+     ((==>daijiten	  . 00166)	; &A2-DJT-00166;
+      ))
+    (ideographic-radical . 8)	; ⼇
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x342D)	; 㐭
+      )
+     ((=ucs-itaiji-001	  . #x20003)	; &U-i001+20003;
+      ))
+    (=>ucs-itaiji-003	. #x4EB6)	; &A-U-i003+4EB6;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs-itaiji-003	  . #x4EB6)	; &A-U-i003+4EB6;
+      ))
+    (ideographic-radical . 8)	; ⼇
+    (ideographic-strokes . 10)
+    (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs@unicode	  . #x342D)	; &C4-2534;
+      (=cns11643-4	  . #x2534)	; &C4-2534; [05-20]
+      (=daikanwa	  . 00300)	; &I-M-00300;
+      )
+     ((=ucs-itaiji-001	  . #x20003)	; &U-i001+20003;
+      ))
+    (=ucs-itaiji-003	. #x4EB6)	; &U-i003+4EB6;
+    (->subsumptive
+     ((==ucs-itaiji-003	  . #x4EB6)	; &g2-U-i003+4EB6;
+      ))
     ))
 (define-char
   '((<-denotational@usage

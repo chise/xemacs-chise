@@ -1,5 +1,16 @@
 2019-06-25  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R008-Lid.el (A-cgnU+342C): New abstract node.
+	(U+342C): Unify A-IWDSU+342C and A-UU+342C; omit `=>ucs@iwds-1'
+	and `=>ucs@unicode'; use A-cgnU+342C instead of U+342C as its
+	mother.
+	(A-U+4EB6-itaiji-003): New abstract node; use
+	`<-denotational@usage' for A2-DJT-00166.
+	(U+4EB6-itaiji-003): New character; use `<-denotational' for
+	A-U+4EB6-itaiji-003.
+
+2019-06-25  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R011-Enter.el (U+34B0): Add `<-denotational@component'
 	for A-IWDSU+4EDD; apply new conventions for glyph granularity.
 	(U-000204E0): Apply new conventions for glyph granularity.
