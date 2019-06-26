@@ -1,7 +1,26 @@
+2019-06-25  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R011-Enter.el (U+34B0): Add `<-denotational@component'
+	for A-IWDSU+4EDD; apply new conventions for glyph granularity.
+	(U-000204E0): Apply new conventions for glyph granularity.
+	(CB09392): New character; use `<-denotational' for U-000204E0.
+	(A-J0-5141): Separate BUCS+516A; add `<-denotational@usage' for
+	BUCS+516A.
+	(A-IWDSU+204EA): New abstract node.
+	(U-000204EA): Add `<-denotational' for A-IWDSU+204EA; apply new
+	conventions for glyph granularity.
+	(BUCS+516A): Separated from A-J0-5141 and IWDS1-0384.
+
 2019-06-24  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R014-Cover.el (GT-K01118): New character.
 	(GT-K01119): New character; use `<-subsumptive' for GT-K01118.
+
+	* Ideograph-R002-Line.el (U+4E2E): Add `<-denotational@component'
+	for A-IWDSU+2123E.
+	(AJ1-17238): Unify UU+4E2E instead of IU+4E2E.
+	(U-0002006D): Add `<-denotational' for A-IWDSU+204EA; apply new
+	conventions for glyph granularity.
 
 2019-06-22  MORIOKA Tomohiko  <tomo.git@chise.org>
 
