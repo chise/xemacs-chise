@@ -1,5 +1,11 @@
 2019-06-25  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R024-Ten.el (BC-8BD9): New character; use
+	`<-denotational@component' for A-BC-8BD9.
+	(U-00024C1E): Add `<-denotational@component' for A-BC-8BD9.
+	(MJ057093): Add `ideographic-structure'.
+	(A-BC-8BD9): New abstract node.
+
 	* Ideograph-R008-Lid.el (A-cgnU+342C): New abstract node.
 	(U+342C): Unify A-IWDSU+342C and A-UU+342C; omit `=>ucs@iwds-1'
 	and `=>ucs@unicode'; use A-cgnU+342C instead of U+342C as its
