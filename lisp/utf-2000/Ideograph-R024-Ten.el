@@ -1558,6 +1558,18 @@
     (=hanziku-1		. #xB075)	; &I-HZK01-B075;
     ))
 (define-char
+  '((<-denotational@component
+     ((=>big5-cdp	  . #x8BD9)	; &A-CDP-8BD9;
+      ))
+    (ideographic-radical . 24)	; ⼗
+    (ideographic-strokes . 4)
+    (total-strokes	 . 6)
+    (=big5-cdp		. #x8BD9)	; &CDP-8BD9;
+    (->subsumptive
+     ((==big5-cdp	  . #x8BD9)	; &g2-CDP-8BD9;
+      ))
+    ))
+(define-char
   '((ideographic-radical . 24)	; ⼗
     (ideographic-strokes . 4)
     (total-strokes	 . 6)
@@ -2141,6 +2153,9 @@
      ((=>ucs@component	  . #x5351)	; &A-compU+5351;
       (=>iwds-1		  .  0287)	; &A-compU+5351;
       ))
+    (<-denotational@component
+     ((=>big5-cdp	  . #x8BD9)	; &A-CDP-8BD9;
+      ))
     (ideographic-radical . 24)	; ⼗
     (=ucs		. #x24C1E)	; 𤰞
     ))
@@ -2211,6 +2226,13 @@
       )
      ((ideographic-strokes . 5)
       (total-strokes	   . 7)
+      (ideographic-structure
+       ((=ucs-itaiji-001    . #x2FF9)	; &U-i001+2FF9;
+	)
+       ((=big5-cdp	    . #x8BD9)	; &CDP-8BD9;
+	)
+       ((=ucs		    . #x4E3F)	; 丿
+	))
       (=mj		  . 057093)	; &MJ057093;
       (=big5-cdp	  . #x887E)	; &I-CDP-887E;
       (=hanyo-denshi/ks	  . 031690)	; &MJ057093;
@@ -3803,6 +3825,10 @@
 (define-char
   '((ideographic-radical . 24)	; ⼗
     (=>ucs@component	. #x20985)	; &A-compU+20985;
+    ))
+(define-char
+  '((ideographic-radical . 24)	; ⼗
+    (=>big5-cdp		. #x8BD9)	; &A-CDP-8BD9;
     ))
 (define-char
   '((ideographic-radical . 24)	; ⼗
