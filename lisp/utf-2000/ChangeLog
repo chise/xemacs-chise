@@ -1,3 +1,31 @@
+2019-06-26  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R010-Legs.el (U+5141): Add `<-denotational' for
+	A-IWDSU+5141.
+	(U+5144): Add `<-denotational@component' for A-IWDSU+53EA.
+	(U+5145): Add `<-denotational@component' for A-IWDSU+5145.
+	(U-0002D01B): New character.
+	(U-0002D01D): New character; use `<-denotational' for
+	A-IWDSU+2D0AC.
+	(U-0002B917): New character.
+	(U-0002047D): Unify CB11702.
+	(IU+20484): Unify CB08245.
+	(U+34AC): New character.
+	(U+515A): Apply new conventions for glyph granularity.
+	(CB12037): New character; use `<-denotational' for U+515A.
+	(U+34AD): Add `<-denotational@component' for A-IWDSU+2BA89.
+	(U-0002049D): Apply new conventions for glyph granularity; unify
+	MJ030930 and KOSEKI-086280.
+	(U-0002B91D): New character; use `<-denotational@component' for
+	A-IWDSU+20DD3.
+	(U-0002D02A): New character.
+	(CB05442): New character; use `<-denotational' for U-0002D02A.
+	(U-0002D02C): New character; unify CB04496.
+	(U-000204B1): Use `->subsumptive'; use `<-denotational' for
+	A-IWDSU+204B1; unify MJ030937 and KOSEKI-016410.
+	(U-000204D3): New character; use `<-denotational@component' for
+	A-IWDSU+28BA0.
+
 2019-06-25  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R024-Ten.el (BC-8BD9): New character; use
