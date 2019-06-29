@@ -1,5 +1,52 @@
 2019-06-26  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R044-Corpse.el (U-0002BD60): New character.
+
+	* Ideograph-R016-Table.el (IWDS1-0041): Unify A-IWDSU+51E2.
+	(U-00020629): Use `->subsumptive'; add `<-denotational@component'
+	for A-IWDSU+20629.
+	(IU+2062F): Add `sound@ja/on/{kan|go}'.
+	(IU+20AD7): Add `sound@ja/on'; unify CB05821; add `<-ancient' for
+	U+5BBF.
+	(U-0002062D): New character; use `<-denotational' for
+	A-IWDSU+5141.
+	(U-0002D0A9): New character.
+	(U-0002D0AC): New character; use `<-denotational' for
+	A-IWDSU+2D0AC.
+	(U+51E5): Add `<-denotational@component' for A-IWDSU+5C3B.
+	(U+51E7): Add `<-denotational@component' for A-IWDSU+51E7; unify
+	CB10968.
+	(U-0002B95E): Apply new conventions for glyph granularity.; add
+	`<-denotational@component' for A-IWDSU+51E7.
+	(U-0002063A): Apply new conventions for glyph granularity; add
+	`<-denotational@component' for A-IWDSU+5145.
+	(U-0002063B): Apply new conventions for glyph granularity; add
+	`<-denotational@component' for A-IWDSU+5C23.
+	(U-0002D0AD): New character; use `<-denotational@component' for
+	A-IWDSU+2D0AD.
+	(U-00020AE8): Apply new conventions for glyph granularity; add
+	`<-denotational' for A-IWDSU+20ADE.
+	(U+51ED): Use A-IWDSU+51E0 instead of U+51E0 in
+	`ideographic-structure'.
+	(CB10636): New character; use `<-denotational' for U+51ED.
+	(U-00020646): Apply new conventions for glyph granularity; add
+	`<-denotational' for A-IWDSU+20646.
+	(U-0002064D): Add `<-denotational@component' for A-IWDSU+27224.
+	(U-0002064F): Apply new conventions for glyph granularity.
+	(U-0002065C): New character; use `<-denotational' for
+	A-IWDSU+57F7.
+	(U-0002D0B7): New character.
+	(U-0002066A): New character; use `<-denotational@component' for
+	A-IWDSU+2066A.
+	(U-0002066E): New character; use `<-denotational@component' for
+	A-IWDSU+204B1.
+	(U-0002D0BA): New character.
+	(A-IWDSU+20629): New abstract node.
+	(A-IWDSU+51E7): New abstract node.
+	(A-IWDSU+20646): New abstract node.
+
+2019-06-26  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R010-Legs.el (U+5141): Add `<-denotational' for
 	A-IWDSU+5141.
 	(U+5144): Add `<-denotational@component' for A-IWDSU+53EA.
@@ -73,6 +120,11 @@
 	`=>ucs-itaiji-010'.
 
 2019-06-21  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R059-Bristle.el (U-00022482): New character; use
+	`<-denotational' for A-IWDSU+22482.
+	(A-IWDSU+22482): New abstract node.
+	(U+38CA): New character.
 
 	* Ideograph-R026-Seal.el (HD-TK01012400): New character; use
 	`<-subsumptive' for IU+20A10.
