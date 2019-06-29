@@ -453,7 +453,8 @@
     (<-same*sources
      shiwen daikanwa)
     (->formed
-     ((=daikanwa	  . 18058)	; &M-18058;
+     ((=hanyo-denshi/ks	  . 203580)	; &HD-KS-203580;
+      (=daikanwa	  . 18058)	; &HD-KS-203580;
       ))
     (->formed$_1*sources
      jiyun daikanwa)

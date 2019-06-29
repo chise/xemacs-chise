@@ -439,7 +439,7 @@
      ((=>ucs@component	  . #x21C25)	; &A-compU+21C25;
       ))
     (<-denotational@usage
-     ((==>daijiten	  . 00170)	; &A2-DJT-00170;
+     ((==>ucs@bucs	  . #x4EC1)	; &BUCS+4EC1;
       )
      ((==>daijiten	  . 01961)	; &A2-DJT-01961;
       )
@@ -4027,6 +4027,41 @@
     ))
 (define-char
   '((ideographic-radical . 44)	; ⼫
+    (ideographic-strokes . 8)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=>ucs@iwds-1	  . #x5C3F)	; &A-IWDSU+5C3F;
+      (=>iwds-1		  .  0060)	; &A-IWDSU+5C3F;
+      )
+     ((=ucs		  . #x3404)	; 㐄
+      ))
+    (=ucs		. #x2BD60)	; 𫵠
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2BD60)	; 𫵠
+      ))
+    (ideographic-radical . 44)	; ⼫
+    (ideographic-strokes . 8)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=gt-k		  . 04055)	; &GT-K04055;
+      )
+     ((=ucs		  . #x3404)	; 㐄
+      ))
+    (=ucs@JP/hanazono	. #x2BD60)	; &hanaJU+2BD60;
+    (->subsumptive
+     ((==ucs@JP/hanazono  . #x2BD60)	; &g2-hanaJU+2BD60;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 44)	; ⼫
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
     (=ucs		. #x379A)	; 㞚
@@ -5078,8 +5113,8 @@
       )
      ((=ucs		  . #x5C38)	; 尸
       )
-     ((=ucs@unicode	  . #x5F99)	; &AJ1-04795;
-      (=adobe-japan1-0	  . 04795)	; &AJ1-04795;
+     ((=ucs@unicode	  . #x5F99)	; &MJ011317;
+      (=mj		  . 011317)	; &MJ011317;
       ))
     (=ucs@unicode	. #x5C63)	; &AJ1-14479;
     (=adobe-japan1-4	. 14479)	; &AJ1-14479;

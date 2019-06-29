@@ -37,6 +37,41 @@
     (=hanziku-3		. #xABA1)	; &I-HZK03-ABA1;
     ))
 (define-char
+  '((<-denotational
+     ((=>ucs@iwds-1	  . #x22482)	; &A-IWDSU+22482;
+      (=>ucs@iwds-1/normalized . #x22482)	; &A-IWDSU+22482;
+      ))
+    (ideographic-radical . 59)	; ⼺
+    (ideographic-strokes . 2)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
+      (=ucs		  . #x2FFA)	; ⿺
+      )
+     ((=ucs		  . #x4E5D)	; 九
+      )
+     ((=ucs		  . #x5F61)	; 彡
+      ))
+    (=ucs		. #x22482)	; 𢒂
+    (->subsumptive
+     ((==ucs@iso	  . #x22482)	; &g2-IU-00022482;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 59)	; ⼺
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
+      (=ucs		  . #x2FFA)	; ⿺
+      )
+     ((=>ucs@iwds-1	  . #x4E38)	; &A-IWDSU+4E38;
+      (=>iwds-1		  .  65535)	; &A-IWDSU+4E38;
+      )
+     ((=ucs		  . #x5F61)	; 彡
+      ))
+    (=>ucs@iwds-1	. #x22482)	; &A-IWDSU+22482;
+    (=>ucs@iwds-1/normalized . #x22482)	; &A-IWDSU+22482;
+    ))
+(define-char
   '((ideographic-radical . 59)	; ⼺
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
@@ -223,6 +258,45 @@
      ((==ucs@unicode	  . #x5F64)	; &g2-UU+5F64;
       (==ucs@JP/hanazono  . nil)
       (==gb2312		  . #x4D2E)	; &g2-UU+5F64; [45-14]
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 59)	; ⼺
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>ucs@component	  . #x6535)	; &A-compU+6535;
+      (=>iwds-1		  .  0194)	; &A-compU+6535;
+      )
+     ((=ucs		  . #x5F61)	; 彡
+      ))
+    (=ucs		. #x38CA)	; 㣊
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x38CA)	; 㣊
+      ))
+    (ideographic-radical . 59)	; ⼺
+    (ideographic-strokes . 4)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x6535)	; 攵
+      )
+     ((=ucs		  . #x5F61)	; 彡
+      ))
+    (=ucs@unicode	. #x38CA)	; &CDP-8CDD;
+    (=big5-cdp		. #x8CDD)	; &CDP-8CDD;
+    (->subsumptive
+     ((==ucs@unicode	  . #x38CA)	; &g2-CDP-8CDD;
+      (==big5-cdp	  . #x8CDD)	; &g2-CDP-8CDD;
+      (->subsumptive
+       ((===big5-cdp	    . #x8CDD)	; &R-CDP-8CDD;
+	)
+       ((===ucs@unicode	    . #x38CA)	; &R-UU+38CA;
+	))
       ))
     ))
 (define-char
