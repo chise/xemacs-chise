@@ -1,3 +1,12 @@
+2019-06-27  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R019-Power.el (A-GT-K01774): New abstract node; unify
+	A-U+34DE-itaiji-002.
+	(U+34DE-itaiji-002): New character; use `<-denotational' for
+	A-GT-K01774.
+	(GT-K01774): Ditto.
+	(U+52F6): Apply new conventions for glyph granularity.
+
 2019-06-26  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R044-Corpse.el (U-0002BD60): New character.
@@ -16,7 +25,7 @@
 	(U+51E5): Add `<-denotational@component' for A-IWDSU+5C3B.
 	(U+51E7): Add `<-denotational@component' for A-IWDSU+51E7; unify
 	CB10968.
-	(U-0002B95E): Apply new conventions for glyph granularity.; add
+	(U-0002B95E): Apply new conventions for glyph granularity; add
 	`<-denotational@component' for A-IWDSU+51E7.
 	(U-0002063A): Apply new conventions for glyph granularity; add
 	`<-denotational@component' for A-IWDSU+5145.
