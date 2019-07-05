@@ -1,3 +1,8 @@
+2019-07-04  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R004-Slash.el: Add `=decomposition@cid' for some
+	Adobe-Japan1 abstract glyph-forms.
+
 2019-06-27  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R019-Power.el (A-GT-K01774): New abstract node; unify
