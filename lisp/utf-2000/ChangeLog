@@ -1,3 +1,15 @@
+2019-07-06  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R016-Table.el: Add `=decomposition@cid' for some
+	Adobe-Japan1 abstract glyph-forms.
+	(U-00020628): Unify AJ1-14105.
+
+2019-07-05  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R024-Ten.el: Add `=decomposition@cid' for some
+	Adobe-Japan1 abstract glyph-forms.
+	(g2-UU+4EDF): Omit `ideographic-structure'.
+
 2019-07-04  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R004-Slash.el: Add `=decomposition@cid' for some
