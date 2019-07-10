@@ -1,3 +1,8 @@
+2019-07-07  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R052-Short-Thread.el: Add `=decomposition@cid' for
+	some Adobe-Japan1 abstract glyph-forms.
+
 2019-07-06  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R016-Table.el: Add `=decomposition@cid' for some
@@ -14,6 +19,19 @@
 
 	* Ideograph-R004-Slash.el: Add `=decomposition@cid' for some
 	Adobe-Japan1 abstract glyph-forms.
+
+2019-06-28  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R071-Not.el (A-compU+65E0): Omit
+	`<-denotational@usage' for BUCS+7121.
+	(U+65E0): Add `<-denotational@component' for A-IWDSU+65E0; add
+	`<-denotational@usage' for BUCS+7121.
+	(A-IWDSU+65E3): Use `<-denotational@usage' instead of
+	`<-denotational' for BUCS+65E3.
+	(A-MJ057647): Ditto.
+	(UU+65E3): Unify C3-3641 instead of C3-3640 and CU+2F8CB.
+	(U-0002F8CB): Unify C3-3640 instead of g2-C3-3640.
+	(A-IWDSU+65E0): New abstract node.
 
 2019-06-27  MORIOKA Tomohiko  <tomo.git@chise.org>
 
