@@ -1,3 +1,7 @@
+2019-07-14  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R004-Slash.el (GT-K01426): New character.
+
 2019-07-07  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R052-Short-Thread.el: Add `=decomposition@cid' for
