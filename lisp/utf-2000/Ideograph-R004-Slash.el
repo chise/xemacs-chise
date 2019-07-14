@@ -2773,6 +2773,29 @@
     (=gt-pj-11		. #x4A60)	; &GT-00185; [42-64]
     ))
 (define-char
+  '((ideographic-radical . 4)	; ⼃
+    (ideographic-strokes . 4)
+    (total-strokes	 . 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((name*		  . "ideographic component person for top")
+      (=ucs		  . #x20089)	; 𠂉
+      )
+     ((=ucs		  . #x4E0A)	; 上
+      ))
+    (=gt-k		. 01426)	; &GT-K01426;
+    (=gt-pj-k1		. #x5F2C)	; &GT-K01426; [63-12]
+    (<-formed@component
+     ((=ucs		  . #x4E4D)	; 乍
+      ))
+    (->subsumptive
+     ((==gt-k		  . 01426)	; &g2-GT-K01426;
+      (==gt-pj-k1	  . #x5F2C)	; &g2-GT-K01426; [63-12]
+      ))
+    ))
+(define-char
   '((<-denotational@usage
      ((==>daijiten	  . 00094)	; &A2-DJT-00094;
       ))
