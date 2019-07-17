@@ -1,3 +1,7 @@
+2019-07-15  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R002-Line.el (U-0002CEF8): New character.
+
 2019-07-14  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R004-Slash.el (GT-K01426): New character.
