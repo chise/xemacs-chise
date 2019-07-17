@@ -1,3 +1,10 @@
+2019-07-16  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R008-Lid.el (GT-K00823): New character.
+
+	* Ideograph-R005-Second.el (A-IWDSU+4E38): Add A-compU+5927 as a
+	target of `<-denotational@component'.
+
 2019-07-15  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R002-Line.el (U-0002CEF8): New character.
