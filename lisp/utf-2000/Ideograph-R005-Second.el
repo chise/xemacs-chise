@@ -5106,6 +5106,8 @@
 (define-char
   '((<-denotational@component
      ((=>ucs@component	  . #x4E0C)	; &A-compU+4E0C;
+      )
+     ((=>ucs@component	  . #x5927)	; &A-compU+5927;
       ))
     (ideographic-radical . 5)	; ⼄
     (=>iwds-1*note	"22+54+55+56+99+104+117+119+203+214+221+222+236+249+250+346")
