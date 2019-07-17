@@ -6070,6 +6070,21 @@
 	       ;; max-code #xA4CF
 	       ))
   (make-charset
+   '=>ucs-bmp-cjk@iwds-1/normalized
+   "CJK Characters in BMP for IWDS-1 abstract characters."
+   '(long-name "CJK in BMP@iwds-1/normalized"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       registry "-ja-.*-ucs-0"
+	       mother =>ucs@iwds-1/normalized
+	       min-code #x2E00
+               max-code #x9FCC
+	       ;; max-code #xA4CF
+	       ))
+  (make-charset
    '==>ucs-bmp-cjk@bucs
    "CJK Characters in BMP of BUCS"
    '(long-name "BUCS-BMP-CJK"
