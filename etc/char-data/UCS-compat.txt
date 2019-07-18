@@ -350,7 +350,7 @@
     U+FA69	    U+97FF
     U+FA6A	    U+983B
     U+FA6B	    U+6075
-    U+FA6C	U-0002242EE
+    U+FA6C	U-000242EE
     U+FA6D	    U+8218
     U+FA70	    U+4E26
     U+FA71	    U+51B5
