@@ -1,3 +1,20 @@
+2019-07-20  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R011-Enter.el (U-000204DB): Separate IU+204DB.
+	(C6-2136): Unify IU+204DB instead of U-000204DB; add
+	`<-denotational' for U-000204DB.
+	(U+204DB-var-001): New character; use `<-denotational' for
+	U-000204DB.
+	(A-U+204E1-itaiji-001): New abstract node; unify
+	A-U+77E2-itaiji-003.
+	(U+77E2-itaiji-003): New character; use `<-denotational' for
+	A-U+204E1-itaiji-001.
+	(U+204E1-itaiji-001): Ditto.
+	(U-000204E4): Apply new conventions for glyph granularity.
+	(U+34B4): Likewise.
+	(U+516A): Add ideographic-structure.
+	(GT-K05210): Unify HD-FT2079.
+
 2019-07-16  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R008-Lid.el (GT-K00823): New character.
