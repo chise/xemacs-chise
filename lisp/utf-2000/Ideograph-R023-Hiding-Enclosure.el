@@ -24,6 +24,14 @@
     (ideographic-radical . 23)	; ⼖
     (ideographic-strokes . 0)
     (total-strokes	 . 2)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x4E00)	; 一
+      )
+     ((=gt-k		  . 00027)	; &GT-K00027;
+      ))
     (=ucs		. #x5338)	; 匸
     (=+>jis-x0208	. #x523E)	; 匸 [50-30]
     (=+>jis-x0213-1	. #x523E)	; 匸 [50-30]

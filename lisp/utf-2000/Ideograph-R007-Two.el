@@ -733,7 +733,8 @@
     (=gt-pj-2		. #x3231)	; &I-GT-00336; [18-17]
     (=daikanwa		. 00256)	; &I-M-00256;
     (<-ancient
-     ((=ucs		  . #x5176)	; 其
+     ((=ucs@unicode	  . #x5176)	; &AJ1-02838;
+      (=adobe-japan1-0	  . 02838)	; &AJ1-02838;
       (=daikanwa	  . 01472)	; &I-M-01472;
       ))
     (<-ancient$_1*sources

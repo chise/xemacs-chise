@@ -2366,12 +2366,8 @@
     (=daikanwa		. 02868)	; &I-M-02868;
     (=daijiten		. 01046)	; &I-DJT-01046;
     (<-formed
-     ((=ucs@unicode	  . #x674C)	; &JX2-2E3E;
-      (=gb2312		  . #x683B)	; &JX2-2E3E; [72-27]
-      (=jis-x0212	  . #x427B)	; &I-JSP-427B; [34-91]
-      (=cns11643-2	  . #x2442)	; &I-C2-2442; [04-34]
-      (=jis-x0213-2	  . #x2E3E)	; &I-JX2-2E3E; [14-30]
-      (=daikanwa	  . 14457)	; &I-M-14457;
+     ((=ucs@unicode	  . #x674C)	; &MJ013609;
+      (=mj		  . 013609)	; &MJ013609;
       )
      ((=ucs		  . #x6264)	; 扤
       ))
@@ -2380,11 +2376,8 @@
     (<-formed*sources
      koseki mj)
     (<-same
-     ((=ucs@unicode	  . #x674C)	; &JX2-2E3E;
-      (=gb2312		  . #x683B)	; &JX2-2E3E; [72-27]
-      (=jis-x0212	  . #x427B)	; &I-JSP-427B; [34-91]
-      (=cns11643-2	  . #x2442)	; &I-C2-2442; [04-34]
-      (=jis-x0213-2	  . #x2E3E)	; &I-JX2-2E3E; [14-30]
+     ((=ucs@unicode	  . #x674C)	; &MJ013609;
+      (=mj		  . 013609)	; &MJ013609;
       (=daikanwa	  . 14457)	; &I-M-14457;
       ))
     (<-same$_1*sources
@@ -2396,8 +2389,8 @@
       (=mj		  . 000034)	; &MJ000034;
       (=daikanwa	  . 00389)	; &I-M-00389;
       )
-     ((=ucs@iso		  . #x20484)	; &C6-2950;
-      (=cns11643-6	  . #x2950)	; &C6-2950; [09-48]
+     ((=ucs@iso		  . #x20484)	; &MJ030915;
+      (=mj		  . 030915)	; &MJ030915;
       (=daikanwa	  . 01373)	; &I-M-01373;
       )
      ((=ucs		  . #x26919)	; 𦤙
@@ -2412,12 +2405,8 @@
     (->formed*sources
      daikanwa)
     (->interchangeable
-     ((=ucs@unicode	  . #x674C)	; &JX2-2E3E;
-      (=gb2312		  . #x683B)	; &JX2-2E3E; [72-27]
-      (=jis-x0212	  . #x427B)	; &I-JSP-427B; [34-91]
-      (=cns11643-2	  . #x2442)	; &I-C2-2442; [04-34]
-      (=jis-x0213-2	  . #x2E3E)	; &I-JX2-2E3E; [14-30]
-      (=daikanwa	  . 14457)	; &I-M-14457;
+     ((=ucs@unicode	  . #x674C)	; &MJ013609;
+      (=mj		  . 013609)	; &MJ013609;
       )
      ((=mj		  . 007207)	; &MJ007207;
       ))

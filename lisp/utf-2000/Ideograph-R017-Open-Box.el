@@ -142,8 +142,8 @@
      ((=ucs		  . #x8A29)	; 訩
       (=daikanwa	  . 35282)	; &I-M-35282;
       )
-     ((=ucs@unicode	  . #x5147)	; &AJ1-01692;
-      (=adobe-japan1-0	  . 01692)	; &AJ1-01692;
+     ((=ucs@unicode	  . #x5147)	; &MJ007219;
+      (=mj		  . 007219)	; &MJ007219;
       (=daikanwa	  . 01348)	; &I-M-01348;
       )
      ((=ucs		  . #x5FF7)	; 忷
@@ -176,8 +176,8 @@
     (->formed*sources
      jiyun daikanwa)
     (->interchangeable
-     ((=ucs@unicode	  . #x5147)	; &AJ1-01692;
-      (=adobe-japan1-0	  . 01692)	; &AJ1-01692;
+     ((=ucs@unicode	  . #x5147)	; &MJ007219;
+      (=mj		  . 007219)	; &MJ007219;
       (=daikanwa	  . 01348)	; &I-M-01348;
       )
      ((=ucs		  . #x8A29)	; 訩
