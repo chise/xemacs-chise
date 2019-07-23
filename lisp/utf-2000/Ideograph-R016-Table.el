@@ -878,6 +878,7 @@
     (=mj		. 031159)	; &I-MJ031159;
     (<-formed
      ((=ucs		  . #x5141)	; 允
+      (=mj		  . 007209)	; &I-MJ007209;
       ))
     (<-formed$_1*sources
      mj)
@@ -937,6 +938,8 @@
     (=koseki		. 240370)	; 𭂬
     (<-formed
      ((=ucs		  . #x74E6)	; 瓦
+      (=mj		  . 017540)	; &I-MJ017540;
+      (=koseki		  . 240380)	; 瓦
       ))
     (<-formed$_1*sources
      koseki mj)
@@ -1295,11 +1298,9 @@
     (=ucs@JP/hanazono	. #x2B95E)	; &CDP-8DA7;
     (=big5-cdp		. #x8DA7)	; &CDP-8DA7;
     (->subsumptive
-     ((==ucs@iso	  . #x2B95E)	; &g2-CDP-8DA7;
+     ((==ucs@JP/hanazono  . #x2B95E)	; &g2-CDP-8DA7;
       (==big5-cdp	  . #x8DA7)	; &g2-CDP-8DA7;
       (->subsumptive
-       ((===ucs@iso	    . #x2B95E)	; &R-U-0002B95E;
-	)
        ((===big5-cdp	    . #x8DA7)	; &R-CDP-8DA7;
 	))
       ))
