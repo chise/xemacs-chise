@@ -1,3 +1,8 @@
+2019-07-21  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R023-Hiding-Enclosure.el (U+5338): Add
+	`ideographic-structure'.
+
 2019-07-20  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R011-Enter.el (U-000204DB): Separate IU+204DB.
