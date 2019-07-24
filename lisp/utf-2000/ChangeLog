@@ -1,3 +1,11 @@
+2019-07-23  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R008-Lid.el:
+	- Add Hanyo-Denshi/KS some code points and the corresponding MJ
+	  code points.
+	- Add `=decomposition@hanyo-denshi' for some abstract glyph-forms
+	  of Hanyo-Denshi/KS.
+
 2019-07-21  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R023-Hiding-Enclosure.el (U+5338): Add
