@@ -1,4 +1,19 @@
+2019-07-29  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R004-Slash.el (GT-K00362): New character.
+
 2019-07-24  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R014-Cover.el (GT-K00825): New character.
+	(U-00020576): New character; use `<-denotational@component' for
+	A-IWDSU+5197.
+	(MJ007341): Unify CB07424.
+	(U-0002D078): New character.
+	(U-0002D07F): New character.
+	(S-1873): Unify U-0002D081, MJ057031 and KOSEKI-019100.
+	(U+51A9): Apply new conventions for glyph granularity.
+	(CB12251): New character; use `<-denotational' for U+51A9.
+	(IU+205A5): Unify CB06072.
 
 	* Ideograph-R011-Enter.el (HD-FT2079): Unify MJ007272.
 

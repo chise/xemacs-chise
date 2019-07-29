@@ -416,8 +416,8 @@
     (=daikanwa		. 00112)	; &I-M-00112;
     (=daijiten		. 00077)	; &I-DJT-00077;
     (<-ancient
-     ((=ucs@unicode	  . #x5DE6)	; &AJ1-02088;
-      (=adobe-japan1-0	  . 02088)	; &AJ1-02088;
+     ((=ucs@unicode	  . #x5DE6)	; &MJ010774;
+      (=mj		  . 010774)	; &MJ010774;
       ))
     (<-ancient*sources
      zhengzitong)
@@ -425,15 +425,15 @@
      ((=ucs		  . #x53C8)	; 又
       ))
     (<-original
-     ((=ucs@unicode	  . #x5DE6)	; &AJ1-02088;
-      (=adobe-japan1-0	  . 02088)	; &AJ1-02088;
+     ((=ucs@unicode	  . #x5DE6)	; &MJ010774;
+      (=mj		  . 010774)	; &MJ010774;
       (=daikanwa	  . 08720)	; &I-M-08720;
       ))
     (<-original*sources
      jiyun zhengzitong daikanwa)
     (->formed
-     ((=ucs@unicode	  . #x5DE6)	; &AJ1-02088;
-      (=adobe-japan1-0	  . 02088)	; &AJ1-02088;
+     ((=ucs@unicode	  . #x5DE6)	; &MJ010774;
+      (=mj		  . 010774)	; &MJ010774;
       ))
     (->formed*sources
      jiyun)
@@ -1665,6 +1665,29 @@
     (total-strokes	 . 3)
     (=gt		. 00164)	; &GT-00164;
     (=gt-pj-9		. #x4A5B)	; &GT-00164; [42-59]
+    ))
+(define-char
+  '((ideographic-radical . 4)	; ⼃
+    (ideographic-strokes . 2)
+    (total-strokes	 . 3)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=+>ucs@unicode	  . #x4EA0)	; &o-J0-5035;
+      (=+>jis-x0208	  . #x5035)	; &o-J0-5035; [48-21]
+      )
+     ((=ucs		  . #x4E3F)	; 丿
+      ))
+    (=gt-k		. 00362)	; &GT-K00362;
+    (=gt-pj-k1		. #x4152)	; &GT-K00362; [33-50]
+    (<-unknown
+     ((=ucs		  . #x20087)	; 𠂇
+      ))
+    (->subsumptive
+     ((==gt-k		  . 00362)	; &g2-GT-K00362;
+      (==gt-pj-k1	  . #x4152)	; &g2-GT-K00362; [33-50]
+      ))
     ))
 (define-char
   '((<-denotational@usage
