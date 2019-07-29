@@ -1634,21 +1634,28 @@
       )
      ((=ucs-itaiji-003	  . #x77E2)	; &U-i003+77E2;
       )
-     ((=ucs@unicode	  . #x6708)	; &MJ013520;
-      (=mj		  . 013520)	; &MJ013520;
+     ((=gt-k		  . 00607)	; &GT-K00607;
       ))
-    (=ucs@unicode	. #x516A)	; &C3-2B37;
-    (=ucs@JP/hanazono	. nil)
-    (=cns11643-3	. #x2B37)	; &C3-2B37; [11-23]
+    (=mj		. 007272)	; &MJ007272;
+    (=hanyo-denshi/ft	. #x346F)	; &I-HD-FT-346F; [20-79]
+    (=gt-k		. 05210)	; &I-GT-K05210;
+    (=gt-pj-k1		. #x3A39)	; &MJ007272; [26-25]
     (->subsumptive
-     ((==ucs@unicode	  . #x516A)	; &g2-UU+516A;
-      (==ucs@JP/hanazono  . nil)
-      )
-     ((==ucs@cns	  . #x516A)	; &g2-CU+516A;
-      (==cns11643-3	  . #x2B37)	; &g2-CU+516A; [11-23]
-      (->subsumptive
-       ((===cns11643-3	    . #x2B37)	; &R-C3-2B37; [11-23]
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x516A)	; 兪
+	)
+       ((=ucs		    . #xE0102)	; 󠄂
 	))
+      (==mj		  . 007272)	; &g2-MJ007272;
+      (==hanyo-denshi/ft  . #x346F)	; &g2-MJ007272; [20-79]
+      (->subsumptive
+       ((===hanyo-denshi/ft . #x346F)	; &R-HD-FT-346F; [20-79]
+	)
+       ((===mj		    . 007272)	; &R-MJ007272;
+	))
+      )
+     ((==gt-k		  . 05210)	; &g2-GT-K05210;
+      (==gt-pj-k1	  . #x3A39)	; &g2-GT-K05210; [26-25]
       ))
     ))
 (define-char
@@ -1664,21 +1671,21 @@
       )
      ((=ucs-itaiji-003	  . #x77E2)	; &U-i003+77E2;
       )
-     ((=gt-k		  . 00607)	; &GT-K00607;
+     ((=ucs@unicode	  . #x6708)	; &MJ013520;
+      (=mj		  . 013520)	; &MJ013520;
       ))
-    (=hanyo-denshi/ft	. #x346F)	; &HD-FT-346F; [20-79]
-    (=gt-k		. 05210)	; &I-GT-K05210;
-    (=gt-pj-k1		. #x3A39)	; &HD-FT-346F; [26-25]
+    (=ucs@unicode	. #x516A)	; &C3-2B37;
+    (=ucs@JP/hanazono	. nil)
+    (=cns11643-3	. #x2B37)	; &C3-2B37; [11-23]
     (->subsumptive
-     ((=decomposition@hanyo-denshi
-       ((=ucs		    . #x516A)	; 兪
-	)
-       ((=ucs		    . #xE0102)	; 󠄂
-	))
-      (==hanyo-denshi/ft  . #x346F)	; &g2-HD-FT-346F; [20-79]
+     ((==ucs@unicode	  . #x516A)	; &g2-UU+516A;
+      (==ucs@JP/hanazono  . nil)
       )
-     ((==gt-k		  . 05210)	; &g2-GT-K05210;
-      (==gt-pj-k1	  . #x3A39)	; &g2-GT-K05210; [26-25]
+     ((==ucs@cns	  . #x516A)	; &g2-CU+516A;
+      (==cns11643-3	  . #x2B37)	; &g2-CU+516A; [11-23]
+      (->subsumptive
+       ((===cns11643-3	    . #x2B37)	; &R-C3-2B37; [11-23]
+	))
       ))
     ))
 (define-char
