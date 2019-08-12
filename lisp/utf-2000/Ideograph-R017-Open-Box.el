@@ -114,6 +114,13 @@
     ))
 (define-char
   '((ideographic-radical . 17)	; ⼐
+    (=>ucs@cognate	. #x51F6)	; &A-cgnU+51F6;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@cognate	  . #x51F6)	; &A-cgnU+51F6;
+      ))
+    (ideographic-radical . 17)	; ⼐
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
     (hanyu-dazidian	1 306 19)
@@ -235,6 +242,34 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=>ucs@cognate	  . #x51F6)	; &A-cgnU+51F6;
+      ))
+    (ideographic-radical . 17)	; ⼐
+    (ideographic-strokes . 2)
+    (total-strokes	 . 4)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM BELOW")
+      (=ucs		  . #x2FF6)	; ⿶
+      )
+     ((=ucs		  . #x51F5)	; 凵
+      )
+     ((=ucs		  . #x53C8)	; 又
+      ))
+    (=hanyo-denshi/ks	. 021320)	; &HD-KS-021320;
+    (=cbeta		. 04552)	; &I-CB04552;
+    (->subsumptive
+     ((==hanyo-denshi/ks  . 021320)	; &g2-HD-KS-021320;
+      (==cbeta		  . 04552)	; &g2-HD-KS-021320;
+      (->subsumptive
+       ((===hanyo-denshi/ks . 021320)	; &R-HD-KS-021320;
+	(=hanyo-denshi/ks/mf . #x0854)	; &R-HD-KS-021320;
+	)
+       ((===cbeta	    . 04552)	; &R-CB04552;
+	))
+      ))
+    ))
+(define-char
   '((ideographic-radical . 17)	; ⼐
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
@@ -277,31 +312,6 @@
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
     (=cns11643-6	. #x2154)	; &C6-2154; [01-52]
-    ))
-(define-char
-  '((ideographic-radical . 17)	; ⼐
-    (ideographic-strokes . 2)
-    (total-strokes	 . 4)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM BELOW")
-      (=ucs		  . #x2FF6)	; ⿶
-      )
-     ((=ucs		  . #x51F5)	; 凵
-      )
-     ((=ucs		  . #x53C8)	; 又
-      ))
-    (=cbeta		. 04552)	; &CB04552;
-    (->subsumptive
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM BELOW")
-	(=ucs		    . #x2FF6)	; ⿶
-	)
-       ((=ucs		    . #x51F5)	; 凵
-	)
-       ((=gt-k		    . 00064)	; &GT-K00064;
-	))
-      (==cbeta		  . 04552)	; &g2-CB04552;
-      ))
     ))
 (define-char
   '((ideographic-radical . 17)	; ⼐
