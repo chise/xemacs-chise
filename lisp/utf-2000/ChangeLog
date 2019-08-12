@@ -1,3 +1,10 @@
+2019-08-04  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R017-Open-Box.el (A-cgnU+51F6): New abstract node.
+	(U+51F6): Add `<-denotational' for A-cgnU+51F6.
+	(CB04552): Unify HD-KS021320; add `<-denotational' for
+	A-cgnU+51F6.
+
 2019-07-29  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R004-Slash.el (GT-K00362): New character.
