@@ -1,3 +1,7 @@
+2019-08-04  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* JC3-to-UCS.txt (JC3-49B2): Map to U+2F862 instead of U+59EC.
+
 2019-07-18  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* UCS-compat.txt (U+FA6C): Fix typo.
