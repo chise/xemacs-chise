@@ -1218,14 +1218,29 @@
     (=gt-pj-2		. #x3071)	; &I-GT-00145; [16-81]
     (=daikanwa		. 00104)	; &I-M-00104;
     (<-ancient
-     ((=ucs@unicode	  . #x9E97)	; &AJ1-04023;
-      (=adobe-japan1-0	  . 04023)	; &AJ1-04023;
+     ((=ucs@unicode	  . #x9E97)	; &MJ029807;
+      (=mj		  . 029807)	; &MJ029807;
       (=daikanwa	  . 47663)	; &I-M-47663;
       ))
     (<-ancient*sources
      daikanwa)
     (<-same
      ((=ucs		  . #x2F800)	; 丽
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x4E3D)	; 丽
+      ))
+    (ideographic-radical . 3)	; ⼂
+    (ideographic-strokes . 6)
+    (total-strokes	 . 7)
+    (=gt-k		. 04581)	; &GT-K04581;
+    (=gt-pj-k1		. #x325C)	; &GT-K04581; [18-60]
+    (<-formed@component/connect-below
+     ((=ucs@cns		  . #x4E3D)	; &GT-00145;
+      (=cns11643-3	  . #x2740)	; &GT-00145; [07-32]
+      (=daikanwa	  . 00104)	; &I-M-00104;
       ))
     ))
 (define-char
@@ -1267,26 +1282,19 @@
       ))
     (=ucs@unicode	. #x4E3D)	; &G0-4076;
     (=gb2312		. #x4076)	; &G0-4076; [32-86]
-    (=hanziku-1		. #xA86E)	; &I-HZK01-A86E;
     (<-simplified@CN
-     ((=ucs@unicode	  . #x9E97)	; &AJ1-04023;
-      (=adobe-japan1-0	  . 04023)	; &AJ1-04023;
-      (=gb12345		  . #x4076)	; &AJ1-04023; [32-86]
+     ((=ucs@unicode	  . #x9E97)	; &MJ029807;
+      (=mj		  . 029807)	; &MJ029807;
+      (=gb12345		  . #x4076)	; &MJ029807; [32-86]
       ))
-    ))
-(define-char
-  '((<-denotational
-     ((=ucs		  . #x4E3D)	; 丽
-      ))
-    (ideographic-radical . 3)	; ⼂
-    (ideographic-strokes . 6)
-    (total-strokes	 . 7)
-    (=gt-k		. 04581)	; &GT-K04581;
-    (=gt-pj-k1		. #x325C)	; &GT-K04581; [18-60]
-    (<-formed@component/connect-below
-     ((=ucs@cns		  . #x4E3D)	; &GT-00145;
-      (=cns11643-3	  . #x2740)	; &GT-00145; [07-32]
-      (=daikanwa	  . 00104)	; &I-M-00104;
+    (->subsumptive
+     ((==ucs@unicode	  . #x4E3D)	; &g2-UU+4E3D;
+      (==gb2312		  . #x4076)	; &g2-UU+4E3D; [32-86]
+      (->subsumptive
+       ((===ucs@unicode	    . #x4E3D)	; &R-UU+4E3D;
+	)
+       ((=hanziku-1	    . #xA86E)	; &HZK01-A86E;
+	))
       ))
     ))
 (define-char
