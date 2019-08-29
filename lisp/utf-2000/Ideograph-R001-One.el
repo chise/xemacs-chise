@@ -5829,8 +5829,8 @@
     (=gt-pj-2		. #x304B)	; &I-GT-00087; [16-43]
     (=daikanwa		. 00059)	; &I-M-00059;
     (<-ancient
-     ((=ucs@unicode	  . #x9E97)	; &AJ1-04023;
-      (=adobe-japan1-0	  . 04023)	; &AJ1-04023;
+     ((=ucs@unicode	  . #x9E97)	; &MJ029807;
+      (=mj		  . 029807)	; &MJ029807;
       (=daikanwa	  . 47663)	; &I-M-47663;
       ))
     (<-ancient*sources
@@ -6041,8 +6041,8 @@
     (=gt-pj-2		. #x3071)	; &I-GT-00145; [16-81]
     (=daikanwa		. 00104)	; &I-M-00104;
     (<-ancient
-     ((=ucs@unicode	  . #x9E97)	; &AJ1-04023;
-      (=adobe-japan1-0	  . 04023)	; &AJ1-04023;
+     ((=ucs@unicode	  . #x9E97)	; &MJ029807;
+      (=mj		  . 029807)	; &MJ029807;
       (=daikanwa	  . 47663)	; &I-M-47663;
       ))
     (<-ancient*sources

@@ -5437,15 +5437,6 @@
     (->subsumptive
      ((ideographic-radical . 210)	; ⿑
       (ideographic-strokes . 8)
-      (ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	(=ucs		    . #x2FF1)	; ⿱
-	)
-       ((==big5-cdp	    . #x8DEB)	; &g2-CDP-8DEB;
-	)
-       ((==ucs@unicode	    . #x59BB)	; &g2-AJ1-02106;
-	(==adobe-japan1-0   . 02106)	; &g2-AJ1-02106;
-	))
       (==daikanwa	  . 48577)	; &g2-M-48577;
       )
      ((==ucs@iso	  . #x2019C)	; &g2-IU-0002019C;
