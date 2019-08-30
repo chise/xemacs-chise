@@ -1,3 +1,17 @@
+2019-08-12  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R029-Again.el (U+20B1E-var-002): New character; use
+	`<-denotational' for U-00020B1E.
+	(UU+53D0): Unify CB03634.
+	(A-GT-K02861): New abstract node; unify A-U+20B3F-itaiji-001.
+	(GT-K02861): New character; unify U+20B3F-itaiji-001; use
+	`<-denotational' for A-GT-K02861.
+
+	* Ideograph-R004-Slash.el (MJ056856): Unify U-0002CF06.
+
+	* Ideograph-R003-Dot.el (UU+4E3D): Apply new conventions for glyph
+	granularity.
+
 2019-08-04  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R017-Open-Box.el (A-cgnU+51F6): New abstract node.
