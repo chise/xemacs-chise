@@ -1062,6 +1062,15 @@
     (ideographic-strokes . 7)
     (total-strokes	 . 9)
     (hanyu-dazidian	1 85 19)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
+      (=ucs		  . #x2FF7)	; ⿷
+      )
+     ((=>ucs@component	  . #x531A)	; &A-compU+531A;
+      (=>iwds-1		  .  0209)	; &A-compU+531A;
+      )
+     ((=ucs		  . #x599F)	; 妟
+      ))
     (=ucs		. #x533D)	; 匽
     (=big5		. #xCDF4)	; &I-B-CDF4;
     ))
@@ -1084,31 +1093,9 @@
     (=cns11643-2	. #x2936)	; &C2-2936; [09-22]
     (=daikanwa		. 02684)	; &I-M-02684;
     (->subsumptive
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
-	(=ucs		    . #x2FF7)	; ⿷
-	)
-       ((==ucs@cns	    . #x5338)	; &g2-AJ1-04307;
-	(==ucs@jis	    . #x5338)	; &g2-AJ1-04307;
-	(==adobe-japan1-0   . 04307)	; &g2-AJ1-04307;
-	)
-       ((==ucs@unicode	    . #x599F)	; &g2-AJ1-17484;
-	(==adobe-japan1-5   . 17484)	; &g2-AJ1-17484;
-	))
-      (==daikanwa	  . 02684)	; &g2-M-02684;
+     ((==daikanwa	  . 02684)	; &g2-M-02684;
       )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
-	(=ucs		    . #x2FF7)	; ⿷
-	)
-       ((==ucs@cns	    . #x5338)	; &g2-AJ1-04307;
-	(==ucs@jis	    . #x5338)	; &g2-AJ1-04307;
-	(==adobe-japan1-0   . 04307)	; &g2-AJ1-04307;
-	)
-       ((==ucs@cns	    . #x599F)	; &g2-CU+599F;
-	(==cns11643-3	    . #x2551)	; &g2-CU+599F; [05-49]
-	))
-      (==ucs@cns	  . #x533D)	; &g2-CU+533D;
+     ((==ucs@cns	  . #x533D)	; &g2-CU+533D;
       (==cns11643-2	  . #x2936)	; &g2-CU+533D; [09-22]
       ))
     ))
@@ -1136,15 +1123,6 @@
        ((=ucs		    . #x533D)	; 匽
 	)
        ((=ucs		    . #xE0100)	; 󠄀
-	))
-      (ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
-	(=ucs		    . #x2FF7)	; ⿷
-	)
-       ((=ucs		    . #x531A)	; 匚
-	)
-       ((==ucs@unicode	    . #x599F)	; &g2-AJ1-17484;
-	(==adobe-japan1-5   . 17484)	; &g2-AJ1-17484;
 	))
       (==ucs@unicode	  . #x533D)	; &g2-AJ1-19206;
       (==adobe-japan1-5	  . 19206)	; &g2-AJ1-19206;
