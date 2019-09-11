@@ -1,3 +1,11 @@
+2019-08-29  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R023-Hiding-Enclosure.el (U+533D): Add
+	`ideographic-structure'.
+	(g2-M-02684): Omit `ideographic-structure'.
+	(g2-CU+533D): Likewise.
+	(g2-UU+533D): Likewise.
+
 2019-08-12  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R029-Again.el (U+20B1E-var-002): New character; use
