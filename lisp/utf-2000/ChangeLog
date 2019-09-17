@@ -1,3 +1,8 @@
+2019-09-11  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R001-One.el (U-000215E4): Moved to
+	Ideograph-R037-Big.el.
+
 2019-08-29  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R023-Hiding-Enclosure.el (U+533D): Add
