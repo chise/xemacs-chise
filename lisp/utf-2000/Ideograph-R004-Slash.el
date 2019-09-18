@@ -3428,7 +3428,10 @@
       ))
     ))
 (define-char
-  '((<-denotational
+  '((<-denotational@component
+     ((=>ucs@iwds-1	  . #x4E54)	; &A-IWDSU+4E54;
+      ))
+    (<-denotational@usage
      ((==>ucs@bucs	  . #x55AC)	; &BUCS+55AC;
       ))
     (ideographic-radical@ucs . 4)	; ⼃
@@ -3436,18 +3439,7 @@
     (ideographic-radical@cns . 37)	; ⼤
     (ideographic-strokes@cns . 3)
     (ideographic-radical@cns*sources
-     daikanwa cns11643)
-    (total-strokes	 . 6)
-    (=ucs		. #x4E54)	; 乔
-    ))
-(define-char
-  '((<-denotational
-     ((=ucs		  . #x4E54)	; 乔
-      ))
-    (ideographic-radical@ucs . 4)	; ⼃
-    (ideographic-strokes@ucs . 5)
-    (ideographic-radical@cns . 37)	; ⼤
-    (ideographic-strokes@cns . 3)
+     cns11643)
     (total-strokes	 . 6)
     (hanyu-dazidian	1 38 1)
     (ideographic-structure
@@ -3458,8 +3450,8 @@
       )
      ((=big5-cdp	  . #x89AB)	; &CDP-89AB;
       ))
-    (=ucs@unicode	. #x4E54)	; &C3-2345;
-    (=gb2312		. #x4747)	; &C3-2345; [39-39]
+    (=ucs		. #x4E54)	; 乔
+    (=gb2312		. #x4747)	; &I-G0-4747; [39-39]
     (=cns11643-3	. #x2345)	; &I-C3-2345; [03-37]
     (<-simplified@CN
      ((=ucs@unicode	  . #x55AC)	; &AJ1-01700;
