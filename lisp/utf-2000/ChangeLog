@@ -1,3 +1,8 @@
+2019-09-17  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R002-Line.el (BC-88B7-itaiji-001): Unify GT-K04143;
+	add `ideographic-structure'.
+
 2019-09-13  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R004-Slash.el (U+4E54): Unify UU+4E54; add
