@@ -1,3 +1,8 @@
+2019-09-13  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Use
+	`=daikanwa@rev2' instead of `ideograph-daikanwa-2'.
+
 2019-06-19  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* mule/mule-charset.el (default-coded-charset-priority-list): Add

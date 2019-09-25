@@ -355,7 +355,7 @@ DESCRIPTION (string) is the description string of the charset."
 	  =hanziku-12
 	  =ucs-sip-ext-b@iso
 	  =ucs-sip@iso
-	  ideograph-daikanwa-2
+	  =daikanwa@rev2
 	  ideograph-daikanwa
 	  korean-ksc5601
 	  katakana-jisx0201
