@@ -1,3 +1,15 @@
+2019-09-19  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R013-Down-Box.el (U-0002054D): Apply new conventions
+	for glyph granularity.
+	(g2-hanaJU+2A78E): Renamed from g2-IU+2A78E.
+	(U-0002B74D): New character; use `<-denotational' for A-cgnU+5CA1.
+	(GT-K04403): New character; use `<-denotational' for U-0002B74D;
+	unify U+2B74D-var-001.
+	(MJ057382): New character; use `<-denotational' for U-0002B74D;
+	unify hanaJU+2B74D and KOSEKI-091470.
+	(AJ1-07816): Unify HD-FT1944.
+
 2019-09-17  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R002-Line.el (BC-88B7-itaiji-001): Unify GT-K04143;
