@@ -1,3 +1,49 @@
+2019-09-24  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R021-Spoon.el: Add `=decomposition@cid' for some
+	Adobe-Japan1 abstract glyph-forms.
+	(U-0002A7E8): New character.
+	(U-00020910): Use `->denotational' and `->subsumptive'.
+	(A-GT-K01383): New abstract node.
+	(GT-K01383): New character; use `<-denotational' for A-GT-K01383.
+	(U-0002A7E9): New character.
+	(U-0002D150): New character.
+	(U-00020912): Use `->denotational' and `->subsumptive'.
+	(U-00020913): Likewise.
+	(U-00020914): Likewise.
+	(U+352C): Likewise.
+	(U-00020916): New character; use `<-denotational@component' for
+	A-IWDSU+3633.
+	(U-0002D151): New character.
+	(IU+20917): Unify CB08999.
+	(U-00020918): Use `->denotational' and `->subsumptive'.
+	(U-00020919): Likewise.
+	(U-0002091A): Likewise.
+	(U-0002091D): Likewise.
+	(U-0002A7EA): New character.
+	(U-0002D152): Likewise.
+	(U-0002091F): Use `->denotational' and `->subsumptive'.
+	(U-00020920): New character.
+	(U-00020921): Likewise.
+	(U-0002D153): Likewise.
+	(U-0002091E): Use `->denotational' and `->subsumptive'.
+	(U+352D): Likewise.
+	(U-0002B9C8): New character.
+	(U-0002B9C9): Likewise.
+	(A-GT-K08935): New abstract node.
+	(GT-K08935): New character; use `<-denotational' for A-GT-K08935.
+	(U-00020923): Apply new conventions for glyph granularity.
+	(U-00020924): New character.
+	(U-00020925): Use `->denotational' and `->subsumptive'.
+	(U-0002A7EB): New character.
+	(U-00020927): Likewise.
+	(U-00020928): Likewise.
+	(A-CB00747): New abstract node.
+	(CB00747): New character; use `<-denotational' for A-CB00747.
+	(U-00020929): New character.
+	(U-0002092A): Use `->denotational' and `->subsumptive'.
+	(U-0002B9CA): New character.
+
 2019-09-19  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R013-Down-Box.el (U-0002054D): Apply new conventions
