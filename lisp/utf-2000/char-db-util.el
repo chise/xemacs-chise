@@ -363,6 +363,7 @@
     =>ucs-itaiji-007
     =>ucs-itaiji-009
     =>ucs-itaiji-010
+    =>ucs-itaiji-011
     =big5-cdp-var-001
     =big5-cdp-var-002
     =big5-cdp-var-003

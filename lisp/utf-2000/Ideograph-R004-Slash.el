@@ -1098,6 +1098,26 @@
     (ideographic-radical . 4)	; ⼃
     (ideographic-strokes . 2)
     (total-strokes	 . 3)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x4E3F)	; 丿
+      )
+     ((=>ucs@iwds-1	  . #x4E03)	; &A-IWDSU+4E03;
+      (=>iwds-1		  .  0141)	; &A-IWDSU+4E03;
+      ))
+    (sound@ja/on/go	"tyaku")
+    (sound@ja/on/kan	"taku")
+    (=ucs		. #x4E47)	; 乇
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x4E47)	; 乇
+      ))
+    (ideographic-radical . 4)	; ⼃
+    (ideographic-strokes . 2)
+    (total-strokes	 . 3)
     (hanyu-dazidian	1 32 1)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -1107,8 +1127,8 @@
       )
      ((=ucs		  . #x4E03)	; 七
       ))
-    (=ucs		. #x4E47)	; 乇
-    (=adobe-japan1-5	. 17239)	; &I-AJ1-17239;
+    (=ucs@unicode	. #x4E47)	; &AJ1-17239;
+    (=adobe-japan1-5	. 17239)	; &AJ1-17239;
     (=gb2312		. #x5831)	; &I-G0-5831; [56-17]
     (=jis-x0212		. #x3032)	; &I-JSP-3032; [16-18]
     (=cns11643-2	. #x2128)	; &I-C2-2128; [01-08]
@@ -1120,6 +1140,15 @@
     (=daikanwa		. 00120)	; &I-M-00120;
     (=daijiten		. 00086)	; &I-DJT-00086;
     (=jef-china3	. #x41B7)	; &I-JC3-41B7;
+    (<-interchangeable
+     ((=ucs@unicode	  . #x8A17)	; &AJ1-02903;
+      (=adobe-japan1-0	  . 02903)	; &AJ1-02903;
+      (=daikanwa	  . 35243)	; &I-M-35243;
+      ))
+    (<-interchangeable$_1*sources
+     liushuzhenge daikanwa)
+    (<-interchangeable*sources
+     liushuzhenge daikanwa)
     (->subsumptive
      ((==ucs@jis	  . #x4E47)	; &g2-JSP-3032;
       (==ucs@JP/hanazono  . nil)
@@ -4224,10 +4253,11 @@
     (=daikanwa		. 00152)	; &I-M-00152;
     (=shinjigen		.  2155)	; &GT-00207;
     (<-ancient
-     ((=ucs		  . #x5E78)	; 幸
+     ((=ucs@unicode	  . #x5E78)	; &MJ010951;
+      (=mj		  . 010951)	; &MJ010951;
       (=jis-x0208	  . #x392C)	; &I-J90-392C; [25-12]
       (=daikanwa	  . 09176)	; &I-M-09176;
-      (=shinjigen	  .  2154)	; 幸
+      (=shinjigen	  .  2154)	; &MJ010951;
       ))
     (<-ancient*sources
      yupian daikanwa shinjigen)
@@ -4611,7 +4641,8 @@
     (=cns11643-6	. #x3528)	; &C6-3528; [21-08]
     (=daikanwa		. 07853)	; &I-M-07853;
     (<-original
-     ((=ucs		  . #x5E78)	; 幸
+     ((=ucs@unicode	  . #x5E78)	; &MJ010951;
+      (=mj		  . 010951)	; &MJ010951;
       (=daikanwa	  . 09176)	; &I-M-09176;
       ))
     (<-original*sources
