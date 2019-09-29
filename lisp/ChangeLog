@@ -1,3 +1,8 @@
+2019-09-29  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`=>ucs-bmp-itaiji-011'.
+
 2019-09-25  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* mule/mule-conf.el (=>ucs-itaiji-011): New coded-charset for
