@@ -1,3 +1,29 @@
+2019-09-29  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* char-db-util.el (char-db-coded-charset-priority-list): Add
+	`=>ucs-itaiji-011'.
+
+2019-09-28  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R025-Divination.el (U-000209D2): Apply new conventions
+	for glyph granularity.
+	(U+209D2-var-001): New character; use `<-denotational' for
+	U-000209D2.
+	(A-GT-K00880): New abstract node; unify A-U+864D-itaiji-005.
+	(U+864D-itaiji-005): New character; use `<-denotational' for
+	A-GT-K00880.
+	(GT-K00880): Add `<-denotational' for A-GT-K00880.
+	(U-0002194B): Copied from Ideograph-R039-Child.el.
+	(M-02795): Map to U-0002194B and MJ033875.
+	(A-GT-K03610): New abstract node; unify A-U+89E3-itaiji-006.
+	(GT-K03610): New character; use `<-denotational' for A-GT-K03610;
+	unify U+89E3-itaiji-006.
+	(U+353D): Apply new conventions for glyph granularity.
+	(GT-K06361): New character; use `<-denotational' for U+353D.
+
+	* Ideograph-R004-Slash.el (U+4E47): Apply new conventions for
+	glyph granularity.
+
 2019-09-24  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R021-Spoon.el: Add `=decomposition@cid' for some
