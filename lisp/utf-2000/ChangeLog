@@ -82,6 +82,9 @@
 	unify hanaJU+2B74D and KOSEKI-091470.
 	(AJ1-07816): Unify HD-FT1944.
 
+	* Ideograph-R048-Work.el: Add some MJ code points corresponding to
+	Hanyo-Denshi IVSes.
+
 2019-09-17  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R002-Line.el (BC-88B7-itaiji-001): Unify GT-K04143;
