@@ -1,5 +1,45 @@
 2019-09-29  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R019-Power.el: Add `=decomposition@cid' for some
+	Adobe-Japan1 abstract glyph-forms.
+	(GT-K00813): New character.
+	(A-cgnU+52A3): New abstract node.
+	(U+52A3): Add `<-denotational' for A-cgnU+52A3.
+	(UU+52A3): Delete `=>ucs@iwds-1'.
+	(HNG-KHM0010-0): Use A-cgnU+52A3 instead of U+52A3 as its mother;
+	fix `ideographic-structure'.
+	(U+52A8): Apply new conventions for glyph granularity; use
+	`<-denotational@usage' instead of `<-denotational' for BUCS+52D5.
+	(MJ057064): New character; use `<-denotational' for U+52A9; unify
+	HD-KS027050.
+	(HNG-KHM0009-0): Use g2-MJ057064 instead of U+52A9 as its mother.
+	(U+52BE): Apply new conventions for glyph granularity.
+	(AJ1-13866): Add `=decomposition@cid' for [U+52E2 U+E0101] to
+	represent duplicated IVD.
+	(g2-AJ1-13866): Use [U+2B751 U+E0100] instead of [U+52E2 U+E0101]
+	as the value of `=decomposition@cid'.
+	(M-02352): Unify MJ000241 and HD-KS027290.
+	(U-0002085E): Apply new conventions for glyph granularity.
+	(U-00020876): Likewise.
+	(M-02383): Unify MJ031531 and HD-KS027660.
+	(U+52D5): Use `<-denotational@usage' instead of `<-denotational'
+	for BUCS+52D5.
+	(U-00020886): Apply new conventions for glyph granularity.
+	(U-00020889): Likewise.
+	(M-02420): Unify MJ031554 and HD-KS028140.
+	(U-000208A7): Apply new conventions for glyph granularity.
+	(U-000208AE): New character.
+
+	* Ideograph-R017-Open-Box.el (A-GT-K02909): New abstract node; use
+	`<-denotational' for A-U+20020-itaiji-001; unify
+	A-U+20020-itaiji-003.
+	(GT-K02909): New character; use `<-denotational' for A-GT-K02909;
+	unify U+20020-itaiji-003.
+
+	* Ideograph-R001-One.el (GT-00053): Add `<-denotational' for
+	U-00022A25.
+	(U+20020-itaiji-002): New character.
+
 	* char-db-util.el (char-db-coded-charset-priority-list): Add
 	`=>ucs-itaiji-011'.
 
