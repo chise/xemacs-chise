@@ -1,3 +1,16 @@
+2019-09-30  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R065-Branch.el (U-0002D8D4): New character.
+	(MJ057580): Add `<-denotational' for U-0002D8D4.
+	(GT-K01191): New character; use `<-denotational' for U-0002D8D4.
+
+	* Ideograph-R059-Bristle.el (U+4FEE): Separate BUCS+4FEE; add
+	`<-denotational@usage' for BUCS+4FEE.
+	(JU+4FEE): Move `=decomposition@cid' to g2-JU+4FEE.
+	(g2-UU+5F6C): Add `=decomposition@cid'.
+	(g2-UU+5F6D): Omit `ideographic-structure'.
+	(HNG-KAR0118-0): Likewise.
+
 2019-09-29  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R019-Power.el: Add `=decomposition@cid' for some
