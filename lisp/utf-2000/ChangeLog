@@ -1,5 +1,33 @@
 2019-09-30  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R022-Right-Open-Box.el:
+	- Add `=decomposition@cid' for some Adobe-Japan1 abstract
+	  glyph-forms.
+	- Integrate some CBETA numbers based on their normalized
+	  ideographic-structures.
+	(IWDS1-0209): Add `ideographic-structure'.
+	(IU+2092D): Unify CB10883.
+	(U-0002D155): New character.
+	(U-0002D156): New character.
+	(U-0002B9CD): New character.
+	(U-00020947): Apply new conventions for glyph granularity; add
+	`<-denotational' for A-IWDSU+20975.
+	(U-0002D15B): New character.
+	(U+532D): Add `ideographic-structure'; add `sound@ja/on'.
+	(UU+532D): Add `<-ancient' for UU+7C0B.
+	(CB06664): New character; use `<-denotational' for U+532D.
+	(A-IWDSU+3532): New abstract node.
+	(U+3533): Add `<-denotational' for A-IWDSU+3532; add some
+	representative nodes.
+	(U+3532): Apply new conventions for glyph granularity; add
+	`<-denotational' for A-IWDSU+3532.
+	(U+5336): Add `sound@ja/on/{kan|go}'.
+	(M-02665): Fix `ideographic-structure'; unify MJ007813 and
+	KOSEKI-031140; add `<-Zhouwen' for UU+531B.
+	(U-0002096C): Apply new conventions for glyph granularity.
+
+2019-09-30  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R065-Branch.el (U-0002D8D4): New character.
 	(MJ057580): Add `<-denotational' for U-0002D8D4.
 	(GT-K01191): New character; use `<-denotational' for U-0002D8D4.
