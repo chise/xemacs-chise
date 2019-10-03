@@ -1,5 +1,8 @@
 2019-10-02  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R016-Table.el (U-000221BB): Apply new conventions for
+	glyph granularity.
+
 	* Ideograph-R021-Spoon.el (o-BC-8BC5): New character.
 	(U+5317): Apply new conventions for glyph granularity.
 
