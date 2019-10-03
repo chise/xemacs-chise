@@ -1,3 +1,20 @@
+2019-10-02  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R021-Spoon.el (o-BC-8BC5): New character.
+	(U+5317): Apply new conventions for glyph granularity.
+
+2019-10-01  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R048-Work.el (U-0002D606): Apply new conventions for
+	glyph granularity.
+
+2019-10-01  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R041-Inch.el: Add Daijiten numbers.
+	(U-0002D530): New character.
+	(IWDS1-0387): Use `<-denotational@usage' instead of
+	`<-denotational' for BUCS+5C08.
+
 2019-09-30  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R022-Right-Open-Box.el:
