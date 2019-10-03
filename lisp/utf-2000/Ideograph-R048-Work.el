@@ -941,8 +941,26 @@
      ((=ucs		  . #x5750)	; 坐
       ))
     (=ucs		. #x2D606)	; 𭘆
-    (=mj		. 057407)	; &I-MJ057407;
-    (=koseki		. 098840)	; 𭘆
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2D606)	; 𭘆
+      ))
+    (ideographic-radical . 48)	; ⼯
+    (ideographic-strokes . 5)
+    (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x4E00)	; 一
+      )
+     ((=ucs@unicode	  . #x5750)	; &AJ1-02097;
+      (=adobe-japan1-0	  . 02097)	; &AJ1-02097;
+      ))
+    (=ucs@JP/hanazono	. #x2D606)	; &MJ057407;
+    (=mj		. 057407)	; &MJ057407;
+    (=koseki		. 098840)	; &MJ057407;
     (=cbeta		. 02138)	; &I-CB02138;
     (<-formed
      ((=ucs		  . #x5DEB)	; 巫
