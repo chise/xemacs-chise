@@ -328,6 +328,26 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=ucs		  . #x4E2A)	; 个
+      ))
+    (ideographic-radical . 2)	; ⼁
+    (ideographic-strokes . 2)
+    (total-strokes	 . 3)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5165)	; 入
+      )
+     ((=ucs		  . #x4E28)	; 丨
+      ))
+    (=ucs-itaiji-003	. #x4E2A)	; &U-i003+4E2A;
+    (->subsumptive
+     ((==ucs-itaiji-003	  . #x4E2A)	; &g2-U-i003+4E2A;
+      ))
+    ))
+(define-char
   '((<-denotational@usage
      ((==>daijiten	  . 00049)	; &A2-DJT-00049;
       ))

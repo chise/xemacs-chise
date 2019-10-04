@@ -1,3 +1,8 @@
+2019-10-03  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R002-Line.el (U+4E2A-itaiji-003): New character; use
+	`<-denotational' for U+4E2A.
+
 2019-10-02  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R016-Table.el (U-000221BB): Apply new conventions for
