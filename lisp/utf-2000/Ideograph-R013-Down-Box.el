@@ -153,6 +153,23 @@
       ))
     ))
 (define-char
+  '((ideographic-radical . 13)	; ⼌
+    (ideographic-strokes . 1)
+    (total-strokes	 . 3)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
+      (=ucs		  . #x2FF5)	; ⿵
+      )
+     ((=ucs		  . #x5182)	; 冂
+      )
+     ((=ucs		  . #x4E28)	; 丨
+      ))
+    (=big5-cdp		. #x8A44)	; &CDP-8A44;
+    (->subsumptive
+     ((==big5-cdp	  . #x8A44)	; &g2-CDP-8A44;
+      ))
+    ))
+(define-char
   '((<-denotational@usage
      ((==>daijiten	  . 00621)	; &A2-DJT-00621;
       ))

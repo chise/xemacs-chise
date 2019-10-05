@@ -1,7 +1,35 @@
 2019-10-03  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R017-Open-Box.el (U-000221D5): Apply new conventions
+	for glyph granularity.
+
+	* Ideograph-R013-Down-Box.el (BC-8A44): New character.
+
+	* Ideograph-R010-Legs.el: Add some MJ and KOSEKI code points
+	corresponding to Daikanwa.
+	(U+5142): Unify HD-KS015530.
+	(A-cgnU+5147): New abstract node.
+	(U+5147): Add `<-denotational' for A-cgnU+5147.
+	(HD-KS015720): New character; use `<-denotational' for
+	A-cgnU+5147.
+	(U+5149): Apply new conventions for glyph granularity; use
+	`<-denotational@usage' instead of `<-denotational' for BUCS+5149.
+	(A-U+5149-itaiji-001): New abstract node.
+	(U+5149-itaiji-001): New character; use `<-denotational' for
+	A-U+5149-itaiji-001.
+	(GT-K01201): Likewise.
+	(JU+5153): Unify HD-KS016040.
+	(IU+2048C): Unify HD-KS016070.
+	(U-000204CA): Unify HD-KS016460.
+
+2019-10-03  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R002-Line.el (U+4E2A-itaiji-003): New character; use
 	`<-denotational' for U+4E2A.
+
+2019-10-02  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R029-Again.el (UU+355F): Add `<-formed' for IU+208E0.
 
 2019-10-02  MORIOKA Tomohiko  <tomo.git@chise.org>
 
