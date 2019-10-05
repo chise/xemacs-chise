@@ -1934,9 +1934,37 @@
       ))
     (sound@ja/on	"Iu")
     (=ucs		. #x221D5)	; 𢇕
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x221D5)	; 𢇕
+      ))
+    (ideographic-radical . 17)	; ⼐
+    (ideographic-strokes . 16)
+    (total-strokes	 . 18)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs@unicode	  . #x5E7D)	; &AJ1-03859;
+      (=adobe-japan1-0	  . 03859)	; &AJ1-03859;
+      )
+     ((=ucs@unicode	  . #x5E7D)	; &AJ1-03859;
+      (=adobe-japan1-0	  . 03859)	; &AJ1-03859;
+      ))
+    (=ucs@iso		. #x221D5)	; &MJ035261;
+    (=mj		. 035261)	; &MJ035261;
+    (=koseki		. 021720)	; &MJ035261;
     (=daikanwa		. 01842)	; &I-M-01842;
     (->subsumptive
-     ((==daikanwa	  . 01842)	; &g2-M-01842;
+     ((==mj		  . 035261)	; &g2-MJ035261;
+      (==koseki		  . 021720)	; &g2-MJ035261;
+      (==daikanwa	  . 01842)	; &g2-MJ035261;
+      (->subsumptive
+       ((===daikanwa	    . 01842)	; &R-M-01842;
+	)
+       ((===mj		    . 035261)	; &R-MJ035261;
+	))
       )
      ((==ucs@iso	  . #x221D5)	; &g2-IU-000221D5;
       ))
