@@ -1,3 +1,11 @@
+2019-10-04  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R026-Seal.el (JC3-71F7): Add `ideographic-radical',
+	`ideographic-strokes' and `total-strokes'.
+	(U+22398-itaiji-001): New character; add
+	`<-denotational@component' for U+353E.
+	(U+5374): Apply new conventions for glyph granularity.
+
 2019-10-03  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R017-Open-Box.el (U-000221D5): Apply new conventions
