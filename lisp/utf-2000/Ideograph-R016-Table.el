@@ -2676,12 +2676,14 @@
 	 ((ideographic-radical . 16)	; ⼏
 	  (=daikanwa	      . 01783)	; &M-01783;
 	  (<-formed
-	   ((=ucs		. #x4E58)	; 乘
+	   ((=ucs@unicode	. #x4E58)	; &AJ1-04100;
+	    (=adobe-japan1-0	. 04100)	; &AJ1-04100;
 	    ))
 	  (<-formed*sources
 	   jiyun)
 	  (<-same
-	   ((=ucs		. #x4E58)	; 乘
+	   ((=ucs@unicode	. #x4E58)	; &AJ1-04100;
+	    (=adobe-japan1-0	. 04100)	; &AJ1-04100;
 	    (=daikanwa		. 00154)	; &I-M-00154;
 	    ))
 	  (<-same*sources
@@ -2690,7 +2692,8 @@
 	 ((ideographic-radical . 8)	; ⼇
 	  (=daikanwa	      . 00314)	; &M-00314;
 	  (<-ancient
-	   ((=ucs		. #x4E58)	; 乘
+	   ((=ucs@unicode	. #x4E58)	; &AJ1-04100;
+	    (=adobe-japan1-0	. 04100)	; &AJ1-04100;
 	    (=daikanwa		. 00154)	; &I-M-00154;
 	    ))
 	  (<-ancient*sources
