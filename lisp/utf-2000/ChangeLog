@@ -1,3 +1,36 @@
+2019-10-05  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R015-Ice.el (U+51BD): Apply new conventions for glyph
+	granularity.
+	(U+51C2): Add `<-denotational' for A-IWDSU+51C2.
+	(UU+51C2): Apply new conventions for glyph granularity.
+	(U-000205DF): New character; use `<-denotational' for
+	A-IWDSU+51C2.
+	(g2-UU+51C4): Omit `ideographic-structure'.
+	(g2-CU+51C4): Likewise.
+	(A-IWDSU+51C0): New abstract node.
+	(U+51C8): Add `<-denotational' for A-IWDSU+51C0.
+	(g2-JU+51C8): Omit `ideographic-structure'.
+	(U+51C0): Apply new conventions for glyph granularity; add
+	`<-denotational' for A-IWDSU+51C0.
+	(U-000205E2): Apply new conventions for glyph granularity.
+	(U+51DA): Unify CB12280.
+	(A-IWDSU+20611): New abstract node.
+	(U+51DE): Add `<-denotational' for A-IWDSU+20611; add
+	`ideographic-structure'.
+	(MJ007413): Modify `ideographic-structure'.
+	(AJ1-20081): Likewise.
+	(CU+51DE): Likewise.
+	(U-00020611): Add `<-denotational' for A-IWDSU+20611; add
+	`ideographic-structure'.
+	(IU+20611): Add `ideographic-structure'; add representative node.
+	(AJ1-14294): Likewise.
+	(AJ1-20081): Modify `ideographic-structure'.
+	(U-0002061D): Apply new conventions for glyph granularity.
+
+	* Ideograph-R006-Hook.el (U+4E89): Apply new conventions for glyph
+	granularity.
+
 2019-10-04  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R026-Seal.el (JC3-71F7): Add `ideographic-radical',
@@ -37,6 +70,26 @@
 
 2019-10-02  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R047-River.el (U-00021FE9): Apply new conventions for
+	glyph granularity.
+	(U-00021FEA): Likewise.
+	(U-0002D5FC): Likewise.
+	(A-GT-K04484): New abstract node.
+	(GT-K04484): New character; use `<-denotational' for A-GT-K04484.
+	(GT-K04493): New character.
+
+	* Ideograph-R045-Sprout.el (U+5C70): Apply new conventions for
+	glyph granularity.
+	(U-00021D42): Moved to Ideograph-R046-Mountain.el.
+	(IU+21D42): Ditto.
+	(U-00021D49): Ditto.
+	(IU+21D49): Ditto.
+	(IWDS1-0263): Ditto; add `<-denotational@component' for
+	A-IWDSU+21D48.
+	(U+21D42-itaiji-001): Moved to Ideograph-R046-Mountain.el.
+	(U+21DAB-itaiji-001): New character; use `<-denotational' for
+	A-IWDSU+21D0E.
+
 	* Ideograph-R029-Again.el (UU+355F): Add `<-formed' for IU+208E0.
 
 2019-10-02  MORIOKA Tomohiko  <tomo.git@chise.org>
@@ -53,6 +106,15 @@
 	glyph granularity.
 
 2019-10-01  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R057-Bow.el: Add `=decomposition@cid' for some
+	Adobe-Japan1 abstract glyph-forms.
+	(U+5F1F): Apply new conventions for glyph granularity.
+	(U+5F1F-itaiji-004): Add `ideographic-structure'.
+
+	* Ideograph-R056-Shoot.el (GT-K00233): Apply new conventions for
+	glyph granularity.
+	(U+5F0F): Apply new conventions for glyph granularity.
 
 	* Ideograph-R041-Inch.el: Add Daijiten numbers.
 	(U-0002D530): New character.
