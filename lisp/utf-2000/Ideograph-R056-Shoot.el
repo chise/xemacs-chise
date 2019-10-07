@@ -50,7 +50,11 @@
       )
      ((=gt-k		  . 00233)	; &GT-K00233;
       (=gt-pj-k1	  . #x3349)	; &GT-K00233; [19-41]
-      (==shinjigen	  .  2260)	; &GT-K00233;
+      (->subsumptive
+       ((==gt-k		    . 00233)	; &g2-GT-K00233;
+	(==gt-pj-k1	    . #x3349)	; &g2-GT-K00233; [19-41]
+	(==shinjigen	    .  2260)	; &g2-GT-K00233;
+	))
       ))
     ))
 (define-char
@@ -309,8 +313,34 @@
   '((ideographic-radical . 56)	; ⼷
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
+      (=ucs		  . #x2FF9)	; ⿹
+      )
+     ((=ucs		  . #x5F0B)	; 弋
+      )
+     ((=ucs		  . #x5DE5)	; 工
+      ))
     (=ucs		. #x5F0F)	; 式
-    (=adobe-japan1-0	. 02268)	; &I-AJ1-02268;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5F0F)	; 式
+      ))
+    (ideographic-radical . 56)	; ⼷
+    (ideographic-strokes . 3)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
+      (=ucs		  . #x2FF9)	; ⿹
+      )
+     ((=gt-k		  . 00233)	; &GT-K00233;
+      )
+     ((=ucs@unicode	  . #x5DE5)	; &AJ1-01979;
+      (=adobe-japan1-0	  . 01979)	; &AJ1-01979;
+      ))
+    (=ucs@unicode	. #x5F0F)	; &AJ1-02268;
+    (=adobe-japan1-0	. 02268)	; &AJ1-02268;
     (=jis-x0208		. #x3C30)	; &I-J90-3C30; [28-16]
     (=gb2312		. #x4A3D)	; &I-G0-4A3D; [42-29]
     (=ks-x1001		. #x6352)	; &I-K0-6352; [67-50]
