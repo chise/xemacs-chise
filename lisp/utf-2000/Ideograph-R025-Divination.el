@@ -2126,7 +2126,8 @@
     (=cns11643-6	. #x5B32)	; &I-C6-5B32; [59-18]
     (=daikanwa		. 02831)	; &I-M-02831;
     (<-same
-     ((=ucs		  . #x4E58)	; 乘
+     ((=ucs@unicode	  . #x4E58)	; &AJ1-04100;
+      (=adobe-japan1-0	  . 04100)	; &AJ1-04100;
       (=daikanwa	  . 00154)	; &I-M-00154;
       ))
     (<-same*sources
