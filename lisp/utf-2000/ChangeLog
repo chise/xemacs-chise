@@ -1,5 +1,127 @@
 2019-10-05  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R012-Eight.el (U-00020500): Apply new conventions for
+	glyph granularity; add `<-denotational@component' for
+	A-IWDSU+2232C.
+	(U+516C): Apply new conventions for glyph granularity; add
+	`<-denotational@component' for A-compU+516C and A-IWDSU+516C.
+	(U-00020501): Add A-IWDSU+5C23 as a target of
+	`<-denotational@component'.
+	(U-00020502): Apply new conventions for glyph granularity.
+	(U+516F): Likewise.
+	(U-00020506): Use `->denotational' and `->subsumptive'.
+	(U+5170): Apply new conventions for glyph granularity.
+	(U-00020505): Likewise; add `<-denotational' for A-IWDSU+21C24.
+	(U-0002D044): New character.
+	(GT-K01205): New character.
+	(A-IWDSU+5171): New abstract node.
+	(U+5171): Add `<-denotational' for A-IWDSU+5171; add
+	`<-denotational@component' for A-IWDSU+827D.
+	(U-00020508): Apply new conventions for glyph granularity.
+	(U+5172): Likewise.
+	(U+5174): Likewise.
+	(U-0002A788): New character.
+	(U-0002B92B): New character.
+	(U-0002B92C): New character.
+	(U-0002D045): New character.
+	(U-0002D046): New character.
+	(U+5175): Apply new conventions for glyph granularity; add
+	`<-denotational@component' for A-IWDSU+5175.
+	(U-0002050A): Likewise.
+	(U-0002050B): Apply new conventions for glyph granularity.
+	(U-0002050C): Likewise.
+	(U+34B5): Add `<-denotational' for A-IWDSU+7683.
+	(U+34B6): Apply new conventions for glyph granularity.
+	(U-0002050D): Likewise.
+	(U-0002050E): Likewise.
+	(U+34B7): Likewise.
+	(U-0002D047): Likewise.
+	(U+5176): Likewise.
+	(U+5177): Add `<-denotational@component' for A-IWDSU+72CA and
+	A-IWDSU+250EF.
+	(GT-K04005): Unify MJ016916 and KOSEKI-067660.
+	(U+5178): Apply new conventions for glyph granularity.
+	(U-00020510): Likewise.
+	(U-00020511): Likewise.
+	(U-0002B92D): Likewise.
+	(U-0002D049): New character.
+	(U-0002D04A): New character.
+	(U-0002D04B): New character.
+	(GT-K04933): New character.
+	(U-00020512): Apply new conventions for glyph granularity.
+	(U-00020515): Likewise.
+	(U-00020516): Likewise.
+	(U-00020514): Likewise.
+	(U-0002D04C): New character.
+	(U-0002D04D): New character.
+	(U-0002D04E): New character.
+	(U-00020519): New character.
+	(U-0002051A): Use `->denotational' and `->subsumptive'.
+	(U-0002051B): Apply new conventions for glyph granularity.
+	(U+517A): Likewise.
+	(U-0002B92E): New character.
+	(U-0002B92F): New character.
+	(U-0002D04F): New character.
+	(U-0002051D): Apply new conventions for glyph granularity.
+	(U+517D): Likewise.
+	(U-0002D051): New character.
+	(U-0002D052): New character.
+	(U-0002D053): New character.
+	(U-0002051F): Use `->denotational' and `->subsumptive'.
+	(U-00020520): Likewise.
+	(U-00020523): Apply new conventions for glyph granularity.
+	(U-00020521): New character.
+	(U-00020522): New character.
+	(U-00020524): Apply new conventions for glyph granularity.
+	(U-00020526): New character.
+	(U-0002A789): New character.
+	(HNG-KHM0602-2): Add `<-HNG@chise' for U-0002B930.
+	(U-0002B931): New character.
+	(U-0002D054): New character.
+	(U-0002D055): New character.
+	(U-0002D056): New character.
+	(CU+517E): Apply new conventions for glyph granularity; fix typo.
+	(U-0002052C): Apply new conventions for glyph granularity.
+	(U-00020529): Likewise.
+	(U-0002052A): New character.
+	(U-0002052B): New character.
+	(U-0002052D): New character.
+	(U-0002052E): New character.
+	(U-0002A78A): New character.
+	(U-0002B932): New character.
+	(U-0002D057): New character.
+	(U-0002D058): New character.
+	(RUI6-E059): Add `<-denotational@component' for A-IWDSU+2CD44.
+	(U-0002052F): Apply new conventions for glyph granularity.
+	(U-00020530): Likewise.
+	(U-00020532): Likewise.
+	(U-0002A78B): New character.
+	(U-0002D059): New character.
+	(U-0002A78C): New character.
+	(U-0002D05A): New character.
+	(U-0002D05B): New character.
+	(U-0002D05C): New character.
+	(U+5180): Apply new conventions for glyph granularity.
+	(U-00020534): New character.
+	(U-00020535): New character.
+	(U-0002A78D): New character.
+	(U-00020536): Use `->denotational' and `->subsumptive'.
+	(U+5181): Apply new conventions for glyph granularity; use
+	`<-denotational@usage' instead of `<-denotational' for BUCS+56C5.
+	(U-00020537): New character.
+	(U-0002B933): New character.
+	(U-00020538): Apply new conventions for glyph granularity.
+	(U-00020539): Likewise.
+	(U-0002B934): New character.
+	(U-0002B935): New character.
+	(U-0002D05D): New character.
+	(U-0002D05E): New character.
+	(U-0002B936): New character.
+	(A-compU+516C): New abstract node.
+	(A-IWDSU+5175): New abstract node.
+
+2019-10-05  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R015-Ice.el (U+51BD): Apply new conventions for glyph
 	granularity.
 	(U+51C2): Add `<-denotational' for A-IWDSU+51C2.
