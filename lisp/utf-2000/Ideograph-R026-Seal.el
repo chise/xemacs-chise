@@ -2693,14 +2693,18 @@
      ((=ucs@cns		  . #x2F856)	; &AJ1-14435;
       (=ucs@jis		  . #x5832)	; &AJ1-14435;
       (=adobe-japan1-4	  . 14435)	; &AJ1-14435;
+      (=daikanwa	  . 05276)	; &I-M-05276;
       )
      ((=ucs		  . #x536A)	; 卪
+      (=daikanwa	  . 02838)	; &I-M-02838;
       )
      ((=ucs@jis		  . #x874D)	; &JSP-5B2E;
       (=jis-x0212	  . #x5B2E)	; &JSP-5B2E; [59-14]
       (=daikanwa	  . 33253)	; &I-M-33253;
       )
-     ((=ucs		  . #x5247)	; 則
+     ((=ucs@unicode	  . #x5247)	; &AJ1-02823;
+      (=adobe-japan1-0	  . 02823)	; &AJ1-02823;
+      (=daikanwa	  . 01994)	; &I-M-01994;
       ))
     (<-interchangeable$_1*sources
      jiyun)
@@ -2710,6 +2714,8 @@
      shuowen-tongxun-dingsheng daikanwa)
     (<-interchangeable$_4*sources
      hanshu-zhu daikanwa)
+    (<-interchangeable*sources
+     daikanwa)
     (<-same
      ((=ucs@cns		  . #x2F856)	; &AJ1-14435;
       (=ucs@jis		  . #x5832)	; &AJ1-14435;
