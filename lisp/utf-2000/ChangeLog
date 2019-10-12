@@ -1,3 +1,15 @@
+2019-10-09  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R001-One.el (U+4E0E): Add `ideographic-structure';
+	omit `<-simplified@ucs'.
+	(UU+4E0E): Use U+2FF9-itaiji-001 instead of "⿹"; use
+	`<-interchangeable' instead of `->synonyms'.
+	(JU+4E0E): Add `ideographic-structure'.
+	(U+4E1B): Use `<-denotational@usage' instead of `<-denotational'
+	for BUCS+53E2; apply new conventions for glyph granularity.
+	(U+4E20): Apply new conventions for glyph granularity.
+	(U-00020922): Likewise.
+
 2019-10-08  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R026-Seal.el (UU+537D): Add
