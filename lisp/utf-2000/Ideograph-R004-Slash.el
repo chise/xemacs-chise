@@ -4318,7 +4318,8 @@
     (<-formed*sources
      hng)
     (<-simplified@JP/Jouyou
-     ((=ucs		  . #x4E58)	; 乘
+     ((=ucs@unicode	  . #x4E58)	; &AJ1-04100;
+      (=adobe-japan1-0	  . 04100)	; &AJ1-04100;
       (=jis-x0208	  . #x502B)	; &I-J90-502B; [48-11]
       ))
     (->subsumptive
@@ -4461,10 +4462,37 @@
     (ideographic-radical . 4)	; ⼃
     (ideographic-strokes . 9)
     (total-strokes	 . 10)
-    (hanyu-dazidian	1 40 1)
+    (ideographic-structure
+     ((name		  . "IDEOGRAPHIC DESCRIPTION CHARACTER OVERLAID")
+      (=ucs		  . #x2FFB)	; ⿻
+      )
+     ((=ucs		  . #x79BE)	; 禾
+      )
+     ((=ucs		  . #x5317)	; 北
+      ))
     (sound@ja/on/go	"zyou")
+    (sound@ja/on/kan	"syou")
     (=ucs		. #x4E58)	; 乘
-    (=adobe-japan1-0	. 04100)	; &I-AJ1-04100;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x4E58)	; 乘
+      ))
+    (ideographic-radical . 4)	; ⼃
+    (ideographic-strokes . 9)
+    (total-strokes	 . 10)
+    (hanyu-dazidian	1 40 1)
+    (ideographic-structure
+     ((name		  . "IDEOGRAPHIC DESCRIPTION CHARACTER OVERLAID")
+      (=ucs		  . #x2FFB)	; ⿻
+      )
+     ((=ucs		  . #x79BE)	; 禾
+      )
+     ((=ucs@unicode	  . #x5317)	; &AJ1-03706;
+      (=adobe-japan1-0	  . 03706)	; &AJ1-03706;
+      ))
+    (=ucs@unicode	. #x4E58)	; &AJ1-04100;
+    (=adobe-japan1-0	. 04100)	; &AJ1-04100;
     (=jis-x0208		. #x502B)	; &I-J90-502B; [48-11]
     (=gb2312		. #x334B)	; &I-G0-334B; [19-43]
     (=ks-x1001		. #x632B)	; &I-K0-632B; [67-11]
@@ -4476,7 +4504,39 @@
     (=gt-pj-1		. #x502B)	; &I-GT-00210; [48-11]
     (=daikanwa		. 00154)	; &I-M-00154;
     (=daijiten		. 00102)	; &I-DJT-00102;
-    (=shinjigen		.  0055)	; 乘
+    (=shinjigen		.  0055)	; &AJ1-04100;
+    (->ancient
+     ((=daikanwa	  . 00314)	; &M-00314;
+      )
+     ((=ucs@iso		  . #x204F8)	; &MJ030972;
+      (=mj		  . 030972)	; &MJ030972;
+      (=daikanwa	  . 01447)	; &I-M-01447;
+      ))
+    (->ancient$_1*sources
+     shuowen daikanwa)
+    (->ancient*sources
+     shuowen daikanwa)
+    (->formed
+     ((=daikanwa	  . 00318)	; &M-00318;
+      )
+     ((=daikanwa	  . 01783)	; &M-01783;
+      )
+     ((=ucs@iso		  . #x204F8)	; &MJ030972;
+      (=mj		  . 030972)	; &MJ030972;
+      (=daikanwa	  . 01447)	; &I-M-01447;
+      ))
+    (->formed$_1*sources
+     jiyun daikanwa)
+    (->formed*sources
+     jiyun daikanwa)
+    (->original
+     ((=ucs		  . #x6909)	; 椉
+      (=daikanwa	  . 15016)	; &I-M-15016;
+      ))
+    (->original$_1*sources
+     zhengzitong daikanwa)
+    (->original*sources
+     zhengzitong daikanwa)
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x4E58)	; 乘
