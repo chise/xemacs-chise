@@ -374,6 +374,7 @@
     =big5-cdp-itaiji-002
     =big5-cdp-itaiji-003
     =>big5-cdp-itaiji-001
+    =>big5-cdp-itaiji-003
     =>big5-cdp-var-001
     =>ucs@iwds-1
     =>ucs@cognate
