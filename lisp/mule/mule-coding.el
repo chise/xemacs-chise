@@ -644,6 +644,7 @@
 	  (=>ucs-itaiji-010		    "A-U-i010+" 4 X)
 	  (=>ucs-itaiji-011		    "A-U-i011+" 4 X)
 	  (=>big5-cdp-itaiji-001	  "A-CDP-i001-" 4 X)
+	  (=>big5-cdp-itaiji-003	  "A-CDP-i003-" 4 X)
 	  (=>big5-cdp-var-001		  "A-CDP-v001-" 4 X)
 	  (=>ucs-itaiji-001@iwds-1	"A-IWDSU-i001+" 4 X)
 	  (=>big5-cdp@iwds-1		   "A-IWDSCDP-" 4 X)
