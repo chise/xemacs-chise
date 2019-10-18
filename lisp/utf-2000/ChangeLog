@@ -1,3 +1,10 @@
+2019-10-16  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R013-Down-Box.el (A-BC-8C58): New abstract node; unify
+	A-GT-K00710.
+	(BC-8C58): Add `<-denotational' for A-BC-8C58; add G-BC-8C58.
+	(U+518F): Apply new conventions for glyph granularity.
+
 2019-10-11  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* char-db-util.el (char-db-coded-charset-priority-list): Add
