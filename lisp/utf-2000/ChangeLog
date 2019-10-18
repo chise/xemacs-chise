@@ -1,3 +1,16 @@
+2019-10-17  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R011-Enter.el: Add Daijiten numbers.
+	(U+5167-var-001): New character; use `<-denotational' for U+5167.
+	(U-000204DC): Add `<-denotational@component' for A-IWDSU+4ECE.
+	(GT-K00698): Add `<-denotational@component' for A-IWDSU+4ECC.
+	(UU+5168): Unify U+FA72.
+	(g2-UU+5168): Separate U+FA72.
+	(U-000201D2): Apply new conventions for glyph granularity.
+	(U-000204E2): Likewise.
+	(U-000204F1): Likewise.
+	(U-000204F8): Likewise.
+
 2019-10-16  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R013-Down-Box.el (A-BC-8C58): New abstract node; unify
