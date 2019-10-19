@@ -4517,7 +4517,8 @@
     (->ancient*sources
      shuowen daikanwa)
     (->formed
-     ((=daikanwa	  . 00318)	; &M-00318;
+     ((=mj		  . 030498)	; &MJ030498;
+      (=daikanwa	  . 00318)	; &I-M-00318;
       )
      ((=daikanwa	  . 01783)	; &M-01783;
       )

@@ -3465,6 +3465,20 @@
       ))
     ))
 (define-char
+  '((ideographic-radical . 12)	; ⼋
+    (ideographic-strokes . 6)
+    (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=gt-k		  . 00859)	; &GT-K00859;
+      )
+     ((=ucs		  . #x516C)	; 公
+      ))
+    (=>gt-k		. 04933)	; &A-GT-K04933;
+    ))
+(define-char
   '((<-denotational@usage
      ((==>daijiten	  . 00608)	; &A2-DJT-00608;
       ))
@@ -3501,7 +3515,10 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 12)	; ⼋
+  '((<-denotational
+     ((=>gt-k		  . 04933)	; &A-GT-K04933;
+      ))
+    (ideographic-radical . 12)	; ⼋
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
     (ideographic-structure
@@ -3510,7 +3527,8 @@
       )
      ((=gt-k		  . 00859)	; &GT-K00859;
       )
-     ((=ucs		  . #x516C)	; 公
+     ((=ucs@unicode	  . #x516C)	; &MJ007275;
+      (=mj		  . 007275)	; &MJ007275;
       ))
     (=gt-k		. 04933)	; &GT-K04933;
     (=gt-pj-k1		. #x425C)	; &GT-K04933; [34-60]
@@ -6020,6 +6038,23 @@
     (ideographic-radical@daikanwa . 28)	; ⼛
     (ideographic-strokes@daikanwa . 12)
     (total-strokes	 . 14)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>gt-k		  . 04933)	; &A-GT-K04933;
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER OVERLAID")
+	(=ucs		    . #x2FFB)	; ⿻
+	)
+       ((=>ucs@component    . #x513F)	; &A-compU+513F;
+	(=>iwds-1	    .  0222)	; &A-compU+513F;
+	)
+       ((=ucs		    . #x592B)	; 夫
+	))
+      ))
+    (sound@ja/on	"kou")
     (=ucs		. #x20532)	; 𠔲
     ))
 (define-char
