@@ -1,3 +1,26 @@
+2019-10-19  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R012-Eight.el (A-GT-K04933): New abstract node.
+	(GT-K04933): Add `<-denotational' for A-GT-K04933.
+	(U-00020532): Add `ideographic-structure'; add `sound@ja/on'.
+
+	* Ideograph-R008-Lid.el (U+9F50-itaiji-001): New character.
+	(U+4EA6): Add `ideographic-structure'.
+	(U-00020143): Apply new conventions for glyph granularity.
+	(A-cgnBC-8DEB): New abstract node.
+	(A-BC-8DEB): New abstract node; add `<-denotational' for
+	A-cgnBC-8DEB.
+	(BC-8DEB): Add `<-denotational' for A-BC-8DEB.
+	(GT-K07419): New character; use `<-subsumptive' for BC-8DEB.
+	(A-BC-8DEB-itaiji-003): New abstract node; add `<-denotational'
+	for A-cgnBC-8DEB.
+	(BC-8DEB-itaiji-003): New character; use `<-denotational' for
+	A-BC-8DEB-itaiji-003.
+	(GT-K07415): New character; use `<-denotational' for A-cgnBC-8DEB.
+	(U-0002015F): Apply new conventions for glyph granularity.
+	(U-0002CF52): New character.
+	(U-0002018B): Apply new conventions for glyph granularity.
+
 2019-10-17  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R011-Enter.el: Add Daijiten numbers.
