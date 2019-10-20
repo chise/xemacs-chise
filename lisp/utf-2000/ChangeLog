@@ -1,5 +1,8 @@
 2019-10-19  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R007-Two.el (U+4E9D): Apply new conventions for glyph
+	granularity.
+
 	* Ideograph-R012-Eight.el (A-GT-K04933): New abstract node.
 	(GT-K04933): Add `<-denotational' for A-GT-K04933.
 	(U-00020532): Add `ideographic-structure'; add `sound@ja/on'.
