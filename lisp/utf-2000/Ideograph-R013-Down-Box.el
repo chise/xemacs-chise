@@ -1835,9 +1835,30 @@
       )
      ((=big5-cdp	  . #x8BD6)	; &CDP-8BD6;
       )
+     ((=>ucs@iwds-1	  . #x4EBA)	; &A-IWDSU+4EBA;
+      (=>iwds-1		  .  14623)	; &A-IWDSU+4EBA;
+      ))
+    (=>ucs-itaiji-005	. #x56DF)	; &A-U-i005+56DF;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs-itaiji-005	  . #x56DF)	; &A-U-i005+56DF;
+      ))
+    (ideographic-radical . 13)	; ⼌
+    (ideographic-strokes . 3)
+    (total-strokes	 . 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
+      (=ucs		  . #x2FF5)	; ⿵
+      )
+     ((=big5-cdp	  . #x8BD6)	; &CDP-8BD6;
+      )
      ((=ucs		  . #x4EBA)	; 人
       ))
     (=ucs-itaiji-005	. #x56DF)	; &U-i005+56DF;
+    (->subsumptive
+     ((==ucs-itaiji-005	  . #x56DF)	; &g2-U-i005+56DF;
+      ))
     ))
 (define-char
   '((<-denotational@usage
