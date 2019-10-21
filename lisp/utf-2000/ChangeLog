@@ -1,5 +1,10 @@
 2019-10-20  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R013-Down-Box.el (A-U+56DF-itaiji-005): New abstract
+	node; use `<-denotational@component' for A-compU+20B26.
+	(U+56DF-itaiji-005): Use `<-denotational' for A-U+56DF-itaiji-005
+	instead of `<-denotational@component' for A-compU+20B26.
+
 	* Ideograph-R029-Again.el (A-compU+20B26): Separate
 	A-U+56DF-itaiji-005.
 
