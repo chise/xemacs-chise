@@ -1757,7 +1757,6 @@
     (total-strokes	 . 5)
     (=>ucs@component	. #x20B26)	; &A-compU+20B26;
     (=>ucs-itaiji-001	. #x56DF)	; &A-compU+20B26;
-    (=>ucs-itaiji-005	. #x56DF)	; &A-compU+20B26;
     ))
 (define-char
   '((<-denotational@component
