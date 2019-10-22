@@ -361,6 +361,7 @@
     =>ucs-itaiji-005
     =>ucs-itaiji-006
     =>ucs-itaiji-007
+    =>ucs-itaiji-008
     =>ucs-itaiji-009
     =>ucs-itaiji-010
     =>ucs-itaiji-011
