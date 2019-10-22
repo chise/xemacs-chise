@@ -1,3 +1,37 @@
+2019-10-21  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* char-db-util.el (char-db-coded-charset-priority-list): Add
+	`=>ucs-itaiji-008'.
+
+	* Ideograph-R024-Ten.el (U+5346): Add `<-denotational@component'
+	for A-IWDSU+5346; apply new conventions for glyph granularity.
+	(CB09706): New character; add `<-denotational@component' for
+	A-IWDSU+5346.
+	(U+5E73-itaiji-001): New character; use `<-denotational@usage' for
+	A2-DJT-02899; add HNG-KEG0373-0 and HNG-OKD0272-0.
+	(U+353B): Unify CB08166.
+	(U-0002098C): Use `->denotational' and `->subsumptive'.
+	(UU+5351): Unify U+FA35.
+	(g2-UU+5351): Separate U+FA35.
+	(U+5352): Apply new conventions for glyph granularity.
+	(U-0002099C): Use `->denotational' and `->subsumptive'.
+	(MJ057096): Unify U-0002D161.
+	(U-0002A7F5): New character.
+	(U-0002D164): New character.
+	(A-cgnU+535A): Changed from U+535A.
+	(A-J0-476E): Unify U+535A instead of A-IWDSU+535A and A-UU+535A;
+	use A-cgnU+535A instead of U+535A as its mother.
+	(A-MJ007861): Use A-cgnU+535A instead of U+535A as its mother; add
+	`<-denotational@component' for U-0002B9E4.
+	(U-0002B9E4): New character; use <-denotational' for A-cgnU+535A.
+	(A-MJ059400): New abstract node; unify A-CU+2B9E4; use
+	`<-denotational' for U-0002B9E4.
+	(MJ059399): New character; use <-denotational' for A-CU+2B9E4.
+	(MJ059400): New character; use <-denotational' for A-CU+2B9E4;
+	unify CU+2B9E4.
+	(U-0002D16D): New character.
+	(A-IWDSU+5346): New abstract node.
+
 2019-10-20  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R013-Down-Box.el (A-U+56DF-itaiji-005): New abstract
