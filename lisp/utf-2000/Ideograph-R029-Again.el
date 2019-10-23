@@ -3130,10 +3130,15 @@
     (=big5-cdp		. #x8AC6)	; &I-CDP-8AC6;
     (=daikanwa		. 03162)	; &I-M-03162;
     (<-formed
+     ((=ucs@unicode	  . #x559F)	; &AJ1-04403;
+      (=adobe-japan1-0	  . 04403)	; &AJ1-04403;
+      )
      ((=ucs@iso		  . #x208E0)	; &C6-2F2B;
       (=cns11643-6	  . #x2F2B)	; &C6-2F2B; [15-11]
       (=daikanwa	  . 02529)	; &I-M-02529;
       ))
+    (<-formed$_1*sources
+     jiyun)
     (<-same
      ((=ucs@unicode	  . #x559F)	; &AJ1-04403;
       (=adobe-japan1-0	  . 04403)	; &AJ1-04403;
