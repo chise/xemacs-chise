@@ -1,3 +1,8 @@
+2019-10-23  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R029-Again.el (UU+355F): Add UU+559F as a target of
+	`<-formed'.
+
 2019-10-21  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* char-db-util.el (char-db-coded-charset-priority-list): Add
