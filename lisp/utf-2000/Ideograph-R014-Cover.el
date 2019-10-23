@@ -870,7 +870,7 @@
      ((=big5-cdp	  . #x8CC6)	; &CDP-8CC6;
       ))
     (=ucs		. #x519C)	; 农
-    (=gb2312		. #x4529)	; &G0-4529; [37-09]
+    (=gb2312		. #x4529)	; &I-G0-4529; [37-09]
     (=jef-china3	. #x81EB)	; &I-JC3-81EB;
     (<-simplified@CN
      ((=ucs		  . #x8FB2)	; 農
