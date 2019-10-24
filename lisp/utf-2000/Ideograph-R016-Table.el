@@ -786,12 +786,25 @@
     (=cns11643-6	. #x215C)	; &C6-215C; [01-60]
     (=big5-cdp		. #x87B8)	; &I-CDP-87B8;
     (=daikanwa		. 03067)	; &I-M-03067;
+    (<-formed
+     ((=ucs		  . #x53B9)	; 厹
+      ))
     (<-same
      ((=ucs		  . #x53B9)	; 厹
       (=daikanwa	  . 03065)	; &I-M-03065;
       ))
     (<-same*sources
      daikanwa)
+    (->formed
+     ((=ucs@cns		  . #x72C3)	; &AJ1-05622;
+      (=ucs@jis		  . #x72C3)	; &AJ1-05622;
+      (=adobe-japan1-0	  . 05622)	; &AJ1-05622;
+      (=daikanwa	  . 20289)	; &I-M-20289;
+      ))
+    (->formed$_1*sources
+     yupian daikanwa)
+    (->formed*sources
+     yupian daikanwa)
     (->subsumptive
      ((==ucs@iso	  . #x2062F)	; &g2-M-03067;
       (==daikanwa	  . 03067)	; &g2-M-03067;
