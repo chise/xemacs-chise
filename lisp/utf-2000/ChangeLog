@@ -3,6 +3,15 @@
 	* Ideograph-R029-Again.el (UU+355F): Add UU+559F as a target of
 	`<-formed'.
 
+2019-10-22  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R035-Go-Slowly.el (A-GT-K07330): New abstract node;
+	unify A-U+5910-itaiji-003.
+	(U+5910-itaiji-003): New character; use `<-denotational' for
+	A-GT-K07330.
+	(GT-K07330): Ditto.
+	(U+5912-var-004): New character; use `<-denotational' for U+5912.
+
 2019-10-21  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* char-db-util.el (char-db-coded-charset-priority-list): Add

@@ -1118,6 +1118,67 @@
       ))
     ))
 (define-char
+  '((ideographic-radical . 35)	; ⼢
+    (ideographic-strokes . 7)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>ucs@component	  . #x5200)	; &A-compU+5200;
+      (=>iwds-1		  .  0149)	; &A-compU+5200;
+      )
+     ((=ucs		  . #x21565)	; 𡕥
+      ))
+    (=>gt-k		. 07330)	; &A-GT-K07330;
+    (=>ucs-itaiji-003	. #x5910)	; &A-GT-K07330;
+    ))
+(define-char
+  '((<-denotational
+     ((=>gt-k		  . 07330)	; &A-GT-K07330;
+      ))
+    (ideographic-radical . 35)	; ⼢
+    (ideographic-strokes . 7)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((name		  . "CJK RADICAL KNIFE ONE")
+      (=ucs		  . #x2E88)	; ⺈
+      )
+     ((=ucs-var-001	  . #x21565)	; &U-v001+21565;
+      ))
+    (=ucs-itaiji-003	. #x5910)	; &U-i003+5910;
+    (->subsumptive
+     ((==ucs-itaiji-003	  . #x5910)	; &g2-U-i003+5910;
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>gt-k		  . 07330)	; &A-GT-K07330;
+      ))
+    (ideographic-radical . 35)	; ⼢
+    (ideographic-strokes . 7)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((name		  . "CJK RADICAL KNIFE ONE")
+      (=ucs		  . #x2E88)	; ⺈
+      )
+     ((=ucs@iso		  . #x21565)	; &GT-K04370;
+      (=gt-k		  . 04370)	; &GT-K04370;
+      ))
+    (=gt-k		. 07330)	; &GT-K07330;
+    (=gt-pj-k1		. #x415B)	; &GT-K07330; [33-59]
+    (->subsumptive
+     ((==gt-k		  . 07330)	; &g2-GT-K07330;
+      (==gt-pj-k1	  . #x415B)	; &g2-GT-K07330; [33-59]
+      ))
+    ))
+(define-char
   '((=>ucs		. #x21567)	; 𡕧
     (ideographic-radical . 35)	; ⼢
     (ideographic-strokes . 8)
@@ -2416,9 +2477,9 @@
        ((=ucs		    . #x353E)	; 㔾
 	))
       )
-     ((=ucs		  . #x5902)	; 夂
+     ((=ucs		  . #x590A)	; 夊
       ))
-    (=ucs-var-003	. #x5912)	; &U-v003+5912;
+    (=ucs-var-004	. #x5912)	; &U-v004+5912;
     ))
 (define-char
   '((<-denotational
@@ -2447,9 +2508,9 @@
        ((=ucs		    . #x353E)	; 㔾
 	))
       )
-     ((=ucs		  . #x590A)	; 夊
+     ((=ucs		  . #x5902)	; 夂
       ))
-    (=ucs-var-004	. #x5912)	; &U-v004+5912;
+    (=ucs-var-003	. #x5912)	; &U-v003+5912;
     ))
 (define-char
   '((<-denotational
