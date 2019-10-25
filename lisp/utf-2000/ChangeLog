@@ -1,3 +1,12 @@
+2019-10-24  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R051-Dry.el (U-00022189): Apply new conventions for
+	glyph granularity.
+	(UU+5E74): Unify MJ010944.
+	(HD-IB0671): Unify MJ010945.
+	(U+5E78): Apply new conventions for glyph granularity.
+	(HD-IB0672): Unify MJ057432.
+
 2019-10-23  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R016-Table.el (IU+2062F): Add `<-formed' for U+53B9;
