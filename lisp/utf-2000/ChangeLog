@@ -1,5 +1,13 @@
 2019-10-24  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R039-Child.el (U+5B68): Add `ideographic-structure';
+	unify CB12146.
+	(U-0002195D): Apply new conventions for glyph granularity.
+	(U+3743): Likewise.
+	(UU+3745): Unify MJ000730 and KOSEKI-079750.
+
+2019-10-24  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R051-Dry.el (U-00022189): Apply new conventions for
 	glyph granularity.
 	(UU+5E74): Unify MJ010944.
