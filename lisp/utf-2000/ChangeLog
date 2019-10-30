@@ -1,4 +1,63 @@
+2019-10-25  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R028-Private.el (U+53B9): Add
+	`<-denotational@component' for A-IWDSU+516C; add some relations
+	for other characters.
+	(CU+20AD7): Add `<-formed' for U+53B9.
+	(IU+2062F): Add `sound@ja/on/{kan|go}'; add `<-formed' for U+53B9;
+	add `->formed' for JU+72C3.
+	(IU+20AD7): Add `sound@ja/on'; unify CB05821; add `<-ancient' for
+	U+5BBF.
+	(U+53BA): Apply new conventions for glyph granularity.
+	(U+53BB): Likewise.
+	(A-IWDSU+20ADE): New abstract node.
+	(U-00020ADE): Apply new conventions for glyph granularity; add
+	`<-denotational' for A-IWDSU+20ADE.
+	(U+53BD): Apply new conventions for glyph granularity; unify
+	CB08647.
+	(U-0002D19A): New character.
+	(CB10923): New character; use `<-denotational' for U-0002D19A.
+	(U-00020AF7): Add `<-denotational@component' for A-IWDSU+20646;
+	apply new conventions for glyph granularity.
+	(U-0002D19C): New character; unify CB07259.
+	(A-cgnU+20AF9): New abstract node.
+	(U-00020AF9): Add `<-denotational' for A-cgnU+20AF9; apply new
+	conventions for glyph granularity.
+	(U+20AF9-itaiji-001): New character; use `<-denotational' for
+	A-cgnU+20AF9.
+	(U-0002D19F): New character; unify CB04121.
+	(U-00020532): Apply new conventions for glyph granularity.
+	(U-00020B0D): Add `<-denotational@component' for A-IWDSU+20B0D;
+	add ideographic-structure.
+	(U+3559): Add `<-denotational@component' for A-IWDSU+20B0D; apply
+	new conventions for glyph granularity.
+	(A-IWDSU+516C): New abstract node.
+
 2019-10-24  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R046-Mountain.el (U+21D49-itaiji-001): New character;
+	use `<-denotational' for IWDS1-0263.
+	(U-00021D42): New character; use `<-denotational' for IWDS1-0263.
+	(U-00021D49): Ditto.
+	(IU+21D49): Unify BC-8CEF; add GT-K01818.
+	(IWDS1-0263): New abstract node; add `<-denotational@component'
+	for A-IWDSU+21D48.
+	(U+21D42-itaiji-001): New character.
+	(U+5C91): Apply new conventions for glyph granularity.
+	(A-cgnU+5CA1): New abstract node.
+	(U+5CA1): Add `<-denotational' for A-cgnU+5CA1; apply new
+	conventions for glyph granularity.
+	(U-00021DAC): Apply new conventions for glyph granularity.
+	(U+5D19): Likewise.
+	(U-00021E26): Apply new conventions for glyph granularity for
+	components of ideographic-structure.
+	(U+5D17): Apply new conventions for glyph granularity.
+	(U-00021E33): New character.
+	(U-00021E34): Apply new conventions for glyph granularity for
+	(U-00021E5E): New character.
+	(U-00021EA9): New character.
+	(IU+21F21): Unify CB10478.
+	(U-00021F49): Apply new conventions for glyph granularity.
 
 	* Ideograph-R039-Child.el (U+5B68): Add `ideographic-structure';
 	unify CB12146.
