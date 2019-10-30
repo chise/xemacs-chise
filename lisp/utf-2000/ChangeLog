@@ -1,3 +1,9 @@
+2019-10-29  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R022-Right-Open-Box.el (U+5332): Apply new conventions
+	for glyph granularity.
+	(U+5333): Likewise.
+
 2019-10-25  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R028-Private.el (U+53B9): Add
