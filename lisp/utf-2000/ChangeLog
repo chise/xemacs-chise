@@ -1,3 +1,84 @@
+2019-11-01  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R020-Wrap.el: Add `=decomposition@cid' for some
+	Adobe-Japan1 abstract glyph-forms.
+	(A-IWDSU+52FC): New abstract node.
+	(U+52FC): Add `<-denotational@component' for A-IWDSU+52FC.
+	(CB10940): New character; use `<-denotational@component' for
+	A-IWDSU+52FC.
+	(U+5302): Apply new conventions for glyph granularity.
+	(U-000208CC): Use `->denotational' and `->subsumptive'.
+	(U-000208CE): Apply new conventions for glyph granularity.
+	(U-000208D0): Use `->subsumptive'.
+	(U-0002B9C0): New character.
+	(U-0002D145): New character.
+	(U-000208D2): Apply new conventions for glyph granularity.
+	(U-000208D3): Likewise.
+	(U-000208D6): Likewise.
+	(U-000208D7): Likewise.
+	(U-000208D5): Likewise.
+	(U-0002D147): New character; unify CB04834.
+	(U-0002D148): New character.
+	(U-000208D9): Apply new conventions for glyph granularity.
+	(U-000208DA): Likewise.
+	(U+530C): Likewise.
+	(U-000208DB): New character.
+	(U-000208DD): New character.
+	(U-0002D149): New character.
+	(U-0002D14A): New character.
+	(U+530D): Apply new conventions for glyph granularity.
+	(U-000208DF): Use `->denotational' and `->subsumptive'.
+	(U-000208E0): Apply new conventions for glyph granularity.
+	(U-000208E1): Likewise.
+	(U-000208E3): Likewise.
+	(U+530E): Likewise.
+	(U-000208E5): Use `->denotational' and `->subsumptive'.
+	(U-000208E6): Likewise.
+	(U-000208E7): Apply new conventions for glyph granularity.
+	(U-000208E8): Likewise.
+	(U-000208E9): Likewise.
+	(U-000208EA): Add `ideographic-structure'.
+	(U-000208EB): Apply new conventions for glyph granularity.
+	(U-000208ED): Likewise.
+	(U-0002B9C2): New character.
+	(U-0002B9C3): New character.
+	(A-GT-K06749): New abstract node.
+	(GT-K06749): Add `<-denotational' for A-GT-K06749.
+	(U-000208EE): Apply new conventions for glyph granularity.
+	(U-000208EF): Likewise.
+	(HD-FT2094): New character; use `<-denotational' for U+530F.
+	(U+5310): Apply new conventions for glyph granularity.
+	(U+3528): Use `->denotational' and `->subsumptive'.
+	(U-000208F1): Apply new conventions for glyph granularity.
+	(U-000208F3): Likewise.
+	(U+3529): Likewise.
+	(U-000208F5): Likewise.
+	(U-000208F6): New character.
+	(U-000208F7): New character.
+	(U-0002B9C4): New character.
+	(U+352A): Add `ideographic-structure'; add `sound@ja/on'.
+	(U-000208FA): Use `->denotational' and `->subsumptive'.
+	(U-000208FB): New character.
+	(U-000208FC): New character.
+	(U-0002D14E): New character.
+	(U-0002D14F): New character.
+	(U-000208FD): New character.
+	(U-00020900): Use `->denotational' and `->subsumptive'.
+	(U-00020901): New character.
+	(U-00020902): New character.
+	(U-00020903): New character.
+	(U-0002B9C5): Apply new conventions for glyph granularity.
+	(U-00020904): Likewise.
+	(U+5314): Use `->denotational' and `->subsumptive'.
+	(U-00020905): Apply new conventions for glyph granularity.
+	(U-00020906): New character.
+	(U-0002B9C6): New character.
+	(U-00020909): Apply new conventions for glyph granularity.
+	(U-0002090A): Use `->denotational' and `->subsumptive'.
+	(U-0002090C): New character.
+	(U-0002090D): New character.
+	(U-0002090B): Add `ideographic-structure'.
+
 2019-10-29  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R022-Right-Open-Box.el (U+5332): Apply new conventions
