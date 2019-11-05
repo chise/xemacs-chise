@@ -640,6 +640,7 @@
 	  (=>ucs-itaiji-005		    "A-U-i005+" 4 X)
 	  (=>ucs-itaiji-006		    "A-U-i006+" 4 X)
 	  (=>ucs-itaiji-007		    "A-U-i007+" 4 X)
+	  (=>ucs-itaiji-008		    "A-U-i008+" 4 X)
 	  (=>ucs-itaiji-009		    "A-U-i009+" 4 X)
 	  (=>ucs-itaiji-010		    "A-U-i010+" 4 X)
 	  (=>ucs-itaiji-011		    "A-U-i011+" 4 X)
