@@ -1,3 +1,8 @@
+2019-11-05  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R016-Table.el (U+51E2-itaiji-001): New character; use
+	`<-denotational' for A-IWDSU+51E2.
+
 2019-11-04  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R049-Oneself.el (GT-K01247): New character.
