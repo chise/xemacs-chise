@@ -1,3 +1,30 @@
+2019-11-04  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R049-Oneself.el (GT-K01247): New character.
+	(U-000200AC): Add `<-denotational@usage' for A2-DJT-02786; apply
+	new conventions for glyph granularity; unify DJT-02788.
+	(A-GT-K02013): Add `<-denotational@component' for A-IWDSU+20A0E.
+	(GT-K01869): Add `<-denotational@component' for A-IWDSU+20A0E.
+	(GT-K02013): Add `<-denotational@component' for A-IWDSU+20A0E.
+	(U+5DF5): Add `ideographic-structure'.
+	(U-0002D60B): New character; use `<-denotational@component' for
+	A-IWDSU+3540.
+	(A-IWDSU+5DF8): New abstract node.
+	(U+5DF8): Add `<-denotational' for A-IWDSU+5DF8; apply new
+	conventions for glyph granularity.
+	(U-0002D60D): New character; use `<-denotational' for
+	A-IWDSU+5DF8.
+	(A-IWDSU+5DF9): New abstract node; use `<-denotational@usage' for
+	A2-DJT-01043.
+	(U+5DF9): Use `<-denotational' for A-IWDSU+5DF9; apply new
+	conventions for glyph granularity.
+	(U+5DFD): Add `<-denotational@component' for A-IWDSU+5DFD.
+	(U-00022049): Add `<-denotational@component' for A-IWDSU+5DFD.
+	(U-0002D60F): New character.
+	(MJ057416): Unify DJT-01055.
+	(A-IWDSU+5DFD): New abstract node.
+	(A2-DJT-02786): New abstract node.
+
 2019-11-01  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R020-Wrap.el: Add `=decomposition@cid' for some
