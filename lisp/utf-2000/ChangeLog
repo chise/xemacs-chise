@@ -1,5 +1,8 @@
 2019-11-05  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R022-Right-Open-Box.el (U+5332): Add `sound@ja/on'.
+	(UU+5332): Add `<-formed@jiyun' for JU+5969.
+
 	* Ideograph-R016-Table.el (U+51E2-itaiji-001): New character; use
 	`<-denotational' for A-IWDSU+51E2.
 
