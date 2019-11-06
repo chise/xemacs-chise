@@ -2663,6 +2663,7 @@
       )
      ((=ucs		  . #x21657)	; 𡙗
       ))
+    (sound@ja/on	"reN")
     (=ucs		. #x5332)	; 匲
     ))
 (define-char
@@ -2691,6 +2692,10 @@
     (=shinjigen		.  0798)	; &AJ1-19205;
     (=cbeta		. 02324)	; &I-CB02324;
     (=jef-china3	. #x45BC)	; &I-JC3-45BC;
+    (<-formed@jiyun
+     ((=ucs@jis		  . #x5969)	; &AJ1-04559;
+      (=adobe-japan1-0	  . 04559)	; &AJ1-04559;
+      ))
     (<-vulgar
      ((=ucs@unicode	  . #x5333)	; &AJ1-04306;
       (=adobe-japan1-0	  . 04306)	; &AJ1-04306;
