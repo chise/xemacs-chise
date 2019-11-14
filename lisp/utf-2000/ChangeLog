@@ -1,3 +1,50 @@
+2019-11-12  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R027-Cliff.el (U-00020A32): Add
+	`<-denotational@component' for A-IWDSU+5C75; apply new conventions
+	for glyph granularity.
+	(U-0002BA02): New character; use `<-denotational@component' for
+	A-IWDSU+22053.
+	(U-000253A6): Apply new conventions for glyph granularity.
+	(MJ059407): Unify U-0002D183.
+	(U+5393): Apply new conventions for glyph granularity.
+	(U+3548): Likewise.
+	(U-00020A4A): Likewise.
+	(A-IWDSU+20A47): New abstract node.
+	(U+5396): Add `<-denotational' for A-IWDSU+20A47.
+	(U-00020A47): New character; use `<-denotational' for
+	A-IWDSU+20A47.
+	(U-00020A58): Apply new conventions for glyph granularity.
+	(IU+20A58): Unify CB08604.
+	(U+354D): Use `->subsumptive'.
+	(U+539F): Apply new conventions for glyph granularity.
+	(U-00020A72): Likewise.
+	(U-00020A76): Likewise.
+	(U-0002D186): New character.
+	(GT-K07115): New character.
+	(U+53A0): Apply new conventions for glyph granularity.
+	(U+53A1): Likewise.
+	(A-cgnU+20A7A): New abstract node.
+	(U-00020A7A): Add `<-denotational' for A-cgnU+20A7A.
+	(U+20A7A-itaiji-003): New character; use `<-denotational' for
+	A-cgnU+20A7A.
+	(U-00020A82): Apply new conventions for glyph granularity.
+	(M-02989): Unify MJ031906 and KOSEKI-034550; add `<-denotational'
+	for U-00020A82.
+	(U-00020A84): Apply new conventions for glyph granularity.
+	(CB08605): New character; use `<-denotational' for U-00020A84.
+	(CB10886): New character; use `<-denotational' for U-00020A72.
+	(U+53A5): Apply new conventions for glyph granularity.
+	(U-0002D18C): New character.
+	(U-0002D192): New character.
+	(U-00020AA9): Apply new conventions for glyph granularity; unify
+	CB01086.
+	(U-00020AB1): New character.
+	(U-0002D196): New character.
+	(U-00020ABE): New character.
+	(U+53B5): Apply new conventions for glyph granularity.
+	(UU+53B5): Unify CB09282.
+
 2019-11-05  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R022-Right-Open-Box.el (U+5332): Add `sound@ja/on'.
