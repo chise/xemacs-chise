@@ -6507,6 +6507,23 @@
     (=hanziku-1		. #xA973)	; &HZK01-A973;
     ))
 (define-char
+  '((ideographic-radical . 1)	; ⼀
+    (ideographic-strokes . 9)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x4E19)	; 丙
+      )
+     ((=ucs		  . #x4E19)	; 丙
+      ))
+    (=ruimoku-v6	. #xE0FF)	; &RUI6-E0FF;
+    (->subsumptive
+     ((==ruimoku-v6	  . #xE0FF)	; &g2-RUI6-E0FF;
+      ))
+    ))
+(define-char
   '((<-denotational@usage
      ((==>daijiten	  . 00042)	; &A2-DJT-00042;
       ))
