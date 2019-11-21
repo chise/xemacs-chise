@@ -3966,6 +3966,23 @@
     (=>ucs@cognate	. #x2B918)	; &A-cgnU+2B918;
     ))
 (define-char
+  '((ideographic-radical . 10)	; ⼉
+    (ideographic-strokes . 6)
+    (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5143)	; 元
+      )
+     ((=ucs		  . #x5143)	; 元
+      ))
+    (=ruimoku-v6	. #xE101)	; &RUI6-E101;
+    (->subsumptive
+     ((==ruimoku-v6	  . #xE101)	; &g2-RUI6-E101;
+      ))
+    ))
+(define-char
   '((<-denotational@component
      ((=>ucs@component	  . #x20486)	; &A-compU+20486;
       ))

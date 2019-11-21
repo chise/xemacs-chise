@@ -1,3 +1,7 @@
+2019-11-19  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R010-Legs.el (RUI6-E101): New character.
+
 2019-11-12  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R027-Cliff.el (U-00020A32): Add
