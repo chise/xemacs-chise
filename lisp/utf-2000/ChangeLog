@@ -1,4 +1,29 @@
+2019-11-20  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R001-One.el (RUI6-E0FF): New character.
+
 2019-11-19  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R034-Go.el (GT-K00207): New character; use
+	`<-subsumptive' for U+5902.
+	(A-cgnU+5905): New abstract node.
+	(U+5905): Add `<-denotational' for A-cgnU+5905; add
+	`ideographic-structure'; add `sound@ja/on'.
+	(UU+5905): Delete `=>ucs@iwds-1'; add `<-ancient' for UU+964D; add
+	`->mistakable' for UU+5906 and IU+21557.
+	(U+5905-itaiji-001): Use A-cgnU+5905 instead of U+5905 as its
+	mother.
+	(U+5906): Apply new conventions for glyph granularity for a
+	component of ideographic-structure.
+	(U-00021557): Apply new conventions for glyph granularity.
+	(A-GT-K03080): New abstract node; unify A-U+2158B-itaiji-002; add
+	`<-denotational@component' for A-compU+2158B.
+	(GT-K03080): New character; use `<-denotational@component' for
+	A-GT-K03080; unify U+2158B-itaiji-002.
+	(A-compU+3685): Changed from U+3685.
+	(C3-2B78): Unify U+3685 instead of A-IWDSU+3685 and UU+3685; use
+	A-compU+3685 instead of U+3685 as its mother.
+	(HD-TK01018450): Use A-compU+3685 instead of U+3685 as its mother.
 
 	* Ideograph-R010-Legs.el (RUI6-E101): New character.
 
