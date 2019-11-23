@@ -1255,6 +1255,23 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
+     ((=ucs		  . #x4E11)	; 丑
+      )
+     ((=ucs		  . #x5B50)	; 子
+      ))
+    (=>ruimoku-v6	. #xE098)	; &A-RUI6-E098;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ruimoku-v6	  . #xE098)	; &A-RUI6-E098;
+      ))
+    (ideographic-radical . 39)	; ⼦
+    (ideographic-strokes . 4)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
      ((=ucs@cns		  . #x4E11)	; &MJ006315;
       (=ucs@jis		  . #x4E11)	; &MJ006315;
       (=ucs@ks		  . #x4E11)	; &MJ006315;
