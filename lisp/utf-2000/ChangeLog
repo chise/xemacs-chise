@@ -1,3 +1,9 @@
+2019-11-26  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R003-Dot.el (G-UU+4E3B): New abstract-glyph node; use
+	`<-subsumptive' for U+4E3B.
+	(g2-UU+4E3B): Use G-UU+4E3B instead of U+4E3B as its mother.
+
 2019-11-20  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R001-One.el (RUI6-E0FF): New character.
