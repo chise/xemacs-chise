@@ -1,5 +1,17 @@
 2019-11-26  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R024-Ten.el (U-000209A7): Apply new conventions for
+	glyph granularity.
+	(M-02754): Add `<-denotational' for U-000209A7; unify IU+209A7,
+	MJ031757 and KOSEKI-031970.
+	(U-000209A8): Apply new conventions for glyph granularity.
+	(M-02755): Add `<-denotational' for U-000209A8; unify IU+209A8,
+	MJ031758 and KOSEKI-031980.
+	(U-000209A4): Add `<-denotational' for A-IWDSU+55AE; add
+	`ideographic-structure'; add `sound@ja/on'.
+
+2019-11-26  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R003-Dot.el (G-UU+4E3B): New abstract-glyph node; use
 	`<-subsumptive' for U+4E3B.
 	(g2-UU+4E3B): Use G-UU+4E3B instead of U+4E3B as its mother.
