@@ -1,3 +1,9 @@
+2019-11-30  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-conf.el (=>ucs-itaiji-002@iwds-1): New coded-charset
+	for XEmacs CHISE.
+	(=>ucs-bmp-itaiji-002@iwds-1): Ditto.
+
 2019-11-05  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
