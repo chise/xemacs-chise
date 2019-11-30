@@ -5168,6 +5168,29 @@
 		  mother	==ucs-itaiji-002
 		  min-code #x20000 max-code #x2FFFF
 		  registry "ucs00\\.itaiji002-2"))
+  (make-charset '=>ucs-itaiji-002@iwds-1
+		"uXXXX-itaiji-002's abstract characters based on IWDS-1"
+		'(long-name	"IWDS-1 abstract characters of UCS-itaiji-002"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+                  ;; =>iso-ir	177
+		  mother	=>ucs-itaiji-002))
+  (make-charset '=>ucs-bmp-itaiji-002@iwds-1
+		"IWDS-1 abstract characters of UCS-itaiji-002 in BMP"
+		'(long-name	"=>ucs-itaiji-002@iwds-1 in BMP"
+		  chars		256
+		  dimension	2
+		  columns	2
+		  graphic	2
+		  direction	l2r
+                  ;; =>iso-ir	177
+		  mother	=>ucs-itaiji-002@iwds-1
+		  min-code #x2E00
+		  max-code #x9FCC
+		  registry "ucs\\.itaiji002-0"))
 
   (make-charset '=ucs-itaiji-003
 		"uXXXX-itaiji-003 glyphs of GlyphWiki"
