@@ -4776,7 +4776,8 @@
     (=cns11643-6	. #x3964)	; &I-C6-3964; [25-68]
     (=daikanwa		. 49333)	; &I-M-49333;
     (->vulgar
-     ((=ucs		  . #x754F)	; 畏
+     ((=ucs@unicode	  . #x754F)	; &AJ1-01182;
+      (=adobe-japan1-0	  . 01182)	; &AJ1-01182;
       (=daikanwa	  . 21778)	; &I-M-21778;
       ))
     (->vulgar*sources
