@@ -1,3 +1,11 @@
+2019-12-01  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
+	setting for `=>ucs-itaiji-002@iwds-1'.
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`=>ucs-bmp-itaiji-002@iwds-1'.
+
 2019-11-30  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* mule/mule-conf.el (=>ucs-itaiji-002@iwds-1): New coded-charset
