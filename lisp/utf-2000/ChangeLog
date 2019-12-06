@@ -1,3 +1,8 @@
+2019-12-05  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R017-Open-Box.el (U-00020677): Use `->denotational'
+	and `->subsumptive'.
+
 2019-12-04  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R013-Down-Box.el (U+56D8): Apply new conventions for
