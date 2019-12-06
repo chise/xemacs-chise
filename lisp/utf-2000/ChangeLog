@@ -1,3 +1,22 @@
+2019-12-06  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R031-Enclosure.el (U+56D8): Apply new conventions for
+	glyph granularity.
+	(GT-K01419): New character.
+	(U+56DE): Add `sound@ja/on/{kan|go}', `sound@ja/on/tou' and
+	`sound@ja/on/conventional'; add some relations for other
+	characters.
+	(U+56DF): Add `sound@ja/on'; unify MJ008821 and KOSEKI-053610; add
+	some relations for other characters.
+	(U+56E7): Apply new conventions for glyph granularity.
+	(U+56EC): Add `sound@ja/on'; add `<-ancient' for U+9762; add
+	`->mistakable' for U+56DE.
+	(U+56FA): Apply new conventions for glyph granularity.
+	(U-000211DF): Likewise.
+	(U+5705): Likewise.
+	(U+5709): Likewise.
+	(U+571A): Likewise.
+
 2019-12-05  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R017-Open-Box.el (U-00020677): Use `->denotational'
