@@ -650,11 +650,13 @@
     (=daijiten		. 02418)	; &I-DJT-02418;
     (=shinjigen		.  1533)	; 寿
     (<-simplified@CN
-     ((=ucs		  . #x58FD)	; 壽
-      (=gb12345		  . #x4A59)	; 壽 [42-57]
+     ((=ucs@unicode	  . #x58FD)	; &AJ1-04537;
+      (=adobe-japan1-0	  . 04537)	; &AJ1-04537;
+      (=gb12345		  . #x4A59)	; &AJ1-04537; [42-57]
       ))
     (<-simplified@JP/Jouyou
-     ((=ucs		  . #x58FD)	; 壽
+     ((=ucs@unicode	  . #x58FD)	; &AJ1-04537;
+      (=adobe-japan1-0	  . 04537)	; &AJ1-04537;
       (=jis-x0208	  . #x5468)	; &I-J90-5468; [52-72]
       ))
     (->subsumptive
@@ -2683,12 +2685,14 @@
     (=daikanwa		. 07448)	; &I-M-07448;
     (=daijiten		. 02431)	; &I-DJT-02431;
     (<-ancient
-     ((=ucs		  . #x6A39)	; 樹
+     ((=ucs@unicode	  . #x6A39)	; &MJ014474;
+      (=mj		  . 014474)	; &MJ014474;
       ))
     (<-ancient$_1*sources
      jiyun)
     (<-interchangeable
-     ((=ucs		  . #x6A39)	; 樹
+     ((=ucs@unicode	  . #x6A39)	; &MJ014474;
+      (=mj		  . 014474)	; &MJ014474;
       (=daikanwa	  . 15496)	; &I-M-15496;
       ))
     (<-interchangeable$_1*sources
@@ -2996,7 +3000,7 @@
      ((=ucs		  . #x5BF8)	; 寸
       ))
     (=ucs@iso		. #x21B3D)	; &C6-5C30;
-    (=cns11643-6	. #x5C30)	; &C6-5C30; [60-16]
+    (=cns11643-6	. #x5C30)	; &I-C6-5C30; [60-16]
     (=daikanwa		. 07456)	; &I-M-07456;
     (=daijiten		. 02434)	; &I-DJT-02434;
     (=cbeta		. 05635)	; &I-CB05635;
@@ -3186,7 +3190,8 @@
     (<-formed*sources
      hng)
     (<-same
-     ((=ucs		  . #x58FD)	; 壽
+     ((=ucs@unicode	  . #x58FD)	; &AJ1-04537;
+      (=adobe-japan1-0	  . 04537)	; &AJ1-04537;
       (=daikanwa	  . 05672)	; &I-M-05672;
       ))
     (<-same*sources
@@ -3231,7 +3236,8 @@
     (=mj		. 057358)	; &MJ057358;
     (=koseki		. 084840)	; &MJ057358;
     (<-formed
-     ((=ucs		  . #x58FD)	; 壽
+     ((=ucs@unicode	  . #x58FD)	; &AJ1-04537;
+      (=adobe-japan1-0	  . 04537)	; &AJ1-04537;
       ))
     (<-formed*sources
      mj)
