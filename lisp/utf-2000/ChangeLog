@@ -1,3 +1,8 @@
+2019-12-08  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R005-Second.el (A-GT-K00383): Fix strokes.
+	(GT-K00676): New character.
+
 2019-12-06  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R031-Enclosure.el (U+56D8): Apply new conventions for
