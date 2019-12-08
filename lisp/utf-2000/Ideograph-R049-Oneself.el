@@ -943,7 +943,7 @@
      ((=ucs		  . #x5DF3)	; 巳
       ))
     (=ucs@jis		. #x5DF8)	; &AJ1-14496;
-    (=adobe-japan1-4	. 14496)	; &I-AJ1-14496;
+    (=adobe-japan1-4	. 14496)	; &AJ1-14496;
     (=jis-x0212		. #x3C22)	; &I-JSP-3C22; [28-02]
     (=daikanwa		. 08757)	; &I-M-08757;
     (=jef-china3	. #x4BF3)	; &I-JC3-4BF3;
@@ -1016,7 +1016,7 @@
       ))
     (=ucs@unicode	. #x5DF8)	; &C4-2C64;
     (=ucs@JP/hanazono	. nil)
-    (=cns11643-4	. #x2C64)	; &I-C4-2C64; [12-68]
+    (=cns11643-4	. #x2C64)	; &C4-2C64; [12-68]
     (->subsumptive
      ((==ucs@unicode	  . #x5DF8)	; &g2-UU+5DF8;
       (==ucs@JP/hanazono  . nil)

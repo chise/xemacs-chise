@@ -1083,6 +1083,27 @@
       ))
     ))
 (define-char
+  '((ideographic-radical . 5)	; ⼄
+    (ideographic-strokes . 2)
+    (total-strokes	 . 3)
+    (=>gt-k		. 00383)	; &A-GT-K00383;
+    (->subsumptive
+     ((=gt-k		  . 00383)	; &GT-K00383;
+      (=gt-pj-k2	  . #x3F77)	; &GT-K00383; [31-87]
+      (->subsumptive
+       ((==gt-k		    . 00383)	; &g2-GT-K00383;
+	(==gt-pj-k2	    . #x3F77)	; &g2-GT-K00383; [31-87]
+	))
+      )
+     ((=gt-k		  . 00299)	; &GT-K00299;
+      (=gt-pj-k1	  . #x3948)	; &GT-K00299; [25-40]
+      (->subsumptive
+       ((==gt-k		    . 00299)	; &g2-GT-K00299;
+	(==gt-pj-k1	    . #x3948)	; &g2-GT-K00299; [25-40]
+	))
+      ))
+    ))
+(define-char
   '((<-denotational@component
      ((=>ucs@component	  . #x2CF16)	; &A-compU+2CF16;
       ))
@@ -1550,21 +1571,22 @@
   '((ideographic-radical . 5)	; ⼄
     (ideographic-strokes . 3)
     (total-strokes	 . 4)
-    (=>gt-k		. 00383)	; &A-GT-K00383;
-    (->subsumptive
-     ((=gt-k		  . 00383)	; &GT-K00383;
-      (=gt-pj-k2	  . #x3F77)	; &GT-K00383; [31-87]
-      (->subsumptive
-       ((==gt-k		    . 00383)	; &g2-GT-K00383;
-	(==gt-pj-k2	    . #x3F77)	; &g2-GT-K00383; [31-87]
-	))
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=gt-k		  . 00299)	; &GT-K00299;
-      (=gt-pj-k1	  . #x3948)	; &GT-K00299; [25-40]
-      (->subsumptive
-       ((==gt-k		    . 00299)	; &g2-GT-K00299;
-	(==gt-pj-k1	    . #x3948)	; &g2-GT-K00299; [25-40]
-	))
+     ((=ucs		  . #x4E0A)	; 上
+      )
+     ((=ucs		  . #x4E5A)	; 乚
+      ))
+    (=gt-k		. 00676)	; &GT-K00676;
+    (=gt-pj-k1		. #x5931)	; &GT-K00676; [57-17]
+    (<-formed
+     ((=ucs		  . #x5C6F)	; 屯
+      ))
+    (->subsumptive
+     ((==gt-k		  . 00676)	; &g2-GT-K00676;
+      (==gt-pj-k1	  . #x5931)	; &g2-GT-K00676; [57-17]
       ))
     ))
 (define-char
