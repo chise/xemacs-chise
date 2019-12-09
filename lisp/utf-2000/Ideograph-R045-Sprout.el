@@ -478,6 +478,24 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=ucs		  . #x5C70)	; 屰
+      ))
+    (ideographic-radical . 45)	; ⼬
+    (ideographic-strokes . 3)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs@unicode	  . #x4491)	; &AJ1-18467;
+      (=adobe-japan1-5	  . 18467)	; &AJ1-18467;
+      )
+     ((=ucs		  . #xFA3C)	; 屮
+      ))
+    (=ucs-var-001	. #x5C70)	; &U-v001+5C70;
+    ))
+(define-char
   '((ideographic-radical . 45)	; ⼬
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
@@ -899,6 +917,59 @@
     (=big5-cdp		. #x8DB6)	; &CDP-8DB6;
     (->subsumptive
      ((==big5-cdp	  . #x8DB6)	; &g2-CDP-8DB6;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 45)	; ⼬
+    (ideographic-strokes . 5)
+    (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((=>ucs@component    . #x5200)	; &A-compU+5200;
+	(=>iwds-1	    .  0149)	; &A-compU+5200;
+	)
+       ((=>ucs@component    . #x5C6E)	; &A-compU+5C6E;
+	(=>iwds-1	    .  0096)	; &A-compU+5C6E;
+	))
+      )
+     ((=ucs		  . #x206A3)	; 𠚣
+      ))
+    (=>gt-k		. 04647)	; &A-GT-K04647;
+    ))
+(define-char
+  '((<-denotational
+     ((=>gt-k		  . 04647)	; &A-GT-K04647;
+      ))
+    (ideographic-radical . 45)	; ⼬
+    (ideographic-strokes . 5)
+    (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((name		    . "CJK RADICAL KNIFE ONE")
+	(=ucs		    . #x2E88)	; ⺈
+	)
+       ((=ucs		    . #x2F878)	; 屮
+	))
+      )
+     ((=big5-cdp	  . #x8DC9)	; &CDP-8DC9;
+      ))
+    (=gt-k		. 04647)	; &GT-K04647;
+    (=gt-pj-k1		. #x4173)	; &GT-K04647; [33-83]
+    (->subsumptive
+     ((==gt-k		  . 04647)	; &g2-GT-K04647;
+      (==gt-pj-k1	  . #x4173)	; &g2-GT-K04647; [33-83]
       ))
     ))
 (define-char
