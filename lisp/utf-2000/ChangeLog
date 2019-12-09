@@ -1,5 +1,42 @@
 2019-12-08  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R045-Sprout.el (U+5C70-var-001): New character; use
+	`<-denotational' for U+5C70.
+	(A-GT-K04647): New abstract node.
+	(GT-K04647): New character; use `<-denotational' for A-GT-K04647.
+
+	* Ideograph-R044-Corpse.el: Add `=decomposition@cid' for some
+	Adobe-Japan1 abstract glyph-forms.
+	(A-IWDSU+21C24): New abstract node.
+	(U-00021C24): Add `<-denotational' for A-IWDSU+21C24.
+	(U+5C3C): Apply new conventions for glyph granularity.
+	(UU+378D): Unify AJ1-13850.
+	(U+5C45): Apply new conventions for glyph granularity.
+	(A-GT-K04055): New abstract node; unify A-U+5C3F-itaiji-001; use
+	`<-denotational' for A-compU+3791; use `<-denotational@component'
+	for A-IWDSU+5C3F.
+	(U+5C3F-itaiji-001): New character; use `<-denotational' for
+	A-GT-K04055.
+	(GT-K04055): Use A-GT-K04055 instead of A-compU+3791; omit
+	`<-denotational@component' for A-IWDSU+5C3F; fix operator.
+	(U+5C4B): Apply new conventions for glyph granularity.
+	(U+5C55): Likewise.
+	(U-00021CAC): Likewise.
+
+	* Ideograph-R012-Eight.el (IWDS1-110+139a): Unify A-IWDSU+5177
+	instead of U+5177; use A-NIWDSU+5177 instead of A-IWDSU+72CA and
+	A-IWDSU+250EF for `<-denotational@component'.
+	(A-J0-3671): Unify U+5177 instead of A-UU+5177; use A-IWDSU+5177
+	instead of U+5177 as its mother; add `<-denotational@component'
+	for A-IWDSU+250EF.
+	(UU+5177): Add `<-denotational@component' for A-compU+5177.
+	(MJ016916): Moved to Ideograph-R037-Big.el; use A-IWDSU+5177
+	instead of U+5177; add `<-denotational@component' for A-compU+5177
+	and A-IWDSU+72CA.
+	(A-NIWDSU+5177): New abstract node.
+	(A-compU+5177): New abstract node; add `<-denotational@component'
+	for A-IWDSU+5177.
+
 	* Ideograph-R005-Second.el (A-GT-K00383): Fix strokes.
 	(GT-K00676): New character.
 
