@@ -2459,7 +2459,9 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=ucs		  . #x3C8B)	; 㲋
+     ((=ucs@unicode	  . #x3C8B)	; &C4-297B;
+      (=cns11643-4	  . #x297B)	; &C4-297B; [09-91]
+      (=daikanwa	  . 16751)	; &I-M-16751;
       )
      ((=ucs		  . #x5315)	; 匕
       ))
