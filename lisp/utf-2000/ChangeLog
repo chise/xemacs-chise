@@ -1,3 +1,11 @@
+2019-12-10  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R018-Knife.el (g2-UU+520D): Omit
+	`ideographic-structure'.
+
+	* Ideograph-R001-One.el (GT-00078): Add `<-denotational' for
+	A-cgnU+5937.
+
 2019-12-08  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R045-Sprout.el (U+5C70-var-001): New character; use
