@@ -2014,20 +2014,12 @@
     (=ucs@unicode	. #x520D)	; &G0-5B3B;
     (=gb2312		. #x5B3B)	; &G0-5B3B; [59-27]
     (<-simplified@CN
-     ((=ucs		  . #x82BB)	; 芻
-      (=gb12345		  . #x5B3B)	; 芻 [59-27]
+     ((=ucs@unicode	  . #x82BB)	; &AJ1-06328;
+      (=adobe-japan1-0	  . 06328)	; &AJ1-06328;
+      (=gb12345		  . #x5B3B)	; &AJ1-06328; [59-27]
       ))
     (->subsumptive
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	(=ucs		    . #x2FF1)	; ⿱
-	)
-       ((name		    . "CJK RADICAL KNIFE ONE")
-	(=ucs		    . #x2E88)	; ⺈
-	)
-       ((==ucs@unicode	    . #x5F50)	; &g2-UU+5F50;
-	))
-      (==ucs@unicode	  . #x520D)	; &g2-UU+520D;
+     ((==ucs@unicode	  . #x520D)	; &g2-UU+520D;
       (==gb2312		  . #x5B3B)	; &g2-UU+520D; [59-27]
       (->subsumptive
        ((===ucs@unicode	    . #x520D)	; &R-UU+520D;
