@@ -1,3 +1,12 @@
+2019-12-12  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R019-Power.el (U+52CB): Apply new conventions for
+	glyph granularity; use `<-denotational@usage' instead of
+	`<-denotational' for BUCS+52F3.
+	(U-0002D127): New character; use `<-denotational' for A-cgnU+5937.
+	(U+52DB): Use `<-denotational@usage' instead of `<-denotational'
+	for BUCS+52F3.
+
 2019-12-10  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R018-Knife.el (g2-UU+520D): Omit
