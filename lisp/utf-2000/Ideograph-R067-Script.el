@@ -98,17 +98,27 @@
     (ideographic-radical@daikanwa*sources
      daikanwa cns11643)
     (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x6587)	; 文
+      )
+     ((=big5-cdp	  . #x8BF5)	; &CDP-8BF5;
+      ))
     (=ucs		. #x9F50)	; 齐
     (=gb2312		. #x466B)	; &I-G0-466B; [38-75]
     (=cns11643-3	. #x2370)	; &I-C3-2370; [03-80]
     (=big5-cdp		. #x8A54)	; &I-CDP-8A54;
     (=daikanwa		. 13451)	; &I-M-13451;
     (<-simplified@CN
-     ((=ucs		  . #x9F4A)	; 齊
-      (=gb12345		  . #x466B)	; 齊 [38-75]
+     ((=ucs@unicode	  . #x9F4A)	; &AJ1-07457;
+      (=adobe-japan1-0	  . 07457)	; &AJ1-07457;
+      (=gb12345		  . #x466B)	; &AJ1-07457; [38-75]
       ))
     (<-vulgar
-     ((=ucs		  . #x9F4A)	; 齊
+     ((=ucs@unicode	  . #x9F4A)	; &AJ1-07457;
+      (=adobe-japan1-0	  . 07457)	; &AJ1-07457;
       (=daikanwa	  . 48560)	; &I-M-48560;
       ))
     (<-vulgar*sources
@@ -147,8 +157,9 @@
      ((=ucs		  . #x9F50)	; 齐
       ))
     (<-simplified@CN/component
-     ((=ucs		  . #x9F4A)	; 齊
-      (=gb12345		  . #x466B)	; 齊 [38-75]
+     ((=ucs@unicode	  . #x9F4A)	; &AJ1-07457;
+      (=adobe-japan1-0	  . 07457)	; &AJ1-07457;
+      (=gb12345		  . #x466B)	; &AJ1-07457; [38-75]
       ))
     ))
 (define-char
@@ -231,6 +242,14 @@
   '((ideographic-radical . 67)	; ⽂
     (ideographic-strokes . 4)
     (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x6587)	; 文
+      )
+     ((=big5-cdp	  . #x89C6)	; &CDP-89C6;
+      ))
     (=ucs		. #x6589)	; 斉
     (=adobe-japan1-0	. 02666)	; &I-AJ1-02666;
     (=jis-x0208		. #x4046)	; &I-J90-4046; [32-38]
@@ -242,7 +261,8 @@
     (=daikanwa		. 13454)	; &I-M-13454;
     (=shinjigen		.  9880)	; 斉
     (<-simplified@JP/Jouyou
-     ((=ucs		  . #x9F4A)	; 齊
+     ((=ucs@unicode	  . #x9F4A)	; &AJ1-07457;
+      (=adobe-japan1-0	  . 07457)	; &AJ1-07457;
       (=jis-x0208	  . #x736E)	; &I-J90-736E; [83-78]
       ))
     (->subsumptive
