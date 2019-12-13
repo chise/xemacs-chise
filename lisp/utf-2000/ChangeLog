@@ -1,5 +1,8 @@
 2019-12-12  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R067-Script.el (U+9F50): Add `ideographic-structure'.
+	(U+6589): Add `ideographic-structure'.
+
 	* Ideograph-R019-Power.el (U+52CB): Apply new conventions for
 	glyph granularity; use `<-denotational@usage' instead of
 	`<-denotational' for BUCS+52F3.
