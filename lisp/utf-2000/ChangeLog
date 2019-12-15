@@ -1,3 +1,9 @@
+2019-12-13  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R070-Square.el (A-cgnU+65C9): New abstract node.
+	(U+65C9): Add `<-denotational' for A-cgnU+65C9.
+	(U-0002C008): New character.
+
 2019-12-12  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R067-Script.el (U+9F50): Add `ideographic-structure'.
