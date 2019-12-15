@@ -41,7 +41,8 @@
      ((=ucs		  . #x59A8)	; 妨
       (=daikanwa	  . 06111)	; &I-M-06111;
       )
-     ((=ucs		  . #x653E)	; 放
+     ((=ucs@unicode	  . #x653E)	; &AJ1-03660;
+      (=adobe-japan1-0	  . 03660)	; &AJ1-03660;
       (=daikanwa	  . 13133)	; &I-M-13133;
       )
      ((=ucs@cns		  . #x623F)	; &HD-JT-B1D3;
@@ -115,7 +116,8 @@
     (<-interchangeable*sources
      daikanwa)
     (<-original@zhuangzi
-     ((=ucs		  . #x653E)	; 放
+     ((=ucs@unicode	  . #x653E)	; &AJ1-03660;
+      (=adobe-japan1-0	  . 03660)	; &AJ1-03660;
       ))
     (<-original@zhuangzi*sources
      shiwen)
@@ -1309,6 +1311,13 @@
     ))
 (define-char
   '((ideographic-radical . 70)	; ⽅
+    (=>ucs@cognate	. #x65C9)	; &A-cgnU+65C9;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@cognate	  . #x65C9)	; &A-cgnU+65C9;
+      ))
+    (ideographic-radical . 70)	; ⽅
     (ideographic-strokes . 7)
     (total-strokes	 . 11)
     (ideographic-structure
@@ -1684,6 +1693,28 @@
     (total-strokes	 . 11)
     (=ucs		. #x230F7)	; 𣃷
     (=cns11643-6	. #x404A)	; &I-C6-404A; [32-42]
+    ))
+(define-char
+  '((ideographic-radical . 70)	; ⽅
+    (ideographic-strokes . 7)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=cbeta		  . 12073)	; &U-i001+3AC3;
+      )
+     ((=ucs		  . #x53F2)	; 史
+      ))
+    (=ucs		. #x2C008)	; 𬀈
+    (=ruimoku-v6	. #xE0BB)	; &I-RUI6-E0BB;
+    (->subsumptive
+     ((==ucs@JP/hanazono  . #x2C008)	; &g2-hanaJU+2C008;
+      (==ruimoku-v6	  . #xE0BB)	; &g2-hanaJU+2C008;
+      (->subsumptive
+       ((===ruimoku-v6	    . #xE0BB)	; &R-RUI6-E0BB;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 70)	; ⽅
