@@ -453,9 +453,9 @@
       (=shinjigen	  .  2240)	; &AJ1-17605;
       (=jef-china3	  . #x4CD7)	; &I-JC3-4CD7;
       (<-formed
-       ((=ucs@jis/1990	    . #x5EFB)	; &AJ1-01398;
-	(=ucs@jis/2000	    . #x5EFB)	; &AJ1-01398;
-	(=adobe-japan1-0    . 01398)	; &AJ1-01398;
+       ((=ucs@jis/1990	    . #x5EFB)	; 廻
+	(=ucs@jis/2000	    . #x5EFB)	; 廻
+	(=adobe-japan1-0    . 01398)	; 廻
 	(=jis-x0208	    . #x3276)	; &I-J90-3276; [18-86]
 	(=jis-x0213-1@2000  . #x3276)	; &I-JX1-3276; [18-86]
 	(=shinjigen	    .  2239)	; 廻
@@ -624,10 +624,33 @@
     ))
 (define-char
   '((ideographic-radical . 54)	; ⼵
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
+      (=ucs		  . #x2FFA)	; ⿺
+      )
+     ((=ucs		  . #x5EF4)	; 廴
+      )
+     ((=>ucs@iwds-1	  . #x56DE)	; &A-IWDSU+56DE;
+      ))
+    (=>ucs@iwds-1	. #x5EFB)	; &A-IWDSU+5EFB;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@iwds-1	  . #x5EFB)	; &A-IWDSU+5EFB;
+      ))
+    (ideographic-radical . 54)	; ⼵
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
+      (=ucs		  . #x2FFA)	; ⿺
+      )
+     ((=ucs		  . #x5EF4)	; 廴
+      )
+     ((=ucs		  . #x56DE)	; 回
+      ))
     (=ucs		. #x5EFB)	; 廻
-    (=adobe-japan1-0	. 01398)	; &AJ1-01398;
+    (=adobe-japan1-0	. 01398)	; 廻
     (=adobe-japan1-4	. 13673)	; &I-AJ1-13673;
     (=jis-x0208		. #x3276)	; &I-J90-3276; [18-86]
     (=ks-x1001		. #x7C5F)	; &I-K0-7C5F; [92-63]
@@ -635,7 +658,7 @@
     (=jis-x0213-1	. #x3276)	; &I-JX1-3276; [18-86]
     (=gt		. 12063)	; &I-GT-12063;
     (=gt-pj-1		. #x3276)	; &I-GT-12063; [18-86]
-    (=daikanwa		. 09575)	; &I-M-09575;
+    (=daikanwa 		. 09575)	; &I-M-09575;
     (=shinjigen		.  2239)	; 廻
     (=cbeta		. 00327)	; &I-CB00327;
     (->subsumptive
@@ -759,14 +782,25 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 54)	; ⼵
+  '((<-denotational
+     ((=>ucs@iwds-1	  . #x5EFB)	; &A-IWDSU+5EFB;
+      ))
+    (ideographic-radical . 54)	; ⼵
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
+      (=ucs		  . #x2FFA)	; ⿺
+      )
+     ((=ucs		  . #x5EF4)	; 廴
+      )
+     ((=ucs		  . #x56EC)	; 囬
+      ))
     (=ucs		. #x5EFD)	; 廽
     (=adobe-japan1-5	. 17606)	; &I-AJ1-17606;
     (=cns11643-3	. #x306E)	; &I-C3-306E; [16-78]
     (=jis-x0213-2	. #x2C2C)	; &I-JX2-2C2C; [12-12]
-    (=daikanwa		. 09577)	; &I-M-09577;
+    (=daikanwa 		. 09577)	; &I-M-09577;
     (=shinjigen		.  2241)	; 廽
     (<-vulgar
      ((=ucs		  . #x5EFB)	; 廻
