@@ -2215,6 +2215,15 @@
     (ideographic-radical . 7)	; ⼆
     (ideographic-strokes . 8)
     (total-strokes	 . 10)
+    (=big5-cdp-var-001	. #x87A5)	; &CDP-v001-87A5;
+    ))
+(define-char
+  '((<-denotational
+     ((=>big5-cdp	  . #x87A5)	; &A-CDP-87A5;
+      ))
+    (ideographic-radical . 7)	; ⼆
+    (ideographic-strokes . 8)
+    (total-strokes	 . 10)
     (=big5-cdp		. #x87A5)	; &CDP-87A5;
     (->subsumptive
      ((==big5-cdp	  . #x87A5)	; &g2-CDP-87A5;
