@@ -1,3 +1,17 @@
+2019-12-27  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R012-Eight.el (A-IWDSU+5171): Add
+	`ideographic-structure'.
+	(U+5171): Likewise.
+	(o-UU+5171): New abstract glyph node; use `<-denotational' for
+	U+5171.
+	(UU+5171): Use o-UU+5171 instead of U+5171 as its mother.
+	(U+34B8): Add `sound@ja/on/{kan|go}'.
+	(M-01477): Unify MJ000143 and KOSEKI-017260; add
+	`->interchangeable' for KU+9042.
+	(UU+34B8): Apply new conventions for glyph granularity.
+	(U-00020528): Likewise.
+
 2019-12-26  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R037-Big.el (U+5927): Add A-compU+5927 as a target of
