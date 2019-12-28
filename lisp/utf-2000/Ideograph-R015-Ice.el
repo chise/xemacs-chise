@@ -4413,7 +4413,6 @@
   '((ideographic-radical . 15)	; ⼎
     (ideographic-strokes . 10)
     (total-strokes	 . 12)
-    (hanyu-dazidian	1 300 11)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -4422,28 +4421,38 @@
       )
      ((=ucs		  . #x51A5)	; 冥
       ))
+    (sound@ja/on/go	"mIyAu")
+    (sound@ja/on/kan	"mei")
     (=ucs		. #x51D5)	; 凕
-    (=adobe-japan1-6	. 21187)	; &I-AJ1-21187;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x51D5)	; 凕
+      ))
+    (ideographic-radical . 15)	; ⼎
+    (ideographic-strokes . 10)
+    (total-strokes	 . 12)
+    (hanyu-dazidian	1 300 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x51AB)	; 冫
+      )
+     ((=ucs@unicode	  . #x51A5)	; &AJ1-03785;
+      (=adobe-japan1-0	  . 03785)	; &AJ1-03785;
+      ))
+    (=ucs@unicode	. #x51D5)	; &AJ1-21187;
+    (=adobe-japan1-6	. 21187)	; &AJ1-21187;
     (=jis-x0212		. #x3326)	; &I-JSP-3326; [19-06]
     (=cns11643-4	. #x363F)	; &I-C4-363F; [22-31]
     (=daikanwa		. 01692)	; &I-M-01692;
-    (=hanziku-1		. #xE3E1)	; &I-HZK01-E3E1;
     (=jef-china3	. #x44A1)	; &I-JC3-44A1;
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x51D5)	; 凕
 	)
        ((=ucs		    . #xE0100)	; 󠄀
-	))
-      (ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	(=ucs		    . #x2FF0)	; ⿰
-	)
-       ((==ucs@unicode	    . #x51AB)	; &g2-AJ1-04233;
-	(==adobe-japan1-0   . 04233)	; &g2-AJ1-04233;
-	)
-       ((==ucs@unicode	    . #x51A5)	; &g2-AJ1-03785;
-	(==adobe-japan1-0   . 03785)	; &g2-AJ1-03785;
 	))
       (==ucs@unicode	  . #x51D5)	; &g2-AJ1-21187;
       (==adobe-japan1-6	  . 21187)	; &g2-AJ1-21187;
@@ -4460,6 +4469,8 @@
        ((===ucs@unicode	    . #x51D5)	; &R-UU+51D5;
 	)
        ((===cns11643-4	    . #x363F)	; &R-C4-363F; [22-31]
+	)
+       ((=hanziku-1	    . #xE3E1)	; &HZK01-E3E1;
 	))
       ))
     ))
