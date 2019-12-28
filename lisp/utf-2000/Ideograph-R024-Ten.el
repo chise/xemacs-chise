@@ -2360,6 +2360,10 @@
       )
      ((ideographic-strokes . 5)
       (total-strokes	   . 7)
+      (=ucs-var-005	  . #x24C1E)	; &U-v005+24C1E;
+      )
+     ((ideographic-strokes . 5)
+      (total-strokes	   . 7)
       (ideographic-structure
        ((=ucs-itaiji-001    . #x2FF9)	; &U-i001+2FF9;
 	)
@@ -2906,6 +2910,21 @@
     (ideographic-radical@daikanwa . 102)	; ⽥
     (ideographic-strokes@daikanwa . 3)
     (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x7530)	; 田
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=ucs		    . #x4E3F)	; 丿
+	)
+       ((=ucs		    . #x5341)	; 十
+	))
+      ))
     (sound@ja/on	"hi")
     (=mj		. 041344)	; &MJ041344;
     (=hanyo-denshi/ks	. 243860)	; &MJ041344;
