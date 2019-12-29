@@ -1,5 +1,12 @@
 2019-12-27  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R024-Ten.el (U+24C1E-var-005): New character; use
+	`<-subsumptive' for o-IU+24C1E.
+	(MJ041344): Add `ideographic-structure'.
+
+	* Ideograph-R015-Ice.el (U+51D5): Apply new conventions for glyph
+	granularity.
+
 	* Ideograph-R012-Eight.el (A-IWDSU+5171): Add
 	`ideographic-structure'.
 	(U+5171): Likewise.
