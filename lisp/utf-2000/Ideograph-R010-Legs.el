@@ -1408,7 +1408,7 @@
       ))
     (sound@ja/kun	"hikari" "hika+r5")
     (sound@ja/kun/name	"hikaru" "mitu" "akira" "aki")
-    (sound@ja/on	"kwAu")
+    (sound@ja/on	"kWAu")
     (=ucs		. #x5149)	; 光
     ))
 (define-char
@@ -1442,6 +1442,91 @@
     (=gt-pj-1		. #x3877)	; &I-GT-01745; [24-87]
     (=daikanwa		. 01350)	; &I-M-01350;
     (=shinjigen		.  0451)	; &MJ007221;
+    (<-interchangeable
+     ((=ucs@jis		  . #x5EE3)	; &MJ011077;
+      (=ucs@ks		  . #x5EE3)	; &MJ011077;
+      (=mj		  . 011077)	; &MJ011077;
+      (=daikanwa	  . 09493)	; &I-M-09493;
+      )
+     ((=ucs@unicode	  . #x6844)	; &AJ1-08495;
+      (=adobe-japan1-2	  . 08495)	; &AJ1-08495;
+      (=daikanwa	  . 14758)	; &I-M-14758;
+      )
+     ((=ucs@cns		  . #x832A)	; &C2-3246;
+      (=cns11643-2	  . #x3246)	; &C2-3246; [18-38]
+      (=daikanwa	  . 30898)	; &I-M-30898;
+      )
+     ((=ucs@unicode	  . #x80F1)	; &AJ1-06246;
+      (=adobe-japan1-0	  . 06246)	; &AJ1-06246;
+      (=daikanwa	  . 29432)	; &I-M-29432;
+      )
+     ((=ucs@jis		  . #x50D9)	; &AJ1-15408;
+      (=adobe-japan1-4	  . 15408)	; &AJ1-15408;
+      (=daikanwa	  . 01098)	; &I-M-01098;
+      ))
+    (<-interchangeable$_1*sources
+     shuowen-tongxun-dingsheng daikanwa)
+    (<-interchangeable$_2*sources
+     shiwen daikanwa)
+    (<-interchangeable$_3*sources
+     shiwen daikanwa)
+    (<-interchangeable$_4*sources
+     shuowen-tongxun-dingsheng daikanwa)
+    (<-interchangeable$_5*sources
+     jiyun daikanwa)
+    (<-interchangeable*sources
+     daikanwa)
+    (<-same
+     ((=ucs@unicode	  . #x706E)	; &AJ1-18011;
+      (=adobe-japan1-5	  . 18011)	; &AJ1-18011;
+      (=daikanwa	  . 18854)	; &I-M-18854;
+      ))
+    (<-same$_1*sources
+     zhengzitong daikanwa)
+    (<-same*sources
+     zhengzitong daikanwa)
+    (->ancient
+     ((=ucs@iso		  . #x243AB)	; &C7-2F64;
+      (=cns11643-7	  . #x2F64)	; &C7-2F64; [15-68]
+      (=daikanwa	  . 19428)	; &I-M-19428;
+      )
+     ((=ucs@unicode	  . #x7097)	; &AJ1-18014;
+      (=adobe-japan1-5	  . 18014)	; &AJ1-18014;
+      (=daikanwa	  . 18920)	; &I-M-18920;
+      )
+     ((=ucs@iso		  . #x2426D)	; &C6-4A7A;
+      (=cns11643-6	  . #x4A7A)	; &C6-4A7A; [42-90]
+      (=daikanwa	  . 19153)	; &I-M-19153;
+      )
+     ((=ucs@iso		  . #x20211)	; &C6-294E;
+      (=cns11643-6	  . #x294E)	; &C6-294E; [09-46]
+      (=daikanwa	  . 00618)	; &I-M-00618;
+      ))
+    (->ancient$_1*sources
+     shuowen daikanwa)
+    (->ancient$_2*sources
+     shuowen daikanwa)
+    (->ancient$_3*sources
+     jiyun daikanwa)
+    (->ancient$_4*sources
+     zihui-bu daikanwa)
+    (->ancient*sources
+     daikanwa)
+    (->formed
+     ((=daikanwa	  . 40130)	; &M-40130;
+      ))
+    (->formed$_1*sources
+     jiyun daikanwa)
+    (->formed*sources
+     jiyun daikanwa)
+    (->original
+     ((=ucs@unicode	  . #x706E)	; &AJ1-18011;
+      (=adobe-japan1-5	  . 18011)	; &AJ1-18011;
+      ))
+    (->original$_1*sources
+     zhengzitong)
+    (->original*sources
+     zhengzitong)
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x5149)	; 光

@@ -1,3 +1,8 @@
+2019-12-29  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R010-Legs.el (UU+5149): Add some relations for other
+	characters.
+
 2019-12-27  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R024-Ten.el (U+24C1E-var-005): New character; use
