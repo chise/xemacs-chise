@@ -436,6 +436,18 @@
 	(U+52DB): Use `<-denotational@usage' instead of `<-denotational'
 	for BUCS+52F3.
 
+2020-12-12  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen.el (SW-JIGUGE5-09919): Add "暋" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE5-09819): Likewise.
+	(SW-JIGUGE5-14916): Use "㔳" instead of "㔲" as a target of
+	`<-Small-Seal@shuowen'; add `<-Small-Seal@shuowen-zhu' for "㔲".
+	(SW-JIGUGE4-14616): Likewise.
+	(SW-JIGUGE5-15216): Add "𢍌" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-14916): Likewise.
+
 2019-12-10  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R018-Knife.el (g2-UU+520D): Omit
