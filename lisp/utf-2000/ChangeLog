@@ -1,5 +1,38 @@
 2019-12-29  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R028-Private.el (U+3555): Add `ideographic-structure';
+	add `sound@ja/on'; add `<-ancient' for UU+5E7B.
+	(U+53B8): Apply new conventions for glyph granularity.
+	(U-00020AEB): Likewise.
+	(U-00020AEC): Likewise.
+	(U-00020AEF): Likewise.
+	(IWDS1-0016): Use `<-denotational@usage' instead of
+	`<-denotational' for BUCS+53C3.
+	(U-00020AF0): Apply new conventions for glyph granularity.
+	(IWDS1-0017): Use `<-denotational@usage' instead of
+	`<-denotational' for BUCS+53C3.
+	(U+3558): Use `<-denotational@usage' instead of `<-denotational'
+	for BUCS+53C3.
+	(U+53C5): Likewise.
+
+	* Ideograph-R027-Cliff.el (U+53AE): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R014-Cover.el (U-0002057E): Add
+	`ideographic-structure'.
+	(U+51A5): Apply new conventions for glyph granularity.
+	(U-0002059C): Likewise.
+
+	* Ideograph-R013-Down-Box.el (U-0002053C): Use "⿵" instead of
+	"⿴" as the operator; add `sound@ja/on/{kan|go}'; add `->formed'
+	for IU+25206.
+	(U+5183): Use "⿵" instead of "⿴" as the operator.
+	(UU+5183): Add some relations for other characters.
+	(U+56D8-itaiji-001): New character; use `<-denotational' for
+	U+56D8.
+
+2019-12-29  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R010-Legs.el (UU+5149): Add some relations for other
 	characters.
 
