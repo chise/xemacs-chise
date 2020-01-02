@@ -1,3 +1,12 @@
+2019-12-31  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R054-Long-Stride.el (U-0002231E): Apply new
+	conventions for glyph granularity.
+	(CB04967): New character; use `<-denotational' for U-0002231E.
+	(U+5EFB): Add `sound@ja/on/{kan|go}' and
+	`sound@ja/on/conventional'.
+	(U+5EFD): Add `sound@ja/on'.
+
 2019-12-29  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R028-Private.el (U+3555): Add `ideographic-structure';
