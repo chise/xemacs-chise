@@ -1,3 +1,22 @@
+2020-01-02  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* char-db-util.el (char-db-coded-charset-priority-list): Add
+	`=ucs-var-007'.
+
+	* Ideograph-R052-Short-Thread.el (U+5E7B): Apply new conventions
+	for glyph granularity.
+	(U-000221B0): Likewise.
+	(CB11996): New character; use `<-denotational' for U-000221B0.
+	(U+5E7C): Apply new conventions for glyph granularity.
+	(U-000221B6): Likewise.
+	(U-000221BB): Likewise.
+	(U-000221BC): Likewise.
+	(A-GT-K04964): New abstract node; unify A-U+386D-itaiji-001.
+	(GT-K04964): Add `<-denotational' for A-GT-K04964.
+	(U+5E7D): Apply new conventions for glyph granularity.
+	(U-000221C5): Likewise.
+	(U-000221C7): Likewise.
+
 2019-12-31  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R054-Long-Stride.el (U-0002231E): Apply new
