@@ -1,3 +1,54 @@
+2020-01-05  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R055-Two-Hands.el: Add Daijiten numbers.
+	(A-compU+5EFE): New abstract node; use `<-denotational@component'
+	for A-compU+4E0C.
+	(U+5EFE): Add `<-denotational' for A-compU+5EFE; unify IWDS1-0179.
+	(U-0002232C): Add `<-denotational@component' for A-IWDSU+2232C.
+	(U+5F00): Use `<-denotational@usage' instead of `<-denotational'
+	for BUCS+958B; add `sound@ja/kun'; add `<-same' for UU+5176.
+	(A-U+5EFE-itaiji-003): New abstract node; use
+	`<-denotational@usage' for A2-DJT-03010.
+	(U+5EFE-itaiji-003): New character; use `<-denotational' for
+	A-U+5EFE-itaiji-003.
+	(U+5F01): Use `<-denotational@usage' instead of `<-denotational'
+	for BUCS+8FA8; apply new conventions for glyph granularity.
+	(M-09591): Unify MJ011126 and KOSEKI-108510.
+	(U-00020020): Apply new conventions for glyph granularity.
+	(U+5F04): Likewise.
+	(UU+5F06): Likewise.
+	(U-0002233D): Unify CB02228; add `<-simplified@JP/buddhism' for
+	"涅槃".
+	(U-0002233F): Add `<-denotational' for IWDS1-0074.
+	(IU+2233F): Add `<-vulgar' for UU+7540.
+	(U+5F07): Apply new conventions for glyph granularity.
+	(A-cgnU+5F08): New abstract node.
+	(U+5F08): Add `<-denotational' for A-cgnU+5F08.
+	(UU+5F08): Omit `=>ucs@iwds-1'.
+	(HNG-KAR0114-0): Use A-cgnU+5F08 instead of U+5F08 as the mother;
+	add `ideographic-structure'.
+	(U+5F09): Apply new conventions for glyph granularity.
+	(HD-FT2175): New character; use `<-denotational' for U+5F09.
+	(UU+8201): Unify MJ021326.
+	(IU+2234F): Unify CB10749.
+	(U-00022354): Apply new conventions for glyph granularity.
+	(A-cgnU+22359): New abstract node.
+	(U-00022359): Add `<-denotational' for A-cgnU+22359; apply new
+	conventions for glyph granularity.
+	(A-U+22359-itaiji-001): New abstract node; use `<-denotational'
+	for A-cgnU+22359.
+	(U+22359-itaiji-001): New character; use `<-denotational' for
+	A-U+22359-itaiji-001.
+	(U-0002235C): Add `<-denotational@usage' for BUCS+5C0A; apply new
+	conventions for glyph granularity.
+	(U-0002AAB6): New character.
+	(U-00022362): Apply new conventions for glyph granularity.
+	(U+38A3): Likewise.
+	(U-0002236F): Likewise.
+	(U-0002D69C): New character.
+	(U-0002D69D): New character.
+	(A-IWDSU+2232C): New abstract node.
+
 2020-01-02  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* char-db-util.el (char-db-coded-charset-priority-list): Add
