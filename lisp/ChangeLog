@@ -1,3 +1,8 @@
+2020-01-06  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
+	setting for `=ucs-var-007'.
+
 2019-12-30  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* mule/mule-charset.el (default-coded-charset-priority-list): Add
