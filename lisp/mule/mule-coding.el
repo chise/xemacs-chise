@@ -5,7 +5,8 @@
 ;; Copyright (C) 1995 Amdahl Corporation.
 ;; Copyright (C) 1995 Sun Microsystems.
 ;; Copyright (C) 1997, 1999, 2002, 2003, 2004, 2005, 2006, 2008, 2009,
-;;   2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019 MORIOKA Tomohiko
+;;   2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020
+;;   MORIOKA Tomohiko
 
 ;; This file is part of XEmacs.
 
@@ -361,6 +362,7 @@
 	  ( =ucs-var-004		      "U-v004+" 4 X)
 	  ( =ucs-var-005		      "U-v005+" 4 X)
 	  ( =ucs-var-006		      "U-v006+" 4 X)
+	  ( =ucs-var-007		      "U-v007+" 4 X)
 	  ( =ucs-var-008		      "U-v008+" 4 X)
 	  ( =ucs-var-010		      "U-v010+" 4 X)
 	  ( =ucs-itaiji-001		      "U-i001+" 4 X)
