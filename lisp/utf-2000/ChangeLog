@@ -49,6 +49,16 @@
 	(U-0002D69D): New character.
 	(A-IWDSU+2232C): New abstract node.
 
+2020-01-04  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R057-Bow.el (U-000223AF): New character.
+	(U+38B2): Apply new conventions for glyph granularity.
+	(U-000223DA): Changed from A-IWDSU+223DA.
+	(C6-3078): Unify IU+223DA instead of U-000223DA; use U-000223DA
+	instead of A-IWDSU+223DA as the mother; unify BC-88E4; add
+	`<-same' and `->original' for IU+24CAE.
+	(BC-8AC2): Use U-000223DA instead of A-IWDSU+223DA as the mother.
+
 2020-01-02  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* char-db-util.el (char-db-coded-charset-priority-list): Add
