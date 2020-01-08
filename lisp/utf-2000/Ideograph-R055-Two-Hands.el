@@ -2780,7 +2780,7 @@
     ))
 (define-char
   '((<-denotational@usage
-     ((==>daijiten	  . 02010)	; &BUCS+5967;
+     ((==>daijiten	  . 02010)	; &A2-DJT-02010;
       ))
     (ideographic-radical . 55)	; ⼶
     (ideographic-structure
