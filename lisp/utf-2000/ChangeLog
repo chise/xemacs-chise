@@ -1,3 +1,26 @@
+2020-01-08  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R042-Small.el (U+5C11): Add `ideographic-structure'.
+	(UU+5C11): Omit `=>ucs@iwds-1'.
+	(A-IWDSU+5C12): New abstract node.
+	(GT-09427): Unify U-00021B57; use A-IWDSU+5C12 instead of U+5C12
+	as its mother.
+	(AJ1-16836): Unify U+5C12 instead of UU+5C12; use A-IWDSU+5C12
+	instead of U+5C12 as its mother.
+	(U+5C17): Add `ideographic-structure'; unify CB08100.
+	(GT-K05014): Moved to Ideograph-R030-Mouth.el; use `<-subsumptive'
+	for hanaJU+2BA60 instead of `<-denotational' for U+5C1A.
+	(U-00021B67): New character.
+	(BC-8BC4): New character.
+	(U+5C1D): Apply new conventions for glyph granularity.
+	(U-00021B71): New character.
+	(U-000202D3): Apply new conventions for glyph granularity.
+	(A-U+7576-itaiji-001): New abstract node.
+	(U+7576-itaiji-001): New character; use `<-denotational' for
+	A-U+7576-itaiji-001.
+	(U-00021BA4): New character.
+	(U-00021BA9): New character.
+
 2020-01-05  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R055-Two-Hands.el: Add Daijiten numbers.
