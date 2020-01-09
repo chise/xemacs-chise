@@ -23999,12 +23999,15 @@
     (=cns11643-6	. #x3623)	; &I-C6-3623; [22-03]
     (=daikanwa		. 03691)	; &I-M-03691;
     (<-formed
-     ((=ucs		  . #x20E4D)	; 𠹍
+     ((=ucs@iso		  . #x20E4D)	; &C5-3E3F;
+      (=cns11643-5	  . #x3E3F)	; &C5-3E3F; [30-31]
+      (=daikanwa	  . 04062)	; &I-M-04062;
       ))
     (<-formed$_1*sources
      jiyun)
     (<-same
-     ((=ucs		  . #x20E4D)	; 𠹍
+     ((=ucs@iso		  . #x20E4D)	; &C5-3E3F;
+      (=cns11643-5	  . #x3E3F)	; &C5-3E3F; [30-31]
       (=daikanwa	  . 04062)	; &I-M-04062;
       ))
     (<-same*sources
@@ -26289,6 +26292,7 @@
      ((=ucs		  . #x53E3)	; 口
       )
      ((=>ucs@iwds-1	  . #x7680)	; &A-IWDSU+7680;
+      (=>ucs@iwds-1/normalized . #x7680)	; &A-IWDSU+7680;
       (=>iwds-1		  .  0355)	; &A-IWDSU+7680;
       ))
     (=ucs		. #x5523)	; 唣
@@ -39244,7 +39248,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
       (=ucs		  . #x2FF9)	; ⿹
       )
-     ((=>ucs@iwds-1	  . #x223DA)	; 𢏚
+     ((=ucs		  . #x223DA)	; 𢏚
       )
      ((=ucs		  . #x53E3)	; 口
       ))
@@ -45136,7 +45140,6 @@
   '((ideographic-radical . 30)	; ⼝
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
-    (hanyu-dazidian	1 671 9)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -45148,7 +45151,26 @@
     (sound@ja/on/go	"yu")
     (sound@ja/on/kan	"you")
     (=ucs		. #x20E4D)	; 𠹍
-    (=cns11643-5	. #x3E3F)	; &I-C5-3E3F; [30-31]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x20E4D)	; 𠹍
+      ))
+    (ideographic-radical . 30)	; ⼝
+    (ideographic-strokes . 10)
+    (total-strokes	 . 13)
+    (hanyu-dazidian	1 671 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x53E3)	; 口
+      )
+     ((=ucs@unicode	  . #x5BB9)	; &AJ1-03888;
+      (=adobe-japan1-0	  . 03888)	; &AJ1-03888;
+      ))
+    (=ucs@iso		. #x20E4D)	; &C5-3E3F;
+    (=cns11643-5	. #x3E3F)	; &C5-3E3F; [30-31]
     (=daikanwa		. 04062)	; &I-M-04062;
     (=cbeta		. 11737)	; &I-CB11737;
     (->formed
