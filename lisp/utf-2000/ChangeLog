@@ -1,5 +1,10 @@
 2020-01-08  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R057-Bow.el (U-000223DA): Unify IWDS1-0218.
+
+	* Ideograph-R030-Mouth.el (U-00020E4D): Apply new conventions for
+	glyph granularity.
+
 	* Ideograph-R042-Small.el (U+5C11): Add `ideographic-structure'.
 	(UU+5C11): Omit `=>ucs@iwds-1'.
 	(A-IWDSU+5C12): New abstract node.
