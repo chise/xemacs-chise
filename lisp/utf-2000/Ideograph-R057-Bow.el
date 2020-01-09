@@ -3146,6 +3146,7 @@
     (sound@ja/on/go	"zyu" "zyu")
     (sound@ja/on/kan	"sIu" "tIu")
     (=ucs		. #x223DA)	; 𢏚
+    (=>iwds-1		.  0218)	; 𢏚
     ))
 (define-char
   '((<-denotational
