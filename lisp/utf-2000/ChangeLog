@@ -1,3 +1,13 @@
+2020-01-10  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R018-Knife.el (A-U+4ECB-itaiji-003): New abstract
+	node; use `<-denotational' for A-cgnU+4ECB; use
+	`<-denotational@component' for A-cgnU+5206.
+	(U+4ECB-itaiji-003): New character; use `<-denotational' for
+	A-U+4ECB-itaiji-003.
+	(GT-K00798): Use `<-denotational' for A-U+4ECB-itaiji-003 instead
+	of `<-denotational@component' for A-cgnU+5206.
+
 2020-01-08  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R057-Bow.el (U-000223DA): Unify IWDS1-0218.
