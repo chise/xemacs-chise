@@ -1,5 +1,12 @@
 2020-01-10  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R029-Again.el (A-U+3C7F-itaiji-001): New abstract
+	node; use `<-denotational' for A-cgnU+3C7F.
+	(U+3C7F-itaiji-001): New character; use `<-denotational' for
+	A-U+3C7F-itaiji-001.
+
+2020-01-10  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R018-Knife.el (A-U+4ECB-itaiji-003): New abstract
 	node; use `<-denotational' for A-cgnU+4ECB; use
 	`<-denotational@component' for A-cgnU+5206.

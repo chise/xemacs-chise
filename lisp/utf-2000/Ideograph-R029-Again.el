@@ -3983,6 +3983,43 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=>ucs@cognate	  . #x3C7F)	; &A-cgnU+3C7F;
+      ))
+    (ideographic-radical . 29)	; ⼜
+    (ideographic-strokes . 7)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=>ucs-itaiji-003	  . #x21249)	; &A-U-i003+21249;
+      )
+     ((=ucs		  . #x20B1A)	; 𠬚
+      ))
+    (=>ucs-itaiji-001	. #x3C7F)	; &A-U-i001+3C7F;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs-itaiji-001	  . #x3C7F)	; &A-U-i001+3C7F;
+      ))
+    (ideographic-radical . 29)	; ⼜
+    (ideographic-strokes . 7)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs-itaiji-003	  . #x21249)	; &U-i003+21249;
+      )
+     ((=ucs		  . #x20B1A)	; 𠬚
+      ))
+    (=ucs-itaiji-001	. #x3C7F)	; &U-i001+3C7F;
+    (->subsumptive
+     ((==ucs-itaiji-001	  . #x3C7F)	; &g2-U-i001+3C7F;
+      ))
+    ))
+(define-char
   '((<-denotational@usage
      ((==>daijiten	  . 01133)	; &A2-DJT-01133;
       ))
