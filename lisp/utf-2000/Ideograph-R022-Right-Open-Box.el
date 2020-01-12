@@ -1,6 +1,9 @@
 ;; -*- coding: utf-8-mcs-er -*-
 (define-char
-  '((ideographic-radical . 22)	; ⼕
+  '((<-denotational@component
+     ((=>ucs@component	  . #x5DE5)	; &A-compU+5DE5;
+      ))
+    (ideographic-radical . 22)	; ⼕
     (ideographic-strokes . 0)
     (total-strokes	 . 2)
     (ideographic-structure

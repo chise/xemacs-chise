@@ -2301,16 +2301,6 @@
 	)
        ((=ucs		    . #xE0100)	; 󠄀
 	))
-      (ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	(=ucs		    . #x2FF0)	; ⿰
-	)
-       ((==ucs@unicode	    . #x5F13)	; &g2-AJ1-01655;
-	(==adobe-japan1-0   . 01655)	; &g2-AJ1-01655;
-	)
-       ((==ucs@cns	    . #x5C13)	; &g2-GT-09428;
-	(==daikanwa	    . 07478)	; &g2-GT-09428;
-	))
       (==ucs@cns	  . #x5F25)	; &g2-AJ1-03835;
       (==ucs@jis	  . #x5F25)	; &g2-AJ1-03835;
       (==adobe-japan1-0	  . 03835)	; &g2-AJ1-03835;
@@ -2358,29 +2348,9 @@
     (=gb2312		. #x4356)	; &G0-4356; [35-54]
     (=cbeta		. 07460)	; &I-CB07460;
     (->subsumptive
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	(=ucs		    . #x2FF0)	; ⿰
-	)
-       ((==ucs@unicode	    . #x5F13)	; &g2-AJ1-01655;
-	(==adobe-japan1-0   . 01655)	; &g2-AJ1-01655;
-	)
-       ((==ucs@cns	    . #x5C14)	; &g2-AJ1-14122;
-	(==adobe-japan1-4   . 14122)	; &g2-AJ1-14122;
-	))
-      (==cbeta		  . 07460)	; &g2-CB07460;
+     ((==cbeta		  . 07460)	; &g2-CB07460;
       )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	(=ucs		    . #x2FF0)	; ⿰
-	)
-       ((==ucs@unicode	    . #x5F13)	; &g2-AJ1-01655;
-	(==adobe-japan1-0   . 01655)	; &g2-AJ1-01655;
-	)
-       ((==ucs@unicode	    . #x5C14)	; &g2-M-07479;
-	(==daikanwa	    . 07479)	; &g2-M-07479;
-	))
-      (==ucs@unicode	  . #x5F25)	; &g2-UU+5F25;
+     ((==ucs@unicode	  . #x5F25)	; &g2-UU+5F25;
       (==ucs@JP/hanazono  . nil)
       (==gb2312		  . #x4356)	; &g2-UU+5F25; [35-54]
       (->subsumptive
@@ -2408,16 +2378,7 @@
     (=hanyo-denshi/tk	. 01029400)	; &HD-TK-01029400;
     (=hanyo-denshi/tk/mf-01 . #x0B7C)	; &HD-TK-01029400;
     (->subsumptive
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	(=ucs		    . #x2FF0)	; ⿰
-	)
-       ((==ucs-var-002	    . #x5F13)	; &g2-U-v002+5F13;
-	)
-       ((==ucs@cns	    . #x5C13)	; &g2-GT-09428;
-	(==daikanwa	    . 07478)	; &g2-GT-09428;
-	))
-      (==hanyo-denshi/tk  . 01029400)	; &g2-HD-TK-01029400;
+     ((==hanyo-denshi/tk  . 01029400)	; &g2-HD-TK-01029400;
       (==hanyo-denshi/tk/mf-01 . #x0B7C)	; &g2-HD-TK-01029400;
       )
      ((===hng-khm	  . 03050)	; &HNG011-03050;
