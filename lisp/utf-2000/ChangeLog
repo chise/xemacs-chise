@@ -1,3 +1,14 @@
+2020-01-11  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R057-Bow.el (g2-JU+5F25): Omit
+	`ideographic-structure'.
+	(g2-CB07460): Ditto.
+	(g2-UU+5F25): Ditto.
+	(g2-HD-TK01029400): Ditto.
+
+	* Ideograph-R022-Right-Open-Box.el (A-compU+531A): Add
+	`<-denotational@component' for A-compU+5DE5.
+
 2020-01-10  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R029-Again.el (A-U+3C7F-itaiji-001): New abstract
