@@ -1,5 +1,7 @@
 2020-01-13  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R001-One.el (U-0002A701): New character.
+
 	* Ideograph-R008-Lid.el (U-00020176): New character.
 
 2020-01-11  MORIOKA Tomohiko  <tomo.git@chise.org>
