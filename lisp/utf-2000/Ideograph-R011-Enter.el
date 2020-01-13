@@ -1542,6 +1542,28 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=ucs		  . #x4F58)	; 佘
+      ))
+    (ideographic-radical . 11)	; ⼊
+    (ideographic-strokes . 5)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5165)	; 入
+      )
+     ((=ucs		  . #x793A)	; 示
+      ))
+    (=gt-k		. 03034)	; &GT-K03034;
+    (=gt-pj-k1		. #x466D)	; &GT-K03034; [38-77]
+    (->subsumptive
+     ((==gt-k		  . 03034)	; &g2-GT-K03034;
+      (==gt-pj-k1	  . #x466D)	; &g2-GT-K03034; [38-77]
+      ))
+    ))
+(define-char
   '((ideographic-radical . 11)	; ⼊
     (ideographic-strokes . 5)
     (total-strokes	 . 7)

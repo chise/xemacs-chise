@@ -1,5 +1,14 @@
 2020-01-11  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R011-Enter.el (GT-K03034): New character; use
+	`<-denotational' for U+4F58.
+
+	* Ideograph-R005-Second.el (BC-86C9-itaiji-001): New character;
+	use `<-denotational' for BC-86C9.
+	(U-000200EC): Apply new conventions for glyph granularity.
+
+2020-01-11  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R057-Bow.el (g2-JU+5F25): Omit
 	`ideographic-structure'.
 	(g2-CB07460): Ditto.
