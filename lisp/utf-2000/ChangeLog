@@ -1,3 +1,10 @@
+2020-01-14  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R005-Second.el (GT-00241): Unify U-0002B864.
+	(A-U+20992-itaiji-007): New abstract node.
+	(U+20992-itaiji-007): New character; use `<-denotational' for
+	A-U+20992-itaiji-007.
+
 2020-01-13  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R018-Knife.el (U-000207F2): New character.
