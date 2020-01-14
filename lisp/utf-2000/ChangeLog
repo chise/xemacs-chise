@@ -1,5 +1,10 @@
 2020-01-14  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R013-Down-Box.el (UU+5183): Add `<-original' for
+	UU+5E3D.
+	(U+5192): Add `ideographic-structure'; add `sound@ja/on/{kan|go}'.
+	(UU+5192): Add some relations for other characters.
+
 	* Ideograph-R005-Second.el (GT-00241): Unify U-0002B864.
 	(A-U+20992-itaiji-007): New abstract node.
 	(U+20992-itaiji-007): New character; use `<-denotational' for
