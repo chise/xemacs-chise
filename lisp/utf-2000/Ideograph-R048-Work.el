@@ -93,6 +93,15 @@
     (ideographic-radical . 48)	; ⼯
     (ideographic-strokes . 0)
     (total-strokes	 . 3)
+    (=ucs-var-004	. #x5DE5)	; &U-v004+5DE5;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5DE5)	; 工
+      ))
+    (ideographic-radical . 48)	; ⼯
+    (ideographic-strokes . 0)
+    (total-strokes	 . 3)
     (=adobe-japan1-4	. 13763)	; &AJ1-13763;
     (->subsumptive
      ((=decomposition@cid
@@ -126,7 +135,10 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 48)	; ⼯
+  '((<-denotational@component
+     ((=>ucs@component	  . #x5DE5)	; &A-compU+5DE5;
+      ))
+    (ideographic-radical . 48)	; ⼯
     (ideographic-strokes . 0)
     (total-strokes	 . 3)
     (=big5-cdp		. #x8C78)	; &CDP-8C78;
@@ -802,6 +814,21 @@
     ))
 (define-char
   '((ideographic-radical . 48)	; ⼯
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
+      (=ucs		  . #x2FF4)	; ⿴
+      )
+     ((=ucs		  . #x5DF1)	; 己
+      )
+     ((=>ucs@component	  . #x5DE5)	; &A-compU+5DE5;
+      ))
+    (=>big5-cdp		. #x86C9)	; &A-CDP-86C9;
+    ))
+(define-char
+  '((<-denotational
+     ((=>big5-cdp	  . #x86C9)	; &A-CDP-86C9;
+      ))
+    (ideographic-radical . 48)	; ⼯
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
     (ideographic-structure
@@ -1032,7 +1059,10 @@
     (=gb12345		. #x7D44)	; 巭 [93-36]
     ))
 (define-char
-  '((ideographic-radical . 48)	; ⼯
+  '((<-denotational
+     ((=ucs		  . #x200EC)	; 𠃬
+      ))
+    (ideographic-radical . 48)	; ⼯
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
     (ideographic-structure
