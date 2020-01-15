@@ -1,3 +1,16 @@
+2020-01-15  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R048-Work.el (U+5DE5-var-004): New character; use
+	`<-denotational' for U+5DE5.
+	(BC-8C78): Add `<-denotational@component' for A-compU+5DE5.
+	(A-BC-86C9): New abstract node.
+	(BC-86C9): Add `<-denotational' for A-BC-86C9.
+	(BC-88D7): Add `<-denotational' for U-000200EC.
+
+2020-01-14  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R035-Go-Slowly.el (U-00021571): New character.
+
 2020-01-14  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R013-Down-Box.el (UU+5183): Add `<-original' for
