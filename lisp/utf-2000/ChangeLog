@@ -1,3 +1,12 @@
+2020-01-16  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R013-Down-Box.el (A-cgnU+518E): New abstract node.
+	(U+518E): Add `<-denotational' for A-cgnU+518E.
+	(UU+518E): Unify BC-89AA.
+	(BC-89A9): New character; use `<-denotational' for UU+518E.
+	(MJ057006): New character; use `<-denotational' for A-cgnU+518E.
+	(GT-K02340): New character; use `<-denotational' for MJ057006.
+
 2020-01-15  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R021-Spoon.el (U+5F1F-itaiji-005): New character.
