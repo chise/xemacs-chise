@@ -1,5 +1,9 @@
 2020-01-15  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R021-Spoon.el (U+5F1F-itaiji-005): New character.
+
+	* Ideograph-R015-Ice.el (U-00020613): New character.
+
 	* Ideograph-R048-Work.el (U+5DE5-var-004): New character; use
 	`<-denotational' for U+5DE5.
 	(BC-8C78): Add `<-denotational@component' for A-compU+5DE5.
