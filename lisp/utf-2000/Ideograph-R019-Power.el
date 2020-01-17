@@ -4950,6 +4950,8 @@
       )
      ((=ucs		  . #x529B)	; 力
       ))
+    (sound@ja/on/go	"koku" "bou")
+    (sound@ja/on/kan	"kyoku" "bou")
     (=ucs		. #x52D6)	; 勖
     ))
 (define-char
@@ -4983,6 +4985,22 @@
     (=hanyo-denshi/jb	. #x336D)	; &I-HD-JB-336D; [19-77]
     (=daikanwa		. 02391)	; &I-M-02391;
     (=shinjigen		.  0740)	; &MJ007692;
+    (<-interchangeable
+     ((=ucs		  . #x61CB)	; 懋
+      (=daikanwa	  . 11333)	; &I-M-11333;
+      )
+     ((=ucs@unicode	  . #x5192)	; &C1-5023;
+      (=gb2312		  . #x4330)	; &C1-5023; [35-16]
+      (=ks-x1001	  . #x5933)	; &I-K0-5933; [57-19]
+      (=cns11643-1	  . #x5023)	; &I-C1-5023; [48-03]
+      (=daikanwa	  . 01538)	; &I-M-01538;
+      ))
+    (<-interchangeable$_1*sources
+     zhengzitong shuowen-zhu daikanwa)
+    (<-interchangeable$_2*sources
+     shiwen daikanwa)
+    (<-interchangeable*sources
+     daikanwa)
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x52D6)	; 勖
@@ -5099,7 +5117,7 @@
       (=shinjigen	  .  0740)	; &MJ007692;
       ))
     (<-vulgar*sources
-     daikanwa shinjigen@1ed)
+     daikanwa shinjigen)
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x52D7)	; 勗
@@ -5508,6 +5526,40 @@
 	)
        ((=hanziku-1	    . #xF2E5)	; &HZK01-F2E5;
 	))
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 19)	; ⼒
+    (ideographic-strokes . 9)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=>ucs-itaiji-002	  . #x5377)	; &A-U-i002+5377;
+      )
+     ((=ucs		  . #x529B)	; 力
+      ))
+    (=ucs		. #x20881)	; 𠢁
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x20881)	; 𠢁
+      ))
+    (ideographic-radical . 19)	; ⼒
+    (ideographic-strokes . 9)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs-itaiji-005	  . #x5377)	; &U-i005+5377;
+      )
+     ((=ucs		  . #x529B)	; 力
+      ))
+    (=ucs@iso		. #x20881)	; &U-00020881;
+    (->subsumptive
+     ((==ucs@iso	  . #x20881)	; &g2-IU-00020881;
       ))
     ))
 (define-char
