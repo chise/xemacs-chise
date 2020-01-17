@@ -1,5 +1,34 @@
 2020-01-16  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R029-Again.el (U-00020B5E): Apply new conventions for
+	glyph granularity; unify M-03187 instead of M-48964; unify
+	MJ032056 and KOSEKI-036980.
+	(U-00020B5A): Apply new conventions for glyph granularity.
+	(M-48964): Unify IU+20B5A, MJ032060, C6-3D63 and KOSEKI-037030;
+	use `<-denotational' for U-00020B5A instead of `<-subsumptive' for
+	U-000B5E.
+
+	* Ideograph-R026-Seal.el (U-00020A0E): Apply new conventions for
+	glyph granularity; add `<-denotational@component' for
+	A-IWDSU+20A0E.
+	(U-00020A15): New character.
+	(M-02852): Unify IU+20A15, MJ031825, KOSEKI-033020 and GT-03625;
+	add `<-denotational' for U-00020A15; add `ideographic-structure';
+	add `sound@ja/on'.
+	(U-00020A16): Add `ideographic-structure'; add
+	`sound@ja/on/{kan|go}'; add `<-same' and `->formed' for
+	U-00020A0E.
+	(A-U+5377-itaiji-002): New abstract node; unify
+	A-U+5377-itaiji-005; add `<-denotational@usage' for BUCS+5377.
+	(U+5377-itaiji-005): New character; use `<-denotational' for
+	A-U+5377-itaiji-002.
+	(U+5377-itaiji-002): Ditto.
+	(A-IWDSU+20A0E): New abstract node.
+
+	* Ideograph-R019-Power.el (U+52D6): Add `sound@ja/on/{kan|go}'.
+	(UU+52D6): Add `<-interchangeable' for U+61CB and UU+5192.
+	(U-00020881): New character.
+
 	* Ideograph-R013-Down-Box.el (A-cgnU+518E): New abstract node.
 	(U+518E): Add `<-denotational' for A-cgnU+518E.
 	(UU+518E): Unify BC-89AA.
