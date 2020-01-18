@@ -1,3 +1,8 @@
+2020-01-18  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R017-Open-Box.el (GT-K00386): Unify U-0002B843 and
+	BC-86E2; moved to Ideograph-R002-Line.el.
+
 2020-01-17  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R001-One.el (U-0002B83E): New character.
