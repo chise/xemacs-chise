@@ -80,20 +80,6 @@
       ))
     ))
 (define-char
-  '((<-denotational@component
-     ((=>ucs@component	  . #x51F5)	; &A-compU+51F5;
-      ))
-    (ideographic-radical . 17)	; ⼐
-    (ideographic-strokes . 0)
-    (total-strokes	 . 2)
-    (=gt-k		. 00386)	; &GT-K00386;
-    (=gt-pj-k1		. #x4921)	; &GT-K00386; [41-01]
-    (->subsumptive
-     ((==gt-k		  . 00386)	; &g2-GT-K00386;
-      (==gt-pj-k1	  . #x4921)	; &g2-GT-K00386; [41-01]
-      ))
-    ))
-(define-char
   '((ideographic-radical . 17)	; ⼐
     (ideographic-strokes . 0)
     (total-strokes	 . 2)
