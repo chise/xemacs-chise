@@ -7167,6 +7167,20 @@
     ))
 (define-char
   '((ideographic-radical . 1)	; ⼀
+    (ideographic-strokes . 14)
+    (total-strokes	 . 15)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
+      (=ucs		  . #x2FF4)	; ⿴
+      )
+     ((=ucs-itaiji-004	  . #x675F)	; &U-i004+675F;
+      )
+     ((=ucs		  . #x8C9D)	; 貝
+      ))
+    (=ucs		. #x2B83E)	; 𫠾
+    ))
+(define-char
+  '((ideographic-radical . 1)	; ⼀
     (ideographic-strokes@daikanwa . 15)
     (total-strokes@daikanwa	  . 16)
     (ideographic-strokes@cns . 14)
