@@ -1,5 +1,18 @@
 2020-01-18  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R024-Ten.el (A-BC-8DDD): New abstract node.
+	(BC-8DDD): New character; use `<-denotational' for A-BC-8DDD.
+	(GT-K04221): Ditto.
+
+	* Ideograph-R020-Wrap.el (U+5305): Add `sound@ja/on/{kan|go}'.
+	(UU+5305): Add some relations for other characters.
+	(U-000208E2): New character.
+	(U+530F): Add `sound@ja/on/{kan|go}'.
+	(UU+530F): Add some relations for other characters.
+
+	* Ideograph-R002-Line.el (BC-86E2): Unify U-0002B843 and BC-86E2;
+	moved from Ideograph-R017-Open-Box.el.
+
 	* Ideograph-R017-Open-Box.el (GT-K00386): Unify U-0002B843 and
 	BC-86E2; moved to Ideograph-R002-Line.el.
 
