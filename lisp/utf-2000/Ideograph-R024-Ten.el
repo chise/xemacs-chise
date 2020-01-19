@@ -1186,6 +1186,30 @@
     ))
 (define-char
   '((ideographic-radical . 24)	; ⼗
+    (=>big5-cdp		. #x8DDD)	; &A-CDP-8DDD;
+    ))
+(define-char
+  '((<-denotational
+     ((=>big5-cdp	  . #x8DDD)	; &A-CDP-8DDD;
+      ))
+    (ideographic-radical . 24)	; ⼗
+    (ideographic-strokes . 3)
+    (total-strokes	 . 5)
+    (ideographic-structure
+     ((name		  . "IDEOGRAPHIC DESCRIPTION CHARACTER OVERLAID")
+      (=ucs		  . #x2FFB)	; ⿻
+      )
+     ((=ucs		  . #x4E00)	; 一
+      )
+     ((=ucs		  . #x4E2D)	; 中
+      ))
+    (=big5-cdp		. #x8DDD)	; &CDP-8DDD;
+    (->subsumptive
+     ((==big5-cdp	  . #x8DDD)	; &g2-CDP-8DDD;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 24)	; ⼗
     (sound@ja/on	"sei")
     (=ucs		. #x353A)	; 㔺
     ))
@@ -2987,6 +3011,35 @@
      ((=gt-k		  . 02241)	; &GT-K02241;
       ))
     (=ucs-itaiji-001	. #x20992)	; &U-i001+20992;
+    ))
+(define-char
+  '((<-denotational
+     ((=>big5-cdp	  . #x8DDD)	; &A-CDP-8DDD;
+      ))
+    (ideographic-radical . 24)	; ⼗
+    (ideographic-strokes . 6)
+    (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
+	(=ucs		    . #x2FF9)	; ⿹
+	)
+       ((=ucs		    . #x5341)	; 十
+	)
+       ((=ucs		    . #x53E3)	; 口
+	))
+      )
+     ((=ucs		  . #x53E3)	; 口
+      ))
+    (=gt-k		. 04221)	; &GT-K04221;
+    (=gt-pj-k1		. #x442B)	; &GT-K04221; [36-11]
+    (->subsumptive
+     ((==gt-k		  . 04221)	; &g2-GT-K04221;
+      (==gt-pj-k1	  . #x442B)	; &g2-GT-K04221; [36-11]
+      ))
     ))
 (define-char
   '((<-denotational
