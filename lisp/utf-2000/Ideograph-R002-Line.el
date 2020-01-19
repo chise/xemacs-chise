@@ -541,6 +541,37 @@
       ))
     ))
 (define-char
+  '((<-denotational@component
+     ((=>ucs@component	  . #x51F5)	; &A-compU+51F5;
+      ))
+    (ideographic-radical . 2)	; ⼁
+    (ideographic-strokes . 2)
+    (total-strokes	 . 3)
+    (=ucs		. #x2B843)	; 𫡃
+    (=big5-cdp		. #x86E2)	; &I-CDP-86E2;
+    (=gt-k		. 00386)	; &I-GT-K00386;
+    (=gt-pj-k1		. #x4921)	; 𫡃 [41-01]
+    (->subsumptive
+     ((=>>ucs@JP	  . #x2B843)	; &G-dJU+2B843;
+      (->subsumptive
+       ((==ucs@JP/hanazono  . #x2B843)	; &g2-hanaJU+2B843;
+	))
+      )
+     ((=>>big5-cdp	  . #x86E2)	; &G-CDP-86E2;
+      (=>>gt-k		  . 00386)	; &G-CDP-86E2;
+      (->subsumptive
+       ((==big5-cdp	    . #x86E2)	; &g2-CDP-86E2;
+	(==gt-k		    . 00386)	; &g2-CDP-86E2;
+	(==gt-pj-k1	    . #x4921)	; &g2-CDP-86E2; [41-01]
+	(->subsumptive
+	 ((===big5-cdp	      . #x86E2)	; &R-CDP-86E2;
+	  )
+	 ((===gt-k	      . 00386)	; &R-GT-K00386;
+	  ))
+	))
+      ))
+    ))
+(define-char
   '((<-denotational@usage
      ((==>daijiten	  . 00051)	; &A2-DJT-00051;
       ))
