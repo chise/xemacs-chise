@@ -1448,12 +1448,82 @@
     (=ucs		. #x21D1F)	; 𡴟
     ))
 (define-char
-  '((ideographic-radical . 45)	; ⼬
+  '((<-denotational@component
+     ((=>ucs@iwds-1	  . #x213A8)	; &A-IWDSU+213A8;
+      ))
+    (ideographic-radical . 45)	; ⼬
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x8294)	; 芔
+      )
+     ((=ucs		  . #x571F)	; 土
+      ))
+    (=ucs		. #x21D20)	; 𡴠
+    (=daikanwa		. 07859)	; &I-M-07859;
+    (->subsumptive
+     ((==ucs@iso	  . #x21D20)	; &g2-M-07859;
+      (==daikanwa	  . 07859)	; &g2-M-07859;
+      (->subsumptive
+       ((===daikanwa	    . 07859)	; &R-M-07859;
+	)
+       ((===ucs@iso	    . #x21D20)	; &R-U-00021D20;
+	))
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 45)	; ⼬
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=big5-cdp	  . #x875D)	; &CDP-875D;
+      )
+     ((=>ucs@component	  . #x5405)	; &A-compU+5405;
+      (=>iwds-1		  .  0398)	; &A-compU+5405;
+      ))
+    (sound@ja/on	"hoN")
     (=ucs		. #x21D21)	; 𡴡
-    (=cns11643-6	. #x4827)	; &I-C6-4827; [40-07]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x21D21)	; 𡴡
+      ))
+    (ideographic-radical . 45)	; ⼬
+    (ideographic-strokes . 9)
+    (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=big5-cdp	  . #x875D)	; &CDP-875D;
+      )
+     ((=ucs		  . #x5405)	; 吅
+      ))
+    (=ucs@iso		. #x21D21)	; &C6-4827;
+    (=cns11643-6	. #x4827)	; &C6-4827; [40-07]
     (=daikanwa		. 07860)	; &I-M-07860;
+    (<-ancient
+     ((=ucs		  . #x672C)	; 本
+      (=daikanwa	  . 14421)	; &I-M-14421;
+      ))
+    (<-ancient*sources
+     zixuesanzheng daikanwa)
+    (->subsumptive
+     ((==ucs@iso	  . #x21D21)	; &g2-M-07860;
+      (==cns11643-6	  . #x4827)	; &g2-M-07860; [40-07]
+      (==daikanwa	  . 07860)	; &g2-M-07860;
+      (->subsumptive
+       ((===daikanwa	    . 07860)	; &R-M-07860;
+	)
+       ((===cns11643-6	    . #x4827)	; &R-C6-4827; [40-07]
+	)
+       ((===ucs@iso	    . #x21D21)	; &R-U-00021D21;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 45)	; ⼬
