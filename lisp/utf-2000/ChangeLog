@@ -1,3 +1,8 @@
+2020-01-21  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R044-Corpse.el (U+24C08-itaiji-001): New character.
+	(U-00021CFB): Apply new conventions for glyph granularity.
+
 2020-01-18  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R024-Ten.el (A-BC-8DDD): New abstract node.
