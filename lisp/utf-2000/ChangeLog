@@ -1,3 +1,22 @@
+2020-01-23  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R031-Enclosure.el (U-000211AD): New character.
+	(U+675F-itaiji-004): New character.
+	(U-000211D9): New character.
+	(A-U+2055A-itaiji-001): New abstract node.
+	(U+2055A-itaiji-001): New character; use `<-denotational' for
+	A-U+2055A-itaiji-001.
+	(U-000211FE): Apply new conventions for glyph granularity.
+	(U-00021218): Likewise.
+	(U+23788-itaiji-001): New character.
+
+2020-01-22  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R025-Divination.el (U+5362): Use
+	`<-denotational@usage' instead of `<-denotational' for BUCS+76E7.
+	(A-GT-K01541): New abstract node.
+	(GT-K01541): New character; use `<-denotational' for A-GT-K01541.
+
 2020-01-22  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R045-Sprout.el (U-00021D20): New character; use
