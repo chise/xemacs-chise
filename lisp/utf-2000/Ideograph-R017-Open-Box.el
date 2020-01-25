@@ -784,6 +784,23 @@
     ))
 (define-char
   '((ideographic-radical . 17)	; ⼐
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>ucs@component	  . #x5C6E)	; &A-compU+5C6E;
+      (=>iwds-1		  .  0096)	; &A-compU+5C6E;
+      )
+     ((=>ucs@component	  . #x5C6E)	; &A-compU+5C6E;
+      (=>iwds-1		  .  0096)	; &A-compU+5C6E;
+      ))
+    (=>ucs@iwds-1	. #x51FA)	; &A-IWDSU+51FA;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@iwds-1	  . #x51FA)	; &A-IWDSU+51FA;
+      ))
+    (ideographic-radical . 17)	; ⼐
     (ideographic-strokes . 3)
     (total-strokes	 . 5)
     (hanyu-dazidian	1 307 8)
