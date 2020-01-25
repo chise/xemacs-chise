@@ -1,5 +1,8 @@
 2020-01-24  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R017-Open-Box.el (A-IWDSU+51FA): New abstract node.
+	(U+51FA): Add `<-denotational' for A-IWDSU+51FA.
+
 	* Ideograph-R037-Big.el (A-U+5F01-itaiji-002): New abstract node.
 	(U+5F01-itaiji-002): New character; use `<-denotational' for
 	A-U+5F01-itaiji-002.
