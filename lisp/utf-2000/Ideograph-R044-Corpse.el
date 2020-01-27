@@ -1963,10 +1963,27 @@
       )
      ((=ucs		  . #x5C38)	; 尸
       )
-     ((=ucs		  . #x51FA)	; 出
+     ((=>ucs@iwds-1	  . #x51FA)	; &A-IWDSU+51FA;
       ))
     (=ucs		. #x5C48)	; 屈
-    (=adobe-japan1-0	. 01782)	; &I-AJ1-01782;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5C48)	; 屈
+      ))
+    (ideographic-radical . 44)	; ⼫
+    (ideographic-strokes . 5)
+    (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs		  . #x5C38)	; 尸
+      )
+     ((=ucs		  . #x51FA)	; 出
+      ))
+    (=ucs@unicode	. #x5C48)	; &AJ1-01782;
+    (=adobe-japan1-0	. 01782)	; &AJ1-01782;
     (=jis-x0208		. #x367E)	; &I-J90-367E; [22-94]
     (=gb2312		. #x477C)	; &I-G0-477C; [39-92]
     (=ks-x1001		. #x4F5D)	; &I-K0-4F5D; [47-61]
@@ -1978,7 +1995,7 @@
     (=gt-pj-1		. #x367E)	; &I-GT-09659; [22-94]
     (=daikanwa		. 07669)	; &I-M-07669;
     (=daijiten		. 02485)	; &I-DJT-02485;
-    (=shinjigen		.  1930)	; 屈
+    (=shinjigen		.  1930)	; &AJ1-01782;
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x5C48)	; 屈
@@ -4949,12 +4966,14 @@
     (=daikanwa		. 07771)	; &I-M-07771;
     (=daijiten		. 02503)	; &I-DJT-02503;
     (<-original
-     ((=ucs		  . #x5C48)	; 屈
+     ((=ucs@unicode	  . #x5C48)	; &AJ1-01782;
+      (=adobe-japan1-0	  . 01782)	; &AJ1-01782;
       ))
     (<-original$_1*sources
      zhengzitong)
     (<-same
-     ((=ucs		  . #x5C48)	; 屈
+     ((=ucs@unicode	  . #x5C48)	; &AJ1-01782;
+      (=adobe-japan1-0	  . 01782)	; &AJ1-01782;
       (=daikanwa	  . 07669)	; &I-M-07669;
       ))
     (<-same*sources
