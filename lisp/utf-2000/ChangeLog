@@ -1,5 +1,10 @@
 2020-01-25  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R044-Corpse.el (U+5C48): Apply new conventions for
+	glyph granularity.
+
+2020-01-25  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R013-Down-Box.el (A-BC-86B0): New abstract node.
 	(BC-86B0-var-001): New character; use `<-denotational' for
 	A-BC-86B0.
@@ -15,6 +20,17 @@
 	(BC-87BD): New character; use `<-denotational' for A-BC-87BD.
 	(U-00020529): Add `ideographic-structure'.
 	(IU+20529): Likewise.
+
+2020-01-24  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R059-Bristle.el (U+38C9): Apply new conventions for
+	glyph granularity.
+	(A-IWDSU+22484): New abstract node.
+	(U-00022484): Add `<-denotational' for A-IWDSU+22484; add
+	`ideographic-structure'; add `sound@ja/on'; add `<-ancient' for
+	UU+38C9.
+	(U-00022485): Apply new conventions for glyph granularity; add
+	`<-denotational' for A-IWDSU+22484.
 
 2020-01-24  MORIOKA Tomohiko  <tomo.git@chise.org>
 
@@ -172,6 +188,22 @@
 
 	* Ideograph-R044-Corpse.el (U+24C08-itaiji-001): New character.
 	(U-00021CFB): Apply new conventions for glyph granularity.
+
+2020-01-19  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Oracle-Bones.el (ZOB-00558): Use "𬛳" instead of "⿱至至".
+	(ZOB-00577): Use "𭥍" instead of "⿱𠂉日".
+	(ZOB-00878): Use "𭶰" instead of "⿱爫貝" as the target of
+	`<-Oracle-Bones'.
+	(A-ZOB-00958): Use "𫩁" instead of "⿰㣇又" as the target of
+	`<-Oracle-Bones'.
+	(ZOB-01402): Add `ideographic-structure'; add `<-Oracle-Bones' for
+	U-0002201B.
+	(ZOB-02380): Use U-0002123C instead of U+58EC as the target of
+	`<-Oracle-Bones'.
+	(ZOB-02611): Use RUI6-E079 instead of "⿰豕匕".
+	(ZOB-02717): Use "𭯍" instead of "⿳𠂊𫩏比".
+	(ZOB-02725): Use "𤣗" instead of "⿰⺨璽".
 
 2020-01-18  MORIOKA Tomohiko  <tomo.git@chise.org>
 
