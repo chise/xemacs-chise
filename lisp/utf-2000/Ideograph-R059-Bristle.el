@@ -75,18 +75,136 @@
   '((ideographic-radical . 59)	; ⼺
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5DE5)	; 工
+      )
+     ((=ucs		  . #x5F61)	; 彡
+      ))
+    (sound@ja/on	"kou")
     (=ucs		. #x38C9)	; 㣉
-    (=cns11643-6	. #x2470)	; &I-C6-2470; [04-80]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x38C9)	; 㣉
+      ))
+    (ideographic-radical . 59)	; ⼺
+    (ideographic-strokes . 3)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs@unicode	  . #x5DE5)	; &AJ1-01979;
+      (=adobe-japan1-0	  . 01979)	; &AJ1-01979;
+      )
+     ((=ucs		  . #x5F61)	; 彡
+      ))
+    (=ucs@unicode	. #x38C9)	; &C6-2470;
+    (=cns11643-6	. #x2470)	; &C6-2470; [04-80]
     (=daikanwa		. 09965)	; &I-M-09965;
     (=jef-china3	. #x4DA3)	; &I-JC3-4DA3;
+    (<-same
+     ((=ucs@unicode	  . #x5DE5)	; &AJ1-01979;
+      (=adobe-japan1-0	  . 01979)	; &AJ1-01979;
+      (=daikanwa	  . 08714)	; &I-M-08714;
+      ))
+    (<-same*sources
+     zhengzitong daikanwa)
+    (->subsumptive
+     ((==ucs@unicode	  . #x38C9)	; &g2-M-09965;
+      (==cns11643-6	  . #x2470)	; &g2-M-09965; [04-80]
+      (==daikanwa	  . 09965)	; &g2-M-09965;
+      (==jef-china3	  . #x4DA3)	; &g2-M-09965;
+      (->subsumptive
+       ((===daikanwa	    . 09965)	; &R-M-09965;
+	)
+       ((===cns11643-6	    . #x2470)	; &R-C6-2470; [04-80]
+	)
+       ((===jef-china3	    . #x4DA3)	; &R-JC3-4DA3;
+	)
+       ((===ucs@unicode	    . #x38C9)	; &R-UU+38C9;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 59)	; ⼺
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
+      (=ucs		  . #x2FF7)	; ⿷
+      )
+     ((=ucs		  . #x5DE5)	; 工
+      )
+     ((=ucs		  . #x5F61)	; 彡
+      ))
+    (=>ucs@iwds-1	. #x22484)	; &A-IWDSU+22484;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@iwds-1	  . #x22484)	; &A-IWDSU+22484;
+      ))
+    (ideographic-radical . 59)	; ⼺
+    (ideographic-strokes . 3)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
+      (=ucs		  . #x2FF7)	; ⿷
+      )
+     ((=ucs@unicode	  . #x5DE5)	; &AJ1-01979;
+      (=adobe-japan1-0	  . 01979)	; &AJ1-01979;
+      )
+     ((=ucs		  . #x5F61)	; 彡
+      ))
+    (sound@ja/on	"kou")
     (=ucs		. #x22484)	; 𢒄
     (=cns11643-6	. #x246F)	; &I-C6-246F; [04-79]
     (=daikanwa		. 09966)	; &I-M-09966;
+    (<-ancient
+     ((=ucs@unicode	  . #x38C9)	; &C6-2470;
+      (=cns11643-6	  . #x2470)	; &C6-2470; [04-80]
+      (=daikanwa	  . 09965)	; &I-M-09965;
+      ))
+    (<-ancient*sources
+     zhengzitong daikanwa)
+    (->subsumptive
+     ((==ucs@iso	  . #x22484)	; &g2-M-09966;
+      (==cns11643-6	  . #x246F)	; &g2-M-09966; [04-79]
+      (==daikanwa	  . 09966)	; &g2-M-09966;
+      (->subsumptive
+       ((===daikanwa	    . 09966)	; &R-M-09966;
+	)
+       ((===cns11643-6	    . #x246F)	; &R-C6-246F; [04-79]
+	)
+       ((===ucs@iso	    . #x22484)	; &R-U-00022484;
+	))
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@iwds-1	  . #x22484)	; &A-IWDSU+22484;
+      ))
+    (ideographic-radical . 59)	; ⼺
+    (ideographic-strokes . 3)
+    (total-strokes	 . 6)
+    (hanyu-dazidian	2 852 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
+      (=ucs		  . #x2FF7)	; ⿷
+      )
+     ((=ucs-var-004	  . #x5DE5)	; &U-v004+5DE5;
+      )
+     ((=ucs		  . #x5F61)	; 彡
+      ))
+    (=ucs		. #x22485)	; 𢒅
+    (->subsumptive
+     ((==ucs@iso	  . #x22485)	; &g2-IU-00022485;
+      )
+     ((=hanziku-3	  . #xABA4)	; &HZK03-ABA4;
+      ))
     ))
 (define-char
   '((ideographic-radical . 59)	; ⼺
@@ -2170,12 +2288,6 @@
     (ideographic-strokes . 19)
     (total-strokes	 . 22)
     (=cns11643-5	. #x7341)	; &C5-7341; [83-33]
-    ))
-(define-char
-  '((ideographic-radical . 59)	; ⼺
-    (hanyu-dazidian	2 852 8)
-    (=ucs		. #x22485)	; 𢒅
-    (=hanziku-3		. #xABA4)	; &I-HZK03-ABA4;
     ))
 (define-char
   '((ideographic-radical . 59)	; ⼺
