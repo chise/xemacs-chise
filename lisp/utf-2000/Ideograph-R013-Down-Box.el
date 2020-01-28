@@ -2567,6 +2567,19 @@
     ))
 (define-char
   '((ideographic-radical . 13)	; ⼌
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
+      (=ucs		  . #x2FF5)	; ⿵
+      )
+     ((=ucs		  . #x5182)	; 冂
+      )
+     ((=>ucs@component	  . #x7389)	; &A-compU+7389;
+      (=>iwds-1		  .  0252)	; &A-compU+7389;
+      ))
+    (=>gt-k		. 02040)	; &A-GT-K02040;
+    ))
+(define-char
+  '((ideographic-radical . 13)	; ⼌
     (ideographic-strokes . 4)
     (total-strokes	 . 6)
     (ideographic-structure
@@ -2643,6 +2656,28 @@
     (->subsumptive
      ((==gt-k		  . 02039)	; &g2-GT-K02039;
       (==gt-pj-k1	  . #x6354)	; &g2-GT-K02039; [67-52]
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>gt-k		  . 02040)	; &A-GT-K02040;
+      ))
+    (ideographic-radical . 13)	; ⼌
+    (ideographic-strokes . 4)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
+      (=ucs		  . #x2FF5)	; ⿵
+      )
+     ((=ucs		  . #x5182)	; 冂
+      )
+     ((=ucs		  . #x738B)	; 王
+      ))
+    (=gt-k		. 02040)	; &GT-K02040;
+    (=gt-pj-k1		. #x5A46)	; &GT-K02040; [58-38]
+    (->subsumptive
+     ((==gt-k		  . 02040)	; &g2-GT-K02040;
+      (==gt-pj-k1	  . #x5A46)	; &g2-GT-K02040; [58-38]
       ))
     ))
 (define-char
