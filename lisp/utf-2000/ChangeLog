@@ -1,5 +1,8 @@
 2020-01-27  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R013-Down-Box.el (A-GT-K02040): New abstract node.
+	(GT-K02040): New character; use `<-denotational' for A-GT-K02040.
+
 	* Ideograph-R028-Private.el (GT-K03587): New character.
 	(U-00020B01): Apply new conventions for glyph granularity.
 
