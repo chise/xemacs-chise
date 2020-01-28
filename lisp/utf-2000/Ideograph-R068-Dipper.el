@@ -1267,8 +1267,8 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((=ucs@unicode	    . #x9EC4)	; &AJ1-01323;
-	(=adobe-japan1-0    . 01323)	; &AJ1-01323;
+       ((name		    . "CJK RADICAL SIMPLIFIED YELLOW")
+	(=ucs		    . #x2EE9)	; ⻩
 	)
        ((=ucs		    . #x6597)	; 斗
 	))
