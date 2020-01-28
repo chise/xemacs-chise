@@ -1,3 +1,8 @@
+2020-01-27  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R028-Private.el (GT-K03587): New character.
+	(U-00020B01): Apply new conventions for glyph granularity.
+
 2020-01-25  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R044-Corpse.el (U+5C48): Apply new conventions for
