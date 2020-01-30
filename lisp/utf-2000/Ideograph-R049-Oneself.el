@@ -963,7 +963,8 @@
     (<-same*sources
      jiyun daikanwa)
     (->ancient
-     ((=cns11643-2	  . #x2428)	; &C2-2428; [04-08]
+     ((=ucs@cns		  . #x623A)	; &C2-2428;
+      (=cns11643-2	  . #x2428)	; &C2-2428; [04-08]
       (=daikanwa	  . 11703)	; &I-M-11703;
       ))
     (->ancient$_1*sources
