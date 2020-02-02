@@ -1,3 +1,34 @@
+2020-01-30  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R062-Halberd.el (A-cgnU+39AE): New abstract node.
+	(IWDS1-0274): Unify A-IWDSU+39AE instead of A-compU+39AE; add
+	`<-denotational' for A-cgnU+39AE.
+	(U+39AE): Add ideographic-structure.
+	(U+39AE-itaiji-001): New character; use `<-denotational' for
+	A-cgnU+39AE.
+	(UU+6210): Unify MJ012063.
+	(U-00022994): Apply new conventions for glyph granularity.
+	(U-0002D7F2): New character.
+	(MJ057538): Unify hanaJU+2D7F2; add `<-denotational' for
+	U-0002D7F2.
+	(U+39B3): New character; use `<-denotational' for A-IWDSU+39B3.
+	(A-IWDSU+39B3): New abstract node.
+	(g2-RUI6-E005): Omit `ideographic-structure'.
+	(U+39B4): Apply new conventions for glyph granularity.
+	(U-000203B6): Likewise.
+	(U-000229F5): Apply new conventions for glyph granularity for
+	components of ideographic-structure.
+	(U+229F5-itaiji-001): New character; use `<-denotational' for
+	U-000229F5.
+	(A-cgnU+6230): New abstract node.
+	(U+6230): Apply new conventions for glyph granularity; add
+	`<-denotational' for A-cgnU+6230.
+	(A-U+6230-itaiji-002): New abstract node; use `<-denotational' for
+	A-cgnU+6230; unify A-U+6230-itaiji-003.
+	(U+6230-itaiji-003): New character; use `<-denotational' for
+	A-U+6230-itaiji-002.
+	(U+6230-itaiji-002): Ditto.
+
 2020-01-27  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R013-Down-Box.el (A-GT-K02040): New abstract node.
