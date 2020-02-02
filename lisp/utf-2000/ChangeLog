@@ -1,3 +1,13 @@
+2020-02-01  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R022-Right-Open-Box.el (U-00020942): Apply new
+	conventions for glyph granularity.
+
+2020-01-31  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R045-Sprout.el (U-00021D0C): Apply new conventions for
+	glyph granularity; add `<-denotational' for U-00024C12.
+
 2020-01-30  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R062-Halberd.el (A-cgnU+39AE): New abstract node.
@@ -222,6 +232,13 @@
 	(U-0002D41C): New character.
 	(A-IWDSU+2151E): New abstract node.
 	(A-IWDSU+58F3): New abstract node.
+
+	* Ideograph-R082-Fur.el: Omit `ideographic-structure' of some
+	abstract-glyph-form objects.
+	(IU+23BE3): Use hanaJU+2C72F instead of IU+2C72F in
+	`ideographic-structure'.
+	(U-00023BF7): Use U+20A7A-itaiji-003 instead of U-00020A7A in
+	`ideographic-structure'.
 
 2020-01-21  MORIOKA Tomohiko  <tomo.git@chise.org>
 
