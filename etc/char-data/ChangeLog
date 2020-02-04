@@ -1,5 +1,11 @@
 2020-02-02  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* JX1-to-UCS.txt (JX1-444D): Map to JU+585A instead of U+585A.
+
+	* J90-to-UCS.txt (J90-444D): Map to JU+585A instead of U+585A.
+
+2020-02-02  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* JC3-to-UCS.txt (JC3-47C9): Map to U+FA7C instead of U+585A.
 
 2019-09-20  MORIOKA Tomohiko  <tomo.git@chise.org>
