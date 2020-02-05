@@ -1,3 +1,20 @@
+2020-02-05  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R101-Use.el (A-GT-K07045): New abstract node; use
+	`<-denotational' for A-cgnU+65C9.
+	(GT-K07045): New character; use `<-denotational' for A-GT-K07045.
+
+	* Ideograph-R087-Claw.el (g2-RUI6-E030): Omit
+	`ideographic-structure'.
+	(hanaJU+2C2F4): Separate RUI6-E158.
+
+2020-02-03  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R090-Half-Tree-Trunk.el (A-GT-K04534): New abstract
+	node.
+	(GT-K04534): New character; use `<-denotational' for A-GT-K04534.
+	(UU+7246): Unify MJ016773.
+
 2020-02-01  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R022-Right-Open-Box.el (U-00020942): Apply new
