@@ -5214,7 +5214,8 @@
     (=koseki		. 037050)	; 𠭠
     (=daikanwa		. 48966)	; &I-M-48966;
     (<-Zhouwen
-     ((=ucs		  . #x3F31)	; 㼱
+     ((=ucs@unicode	  . #x3F31)	; &C5-4748;
+      (=cns11643-5	  . #x4748)	; &C5-4748; [39-40]
       (=daikanwa	  . 21558)	; &I-M-21558;
       ))
     (<-Zhouwen*sources
@@ -6101,7 +6102,8 @@
     (=koseki		. 037270)	; &MJ032081;
     (=daikanwa		. 48967)	; &I-M-48967;
     (<-original
-     ((=ucs		  . #x3F31)	; 㼱
+     ((=ucs@unicode	  . #x3F31)	; &C5-4748;
+      (=cns11643-5	  . #x4748)	; &C5-4748; [39-40]
       (=daikanwa	  . 21558)	; &I-M-21558;
       ))
     (<-original*sources
