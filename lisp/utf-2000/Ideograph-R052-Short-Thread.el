@@ -149,7 +149,8 @@
      ((=ucs		  . #x7CF8)	; 糸
       (=daikanwa	  . 27221)	; &I-M-27221;
       )
-     ((=ucs		  . #x7384)	; 玄
+     ((=ucs@unicode	  . #x7384)	; &AJ1-01904;
+      (=adobe-japan1-0	  . 01904)	; &AJ1-01904;
       (=daikanwa	  . 20814)	; &I-M-20814;
       ))
     (<-ancient$_1*sources
