@@ -1,3 +1,50 @@
+2020-02-06  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R030-Mouth.el (A-GT-K01116): New abstract node.
+	(GT-K01116): New character; use `<-denotational' for A-GT-K01116.
+	(U+382D-itaiji-005): New character.
+	(g2-RUI6-E035): Omit `ideographic-structure'.
+	(U+545F): Apply new conventions for glyph granularity.
+	(A-cgnU+54BC): Changed from U+54BC.
+	(U+54BC): Changed from A-IWDSU+54BC and A-UU+54BC; use A-cgnU+54BC
+	instead of U+54BC as its mother; add `ideographic-structure'.
+	(MJ057153): Use A-cgnU+54BC instead of U+54BC as its mother; use
+	MJ057006 instead of "⿱𠔿冂" in `ideographic-structure'.
+	(A-U+55AE-itaiji-004): New abstract node.
+	(U+55AE-itaiji-004): New character; use `<-denotational' for
+	A-U+55AE-itaiji-004.
+	(U-00020D27): Apply new conventions for glyph granularity.
+	(U+5552): Likewise.
+	(U-00020DF1): New character.
+	(U-0002D24F): Add `total-strokes'.
+	(U-0002D250): Add `total-strokes'.
+	(U-0002D253): Add `total-strokes'.
+	(A-U+20F7D-itaiji-001): New abstract node.
+	(U+20F7D-itaiji-001): New character; use `<-denotational' for
+	A-U+20F7D-itaiji-001.
+	(U-00020EDD): Apply new conventions for glyph granularity.
+	(U-00020F03): New character.
+	(U-00020F04): New character.
+	(U-00020F5F): New character.
+	(U-0002D29B): Apply new conventions for glyph granularity.
+	(U-00020F7D): Likewise.
+	(U-00021065): New character.
+	(U-00021085): New character.
+	(U-00021123): Apply new conventions for glyph granularity.
+	(U-0002112E): New character.
+	(U-0002D32F): Add `total-strokes'.
+
+	* Ideograph-R001-One.el (HNG-FHS0620-0): New character; use
+	`<-denotational' for U-0002B826.
+	(U-00020043): Apply new conventions for glyph granularity.
+	(U-00020045): Add `<-denotational' for A-cgnU+20045.
+	(HNG-KHI0553-0): Use `<-denotational' for U-00020045 instead of
+	`<-subsumptive' for IU+20045.
+	(HNG-FHS0623-2): New character; use `<-subsumptive' for IU+20045.
+	(A-cgnU+20045): New abstract node.
+	(HNG-FHS0623-1): New character; use `<-subsumptive' for
+	A-cgnU+20045.
+
 2020-02-05  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R020-Wrap.el (A-cgnU+5306): Use `<-denotational@usage'
