@@ -1,5 +1,17 @@
 2020-02-06  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R069-Axe.el (U-00023095): Apply new conventions for
+	glyph granularity.
+	(U-0002309A): New character.
+	(U+65AF): Apply new conventions for glyph granularity.
+	(U-000230BA): Use `->subsumptive'.
+
+	* Ideograph-R059-Bristle.el (U+5F69): Apply new conventions for
+	glyph granularity.
+	(U+FA84): New character; use `<-denotational' for U+5F69.
+
+2020-02-06  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R030-Mouth.el (A-GT-K01116): New abstract node.
 	(GT-K01116): New character; use `<-denotational' for A-GT-K01116.
 	(U+382D-itaiji-005): New character.
@@ -44,6 +56,17 @@
 	(A-cgnU+20045): New abstract node.
 	(HNG-FHS0623-1): New character; use `<-subsumptive' for
 	A-cgnU+20045.
+
+2020-02-05  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R095-Profound.el (U+7384): Apply new conventions for
+	glyph granularity.
+	(A-BC-89FE-itaiji-001): New abstract node.
+	(BC-89FE-itaiji-001): New character; use `<-denotational' for
+	A-BC-89FE-itaiji-001.
+	(A-BC-89FE): New abstract node.
+	(BC-89FE): New character; use `<-denotational' for A-BC-89FE.
+	(U+7386): Apply new conventions for glyph granularity.
 
 2020-02-05  MORIOKA Tomohiko  <tomo.git@chise.org>
 
