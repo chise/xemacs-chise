@@ -1,3 +1,9 @@
+2020-02-09  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R039-Child.el (U+3741): Apply new conventions for
+	glyph granularity.
+	(U-00021985): Likewise.
+
 2020-02-06  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R069-Axe.el (U-00023095): Apply new conventions for
