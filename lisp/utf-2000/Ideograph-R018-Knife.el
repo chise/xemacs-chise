@@ -7843,7 +7843,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=ucs		  . #x8C9D)	; 貝
+     ((=>ucs@iwds-1	  . #x898B)	; &A-IWDSU+898B;
       )
      ((=ucs		  . #x5202)	; 刂
       ))
@@ -7861,8 +7861,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=ucs@unicode	  . #x8C9D)	; &AJ1-01419;
-      (=adobe-japan1-0	  . 01419)	; &AJ1-01419;
+     ((=ucs		  . #x8C9D)	; 貝
       )
      ((=ucs		  . #x5202)	; 刂
       ))
