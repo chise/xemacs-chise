@@ -615,8 +615,8 @@
       )
      ((=daikanwa	  . 40811)	; &M-40811;
       )
-     ((=ucs@unicode	  . #x5CEF)	; &AJ1-03655;
-      (=adobe-japan1-0	  . 03655)	; &AJ1-03655;
+     ((=ucs@unicode	  . #x5CEF)	; &MJ010509;
+      (=mj		  . 010509)	; &MJ010509;
       (=daikanwa	  . 08093)	; &I-M-08093;
       ))
     (<-interchangeable$_1*sources
