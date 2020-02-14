@@ -3821,8 +3821,9 @@
     (=big5-cdp		. #x8B60)	; &I-CDP-8B60;
     (=daijiten		. 00022)	; &I-DJT-00022;
     (<-simplified@CN
-     ((=ucs		  . #x696D)	; 業
-      (=gb12345		  . #x5235)	; 業 [50-21]
+     ((=ucs@unicode	  . #x696D)	; &AJ1-01728;
+      (=adobe-japan1-0	  . 01728)	; &AJ1-01728;
+      (=gb12345		  . #x5235)	; &AJ1-01728; [50-21]
       ))
     (<-vulgar
      ((=ucs@unicode	  . #x5317)	; &AJ1-03706;

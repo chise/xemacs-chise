@@ -68836,7 +68836,8 @@
       )
      ((=ucs		  . #x53E3)	; 口
       )
-     ((=ucs@unicode	  . #x5D4F)	; &UU+5D4F;
+     ((=ucs@unicode	  . #x5D4F)	; &MJ010611;
+      (=mj		  . 010611)	; &MJ010611;
       ))
     (=ucs@iso		. #x21085)	; &U-00021085;
     (->subsumptive
