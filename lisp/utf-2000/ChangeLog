@@ -1,3 +1,8 @@
+2020-02-12  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R018-Knife.el (U+5247): Apply new conventions for
+	glyph granularity for components of ideographic-structure.
+
 2020-02-09  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R039-Child.el (U+3741): Apply new conventions for
