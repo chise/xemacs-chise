@@ -3,6 +3,14 @@
 	* Ideograph-R018-Knife.el (U+5247): Apply new conventions for
 	glyph granularity for components of ideographic-structure.
 
+2020-02-11  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R100-Life.el (A-BC-8C45): New abstract node; unify
+	A-CB10885.
+	(BC-8C45): New character; unify CB10885; use `<-denotational' for
+	A-BC-8C45.
+	(U-00024BF2): Apply new conventions for glyph granularity.
+
 2020-02-09  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R039-Child.el (U+3741): Apply new conventions for
