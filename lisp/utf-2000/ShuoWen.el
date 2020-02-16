@@ -155719,11 +155719,15 @@
      ((===shuowen-jiguge5 . 50906)	; &SW-JIGUGE5-50906;
       (<-Small-Seal@shuowen
        ((=ucs		    . #x201DA)	; 𠇚
+	)
+       ((=ucs		    . #x24C12)	; 𤰒
 	))
       )
      ((===shuowen-jiguge4 . 49406)	; &SW-JIGUGE4-49406;
       (<-Small-Seal@shuowen
        ((=ucs		    . #x201DA)	; 𠇚
+	)
+       ((=ucs		    . #x24C12)	; 𤰒
 	))
       ))
     ))

@@ -5,6 +5,12 @@
 
 2020-02-11  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* ShuoWen.el (SW-JIGUGE5-50906): Add U-00024C12 as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-49406): Ditto.
+
+2020-02-11  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R100-Life.el (A-BC-8C45): New abstract node; unify
 	A-CB10885.
 	(BC-8C45): New character; unify CB10885; use `<-denotational' for
