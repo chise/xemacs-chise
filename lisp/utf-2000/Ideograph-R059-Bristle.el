@@ -1046,9 +1046,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=jis-x0208@1978	  . #x3A53)	; &HD-FT-3227; [26-51]
-      (=ks-x1001	  . #x737A)	; &I-K0-737A; [83-90]
-      (=daikanwa	  . 40116)	; &I-M-40116;
+     ((=mj		  . 026587)	; &MJ026587;
       )
      ((=ucs		  . #x5F61)	; 彡
       ))
