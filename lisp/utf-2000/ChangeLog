@@ -1,3 +1,8 @@
+2020-02-18  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R020-Wrap.el (A-BC-8D65): New abstract node.
+	(BC-8D65): New character; use `<-denotational' for A-BC-8D65.
+
 2020-02-15  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R001-One.el (U-0002CED8): Apply new conventions for
