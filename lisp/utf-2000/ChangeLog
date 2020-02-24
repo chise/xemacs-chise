@@ -1,3 +1,176 @@
+2020-02-24  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R053-Dotted-Cliff.el (U+5E80): Apply new conventions
+	for glyph granularity; add `<-denotational@usage' for
+	A2-DJT-02919.
+	(DJT-02919): New character; use `<-denotational' for U+5E80.
+	(U-0002BDE5): New character; use `<-denotational@component' for
+	A-IWDSU+2BDE5.
+	(U-0002D64D): Ditto.
+	(U+386F): Apply new conventions for glyph granularity.
+	(U-000221DD): Add `<-denotational@component' for A-IWDSU+5E85; add
+	`ideographic-structure'; add `sound@ja/on'; add `<-same' for
+	JU+5E95.
+	(U+5E85): Add `<-denotational@component' for A-IWDSU+5E85; add
+	`ideographic-structure'.
+	(U-000221E0): Use `->subsumptive'.
+	(U-000221DF): New character; add `<-denotational@component' for
+	A-IWDSU+2BDE5.
+	(M-09238): Unify IU+221DF; add `<-denotational' for U-000221DF.
+	(U+5E86): Apply new conventions for glyph granularity.
+	(U-0002D650): New character.
+	(U+5E87): Apply new conventions for glyph granularity.
+	(U-000221EE): New character.
+	(U-0002D655): New character.
+	(U+5E96): Add `sound@ja/on/{kan|go}'.
+	(UU+5E96): Unify MJ010980; add some relations for other
+	characters.
+	(J2000U+5E96): Unify MJ010981.
+	(U+3878): Use `->subsumptive'.
+	(A-IWDSU+221EC): New abstract node.
+	(U-000221F7): Add `<-denotational' for A-IWDSU+221EC; use
+	`->denotational' and `->subsumptive'.
+	(U-000221EC): New character; use `<-denotational' for
+	A-IWDSU+221EC.
+	(U+3879): Add `<-denotational@component' for A-IWDSU+3879; use
+	`->subsumptive'.
+	(U+387A): Likewise.
+	(U+5E9B): Apply new conventions for glyph granularity.
+	(U+5EA1): Likewise.
+	(CB10990): New character; use `<-denotational' for U+5EA1.
+	(U+387F): Apply new conventions for glyph granularity.
+	(GT-K05862): New character; use `<-denotational' for U+387F.
+	(U+3881): Apply new conventions for glyph granularity.
+	(A-cgnU+5EA6): New abstract node; use `<-denotational@usage' for
+	BUCS+5EA6.
+	(U+5EA6): Use `<-denotational@usage' instead of `<-denotational'
+	for BUCS+5EA6; add `<-denotational' for A-cgnU+5EA6; apply new
+	conventions for glyph granularity.
+	(A-U+5EA6-itaiji-002): New abstract node; use `<-denotational' for
+	A-cgnU+5EA6; use `<-denotational@usage' for BUCS+5EA6.
+	(U+5EA6-itaiji-002): Use A-U+5EA6-itaiji-002 instead of BUCS+5EA6
+	as its mother.
+	(U-0002220E): New character; use `<-denotational@component' for
+	A-IWDSU+2220E.
+	(U-00022210): Likewise.
+	(U-0002D65A): New character.
+	(U+5EAC): Add ideographic-structure.
+	(JU+5EAC): Unify MJ011002.
+	(CU+5EAC): Unify MJ011003.
+	(U-00022220): Use `->subsumptive'.
+	(U-0002222D): Add `sound@ja/on'.
+	(M-09348): Unify CB12301; add `<-wrong' for JU+75DF.
+	(U+3887): New character.
+	(U-00022227): New character; use `<-denotational' for
+	A-IWDSU+22227.
+	(U-0002222B): New character.
+	(U-00022231): New character.
+	(U-0002D65E): New character.
+	(A-IWDSU+22227): New abstract node.
+	(U-0002F88B): Apply new conventions for glyph granularity.
+	(UU+5EB0): Add `ideographic-structure'.
+	(U-00022237): Apply new conventions for glyph granularity.
+	(U+5EB6): Add ideographic-structure.
+	(U-0002F88D): Unify MJ057448.
+	(U+388C): Unify CB02991; add `ideographic-structure'.
+	(U-0002224E): New character; use `<-denotational' for
+	A-IWDSU+22227.
+	(U+5EBF): Add ideographic-structure.
+	(CU+5EBF): Unify MJ011028.
+	(UU+5EBF): Unify MJ011027 and CB08775.
+	(U-00022260): Apply new conventions for glyph granularity.
+	(U+5EC1): Likewise.
+	(U-00022268): Likewise.
+	(U-0002226A): Likewise.
+	(U+22281-itaiji-001): New character.
+	(CU+5ECB): Unify MJ011042.
+	(UU+5ECB): Add `ideographic-structure'; unify MJ011041.
+	(U-00022286): Apply new conventions for glyph granularity.
+	(U-0002228D): New character.
+	(U-0002228F): New character.
+	(CB08776): New character; use `<-denotational' for U-0002228F.
+	(A-GT-K10683): New abstract node.
+	(GT-K10683): New character; use `<-denotational' for A-GT-K10683.
+	(UU+5ECF): Unify MJ011045.
+	(U+5ED0): Add `ideographic-structure'.
+	(JU+5ED0): Add `ideographic-structure'; unify MJ011047.
+	(UU+5ED0): Add `ideographic-structure'.
+	(AJ1-07989): Unify MJ011051.
+	(G-HD-KS107150): Unify MJ011048.
+	(U+3893): Apply new conventions for glyph granularity.
+	(JU+5ED6): Likewise; unify MJ011058.
+	(UU+5ED6): Add `ideographic-structure'; unify MJ011059.
+	(U-0002AAA0): New character.
+	(U-0002D66E): New character.
+	(HD-KS107200): Unify MJ011063.
+	(UU+5ED9): Add `ideographic-structure'; unify MJ011062.
+	(U-000222B0): Use `->denotational' and `->subsumptive'.
+	(U+5EDD): Apply new conventions for glyph granularity.
+	(U+5EDF): Add `ideographic-structure'.
+	(J2004U+5EDF): Likewise; unify MJ011069.
+	(UU+5EDF): Add `ideographic-structure'; unify MJ011070.
+	(UU+5EE0): Add `ideographic-structure'; unify MJ011072.
+	(U+5EE3): Apply new conventions for glyph granularity.
+	(A-UU+5EE3): New abstract node; use `<-denotational' for U+5EE3.
+	(U+5EE3-var-003): Add `<-denotational' for A-UU+5EE3; use
+	A-UU+5EE3 instead of U+5EE3 as its mother.
+	(o-UU+5EE3): Use A-UU+5EE3 instead of U+5EE3 as its mother.
+	(UU+5EE3): Add `ideographic-structure'.
+	(AJ1-20115): Likewise; unify MJ011075.
+	(U-000222B3): Apply new conventions for glyph granularity.
+	(U-0002D674): New character.
+	(U-0002D675): New character.
+	(U-0002D67F): New character.
+	(UU+5EE7): Unify MJ011086.
+	(U-0002AAA7): New character.
+	(U-0002D685): New character.
+	(U-000222EE): New character.
+	(M-09533): Unify HD-KS107790; add `<-denotational' for U-000222EE;
+	add `ideographic-structure'; add `->formed' for IU+222B0.
+	(U-000222F7): New character.
+	(CB12778): New character; use `<-denotational' for U-000222F7.
+	(U-0002D68B): New character.
+	(U+389E): Use `->denotational' and `->subsumptive'.
+	(U-00022300): Likewise.
+	(A-IWDSU+5E85): New abstract node.
+	(A-IWDSU+2BDE5): New abstract node.
+	(A-IWDSU+3879): New abstract node.
+	(A2-DJT-02919): New abstract node.
+	(A-IWDSU+2220E): New abstract node.
+
+2020-02-23  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R057-Bow.el (A-cgnU+5F17): Changed from U+5F17.
+	(AJ1-03574): Unify U+5F17 instead of A-IWDSU+5F17 and UU+5F17; use
+	A-cgnU+5F17 instead of U+5F17 as its mother.
+	(U+5F17-itaiji-002): Use A-cgnU+5F17 instead of U+5F17 as its
+	mother.
+	(JU+5F25): Add `<-formed' for UU+5F4C.
+	(U+5F26): Apply new conventions for glyph granularity.
+	(U-000223CD): Likewise.
+	(M-09763): Unify IU+223CD, MJ035608 and KOSEKI-110340; add
+	`<-denotational' for U-000223CD; add `ideographic-structure'.
+	(U-000223CE): Apply new conventions for glyph granularity.
+	(M-09764): Unify IU+223CE, MJ035609 and KOSEKI-110350; add
+	`<-denotational' for U-000223CE; add `ideographic-structure'.
+	(U-000223CF): Apply new conventions for glyph granularity.
+	(U+5F2A): Likewise.
+	(U+5F2D): Add `ideographic-structure'; add `sound@ja/on/{kan|go}';
+	add some relations for other characters.
+	(U-000223ED): Apply new conventions for glyph granularity.
+	(M-09799): Unify IU+223ED, MJ035631 and KOSEKI-110740; add
+	`<-denotational' for U-000223ED; add `ideographic-structure'.
+	(U+5F33): Apply new conventions for glyph granularity.
+	(U-000223F1): Likewise.
+	(U+5F4C): Add `sound@ja/on/{kan|go}'.
+	(UU+5F4C): Add some relations for other characters.
+	(U-00022440): Use `->denotational' and `->subsumptive'.
+	(U+38C6): Add `sound@ja/on/{kan|go}'.
+	(UU+38C6): Add `<-formed' and `<-same' for UU+5F4C.
+
+	* Ideograph-R031-Enclosure.el (U+5714): Apply new conventions for
+	glyph granularity.
+
 2020-02-18  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R020-Wrap.el (A-BC-8D65): New abstract node.
