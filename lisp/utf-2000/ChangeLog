@@ -1,3 +1,8 @@
+2020-02-27  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R030-Mouth.el (U+55D1): Apply new conventions for
+	glyph granularity.
+
 2020-02-24  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R053-Dotted-Cliff.el (U+5E80): Apply new conventions
