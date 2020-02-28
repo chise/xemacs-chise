@@ -45714,7 +45714,6 @@
   '((ideographic-radical . 30)	; ⼝
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
-    (hanyu-dazidian	1 665 2)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -45723,8 +45722,29 @@
       )
      ((=ucs		  . #x76CD)	; 盍
       ))
+    (sound@ja/on/go	"gAHu" "kEHu")
+    (sound@ja/on/kan	"kAHu" "kAHu")
     (=ucs		. #x55D1)	; 嗑
-    (=adobe-japan1-5	. 17384)	; &I-AJ1-17384;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x55D1)	; 嗑
+      ))
+    (ideographic-radical . 30)	; ⼝
+    (ideographic-strokes . 10)
+    (total-strokes	 . 13)
+    (hanyu-dazidian	1 665 2)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x53E3)	; 口
+      )
+     ((=ucs@unicode	  . #x76CD)	; &AJ1-05801;
+      (=adobe-japan1-0	  . 05801)	; &AJ1-05801;
+      ))
+    (=ucs@unicode	. #x55D1)	; &AJ1-17384;
+    (=adobe-japan1-5	. 17384)	; &AJ1-17384;
     (=gb2312		. #x603E)	; &I-G0-603E; [64-30]
     (=jis-x0212		. #x357D)	; &I-JSP-357D; [21-93]
     (=cns11643-1	. #x6346)	; &I-C1-6346; [67-38]
@@ -45733,6 +45753,29 @@
     (=daikanwa		. 04068)	; &I-M-04068;
     (=cbeta		. 05361)	; &I-CB05361;
     (=jef-china3	. #x46F0)	; &I-JC3-46F0;
+    (<-interchangeable
+     ((=ucs@unicode	  . #x6B31)	; &C2-2F7A;
+      (=cns11643-2	  . #x2F7A)	; &C2-2F7A; [15-90]
+      (=daikanwa	  . 16071)	; &I-M-16071;
+      ))
+    (<-interchangeable$_1*sources
+     shuowen-tongxun-dingsheng daikanwa)
+    (<-interchangeable*sources
+     shuowen-tongxun-dingsheng daikanwa)
+    (->formed
+     ((=ucs		  . #x46C5)	; 䛅
+      (=daikanwa	  . 35331)	; &I-M-35331;
+      )
+     ((=ucs@iso		  . #x27A9E)	; &C4-5871;
+      (=cns11643-4	  . #x5871)	; &C4-5871; [56-81]
+      (=daikanwa	  . 35790)	; &I-M-35790;
+      ))
+    (->formed$_1*sources
+     jiyun daikanwa)
+    (->formed$_2*sources
+     jiyun daikanwa)
+    (->formed*sources
+     jiyun daikanwa)
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x55D1)	; 嗑
