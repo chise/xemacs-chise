@@ -1,3 +1,34 @@
+2020-03-02  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R046-Mountain.el (U+5C80): Add `<-denotational' for
+	A-IWDSU+51FA; add `ideographic-structure'; unify MJ010405 and
+	KOSEKI-089730; add `<-formed' and `<-vulgar' for U+51FA.
+	(U-00021D5E): Apply new conventions for glyph granularity.
+	(U+5CEF): Likewise.
+	(U+5CF0): Add `sound@ja/on'.
+	(UU+5CF0): Add `<-formed' and `<-vulgar' for UU+5CEF.
+	(U+5D06): Apply new conventions for glyph granularity.
+	(U+5D14): Likewise.
+	(U+5D34): Likewise.
+	(U+5D4F): Likewise.
+	(U+5D55): Add `ideographic-structure'; add `sound@ja/on'.
+	(CU+5D55): Add `ideographic-structure'; add `<-formed' and
+	`<-same' for CU+5D4F.
+	(UU+5D55): Add `ideographic-structure'.
+	(U+37EA): Apply new conventions for glyph granularity.
+	(U+5D54): Likewise.
+	(U-00021EED): Likewise.
+	(U-00021EF1): Likewise.
+	(U-00021F0A): Use `->denotational' and `->subsumptive'.
+	(U+5DB2): Add ideographic-structure.
+	(U-00021F80): Apply new conventions for glyph granularity.
+	(U-00021F8A): Likewise.
+	(U-00021F8B): Likewise.
+	(U+5DC2): Likewise; add `<-denotational' for A-IWDSU+96DF.
+	(U+3825): Apply new conventions for glyph granularity.
+	(U-00021FC8): Use `->denotational' and `->subsumptive'.
+	(U-00021FD4): Likewise.
+
 2020-02-27  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R030-Mouth.el (U+55D1): Apply new conventions for
