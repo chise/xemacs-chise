@@ -1,3 +1,9 @@
+2020-03-03  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R010-Legs.el (o-UU+5154): Unify B-A8DF, o-AJ1-04212
+	and o-GT-01781.
+	(UU+5154): Separate B-A8DF.
+
 2020-03-02  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R046-Mountain.el (U+5C80): Add `<-denotational' for
