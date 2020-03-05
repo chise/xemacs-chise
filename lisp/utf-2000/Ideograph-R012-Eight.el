@@ -574,8 +574,7 @@
   '((<-denotational@component
      ((=>ucs@component	  . #x20501)	; &A-compU+20501;
       )
-     ((=>ucs@iwds-1	  . #x5C23)	; &A-IWDSU+5C23;
-      (=>ucs@iwds-1/normalized . #x5C23)	; &A-IWDSU+5C23;
+     ((=>ucs@iwds-1/normalized . #x5C23)	; &A-NIWDSU+5C23;
       ))
     (ideographic-radical . 12)	; ⼋
     (ideographic-strokes . 2)
