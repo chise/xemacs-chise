@@ -223,6 +223,14 @@
 (define-char
   '((ideographic-radical . 55)	; ⼶
     (ideographic-strokes . 1)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x8279)	; 艹
+      )
+     ((=ucs		  . #x4E00)	; 一
+      ))
     (=>ucs@component	. #x5EFF)	; &A-compU+5EFF;
     (=>iwds-1		.  0303)	; &A-compU+5EFF;
     ))
@@ -279,6 +287,30 @@
 	)
        ((===ucs@unicode	    . #x5EFF)	; &R-UU+5EFF;
 	))
+      ))
+    ))
+(define-char
+  '((<-denotational@component
+     ((=>ucs@component	  . #x3400)	; &A-compU+3400;
+      )
+     ((=>ucs@component	  . #x5EFF)	; &A-compU+5EFF;
+      (=>iwds-1		  .  0303)	; &A-compU+5EFF;
+      ))
+    (ideographic-radical . 55)	; ⼶
+    (ideographic-strokes . 1)
+    (total-strokes	 . 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((name		  . "CJK RADICAL GRASS THREE")
+      (=ucs		  . #x2EC0)	; ⻀
+      )
+     ((=ucs		  . #x4E00)	; 一
+      ))
+    (=ucs-itaiji-003	. #x5EFF)	; &U-i003+5EFF;
+    (->subsumptive
+     ((==ucs-itaiji-003	  . #x5EFF)	; &g2-U-i003+5EFF;
       ))
     ))
 (define-char

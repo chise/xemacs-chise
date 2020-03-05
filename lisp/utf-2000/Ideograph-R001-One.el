@@ -3447,7 +3447,30 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 1)	; ⼀
+  '((<-denotational@component
+     ((=>ucs@component	  . #x5EFF)	; &A-compU+5EFF;
+      (=>iwds-1		  .  0303)	; &A-compU+5EFF;
+      ))
+    (ideographic-radical . 1)	; ⼀
+    (ideographic-strokes . 4)
+    (total-strokes	 . 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x535D)	; 卝
+      )
+     ((=ucs		  . #x4E00)	; 一
+      ))
+    (=>ucs@component	. #x3400)	; &A-compU+3400;
+    ))
+(define-char
+  '((<-denotational@component
+     ((=>ucs@component	  . #x3400)	; &A-compU+3400;
+      )
+     ((=ucs		  . #x9FB7)	; 龷
+      ))
+    (ideographic-radical . 1)	; ⼀
     (ideographic-strokes . 4)
     (total-strokes	 . 5)
     (hanyu-dazidian	1 15 3)
