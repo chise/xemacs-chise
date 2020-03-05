@@ -1449,13 +1449,11 @@
     ))
 (define-char
   '((<-denotational@component
-     ((=>ucs@iwds-1	  . #x5C23)	; &A-IWDSU+5C23;
-      (=>ucs@iwds-1/normalized . #x5C23)	; &A-IWDSU+5C23;
+     ((=>ucs@iwds-1/normalized . #x5C23)	; &A-NIWDSU+5C23;
       ))
     (ideographic-radical . 16)	; ⼏
     (ideographic-strokes . 4)
     (total-strokes	 . 6)
-    (hanyu-dazidian	1 277 8)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
@@ -1466,7 +1464,27 @@
       ))
     (sound@ja/on	"ki")
     (=ucs		. #x2063B)	; 𠘻
-    (=daikanwa		. 01755)	; &I-M-01755;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2063B)	; 𠘻
+      ))
+    (ideographic-radical . 16)	; ⼏
+    (ideographic-strokes . 4)
+    (total-strokes	 . 6)
+    (hanyu-dazidian	1 277 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs@unicode	  . #x51E1)	; &AJ1-03724;
+      (=adobe-japan1-0	  . 03724)	; &AJ1-03724;
+      )
+     ((=ucs@unicode	  . #x51E1)	; &AJ1-03724;
+      (=adobe-japan1-0	  . 03724)	; &AJ1-03724;
+      ))
+    (=ucs@iso		. #x2063B)	; &M-01755;
+    (=daikanwa		. 01755)	; &M-01755;
     (->subsumptive
      ((==ucs@iso	  . #x2063B)	; &g2-M-01755;
       (==daikanwa	  . 01755)	; &g2-M-01755;
