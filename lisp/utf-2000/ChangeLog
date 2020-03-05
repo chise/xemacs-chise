@@ -1,5 +1,17 @@
 2020-03-04  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R052-Short-Thread.el (A-BC-8B7B): New abstract node.
+	(GT-K02106): New character; use `<-denotational' for A-BC-8B7B.
+	(BC-8B7B): Ditto; unify GT-K02108.
+
+	* Ideograph-R016-Table.el (U-0002063B): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R010-Legs.el (U-0002049D): Apply new conventions for
+	glyph granularity.
+
+2020-03-04  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R055-Two-Hands.el (IWDS1-0303): Add
 	`ideographic-structure'.
 	(U+5EFF-itaiji-003): New character; use `<-denotational@component'
