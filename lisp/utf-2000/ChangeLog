@@ -1,3 +1,14 @@
+2020-03-04  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R055-Two-Hands.el (IWDS1-0303): Add
+	`ideographic-structure'.
+	(U+5EFF-itaiji-003): New character; use `<-denotational@component'
+	for A-compU+3400 and IWDS1-0303.
+
+	* Ideograph-R001-One.el (A-compU+3400): New abstract node.
+	(U+3400): Add `<-denotational@component' for A-compU+3400 and
+	U+9FB7.
+
 2020-03-03  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R010-Legs.el (o-UU+5154): Unify B-A8DF, o-AJ1-04212
