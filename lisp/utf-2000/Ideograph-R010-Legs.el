@@ -5135,7 +5135,6 @@
     (ideographic-radical@daikanwa . 43)	; ⼪
     (ideographic-strokes@daikanwa . 8)
     (total-strokes	 . 11)
-    (hanyu-dazidian	1 273 15)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
       (=ucs		  . #x2FFA)	; ⿺
@@ -5147,8 +5146,29 @@
     (sound@ja/on/go	"hIyAu")
     (sound@ja/on/kan	"hei")
     (=ucs		. #x2049D)	; 𠒝
-    (=mj		. 030930)	; &I-MJ030930;
-    (=koseki		. 086280)	; 𠒝
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2049D)	; 𠒝
+      ))
+    (ideographic-radical@ucs . 10)	; ⼉
+    (ideographic-strokes@ucs . 9)
+    (ideographic-radical@daikanwa . 43)	; ⼪
+    (ideographic-strokes@daikanwa . 8)
+    (total-strokes	 . 11)
+    (hanyu-dazidian	1 273 15)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
+      (=ucs		  . #x2FFA)	; ⿺
+      )
+     ((=ucs@unicode	  . #x5149)	; &MJ007221;
+      (=mj		  . 007221)	; &MJ007221;
+      )
+     ((=ucs		  . #x4E19)	; 丙
+      ))
+    (=ucs@iso		. #x2049D)	; &MJ030930;
+    (=mj		. 030930)	; &MJ030930;
+    (=koseki		. 086280)	; &MJ030930;
     (=daikanwa		. 07593)	; &I-M-07593;
     (->subsumptive
      ((ideographic-structure
