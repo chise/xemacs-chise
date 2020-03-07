@@ -989,9 +989,85 @@
   '((ideographic-radical . 27)	; ⼚
     (ideographic-strokes . 5)
     (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=>ucs@component	  . #x5382)	; &A-compU+5382;
+      )
+     ((=>ucs@iwds-1	  . #x53E4)	; &A-IWDSU+53E4;
+      ))
+    (=>ucs@component	. #x3546)	; &A-compU+3546;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@component	  . #x3546)	; &A-compU+3546;
+      ))
+    (ideographic-radical . 27)	; ⼚
+    (ideographic-strokes . 5)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs		  . #x5382)	; 厂
+      )
+     ((=>ucs@iwds-1	  . #x53E4)	; &A-IWDSU+53E4;
+      ))
+    (sound@ja/on/go	"tu" "go")
+    (sound@ja/on/kan	"to" "ko")
     (=ucs		. #x3546)	; 㕆
-    (=cns11643-3	. #x2469)	; &I-C3-2469; [04-73]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x3546)	; 㕆
+      ))
+    (ideographic-radical . 27)	; ⼚
+    (ideographic-strokes . 5)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs		  . #x5382)	; 厂
+      )
+     ((=ucs		  . #x53E4)	; 古
+      ))
+    (=ucs@unicode	. #x3546)	; &C3-2469;
+    (=cns11643-3	. #x2469)	; &C3-2469; [04-73]
     (=daikanwa		. 02920)	; &I-M-02920;
+    (->subsumptive
+     ((==ucs@unicode	  . #x3546)	; &g2-M-02920;
+      (==cns11643-3	  . #x2469)	; &g2-M-02920; [04-73]
+      (==daikanwa	  . 02920)	; &g2-M-02920;
+      (->subsumptive
+       ((===daikanwa	    . 02920)	; &R-M-02920;
+	)
+       ((===cns11643-3	    . #x2469)	; &R-C3-2469; [04-73]
+	)
+       ((===ucs@unicode	    . #x3546)	; &R-UU+3546;
+	))
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@component	  . #x3546)	; &A-compU+3546;
+      ))
+    (ideographic-radical . 27)	; ⼚
+    (ideographic-strokes . 5)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs		  . #x20086)	; 𠂆
+      )
+     ((=ucs		  . #x53E4)	; 古
+      ))
+    (=ucs-itaiji-001	. #x3546)	; &U-i001+3546;
+    (->subsumptive
+     ((==ucs-itaiji-001	  . #x3546)	; &g2-U-i001+3546;
+      ))
     ))
 (define-char
   '((=>ucs		. #x3547)	; 㕇
@@ -1531,13 +1607,15 @@
     (=koseki		. 034020)	; &MJ031868;
     (=daikanwa		. 02935)	; &I-M-02935;
     (<-ancient
-     ((=ucs		  . #x5E2D)	; 席
+     ((=ucs@unicode	  . #x5E2D)	; &AJ1-02670;
+      (=adobe-japan1-0	  . 02670)	; &AJ1-02670;
       (=daikanwa	  . 08926)	; &I-M-08926;
       ))
     (<-ancient*sources
      zihui daikanwa)
     (<-formed
-     ((=ucs		  . #x5E2D)	; 席
+     ((=ucs@unicode	  . #x5E2D)	; &AJ1-02670;
+      (=adobe-japan1-0	  . 02670)	; &AJ1-02670;
       ))
     (<-formed*sources
      koseki)
@@ -2195,7 +2273,8 @@
     (=cns11643-6	. #x2F44)	; &I-C6-2F44; [15-36]
     (=daikanwa		. 02952)	; &I-M-02952;
     (<-ancient
-     ((=ucs		  . #x5E2D)	; 席
+     ((=ucs@unicode	  . #x5E2D)	; &AJ1-02670;
+      (=adobe-japan1-0	  . 02670)	; &AJ1-02670;
       (=daikanwa	  . 08926)	; &I-M-08926;
       ))
     (<-ancient*sources
