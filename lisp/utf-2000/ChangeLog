@@ -1,3 +1,13 @@
+2020-03-05  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R027-Cliff.el (A-compU+3546): New abstract node.
+	(U+3546): Add `<-denotational' for A-compU+3546; apply new
+	conventions for glyph granularity.
+	(U+3546-itaiji-001): New character; use `<-denotational' for
+	A-compU+3546.
+
+	* Ideograph-R008-Lid.el (GT-K11026): New character.
+
 2020-03-04  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R052-Short-Thread.el (A-BC-8B7B): New abstract node.
