@@ -2555,7 +2555,7 @@
       ))
     ))
 (define-char
-  '((<-denotational@component
+  '((<-denotational
      ((=>ucs@iwds-1	  . #x27224)	; &A-IWDSU+27224;
       ))
     (ideographic-radical . 16)	; ⼏
