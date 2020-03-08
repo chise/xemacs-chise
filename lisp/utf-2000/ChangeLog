@@ -1,3 +1,8 @@
+2020-03-07  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R016-Table.el (U-0002064D): Use `<-denotational'
+	instead of `<-denotational@component' for A-IWDSU+27224.
+
 2020-03-05  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R027-Cliff.el (A-compU+3546): New abstract node.
