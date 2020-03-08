@@ -3153,7 +3153,6 @@
      ((=ucs		  . #x52F9)	; 勹
       )
      ((=>ucs@iwds-1	  . #x5944)	; &A-IWDSU+5944;
-      (=>ucs@iwds-1/normalized . #x5944)	; &A-IWDSU+5944;
       (=>iwds-1		  .  0172)	; &A-IWDSU+5944;
       ))
     (=ucs		. #x530E)	; 匎
