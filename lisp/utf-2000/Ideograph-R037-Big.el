@@ -2328,22 +2328,16 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 37)	; ⼤
-    (==>ucs@bucs	. #x5944)	; &BUCS+5944;
-    ))
-(define-char
-  '((<-denotational
+  '((<-denotational@usage
      ((==>ucs@bucs	  . #x5944)	; &BUCS+5944;
       ))
     (ideographic-radical . 37)	; ⼤
     (=>ucs@iwds-1	. #x5944)	; &A-IWDSU+5944;
-    (=>ucs@iwds-1/normalized . #x5944)	; &A-IWDSU+5944;
     (=>iwds-1		.  0172)	; &A-IWDSU+5944;
     ))
 (define-char
   '((<-denotational
      ((=>ucs@iwds-1	  . #x5944)	; &A-IWDSU+5944;
-      (=>ucs@iwds-1/normalized . #x5944)	; &A-IWDSU+5944;
       (=>iwds-1		  .  0172)	; &A-IWDSU+5944;
       ))
     (ideographic-radical . 37)	; ⼤
@@ -3744,7 +3738,8 @@
     (=daikanwa@rev1	. 05897)	; &M-05909;
     (=daikanwa@rev2	. 05909)	; &M-05909;
     (->formed
-     ((=cns11643-5	  . #x2F56)	; &C5-2F56; [15-54]
+     ((=ucs@cns		  . #x25E38)	; &C5-2F56;
+      (=cns11643-5	  . #x2F56)	; &C5-2F56; [15-54]
       (=daikanwa	  . 26876)	; &I-M-26876;
       ))
     (->formed$_1*sources
@@ -6036,7 +6031,6 @@
 (define-char
   '((<-denotational
      ((=>ucs@iwds-1	  . #x5944)	; &A-IWDSU+5944;
-      (=>ucs@iwds-1/normalized . #x5944)	; &A-IWDSU+5944;
       (=>iwds-1		  .  0172)	; &A-IWDSU+5944;
       ))
     (ideographic-radical . 37)	; ⼤
@@ -9834,6 +9828,10 @@
   '((ideographic-radical . 37)	; ⼤
     (==>ucs@bucs	. #x5947)	; &BUCS+5947;
     (==>daijiten	. 01972)	; &BUCS+5947;
+    ))
+(define-char
+  '((ideographic-radical . 37)	; ⼤
+    (==>ucs@bucs	. #x5944)	; &BUCS+5944;
     ))
 (define-char
   '((ideographic-radical . 37)	; ⼤
