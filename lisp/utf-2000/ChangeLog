@@ -1,5 +1,13 @@
 2020-03-08  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R037-Big.el (IWDS1-0172): Use `<-denotational@usage'
+	instead of `<-denotational' for BUCS+5944.
+	(IWDS1-0172): Omit `=>ucs@iwds-1/normalized'.
+
+	* Ideograph-R030-Mouth.el (g2-UU+5535): Omit
+	`ideographic-structure'.
+	(g2-CU+5535): Omit `ideographic-structure'.
+
 	* Ideograph-R018-Knife.el (g2-JU+5266): Omit
 	`ideographic-structure'.
 
