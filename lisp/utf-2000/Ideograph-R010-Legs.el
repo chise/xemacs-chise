@@ -297,7 +297,7 @@
 	(sound@ja/on	    "wAu")
 	(=mj		    . 007208)	; &MJ007208;
 	(=koseki	    . 085690)	; &MJ007208;
-	(=daikanwa	    . 07542)	; &M-07542;
+	(=daikanwa	    . 07542)	; &I-M-07542;
 	(<-formed
 	 ((=mj		      . 010302)	; &MJ010302;
 	  (=koseki	      . 085670)	; &MJ010302;
