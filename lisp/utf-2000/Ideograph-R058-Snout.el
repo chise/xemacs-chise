@@ -134,7 +134,7 @@
     (=ucs@JP/hanazono	. nil)
     (=gb2312		. #x6566)	; &G0-6566; [69-70]
     (=big5-cdp		. #x897C)	; &I-CDP-897C;
-    (=gt-k		. 00266)	; &GT-K00266;
+    (=gt-k		. 00266)	; &I-GT-K00266;
     (=gt-pj-k1		. #x3663)	; &G0-6566; [22-67]
     (->subsumptive
      ((==ucs@unicode	  . #x5F50)	; &g2-UU+5F50;
