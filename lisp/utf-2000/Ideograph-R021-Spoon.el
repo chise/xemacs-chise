@@ -1376,7 +1376,7 @@
      ((=ucs@unicode	  . #x5317)	; &AJ1-03706;
       (=adobe-japan1-0	  . 03706)	; &AJ1-03706;
       )
-     ((=big5-cdp	  . #x8BF1)	; &CDP-8BF1;
+     ((=ucs		  . #x30001)	; 𰀁
       ))
     (=ucs@iso		. #x20916)	; &U-00020916;
     (->subsumptive
