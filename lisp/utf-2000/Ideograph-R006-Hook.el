@@ -605,8 +605,10 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 6)	; ⼅
-    (ideographic-strokes . 4)
+  '((ideographic-radical@ucs . 1)	; ⼀
+    (ideographic-strokes@ucs . 4)
+    (ideographic-radical@misc . 6)	; ⼅
+    (ideographic-strokes@misc . 4)
     (total-strokes	 . 5)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -616,8 +618,14 @@
       )
      ((=big5-cdp	  . #x88CD)	; &CDP-88CD;
       ))
-    (=gt-k		. 01268)	; &GT-K01268;
-    (=gt-pj-k2		. #x4A76)	; &GT-K01268; [42-86]
+    (=ucs		. #x3000A)	; 𰀊
+    (=gt-k		. 01268)	; &I-GT-K01268;
+    (=gt-pj-k2		. #x4A76)	; 𰀊 [42-86]
+    (->subsumptive
+     ((==ucs@JP/hanazono  . #x3000A)	; &g2-GT-K01268;
+      (==gt-k		  . 01268)	; &g2-GT-K01268;
+      (==gt-pj-k2	  . #x4A76)	; &g2-GT-K01268; [42-86]
+      ))
     ))
 (define-char
   '((ideographic-radical . 6)	; ⼅
