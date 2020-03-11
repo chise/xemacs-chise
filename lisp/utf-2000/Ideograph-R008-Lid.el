@@ -1086,6 +1086,24 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=ucs		  . #x4EA6)	; 亦
+      ))
+    (ideographic-radical . 8)	; ⼇
+    (ideographic-strokes . 4)
+    (total-strokes	 . 6)
+    (=ucs		. #x3005C)	; 𰁜
+    (<-simplified@CN/component
+     ((=ucs@unicode	  . #x470C)	; &AJ1-18690;
+      (=adobe-japan1-5	  . 18690)	; &AJ1-18690;
+      )
+     ((=ucs		  . #x9FBB)	; 龻
+      ))
+    (->subsumptive
+     ((==ucs@JP/hanazono  . #x3005C)	; &g2-hanaJU+3005C;
+      ))
+    ))
+(define-char
   '((ideographic-radical . 8)	; ⼇
     (ideographic-strokes . 4)
     (total-strokes	 . 6)
@@ -4170,7 +4188,7 @@
       )
      ((=big5-cdp	  . #x8C4D)	; &CDP-8C4D;
       )
-     ((=big5-cdp	  . #x8BF1)	; &CDP-8BF1;
+     ((=ucs		  . #x30001)	; 𰀁
       )
      ((=ucs		  . #x4E5D)	; 九
       ))
