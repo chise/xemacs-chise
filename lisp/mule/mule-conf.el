@@ -6434,6 +6434,19 @@
 	       min-code #x20000 max-code #x2A6D6
 	       code-offset #x20000))
   (make-charset
+   '==ucs-tip@JP/hanazono
+   "Hanazono glyphs-forms of UCS TIP"
+   '(long-name "Hanazono TIP glyph-forms"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       registry "ucs00-3$"
+	       mother ==ucs@JP/hanazono
+	       min-code #x30000 max-code #x3134A
+	       code-offset #x30000))
+  (make-charset
    '===ucs-sip@iso
    "ISO representative glyph-images of ISO/IEC 10646 Plane 2"
    '(long-name "SIP rep-glyph-images"
