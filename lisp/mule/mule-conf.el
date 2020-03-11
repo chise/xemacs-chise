@@ -3,8 +3,8 @@
 ;; Copyright (C) 1995,1999 Electrotechnical Laboratory, JAPAN.
 ;; Licensed to the Free Software Foundation.
 ;; Copyright (C) 1997, 1999, 2000, 2002, 2003, 2004, 2005, 2006, 2008,
-;;   2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019
-;;   MORIOKA Tomohiko
+;;   2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019,
+;;   2020 MORIOKA Tomohiko
 
 ;; Keywords: mule, multilingual, character set, coding system
 
@@ -6318,6 +6318,32 @@
 	       min-code #x20000 max-code #x2FFFF
 	       code-offset #x20000))
   (make-charset
+   '=ucs-tip
+   "Tertiary Ideographic Plane of UCS"
+   '(long-name "UCS TUP"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       registry "\\(iso10646\\|ucs00\\)-3$"
+	       mother ucs
+	       min-code #x30000 max-code #x3134A
+	       code-offset #x30000))
+  (make-charset
+   '=ucs-tip@JP/hanazono
+   "Hanazono glyphs of UCS TIP"
+   '(long-name "Hanazono TIP glyphs"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       registry "ucs00-3$"
+	       mother =ucs@JP/hanazono
+	       min-code #x30000 max-code #x3134A
+	       code-offset #x30000))
+  (make-charset
    '=>ucs-sip@iwds-1
    "CJK Characters in SIP based on IWDS-1."
    '(long-name "CJK in SIP@IWDS-1"
@@ -6407,6 +6433,19 @@
 	       mother ==ucs@iso
 	       min-code #x20000 max-code #x2A6D6
 	       code-offset #x20000))
+  (make-charset
+   '==ucs-tip@JP/hanazono
+   "Hanazono glyphs-forms of UCS TIP"
+   '(long-name "Hanazono TIP glyph-forms"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       registry "ucs00-3$"
+	       mother ==ucs@JP/hanazono
+	       min-code #x30000 max-code #x3134A
+	       code-offset #x30000))
   (make-charset
    '===ucs-sip@iso
    "ISO representative glyph-images of ISO/IEC 10646 Plane 2"
