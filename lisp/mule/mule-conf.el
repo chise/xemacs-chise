@@ -6383,6 +6383,19 @@
 	       min-code #x20000 max-code #x2FFFF
 	       code-offset #x20000))
   (make-charset
+   '=>ucs-tip@component
+   "CJK Characters in TIP for IWDS-1 abstract components."
+   '(long-name "CJK in TIP@component"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       registry "ucs00-3$"
+	       mother =>ucs@component
+	       min-code #x30000 max-code #x3134A
+	       code-offset #x30000))
+  (make-charset
    '==>ucs-sip@esu
    "UCS glyphs in UCS SIP of ESU"
    '(long-name "ESU SIP"
