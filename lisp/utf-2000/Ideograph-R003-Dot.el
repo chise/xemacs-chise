@@ -1339,17 +1339,35 @@
   '((ideographic-radical . 3)	; ⼂
     (ideographic-strokes . 8)
     (total-strokes	 . 9)
-    (hanyu-dazidian	1 47 3)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
       (=ucs		  . #x2FF5)	; ⿵
       )
      ((=ucs		  . #x5174)	; 兴
       )
-     ((=big5-cdp	  . #x8BF1)	; &CDP-8BF1;
+     ((=ucs		  . #x30001)	; 𰀁
       ))
     (=ucs		. #x4E3E)	; 举
-    (=gb2312		. #x3E59)	; &I-G0-3E59; [30-57]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x4E3E)	; 举
+      ))
+    (ideographic-radical . 3)	; ⼂
+    (ideographic-strokes . 8)
+    (total-strokes	 . 9)
+    (hanyu-dazidian	1 47 3)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
+      (=ucs		  . #x2FF5)	; ⿵
+      )
+     ((=ucs@unicode	  . #x5174)	; &AJ1-19172;
+      (=adobe-japan1-5	  . 19172)	; &AJ1-19172;
+      )
+     ((=ucs		  . #x30001)	; 𰀁
+      ))
+    (=ucs@unicode	. #x4E3E)	; &G0-3E59;
+    (=gb2312		. #x3E59)	; &G0-3E59; [30-57]
     (<-simplified@CN
      ((=ucs		  . #x8209)	; 舉
       (=gb12345		  . #x3E59)	; 舉 [30-57]

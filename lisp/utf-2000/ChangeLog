@@ -1,3 +1,24 @@
+2020-03-12  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R018-Knife.el (U-00030021): New character.
+	(U+81E4-itaiji-001): Add `<-subsumptive' for hanaJU+30021.
+	(GT-K00654): Use `<-subsumptive' for hanaJU+30021 instead of
+	`<-subsumptive' for U+81E4-itaiji-001.
+	(GT-K00651): Use `<-denotational' for U-00030021 instead of
+	`<-subsumptive' for U+81E4-itaiji-001.
+	(U-00030022): New character.
+	(U+76D1-itaiji-003): Unify hanaJU+30022; add `<-denotational' for
+	U-00030022; use `ideographic-{radical|strokes}@misc' instead of
+	`ideographic-{radical|strokes}'; add
+	`ideographic-{radical|strokes}@ucs'.
+
+	* Ideograph-R017-Open-Box.el (IU+20679): Modify component.
+	(U+51FB): Use `<-denotational@usage' instead of `<-denotational'
+	for BUCS+64CA; apply new conventions for glyph granularity.
+
+	* Ideograph-R003-Dot.el (U+4E3E): Apply new conventions for glyph
+	granularity.
+
 2020-03-11  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R030-Mouth.el (U+55B6): Add `ideographic-structure'.
