@@ -2023,7 +2023,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=big5-cdp	  . #x89E3)	; &CDP-89E3;
+     ((=ucs		  . #x30004)	; 𰀄
       )
      ((=ucs		  . #x2BDA7)	; 𫶧
       ))

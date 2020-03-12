@@ -1,3 +1,17 @@
+2020-03-11  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R042-Small.el (U-00021B9F): Add
+	`ideographic-structure'; add `sound@ja/on'; add `<-wrong' for
+	IU+221C7.
+
+	* Ideograph-R008-Lid.el (U-0003005C): New character; use
+	`<-denotational' for U+4EA6.
+
+	* Ideograph-R006-Hook.el (GT-K01268): Unify U-0003000A; use
+	`ideographic-{radical|strokes}@misc' instead of
+	`ideographic-{radical|strokes}'; add
+	`ideographic-{radical|strokes}@ucs'.
+
 2020-03-08  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R037-Big.el (IWDS1-0172): Use `<-denotational@usage'
@@ -18990,7 +19004,7 @@
 	(UU+5C46): Apply new conventions for glyph granularity.
 	(U+5C53): Likewise.
 
-	* Ideograph-R030-Mouth.el (U+55BE): Use "⿱&GT-K01443;x" instead of "⿳小冖
+	* Ideograph-R030-Mouth.el (U+55BE): Use "⿱𰃮x" instead of "⿳小冖
 	x" in `ideographic-structure'; add `<-simplified@CN' for UU+56B3;
 	apply new conventions for glyph granularity.
 	(U+55EB): Use "聂" instead of "耳双" in `ideographic-structure';

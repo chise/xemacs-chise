@@ -178,7 +178,7 @@
     (total-strokes	 . 3)
     (=ucs		. #x2D544)	; 𭕄
     (=mj		. 059517)	; &I-MJ059517;
-    (=adobe-japan1-4	. 13834)	; 𭕄
+    (=adobe-japan1-4	. 13834)	; &I-AJ1-13834;
     (=big5-cdp		. #x89B2)	; &I-CDP-89B2;
     (<-formed@component/connect-below
      ((=ucs		  . #x5C0F)	; 小
@@ -2122,9 +2122,39 @@
   '((ideographic-radical . 42)	; ⼩
     (ideographic-strokes . 11)
     (total-strokes	 . 14)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=gt-k		  . 03587)	; &GT-K03587;
+      )
+     ((=gt-k		  . 03587)	; &GT-K03587;
+      ))
+    (sound@ja/on	"kWaN")
     (=ucs		. #x21B9F)	; 𡮟
     (=cns11643-6	. #x5C33)	; &I-C6-5C33; [60-19]
     (=daikanwa		. 07526)	; &I-M-07526;
+    (<-wrong
+     ((=ucs@iso		  . #x221C7)	; &C4-314A;
+      (=cns11643-4	  . #x314A)	; &C4-314A; [17-42]
+      (=daikanwa	  . 09207)	; &I-M-09207;
+      ))
+    (<-wrong$_1*sources
+     zhengzitong daikanwa)
+    (<-wrong*sources
+     zhengzitong daikanwa)
+    (->subsumptive
+     ((==ucs@iso	  . #x21B9F)	; &g2-M-07526;
+      (==cns11643-6	  . #x5C33)	; &g2-M-07526; [60-19]
+      (==daikanwa	  . 07526)	; &g2-M-07526;
+      (->subsumptive
+       ((===daikanwa	    . 07526)	; &R-M-07526;
+	)
+       ((===cns11643-6	    . #x5C33)	; &R-C6-5C33; [60-19]
+	)
+       ((===ucs@iso	    . #x21B9F)	; &R-U-00021B9F;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 42)	; ⼩
