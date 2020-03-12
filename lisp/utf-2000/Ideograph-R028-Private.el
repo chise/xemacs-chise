@@ -861,34 +861,10 @@
     ))
 (define-char
   '((<-denotational
+     ((=>ucs@cognate	  . #x20ADA)	; &A-cgnU+20ADA;
+      ))
+    (<-denotational@usage
      ((==>ucs@bucs	  . #x725F)	; &BUCS+725F;
-      ))
-    (ideographic-radical . 28)	; ⼛
-    (=ucs		. #x20ADA)	; 𠫚
-    ))
-(define-char
-  '((<-denotational
-     ((=ucs		  . #x20ADA)	; 𠫚
-      ))
-    (ideographic-radical . 28)	; ⼛
-    (ideographic-strokes . 3)
-    (total-strokes	 . 4)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-      (=ucs		  . #x2FF1)	; ⿱
-      )
-     ((=big5-cdp	  . #x8AAC)	; &CDP-8AAC;
-      )
-     ((=big5-cdp	  . #x8BF1)	; &CDP-8BF1;
-      ))
-    (===hng-khi		. 01060)	; &HNG010-01060;
-    (<-formed
-     ((=ucs		  . #x725F)	; 牟
-      ))
-    ))
-(define-char
-  '((<-denotational
-     ((=ucs		  . #x20ADA)	; 𠫚
       ))
     (ideographic-radical . 28)	; ⼛
     (ideographic-strokes . 3)
@@ -899,14 +875,58 @@
       )
      ((=ucs		  . #x53B6)	; 厶
       )
-     ((=big5-cdp	  . #x8BF1)	; &CDP-8BF1;
+     ((=ucs		  . #x30001)	; 𰀁
       ))
-    (=>ucs@iwds-1	. #x20ADA)	; &C6-2251;
-    (=ucs@iso		. #x20ADA)	; &C6-2251;
-    (=cns11643-6	. #x2251)	; &C6-2251; [02-49]
+    (=ucs		. #x20ADA)	; 𠫚
+    (=cns11643-6	. #x2251)	; &I-C6-2251; [02-49]
+    (->subsumptive
+     ((==ucs@iso	  . #x20ADA)	; &g2-IU-00020ADA;
+      (==cns11643-6	  . #x2251)	; &g2-IU-00020ADA; [02-49]
+      (->subsumptive
+       ((===cns11643-6	    . #x2251)	; &R-C6-2251; [02-49]
+	)
+       ((===ucs@iso	    . #x20ADA)	; &R-U-00020ADA;
+	))
+      ))
+    ))
+(define-char
+  '((<-denotational@usage
+     ((==>ucs@bucs	  . #x725F)	; &BUCS+725F;
+      ))
+    (ideographic-radical . 28)	; ⼛
+    (=>ucs@cognate	. #x20ADA)	; &A-cgnU+20ADA;
     ))
 (define-char
   '((<-denotational
+     ((=>ucs@cognate	  . #x20ADA)	; &A-cgnU+20ADA;
+      ))
+    (<-denotational@usage
+     ((==>ucs@bucs	  . #x725F)	; &BUCS+725F;
+      ))
+    (ideographic-radical . 28)	; ⼛
+    (ideographic-strokes . 3)
+    (total-strokes	 . 4)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=big5-cdp	  . #x8AAC)	; &CDP-8AAC;
+      )
+     ((=ucs		  . #x3404)	; 㐄
+      ))
+    (===hng-khi		. 01060)	; &HNG010-01060;
+    (<-HNG@chise
+     ((=ucs		  . #x20ADA)	; 𠫚
+      ))
+    (<-formed
+     ((=ucs		  . #x725F)	; 牟
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@cognate	  . #x20ADA)	; &A-cgnU+20ADA;
+      ))
+    (<-denotational@usage
      ((==>ucs@bucs	  . #x725F)	; &BUCS+725F;
       ))
     (ideographic-radical . 28)	; ⼛
@@ -921,6 +941,9 @@
      ((=ucs		  . #x5E72)	; 干
       ))
     (===hng-khm		. 00880)	; &HNG011-00880;
+    (<-HNG@chise
+     ((=ucs		  . #x20ADA)	; 𠫚
+      ))
     (<-formed
      ((=ucs		  . #x20ADA)	; 𠫚
       )
