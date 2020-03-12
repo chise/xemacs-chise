@@ -1,5 +1,26 @@
 2020-03-11  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R030-Mouth.el (U+55B6): Add `ideographic-structure'.
+	(U+55BE): Apply new conventions for glyph granularity.
+
+2020-03-11  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R024-Ten.el (BC-8DDD): Unify U-00030009; use
+	`ideographic-{radical|strokes}@misc' instead of
+	`ideographic-{radical|strokes}'; add
+	`ideographic-{radical|strokes}@ucs'.
+
+	* Ideograph-R014-Cover.el (U-000300EE): New character; copied from
+	Ideograph-R086-Fire.el.
+
+	* Ideograph-R002-Line.el (BC-8BF1): Unify U-00030001; use
+	`ideographic-{radical|strokes}@misc' instead of
+	`ideographic-{radical|strokes}'; add
+	`ideographic-{radical|strokes}@ucs'.
+	(U-00030020): New character; unify BC-866E and GT-K00301.
+	(U-00030021): New character; copied from Ideograph-R018-Knife.el.
+	(U-00030022): Likewise.
+
 	* Ideograph-R042-Small.el (U-00021B9F): Add
 	`ideographic-structure'; add `sound@ja/on'; add `<-wrong' for
 	IU+221C7.
