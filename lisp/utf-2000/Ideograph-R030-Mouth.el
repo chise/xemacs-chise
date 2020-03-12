@@ -4490,7 +4490,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
       (=ucs		  . #x2FF5)	; ⿵
       )
-     ((=big5-cdp	  . #x8BD6)	; &CDP-8BD6;
+     ((=ucs		  . #x300E6)	; 𰃦
       )
      ((=ucs		  . #x53E3)	; 口
       ))
@@ -42376,6 +42376,14 @@
     ))
 (define-char
   '((ideographic-radical . 30)	; ⼝
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x300EE)	; 𰃮
+      )
+     ((=>iwds-1		  .  0286)	; &IWDS1-286;
+      ))
     (=ucs		. #x55B6)	; 営
     ))
 (define-char
@@ -42389,7 +42397,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=gt-k		  . 01443)	; &GT-K01443;
+     ((=ucs		  . #x300EE)	; 𰃮
       )
      ((=ucs		  . #x5442)	; 呂
       ))
@@ -42458,7 +42466,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=gt-k		  . 01443)	; &GT-K01443;
+     ((=ucs		  . #x300EE)	; 𰃮
       )
      ((=ucs		  . #x5415)	; 吕
       ))
@@ -42808,17 +42816,35 @@
   '((ideographic-radical . 30)	; ⼝
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x300EE)	; 𰃮
+      )
+     ((=>ucs@iwds-1	  . #x543F)	; &J97-3970;
+      (=>jis-x0208	  . #x3970)	; &J97-3970; [25-80]
+      ))
+    (=ucs		. #x55BE)	; 喾
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x55BE)	; 喾
+      ))
+    (ideographic-radical . 30)	; ⼝
+    (ideographic-strokes . 9)
+    (total-strokes	 . 12)
     (hanyu-dazidian	1 662 1)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=gt-k		  . 01443)	; &GT-K01443;
+     ((=ucs		  . #x300EE)	; 𰃮
       )
      ((=ucs		  . #x544A)	; 告
       ))
-    (=ucs		. #x55BE)	; 喾
-    (=gb2312		. #x6037)	; &I-G0-6037; [64-23]
+    (=ucs@unicode	. #x55BE)	; &G0-6037;
+    (=gb2312		. #x6037)	; &G0-6037; [64-23]
     (<-simplified@CN
      ((=ucs@unicode	  . #x56B3)	; &C2-686D;
       (=cns11643-2	  . #x686D)	; &C2-686D; [72-77]
