@@ -1091,6 +1091,8 @@
   '((<-denotational
      ((=ucs		  . #x30021)	; 𰀡
       ))
+    (ideographic-radical@ucs . 2)	; ⼁
+    (ideographic-strokes@ucs . 3)
     (ideographic-radical@misc . 18)	; ⼑
     (ideographic-strokes@misc . 2)
     (total-strokes	 . 4)

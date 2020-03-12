@@ -2896,7 +2896,29 @@
     (=hanziku-12	. #xEBA5)	; &I-HZK12-EBA5;
     ))
 (define-char
-  '((<-denotational
+  '((ideographic-radical . 10)	; ⼉
+    (ideographic-strokes . 5)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x4E43)	; 乃
+      )
+     ((=ucs		  . #x5144)	; 兄
+      ))
+    (=ucs		. #x300CB)	; 𰃋
+    (=cbeta		. 08090)	; &I-CB08090;
+    (->subsumptive
+     ((==ucs@JP/hanazono  . #x300CB)	; &g2-CB08090;
+      (==cbeta		  . 08090)	; &g2-CB08090;
+      (->subsumptive
+       ((===cbeta	    . 08090)	; &R-CB08090;
+	))
+      ))
+    ))
+(define-char
+  '((<-denotational@usage
      ((==>ucs@bucs	  . #x5152)	; &BUCS+5152;
       ))
     (ideographic-radical . 10)	; ⼉

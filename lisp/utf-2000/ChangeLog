@@ -1,5 +1,23 @@
 2020-03-12  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R028-Private.el (C6-2251): Unify U-00020ADA instead of
+	A-IWDSU+20ADA and IU+20ADA; use A-cgnU+20ADA instead of U-00020ADA
+	as its mother; add `<-denotational@usage' for BUCS+725F.
+	(A-cgnU+20ADA): Changed from U-00020ADA; use
+	`<-denotational@usage' instead of `<-denotational' for BUCS+725F.
+	(HNG-KHI0106-0): Use A-cgnU+20ADA instead of U-00020ADA as its
+	mother; add `<-denotational@usage' for BUCS+725F; modify
+	component.
+	(HNG-KHM0088-0): Use `<-denotational@usage' instead of
+	`<-denotational' for BUCS+725F; add `<-denotational' for
+	A-cgnU+20ADA.
+
+	* Ideograph-R010-Legs.el (U-000300CB): New character; unify
+	CB08090.
+
+	* Ideograph-R002-Line.el (GT-K00651): Add
+	`ideographic-{radical|strokes}@ucs'.
+
 	* Ideograph-R018-Knife.el (U-00030021): New character.
 	(U+81E4-itaiji-001): Add `<-subsumptive' for hanaJU+30021.
 	(GT-K00654): Use `<-subsumptive' for hanaJU+30021 instead of
@@ -20,6 +38,29 @@
 	granularity.
 
 2020-03-11  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R063-Door.el (IWDS1-0007): Add `<-denotational' for
+	A-cgnU+6236; unify A-IWDSU+6236.
+	(A-cgnU+6236): New abstract node.
+	(U+6238-itaiji-003): New character; use `<-denotational' for
+	A-cgnU+6236.
+	(U+6237): Unify MJ057544, KOSEKI-131810 and GT-14740.
+	(U-00022A25): Apply new conventions for glyph granularity.
+	(GT-14744): New character; use `<-denotational' for U-00022A25.
+	(U-00022A27): New character.
+	(U-00022A28): New character.
+	(U+623A): Apply new conventions for glyph granularity.
+	(U-00022A2A): Likewise.
+	(U-00022A2B): New character.
+	(A-IWDSU+623B): New abstract node.
+	(U+623B): Add `<-denotational' for A-IWDSU+623B.
+	(U+623E): Ditto.
+	(U-00022A38): Apply new conventions for glyph granularity.
+	(A-GT-K08951): New abstract node.
+	(GT-K08951): New character; use `<-denotational' for A-GT-K08951.
+	(U-00022A58): Apply new conventions for glyph granularity.
+	(U-00022A5A): New character.
+	(U-00022A5E): New character.
 
 	* Ideograph-R030-Mouth.el (U+55B6): Add `ideographic-structure'.
 	(U+55BE): Apply new conventions for glyph granularity.
