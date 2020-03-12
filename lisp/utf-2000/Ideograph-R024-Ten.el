@@ -1185,15 +1185,13 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 24)	; ⼗
-    (=>big5-cdp		. #x8DDD)	; &A-CDP-8DDD;
-    ))
-(define-char
   '((<-denotational
      ((=>big5-cdp	  . #x8DDD)	; &A-CDP-8DDD;
       ))
-    (ideographic-radical . 24)	; ⼗
-    (ideographic-strokes . 3)
+    (ideographic-radical@ucs . 1)	; ⼀
+    (ideographic-strokes@ucs . 4)
+    (ideographic-radical@misc . 24)	; ⼗
+    (ideographic-strokes@misc . 3)
     (total-strokes	 . 5)
     (ideographic-structure
      ((name		  . "IDEOGRAPHIC DESCRIPTION CHARACTER OVERLAID")
@@ -1203,10 +1201,19 @@
       )
      ((=ucs		  . #x4E2D)	; 中
       ))
-    (=big5-cdp		. #x8DDD)	; &CDP-8DDD;
+    (=ucs		. #x30009)	; 𰀉
+    (=big5-cdp		. #x8DDD)	; &I-CDP-8DDD;
     (->subsumptive
-     ((==big5-cdp	  . #x8DDD)	; &g2-CDP-8DDD;
+     ((==ucs@JP/hanazono  . #x30009)	; &g2-CDP-8DDD;
+      (==big5-cdp	  . #x8DDD)	; &g2-CDP-8DDD;
+      (->subsumptive
+       ((===big5-cdp	    . #x8DDD)	; &R-CDP-8DDD;
+	))
       ))
+    ))
+(define-char
+  '((ideographic-radical . 24)	; ⼗
+    (=>big5-cdp		. #x8DDD)	; &A-CDP-8DDD;
     ))
 (define-char
   '((ideographic-radical . 24)	; ⼗
