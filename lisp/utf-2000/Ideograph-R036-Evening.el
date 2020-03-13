@@ -816,11 +816,11 @@
     ))
 (define-char
   '((ideographic-radical . 36)	; ⼣
-    (=ucs		. #x2B763)	; 𫝣
+    (=>ucs@cognate	. #x2B763)	; &A-cgnU+2B763;
     ))
 (define-char
   '((<-denotational
-     ((=ucs		  . #x2B763)	; 𫝣
+     ((=>ucs@cognate	  . #x2B763)	; &A-cgnU+2B763;
       ))
     (ideographic-radical . 36)	; ⼣
     (ideographic-strokes . 3)
@@ -831,7 +831,7 @@
       )
      ((=ucs		  . #x5915)	; 夕
       )
-     ((=big5-cdp	  . #x8BF1)	; &CDP-8BF1;
+     ((=ucs		  . #x30001)	; 𰀁
       ))
     (=ucs-itaiji-004	. #x821B)	; &U-i004+821B;
     (<-formed
@@ -952,7 +952,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=ucs		  . #x2B763)	; 𫝣
+     ((=>ucs@cognate	  . #x2B763)	; &A-cgnU+2B763;
       ))
     (ideographic-radical . 36)	; ⼣
     (ideographic-strokes . 4)
@@ -967,15 +967,17 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
 	(=ucs		    . #x2FF8)	; ⿸
 	)
-       ((=big5-cdp	    . #x8BF1)	; &CDP-8BF1;
+       ((=ucs		    . #x30001)	; 𰀁
 	)
        ((=ucs		    . #x4E36)	; 丶
 	))
       ))
-    (=>ucs@iwds-1	. #x2B763)	; &A-IWDSU+2B763;
-    (=ucs@iso		. #x2B763)	; &A-IWDSU+2B763;
+    (=ucs		. #x2B763)	; 𫝣
     (<-formed
      ((=ucs		  . #x821B)	; 舛
+      ))
+    (->subsumptive
+     ((==ucs@iso	  . #x2B763)	; &g2-IU-0002B763;
       ))
     ))
 (define-char
@@ -1958,7 +1960,9 @@
       (=mj		  . 010898)	; &MJ010898;
       ))
     (<-same
-     ((=daikanwa	  . 06674)	; &M-06674;
+     ((=ucs@iso		  . #x2181C)	; &MJ033716;
+      (=mj		  . 033716)	; &MJ033716;
+      (=daikanwa	  . 06674)	; &I-M-06674;
       ))
     (<-same*sources
      guangyun daikanwa)

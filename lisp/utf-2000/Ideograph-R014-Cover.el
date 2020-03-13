@@ -783,9 +783,8 @@
     (=gt-k		. 01452)	; &GT-K01452;
     (=gt-pj-k2		. #x3B3D)	; &GT-K01452; [27-29]
     (<-simplified@component
-     ((=ucs@iso		  . #x2054D)	; &GT-01998;
-      (=gt		  . 01998)	; &GT-01998;
-      (=daikanwa	  . 01527)	; &I-M-01527;
+     ((=ucs@iso		  . #x2054D)	; &MJ031037;
+      (=mj		  . 031037)	; &MJ031037;
       ))
     (->subsumptive
      ((==gt-k		  . 01452)	; &g2-GT-K01452;
