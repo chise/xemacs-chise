@@ -1,5 +1,13 @@
 2020-03-12  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R036-Evening.el (A-cgnU+2B763): Changed from
+	U-0002B763.
+	(U+821B-itaiji-004): Use A-cgnU+2B763 instead of U-0002B763 as its
+	mother.
+	(U-0002B763): Changed from A-IWDSU+2B763; omit `=>ucs@iwds-1';
+	delete `=ucs@iso'; use A-cgnU+2B763 instead of U-0002B763 as its
+	mother.
+
 	* Ideograph-R028-Private.el (C6-2251): Unify U-00020ADA instead of
 	A-IWDSU+20ADA and IU+20ADA; use A-cgnU+20ADA instead of U-00020ADA
 	as its mother; add `<-denotational@usage' for BUCS+725F.
