@@ -1941,6 +1941,26 @@
   '((ideographic-radical . 12)	; ⼋
     (ideographic-strokes . 4)
     (total-strokes	 . 6)
+    (=ucs		. #x300DD)	; 𰃝
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x300DD)	; 𰃝
+      ))
+    (ideographic-radical . 12)	; ⼋
+    (ideographic-strokes . 4)
+    (total-strokes	 . 6)
+    (=ucs@JP/hanazono	. #x300DD)	; &hanaJU+300DD;
+    (<-simplified@CN/second/table1
+     ((=ucs@unicode	  . #x5C0A)	; &MJ010276;
+      (=mj		  . 010276)	; &MJ010276;
+      (=gb2312		  . #x5770)	; &I-G0-5770; [55-80]
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 12)	; ⼋
+    (ideographic-strokes . 4)
+    (total-strokes	 . 6)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
