@@ -2962,6 +2962,17 @@
      ((==>ucs@bucs	  . #x58FA)	; &BUCS+58FA;
       ))
     (ideographic-radical . 33)	; ⼠
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
+      (=ucs		  . #x2FF3)	; ⿳
+      )
+     ((=>ucs@iwds-1	  . #x571F)	; &A-IWDSU+571F;
+      (=>iwds-1		  .  0312)	; &A-IWDSU+571F;
+      )
+     ((=ucs		  . #x5196)	; 冖
+      )
+     ((=ucs		  . #x4E9E)	; 亞
+      ))
     (=ucs		. #x58FC)	; 壼
     ))
 (define-char
