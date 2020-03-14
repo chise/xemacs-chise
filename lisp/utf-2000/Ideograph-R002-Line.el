@@ -2104,6 +2104,20 @@
       ))
     ))
 (define-char
+  '((ideographic-radical . 2)	; ⼁
+    (ideographic-strokes . 12)
+    (total-strokes	 . 14)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x4E9E)	; 亞
+      )
+     ((=ucs		  . #x4F10)	; 伐
+      ))
+    (=ucs		. #x3005A)	; 𰁚
+    ))
+(define-char
   '((ideographic-radical@ucs . 2)	; ⼁
     (ideographic-strokes@ucs . 13)
     (ideographic-radical@cns . 30)	; ⼝
