@@ -1,3 +1,12 @@
+2020-03-14  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R055-Two-Hands.el (A-NIWDSU+2232C): New abstract node.
+	(A-IWDSU+2232C): Separate A-NIWDSU+2232C; add
+	`<-denotational@component' for A-NIWDSU+2232C.
+
+	* Ideograph-R012-Eight.el (U-0002050E): Add `sound@ja/on'.
+	(IU+2050E): Unify MJ030989.
+
 2020-03-13  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R034-Go.el (U-00021556): Apply new conventions for

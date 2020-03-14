@@ -167,7 +167,6 @@
 (define-char
   '((<-denotational@component
      ((=>ucs@iwds-1	  . #x2232C)	; &A-IWDSU+2232C;
-      (=>ucs@iwds-1/normalized . #x2232C)	; &A-IWDSU+2232C;
       ))
     (ideographic-radical . 12)	; ⼋
     (ideographic-strokes . 1)
@@ -1984,7 +1983,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=big5-cdp	  . #x8BD6)	; &CDP-8BD6;
+     ((=ucs		  . #x300E6)	; 𰃦
       )
      ((=gt-k		  . 00264)	; &GT-K00264;
       ))
@@ -2379,6 +2378,7 @@
       )
      ((=ucs		  . #x20006)	; 𠀆
       ))
+    (sound@ja/on	"kiN")
     (=ucs		. #x2050E)	; 𠔎
     ))
 (define-char
@@ -2395,12 +2395,19 @@
       )
      ((=gt-k		  . 00859)	; &GT-K00859;
       )
-     ((=big5-cdp	  . #x8BF1)	; &CDP-8BF1;
+     ((=ucs		  . #x30001)	; 𰀁
       ))
-    (=ucs@iso		. #x2050E)	; &M-01469;
-    (=daikanwa		. 01469)	; &M-01469;
+    (=ucs@iso		. #x2050E)	; &MJ030989;
+    (=mj		. 030989)	; &MJ030989;
+    (=daikanwa		. 01469)	; &I-M-01469;
     (->subsumptive
-     ((==daikanwa	  . 01469)	; &g2-M-01469;
+     ((==mj		  . 030989)	; &g2-MJ030989;
+      (==daikanwa	  . 01469)	; &g2-MJ030989;
+      (->subsumptive
+       ((===daikanwa	    . 01469)	; &R-M-01469;
+	)
+       ((===mj		    . 030989)	; &R-MJ030989;
+	))
       )
      ((==ucs@iso	  . #x2050E)	; &g2-IU-0002050E;
       (->subsumptive
