@@ -1719,11 +1719,69 @@
   '((ideographic-radical . 27)	; ⼚
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
-    (hanyu-dazidian	1 71 2)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=>ucs@component	  . #x5382)	; &A-compU+5382;
+      )
+     ((=ucs		  . #x5C17)	; 尗
+      ))
     (=ucs		. #x20A4F)	; 𠩏
-    (=cns11643-4	. #x2558)	; &I-C4-2558; [05-56]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x20A4F)	; 𠩏
+      ))
+    (ideographic-radical . 27)	; ⼚
+    (ideographic-strokes . 6)
+    (total-strokes	 . 8)
+    (hanyu-dazidian	1 71 2)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs		  . #x5382)	; 厂
+      )
+     ((=ucs		  . #x5C17)	; 尗
+      ))
+    (=ucs@iso		. #x20A4F)	; &C4-2558;
+    (=cns11643-4	. #x2558)	; &C4-2558; [05-56]
     (=daikanwa		. 02939)	; &I-M-02939;
-    (=hanziku-1		. #xB2AD)	; &I-HZK01-B2AD;
+    (->subsumptive
+     ((==ucs@iso	  . #x20A4F)	; &g2-M-02939;
+      (==cns11643-4	  . #x2558)	; &g2-M-02939; [05-56]
+      (==daikanwa	  . 02939)	; &g2-M-02939;
+      (->subsumptive
+       ((===daikanwa	    . 02939)	; &R-M-02939;
+	)
+       ((===cns11643-4	    . #x2558)	; &R-C4-2558; [05-56]
+	)
+       ((===ucs@iso	    . #x20A4F)	; &R-U-00020A4F;
+	)
+       ((=hanziku-1	    . #xB2AD)	; &HZK01-B2AD;
+	))
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x20A4F)	; 𠩏
+      ))
+    (ideographic-radical . 27)	; ⼚
+    (ideographic-strokes . 6)
+    (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs		  . #x20086)	; 𠂆
+      )
+     ((=ucs		  . #x5C17)	; 尗
+      ))
+    (=ucs-itaiji-001	. #x20A4F)	; &U-i001+20A4F;
+    (->subsumptive
+     ((==ucs-itaiji-001	  . #x20A4F)	; &g2-U-i001+20A4F;
+      ))
     ))
 (define-char
   '((ideographic-radical . 27)	; ⼚
