@@ -142,7 +142,6 @@
 (define-char
   '((<-denotational@component
      ((=>ucs@iwds-1	  . #x2232C)	; &A-IWDSU+2232C;
-      (=>ucs@iwds-1/normalized . #x2232C)	; &A-IWDSU+2232C;
       ))
     (ideographic-radical . 55)	; ⼶
     (ideographic-strokes . 0)
@@ -3554,8 +3553,14 @@
     ))
 (define-char
   '((ideographic-radical . 55)	; ⼶
+    (=>ucs@iwds-1/normalized . #x2232C)	; &A-NIWDSU+2232C;
+    ))
+(define-char
+  '((<-denotational@component
+     ((=>ucs@iwds-1/normalized . #x2232C)	; &A-NIWDSU+2232C;
+      ))
+    (ideographic-radical . 55)	; ⼶
     (=>ucs@iwds-1	. #x2232C)	; &A-IWDSU+2232C;
-    (=>ucs@iwds-1/normalized . #x2232C)	; &A-IWDSU+2232C;
     ))
 (define-char
   '((ideographic-radical . 55)	; ⼶
