@@ -1,3 +1,25 @@
+2020-03-13  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R034-Go.el (U-00021556): Apply new conventions for
+	glyph granularity.
+	(U+821B-itaiji-005): Use A-cgnU+2B763 instead of U-0002B763 as its
+	mother.
+
+	* Ideograph-R029-Again.el (g2-IU+20B24): Omit
+	`ideographic-structure'.
+	(U+53D3): Add `sound@ja/on'; add `<-ancient' for UU+4E8B.
+	(A-cgnU+53E1): New abstract node.
+	(A-IWDSU+53E1): New abstract node; use `<-denotational' for
+	A-cgnU+53E1.
+	(U+53E1): Add `<-denotational' for A-IWDSU+53E1.
+	(U-00020B89): Apply new conventions for glyph granularity; add
+	`<-denotational' for A-cgnU+53E1.
+
+	* Ideograph-R027-Cliff.el (U-00020A4F): Apply new conventions for
+	glyph granularity.
+	(U+20A4F-itaiji-001): New character; use `<-denotational' for
+	U-00020A4F.
+
 2020-03-12  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R032-Earth.el (U-0002123E): Add
