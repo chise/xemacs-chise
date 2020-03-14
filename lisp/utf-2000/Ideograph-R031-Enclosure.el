@@ -3537,7 +3537,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=big5-cdp	  . #x8DDD)	; &CDP-8DDD;
+     ((=ucs		  . #x30009)	; 𰀉
       )
      ((=ucs		  . #x56D7)	; 囗
       ))
@@ -6718,14 +6718,62 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=big5-cdp	  . #x8DDD)	; &CDP-8DDD;
+     ((=ucs		  . #x30009)	; 𰀉
       )
      ((=daikanwa	  . 04736)	; &M-04736;
       ))
+    (sound@ja/on	"koN" "kiN")
     (=ucs		. #x2120B)	; 𡈋
     (=cns11643-6	. #x5145)	; &I-C6-5145; [49-37]
     (=daikanwa		. 04821)	; &I-M-04821;
-    (=hanziku-1		. #xA9A2)	; &I-HZK01-A9A2;
+    (<-formed
+     ((=ucs@unicode	  . #x58FC)	; &AJ1-04536;
+      (=adobe-japan1-0	  . 04536)	; &AJ1-04536;
+      ))
+    (<-formed$_1*sources
+     jiyun)
+    (<-interchangeable
+     ((=ucs		  . #x68B1)	; 梱
+      (=daikanwa	  . 14883)	; &I-M-14883;
+      )
+     ((=ucs		  . #x95AB)	; 閫
+      (=daikanwa	  . 41329)	; &I-M-41329;
+      )
+     ((=ucs@unicode	  . #x58FC)	; &AJ1-04536;
+      (=adobe-japan1-0	  . 04536)	; &AJ1-04536;
+      (=daikanwa	  . 05667)	; &I-M-05667;
+      ))
+    (<-interchangeable$_1*sources
+     zhengzitong daikanwa)
+    (<-interchangeable$_2*sources
+     zhengzitong daikanwa)
+    (<-interchangeable$_3*sources
+     zhengzitong)
+    (<-interchangeable*sources
+     zhengzitong daikanwa)
+    (<-same
+     ((=ucs@unicode	  . #x58FC)	; &AJ1-04536;
+      (=adobe-japan1-0	  . 04536)	; &AJ1-04536;
+      (=daikanwa	  . 05667)	; &I-M-05667;
+      ))
+    (<-same$_1*sources
+     jiyun daikanwa)
+    (<-same*sources
+     jiyun daikanwa)
+    (->subsumptive
+     ((==ucs@iso	  . #x2120B)	; &g2-M-04821;
+      (==cns11643-6	  . #x5145)	; &g2-M-04821; [49-37]
+      (==daikanwa	  . 04821)	; &g2-M-04821;
+      (->subsumptive
+       ((===daikanwa	    . 04821)	; &R-M-04821;
+	)
+       ((===cns11643-6	    . #x5145)	; &R-C6-5145; [49-37]
+	)
+       ((===ucs@iso	    . #x2120B)	; &R-U-0002120B;
+	)
+       ((=hanziku-1	    . #xA9A2)	; &HZK01-A9A2;
+	))
+      ))
     ))
 (define-char
   '((=>ucs		. #x2120C)	; 𡈌
