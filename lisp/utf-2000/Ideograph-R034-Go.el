@@ -496,13 +496,39 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
+     ((=>ucs@component	  . #x590A)	; &A-compU+590A;
+      (=>iwds-1		  .  0092)	; &A-compU+590A;
+      )
+     ((=ucs		  . #x30001)	; 𰀁
+      ))
+    (sound@ja/on	"hou")
+    (=ucs		. #x21556)	; 𡕖
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x21556)	; 𡕖
+      ))
+    (ideographic-radical . 34)	; ⼡
+    (ideographic-strokes . 3)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
      ((=ucs		  . #x5902)	; 夂
       )
-     ((=big5-cdp	  . #x8BF1)	; &CDP-8BF1;
+     ((=ucs		  . #x30001)	; 𰀁
       ))
-    (=ucs		. #x21556)	; 𡕖
-    (=cns11643-6	. #x2436)	; &I-C6-2436; [04-22]
+    (=ucs@iso		. #x21556)	; &C6-2436;
+    (=cns11643-6	. #x2436)	; &C6-2436; [04-22]
     (=daikanwa		. 05697)	; &I-M-05697;
+    (<-same
+     ((=ucs@unicode	  . #x5906)	; &AJ1-21371;
+      (=adobe-japan1-6	  . 21371)	; &AJ1-21371;
+      (=daikanwa	  . 05698)	; &I-M-05698;
+      ))
+    (<-same*sources
+     pianhai-leibian daikanwa)
     (->subsumptive
      ((==ucs@iso	  . #x21556)	; &g2-M-05697;
       (==cns11643-6	  . #x2436)	; &g2-M-05697; [04-22]
@@ -520,7 +546,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=ucs		  . #x2B763)	; 𫝣
+     ((=>ucs@cognate	  . #x2B763)	; &A-cgnU+2B763;
       ))
     (ideographic-radical . 34)	; ⼡
     (ideographic-strokes . 3)
@@ -531,7 +557,7 @@
       )
      ((=ucs		  . #x5902)	; 夂
       )
-     ((=big5-cdp	  . #x8BF1)	; &CDP-8BF1;
+     ((=ucs		  . #x30001)	; 𰀁
       ))
     (=ucs-itaiji-005	. #x821B)	; &U-i005+821B;
     (<-formed
