@@ -1,5 +1,15 @@
 2020-03-14  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R032-Earth.el (U+9FB6): Copied from
+	Ideograph-R100-Life.el.
+	(U+9FB6-var-002): Likewise.
+
+2020-03-14  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R012-Eight.el (U-000300DD): New character.
+
+	* Ideograph-R002-Line.el (U-0003005A): New character.
+
 	* Ideograph-R033-Scholar.el (U+58FC): Add `ideographic-structure'.
 
 	* Ideograph-R031-Enclosure.el (U-0002120B): Add `sound@ja/on'; add
