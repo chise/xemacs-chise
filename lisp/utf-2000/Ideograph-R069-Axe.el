@@ -167,9 +167,19 @@
     (=daikanwa		. 13536)	; &I-M-13536;
     ))
 (define-char
-  '((ideographic-radical . 69)	; ⽄
-    (ideographic-strokes . 1)
-    (total-strokes	 . 4)
+  '((ideographic-radical@ucs . 69)	; ⽄
+    (ideographic-strokes@ucs . 1)
+    (ideographic-radical@gt . 4)	; ⼃
+    (ideographic-strokes@gt . 4)
+    (total-strokes	 . 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs		  . #x2008B)	; 𠂋
+      )
+     ((=ucs		  . #x4E05)	; 丅
+      ))
     (=ucs		. #x2D91F)	; 𭤟
     (=mj		. 057625)	; &I-MJ057625;
     (=koseki		. 151760)	; 𭤟
@@ -180,11 +190,29 @@
      ((=ucs		  . #x7247)	; 片
       ))
     (<-formed*sources
-     koseki)
+     koseki mj)
     (->subsumptive
-     ((==ucs@JP/hanazono  . #x2D91F)	; &g2-MJ057625;
-      (==mj		  . 057625)	; &g2-MJ057625;
-      (==koseki		  . 151760)	; &g2-MJ057625;
+     ((ideographic-radical . 69)	; ⽄
+      (ideographic-strokes . 1)
+      (=>>mj		  . 057625)	; &G-MJ057625;
+      (->subsumptive
+       ((==ucs@JP/hanazono  . #x2D91F)	; &g2-MJ057625;
+	(==mj		    . 057625)	; &g2-MJ057625;
+	(==koseki	    . 151760)	; &g2-MJ057625;
+	))
+      )
+     ((ideographic-radical . 4)	; ⼃
+      (ideographic-strokes . 4)
+      (ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+	(=ucs		    . #x2FF8)	; ⿸
+	)
+       ((=ucs		    . #x20086)	; 𠂆
+	)
+       ((=ucs		    . #x4E8D)	; 亍
+	))
+      (=gt		  . 00185)	; &GT-00185;
+      (=gt-pj-11	  . #x4A60)	; &GT-00185; [42-64]
       ))
     ))
 (define-char
