@@ -10,6 +10,11 @@
 
 	* Ideograph-R002-Line.el (U-0003005A): New character.
 
+	* Ideograph-R069-Axe.el (U-0002D91F): Use
+	`ideographic-{radical|strokes}@ucs' instead of
+	`ideographic-{radical|strokes}'; add
+	`ideographic-{radical|strokes}@gt'; integrate GT-00185.
+
 	* Ideograph-R033-Scholar.el (U+58FC): Add `ideographic-structure'.
 
 	* Ideograph-R031-Enclosure.el (U-0002120B): Add `sound@ja/on'; add
