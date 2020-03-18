@@ -392,6 +392,7 @@ DESCRIPTION (string) is the description string of the charset."
 	  =ucs-bmp-var-010
 	  =ucs-bmp-itaiji-001
 	  =ucs-sip-itaiji-001
+	  =ucs-tip-itaiji-001
 	  =ucs-bmp-itaiji-002
 	  =ucs-sip-itaiji-002
 	  =ucs-bmp-itaiji-003

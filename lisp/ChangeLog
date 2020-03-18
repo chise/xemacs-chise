@@ -1,3 +1,11 @@
+2020-03-18  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`=ucs-tip-itaiji-001'.
+
+	* mule/mule-conf.el (=ucs-tip-itaiji-001): New coded-charset for
+	XEmacs CHISE.
+
 2020-03-12  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* mule/mule-charset.el (default-coded-charset-priority-list): Add
