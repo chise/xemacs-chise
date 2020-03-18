@@ -1369,8 +1369,9 @@
     (=ucs@unicode	. #x4E3E)	; &G0-3E59;
     (=gb2312		. #x3E59)	; &G0-3E59; [30-57]
     (<-simplified@CN
-     ((=ucs		  . #x8209)	; 舉
-      (=gb12345		  . #x3E59)	; 舉 [30-57]
+     ((=ucs@unicode	  . #x8209)	; &AJ1-05039;
+      (=adobe-japan1-0	  . 05039)	; &AJ1-05039;
+      (=gb12345		  . #x3E59)	; &AJ1-05039; [30-57]
       ))
     (->subsumptive
      ((==ucs@unicode	  . #x4E3E)	; &g2-UU+4E3E;
