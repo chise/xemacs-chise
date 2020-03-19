@@ -635,6 +635,7 @@ DESCRIPTION (string) is the description string of the charset."
           =>ucs-bmp-cjk@cognate
           =>ucs-bmp-cjk@component
           =>ucs-sip@cognate
+          =>ucs-tip@cognate
           =>ucs-sip@component
           =>ucs-tip@component
           =>ucs-bmp-cjk@iwds-1
