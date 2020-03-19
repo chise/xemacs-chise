@@ -1481,7 +1481,7 @@
       )
      ((=ucs		  . #x4E00)	; 一
       )
-     ((=>big5-cdp	  . #x8A60)	; &A-CDP-8A60;
+     ((=ucs		  . #x3018A)	; 𰆊
       ))
     (=ucs		. #x2A701)	; 𪜁
     ))
@@ -1498,7 +1498,8 @@
       )
      ((=ucs		  . #x4E00)	; 一
       )
-     ((=big5-cdp	  . #x8A60)	; &CDP-8A60;
+     ((=ucs@JP/hanazono	  . #x3018A)	; &CDP-8A60;
+      (=big5-cdp	  . #x8A60)	; &CDP-8A60;
       ))
     (=ucs@JP/hanazono	. #x2A701)	; &hanaJU+2A701;
     ))
