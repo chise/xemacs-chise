@@ -230,7 +230,7 @@
      ((=>ucs@iwds-1	  . #x571F)	; &A-IWDSU+571F;
       (=>iwds-1		  .  0312)	; &A-IWDSU+571F;
       )
-     ((=>big5-cdp	  . #x8A60)	; &A-CDP-8A60;
+     ((=ucs		  . #x3018A)	; 𰆊
       ))
     (=ucs		. #x58ED)	; 壭
     ))
@@ -247,7 +247,8 @@
       )
      ((=ucs		  . #x58EB)	; 士
       )
-     ((=big5-cdp	  . #x8A60)	; &CDP-8A60;
+     ((=ucs@JP/hanazono	  . #x3018A)	; &CDP-8A60;
+      (=big5-cdp	  . #x8A60)	; &CDP-8A60;
       ))
     (=ucs@unicode	. #x58ED)	; &UU+58ED;
     (=gb12345		. #x7D47)	; &UU+58ED; [93-39]
