@@ -884,7 +884,7 @@
      ((=>ucs@component	  . #x4E37)	; &A-compU+4E37;
       (=>iwds-1		  .  0022)	; &A-compU+4E37;
       )
-     ((=>big5-cdp	  . #x8A60)	; &A-CDP-8A60;
+     ((=ucs		  . #x3018A)	; 𰆊
       ))
     (=ucs		. #x516F)	; 兯
     ))
@@ -901,7 +901,8 @@
       )
      ((=ucs		  . #x4E37)	; 丷
       )
-     ((=big5-cdp	  . #x8A60)	; &CDP-8A60;
+     ((=ucs@JP/hanazono	  . #x3018A)	; &CDP-8A60;
+      (=big5-cdp	  . #x8A60)	; &CDP-8A60;
       ))
     (=ucs@unicode	. #x516F)	; &UU+516F;
     (=gb12345		. #x7D67)	; &UU+516F; [93-71]

@@ -607,7 +607,7 @@
     ))
 (define-char
   '((<-denotational@component
-     ((=>big5-cdp	  . #x8A60)	; &A-CDP-8A60;
+     ((=ucs		  . #x3018A)	; 𰆊
       ))
     (ideographic-radical . 5)	; ⼄
     (ideographic-strokes . 1)
