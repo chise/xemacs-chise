@@ -1,3 +1,7 @@
+2020-03-19  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R024-Ten.el (U-00030170): New character.
+
 2020-03-14  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R032-Earth.el (U+9FB6): Copied from
