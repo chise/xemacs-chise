@@ -1,6 +1,26 @@
+2020-03-20  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R019-Power.el (U-00020835): New character; use
+	`<-denotational' for A-IWDSU+21BC4.
+
 2020-03-19  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R055-Two-Hands.el (U-00022331): Add
+	`ideographic-structure'; add `sound@ja/on'.
+	(U-0002F891): Add `ideographic-structure'; unify HD-KS108490.
+	(IU+22331): Add `ideographic-structure'; add `sound@ja/on'; unify
+	HD-KS108500.
+	(U-0002F892): Add `ideographic-structure'; add `sound@ja/on';
+	unify HD-KS108620.
+
 	* Ideograph-R024-Ten.el (U-00030170): New character.
+
+2020-03-18  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R057-Bow.el (A-cgnU+223A2): New abstract node.
+	(U-000223A2): Add `<-denotational' for A-cgnU+223A2; apply new
+	conventions for glyph granularity.
+	(CB08162): New character; use `<-denotational' for A-cgnU+223A2.
 
 2020-03-14  MORIOKA Tomohiko  <tomo.git@chise.org>
 
