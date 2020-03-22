@@ -2028,6 +2028,37 @@
       )
      ((=ucs		  . #x5196)	; 冖
       )
+     ((=ucs		  . #x5177)	; 具
+      ))
+    (=ucs		. #x2D077)	; 𭁷
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2D077)	; 𭁷
+      ))
+    (ideographic-radical . 14)	; ⼍
+    (ideographic-strokes . 8)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5196)	; 冖
+      )
+     ((=ucs		  . #x2F811)	; 具
+      ))
+    (=ucs@JP/hanazono	. #x2D077)	; &hanaJU+2D077;
+    ))
+(define-char
+  '((ideographic-radical . 14)	; ⼍
+    (ideographic-strokes . 8)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5196)	; 冖
+      )
      ((=ucs		  . #x5353)	; 卓
       ))
     (=ucs		. #x2D078)	; 𭁸
