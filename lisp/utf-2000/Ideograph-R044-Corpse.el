@@ -1087,6 +1087,38 @@
       ))
     ))
 (define-char
+  '((ideographic-radical . 44)	; ⼫
+    (ideographic-strokes . 3)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((=>ucs@iwds-1	  . #x2FFA)	; &A-IWDSU+2FFA;
+      (=>iwds-1		  .  0307)	; &A-IWDSU+2FFA;
+      )
+     ((=ucs		  . #x5C3A)	; 尺
+      )
+     ((=>ucs@component	  . #x5369)	; &A-compU+5369;
+      ))
+    (=ucs		. #x21C30)	; 𡰰
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x21C30)	; 𡰰
+      ))
+    (ideographic-radical . 44)	; ⼫
+    (ideographic-strokes . 3)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
+      (=ucs		  . #x2FFA)	; ⿺
+      )
+     ((=ucs		  . #x5C3A)	; 尺
+      )
+     ((=ucs@JP/hanazono	  . #x3018A)	; &CDP-8A60;
+      (=big5-cdp	  . #x8A60)	; &CDP-8A60;
+      ))
+    (=ucs@iso		. #x21C30)	; &U-00021C30;
+    ))
+(define-char
   '((<-denotational@usage
      ((==>daijiten	  . 02473)	; &A2-DJT-02473;
       ))
@@ -5545,6 +5577,39 @@
      ((=ucs@iso		  . #x21CCD)	; &C6-5C39;
       (=cns11643-6	  . #x5C39)	; &C6-5C39; [60-25]
       ))
+    ))
+(define-char
+  '((ideographic-radical . 44)	; ⼫
+    (ideographic-strokes . 11)
+    (total-strokes	 . 14)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5C45)	; 居
+      )
+     ((=ucs		  . #x8001)	; 老
+      ))
+    (=ucs		. #x2D56E)	; 𭕮
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2D56E)	; 𭕮
+      ))
+    (ideographic-radical . 44)	; ⼫
+    (ideographic-strokes . 11)
+    (total-strokes	 . 14)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs@unicode	  . #x5C45)	; &AJ1-01673;
+      (=adobe-japan1-0	  . 01673)	; &AJ1-01673;
+      )
+     ((=ucs@unicode	  . #x8001)	; &AJ1-04061;
+      (=adobe-japan1-0	  . 04061)	; &AJ1-04061;
+      ))
+    (=ucs@JP/hanazono	. #x2D56E)	; &hanaJU+2D56E;
     ))
 (define-char
   '((<-denotational@usage

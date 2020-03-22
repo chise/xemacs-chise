@@ -1,5 +1,8 @@
 2020-03-20  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R044-Corpse.el (U-00021C30): New character.
+	(U-0002D56E): New character.
+
 	* Ideograph-R029-Again.el (U-000301C0): New character.
 
 	* Ideograph-R025-Divination.el (U-0002A800): New character.
