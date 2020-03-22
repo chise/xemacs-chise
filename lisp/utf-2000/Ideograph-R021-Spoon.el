@@ -1924,6 +1924,24 @@
     (=ucs@JP/hanazono	. #x2D152)	; &hanaJU+2D152;
     ))
 (define-char
+  '((<-denotational
+     ((=ucs		  . #x2D152)	; 𭅒
+      ))
+    (ideographic-radical . 21)	; ⼔
+    (ideographic-strokes . 7)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs@unicode	  . #x4491)	; &AJ1-18467;
+      (=adobe-japan1-5	  . 18467)	; &AJ1-18467;
+      )
+     ((=ucs		  . #x8001)	; 老
+      ))
+    (=ucs-var-001	. #x2D152)	; &U-v001+2D152;
+    ))
+(define-char
   '((ideographic-radical . 21)	; ⼔
     (=>ucs-itaiji-002	. #x20917)	; &A-U-i002+20917;
     (=>ucs-itaiji-003	. #x20917)	; &A-U-i002+20917;
