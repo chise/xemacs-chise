@@ -1,5 +1,16 @@
 2020-03-20  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R029-Again.el (U-000301C0): New character.
+
+	* Ideograph-R025-Divination.el (U-0002A800): New character.
+
+	* Ideograph-R021-Spoon.el (U+2D152-var-001): New character; use
+	`<-denotational' for U-0002D152.
+
+2020-03-20  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R014-Cover.el (U-0002D077): New character.
+
 	* Ideograph-R019-Power.el (U-00020835): New character; use
 	`<-denotational' for A-IWDSU+21BC4.
 
