@@ -5377,6 +5377,41 @@
   '((ideographic-radical . 29)	; ⼜
     (ideographic-strokes . 9)
     (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
+      (=ucs		  . #x2FF9)	; ⿹
+      )
+     ((=ucs		  . #x239BB)	; 𣦻
+      )
+     ((=ucs		  . #x8D1D)	; 贝
+      ))
+    (=ucs		. #x301C0)	; 𰇀
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x301C0)	; 𰇀
+      ))
+    (ideographic-radical . 29)	; ⼜
+    (ideographic-strokes . 9)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
+      (=ucs		  . #x2FF9)	; ⿹
+      )
+     ((=ucs		  . #x239BB)	; 𣦻
+      )
+     ((name		  . "CJK RADICAL C-SIMPLIFIED SHELL")
+      (=ucs		  . #x2EC9)	; ⻉
+      ))
+    (=ucs@JP/hanazono	. #x301C0)	; &hanaJU+301C0;
+    (<-simplified@CN
+     ((=ucs		  . #x3562)	; 㕢
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 29)	; ⼜
+    (ideographic-strokes . 9)
+    (total-strokes	 . 11)
     (=>ucs@cognate	. #x2A7CA)	; &A-cgnU+2A7CA;
     ))
 (define-char
