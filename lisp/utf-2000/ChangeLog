@@ -1,3 +1,9 @@
+2020-03-23  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R012-Eight.el (A-MJ007290): New abstract node; use
+	`<-denotational' for A-cgnU+5177.
+	(MJ007290): New character; use `<-denotational' for A-MJ007290.
+
 2020-03-22  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R004-Slash.el (A-cgnU+200B9): New abstract node.
