@@ -4636,7 +4636,16 @@
       ))
     ))
 (define-char
-  '((<-denotational@usage
+  '((ideographic-radical . 4)	; ⼃
+    (ideographic-strokes . 9)
+    (total-strokes	 . 10)
+    (=>ucs@cognate	. #x200B9)	; &A-cgnU+200B9;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@cognate	  . #x200B9)	; &A-cgnU+200B9;
+      ))
+    (<-denotational@usage
      ((==>daijiten	  . 01710)	; &A2-DJT-01710;
       ))
     (ideographic-radical . 4)	; ⼃
@@ -4694,6 +4703,50 @@
     (ideographic-strokes . 9)
     (total-strokes	 . 10)
     (=ucs-var-001	. #x200B9)	; &U-v001+200B9;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@cognate	  . #x200B9)	; &A-cgnU+200B9;
+      ))
+    (ideographic-radical . 4)	; ⼃
+    (ideographic-strokes . 9)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name		  . "IDEOGRAPHIC DESCRIPTION CHARACTER OVERLAID")
+      (=ucs		  . #x2FFB)	; ⿻
+      )
+     ((=ucs		  . #x5343)	; 千
+      )
+     ((=ucs		  . #x2020C)	; 𠈌
+      ))
+    (=>big5-cdp		. #x85A8)	; &A-CDP-85A8;
+    ))
+(define-char
+  '((<-denotational
+     ((=>big5-cdp	  . #x85A8)	; &A-CDP-85A8;
+      ))
+    (ideographic-radical . 4)	; ⼃
+    (ideographic-strokes . 9)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name		  . "IDEOGRAPHIC DESCRIPTION CHARACTER OVERLAID")
+      (=ucs		  . #x2FFB)	; ⿻
+      )
+     ((=ucs		  . #x5343)	; 千
+      )
+     ((=ucs@iso		  . #x2020C)	; &C4-2535;
+      (=cns11643-4	  . #x2535)	; &C4-2535; [05-21]
+      (=daikanwa	  . 00611)	; &I-M-00611;
+      ))
+    (=big5-cdp		. #x85A8)	; &CDP-85A8;
+    (<-formed@component
+     ((=ucs@iso		  . #x200B9)	; &GT-00211;
+      (=cns11643-5	  . #x2B67)	; &GT-00211; [11-71]
+      (=daikanwa	  . 00155)	; &I-M-00155;
+      ))
+    (->subsumptive
+     ((==big5-cdp	  . #x85A8)	; &g2-CDP-85A8;
+      ))
     ))
 (define-char
   '((ideographic-radical . 4)	; ⼃

@@ -1,3 +1,11 @@
+2020-03-22  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R004-Slash.el (A-cgnU+200B9): New abstract node.
+	(U-000200B9): Add `<-denotational' for A-cgnU+200B9.
+	(A-BC-85A8): New abstract node; use `<-denotational' for
+	A-cgnU+200B9.
+	(BC-85A8): New character; use `<-denotational' for A-BC-85A8.
+
 2020-03-20  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R044-Corpse.el (U-00021C30): New character.
