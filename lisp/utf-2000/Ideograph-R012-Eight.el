@@ -3089,6 +3089,32 @@
     (ideographic-radical . 12)	; ⼋
     (ideographic-strokes . 5)
     (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>ucs@component	  . #x4E14)	; &A-compU+4E14;
+      (=>iwds-1		  .  0114)	; &A-compU+4E14;
+      )
+     ((=ucs		  . #x516B)	; 八
+      ))
+    (=>mj		. 007290)	; &A-MJ007290;
+    ))
+(define-char
+  '((<-denotational
+     ((=>mj		  . 007290)	; &A-MJ007290;
+      ))
+    (ideographic-radical . 12)	; ⼋
+    (ideographic-strokes . 5)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x4E14)	; 且
+      )
+     ((=ucs		  . #x516B)	; 八
+      ))
     (=mj		. 007290)	; &MJ007290;
     (=hanyo-denshi/jt	. #xADCC)	; &I-HD-JT-ADCC;
     (->subsumptive
