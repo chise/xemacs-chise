@@ -1,5 +1,18 @@
 2020-03-23  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R039-Child.el (U+6588): Use `<-denotational@usage'
+	instead of `<-denotational' for BUCS+5B78; add
+	`ideographic-structure'; add `sound@ja/on'.
+	(U+5B66): Use `<-denotational@usage' instead of `<-denotational'
+	for BUCS+5B78; apply new conventions for glyph granularity.
+	(HNG-KHM0027-0): Use `<-denotational@usage' instead of
+	`<-denotational' for BUCS+5B78.
+	(U-0002D4D5): New character; use `<-denotational@usage' for
+	BUCS+5B78.
+	(U-0002B76F): Use `<-denotational@usage' instead of
+	`<-denotational' for BUCS+5B78.
+	(U+5B78): Likewise.
+
 	* Ideograph-R012-Eight.el (A-MJ007290): New abstract node; use
 	`<-denotational' for A-cgnU+5177.
 	(MJ007290): New character; use `<-denotational' for A-MJ007290.
