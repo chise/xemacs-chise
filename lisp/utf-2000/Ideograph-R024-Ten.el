@@ -2162,6 +2162,26 @@
       ))
     ))
 (define-char
+  '((ideographic-radical . 24)	; ⼗
+    (ideographic-strokes . 5)
+    (total-strokes	 . 7)
+    (=ucs		. #x30174)	; 𰅴
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x30174)	; 𰅴
+      ))
+    (ideographic-radical . 24)	; ⼗
+    (ideographic-strokes . 5)
+    (total-strokes	 . 7)
+    (=ucs@JP/hanazono	. #x30174)	; &hanaJU+30174;
+    (<-simplified@CN/second/table1
+     ((=ucs@unicode	  . #x771F)	; &C1-5678;
+      (=gb2312		  . #x5566)	; &C1-5678; [53-70]
+      (=cns11643-1	  . #x5678)	; &I-C1-5678; [54-88]
+      ))
+    ))
+(define-char
   '((<-denotational
      ((=>gt-k		  . 03433)	; &A-GT-K03433;
       ))
