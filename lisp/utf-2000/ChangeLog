@@ -1,3 +1,7 @@
+2020-03-24  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R024-Ten.el (U-00030174): New character.
+
 2020-03-23  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R039-Child.el (U+6588): Use `<-denotational@usage'
