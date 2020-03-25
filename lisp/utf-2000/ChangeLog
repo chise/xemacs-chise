@@ -1,5 +1,17 @@
 2020-03-24  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R032-Earth.el (A-U+477F-itaiji-002): New abstract
+	node.
+	(A-U+477F-itaiji-002@iwds-1): New abstract node; use
+	`<-denotational' for A-U+477F-itaiji-002.
+	(A-GT-K09723): New abstract node; use `<-denotational' for
+	A-U+477F-itaiji-002@iwds-1.
+	(GT-K09723): New character; unify U+477F-itaiji-002; use
+	`<-denotational' for A-GT-K09723.
+	(A-GT-K11065): New abstract node; use `<-denotational' for
+	A-U+477F-itaiji-002.
+	(GT-K11065): New character; use `<-denotational' for A-GT-K11065.
+
 	* Ideograph-R024-Ten.el (U-00030174): New character.
 
 2020-03-23  MORIOKA Tomohiko  <tomo.git@chise.org>
