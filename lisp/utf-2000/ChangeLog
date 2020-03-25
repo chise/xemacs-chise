@@ -1,5 +1,7 @@
 2020-03-24  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R003-Dot.el (U-0002CEFC): New character.
+
 	* Ideograph-R032-Earth.el (A-U+477F-itaiji-002): New abstract
 	node.
 	(A-U+477F-itaiji-002@iwds-1): New abstract node; use
