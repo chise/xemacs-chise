@@ -350,10 +350,11 @@
     (=shinjigen		.  1810)	; &C3-2360;
     (=cbeta		. 08779)	; &I-CB08779;
     (<-ancient
-     ((=ucs		  . #x5B85)	; 宅
+     ((=ucs@unicode	  . #x5B85)	; &AJ1-02896;
+      (=adobe-japan1-0	  . 02896)	; &I-AJ1-02896;
       (=jis-x0208	  . #x4270)	; &I-J90-4270; [34-80]
       (=daikanwa	  . 07064)	; &I-M-07064;
-      (=shinjigen	  .  1809)	; 宅
+      (=shinjigen	  .  1809)	; &AJ1-02896;
       )
      ((=ucs@unicode	  . #x5EA6)	; &AJ1-03155;
       (=adobe-japan1-0	  . 03155)	; &AJ1-03155;
@@ -8239,6 +8240,21 @@
      ((=ucs-var-003	  . #x6308)	; &U-v003+6308;
       ))
     (=cbeta		. 08776)	; &CB08776;
+    ))
+(define-char
+  '((ideographic-radical . 53)	; ⼴
+    (ideographic-strokes . 10)
+    (total-strokes	 . 13)
+    (=ucs		. #x2D66B)	; 𭙫
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2D66B)	; 𭙫
+      ))
+    (ideographic-radical . 53)	; ⼴
+    (ideographic-strokes . 10)
+    (total-strokes	 . 13)
+    (=ucs@JP/hanazono	. #x2D66B)	; &hanaJU+2D66B;
     ))
 (define-char
   '((ideographic-radical . 53)	; ⼴
