@@ -1,3 +1,35 @@
+2020-03-25  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R053-Dotted-Cliff.el (U-0002D66B): New character.
+
+	* Ideograph-R026-Seal.el (A-compU+5369): New abstract node.
+	(U+5369): Add `<-denotational' for A-compU+5369.
+	(BC-8A60): Unify hanaJU+3018A; add `<-denotational@component' for
+	A-compU+5369.
+	(A-BC-8A60): Unify U-0003018A.
+	(U+536B): Apply new conventions for glyph granularity.
+	(U-0003018C): New character.
+	(U-0003018D): New character; use `<-denotational' for
+	A-cgnU+3018D.
+	(A-cgnU+3018D): New abstract node.
+	(U+3018D-itaiji-001): New character; use `<-denotational' for
+	A-cgnU+3018D.
+	(A-IWDSU+5378): New abstract node.
+	(U+5378): Add `<-denotational' for A-IWDSU+5378; add
+	`sound@ja/on'; add `->formed' for UU+5BEB.
+	(U+7F37): Apply new conventions for glyph granularity; add
+	`<-denotational' for A-IWDSU+5378.
+	(U-0002D177): New character.
+	(U-0002D178): New character.
+	(U-0002D17A): New character.
+	(U+537C): Add `<-denotational@component' for A-IWDSU+5C2F.
+	(U-00030190): New character.
+	(U-00030191): New character.
+	(U+5380): Apply new conventions for glyph granularity.
+	(U+5381): Likewise.
+	(U-0002D17E): New character.
+	(U-0002D17F): New character.
+
 2020-03-24  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R003-Dot.el (U-0002CEFC): New character.
