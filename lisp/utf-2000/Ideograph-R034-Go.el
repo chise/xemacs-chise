@@ -1176,14 +1176,69 @@
   '((ideographic-radical . 34)	; ⼡
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>ucs@component	  . #x590A)	; &A-compU+590A;
+      (=>iwds-1		  .  0092)	; &A-compU+590A;
+      )
+     ((=gt-k		  . 06803)	; &GT-K06803;
+      ))
+    (sound@ja/on	"si")
     (=ucs		. #x2155D)	; 𡕝
-    (=daikanwa		. 05707)	; &I-M-05707;
     ))
 (define-char
-  '((=>ucs		. #x2155D)	; 𡕝
-    (morohashi-daikanwa	5707 0 1)
+  '((<-denotational
+     ((=ucs		  . #x2155D)	; 𡕝
+      ))
     (ideographic-radical . 34)	; ⼡
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
-    (=cns11643-6	. #x515A)	; &C6-515A; [49-58]
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5902)	; 夂
+      )
+     ((=gt-k		  . 06803)	; &GT-K06803;
+      ))
+    (=ucs@iso		. #x2155D)	; &MJ033327;
+    (=mj		. 033327)	; &MJ033327;
+    (=cns11643-6	. #x515A)	; &I-C6-515A; [49-58]
+    (=koseki		. 065340)	; &MJ033327;
+    (=daikanwa		. 05707)	; &I-M-05707;
+    (<-ancient
+     ((=ucs@unicode	  . #x5F99)	; &MJ011317;
+      (=mj		  . 011317)	; &MJ011317;
+      (=daikanwa	  . 10142)	; &I-M-10142;
+      ))
+    (<-ancient*sources
+     jiyun daikanwa)
+    (<-formed
+     ((=ucs@unicode	  . #x5F99)	; &MJ011317;
+      (=mj		  . 011317)	; &MJ011317;
+      (=koseki		  . 114610)	; &MJ011317;
+      ))
+    (<-formed$_1*sources
+     koseki mj)
+    (<-formed*sources
+     koseki mj)
+    (->subsumptive
+     ((==ucs@iso	  . #x2155D)	; &g2-M-05707;
+      (==daikanwa	  . 05707)	; &g2-M-05707;
+      (->subsumptive
+       ((===daikanwa	    . 05707)	; &R-M-05707;
+	)
+       ((===ucs@iso	    . #x2155D)	; &R-U-0002155D;
+	)
+       ((=hanziku-3	    . #xAF71)	; &HZK03-AF71;
+	))
+      )
+     ((==mj		  . 033327)	; &g2-MJ033327;
+      (==koseki		  . 065340)	; &g2-MJ033327;
+      )
+     ((==ucs@cns	  . #x2155D)	; &g2-CU+2155D;
+      (==cns11643-6	  . #x515A)	; &g2-CU+2155D; [49-58]
+      ))
     ))
