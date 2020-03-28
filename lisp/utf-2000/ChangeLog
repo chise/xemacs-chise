@@ -1,5 +1,12 @@
 2020-03-25  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R057-Bow.el (U-0002D6B0): New character.
+
+	* Ideograph-R014-Cover.el (U+5183-var-002): New character; use
+	`<-denotational' for U+5183.
+
+2020-03-25  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R053-Dotted-Cliff.el (U-0002D66B): New character.
 
 	* Ideograph-R026-Seal.el (A-compU+5369): New abstract node.
