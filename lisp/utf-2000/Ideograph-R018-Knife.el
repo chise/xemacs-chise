@@ -14650,6 +14650,79 @@
     (=daikanwa		. 48940)	; &I-M-48940;
     ))
 (define-char
+  '((ideographic-radical . 18)	; ⼑
+    (ideographic-strokes . 10)
+    (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x2099D)	; 𠦝
+      )
+     ((=ucs		  . #x5206)	; 分
+      ))
+    (=ucs		. #x2D0FF)	; 𭃿
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2D0FF)	; 𭃿
+      ))
+    (ideographic-radical . 18)	; ⼑
+    (ideographic-strokes . 10)
+    (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x2099D)	; 𠦝
+      )
+     ((=ucs@unicode	  . #x5206)	; &MJ007455;
+      (=mj		  . 007455)	; &MJ007455;
+      ))
+    (=ucs@JP/hanazono	. #x2D0FF)	; &MJ059379;
+    (=mj		. 059379)	; &MJ059379;
+    (->subsumptive
+     ((==ucs@JP/hanazono  . #x2D0FF)	; &g2-MJ059379;
+      (==mj		  . 059379)	; &g2-MJ059379;
+      (->subsumptive
+       ((===mj		    . 059379)	; &R-MJ059379;
+	))
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 18)	; ⼑
+    (ideographic-strokes . 10)
+    (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x4E26)	; 並
+      )
+     ((=>ucs@iwds-1	  . #x5203)	; &A-IWDSU+5203;
+      (=>iwds-1		  .  0106)	; &A-IWDSU+5203;
+      ))
+    (=ucs		. #x2D100)	; 𭄀
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2D100)	; 𭄀
+      ))
+    (ideographic-radical . 18)	; ⼑
+    (ideographic-strokes . 10)
+    (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs-var-002	  . #x4E26)	; &U-v002+4E26;
+      )
+     ((=ucs@unicode	  . #x5203)	; &MJ007450;
+      (=mj		  . 007450)	; &MJ007450;
+      ))
+    (=ucs@JP/hanazono	. #x2D100)	; &hanaJU+2D100;
+    ))
+(define-char
   '((<-denotational
      ((=>ucs@cognate	  . #x2D103)	; &A-cgnU+2D103;
       ))
