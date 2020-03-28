@@ -5884,6 +5884,15 @@
      ((==>daijiten	  . 08361)	; &A2-DJT-08361;
       ))
     (ideographic-radical . 1)	; ⼀
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x4491)	; 䒑
+      )
+     ((=>ucs@iwds-1	  . #x4E1A)	; &A-IWDSU+4E1A;
+      (=>iwds-1		  .  0368)	; &A-IWDSU+4E1A;
+      ))
     (=ucs		. #x4E26)	; 並
     ))
 (define-char
@@ -5900,6 +5909,15 @@
     (=+>gt		. 00089)	; &o-AJ1-20074;
     (->subsumptive
      ((daijiten-pages	  36)
+      (ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((=ucs@unicode	    . #x4491)	; &AJ1-18467;
+	(=adobe-japan1-5    . 18467)	; &AJ1-18467;
+	)
+       ((=big5-cdp	    . #x8D6B)	; &CDP-8D6B;
+	))
       (=mj		  . 006340)	; &MJ006340;
       (=adobe-japan1-5	  . 20074)	; &I-AJ1-20074;
       (=hanyo-denshi/ks	  . 000820)	; &MJ006340;
@@ -5964,13 +5982,56 @@
     (ideographic-radical . 1)	; ⼀
     (ideographic-strokes . 7)
     (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs-var-001	  . #x4491)	; &U-v001+4491;
+      )
+     ((=ucs		  . #x4E1A)	; 业
+      ))
+    (=hanyo-denshi/tk	. 01007400)	; &HD-TK-01007400;
+    (=hanyo-denshi/tk/mf-01 . #x02E4)	; &HD-TK-01007400;
+    (->subsumptive
+     ((==hanyo-denshi/tk  . 01007400)	; &g2-HD-TK-01007400;
+      (==hanyo-denshi/tk/mf-01 . #x02E4)	; &g2-HD-TK-01007400;
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x4E26)	; 並
+      ))
+    (ideographic-radical . 1)	; ⼀
+    (ideographic-strokes . 8)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs-var-001	  . #x4491)	; &U-v001+4491;
+      )
+     ((=big5-cdp	  . #x8D6B)	; &CDP-8D6B;
+      ))
+    (=ucs-var-002	. #x4E26)	; &U-v002+4E26;
+    (->subsumptive
+     ((==ucs-var-002	  . #x4E26)	; &g2-U-v002+4E26;
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x4E26)	; 並
+      ))
+    (ideographic-radical . 1)	; ⼀
+    (ideographic-strokes . 7)
+    (total-strokes	 . 8)
     (daijiten-pages	35)
     (hanyu-dazidian	1 246 2)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=ucs		  . #x4491)	; 䒑
+     ((=ucs@unicode	  . #x4491)	; &AJ1-18467;
+      (=adobe-japan1-5	  . 18467)	; &AJ1-18467;
       )
      ((=ucs		  . #x4E1A)	; 业
       ))
