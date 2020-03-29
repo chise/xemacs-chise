@@ -351,7 +351,7 @@
     (=cbeta		. 08779)	; &I-CB08779;
     (<-ancient
      ((=ucs@unicode	  . #x5B85)	; &AJ1-02896;
-      (=adobe-japan1-0	  . 02896)	; &I-AJ1-02896;
+      (=adobe-japan1-0	  . 02896)	; &AJ1-02896;
       (=jis-x0208	  . #x4270)	; &I-J90-4270; [34-80]
       (=daikanwa	  . 07064)	; &I-M-07064;
       (=shinjigen	  .  1809)	; &AJ1-02896;
