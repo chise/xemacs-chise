@@ -1,3 +1,126 @@
+2020-03-29  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R043-Lame.el (A-IWDSU+5C23): Add
+	`<-denotational@component' for A-NIWDSU+5C23.
+	(U+5C23): Apply new conventions for glyph granularity.
+	(UU+5C23): Unify U+2E8F.
+	(U-00021BC2): Apply new conventions for glyph granularity.
+	(IU+21BC2): Unify U+2E91.
+	(U+21BC2-itaiji-001): New character; use `<-denotational' for
+	U-00021BC2.
+	(U+5140): Add A-IWDSU+65E0 as a target of
+	`<-denotational@component'.
+	(A-IWDSU+21BC4): New abstract node.
+	(U-00021BC4): Add `<-denotational' for A-IWDSU+21BC4.
+	(U-00021BCA): Add `<-denotational@component' for A-IWDSU+65E0;
+	apply new conventions for glyph granularity.
+	(A-IWDSU+21BC9): New abstract node.
+	(U-00021BC9): Add `<-denotational' for A-IWDSU+21BC9; apply new
+	conventions for glyph granularity.
+	(U-00021BC5): New character; use `<-denotational' for
+	A-IWDSU+21BC9.
+	(U-00021BC7): New character; use `<-denotational' for
+	A-IWDSU+21BC7.
+	(U+5C25): Apply new conventions for glyph granularity.
+	(U+5C26): Likewise.
+	(U-00021BCC): New character.
+	(U-00021BCB): New character.
+	(U+5C27): Apply new conventions for glyph granularity.
+	(U-00021BCE): Add `<-denotational' for A-IWDSU+22482; add
+	`<-denotational@component' for A-compU+21BCE.
+	(A-compU+21BCE): New abstract node.
+	(BC-85C1): Use A-compU+21BCE instead of U-00021BCE as its mother.
+	(U+5C28): Add `<-denotational' for A-IWDSU+22482; add
+	`ideographic-structure'; add `sound@ja/on/{kan|go}'.
+	(CB11521): New character; use `<-denotational' for U+5C29.
+	(U+5C2C): Add `<-denotational@component' for A-IWDSU+201B7; apply
+	new conventions for glyph granularity.
+	(U-00021BD3): New character; use `<-denotational@component' for
+	A-IWDSU+201B7.
+	(A-IWDSU+21BD5): New abstract node.
+	(U-00021BD4): Apply new conventions for glyph granularity; add
+	`<-denotational' for A-IWDSU+21BD5.
+	(U-00021BD5): New character; use `<-denotational' for
+	A-IWDSU+21BD5.
+	(U-00021BD1): New character.
+	(U-00021BD9): Apply new conventions for glyph granularity.
+	(U-00021BDA): New character.
+	(U+377F): Apply new conventions for glyph granularity.
+	(CB08743): New character; use `<-denotational' for U+377F.
+	(U-00021BDE): Apply new conventions for glyph granularity.
+	(U-00021BDF): New character; use `<-denotational@component' for
+	A-IWDSU+65ED.
+	(U-00021BE1): Use `->denotational' and `->subsumptive'.
+	(U-0002D54E): New character; use `<-denotational@component' for
+	A-IWDSU+2D54E.
+	(U+5C2F): Add `<-denotational@component' for A-IWDSU+5C2F; apply
+	new conventions for glyph granularity.
+	(U-00021BE5): Apply new conventions for glyph granularity; add
+	`<-denotational' for A-IWDSU+27224.
+	(U-00021BE4): New character.
+	(U-00021BEE): Apply new conventions for glyph granularity; add
+	`<-denotational@component' for A-IWDSU+20646.
+	(U+3782): Apply new conventions for glyph granularity.
+	(CB01791): New character; use `<-denotational' for U+3782.
+	(U+3783): Apply new conventions for glyph granularity; add
+	`<-denotational@component' for A-IWDSU+472A.
+	(U-00021BF5): Use `->denotational' and `->subsumptive'.
+	(U-0002049D): New character.
+	(A-IWDSU+5C30): New abstract node.
+	(U+5C30): Apply new conventions for glyph granularity; add
+	`<-denotational' for A-IWDSU+5C30.
+	(U-00021C01): New character; use `<-denotational' for
+	A-IWDSU+5C30.
+	(U+3787): Apply new conventions for glyph granularity.
+	(CB01792): New character; use `<-denotational' for U+3787.
+	(U-00021BFA): Apply new conventions for glyph granularity; add
+	`<-denotational@component' for A-IWDSU+9804.
+	(U+5C31): Apply new conventions for glyph granularity.
+	(U-00021BFE): New character.
+	(U-00021C05): New character.
+	(U-00021C02): Apply new conventions for glyph granularity.
+	(U-00021BFC): New character.
+	(U+5C33): Add `<-denotational@component' for A-IWDSU+29A14.
+	(U-00021C0A): Apply new conventions for glyph granularity for
+	components of ideographic-structure.
+	(CB05344): New character; use `<-denotational' for U-00021C0A.
+	(U-0002D552): Unify CB02193.
+	(U-00021C0C): Apply new conventions for glyph granularity.
+	(U+378A): Likewise; add `<-denotational' for A-IWDSU+2568B.
+	(U-00021C0E): Apply new conventions for glyph granularity; add
+	`<-denotational@component' for A-IWDSU+9CE9.
+	(U-00021C0D): Apply new conventions for glyph granularity; add
+	`<-denotational@component' for A-IWDSU+21C13.
+	(U+5C35): Apply new conventions for glyph granularity.
+	(U-00021C12): Likewise.
+	(CB12396): New character; use `<-denotational' for U-00021C12.
+	(U-00021C13): New character; use `<-denotational@component' for
+	A-IWDSU+21C13.
+	(CB10829): New character; use `<-denotational@component' for
+	A-IWDSU+21C13.
+	(A-IWDSU+21C17): New abstract node.
+	(U-00021C17): Apply new conventions for glyph granularity; add
+	`<-denotational' for A-IWDSU+21C17.
+	(U-00021C18): Apply new conventions for glyph granularity; add
+	`<-denotational@component' for A-IWDSU+2066A.
+	(U-00021C1A): Apply new conventions for glyph granularity; add
+	`<-denotational' for A-IWDSU+25ECB.
+	(U-00021C1C): Apply new conventions for glyph granularity; add
+	`<-denotational' for A-IWDSU+21C17.
+	(U-00021C1E): New character; use `<-denotational@component' for
+	A-IWDSU+21C1D.
+	(U-00021C1D): Use `->denotational' and `->subsumptive'; add
+	`<-denotational@component' for A-IWDSU+21C1D.
+	(A-NIWDSU+5C23): New abstract node.
+	(A-NIWDSU+5C2A): New abstract node.
+	(A-IWDSU+5C2A): Add `<-denotational@component' for A-NIWDSU+5C2A.
+	(A-IWDSU+201B7): New abstract node.
+	(A-IWDSU+5C2F): New abstract node.
+	(A-IWDSU+29A14): New abstract node.
+	(A-IWDSU+21C13): New abstract node.
+	(A-IWDSU+2066A): New abstract node.
+	(A-IWDSU+21C1D): New abstract node.
+
 2020-03-27  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R034-Go.el (U-0002155D): Use `->denotational' and
