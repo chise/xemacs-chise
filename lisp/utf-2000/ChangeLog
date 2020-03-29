@@ -1,3 +1,61 @@
+2020-03-27  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R034-Go.el (U-0002155D): Use `->denotational' and
+	`->subsumptive'.
+
+	* Ideograph-R032-Earth.el (U-0002D39B): New character.
+	(U-0002D3D5): New character.
+	(U-0002D3F5): New character.
+
+	* Ideograph-R030-Mouth.el (J97-3C38): Unify A-IWDSU+53F1.
+	(U+53F1): Apply new conventions for glyph granularity.
+	(U+5412): Likewise.
+	(U-0002D1CC): New character.
+	(U-0002D1CD): New character.
+	(U+549C): Apply new conventions for glyph granularity.
+	(U-00020C31): Likewise.
+	(U-0002D1DD): New character.
+	(U+54A4): Apply new conventions for glyph granularity.
+	(U-0002D1E2): New character.
+	(U-0002D1E4): New character.
+	(U-0002D1F1): New character.
+	(U-00020CDE): New character.
+	(U-0002D1F7): New character.
+	(U-0002D203): New character.
+	(U-0002D207): Add `ideographic-structure'; add `total-strokes'.
+	(U-00020D37): Apply new conventions for glyph granularity.
+	(U-0002D231): New character.
+	(U-0002D248): New character.
+	(U-0002D256): New character.
+	(U-0002D266): New character.
+	(U-0002D2AC): New character.
+	(A-U+9B33-itaiji-003): New abstract node.
+	(U+9B33-itaiji-003): New character; use `<-denotational' for
+	A-U+9B33-itaiji-003.
+	(U-0002D2A2): New character.
+	(U-0002D2A8): New character.
+	(U-0002D2BE): Add `total-strokes'.
+	(U-0002D2DA): New character.
+	(U-0002104E): Apply new conventions for glyph granularity.
+	(M-04472): Unify IU+2104E, MJ032662 and C5-5B29; add
+	`<-denotational' for U-0002104E.
+	(U-0002D301): New character.
+	(U-0002D310): New character.
+	(U-0002D321): Add `total-strokes'.
+
+	* Ideograph-R018-Knife.el (U-0002D0FF): New character.
+	(U-0002D100): New character.
+
+	* Ideograph-R016-Table.el (U-0002D0AD): Add `total-strokes'.
+	(U-0002D0AE): New character.
+
+	* Ideograph-R001-One.el (U+4E26): Add `ideographic-structure'.
+	(MJ006340): Ditto.
+	(HD-TK01007400): New character; use `<-denotational' for U+4E26.
+	(U+4E26-var-002): Ditto.
+	(UU+4E26): Apply new conventions for glyph granularity for
+	components of ideographic-structure.
+
 2020-03-25  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R057-Bow.el (U-0002D6B0): New character.
