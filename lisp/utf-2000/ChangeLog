@@ -1,5 +1,7 @@
 2020-03-29  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R039-Child.el (U-0002D4BA): New character.
+
 	* Ideograph-R043-Lame.el (A-IWDSU+5C23): Add
 	`<-denotational@component' for A-NIWDSU+5C23.
 	(U+5C23): Apply new conventions for glyph granularity.
