@@ -1,3 +1,11 @@
+2020-03-30  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R012-Eight.el (A-U+9FB9-itaiji-002): New abstract
+	node.
+	(U+9FB9-itaiji-002): New character; use `<-denotational' for
+	A-U+9FB9-itaiji-002.
+	(U-000300E4): New character.
+
 2020-03-29  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R016-Table.el (U-0002D0AA): New character.

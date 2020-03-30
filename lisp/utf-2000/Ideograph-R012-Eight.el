@@ -2676,6 +2676,41 @@
     (ideographic-strokes . 5)
     (total-strokes	 . 7)
     (ideographic-structure
+     ((name		  . "IDEOGRAPHIC DESCRIPTION CHARACTER OVERLAID")
+      (=ucs		  . #x2FFB)	; ⿻
+      )
+     ((=ucs		  . #x215D7)	; 𡗗
+      )
+     ((=>ucs@component	  . #x4E37)	; &A-compU+4E37;
+      (=>iwds-1		  .  0022)	; &A-compU+4E37;
+      ))
+    (=>ucs-itaiji-002	. #x9FB9)	; &A-U-i002+9FB9;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs-itaiji-002	  . #x9FB9)	; &A-U-i002+9FB9;
+      ))
+    (ideographic-radical . 12)	; ⼋
+    (ideographic-strokes . 5)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((name		  . "IDEOGRAPHIC DESCRIPTION CHARACTER OVERLAID")
+      (=ucs		  . #x2FFB)	; ⿻
+      )
+     ((=ucs		  . #x215D7)	; 𡗗
+      )
+     ((=ucs		  . #x4E37)	; 丷
+      ))
+    (=ucs-itaiji-002	. #x9FB9)	; &U-i002+9FB9;
+    (->subsumptive
+     ((==ucs-itaiji-002	  . #x9FB9)	; &g2-U-i002+9FB9;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 12)	; ⼋
+    (ideographic-strokes . 5)
+    (total-strokes	 . 7)
+    (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
@@ -5067,6 +5102,38 @@
      ((=ucs		  . #x752B)	; 甫
       ))
     (=ucs@JP/hanazono	. #x2D053)	; &hanaJU+2D053;
+    ))
+(define-char
+  '((ideographic-radical . 12)	; ⼋
+    (ideographic-strokes . 9)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>ucs-itaiji-002	  . #x9FB9)	; &A-U-i002+9FB9;
+      )
+     ((=ucs		  . #x4E11)	; 丑
+      ))
+    (=ucs		. #x300E4)	; 𰃤
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x300E4)	; 𰃤
+      ))
+    (ideographic-radical . 12)	; ⼋
+    (ideographic-strokes . 9)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs-itaiji-002	  . #x9FB9)	; &U-i002+9FB9;
+      )
+     ((=ucs@unicode	  . #x4E11)	; &GT-00035;
+      (=gb2312		  . #x3373)	; &GT-00035; [19-83]
+      ))
+    (=ucs@JP/hanazono	. #x300E4)	; &hanaJU+300E4;
     ))
 (define-char
   '((ideographic-radical . 12)	; ⼋
