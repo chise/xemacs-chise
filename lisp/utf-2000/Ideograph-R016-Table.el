@@ -951,6 +951,20 @@
       ))
     ))
 (define-char
+  '((ideographic-radical . 16)	; ⼏
+    (ideographic-strokes . 2)
+    (total-strokes	 . 4)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=big5-cdp	  . #x8CBD)	; &CDP-8CBD;
+      )
+     ((=ucs		  . #x51E0)	; 几
+      ))
+    (=ucs		. #x2D0AA)	; 𭂪
+    ))
+(define-char
   '((<-denotational
      ((=>ucs@iwds-1	  . #x2D0AC)	; &A-IWDSU+2D0AC;
       (=>ucs@iwds-1/normalized . #x2D0AC)	; &A-IWDSU+2D0AC;
