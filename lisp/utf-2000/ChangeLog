@@ -1,5 +1,41 @@
 2020-03-30  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R018-Knife.el (A-cgnU+5203): New abstract node.
+	(IWDS1-0106): Use `<-denotational@usage' instead of
+	`<-denotational' for BUCS+5203; add `<-denotational' for
+	A-cgnU+5203.
+	(A-U+5203-itaiji-001): New abstract node; use `<-denotational' for
+	A-cgnU+5203.
+	(U+5203-itaiji-001): New character; use `<-denotational' for
+	A-U+5203-itaiji-001; subsume HNG-OKD0009-0 and HNG-ZKD0058-0.
+	(U-0002D0C5): New character.
+	(A-U+34DE-itaiji-003): Unify A-U+2D0CC-itaiji-001.
+	(U+2D0CC-itaiji-001): New character; use `<-denotational' for
+	A-U+2D0CC-itaiji-001.
+	(U+522D): Use `<-denotational@usage' instead of `<-denotational'
+	for BUCS+5244; apply new conventions for glyph granularity.
+	(U-0002D0CE): New character.
+	(U-0002D0D4): New character.
+	(U+523F): Use `<-denotational@usage' instead of `<-denotational'
+	for BUCS+528C; apply new conventions for glyph granularity.
+	(U+5240): Use `<-denotational@usage' instead of `<-denotational'
+	for BUCS+5274; apply new conventions for glyph granularity.
+	(U-0002D0DA): New character.
+	(U+5244): Use `<-denotational@usage' instead of `<-denotational'
+	for BUCS+5244; apply new conventions for glyph granularity.
+	(U-0002D0F0): New character.
+	(U-0002D0F1): New character.
+	(U-0002D0F7): New character.
+	(U+5274): Use `<-denotational@usage' instead of `<-denotational'
+	for BUCS+5274; apply new conventions for glyph granularity.
+	(U+528C): Use `<-denotational@usage' instead of `<-denotational'
+	for BUCS+528C; add `ideographic-structure'.
+
+	* Ideograph-R002-Line.el (U+4E29-itaiji-004): New character.
+
+	* Ideograph-R034-Go.el (U+21552-var-002): New glyph; use
+	`<-subsumptive' for U-00021552.
+
 	* Ideograph-R012-Eight.el (A-U+9FB9-itaiji-002): New abstract
 	node.
 	(U+9FB9-itaiji-002): New character; use `<-denotational' for
