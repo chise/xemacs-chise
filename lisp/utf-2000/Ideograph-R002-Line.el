@@ -119,6 +119,15 @@
     (ideographic-radical . 2)	; ⼁
     (ideographic-strokes . 1)
     (total-strokes	 . 2)
+    (=ucs-itaiji-004	. #x4E29)	; &U-i004+4E29;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x4E29)	; 丩
+      ))
+    (ideographic-radical . 2)	; ⼁
+    (ideographic-strokes . 1)
+    (total-strokes	 . 2)
     (=big5-cdp		. #x88B6)	; &CDP-88B6;
     (=daijiten		. 00046)	; &I-DJT-00046;
     (->subsumptive
