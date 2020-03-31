@@ -4000,7 +4000,6 @@
      ((=ucs		  . #x5E7F)	; 广
       )
      ((=>ucs@iwds-1	  . #x22482)	; &A-IWDSU+22482;
-      (=>ucs@iwds-1/normalized . #x22482)	; &A-IWDSU+22482;
       ))
     (=ucs		. #x5EAC)	; 庬
     (=big5		. #xD178)	; &I-B-D178;
