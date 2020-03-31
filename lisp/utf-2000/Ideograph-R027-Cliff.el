@@ -1880,7 +1880,6 @@
       (=>iwds-1		  .  0150)	; &A-compU+4E06;
       )
      ((=>ucs@iwds-1	  . #x22482)	; &A-IWDSU+22482;
-      (=>ucs@iwds-1/normalized . #x22482)	; &A-IWDSU+22482;
       ))
     (=>ucs@iwds-1	. #x20A47)	; &A-IWDSU+20A47;
     ))
