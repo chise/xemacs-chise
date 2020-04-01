@@ -7221,6 +7221,27 @@
     (=>ucs@cognate	. #x20045)	; &A-cgnU+20045;
     ))
 (define-char
+  '((<-denotational
+     ((=>ucs@cognate	  . #x8657)	; &A-cgnU+8657;
+      ))
+    (<-denotational@usage
+     ((==>ucs@bucs	  . #x865B)	; &BUCS+865B;
+      ))
+    (ideographic-radical . 1)	; ⼀
+    (ideographic-strokes . 10)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=>big5-cdp	  . #x88BC)	; &A-GT-K01853;
+      )
+     ((=ucs		  . #x4E18)	; 丘
+      ))
+    (=>gt		. 00093)	; &A-GT-00093;
+    (=>gt-k		. 08111)	; &A-GT-00093;
+    ))
+(define-char
   '((ideographic-radical . 1)	; ⼀
     (ideographic-strokes . 10)
     (total-strokes	 . 11)
@@ -7252,9 +7273,20 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 1)	; ⼀
+  '((<-denotational
+     ((=>gt		  . 00093)	; &A-GT-00093;
+      ))
+    (ideographic-radical . 1)	; ⼀
     (ideographic-strokes . 10)
     (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=big5-cdp	  . #x88BC)	; &CDP-88BC;
+      )
+     ((=ucs		  . #x4E18)	; 丘
+      ))
     (=gt		. 00093)	; &GT-00093;
     (=gt-k		. 08111)	; &I-GT-K08111;
     (=gt-pj-11		. #x487D)	; &GT-00093; [40-93]
