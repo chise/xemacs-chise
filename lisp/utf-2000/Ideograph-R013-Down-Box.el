@@ -3406,6 +3406,28 @@
   '((ideographic-radical . 13)	; ⼌
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
+      (=ucs		  . #x2FF5)	; ⿵
+      )
+     ((=ucs		  . #x5182)	; 冂
+      )
+     ((=ucs		  . #x7C73)	; 米
+      ))
+    (=ucs		. #x2D068)	; 𭁨
+    (=mj		. 059352)	; &I-MJ059352;
+    (->subsumptive
+     ((==ucs@JP/hanazono  . #x2D068)	; &g2-MJ059352;
+      (==mj		  . 059352)	; &g2-MJ059352;
+      (->subsumptive
+       ((===mj		    . 059352)	; &R-MJ059352;
+	))
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 13)	; ⼌
+    (ideographic-strokes . 6)
+    (total-strokes	 . 8)
     (=>ucs@component	. #x2D063)	; &A-compU+2D063;
     ))
 (define-char
