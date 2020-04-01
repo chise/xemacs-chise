@@ -1,3 +1,9 @@
+2020-04-01  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R016-Table.el (U-0002D0AB): New character.
+
+	* Ideograph-R013-Down-Box.el (U-0002D068): New character.
+
 2020-03-31  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R046-Mountain.el (U+5C81): Apply new conventions for
