@@ -1285,8 +1285,46 @@
   '((ideographic-radical . 46)	; ⼭
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>ucs@component	  . #x5C6E)	; &A-compU+5C6E;
+      (=>iwds-1		  .  0096)	; &A-compU+5C6E;
+      )
+     ((=ucs		  . #x5915)	; 夕
+      ))
     (=ucs		. #x5C81)	; 岁
-    (=gb2312		. #x4B6A)	; &I-G0-4B6A; [43-74]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5C81)	; 岁
+      ))
+    (ideographic-radical . 46)	; ⼭
+    (ideographic-strokes . 3)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5C71)	; 山
+      )
+     ((=ucs		  . #x5915)	; 夕
+      ))
+    (=ucs@unicode	. #x5C81)	; &G0-4B6A;
+    (=gb2312		. #x4B6A)	; &G0-4B6A; [43-74]
+    (<-simplified@CN
+     ((=ucs@unicode	  . #x6B72)	; &AJ1-13785;
+      (=adobe-japan1-4	  . 13785)	; &AJ1-13785;
+      (=gb12345		  . #x4B6A)	; &AJ1-13785; [43-74]
+      ))
+    (->subsumptive
+     ((==ucs@unicode	  . #x5C81)	; &g2-UU+5C81;
+      (==gb2312		  . #x4B6A)	; &g2-UU+5C81; [43-74]
+      (->subsumptive
+       ((===ucs@unicode	    . #x5C81)	; &R-UU+5C81;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 46)	; ⼭
