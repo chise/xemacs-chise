@@ -1,3 +1,15 @@
+2020-03-31  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R046-Mountain.el (U+5C81): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R043-Lame.el (A-U+2E9FB-itaiji-001): New abstract
+	node.
+	(U+2E9FB-itaiji-001): New character; use `<-denotational' for
+	A-U+2E9FB-itaiji-001.
+
+	* Ideograph-R037-Big.el (U-000302D9): New character.
+
 2020-03-30  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R018-Knife.el (A-cgnU+5203): New abstract node.
@@ -41,6 +53,8 @@
 	(U+9FB9-itaiji-002): New character; use `<-denotational' for
 	A-U+9FB9-itaiji-002.
 	(U-000300E4): New character.
+
+	* Ideograph-R041-Inch.el (U-0002D52C): New character.
 
 2020-03-29  MORIOKA Tomohiko  <tomo.git@chise.org>
 
