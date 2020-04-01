@@ -1,5 +1,10 @@
 2020-04-01  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R001-One.el (A-GT-00093): New abstract node; use
+	`<-denotational' for A-cgnU+8657; unify A-GT-K08111.
+	(GT-00093): Add `<-denotational' for A-GT-00093; add
+	`ideographic-structure'.
+
 	* Ideograph-R016-Table.el (U-0002D0AB): New character.
 
 	* Ideograph-R013-Down-Box.el (U-0002D068): New character.
