@@ -927,7 +927,7 @@
       (=shinjigen	  .  0035)	; &MJ006350;
       (=jef-china3	  . #x81FE)	; &I-JC3-81FE;
       (<-simplified@CN
-       ((=ucs		    . #x8C50)	; 豐
+       ((=ucs@unicode	    . #x8C50)	; 豐
 	(=gb12345	    . #x3761)	; 豐 [23-65]
 	))
       (->subsumptive
