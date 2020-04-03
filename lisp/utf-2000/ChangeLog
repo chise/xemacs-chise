@@ -1,3 +1,7 @@
+2020-04-02  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R046-Mountain.el (U-00021FBF): New character.
+
 2020-04-01  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R037-Big.el (U-0002D443): New character.
