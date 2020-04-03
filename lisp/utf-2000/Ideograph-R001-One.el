@@ -7205,7 +7205,9 @@
     (=mj		. 057479)	; &I-MJ057479;
     (=koseki		. 112340)	; 𬻥
     (<-formed
-     ((=ucs@jis		  . #x5F57)	; &MJ011236;
+     ((=ucs@cns		  . #x5F57)	; &MJ011236;
+      (=ucs@jis		  . #x5F57)	; &MJ011236;
+      (=ucs@ks		  . #x5F57)	; &MJ011236;
       (=mj		  . 011236)	; &MJ011236;
       ))
     (<-formed*sources
