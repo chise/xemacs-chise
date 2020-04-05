@@ -1,3 +1,8 @@
+2020-04-05  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R005-Second.el (U-000200DE): Apply new conventions for
+	glyph granularity.
+
 2020-04-03  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R047-River.el (A-GT-K00633): New abstract node.
