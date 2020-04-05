@@ -1,5 +1,20 @@
 2020-04-03  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R047-River.el (A-GT-K00633): New abstract node.
+	(GT-K00633): New character; use `<-denotational' for A-GT-K00633.
+
+	* Ideograph-R030-Mouth.el (U+54A2): Omit
+	`{ideographic|total}-strokes'; add `ideographic-structure'.
+	(A-GT-K07485): New abstract node; unify A-U+54A2-itaiji-001.
+	(U+54A2-itaiji-001): New character; use `<-denotational' for
+	A-GT-K07485.
+	(GT-K07485): Ditto.
+	(U-0002BA99): New character.
+	(U-0002A859): New character.
+	(U-0002D2B2): New character.
+
+2020-04-03  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R058-Snout.el (U+5F57): Apply new conventions for
 	glyph granularity.
 
