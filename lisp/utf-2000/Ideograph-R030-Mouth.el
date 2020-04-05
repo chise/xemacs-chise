@@ -16768,8 +16768,16 @@
     ))
 (define-char
   '((ideographic-radical . 30)	; ⼝
-    (ideographic-strokes . 6)
-    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>ucs@component	  . #x5405)	; &A-compU+5405;
+      (=>iwds-1		  .  0398)	; &A-compU+5405;
+      )
+     ((=>ucs@iwds-1	  . #x4E8F)	; &A-IWDSU+4E8F;
+      (=>iwds-1		  .  0093)	; &A-IWDSU+4E8F;
+      ))
     (=ucs		. #x54A2)	; 咢
     ))
 (define-char
@@ -21646,6 +21654,41 @@
       (=mj		  . 007455)	; &MJ007455;
       ))
     (=ucs@JP/hanazono	. #x2D1F1)	; &hanaJU+2D1F1;
+    ))
+(define-char
+  '((ideographic-radical . 30)	; ⼝
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>ucs@component	  . #x5405)	; &A-compU+5405;
+      (=>iwds-1		  .  0398)	; &A-compU+5405;
+      )
+     ((=ucs		  . #x21552)	; 𡕒
+      ))
+    (=>gt-k		. 07485)	; &A-GT-K07485;
+    (=>ucs-itaiji-001	. #x54A2)	; &A-GT-K07485;
+    ))
+(define-char
+  '((<-denotational
+     ((=>gt-k		  . 07485)	; &A-GT-K07485;
+      ))
+    (ideographic-radical . 30)	; ⼝
+    (ideographic-strokes . 6)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5405)	; 吅
+      )
+     ((=ucs@iso		  . #x21552)	; &CDP-8874;
+      (=big5-cdp	  . #x8874)	; &CDP-8874;
+      ))
+    (=ucs-itaiji-001	. #x54A2)	; &U-i001+54A2;
+    (->subsumptive
+     ((==ucs-itaiji-001	  . #x54A2)	; &g2-U-i001+54A2;
+      ))
     ))
 (define-char
   '((ideographic-radical . 30)	; ⼝
@@ -26624,7 +26667,6 @@
      ((=ucs		  . #x53E3)	; 口
       )
      ((=>ucs@iwds-1	  . #x7680)	; &A-IWDSU+7680;
-      (=>ucs@iwds-1/normalized . #x7680)	; &A-IWDSU+7680;
       (=>iwds-1		  .  0355)	; &A-IWDSU+7680;
       ))
     (=ucs		. #x5523)	; 唣
@@ -27575,6 +27617,28 @@
       (->subsumptive
        ((===cbeta	    . 04302)	; &R-CB04302;
 	))
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>gt-k		  . 07485)	; &A-GT-K07485;
+      ))
+    (ideographic-radical . 30)	; ⼝
+    (ideographic-strokes . 7)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5405)	; 吅
+      )
+     ((=ucs-var-002	  . #x21552)	; &U-v002+21552;
+      ))
+    (=gt-k		. 07485)	; &GT-K07485;
+    (=gt-pj-k1		. #x726B)	; &GT-K07485; [82-75]
+    (->subsumptive
+     ((==gt-k		  . 07485)	; &g2-GT-K07485;
+      (==gt-pj-k1	  . #x726B)	; &g2-GT-K07485; [82-75]
       ))
     ))
 (define-char
@@ -34859,6 +34923,37 @@
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
     (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>ucs-itaiji-002	  . #x4E30)	; &A-U-i002+4E30;
+      )
+     ((=ucs		  . #x53E3)	; 口
+      ))
+    (=ucs		. #x2BA99)	; 𫪙
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2BA99)	; 𫪙
+      ))
+    (ideographic-radical . 30)	; ⼝
+    (ideographic-strokes . 8)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs-itaiji-002	  . #x4E30)	; &U-i002+4E30;
+      )
+     ((=ucs		  . #x53E3)	; 口
+      ))
+    (=ucs@JP/hanazono	. #x2BA99)	; &hanaJU+2BA99;
+    ))
+(define-char
+  '((ideographic-radical . 30)	; ⼝
+    (ideographic-strokes . 8)
+    (total-strokes	 . 11)
+    (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
@@ -35538,17 +35633,7 @@
       ))
     (=cbeta		. 00087)	; &CB00087;
     (->subsumptive
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	(=ucs		    . #x2FF0)	; ⿰
-	)
-       ((==ucs@unicode	    . #x53E3)	; &g2-AJ1-01969;
-	(==adobe-japan1-0   . 01969)	; &g2-AJ1-01969;
-	)
-       ((==ucs@unicode	    . #x5470)	; &g2-AJ1-04356;
-	(==adobe-japan1-0   . 04356)	; &g2-AJ1-04356;
-	))
-      (==cbeta		  . 00087)	; &g2-CB00087;
+     ((==cbeta		  . 00087)	; &g2-CB00087;
       ))
     ))
 (define-char
@@ -43589,6 +43674,35 @@
     (->subsumptive
      ((==ucs@iso	  . #x20E97)	; &g2-IU-00020E97;
       ))
+    ))
+(define-char
+  '((ideographic-radical . 30)	; ⼝
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x53E3)	; 口
+      )
+     ((=ucs		  . #x2D17A)	; 𭅺
+      ))
+    (=ucs		. #x2A859)	; 𪡙
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2A859)	; 𪡙
+      ))
+    (ideographic-radical . 30)	; ⼝
+    (ideographic-strokes . 9)
+    (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x53E3)	; 口
+      )
+     ((=ucs-var-001	  . #x2D17A)	; &U-v001+2D17A;
+      ))
+    (=ucs@JP/hanazono	. #x2A859)	; &hanaJU+2A859;
     ))
 (define-char
   '((ideographic-radical . 30)	; ⼝
@@ -53773,7 +53887,9 @@
       )
      ((=ucs		  . #x53E3)	; 口
       )
-     ((=ucs@jis		  . #x5F57)	; &MJ011236;
+     ((=ucs@cns		  . #x5F57)	; &MJ011236;
+      (=ucs@jis		  . #x5F57)	; &MJ011236;
+      (=ucs@ks		  . #x5F57)	; &MJ011236;
       (=mj		  . 011236)	; &MJ011236;
       ))
     (=ucs@cns		. #x5612)	; &AJ1-19258;
@@ -62626,6 +62742,21 @@
       ))
     (=ucs		. #x2D2B1)	; 𭊱
     (=cbeta		. 03773)	; &I-CB03773;
+    ))
+(define-char
+  '((ideographic-radical . 30)	; ⼝
+    (ideographic-strokes . 12)
+    (total-strokes	 . 15)
+    (=ucs		. #x2D2B2)	; 𭊲
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2D2B2)	; 𭊲
+      ))
+    (ideographic-radical . 30)	; ⼝
+    (ideographic-strokes . 12)
+    (total-strokes	 . 15)
+    (=ucs@JP/hanazono	. #x2D2B2)	; &hanaJU+2D2B2;
     ))
 (define-char
   '((ideographic-radical . 30)	; ⼝
