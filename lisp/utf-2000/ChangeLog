@@ -1,3 +1,8 @@
+2020-04-03  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R058-Snout.el (U+5F57): Apply new conventions for
+	glyph granularity.
+
 2020-04-02  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R002-Line.el (A-U+4E30-itaiji-002): New abstract node.
