@@ -1,5 +1,10 @@
 2020-04-06  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R046-Mountain.el (CB08146): New character; use
+	`<-denotational' for U-00021D06.
+
+2020-04-06  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R028-Private.el (U+20AF8-itaiji-001): New character.
 	(U-00020AFC): Apply new conventions for glyph granularity.
 	(U+20AFC-var-001): New character; use `<-denotational' for
