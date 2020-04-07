@@ -1,3 +1,8 @@
+2020-04-07  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R031-Enclosure.el (BC-8B62): New character; use
+	`<-denotational' for U-000211A7.
+
 2020-04-06  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R046-Mountain.el (CB08146): New character; use
