@@ -570,7 +570,7 @@
     (=cns11643-6	. #x224C)	; &I-C6-224C; [02-44]
     ))
 (define-char
-  '((<-denotational
+  '((<-denotational@usage
      ((==>ucs@bucs	  . #x76E7)	; &BUCS+76E7;
       ))
     (ideographic-radical . 25)	; ⼘
@@ -601,6 +601,43 @@
 	)
        ((=hanziku-1	    . #xB6FA)	; &HZK01-B6FA;
 	))
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 25)	; ⼘
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((name		  . "CJK RADICAL DIVINATION")
+      (=ucs		  . #x2E8A)	; ⺊
+      )
+     ((=>ucs@component	  . #x5DF1)	; &A-compU+5DF1;
+      (=>iwds-1		  .  0120)	; &A-compU+5DF1;
+      ))
+    (=>gt-k		. 01541)	; &A-GT-K01541;
+    ))
+(define-char
+  '((<-denotational
+     ((=>gt-k		  . 01541)	; &A-GT-K01541;
+      ))
+    (ideographic-radical . 25)	; ⼘
+    (ideographic-strokes . 3)
+    (total-strokes	 . 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((name		  . "CJK RADICAL DIVINATION")
+      (=ucs		  . #x2E8A)	; ⺊
+      )
+     ((=ucs		  . #x5DF3)	; 巳
+      ))
+    (=gt-k		. 01541)	; &GT-K01541;
+    (=gt-pj-k1		. #x4B63)	; &GT-K01541; [43-67]
+    (->subsumptive
+     ((==gt-k		  . 01541)	; &g2-GT-K01541;
+      (==gt-pj-k1	  . #x4B63)	; &g2-GT-K01541; [43-67]
       ))
     ))
 (define-char
@@ -2143,6 +2180,40 @@
       )
      ((==ucs@cns	  . #x20A07)	; &g2-CU+20A07;
       (==cns11643-6	  . #x5B32)	; &g2-CU+20A07; [59-18]
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 25)	; ⼘
+    (ideographic-strokes . 12)
+    (total-strokes	 . 14)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs		  . #x301C0)	; 𰇀
+      )
+     ((=ucs		  . #x571F)	; 土
+      ))
+    (=ucs		. #x2A800)	; 𪠀
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2A800)	; 𪠀
+      ))
+    (ideographic-radical . 25)	; ⼘
+    (ideographic-strokes . 12)
+    (total-strokes	 . 14)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs@JP/hanazono	  . #x301C0)	; &hanaJU+301C0;
+      )
+     ((=ucs		  . #x571F)	; 土
+      ))
+    (=ucs@JP/hanazono	. #x2A800)	; &hanaJU+2A800;
+    (<-simplified@CN
+     ((=ucs		  . #x27DCE)	; 𧷎
       ))
     ))
 (define-char

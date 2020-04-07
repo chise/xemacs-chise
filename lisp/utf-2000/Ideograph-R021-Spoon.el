@@ -915,6 +915,40 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 6)
     (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((=ucs		    . #x200CA)	; 𠃊
+	)
+       ((=ucs		    . #x4E06)	; 丆
+	))
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((=ucs		    . #x5315)	; 匕
+	)
+       ((=ucs		    . #x4E28)	; 丨
+	))
+      ))
+    (=ucs-itaiji-005	. #x5F1F)	; &U-i005+5F1F;
+    (<-unknown
+     ((=ucs		  . #x5F1F)	; 弟
+      ))
+    (->subsumptive
+     ((==ucs-itaiji-005	  . #x5F1F)	; &g2-U-i005+5F1F;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 21)	; ⼔
+    (ideographic-strokes . 4)
+    (total-strokes	 . 6)
+    (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
       (=ucs		  . #x2FF4)	; ⿴
       )
@@ -1342,7 +1376,7 @@
      ((=ucs@unicode	  . #x5317)	; &AJ1-03706;
       (=adobe-japan1-0	  . 03706)	; &AJ1-03706;
       )
-     ((=big5-cdp	  . #x8BF1)	; &CDP-8BF1;
+     ((=ucs		  . #x30001)	; 𰀁
       ))
     (=ucs@iso		. #x20916)	; &U-00020916;
     (->subsumptive
@@ -1888,6 +1922,24 @@
      ((=ucs		  . #x5315)	; 匕
       ))
     (=ucs@JP/hanazono	. #x2D152)	; &hanaJU+2D152;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2D152)	; 𭅒
+      ))
+    (ideographic-radical . 21)	; ⼔
+    (ideographic-strokes . 7)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs@unicode	  . #x4491)	; &AJ1-18467;
+      (=adobe-japan1-5	  . 18467)	; &AJ1-18467;
+      )
+     ((=ucs		  . #x8001)	; 老
+      ))
+    (=ucs-var-001	. #x2D152)	; &U-v001+2D152;
     ))
 (define-char
   '((ideographic-radical . 21)	; ⼔
@@ -2459,7 +2511,9 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=ucs		  . #x3C8B)	; 㲋
+     ((=ucs@unicode	  . #x3C8B)	; &C4-297B;
+      (=cns11643-4	  . #x297B)	; &C4-297B; [09-91]
+      (=daikanwa	  . 16751)	; &I-M-16751;
       )
      ((=ucs		  . #x5315)	; 匕
       ))

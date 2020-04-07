@@ -4,8 +4,8 @@
 ;; Copyright (C) 1995 Amdahl Corporation.
 ;; Copyright (C) 1996 Sun Microsystems.
 ;; Copyright (C) 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2007, 2008,
-;;   2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019
-;;   MORIOKA Tomohiko
+;;   2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019,
+;;   2020 MORIOKA Tomohiko
 
 ;; Author: Unknown
 ;; Keywords: i18n, mule, internal
@@ -339,6 +339,7 @@ DESCRIPTION (string) is the description string of the charset."
 	  =gt-pj-1
 	  =ucs-bmp-cjk
 	  =ucs-sip-ext-b
+	  =ucs-tip
 	  =ruimoku-v6
 	  =zinbun-oracle
 	  =hanziku-1
@@ -386,10 +387,12 @@ DESCRIPTION (string) is the description string of the charset."
 	  =ucs-sip-var-005
 	  =ucs-bmp-var-006
 	  =ucs-sip-var-006
+	  =ucs-bmp-var-007
 	  =ucs-bmp-var-008
 	  =ucs-bmp-var-010
 	  =ucs-bmp-itaiji-001
 	  =ucs-sip-itaiji-001
+	  =ucs-tip-itaiji-001
 	  =ucs-bmp-itaiji-002
 	  =ucs-sip-itaiji-002
 	  =ucs-bmp-itaiji-003
@@ -422,6 +425,7 @@ DESCRIPTION (string) is the description string of the charset."
 	  =ucs-bmp-cjk-compat
           =ucs-bmp-cjk-compat@unicode
           =ucs-sip@JP/hanazono
+	  =ucs-tip@JP/hanazono
 	  =daijiten
 	  =cbeta
 	  =jef-china3
@@ -434,6 +438,7 @@ DESCRIPTION (string) is the description string of the charset."
 	  ==ucs-bmp-cjk@gb
           ==ucs-sip-ext-b@iso
 	  ==ucs-sip@JP/hanazono
+	  ==ucs-tip@JP/hanazono
 	  ==ucs-bmp-itaiji-001
 	  ==ucs-sip-itaiji-001
 	  ==ucs-bmp-itaiji-002
@@ -621,6 +626,7 @@ DESCRIPTION (string) is the description string of the charset."
 	  =>ucs-bmp-itaiji-011
 	  =>ucs-bmp-itaiji-001@iwds-1
 	  =>ucs-sip-itaiji-001@iwds-1
+	  =>ucs-bmp-itaiji-002@iwds-1
 	  =>daikanwa
 	  ucs-bmp
 	  ==>ucs-bmp-cjk@bucs
@@ -629,7 +635,9 @@ DESCRIPTION (string) is the description string of the charset."
           =>ucs-bmp-cjk@cognate
           =>ucs-bmp-cjk@component
           =>ucs-sip@cognate
+          =>ucs-tip@cognate
           =>ucs-sip@component
+          =>ucs-tip@component
           =>ucs-bmp-cjk@iwds-1
           =>ucs-bmp-cjk@iwds-1/normalized
           =>ucs-sip@iwds-1

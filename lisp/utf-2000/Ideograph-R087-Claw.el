@@ -1797,9 +1797,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=jis-x0208@1978	  . #x3A53)	; &HD-FT-3227; [26-51]
-      (=ks-x1001	  . #x737A)	; &I-K0-737A; [83-90]
-      (=daikanwa	  . 40116)	; &I-M-40116;
+     ((=mj		  . 026587)	; &MJ026587;
       )
      ((=ucs		  . #x200CC)	; 𠃌
       ))
@@ -2345,17 +2343,7 @@
       ))
     (=ruimoku-v6	. #xE030)	; &RUI6-E030;
     (->subsumptive
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	(=ucs		    . #x2FF1)	; ⿱
-	)
-       ((name		    . "CJK COMPATIBILITY IDEOGRAPH-FA49")
-	(=ucs		    . #xFA49)	; 爫
-	)
-       ((==ucs@unicode	    . #x8863)	; &g2-AJ1-01189;
-	(==adobe-japan1-0   . 01189)	; &g2-AJ1-01189;
-	))
-      (==ruimoku-v6	  . #xE030)	; &g2-RUI6-E030;
+     ((==ruimoku-v6	  . #xE030)	; &g2-RUI6-E030;
       ))
     ))
 (define-char
@@ -3876,11 +3864,20 @@
     (ideographic-radical . 87)	; ⽖
     (ideographic-strokes . 12)
     (total-strokes	 . 16)
-    (=ucs@JP/hanazono	. #x2C2F4)	; &RUI6-E158;
-    (=ruimoku-v6	. #xE158)	; &RUI6-E158;
+    (=ucs@JP/hanazono	. #x2C2F4)	; &hanaJU+2C2F4;
     (->subsumptive
      ((==ucs@JP/hanazono  . #x2C2F4)	; &g2-hanaJU+2C2F4;
-      )
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2C2F4)	; 𬋴
+      ))
+    (ideographic-radical . 87)	; ⽖
+    (ideographic-strokes . 12)
+    (total-strokes	 . 16)
+    (=ruimoku-v6	. #xE158)	; &RUI6-E158;
+    (->subsumptive
      ((==ruimoku-v6	  . #xE158)	; &g2-RUI6-E158;
       ))
     ))

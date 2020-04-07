@@ -1086,6 +1086,24 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=ucs		  . #x4EA6)	; 亦
+      ))
+    (ideographic-radical . 8)	; ⼇
+    (ideographic-strokes . 4)
+    (total-strokes	 . 6)
+    (=ucs		. #x3005C)	; 𰁜
+    (<-simplified@CN/component
+     ((=ucs@unicode	  . #x470C)	; &AJ1-18690;
+      (=adobe-japan1-5	  . 18690)	; &AJ1-18690;
+      )
+     ((=ucs		  . #x9FBB)	; 龻
+      ))
+    (->subsumptive
+     ((==ucs@JP/hanazono  . #x3005C)	; &g2-hanaJU+3005C;
+      ))
+    ))
+(define-char
   '((ideographic-radical . 8)	; ⼇
     (ideographic-strokes . 4)
     (total-strokes	 . 6)
@@ -1667,7 +1685,10 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 8)	; ⼇
+  '((<-denotational@component
+     ((=>ucs@iwds-1	  . #x23AED)	; &A-IWDSU+23AED;
+      ))
+    (ideographic-radical . 8)	; ⼇
     (ideographic-strokes . 5)
     (total-strokes	 . 7)
     (hanyu-dazidian	1 284 2)
@@ -4167,7 +4188,7 @@
       )
      ((=big5-cdp	  . #x8C4D)	; &CDP-8C4D;
       )
-     ((=big5-cdp	  . #x8BF1)	; &CDP-8BF1;
+     ((=ucs		  . #x30001)	; 𰀁
       )
      ((=ucs		  . #x4E5D)	; 九
       ))
@@ -4562,6 +4583,38 @@
     ))
 (define-char
   '((ideographic-radical . 8)	; ⼇
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=>ucs@iwds-1	  . #x4EAD)	; &A-IWDSU+4EAD;
+      )
+     ((=ucs		  . #x4E38)	; 丸
+      ))
+    (=ucs		. #x20176)	; 𠅶
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x20176)	; 𠅶
+      ))
+    (ideographic-radical . 8)	; ⼇
+    (ideographic-strokes . 11)
+    (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x20158)	; 𠅘
+      )
+     ((=ucs		  . #x2F801)	; 丸
+      ))
+    (=ucs@iso		. #x20176)	; &U-00020176;
+    (->subsumptive
+     ((==ucs@iso	  . #x20176)	; &g2-IU-00020176;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 8)	; ⼇
     (ideographic-strokes . 11)
     (total-strokes	 . 13)
     (hanyu-dazidian	1 291 2)
@@ -4672,6 +4725,25 @@
       ))
     (->subsumptive
      ((==ucs-itaiji-002	  . #x8C46)	; &g2-U-i002+8C46;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 8)	; ⼇
+    (ideographic-strokes . 11)
+    (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=big5-cdp	  . #x8BAA)	; &CDP-8BAA;
+      )
+     ((=ucs		  . #x4EAC)	; 京
+      ))
+    (=gt-k		. 11026)	; &GT-K11026;
+    (=gt-pj-k1		. #x487D)	; &GT-K11026; [40-93]
+    (->subsumptive
+     ((==gt-k		  . 11026)	; &g2-GT-K11026;
+      (==gt-pj-k1	  . #x487D)	; &g2-GT-K11026; [40-93]
       ))
     ))
 (define-char

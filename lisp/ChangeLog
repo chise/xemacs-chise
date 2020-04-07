@@ -1,3 +1,77 @@
+2020-03-19  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`=>ucs-tip@cognate'.
+
+	* mule/mule-conf.el (=>ucs-tip@cognate): New coded-charset for
+	XEmacs CHISE.
+
+2020-03-18  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`=ucs-tip-itaiji-001'.
+
+	* mule/mule-conf.el (=ucs-tip-itaiji-001): New coded-charset for
+	XEmacs CHISE.
+
+2020-03-12  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`=>ucs-tip@component'.
+
+	* mule/mule-conf.el (=>ucs-tip@component): New coded-charset for
+	XEmacs CHISE.
+
+2020-03-11  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`==ucs-tip@JP/hanazono'.
+
+	* mule/mule-conf.el (==ucs-tip@JP/hanazono): New coded-charset for
+	XEmacs CHISE.
+
+2020-03-11  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`=ucs-tip' and `=ucs-tip@JP/hanazono'.
+
+	* mule/mule-conf.el (=ucs-tip): New coded-charset for XEmacs
+	CHISE.
+	(=ucs-tip@JP/hanazono): Ditto.
+
+2020-01-06  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
+	setting for `=ucs-var-007'.
+
+2019-12-30  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`=ucs-bmp-var-007'.
+
+	* mule/mule-conf.el (=ucs-var-007): New coded-charset for XEmacs
+	CHISE.
+	(=ucs-bmp-var-007): Ditto.
+
+2019-12-01  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
+	setting for `=>ucs-itaiji-002@iwds-1'.
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`=>ucs-bmp-itaiji-002@iwds-1'.
+
+2019-11-30  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-conf.el (=>ucs-itaiji-002@iwds-1): New coded-charset
+	for XEmacs CHISE.
+	(=>ucs-bmp-itaiji-002@iwds-1): Ditto.
+
+2019-11-05  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
+	setting for `=>ucs-itaiji-008'.
+
 2019-10-11  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add

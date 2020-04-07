@@ -650,11 +650,13 @@
     (=daijiten		. 02418)	; &I-DJT-02418;
     (=shinjigen		.  1533)	; 寿
     (<-simplified@CN
-     ((=ucs		  . #x58FD)	; 壽
-      (=gb12345		  . #x4A59)	; 壽 [42-57]
+     ((=ucs@unicode	  . #x58FD)	; &AJ1-04537;
+      (=adobe-japan1-0	  . 04537)	; &AJ1-04537;
+      (=gb12345		  . #x4A59)	; &AJ1-04537; [42-57]
       ))
     (<-simplified@JP/Jouyou
-     ((=ucs		  . #x58FD)	; 壽
+     ((=ucs@unicode	  . #x58FD)	; &AJ1-04537;
+      (=adobe-japan1-0	  . 04537)	; &AJ1-04537;
       (=jis-x0208	  . #x5468)	; &I-J90-5468; [52-72]
       ))
     (->subsumptive
@@ -2213,6 +2215,38 @@
       ))
     ))
 (define-char
+  '((ideographic-radical . 41)	; ⼨
+    (ideographic-strokes . 8)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x4E29)	; 丩
+      )
+     ((=ucs		  . #x2A9F7)	; 𪧷
+      ))
+    (=ucs		. #x2D52C)	; 𭔬
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2D52C)	; 𭔬
+      ))
+    (ideographic-radical . 41)	; ⼨
+    (ideographic-strokes . 8)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs@unicode	  . #x4E29)	; &AJ1-17237;
+      (=adobe-japan1-5	  . 17237)	; &AJ1-17237;
+      )
+     ((=ucs		  . #x2A9F7)	; 𪧷
+      ))
+    (=ucs@JP/hanazono	. #x2D52C)	; &hanaJU+2D52C;
+    ))
+(define-char
   '((<-denotational
      ((=>ucs@cognate	  . #x8FB1)	; &A-cgnU+8FB1;
       ))
@@ -2683,12 +2717,14 @@
     (=daikanwa		. 07448)	; &I-M-07448;
     (=daijiten		. 02431)	; &I-DJT-02431;
     (<-ancient
-     ((=ucs		  . #x6A39)	; 樹
+     ((=ucs@unicode	  . #x6A39)	; &MJ014474;
+      (=mj		  . 014474)	; &MJ014474;
       ))
     (<-ancient$_1*sources
      jiyun)
     (<-interchangeable
-     ((=ucs		  . #x6A39)	; 樹
+     ((=ucs@unicode	  . #x6A39)	; &MJ014474;
+      (=mj		  . 014474)	; &MJ014474;
       (=daikanwa	  . 15496)	; &I-M-15496;
       ))
     (<-interchangeable$_1*sources
@@ -3186,7 +3222,8 @@
     (<-formed*sources
      hng)
     (<-same
-     ((=ucs		  . #x58FD)	; 壽
+     ((=ucs@unicode	  . #x58FD)	; &AJ1-04537;
+      (=adobe-japan1-0	  . 04537)	; &AJ1-04537;
       (=daikanwa	  . 05672)	; &I-M-05672;
       ))
     (<-same*sources
@@ -3231,7 +3268,8 @@
     (=mj		. 057358)	; &MJ057358;
     (=koseki		. 084840)	; &MJ057358;
     (<-formed
-     ((=ucs		  . #x58FD)	; 壽
+     ((=ucs@unicode	  . #x58FD)	; &AJ1-04537;
+      (=adobe-japan1-0	  . 04537)	; &AJ1-04537;
       ))
     (<-formed*sources
      mj)

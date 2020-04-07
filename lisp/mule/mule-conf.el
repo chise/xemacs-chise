@@ -3,8 +3,8 @@
 ;; Copyright (C) 1995,1999 Electrotechnical Laboratory, JAPAN.
 ;; Licensed to the Free Software Foundation.
 ;; Copyright (C) 1997, 1999, 2000, 2002, 2003, 2004, 2005, 2006, 2008,
-;;   2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019
-;;   MORIOKA Tomohiko
+;;   2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019,
+;;   2020 MORIOKA Tomohiko
 
 ;; Keywords: mule, multilingual, character set, coding system
 
@@ -4882,6 +4882,31 @@
 		  mother	=ucs-var-006
 		  min-code #x20000 max-code #x2FFFF
 		  registry "ucs00\\.var006-2"))
+
+  (make-charset '=ucs-var-007
+		"uXXXX-var-007 glyph-images of GlyphWiki"
+		'(long-name	"UCS-var-007"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+                  ;; =>iso-ir	177
+		  mother	=ucs))
+  (make-charset '=ucs-bmp-var-007
+		"uXXXX-var-007 glyph-images in BMP"
+		'(long-name	"UCS-BMP-var-007"
+		  chars		256
+		  dimension	2
+		  columns	2
+		  graphic	2
+		  direction	l2r
+                  ;; =>iso-ir	177
+		  mother	=ucs-var-007
+		  min-code #x2E00
+		  max-code #x9FCC
+		  registry "ucs\\.var007-0"))
+
   (make-charset '=ucs-var-008
 		"uXXXX-var-008 glyph-images of GlyphWiki"
 		'(long-name	"UCS-var-008"
@@ -4963,6 +4988,17 @@
 		  mother	=ucs-itaiji-001
 		  min-code #x20000 max-code #x2FFFF
 		  registry "ucs00\\.itaiji001-2"))
+  (make-charset '=ucs-tip-itaiji-001
+		"uXXXX-itaiji-001 glyph-images in TIP"
+		'(long-name	"UCS-TIP-itaiji-001"
+		  chars		256
+		  dimension	2
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  mother	=ucs-itaiji-001
+		  min-code #x30000 max-code #x3FFFF
+		  registry "ucs00\\.itaiji001-3"))
   (make-charset '=>ucs-itaiji-001
 		"Abstract characters corresponding with uXXXX-itaiji-001 of GlyphWiki"
 		'(long-name	"UCS-itaiji-001"
@@ -5168,6 +5204,29 @@
 		  mother	==ucs-itaiji-002
 		  min-code #x20000 max-code #x2FFFF
 		  registry "ucs00\\.itaiji002-2"))
+  (make-charset '=>ucs-itaiji-002@iwds-1
+		"uXXXX-itaiji-002's abstract characters based on IWDS-1"
+		'(long-name	"IWDS-1 abstract characters of UCS-itaiji-002"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+                  ;; =>iso-ir	177
+		  mother	=>ucs-itaiji-002))
+  (make-charset '=>ucs-bmp-itaiji-002@iwds-1
+		"IWDS-1 abstract characters of UCS-itaiji-002 in BMP"
+		'(long-name	"=>ucs-itaiji-002@iwds-1 in BMP"
+		  chars		256
+		  dimension	2
+		  columns	2
+		  graphic	2
+		  direction	l2r
+                  ;; =>iso-ir	177
+		  mother	=>ucs-itaiji-002@iwds-1
+		  min-code #x2E00
+		  max-code #x9FCC
+		  registry "ucs\\.itaiji002-0"))
 
   (make-charset '=ucs-itaiji-003
 		"uXXXX-itaiji-003 glyphs of GlyphWiki"
@@ -6270,6 +6329,32 @@
 	       min-code #x20000 max-code #x2FFFF
 	       code-offset #x20000))
   (make-charset
+   '=ucs-tip
+   "Tertiary Ideographic Plane of UCS"
+   '(long-name "UCS TUP"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       registry "\\(iso10646\\|ucs00\\)-3$"
+	       mother ucs
+	       min-code #x30000 max-code #x3134A
+	       code-offset #x30000))
+  (make-charset
+   '=ucs-tip@JP/hanazono
+   "Hanazono glyphs of UCS TIP"
+   '(long-name "Hanazono TIP glyphs"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       registry "ucs00-3$"
+	       mother =ucs@JP/hanazono
+	       min-code #x30000 max-code #x3134A
+	       code-offset #x30000))
+  (make-charset
    '=>ucs-sip@iwds-1
    "CJK Characters in SIP based on IWDS-1."
    '(long-name "CJK in SIP@IWDS-1"
@@ -6296,6 +6381,19 @@
 	       min-code #x20000 max-code #x2FFFF
 	       code-offset #x20000))
   (make-charset
+   '=>ucs-tip@cognate
+   "CJK Characters in TIP for abstract characters based on cognate."
+   '(long-name "CJK in TIP@cognate"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       registry "ucs00-3$"
+	       mother =>ucs@cognate
+	       min-code #x30000 max-code #x3FFFF
+	       code-offset #x30000))
+  (make-charset
    '=>ucs-sip@component
    "CJK Characters in SIP for IWDS-1 abstract components."
    '(long-name "CJK in SIP@component"
@@ -6308,6 +6406,19 @@
 	       mother =>ucs@component
 	       min-code #x20000 max-code #x2FFFF
 	       code-offset #x20000))
+  (make-charset
+   '=>ucs-tip@component
+   "CJK Characters in TIP for IWDS-1 abstract components."
+   '(long-name "CJK in TIP@component"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       registry "ucs00-3$"
+	       mother =>ucs@component
+	       min-code #x30000 max-code #x3134A
+	       code-offset #x30000))
   (make-charset
    '==>ucs-sip@esu
    "UCS glyphs in UCS SIP of ESU"
@@ -6359,6 +6470,19 @@
 	       mother ==ucs@iso
 	       min-code #x20000 max-code #x2A6D6
 	       code-offset #x20000))
+  (make-charset
+   '==ucs-tip@JP/hanazono
+   "Hanazono glyphs-forms of UCS TIP"
+   '(long-name "Hanazono TIP glyph-forms"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       registry "ucs00-3$"
+	       mother ==ucs@JP/hanazono
+	       min-code #x30000 max-code #x3134A
+	       code-offset #x30000))
   (make-charset
    '===ucs-sip@iso
    "ISO representative glyph-images of ISO/IEC 10646 Plane 2"

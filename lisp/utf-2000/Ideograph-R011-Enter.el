@@ -1542,6 +1542,28 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=ucs		  . #x4F58)	; 佘
+      ))
+    (ideographic-radical . 11)	; ⼊
+    (ideographic-strokes . 5)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5165)	; 入
+      )
+     ((=ucs		  . #x793A)	; 示
+      ))
+    (=gt-k		. 03034)	; &GT-K03034;
+    (=gt-pj-k1		. #x466D)	; &GT-K03034; [38-77]
+    (->subsumptive
+     ((==gt-k		  . 03034)	; &g2-GT-K03034;
+      (==gt-pj-k1	  . #x466D)	; &g2-GT-K03034; [38-77]
+      ))
+    ))
+(define-char
   '((ideographic-radical . 11)	; ⼊
     (ideographic-strokes . 5)
     (total-strokes	 . 7)
@@ -2122,7 +2144,8 @@
     (=cns11643-6	. #x3D3A)	; &C6-3D3A; [29-26]
     (=daikanwa		. 01442)	; &I-M-01442;
     (<-ancient
-     ((=ks-x1001	  . #x6967)	; &M-38991; [73-71]
+     ((=ucs@ks		  . #x9047)	; &M-38991;
+      (=ks-x1001	  . #x6967)	; &M-38991; [73-71]
       (=daikanwa	  . 38991)	; &I-M-38991;
       ))
     (<-ancient*sources
