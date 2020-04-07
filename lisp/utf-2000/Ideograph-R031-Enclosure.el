@@ -668,6 +668,18 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=ucs		  . #x211A7)	; 𡆧
+      ))
+    (ideographic-radical . 31)	; ⼞
+    (ideographic-strokes . 3)
+    (total-strokes	 . 6)
+    (=big5-cdp		. #x8B62)	; &CDP-8B62;
+    (->subsumptive
+     ((==big5-cdp	  . #x8B62)	; &g2-CDP-8B62;
+      ))
+    ))
+(define-char
   '((<-denotational@usage
      ((==>ucs@bucs	  . #x56DE)	; &BUCS+56DE;
       ))
