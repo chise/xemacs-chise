@@ -2638,6 +2638,23 @@
     (=jef-china3	. #x9FB9)	; &I-JC3-9FB9;
     ))
 (define-char
+  '((<-denotational
+     ((=ucs		  . #x21D06)	; 𡴆
+      ))
+    (ideographic-radical . 46)	; ⼭
+    (ideographic-strokes . 4)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5C71)	; 山
+      )
+     ((=ucs		  . #x516D)	; 六
+      ))
+    (=cbeta		. 08146)	; &CB08146;
+    ))
+(define-char
   '((ideographic-radical . 46)	; ⼭
     (ideographic-strokes . 4)
     (total-strokes	 . 7)

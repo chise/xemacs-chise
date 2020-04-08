@@ -2703,7 +2703,8 @@
     (total-strokes	 . 5)
     (=daijiten		. 04716)	; &DJT-04716;
     (<-simplified@misc
-     ((=ucs		  . #x6A02)	; 樂
+     ((=ucs@unicode	  . #x6A02)	; &AJ1-05276;
+      (=adobe-japan1-0	  . 05276)	; &AJ1-05276;
       (=daijiten	  . 05279)	; &I-DJT-05279;
       ))
     (<-simplified@misc*sources
@@ -2724,8 +2725,9 @@
     (=gb2312		. #x4056)	; &G0-4056; [32-54]
     (=big5-cdp		. #x89F1)	; &I-CDP-89F1;
     (<-simplified@CN
-     ((=ucs		  . #x6A02)	; 樂
-      (=gb12345		  . #x4056)	; 樂 [32-54]
+     ((=ucs@unicode	  . #x6A02)	; &AJ1-05276;
+      (=adobe-japan1-0	  . 05276)	; &AJ1-05276;
+      (=gb12345		  . #x4056)	; &AJ1-05276; [32-54]
       ))
     (->subsumptive
      ((==ucs@unicode	  . #x4E50)	; &g2-CDP-89F1;
