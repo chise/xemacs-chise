@@ -1,5 +1,18 @@
 2020-04-08  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R032-Earth.el (U-0002D37C): New character.
+	(BC-8767): Use U-0003086E instead of U-0002124A as its mother.
+	(U-0002A8D8): Apply new conventions for glyph granularity.
+	(U-00030270): New character.
+	(U+58CF): Apply new conventions for glyph granularity.
+	(U-00021493): Likewise.
+	(U-0002D40D): New character.
+
+2020-04-08  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R018-Knife.el (U-000206C7): New character.
+	(U-0002073D): Use `->denotational' and `->subsumptive'.
+
 	* Ideograph-R012-Eight.el (BC-8CA3-itaiji-001): Add
 	`<-denotational' for A-BC-8CA3-itaiji-001.
 	(A-BC-8CA3-itaiji-001): New abstract node.
