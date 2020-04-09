@@ -1,3 +1,32 @@
+2020-04-09  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R044-Corpse.el (U-00030370): New character.
+	(U-00030371): New character.
+	(U-00021C93): New character.
+	(U+5C5E): Add `ideographic-structure'; omit `<-simplified@ucs';
+	add `<-vulgar' for U+5C6C.
+	(U+5C6C): Add `ideographic-structure'.
+
+	* Ideograph-R042-Small.el (A-BC-8BC4): New abstract node.
+	(BC-8BC4): Add `<-denotational' for A-BC-8BC4.
+
+	* Ideograph-R026-Seal.el (U-00020A1A): Add
+	`ideographic-structure'; add `sound@ja/on/{kan|go}'; add
+	`->mistakable' for U+90D7.
+	(U+2D17A-var-001): New character; use `<-denotational' for
+	U-0002D17A.
+
+	* Ideograph-R017-Open-Box.el (BC-867A): New character.
+	(A-cgnU+20696): New abstract node.
+	(U-00020696): Use `->denotational' and `->subsumptive'; add
+	`<-denotational' for A-cgnU+20696.
+	(A-U+20696-itaiji-003): New abstract node.
+	(U+20696-itaiji-003): New character; use `<-denotational' for
+	A-U+20696-itaiji-003.
+
+	* Ideograph-R002-Line.el (U+4E34): Apply new conventions for glyph
+	granularity.
+
 2020-04-08  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R032-Earth.el (U-0002D37C): New character.
