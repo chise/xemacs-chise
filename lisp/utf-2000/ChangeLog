@@ -1,5 +1,11 @@
 2020-04-09  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R045-Sprout.el (U-00021D06): Use `->denotational' and
+	`->subsumptive'.
+	(A-GT-K05515): New abstract node.
+	(GT-K05515): Add `<-denotational' for A-GT-K05515.
+	(U-00021D2B): Use `->denotational' and `->subsumptive'.
+
 	* Ideograph-R044-Corpse.el (U-00030370): New character.
 	(U-00030371): New character.
 	(U-00021C93): New character.
