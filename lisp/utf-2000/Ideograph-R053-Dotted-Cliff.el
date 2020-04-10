@@ -11607,7 +11607,8 @@
       (=adobe-japan1-0	  . 05915)	; &AJ1-05915;
       (=daikanwa	  . 25127)	; &I-M-25127;
       )
-     ((=ucs		  . #x81E8)	; 臨
+     ((=ucs@unicode	  . #x81E8)	; &AJ1-03999;
+      (=adobe-japan1-0	  . 03999)	; &AJ1-03999;
       (=daikanwa	  . 30087)	; &I-M-30087;
       )
      ((=ucs		  . #x7406)	; 理
