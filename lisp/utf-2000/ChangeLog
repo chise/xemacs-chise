@@ -1,5 +1,15 @@
 2020-04-09  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R036-Evening.el (U-00021585): Apply new conventions
+	for glyph granularity; add `<-denotational@component' for
+	A-compU+21585.
+	(A-compU+21585): New abstract node.
+
+	* Ideograph-R019-Power.el (U+52F7): Apply new conventions for
+	glyph granularity.
+
+2020-04-09  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R045-Sprout.el (U-00021D06): Use `->denotational' and
 	`->subsumptive'.
 	(A-GT-K05515): New abstract node.
@@ -678,6 +688,12 @@
 	* Ideograph-R032-Earth.el (U+9FB6): Copied from
 	Ideograph-R100-Life.el.
 	(U+9FB6-var-002): Likewise.
+
+2020-03-14  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R087-Claw.el (BC-8DC1): Unify U-00030002.
+	(BC-89E3): Unify U-00030004.
+	(IWDS1-0082): Unify A-IWDSU+30002.
 
 2020-03-14  MORIOKA Tomohiko  <tomo.git@chise.org>
 

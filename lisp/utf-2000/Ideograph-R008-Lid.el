@@ -4475,7 +4475,8 @@
     (=daikanwa		. 00329)	; &I-M-00329;
     (=jef-china3	. #x41D9)	; &I-JC3-41D9;
     (<-simplified@misc
-     ((=ucs		  . #x8944)	; 襄
+     ((=ucs@unicode	  . #x8944)	; &AJ1-06620;
+      (=adobe-japan1-0	  . 06620)	; &AJ1-06620;
       (=daikanwa	  . 34556)	; &I-M-34556;
       ))
     (<-simplified@misc*sources
