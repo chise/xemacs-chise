@@ -683,6 +683,16 @@
 	conventions for glyph granularity.
 	(CB08162): New character; use `<-denotational' for A-cgnU+223A2.
 
+2020-03-15  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R100-Life.el (U+9FB6): Use
+	`ideographic-{radical|strokes}@ucs' instead of
+	`ideographic-{radical|strokes}@unicode'; use
+	`ideographic-{radical|strokes}@misc' instead of
+	`ideographic-{radical|strokes}'.
+	(U+9FB6-var-002): New character; use `<-denotational@component'
+	for A-compU+4E30.
+
 2020-03-14  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R032-Earth.el (U+9FB6): Copied from
