@@ -1,3 +1,13 @@
+2020-04-10  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R088-Father.el (U+7237): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R059-Bristle.el (A-IWDSU+22482): Add
+	`<-denotational@component' for A-NIWDSU+22482.
+	(U+38CE): Use `->denotational' and `->subsumptive'.
+	(A-NIWDSU+22482): New abstract node.
+
 2020-04-09  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R036-Evening.el (U-00021585): Apply new conventions
