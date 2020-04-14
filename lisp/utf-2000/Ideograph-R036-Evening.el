@@ -421,14 +421,64 @@
     (=hanziku-3		. #xAD61)	; &I-HZK03-AD61;
     ))
 (define-char
-  '((ideographic-radical . 36)	; ⼣
+  '((<-denotational@component
+     ((=>ucs@component	  . #x21585)	; &A-compU+21585;
+      ))
+    (ideographic-radical . 36)	; ⼣
+    (ideographic-strokes . 2)
+    (total-strokes	 . 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5915)	; 夕
+      )
+     ((=>ucs@iwds-1	  . #x5315)	; &J97-5238;
+      (=>jis-x0208	  . #x5238)	; &J97-5238; [50-24]
+      ))
+    (sound@ja/on	"WeN")
+    (=ucs		. #x21585)	; 𡖅
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x21585)	; 𡖅
+      ))
+    (ideographic-radical . 36)	; ⼣
     (ideographic-strokes . 2)
     (total-strokes	 . 5)
     (hanyu-dazidian	2 861 2)
-    (=ucs		. #x21585)	; 𡖅
-    (=daikanwa/ho	.  0111)	; 𡖅
-    (=hanziku-3		. #xAD62)	; &I-HZK03-AD62;
-    (=cbeta		. 07125)	; &I-CB07125;
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5915)	; 夕
+      )
+     ((=ucs		  . #x5315)	; 匕
+      ))
+    (=ucs@iso		. #x21585)	; &M-H0111;
+    (=daikanwa/ho	.  0111)	; &M-H0111;
+    (=cbeta		. 07125)	; &M-H0111;
+    (<-vulgar
+     ((=ucs@unicode	  . #x9D1B)	; &AJ1-01303;
+      (=adobe-japan1-0	  . 01303)	; &AJ1-01303;
+      (=daikanwa	  . 46795)	; &I-M-46795;
+      ))
+    (<-vulgar*sources
+     songyuan-yilai-suzipu daikanwa)
+    (->subsumptive
+     ((==ucs@iso	  . #x21585)	; &g2-M-H0111;
+      (==daikanwa/ho	  .  0111)	; &g2-M-H0111;
+      (==cbeta		  . 07125)	; &g2-M-H0111;
+      (->subsumptive
+       ((===daikanwa/ho	    .  0111)	; &R-M-H0111;
+	)
+       ((===ucs@iso	    . #x21585)	; &R-U-00021585;
+	)
+       ((=hanziku-3	    . #xAD62)	; &HZK03-AD62;
+	)
+       ((===cbeta	    . 07125)	; &R-CB07125;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 36)	; ⼣
@@ -2701,6 +2751,10 @@
       )
      ((=cns11643-7	  . #x634C)	; &C7-634C; [67-44]
       ))
+    ))
+(define-char
+  '((ideographic-radical . 36)	; ⼣
+    (=>ucs@component	. #x21585)	; &A-compU+21585;
     ))
 (define-char
   '((ideographic-radical . 36)	; ⼣

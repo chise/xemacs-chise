@@ -275,6 +275,83 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=>ucs@iwds-1	  . #x30002)	; &A-IWDSU+30002;
+      (=>iwds-1		  .  0082)	; &A-IWDSU+30002;
+      ))
+    (ideographic-radical@ucs . 1)	; ⼀
+    (ideographic-strokes@ucs . 2)
+    (ideographic-radical@misc . 87)	; ⽖
+    (ideographic-strokes@misc . 0)
+    (total-strokes	 . 3)
+    (=ucs		. #x30002)	; 𰀂
+    (=big5-cdp		. #x8DC1)	; &I-CDP-8DC1;
+    (=gt-k		. 00276)	; &I-GT-K00276;
+    (=gt-pj-k1		. #x3223)	; 𰀂 [18-03]
+    (->subsumptive
+     ((==ucs@JP/hanazono  . #x30002)	; &g2-CDP-8DC1;
+      (==big5-cdp	  . #x8DC1)	; &g2-CDP-8DC1;
+      (->subsumptive
+       ((===big5-cdp	    . #x8DC1)	; &R-CDP-8DC1;
+	))
+      )
+     ((==gt-k		  . 00276)	; &g2-GT-K00276;
+      (==gt-pj-k1	  . #x3223)	; &g2-GT-K00276; [18-03]
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@iwds-1	  . #x30002)	; &A-IWDSU+30002;
+      (=>iwds-1		  .  0082)	; &A-IWDSU+30002;
+      ))
+    (<-denotational@component
+     ((=>big5-cdp	  . #x89E3)	; &A-GT-K00278;
+      ))
+    (ideographic-radical@ucs . 1)	; ⼀
+    (ideographic-strokes@ucs . 2)
+    (ideographic-radical@misc . 87)	; ⽖
+    (ideographic-strokes@misc . 0)
+    (total-strokes	 . 3)
+    (=ucs		. #x30004)	; 𰀄
+    (=big5-cdp		. #x89E3)	; &I-CDP-89E3;
+    (=gt-k		. 00278)	; &I-GT-K00278;
+    (=gt-pj-k1		. #x3573)	; 𰀄 [21-83]
+    (->subsumptive
+     ((==ucs@JP/hanazono  . #x30004)	; &g2-CDP-89E3;
+      (==big5-cdp	  . #x89E3)	; &g2-CDP-89E3;
+      (==gt-k		  . 00278)	; &g2-CDP-89E3;
+      (==gt-pj-k1	  . #x3573)	; &g2-CDP-89E3; [21-83]
+      (->subsumptive
+       ((===big5-cdp	    . #x89E3)	; &R-CDP-89E3;
+	)
+       ((===gt-k	    . 00278)	; &R-GT-K00278;
+	))
+      ))
+    ))
+(define-char
+  '((<-denotational@component
+     ((=>ucs@component	  . #x2CF16)	; &A-compU+2CF16;
+      ))
+    (ideographic-radical@ucs . 1)	; ⼀
+    (ideographic-strokes@ucs . 2)
+    (ideographic-radical@misc . 87)	; ⽖
+    (ideographic-strokes@misc . 0)
+    (total-strokes	 . 3)
+    (=>ucs@iwds-1	. #x30002)	; &A-IWDSU+30002;
+    (=>big5-cdp		. #x8DC1)	; &A-IWDSU+30002;
+    (=>iwds-1		.  0082)	; &A-IWDSU+30002;
+    ))
+(define-char
+  '((<-denotational@component
+     ((=>ucs@component	  . #x2CF16)	; &A-compU+2CF16;
+      ))
+    (ideographic-radical . 87)	; ⽖
+    (ideographic-strokes . 0)
+    (total-strokes	 . 3)
+    (=>big5-cdp		. #x89E3)	; &A-GT-K00278;
+    (=>gt-k		. 00278)	; &A-GT-K00278;
+    ))
+(define-char
   '((ideographic-radical@ucs . 5)	; ⼄
     (ideographic-strokes@ucs . 2)
     (ideographic-radical@ucs*sources
@@ -292,26 +369,6 @@
       )
      ((=ucs		  . #x5C71)	; 山
       ))
-    ))
-(define-char
-  '((<-denotational@component
-     ((=>ucs@component	  . #x2CF16)	; &A-compU+2CF16;
-      ))
-    (ideographic-radical . 87)	; ⽖
-    (ideographic-strokes . 0)
-    (total-strokes	 . 3)
-    (=>big5-cdp		. #x89E3)	; &A-GT-K00278;
-    (=>gt-k		. 00278)	; &A-GT-K00278;
-    ))
-(define-char
-  '((<-denotational@component
-     ((=>ucs@component	  . #x2CF16)	; &A-compU+2CF16;
-      ))
-    (ideographic-radical . 87)	; ⽖
-    (ideographic-strokes . 0)
-    (total-strokes	 . 3)
-    (=>big5-cdp		. #x8DC1)	; &IWDS1-082;
-    (=>iwds-1		.  0082)	; &IWDS1-082;
     ))
 (define-char
   '((<-denotational@component
@@ -431,42 +488,6 @@
     (=big5-cdp		. #x8766)	; &CDP-8766;
     (->subsumptive
      ((==big5-cdp	  . #x8766)	; &g2-CDP-8766;
-      ))
-    ))
-(define-char
-  '((<-denotational
-     ((=>iwds-1		  .  0082)	; &IWDS1-082;
-      ))
-    (<-denotational@component
-     ((=>big5-cdp	  . #x89E3)	; &A-GT-K00278;
-      ))
-    (ideographic-radical . 87)	; ⽖
-    (ideographic-strokes . 0)
-    (total-strokes	 . 3)
-    (=big5-cdp		. #x89E3)	; &CDP-89E3;
-    (=gt-k		. 00278)	; &I-GT-K00278;
-    (=gt-pj-k1		. #x3573)	; &CDP-89E3; [21-83]
-    (->subsumptive
-     ((==big5-cdp	  . #x89E3)	; &g2-CDP-89E3;
-      (==gt-k		  . 00278)	; &g2-CDP-89E3;
-      (==gt-pj-k1	  . #x3573)	; &g2-CDP-89E3; [21-83]
-      ))
-    ))
-(define-char
-  '((<-denotational
-     ((=>iwds-1		  .  0082)	; &IWDS1-082;
-      ))
-    (ideographic-radical . 87)	; ⽖
-    (ideographic-strokes . 0)
-    (total-strokes	 . 3)
-    (=big5-cdp		. #x8DC1)	; &CDP-8DC1;
-    (=gt-k		. 00276)	; &I-GT-K00276;
-    (=gt-pj-k1		. #x3223)	; &CDP-8DC1; [18-03]
-    (->subsumptive
-     ((==big5-cdp	  . #x8DC1)	; &g2-CDP-8DC1;
-      )
-     ((==gt-k		  . 00276)	; &g2-GT-K00276;
-      (==gt-pj-k1	  . #x3223)	; &g2-GT-K00276; [18-03]
       ))
     ))
 (define-char
@@ -2931,7 +2952,8 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
 	(=ucs		    . #x2FF8)	; ⿸
 	)
-       ((=>iwds-1	    .  0007)	; &IWDS1-007;
+       ((=>ucs@iwds-1	    . #x6236)	; &A-IWDSU+6236;
+	(=>iwds-1	    .  0007)	; &A-IWDSU+6236;
 	)
        ((=ucs		    . #x6C34)	; 水
 	))

@@ -69,10 +69,10 @@
       )
      ((=>ucs@component	  . #x4E30)	; &A-compU+4E30;
       ))
-    (ideographic-radical . 100)	; ⽣
-    (ideographic-radical@unicode . 32)	; ⼟
-    (ideographic-strokes@unicode . 1)
-    (ideographic-strokes . 0)
+    (ideographic-radical@ucs . 32)	; ⼟
+    (ideographic-strokes@ucs . 1)
+    (ideographic-radical@misc . 100)	; ⽣
+    (ideographic-strokes@misc . 0)
     (total-strokes	 . 4)
     (=ucs		. #x9FB6)	; 龶
     (=big5-cdp		. #x8B77)	; &I-CDP-8B77;
@@ -104,6 +104,20 @@
     (=gt-pj-k1		. #x347B)	; &GT-K00587; [20-91]
     (<-formed@component/connect-right
      ((=ucs		  . #x9FB6)	; 龶
+      ))
+    ))
+(define-char
+  '((<-denotational@component
+     ((=>ucs@component	  . #x4E30)	; &A-compU+4E30;
+      ))
+    (ideographic-radical@ucs . 32)	; ⼟
+    (ideographic-strokes@ucs . 1)
+    (ideographic-radical@misc . 100)	; ⽣
+    (ideographic-strokes@misc . 0)
+    (total-strokes	 . 4)
+    (=ucs-var-002	. #x9FB6)	; &U-v002+9FB6;
+    (->subsumptive
+     ((==ucs-var-002	  . #x9FB6)	; &g2-U-v002+9FB6;
       ))
     ))
 (define-char
