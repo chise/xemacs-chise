@@ -1,3 +1,10 @@
+2020-04-13  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R082-Fur.el (U-00023B9D): New character.
+	(U-0002DBDC): New character.
+	(U-0002DBE5): New character.
+	(U-0002DBE9): New character.
+
 2020-04-10  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R088-Father.el (U+7237): Apply new conventions for
