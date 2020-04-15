@@ -5739,12 +5739,15 @@
     (=big5-cdp		. #x8C5F)	; &I-CDP-8C5F;
     (=daikanwa		. 07163)	; &I-M-07163;
     (<-formed
-     ((=ucs		  . #x3664)	; 㙤
+     ((=ucs@unicode	  . #x3664)	; &C4-425F;
+      (=cns11643-4	  . #x425F)	; &C4-425F; [34-63]
+      (=daikanwa	  . 05415)	; &I-M-05415;
       ))
     (<-formed*sources
      jiyun)
     (<-same
-     ((=ucs		  . #x3664)	; 㙤
+     ((=ucs@unicode	  . #x3664)	; &C4-425F;
+      (=cns11643-4	  . #x425F)	; &C4-425F; [34-63]
       (=daikanwa	  . 05415)	; &I-M-05415;
       ))
     (<-same*sources
