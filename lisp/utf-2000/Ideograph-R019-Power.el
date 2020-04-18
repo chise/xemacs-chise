@@ -2033,11 +2033,13 @@
     (=hanziku-1		. #xF242)	; &I-HZK01-F242;
     (=cbeta		. 00283)	; &I-CB00283;
     (<-simplified@JP/Jouyou
-     ((=ucs		  . #x6548)	; 效
+     ((=ucs@unicode	  . #x6548)	; &AJ1-05064;
+      (=adobe-japan1-0	  . 05064)	; &AJ1-05064;
       (=jis-x0208	  . #x5A43)	; &I-J90-5A43; [58-35]
       ))
     (<-vulgar
-     ((=ucs		  . #x6548)	; 效
+     ((=ucs@unicode	  . #x6548)	; &AJ1-05064;
+      (=adobe-japan1-0	  . 05064)	; &AJ1-05064;
       (=daikanwa	  . 13186)	; &I-M-13186;
       ))
     (<-vulgar*sources
