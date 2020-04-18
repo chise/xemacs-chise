@@ -24937,20 +24937,44 @@
     (sound@ja/on/go	"ke")
     (sound@ja/on/kan	"ka")
     (=ucs		. #x3664)	; 㙤
-    (=cns11643-4	. #x425F)	; &I-C4-425F; [34-63]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x3664)	; 㙤
+      ))
+    (ideographic-radical . 32)	; ⼟
+    (ideographic-strokes . 11)
+    (total-strokes	 . 14)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x571F)	; 土
+      )
+     ((=ucs@unicode	  . #x8656)	; &JX2-773A;
+      (=jis-x0212	  . #x5A3B)	; &JX2-773A; [58-27]
+      (=cns11643-2	  . #x3921)	; &I-C2-3921; [25-01]
+      (=jis-x0213-2	  . #x773A)	; &I-JX2-773A; [87-26]
+      (=daikanwa	  . 32698)	; &I-M-32698;
+      ))
+    (=ucs@unicode	. #x3664)	; &C4-425F;
+    (=cns11643-4	. #x425F)	; &C4-425F; [34-63]
     (=daikanwa		. 05415)	; &I-M-05415;
     (=cbeta		. 11754)	; &I-CB11754;
     (<-same
-     ((=ucs		  . #x7F45)	; 罅
+     ((=ucs@unicode	  . #x7F45)	; &AJ1-06158;
+      (=adobe-japan1-0	  . 06158)	; &AJ1-06158;
       (=daikanwa	  . 28169)	; &I-M-28169;
       ))
     (<-same*sources
      shuowen-zhu daikanwa)
     (->formed
-     ((=ucs		  . #x28EF2)	; 𨻲
+     ((=ucs@iso		  . #x28EF2)	; &C4-4827;
+      (=cns11643-4	  . #x4827)	; &C4-4827; [40-07]
       (=daikanwa	  . 41809)	; &I-M-41809;
       )
-     ((=ucs		  . #x245ED)	; 𤗭
+     ((=ucs@iso		  . #x245ED)	; &C7-2524;
+      (=cns11643-7	  . #x2524)	; &C7-2524; [05-04]
       (=daikanwa	  . 19888)	; &I-M-19888;
       )
      ((=ucs		  . #x21A04)	; 𡨄
