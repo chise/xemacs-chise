@@ -1,9 +1,23 @@
+2020-04-14  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R032-Earth.el (U+3664): Apply new conventions for
+	glyph granularity.
+
 2020-04-13  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R082-Fur.el (U-00023B9D): New character.
 	(U-0002DBDC): New character.
 	(U-0002DBE5): New character.
 	(U-0002DBE9): New character.
+
+2020-04-11  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen.el: Add some mappings for modern forms.
+	(SW-JIGUGE5-02912): Prefer "𦼉" to "𦻃" as mappings for modern
+	forms.
+	(SW-JIGUGE4-02912): Ditto.
+	(SW-JIGUGE-05004): Separate SW-JIGUGE5-05004 and SW-JIGUGE4-04904
+	as different abstract-glyphs.
 
 2020-04-10  MORIOKA Tomohiko  <tomo.git@chise.org>
 
