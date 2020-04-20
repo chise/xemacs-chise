@@ -8621,6 +8621,9 @@
 			zob1959=2392)
     (zinbun-oracle-page . 28)
     (=zinbun-oracle	. 00588)	; &ZOB-0588;
+    (<-Oracle-Bones
+     ((=ucs		  . #x3018D)	; 𰆍
+      ))
     ))
 (define-char
   '((<-denotational

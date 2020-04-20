@@ -6849,29 +6849,7 @@
       ))
     (=ruimoku-v6	. #xE047)	; &RUI6-E047;
     (->subsumptive
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	(=ucs		    . #x2FF1)	; ⿱
-	)
-       ((ideographic-structure
-	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO MIDDLE AND RIGHT")
-	  (=ucs		      . #x2FF2)	; ⿲
-	  )
-	 ((name		      . "CJK RADICAL WATER ONE")
-	  (=ucs		      . #x2EA1)	; ⺡
-	  )
-	 ((==ucs@unicode      . #x9B5A)	; &g2-AJ1-01685;
-	  (==adobe-japan1-0   . 01685)	; &g2-AJ1-01685;
-	  )
-	 ((==ucs@jis	      . #x821F)	; &g2-AJ1-02360;
-	  (==ucs@ks	      . #x821F)	; &g2-AJ1-02360;
-	  (==adobe-japan1-0   . 02360)	; &g2-AJ1-02360;
-	  ))
-	)
-       ((==ucs@unicode	    . #x53C8)	; &g2-AJ1-03746;
-	(==adobe-japan1-0   . 03746)	; &g2-AJ1-03746;
-	))
-      (==ruimoku-v6	  . #xE047)	; &g2-RUI6-E047;
+     ((==ruimoku-v6	  . #xE047)	; &g2-RUI6-E047;
       ))
     ))
 (define-char
