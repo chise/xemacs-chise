@@ -1,3 +1,13 @@
+2020-04-18  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R029-Again.el (g2-RUI6-E047): Omit
+	`ideographic-structure'.
+
+2020-04-16  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Oracle-Bones.el (ZOB-00588): Add `<-Oracle-Bones' for
+	U-0003018D.
+
 2020-04-14  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R032-Earth.el (U+3664): Apply new conventions for
