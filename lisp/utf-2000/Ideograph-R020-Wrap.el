@@ -2092,7 +2092,10 @@
     (=ucs-itaiji-001	. #x5306)	; &U-i001+5306;
     ))
 (define-char
-  '((ideographic-radical . 20)	; ⼓
+  '((<-denotational@component
+     ((=>iwds-1		  .  0268)	; &IWDS1-268;
+      ))
+    (ideographic-radical . 20)	; ⼓
     (ideographic-strokes . 4)
     (total-strokes	 . 6)
     (=>big5-cdp		. #x8C40)	; &A-CDP-8C40;
