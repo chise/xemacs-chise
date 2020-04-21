@@ -1,5 +1,10 @@
 2020-04-18  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R020-Wrap.el (A-BC-8C40): Add
+	`<-denotational@component' for IWDS1-0268.
+
+2020-04-18  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R029-Again.el (g2-RUI6-E047): Omit
 	`ideographic-structure'.
 
