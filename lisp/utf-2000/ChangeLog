@@ -3,6 +3,11 @@
 	* Ideograph-R007-Two.el (U-0002012E): Apply new conventions for
 	glyph granularity.
 
+2020-04-21  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R057-Bow.el (U+5F2D): Add UU+6549 as a target of
+	`->interchangeable'.
+
 2020-04-18  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R020-Wrap.el (A-BC-8C40): Add
