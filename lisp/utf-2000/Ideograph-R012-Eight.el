@@ -5674,7 +5674,6 @@
      ((=ucs		  . #x5176)	; 其
       )
      ((=>ucs@iwds-1	  . #x2123E)	; &A-IWDSU+2123E;
-      (=>ucs@iwds-1/normalized . #x2123E)	; &A-IWDSU+2123E;
       ))
     (=ucs		. #x2B931)	; 𫤱
     ))
