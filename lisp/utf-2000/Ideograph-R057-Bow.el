@@ -3097,6 +3097,10 @@
      ((=ucs@unicode	  . #x5F4C)	; &AJ1-04776;
       (=adobe-japan1-0	  . 04776)	; &AJ1-04776;
       (=daikanwa	  . 09877)	; &I-M-09877;
+      )
+     ((=ucs@unicode	  . #x6549)	; &AJ1-19426;
+      (=adobe-japan1-5	  . 19426)	; &AJ1-19426;
+      (=daikanwa	  . 13191)	; &I-M-13191;
       ))
     (->interchangeable$_1*sources
      jiyun daikanwa)
