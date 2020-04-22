@@ -1,3 +1,8 @@
+2020-04-22  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R007-Two.el (U-0002012E): Apply new conventions for
+	glyph granularity.
+
 2020-04-18  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R020-Wrap.el (A-BC-8C40): Add
