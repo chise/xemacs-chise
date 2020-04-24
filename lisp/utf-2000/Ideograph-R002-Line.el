@@ -567,7 +567,7 @@
      ((=ucs		  . #x20006)	; 𠀆
       ))
     (<-denotational@component
-     ((=>iwds-1		  .  0072)	; &IWDS1-072;
+     ((=>big5-cdp	  . #x8BF1)	; &IWDS1-072;
       ))
     (ideographic-radical@ucs . 1)	; ⼀
     (ideographic-strokes@ucs . 2)
@@ -1962,7 +1962,7 @@
       (=ucs		  . #x2FF1)	; ⿱
       )
      ((=>ucs@iwds-1	  . #x4E1A)	; &A-IWDSU+4E1A;
-      (=>iwds-1		  .  0368)	; &A-IWDSU+4E1A;
+      (=>big5-cdp	  . #x8D6B)	; &A-IWDSU+4E1A;
       )
      ((=ucs		  . #x22189)	; 𢆉
       ))
