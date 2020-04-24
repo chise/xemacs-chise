@@ -1,5 +1,20 @@
 2020-04-22  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R063-Door.el (U+623C): Add representative nodes.
+	(U-00022A2F): Apply new conventions for glyph granularity.
+	(U-00022A33): Likewise.
+	(U-00022A57): New character.
+	(U-00022A59): Apply new conventions for glyph granularity.
+	(U-00022A5D): Likewise.
+
+2020-04-22  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R032-Earth.el (U-00021325): Use "⿱𫠩x" instead of
+	"⿳一𢆶x".
+
+	* char-db-util.el (char-db-coded-charset-priority-list): Prefer
+	`=>big5-cdp@iwds-1' to `=>iwds-1'.
+
 	* Ideograph-R007-Two.el (U-0002012E): Apply new conventions for
 	glyph granularity.
 

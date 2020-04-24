@@ -272,7 +272,6 @@
     =>jis-x0213-2
     ==>ucs@bucs
     ==>daijiten
-    =>iwds-1
     ;; =>ucs@hanyo-denshi
     =>ucs@iso
     =>ucs@unicode
@@ -335,6 +334,8 @@
     =jef-china3
     =>cbeta
     =shinjigen
+    =>big5-cdp@iwds-1
+    =>iwds-1
     =ucs-var-001
     =ucs-var-002
     =ucs-var-003
@@ -385,7 +386,6 @@
     =>ucs@iwds-1/normalized
     =>ucs-itaiji-001@iwds-1
     =>ucs-itaiji-002@iwds-1
-    =>big5-cdp@iwds-1
     =>big5-cdp@component
     =>big5-cdp@cognate
     ==ucs@gb
