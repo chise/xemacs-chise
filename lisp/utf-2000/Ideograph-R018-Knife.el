@@ -3969,7 +3969,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=>iwds-1		  .  1149)	; &A-GT-K02231;
+     ((=>big5-cdp@iwds-1  . #x8CAF)	; &A-GT-K02231;
       ))
     (ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 4)
@@ -4099,7 +4099,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=>iwds-1		  .  1149)	; &A-GT-K02231;
+     ((=>big5-cdp@iwds-1  . #x8CAF)	; &A-GT-K02231;
       ))
     (ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 4)

@@ -863,6 +863,38 @@
       ))
     ))
 (define-char
+  '((ideographic-radical@ucs . 19)	; ⼒
+    (ideographic-strokes@ucs . 4)
+    (ideographic-radical@gt . 1)	; ⼀
+    (ideographic-strokes@gt . 5)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x52A0)	; 加
+      )
+     ((=ucs		  . #x4E00)	; 一
+      ))
+    (sound@ja/kun	"kaiti")
+    (=ucs		. #x2B9A5)	; 𫦥
+    (=mj		. 057062)	; &I-MJ057062;
+    (=koseki		. 026840)	; 𫦥
+    (=gt		. 00055)	; &I-GT-00055;
+    (=gt-pj-9		. #x4055)	; &I-GT-00055; [32-53]
+    (->subsumptive
+     ((==ucs@JP/hanazono  . #x2B9A5)	; &g2-MJ057062;
+      (==mj		  . 057062)	; &g2-MJ057062;
+      (==koseki		  . 026840)	; &g2-MJ057062;
+      (==gt		  . 00055)	; &g2-MJ057062;
+      (->subsumptive
+       ((===mj		    . 057062)	; &R-MJ057062;
+	)
+       ((===gt		    . 00055)	; &R-GT-00055;
+	))
+      ))
+    ))
+(define-char
   '((ideographic-radical . 19)	; ⼒
     (ideographic-strokes . 4)
     (total-strokes	 . 6)

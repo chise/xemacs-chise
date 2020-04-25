@@ -460,7 +460,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=>iwds-1		  .  0020)	; &IWDS1-020;
+     ((=>big5-cdp	  . #x88F0)	; &IWDS1-020;
       )
      ((=ucs		  . #x5BF8)	; 寸
       ))
