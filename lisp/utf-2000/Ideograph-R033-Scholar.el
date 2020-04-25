@@ -8,7 +8,7 @@
     ))
 (define-char
   '((<-denotational@component
-     ((=>iwds-1		  .  0072)	; &IWDS1-072;
+     ((=>big5-cdp	  . #x8BF1)	; &IWDS1-072;
       )
      ((=>ucs@iwds-1	  . #x571F)	; &A-IWDSU+571F;
       (=>iwds-1		  .  0312)	; &A-IWDSU+571F;
