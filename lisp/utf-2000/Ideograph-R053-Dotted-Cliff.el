@@ -7335,13 +7335,19 @@
   '((ideographic-radical . 53)	; ⼴
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
-    (=>ucs@component	. #x5ECC)	; &A-compU+5ECC;
-    (=>iwds-1		.  0269)	; &A-compU+5ECC;
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=big5-cdp	  . #x8D56)	; &CDP-8D56;
+      )
+     ((=>big5-cdp@iwds-1  . #x8DBF)	; &IWDS1-268;
+      ))
+    (=>ucs@iwds-1	. #x5ECC)	; &A-IWDSU+5ECC;
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@component	  . #x5ECC)	; &A-compU+5ECC;
-      (=>iwds-1		  .  0269)	; &A-compU+5ECC;
+     ((=>ucs@iwds-1	  . #x5ECC)	; &A-IWDSU+5ECC;
       ))
     (ideographic-radical . 53)	; ⼴
     (ideographic-strokes . 10)
@@ -7413,8 +7419,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@component	  . #x5ECC)	; &A-compU+5ECC;
-      (=>iwds-1		  .  0269)	; &A-compU+5ECC;
+     ((=>ucs@iwds-1	  . #x5ECC)	; &A-IWDSU+5ECC;
       ))
     (ideographic-radical . 53)	; ⼴
     (ideographic-strokes . 10)
