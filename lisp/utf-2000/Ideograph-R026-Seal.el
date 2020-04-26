@@ -1567,7 +1567,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=>iwds-1		  .  0357)	; &IWDS1-357;
+     ((=>big5-cdp	  . #x8B7C)	; &IWDS1-357;
       )
      ((=ucs		  . #x5369)	; 卩
       ))

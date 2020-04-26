@@ -1,3 +1,8 @@
+2020-04-25  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* char-db-util.el (char-db-coded-charset-priority-list): Modify
+	priority to prefer `=>iwds-1' to `=big5'.
+
 2020-04-24  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R058-Snout.el (A-U+675F-itaiji-007): New abstract
