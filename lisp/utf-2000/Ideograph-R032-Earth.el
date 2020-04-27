@@ -2685,7 +2685,6 @@
      ((=ucs		  . #x571F)	; 土
       )
      ((=>ucs@iwds-1	  . #x52FB)	; &A-IWDSU+52FB;
-      (=>ucs@iwds-1/normalized . #x52FB)	; &A-IWDSU+52FB;
       (=>iwds-1		  .  0048)	; &A-IWDSU+52FB;
       ))
     (=ucs		. #x5747)	; 均
@@ -7634,7 +7633,7 @@
      ((=>ucs@iwds-1	  . #x571F)	; &A-IWDSU+571F;
       (=>iwds-1		  .  0312)	; &A-IWDSU+571F;
       )
-     ((=>iwds-1		  .  0293)	; &IWDS1-293;
+     ((=>big5-cdp@iwds-1  . #x8845)	; &IWDS1-293;
       ))
     (=>ucs@iwds-1	. #x8881)	; &A-IWDSU+8881;
     (=>iwds-1		.  31293)	; &A-IWDSU+8881;
