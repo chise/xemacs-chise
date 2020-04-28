@@ -1,5 +1,10 @@
 2020-04-25  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R020-Wrap.el (A-IWDSU+52FB): Use
+	`<-denotational@usage' instead of `<-denotational' for BUCS+52FB.
+
+2020-04-25  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* char-db-util.el (char-db-coded-charset-priority-list): Modify
 	priority to prefer `=>iwds-1' to `=big5'.
 
