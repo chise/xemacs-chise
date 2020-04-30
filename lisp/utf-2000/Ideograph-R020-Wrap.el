@@ -182,7 +182,7 @@
     (total-strokes	 . 4)
     (=>ucs@iwds-1	. #x52FB)	; &A-IWDSU+52FB;
     (=ucs@big5		. #x52FB)	; &A-IWDSU+52FB;
-    (=big5		. #xA4C3)	; &A-IWDSU+52FB;
+    (=big5		. #xA4C3)	; &I-B-A4C3;
     (=>iwds-1		.  0048)	; &A-IWDSU+52FB;
     ))
 (define-char
