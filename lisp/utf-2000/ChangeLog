@@ -1,5 +1,32 @@
 2020-04-30  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R030-Mouth.el (U-00020BC1): Use `<-denotational@usage'
+	instead of `<-denotational' for BUCS+8DB3; add `<-denotational'
+	for A-cgnU+8DB3; add `<-denotational@component' for A-IWDSU+8DB3.
+	(o-IU+20BC1): Use `->denotational' instead of `->subsumptive'.
+	(IU+20BC1): Unify MJ032133 and KOSEKI-038420.
+	(U+542F): Apply new conventions for glyph granularity.
+	(U+5553): Likewise.
+	(U+555F): Likewise.
+	(U+5554): Likewise.
+	(A-BC-8CA3): New abstract node; use `<-denotational' for
+	A-compU+20DAC; unify A-GT-K08778.
+	(BC-8CA3): Use A-BC-8CA3 instead of A-compU+20DAC as its mother;
+	unify GT-K08778.
+	(U-00020D82): New character.
+	(U-00020E04): Apply new conventions for glyph granularity.
+	(U-0002A894): Likewise.
+	(A-U+24566-itaiji-003): New abstract node.
+	(U+24566-itaiji-003): New character; use `<-denotational' for
+	A-U+24566-itaiji-003.
+	(U+569B): Apply new conventions for glyph granularity.
+	(U+56A2): Likewise.
+	(U+56B7): Likewise.
+	(U-00021126): Likewise.
+	(U+56CA): Likewise.
+
+2020-04-30  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R047-River.el (U-00021FF1): Use `->denotational' and
 	`->subsumptive'.
 
