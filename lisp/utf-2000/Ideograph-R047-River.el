@@ -1257,19 +1257,76 @@
       ))
     ))
 (define-char
-  '((=>ucs		. #x21FF1)	; 𡿱
-    (ideographic-radical . 47)	; ⼮
+  '((ideographic-radical . 47)	; ⼮
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
-    (=cns11643-6	. #x2A7D)	; &C6-2A7D; [10-93]
-    (=daikanwa		. 08686)	; &I-M-08686;
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>gt-k		  . 00633)	; &A-GT-K00633;
+      )
+     ((=>ucs@component	  . #x58EC)	; &A-compU+58EC;
+      (=>iwds-1		  .  0001)	; &A-compU+58EC;
+      ))
+    (sound@ja/on	"kei")
+    (=ucs		. #x21FF1)	; 𡿱
     ))
 (define-char
-  '((morohashi-daikanwa	8686 0 1)
+  '((<-denotational
+     ((=ucs		  . #x21FF1)	; 𡿱
+      ))
     (ideographic-radical . 47)	; ⼮
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
-    (=ucs		. #x21FF1)	; 𡿱
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=gt-k		  . 00633)	; &GT-K00633;
+      )
+     ((=ucs		  . #x2123C)	; 𡈼
+      ))
+    (=ucs@cns		. #x21FF1)	; &C6-2A7D;
+    (=cns11643-6	. #x2A7D)	; &C6-2A7D; [10-93]
+    (=daikanwa		. 08686)	; &I-M-08686;
+    (<-ancient
+     ((=ucs		  . #x5DE0)	; 巠
+      (=daikanwa	  . 08681)	; &I-M-08681;
+      ))
+    (<-ancient*sources
+     shuowen daikanwa)
+    (->subsumptive
+     ((==ucs@cns	  . #x21FF1)	; &g2-M-08686;
+      (==cns11643-6	  . #x2A7D)	; &g2-M-08686; [10-93]
+      (==daikanwa	  . 08686)	; &g2-M-08686;
+      (->subsumptive
+       ((===daikanwa	    . 08686)	; &R-M-08686;
+	)
+       ((===cns11643-6	    . #x2A7D)	; &R-C6-2A7D; [10-93]
+	))
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x21FF1)	; 𡿱
+      ))
+    (ideographic-radical . 47)	; ⼮
+    (ideographic-strokes . 5)
+    (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=gt-k		  . 00633)	; &GT-K00633;
+      )
+     ((=ucs@unicode	  . #x58EC)	; &AJ1-02583;
+      (=adobe-japan1-0	  . 02583)	; &AJ1-02583;
+      ))
+    (=ucs@iso		. #x21FF1)	; &U-00021FF1;
+    (->subsumptive
+     ((==ucs@iso	  . #x21FF1)	; &g2-IU-00021FF1;
+      ))
     ))
 (define-char
   '((<-denotational

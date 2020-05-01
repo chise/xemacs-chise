@@ -1,3 +1,13 @@
+2020-04-30  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R047-River.el (U-00021FF1): Use `->denotational' and
+	`->subsumptive'.
+
+	* Ideograph-R022-Right-Open-Box.el (A-NIWDSU+5321): New abstract
+	node.
+	(A-IWDSU+5321): Separate A-NIWDSU+5321; add
+	`<-denotational@component' for A-NIWDSU+5321.
+
 2020-04-25  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R020-Wrap.el (A-IWDSU+52FB): Use
