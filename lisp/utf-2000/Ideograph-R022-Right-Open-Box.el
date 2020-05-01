@@ -553,7 +553,6 @@
 (define-char
   '((<-denotational@component
      ((=>ucs@iwds-1	  . #x5321)	; &A-IWDSU+5321;
-      (=>ucs@iwds-1/normalized . #x5321)	; &A-IWDSU+5321;
       ))
     (ideographic-radical . 22)	; ⼕
     (ideographic-strokes . 4)
@@ -988,7 +987,6 @@
 (define-char
   '((<-denotational@component
      ((=>ucs@iwds-1	  . #x5321)	; &A-IWDSU+5321;
-      (=>ucs@iwds-1/normalized . #x5321)	; &A-IWDSU+5321;
       ))
     (ideographic-radical . 22)	; ⼕
     (ideographic-strokes . 5)
@@ -3517,11 +3515,27 @@
      ((=>ucs@component	  . #x531A)	; &A-compU+531A;
       (=>iwds-1		  .  0209)	; &A-compU+531A;
       )
+     ((=>ucs@iwds-1	  . #x7389)	; &A-IWDSU+7389;
+      (=>iwds-1		  .  1252)	; &A-IWDSU+7389;
+      ))
+    (=>ucs@iwds-1/normalized . #x5321)	; &A-NIWDSU+5321;
+    ))
+(define-char
+  '((<-denotational@component
+     ((=>ucs@iwds-1/normalized . #x5321)	; &A-NIWDSU+5321;
+      ))
+    (ideographic-radical . 22)	; ⼕
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
+      (=ucs		  . #x2FF7)	; ⿷
+      )
+     ((=>ucs@component	  . #x531A)	; &A-compU+531A;
+      (=>iwds-1		  .  0209)	; &A-compU+531A;
+      )
      ((=>ucs@component	  . #x7389)	; &A-compU+7389;
       (=>iwds-1		  .  0252)	; &A-compU+7389;
       ))
     (=>ucs@iwds-1	. #x5321)	; &A-IWDSU+5321;
-    (=>ucs@iwds-1/normalized . #x5321)	; &A-IWDSU+5321;
     ))
 (define-char
   '((ideographic-radical . 22)	; ⼕
