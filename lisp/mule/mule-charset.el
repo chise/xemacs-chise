@@ -426,6 +426,7 @@ DESCRIPTION (string) is the description string of the charset."
           =ucs-bmp-cjk-compat@unicode
           =ucs-sip@JP/hanazono
 	  =ucs-tip@JP/hanazono
+	  =ucs-sip@gb
 	  =daijiten
 	  =cbeta
 	  =jef-china3
