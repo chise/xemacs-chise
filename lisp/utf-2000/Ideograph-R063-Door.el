@@ -1683,11 +1683,14 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=ucs		  . #x6237)	; 户
+     ((=ucs		  . #x6236)	; 戶
       )
      ((=ucs		  . #x6208)	; 戈
       ))
-    (=ucs@iso		. #x2BF09)	; &U-0002BF09;
+    (=ucs@JP/hanazono	. #x2BF09)	; &hanaJU+2BF09;
+    (->subsumptive
+     ((==ucs@JP/hanazono  . #x2BF09)	; &g2-hanaJU+2BF09;
+      ))
     ))
 (define-char
   '((<-denotational
@@ -1700,14 +1703,12 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=ucs		  . #x6236)	; 戶
+     ((=+>ucs@jis	  . #x6238)	; &o-J0-384D;
+      (=+>jis-x0208	  . #x384D)	; &o-J0-384D; [24-45]
       )
      ((=ucs		  . #x6208)	; 戈
       ))
-    (=ucs@JP/hanazono	. #x2BF09)	; &hanaJU+2BF09;
-    (->subsumptive
-     ((==ucs@JP/hanazono  . #x2BF09)	; &g2-hanaJU+2BF09;
-      ))
+    (=ucs@gb		. #x2BF09)	; &GU+2BF09;
     ))
 (define-char
   '((ideographic-radical . 63)	; ⼾
