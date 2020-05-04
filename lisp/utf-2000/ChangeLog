@@ -1,3 +1,9 @@
+2020-05-03  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R063-Door.el (GU+2BF09): Changed from IU+2BF09; apply
+	new conventions for glyph granularity for components of
+	ideographic-structure.
+
 2020-04-30  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R030-Mouth.el (U-00020BC1): Use `<-denotational@usage'
