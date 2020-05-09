@@ -1,3 +1,14 @@
+2020-05-07  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R031-Enclosure.el (A-IWDSU+56DA): New abstract node.
+	(U+56DA): Add `<-denotational@component' for A-IWDSU+56DA.
+	(U-000211A3): Likewise; use `->subsumptive'.
+
+	* Ideograph-R030-Mouth.el (UU+5554): Use GU+2BF09 instead of
+	"⿰户戈".
+	(U-00020DB6): New character.
+	(U-00020F6C): Apply new conventions for glyph granularity.
+
 2020-05-03  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R063-Door.el (GU+2BF09): Changed from IU+2BF09; apply
