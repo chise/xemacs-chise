@@ -1338,11 +1338,83 @@
     ))
 (define-char
   '((ideographic-radical . 41)	; ⼨
+    (=>ucs@cognate	. #x3776)	; &A-cgnU+3776;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@cognate	  . #x3776)	; &A-cgnU+3776;
+      ))
+    (ideographic-radical . 41)	; ⼨
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>gt-k		  . 03406)	; &A-GT-K03406;
+      )
+     ((=ucs		  . #x5BF8)	; 寸
+      ))
+    (sound@ja/on	"toku")
     (=ucs		. #x3776)	; 㝶
-    (=cns11643-6	. #x3668)	; &I-C6-3668; [22-72]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x3776)	; 㝶
+      ))
+    (ideographic-radical . 41)	; ⼨
+    (ideographic-strokes . 7)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=gt-k		  . 03406)	; &GT-K03406;
+      )
+     ((=ucs		  . #x5BF8)	; 寸
+      ))
+    (=ucs@unicode	. #x3776)	; &C6-3668;
+    (=cns11643-6	. #x3668)	; &C6-3668; [22-72]
     (=daikanwa		. 07436)	; &I-M-07436;
+    (<-ancient
+     ((=ucs@unicode	  . #x5F97)	; &MJ011314;
+      (=mj		  . 011314)	; &MJ011314;
+      (=daikanwa	  . 10137)	; &I-M-10137;
+      ))
+    (<-ancient*sources
+     yupian daikanwa)
+    (->subsumptive
+     ((==ucs@unicode	  . #x3776)	; &g2-M-07436;
+      (==cns11643-6	  . #x3668)	; &g2-M-07436; [22-72]
+      (==daikanwa	  . 07436)	; &g2-M-07436;
+      (->subsumptive
+       ((===daikanwa	    . 07436)	; &R-M-07436;
+	)
+       ((===cns11643-6	    . #x3668)	; &R-C6-3668; [22-72]
+	)
+       ((===ucs@unicode	    . #x3776)	; &R-UU+3776;
+	))
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@cognate	  . #x3776)	; &A-cgnU+3776;
+      ))
+    (ideographic-radical . 41)	; ⼨
+    (ideographic-strokes . 6)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x2626D)	; 𦉭
+      )
+     ((=ucs		  . #x5BF8)	; 寸
+      ))
+    (=ucs-itaiji-001	. #x3776)	; &U-i001+3776;
+    (->subsumptive
+     ((==ucs-itaiji-001	  . #x3776)	; &g2-U-i001+3776;
+      ))
     ))
 (define-char
   '((<-denotational@usage
