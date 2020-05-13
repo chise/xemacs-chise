@@ -1,3 +1,13 @@
+2020-05-13  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R037-Big.el (A-cgnU+595A): New abstract node.
+	(U+595A): Add `<-denotational' for A-cgnU+595A; apply new
+	conventions for glyph granularity for components of
+	ideographic-structure.
+	(A-GT-K03560): New abstract node; use `<-denotational' for
+	A-cgnU+595A.
+	(GT-K03560): New character; use `<-denotational' for A-GT-K03560.
+
 2020-05-09  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R056-Shoot.el (U+5F0D): Use `<-denotational@usage'
