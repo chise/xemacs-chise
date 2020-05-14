@@ -1,5 +1,22 @@
 2020-05-13  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R057-Bow.el (RUI6-E099): Copied from ruimoku6.el; add
+	`ideographic-{radical|strokes}' and `total-strokes'; add
+	`ideographic-structure'.
+
+	* Ideograph-R039-Child.el (U-00030329): New character.
+	(RUI6-E11B): Copied from ruimoku6.el; unify hanaJU+30329; add
+	`<-denotational' for U-00030329; add
+	`ideographic-{radical|strokes}' and `total-strokes'; add
+	`ideographic-structure'.
+
+	* Ideograph-R030-Mouth.el (U+54A0-itaiji-003): New character.
+	(HNG-KHI0297-0): Use `<-denotational@usage' instead of
+	`<-denotational' for BUCS+559C.
+	(U-00020DAE): Ditto.
+	(U+559C): Ditto; add `ideographic-structure'.
+	(UU+559C): Omit `=>ucs@iwds-1'.
+
 	* Ideograph-R037-Big.el (A-cgnU+595A): New abstract node.
 	(U+595A): Add `<-denotational' for A-cgnU+595A; apply new
 	conventions for glyph granularity for components of
