@@ -1,5 +1,17 @@
 2020-05-13  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R053-Dotted-Cliff.el (A-RUI6-E162): New abstract node.
+	(RUI6-E162): Copied from ruimoku6.el; add `<-denotational' for
+	A-RUI6-E162; add `ideographic-{radical|strokes}' and
+	`total-strokes'; add `ideographic-structure'.
+
+	* Ideograph-R046-Mountain.el (A-U+21D42-itaiji-001): New abstract
+	node.
+	(U+21D42-itaiji-001): Add `<-denotational' for
+	A-U+21D42-itaiji-001.
+
+2020-05-13  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R057-Bow.el (RUI6-E099): Copied from ruimoku6.el; add
 	`ideographic-{radical|strokes}' and `total-strokes'; add
 	`ideographic-structure'.

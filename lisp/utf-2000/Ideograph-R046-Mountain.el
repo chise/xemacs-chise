@@ -1540,6 +1540,26 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
       (=ucs		  . #x2FF3)	; ⿳
       )
+     ((=>ucs@component	  . #x5C6E)	; &A-compU+5C6E;
+      (=>iwds-1		  .  0096)	; &A-compU+5C6E;
+      )
+     ((=ucs		  . #x4E00)	; 一
+      )
+     ((=ucs		  . #x53E3)	; 口
+      ))
+    (=>ucs-itaiji-001	. #x21D42)	; &A-U-i001+21D42;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs-itaiji-001	  . #x21D42)	; &A-U-i001+21D42;
+      ))
+    (ideographic-radical . 46)	; ⼭
+    (ideographic-strokes . 3)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
+      (=ucs		  . #x2FF3)	; ⿳
+      )
      ((=ucs		  . #x5C71)	; 山
       )
      ((=ucs		  . #x4E00)	; 一
@@ -1549,6 +1569,9 @@
     (=ucs-itaiji-001	. #x21D42)	; &U-i001+21D42;
     (<-formed
      ((=ucs		  . #x21D42)	; 𡵂
+      ))
+    (->subsumptive
+     ((==ucs-itaiji-001	  . #x21D42)	; &g2-U-i001+21D42;
       ))
     ))
 (define-char
@@ -4609,7 +4632,8 @@
       (=mj		  . 057211)	; &MJ057211;
       (=koseki		  . 056260)	; &MJ057211;
       (<-formed
-       ((=ucs		    . #x5C01)	; 封
+       ((=ucs@unicode	    . #x5C01)	; &AJ1-03559;
+	(=adobe-japan1-0    . 03559)	; &AJ1-03559;
 	))
       (<-formed*sources
        koseki)
