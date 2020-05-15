@@ -6213,6 +6213,41 @@
     ))
 (define-char
   '((ideographic-radical . 53)	; ⼴
+    (ideographic-strokes . 8)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=big5-cdp	  . #x8D56)	; &CDP-8D56;
+      )
+     ((=ucs		  . #x27607)	; 𧘇
+      ))
+    (=>ruimoku-v6	. #xE162)	; &A-RUI6-E162;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ruimoku-v6	  . #xE162)	; &A-RUI6-E162;
+      ))
+    (ideographic-radical . 53)	; ⼴
+    (ideographic-strokes . 8)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=big5-cdp	  . #x8D56)	; &CDP-8D56;
+      )
+     ((=ucs@iso		  . #x27607)	; &CDP-8B67;
+      (=big5-cdp	  . #x8B67)	; &CDP-8B67;
+      ))
+    (=ruimoku-v6	. #xE162)	; &RUI6-E162;
+    (->subsumptive
+     ((==ruimoku-v6	  . #xE162)	; &g2-RUI6-E162;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 53)	; ⼴
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
     (=ucs		. #x22246)	; 𢉆
