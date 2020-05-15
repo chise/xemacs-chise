@@ -3447,7 +3447,8 @@
     (=big5-cdp		. #x8ABB)	; &I-CDP-8ABB;
     (=daikanwa		. 04929)	; &I-M-04929;
     (<-ancient
-     ((=ucs		  . #x5C01)	; 封
+     ((=ucs@unicode	  . #x5C01)	; &AJ1-03559;
+      (=adobe-japan1-0	  . 03559)	; &AJ1-03559;
       (=daikanwa	  . 07426)	; &I-M-07426;
       ))
     (<-ancient*sources
@@ -4764,7 +4765,8 @@
       (=mj		  . 057211)	; &MJ057211;
       (=koseki		  . 056260)	; &MJ057211;
       (<-formed
-       ((=ucs		    . #x5C01)	; 封
+       ((=ucs@unicode	    . #x5C01)	; &AJ1-03559;
+	(=adobe-japan1-0    . 03559)	; &AJ1-03559;
 	))
       (<-formed*sources
        koseki)
