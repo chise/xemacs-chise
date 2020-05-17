@@ -37,6 +37,15 @@
 	A-cgnU+595A.
 	(GT-K03560): New character; use `<-denotational' for A-GT-K03560.
 
+2020-05-12  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen.el (SW-JIGUGE5-04412): Add U-00027E86 as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-04412): Ditto.
+	(SW-JIGUGE5-51504): Add U+623C as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-50004): Ditto.
+
 2020-05-09  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R056-Shoot.el (U+5F0D): Use `<-denotational@usage'
