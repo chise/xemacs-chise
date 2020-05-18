@@ -1,5 +1,8 @@
 2020-05-17  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R041-Inch.el (U+5C01): Apply new conventions for glyph
+	granularity.
+
 	* Ideograph-R040-Roof.el (U+5BC4): Apply new conventions for glyph
 	granularity.
 	(GT-09094): Unify U-0002D503, MJ057340 and KOSEKI-082420.
