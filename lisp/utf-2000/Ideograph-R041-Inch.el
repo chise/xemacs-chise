@@ -964,8 +964,29 @@
       )
      ((=ucs		  . #x5BF8)	; 寸
       ))
+    (sound@ja/on/conventional "huu")
+    (sound@ja/on/go	"hu" "hu" "heN")
+    (sound@ja/on/kan	"hoHu" "hou" "heN")
     (=ucs		. #x5C01)	; 封
-    (=adobe-japan1-0	. 03559)	; &I-AJ1-03559;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5C01)	; 封
+      ))
+    (ideographic-radical . 41)	; ⼨
+    (ideographic-strokes . 6)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs@unicode	  . #x572D)	; &AJ1-01811;
+      (=adobe-japan1-0	  . 01811)	; &AJ1-01811;
+      )
+     ((=ucs		  . #x5BF8)	; 寸
+      ))
+    (=ucs@unicode	. #x5C01)	; &AJ1-03559;
+    (=adobe-japan1-0	. 03559)	; &AJ1-03559;
     (=jis-x0208		. #x4975)	; &I-J90-4975; [41-85]
     (=gb2312		. #x3762)	; &I-G0-3762; [23-66]
     (=ks-x1001		. #x5C66)	; &I-K0-5C66; [60-70]
@@ -977,7 +998,55 @@
     (=gt-pj-1		. #x4975)	; &I-GT-09350; [41-85]
     (=daikanwa		. 07426)	; &I-M-07426;
     (=daijiten		. 02420)	; &I-DJT-02420;
-    (=shinjigen		.  1887)	; 封
+    (=shinjigen		.  1887)	; &AJ1-03559;
+    (<-ancient
+     ((=ucs		  . #x7A86)	; 窆
+      ))
+    (<-ancient$_1*sources
+     zhouyi-jijie)
+    (<-formed
+     ((=ucs		  . #x7A86)	; 窆
+      ))
+    (<-formed$_1*sources
+     jiyun)
+    (<-interchangeable
+     ((=ucs@unicode	  . #x90A6)	; &MJ026242;
+      (=mj		  . 026242)	; &MJ026242;
+      (=daikanwa	  . 39310)	; &I-M-39310;
+      )
+     ((=ucs@unicode	  . #x8C50)	; &AJ1-06741;
+      (=adobe-japan1-0	  . 06741)	; &AJ1-06741;
+      (=daikanwa	  . 36304)	; &I-M-36304;
+      ))
+    (<-interchangeable$_1*sources
+     shuowen-tongxun-dingsheng daikanwa)
+    (<-interchangeable$_2*sources
+     shuowen-tongxun-dingsheng daikanwa)
+    (<-interchangeable*sources
+     shuowen-tongxun-dingsheng daikanwa)
+    (<-same
+     ((=ucs		  . #x7A86)	; 窆
+      (=daikanwa	  . 25459)	; &I-M-25459;
+      ))
+    (<-same$_1*sources
+     shuowen-tongxun-dingsheng jiyun zhouyi-jijie daikanwa)
+    (<-same*sources
+     shuowen-tongxun-dingsheng jiyun zhouyi-jijie daikanwa)
+    (->ancient
+     ((=ucs@iso		  . #x2125A)	; &C6-2666;
+      (=cns11643-6	  . #x2666)	; &C6-2666; [06-70]
+      (=daikanwa	  . 04929)	; &I-M-04929;
+      )
+     ((=ucs@iso		  . #x212BD)	; &C6-2F6B;
+      (=cns11643-6	  . #x2F6B)	; &C6-2F6B; [15-75]
+      (=daikanwa	  . 05067)	; &I-M-05067;
+      ))
+    (->ancient$_1*sources
+     jiyun daikanwa)
+    (->ancient$_2*sources
+     jiyun daikanwa)
+    (->ancient*sources
+     jiyun daikanwa)
     (->subsumptive
      ((==ucs@unicode	  . #x5C01)	; &g2-AJ1-03559;
       (==adobe-japan1-0	  . 03559)	; &g2-AJ1-03559;
