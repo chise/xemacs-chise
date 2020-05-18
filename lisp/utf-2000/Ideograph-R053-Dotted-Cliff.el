@@ -1397,7 +1397,8 @@
     (=cns11643-6	. #x2743)	; &I-C6-2743; [07-35]
     (=daikanwa		. 09261)	; &I-M-09261;
     (<-vulgar
-     ((=ucs		  . #x61C9)	; 應
+     ((=ucs@unicode	  . #x61C9)	; &AJ1-04911;
+      (=adobe-japan1-0	  . 04911)	; &AJ1-04911;
       (=daikanwa	  . 11330)	; &I-M-11330;
       ))
     (<-vulgar*sources
