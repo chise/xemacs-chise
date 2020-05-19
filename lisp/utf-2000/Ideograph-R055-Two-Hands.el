@@ -1100,7 +1100,8 @@
     (=cns11643-6	. #x274C)	; &C6-274C; [07-44]
     (=daikanwa		. 09598)	; &I-M-09598;
     (<-ancient
-     ((=ucs		  . #x64E7)	; 擧
+     ((=ucs@unicode	  . #x64E7)	; &AJ1-05038;
+      (=adobe-japan1-0	  . 05038)	; &AJ1-05038;
       (=daikanwa	  . 12863)	; &I-M-12863;
       ))
     (<-ancient*sources

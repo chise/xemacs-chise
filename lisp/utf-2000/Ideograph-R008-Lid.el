@@ -1093,6 +1093,7 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 6)
     (=ucs		. #x3005C)	; 𰁜
+    (=ruimoku-v6	. #xE168)	; &I-RUI6-E168;
     (<-simplified@CN/component
      ((=ucs@unicode	  . #x470C)	; &AJ1-18690;
       (=adobe-japan1-5	  . 18690)	; &AJ1-18690;
@@ -1101,6 +1102,10 @@
       ))
     (->subsumptive
      ((==ucs@JP/hanazono  . #x3005C)	; &g2-hanaJU+3005C;
+      (==ruimoku-v6	  . #xE168)	; &g2-hanaJU+3005C;
+      (->subsumptive
+       ((===ruimoku-v6	    . #xE168)	; &R-RUI6-E168;
+	))
       ))
     ))
 (define-char
