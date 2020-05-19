@@ -3,6 +3,18 @@
   '((ideographic-radical . 33)	; ⼠
     (ideographic-strokes . 0)
     (total-strokes	 . 3)
+    (=>iwds-1*note	"72+312")
+    (=>ucs@iwds-1	. #x58EB)	; &A-IWDSU+58EB;
+    (=>iwds-1		.  31272)	; &A-IWDSU+58EB;
+    ))
+(define-char
+  '((<-denotational@component
+     ((=>ucs@iwds-1	  . #x58EB)	; &A-IWDSU+58EB;
+      (=>iwds-1		  .  31272)	; &A-IWDSU+58EB;
+      ))
+    (ideographic-radical . 33)	; ⼠
+    (ideographic-strokes . 0)
+    (total-strokes	 . 3)
     (=>big5-cdp		. #x8BF1)	; &IWDS1-072;
     (=>iwds-1		.  0072)	; &IWDS1-072;
     ))
