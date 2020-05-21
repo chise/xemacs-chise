@@ -1,3 +1,23 @@
+2020-05-20  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R045-Sprout.el (U-00021D00): Add
+	`<-denotational@component' for A-IWDSU+21D00; add `sound@ja/on';
+	add `<-Small-Seal' for UU+4E30.
+	(IU+24BD3): Copied from Ideograph-R100-Life.el; use
+	`ideographic-{radical|strokes}@ucs' instead of
+	`ideographic-{radical|strokes}'; add
+	`ideographic-{radical|strokes}@r045'; add M-07832.
+	(A-IWDSU+21D00): New abstract node; use `<-denotational@component'
+	for A-IWDSU+21D44.
+
+	* Ideograph-R004-Slash.el (A-GT-K01340): Add `<-denotational' for
+	o-BC-8845; unify A-BC-8845-itaiji-003.
+	(U+4ECB-itaiji-004): New character; use `<-denotational' for
+	A-GT-K01340.
+	(GT-K01340): Unify BC-8845-itaiji-002; use IU+27607 instead of
+	BC-8C66 in as a component.
+	(U-000200C1): Use A-GT-K01340.
+
 2020-05-18  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R033-Scholar.el (A-IWDSU+58EB): New abstract node.

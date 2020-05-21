@@ -3619,7 +3619,10 @@
     (=gt-pj-9		. #x423A)	; &I-GT-00187; [34-26]
     ))
 (define-char
-  '((ideographic-radical . 4)	; ⼃
+  '((<-denotational
+     ((=+>big5-cdp	  . #x8845)	; &o-CDP-8845;
+      ))
+    (ideographic-radical . 4)	; ⼃
     (ideographic-strokes . 5)
     (total-strokes	 . 6)
     (ideographic-structure
@@ -3631,6 +3634,28 @@
      ((=ucs		  . #x27607)	; 𧘇
       ))
     (=>gt-k		. 01340)	; &A-GT-K01340;
+    (=>big5-cdp-itaiji-003 . #x8845)	; &A-GT-K01340;
+    ))
+(define-char
+  '((<-denotational
+     ((=>gt-k		  . 01340)	; &A-GT-K01340;
+      ))
+    (ideographic-radical . 4)	; ⼃
+    (ideographic-strokes . 5)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x4E3F)	; 丿
+      )
+     ((=big5-cdp	  . #x8C66)	; &CDP-8C66;
+      ))
+    (=ucs-itaiji-004	. #x4ECB)	; &U-i004+4ECB;
+    (<-formed@component
+     ((=ucs@unicode	  . #x4ECB)	; &AJ1-01392;
+      (=adobe-japan1-0	  . 01392)	; &AJ1-01392;
+      ))
     ))
 (define-char
   '((ideographic-radical . 4)	; ⼃
@@ -3670,16 +3695,20 @@
       )
      ((=ucs		  . #x4E3F)	; 丿
       )
-     ((=big5-cdp	  . #x8C66)	; &CDP-8C66;
+     ((=ucs@iso		  . #x27607)	; &CDP-8B67;
+      (=big5-cdp	  . #x8B67)	; &CDP-8B67;
       ))
-    (=gt-k		. 01340)	; &GT-K01340;
-    (=gt-pj-k1		. #x716E)	; &GT-K01340; [81-78]
+    (=gt-k		. 01340)	; &CDP-i002-8845;
+    (=gt-pj-k1		. #x716E)	; &CDP-i002-8845; [81-78]
+    (=big5-cdp-itaiji-002 . #x8845)	; &CDP-i002-8845;
     (<-unknown
      ((=ucs		  . #x200A2)	; 𠂢
       ))
     (->subsumptive
      ((==gt-k		  . 01340)	; &g2-GT-K01340;
       (==gt-pj-k1	  . #x716E)	; &g2-GT-K01340; [81-78]
+      )
+     ((=big5-cdp-itaiji-003 . #x8845)	; &CDP-i003-8845;
       ))
     ))
 (define-char
@@ -4983,27 +5012,22 @@
     (total-strokes	 . 11)
     (hanyu-dazidian	1 41 8)
     (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
-      (=ucs		  . #x2FF3)	; ⿳
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
       )
      ((=ucs		  . #x7536)	; 甶
       )
-     ((=ucs		  . #x4E3F)	; 丿
-      )
-     ((=ucs		  . #x27607)	; 𧘇
+     ((=>gt-k		  . 01340)	; &A-GT-K01340;
       ))
     (=ucs		. #x200C1)	; 𠃁
     (->subsumptive
      ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
-	(=ucs		    . #x2FF3)	; ⿳
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
 	)
        ((=ucs		    . #x7536)	; 甶
 	)
-       ((=ucs		    . #x4E3F)	; 丿
-	)
-       ((=ucs@iso	    . #x27607)	; &CDP-8B67;
-	(=big5-cdp	    . #x8B67)	; &CDP-8B67;
+       ((=big5-cdp-itaiji-003 . #x8845)	; &CDP-i003-8845;
 	))
       (=ucs@iso		  . #x200C1)	; &U-000200C1;
       (->subsumptive
