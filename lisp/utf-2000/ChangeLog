@@ -1,5 +1,9 @@
 2020-05-20  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R046-Mountain.el (U-00021D44): New character; use
+	`<-denotational@component' for A-IWDSU+21D00.
+	(A-IWDSU+21D44): New abstract node.
+
 	* Ideograph-R045-Sprout.el (U-00021D00): Add
 	`<-denotational@component' for A-IWDSU+21D00; add `sound@ja/on';
 	add `<-Small-Seal' for UU+4E30.
