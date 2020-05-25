@@ -1,3 +1,13 @@
+2020-05-23  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R050-Turban.el (A-GT-K02926): New abstract node.
+	(GT-K02926): New character; use `<-denotational' for A-GT-K02926.
+	(GT-K02933): Ditto.
+	(U+5E2E): Apply new conventions for glyph granularity.
+	(U+5E47): Likewise.
+	(U-00022104): Use `->denotational' and `->subsumptive'.
+	(U+5E6B): Apply new conventions for glyph granularity.
+
 2020-05-20  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R046-Mountain.el (U-00021D44): New character; use
