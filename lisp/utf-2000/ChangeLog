@@ -1,3 +1,55 @@
+2020-05-26  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R062-Halberd.el (U+6208-itaiji-001): New character.
+	(BC-8CB8): New character.
+	(A-RUI6-E163): New abstract node.
+	(RUI6-E163): New character [copied from ruimoku6.el]; use
+	`<-denotational' for A-RUI6-E163.
+	(A-cgnU+6214): Changed from U+6214.
+	(AJ1-04934): Unify U+6214 instead of A-IWDSU+6214 and UU+6214; use
+	U+6214 instead of A-cgnU+6214 as its mother; add
+	`ideographic-structure'.
+	(U+6214-itaiji-001): Use U+6214 instead of A-cgnU+6214 as its
+	mother.
+	(U+6215): Add `sound@ja/on/{kan|go}'.
+	(UU+6215): Unify GT-14579 and GT-K04533; add some relations for
+	other characters.
+	(BC-8879-var-001): New character; use `<-subsumptive' for UU+6215.
+	(U-000304A5): New character.
+	(A-GT-K07464): New abstract node; unify A-U+6216-itaiji-002.
+	(GT-K07464): New character; use `<-denotational' for A-GT-K07464;
+	unify U+6216-itaiji-002.
+	(U-0002BEF6): New character.
+	(A-cgnU+6231): New abstract node.
+	(A-IWDSU+6231): New abstract node; use `<-denotational'
+	A-IWDSU+6231.
+	(U+622F): Add `<-denotational' for A-IWDSU+6231; add
+	`ideographic-structure'.
+	(UU+622F): Omit `=>ucs@iwds-1'; add `ideographic-structure'.
+	(HNG-KHI0072-0): Use A-cgnU+6231 instead of U+622F as the mother.
+	(U-0002D7FC): New character.
+	(U+6231): Add `<-denotational' for A-IWDSU+6231.
+	(U-00022A0C): Apply new conventions for glyph granularity.
+	(U-0002BF06): New character.
+	(U+6232): Apply new conventions for glyph granularity.
+	(U-0002D7FE): New character.
+	(A-RUI6-E16D): New abstract node.
+	(RUI6-E16D): New character; use `<-denotational' for A-RUI6-E16D.
+
+2020-05-26  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R032-Earth.el (A-IWDSU+571F): Add A-IWDSU+58EB as a
+	target of `<-denotational@component'.
+	(U-000212AE): Use A-IWDSU+571F instead of U+571F as a component.
+	(MJ057216): New character; use `<-denotational' for U-000212AE;
+	unify KOSEKI-057410.
+	(A-IWDSU+212E1): Use A-IWDSU+571F instead of U+571F as a
+	component.
+	(U-000212BD): Apply new conventions for glyph granularity.
+
+	* Ideograph-R022-Right-Open-Box.el (UU+5334): Use UU+7B97 instead
+	of U+7B97 as a component.
+
 2020-05-23  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R050-Turban.el (A-GT-K02926): New abstract node.
@@ -368,6 +420,13 @@
 
 	* Oracle-Bones.el (ZOB-00588): Add `<-Oracle-Bones' for
 	U-0003018D.
+
+2020-04-14  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R067-Script.el (U+6588): Use `<-denotational@usage'
+	instead of `<-denotational' for BUCS+5B78; add
+	`ideographic-structure'; add `sound@ja/on'.
+	(U-0002D914): New character.
 
 2020-04-14  MORIOKA Tomohiko  <tomo.git@chise.org>
 
