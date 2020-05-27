@@ -175,7 +175,7 @@
       ))
     ))
 (define-char
-  '((<-denotational
+  '((<-denotational@usage
      ((==>ucs@bucs	  . #x5B78)	; &BUCS+5B78;
       ))
     (ideographic-radical@ucs . 67)	; ⽂
@@ -187,6 +187,15 @@
     (ideographic-radical@cns*sources
      shinjigen@1ed cns11643)
     (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x6587)	; 文
+      )
+     ((=ucs		  . #x5B50)	; 子
+      ))
+    (sound@ja/on	"gaku")
     (=ucs		. #x6588)	; 斈
     (=adobe-japan1-0	. 04620)	; &I-AJ1-04620;
     (=jis-x0208		. #x555D)	; &I-J90-555D; [53-61]
@@ -203,7 +212,7 @@
       (=shinjigen	  .  1783)	; 學
       ))
     (<-vulgar*sources
-     daikanwa shinjigen@1ed)
+     pianhai daikanwa shinjigen)
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x6588)	; 斈
@@ -235,6 +244,28 @@
        ((===cns11643-3	    . #x2558)	; &R-C3-2558; [05-56]
 	)
        ((===ucs@unicode	    . #x6588)	; &R-UU+6588;
+	))
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 67)	; ⽂
+    (ideographic-strokes . 3)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x6587)	; 文
+      )
+     ((=ucs		  . #x5DFE)	; 巾
+      ))
+    (=ucs		. #x2D914)	; 𭤔
+    (=cbeta		. 05471)	; &I-CB05471;
+    (->subsumptive
+     ((==ucs@JP/hanazono  . #x2D914)	; &g2-CB05471;
+      (==cbeta		  . 05471)	; &g2-CB05471;
+      (->subsumptive
+       ((===cbeta	    . 05471)	; &R-CB05471;
 	))
       ))
     ))
