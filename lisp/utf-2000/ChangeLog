@@ -1,3 +1,11 @@
+2020-05-28  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* char-db-util.el (char-db-coded-charset-priority-list): Add
+	`=big5-cdp-var-007'.
+
+	* Ideograph-R027-Cliff.el (U+5397): Apply new conventions for
+	glyph granularity.
+
 2020-05-27  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R029-Again.el (U-00020B6F): Apply new conventions for
