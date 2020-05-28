@@ -5787,15 +5787,109 @@
   '((ideographic-radical . 29)	; ⼜
     (ideographic-strokes . 11)
     (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x8658)	; 虘
+      )
+     ((=ucs		  . #x53C8)	; 又
+      ))
+    (sound@ja/on/go	"sya")
+    (sound@ja/on/kan	"sa")
     (=ucs		. #x20B6F)	; 𠭯
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x20B6F)	; 𠭯
+      ))
+    (ideographic-radical . 29)	; ⼜
+    (ideographic-strokes . 11)
+    (total-strokes	 . 13)
+    (hanyu-dazidian	1 401 4)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs@unicode	  . #x8658)	; &JSP-5A3D;
+      (=jis-x0212	  . #x5A3D)	; &JSP-5A3D; [58-29]
+      (=cns11643-3	  . #x3860)	; &I-C3-3860; [24-64]
+      (=daikanwa	  . 32701)	; &I-M-32701;
+      )
+     ((=ucs		  . #x53C8)	; 又
+      ))
+    (=ucs@iso		. #x20B6F)	; &MJ032070;
+    (=mj		. 032070)	; &MJ032070;
+    (=cns11643-4	. #x3C43)	; &I-C4-3C43; [28-35]
+    (=hanyo-denshi/ks	. 037220)	; &MJ032070;
+    (=koseki		. 037220)	; &MJ032070;
+    (=daikanwa		. 03195)	; &I-M-03195;
+    (<-interchangeable
+     ((=ucs		  . #x62AF)	; 抯
+      ))
+    (->formed
+     ((=ucs@unicode	  . #x6463)	; &JSP-4066;
+      (=jis-x0212	  . #x4066)	; &JSP-4066; [32-70]
+      (=cns11643-4	  . #x435E)	; &I-C4-435E; [35-62]
+      (=daikanwa	  . 12601)	; &I-M-12601;
+      )
+     ((=mj		  . 032069)	; &MJ032069;
+      ))
+    (->formed$_1*sources
+     shuowen-zhu daikanwa)
+    (->formed*sources
+     shuowen-zhu daikanwa)
     (->subsumptive
-     ((=daikanwa	  . 03195)	; &M-03195;
+     ((=>>mj		  . 032070)	; &G-MJ032070;
+      (=>>hanyo-denshi/ks . 037220)	; &G-MJ032070;
+      (=>>daikanwa	  . 03195)	; &G-MJ032070;
+      (->subsumptive
+       ((==koseki	    . 037220)	; &g2-M-03195;
+	(==daikanwa	    . 03195)	; &g2-M-03195;
+	)
+       ((==mj		    . 032070)	; &g2-MJ032070;
+	(==hanyo-denshi/ks  . 037220)	; &g2-MJ032070;
+	(->subsumptive
+	 ((===hanyo-denshi/ks . 037220)	; &R-HD-KS-037220;
+	  (=hanyo-denshi/ks/mf . #x0E8A)	; &R-HD-KS-037220;
+	  )
+	 ((===mj	      . 032070)	; &R-MJ032070;
+	  ))
+	)
+       ((=hanziku-1	    . #xF877)	; &HZK01-F877;
+	))
       )
-     ((hanyu-dazidian	  1 401 4)
-      (=hanziku-1	  . #xF877)	; &HZK01-F877;
-      )
-     ((=ucs@iso		  . #x20B6F)	; &C4-3C43;
-      (=cns11643-4	  . #x3C43)	; &C4-3C43; [28-35]
+     ((=>>ucs@iso	  . #x20B6F)	; &MJ032069;
+      (=mj		  . 032069)	; &MJ032069;
+      (=>>cns11643-4	  . #x3C43)	; &MJ032069; [28-35]
+      (=>>hanyo-denshi/ks . 037120)	; &MJ032069;
+      (<-formed
+       ((=ucs@iso	    . #x20B6F)	; &MJ032070;
+	(=mj		    . 032070)	; &MJ032070;
+	(=koseki	    . 037220)	; &MJ032070;
+	))
+      (<-formed$_1*sources
+       koseki)
+      (<-formed*sources
+       koseki)
+      (->subsumptive
+       ((==mj		    . 032069)	; &g2-MJ032069;
+	(==hanyo-denshi/ks  . 037120)	; &g2-MJ032069;
+	(->subsumptive
+	 ((===hanyo-denshi/ks . 037120)	; &R-HD-KS-037120;
+	  (=hanyo-denshi/ks/mf . #x0E80)	; &R-HD-KS-037120;
+	  )
+	 ((===mj	      . 032069)	; &R-MJ032069;
+	  ))
+	)
+       ((==ucs@iso	    . #x20B6F)	; &g2-IU-00020B6F;
+	(==cns11643-4	    . #x3C43)	; &g2-IU-00020B6F; [28-35]
+	(->subsumptive
+	 ((===cns11643-4      . #x3C43)	; &R-C4-3C43; [28-35]
+	  )
+	 ((===ucs@iso	      . #x20B6F)	; &R-U-00020B6F;
+	  ))
+	))
       ))
     ))
 (define-char
