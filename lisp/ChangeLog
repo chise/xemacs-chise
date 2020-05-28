@@ -1,5 +1,8 @@
 2020-05-28  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
+	setting for `=big5-cdp-var-007'.
+
 	* mule/mule-charset.el (default-coded-charset-priority-list): Add
 	`=big5-cdp-var-007'.
 

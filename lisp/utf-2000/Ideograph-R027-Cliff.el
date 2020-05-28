@@ -2045,6 +2045,26 @@
   '((ideographic-radical . 27)	; ⼚
     (ideographic-strokes . 7)
     (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=>ucs@component	  . #x4E06)	; &A-compU+4E06;
+      (=>iwds-1		  .  0150)	; &A-compU+4E06;
+      )
+     ((=ucs		  . #x8F9B)	; 辛
+      ))
+    (sound@ja/on/go	"dai")
+    (sound@ja/on/kan	"tei")
+    (=ucs		. #x5397)	; 厗
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5397)	; 厗
+      ))
+    (ideographic-radical . 27)	; ⼚
+    (ideographic-strokes . 7)
+    (total-strokes	 . 9)
     (hanyu-dazidian	1 73 5)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
@@ -2054,21 +2074,31 @@
       )
      ((=ucs		  . #x8F9B)	; 辛
       ))
-    (=ucs		. #x5397)	; 厗
-    (=cns11643-2	. #x2938)	; &I-C2-2938; [09-24]
+    (=ucs@unicode	. #x5397)	; &C2-2938;
+    (=cns11643-2	. #x2938)	; &C2-2938; [09-24]
     (=big5		. #xCDF6)	; &I-B-CDF6;
     (=daikanwa		. 02943)	; &I-M-02943;
+    (<-ancient
+     ((=ucs@unicode	  . #x92BB)	; &JSP-642E;
+      (=jis-x0212	  . #x642E)	; &JSP-642E; [68-14]
+      (=cns11643-1	  . #x6F59)	; &I-C1-6F59; [79-57]
+      (=daikanwa	  . 40428)	; &I-M-40428;
+      ))
+    (<-ancient$_1*sources
+     yupian daikanwa)
+    (<-ancient*sources
+     yupian daikanwa)
+    (->formed
+     ((=ucs@iso		  . #x25508)	; &C6-5F55;
+      (=cns11643-6	  . #x5F55)	; &C6-5F55; [63-53]
+      (=daikanwa	  . 24352)	; &I-M-24352;
+      ))
+    (->formed$_1*sources
+     jiyun daikanwa)
+    (->formed*sources
+     jiyun daikanwa)
     (->subsumptive
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
-	(=ucs		    . #x2FF8)	; ⿸
-	)
-       ((=ucs		    . #x5382)	; 厂
-	)
-       ((==ucs@unicode	    . #x8F9B)	; &g2-AJ1-02575;
-	(==adobe-japan1-0   . 02575)	; &g2-AJ1-02575;
-	))
-      (==ucs@unicode	  . #x5397)	; &g2-M-02943;
+     ((==ucs@unicode	  . #x5397)	; &g2-M-02943;
       (==cns11643-2	  . #x2938)	; &g2-M-02943; [09-24]
       (==daikanwa	  . 02943)	; &g2-M-02943;
       (->subsumptive
