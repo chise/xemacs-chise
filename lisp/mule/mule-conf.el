@@ -3834,6 +3834,17 @@
 		  mother        =big5-cdp))
   (define-charset-alias '=big5-cdp-var-5 '=big5-cdp-var-005)
 
+  (make-charset '=big5-cdp-var-007
+		"Big5-CDP-var-007 glyph-images of GlyphWiki"
+		'(long-name     "Big5-CDP-var-007"
+		  chars         256
+		  dimension     2
+		  columns       2
+		  graphic       2
+		  direction     l2r
+		  registry      "cdp\\.var-7$"
+		  mother        =big5-cdp))
+
   (make-charset '=big5-cdp-var-010
 		"Big5-CDP-var-010 glyph-images of GlyphWiki"
 		'(long-name     "Big5-CDP-var-010"
