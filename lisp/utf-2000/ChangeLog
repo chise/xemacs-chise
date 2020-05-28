@@ -1,3 +1,18 @@
+2020-05-27  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R031-Enclosure.el (U+56EA-var-001): New character; use
+	`<-denotational' for A-IWDSU+56F1.
+
+	* Ideograph-R030-Mouth.el (RUI6-E16B): New character.
+	(A-compU+20DB7): New abstract node.
+	(U-00020DB7): Add `<-denotational' for A-compU+20DB7; apply new
+	conventions for glyph granularity.
+	(U+20DB7-itaiji-002): New character; use `<-denotational' for
+	A-compU+20DB7.
+	(U+56B1): Add `sound@ja/on'.
+	(UU+56B1): Add `ideographic-structure'; add `<-formed' and
+	`<-same' for UU+6232.
+
 2020-05-26  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R062-Halberd.el (U+6208-itaiji-001): New character.
