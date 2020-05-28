@@ -3,7 +3,8 @@
 	* mule/mule-charset.el (default-coded-charset-priority-list): Add
 	`=big5-cdp-var-007'.
 
-	* mule/mule-conf.el (=big5-cdp-var-007): New character.
+	* mule/mule-conf.el (=big5-cdp-var-007): New coded-charset for
+	XEmacs CHISE.
 
 2020-05-03  MORIOKA Tomohiko  <tomo.git@chise.org>
 
