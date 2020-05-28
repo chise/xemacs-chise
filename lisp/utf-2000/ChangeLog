@@ -1,5 +1,11 @@
 2020-05-27  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R029-Again.el (U-00020B6F): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R019-Power.el (U+52F6): Add `sound@ja/on/{kan|go}'.
+	(UU+52F6): Add `<-formed' and `<-interchangeable' for UU+64A4.
+
 	* Ideograph-R031-Enclosure.el (U+56EA-var-001): New character; use
 	`<-denotational' for A-IWDSU+56F1.
 

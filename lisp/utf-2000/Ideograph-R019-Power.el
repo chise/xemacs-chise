@@ -9234,6 +9234,8 @@
       )
      ((=ucs		  . #x529B)	; 力
       ))
+    (sound@ja/on/go	"deti")
+    (sound@ja/on/kan	"tetu")
     (=ucs		. #x52F6)	; 勶
     (->subsumptive
      ((ideographic-strokes . 15)
@@ -9253,6 +9255,21 @@
       (=jis-x0212	  . #x3379)	; &I-JSP-3379; [19-89]
       (=daikanwa	  . 02475)	; &I-M-02475;
       (=jef-china3	  . #x44D6)	; &I-JC3-44D6;
+      (<-formed
+       ((=ucs@unicode	    . #x64A4)	; &AJ1-03115;
+	(=adobe-japan1-0    . 03115)	; &AJ1-03115;
+	))
+      (<-formed$_1*sources
+       jiyun)
+      (<-interchangeable
+       ((=ucs@unicode	    . #x64A4)	; &AJ1-03115;
+	(=adobe-japan1-0    . 03115)	; &AJ1-03115;
+	(=daikanwa	    . 12726)	; &I-M-12726;
+	))
+      (<-interchangeable$_1*sources
+       shuowen-zhu jiyun daikanwa)
+      (<-interchangeable*sources
+       shuowen-zhu jiyun daikanwa)
       (->subsumptive
        ((=decomposition@cid
 	 ((=ucs		      . #x52F6)	; 勶
@@ -9285,7 +9302,8 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((=cns11643-1	    . #x6865)	; &C1-6865; [72-69]
+       ((=ucs@cns	    . #x5FB9)	; &C1-6865;
+	(=cns11643-1	    . #x6865)	; &C1-6865; [72-69]
 	)
        ((=ucs		    . #x529B)	; 力
 	))
