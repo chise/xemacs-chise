@@ -421,6 +421,7 @@ DESCRIPTION (string) is the description string of the charset."
 	  =big5-cdp-var-003
 	  =big5-cdp-var-004
 	  =big5-cdp-var-005
+	  =big5-cdp-var-007
 	  =big5-cdp-var-010
 	  =ucs-bmp-cjk-compat
           =ucs-bmp-cjk-compat@unicode
