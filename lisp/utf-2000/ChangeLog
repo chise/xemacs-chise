@@ -1,5 +1,7 @@
 2020-05-28  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R002-Line.el (BC-8CE7-itaiji-001): New character.
+
 	* char-db-util.el (char-db-coded-charset-priority-list): Add
 	`=big5-cdp-var-007'.
 
