@@ -1,5 +1,9 @@
 2020-05-28  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R068-Dipper.el (U+659C): Apply new conventions for
+	glyph granularity.
+	(U-0002D91C): New character.
+
 	* Ideograph-R002-Line.el (BC-8CE7-itaiji-001): New character.
 
 	* char-db-util.el (char-db-coded-charset-priority-list): Add
