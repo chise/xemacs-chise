@@ -14,6 +14,11 @@
 	* Ideograph-R019-Power.el (U+52F6): Add `sound@ja/on/{kan|go}'.
 	(UU+52F6): Add `<-formed' and `<-interchangeable' for UU+64A4.
 
+	* Ideograph-R045-Sprout.el (U-00021D0D): Add
+	`ideographic-structure'.
+	(BC-8DB6-itaiji-001): New character; use `<-denotational' for
+	U-00021D0D.
+
 	* Ideograph-R031-Enclosure.el (U+56EA-var-001): New character; use
 	`<-denotational' for A-IWDSU+56F1.
 

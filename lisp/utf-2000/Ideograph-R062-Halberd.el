@@ -4019,7 +4019,7 @@
     (=shinjigen		.  2785)	; &AJ1-01620;
     (<-simplified@JP/Jouyou
      ((=ucs@unicode	  . #x6232)	; &AJ1-04941;
-      (=adobe-japan1-0	  . 04941)	; &I-AJ1-04941;
+      (=adobe-japan1-0	  . 04941)	; &AJ1-04941;
       (=jis-x0208	  . #x5926)	; &I-J90-5926; [57-06]
       ))
     (->subsumptive
@@ -4694,7 +4694,7 @@
      ((=ucs		  . #x6208)	; 戈
       ))
     (=ucs@unicode	. #x6232)	; &AJ1-04941;
-    (=adobe-japan1-0	. 04941)	; &I-AJ1-04941;
+    (=adobe-japan1-0	. 04941)	; &AJ1-04941;
     (=jis-x0208		. #x5926)	; &I-J90-5926; [57-06]
     (=cns11643-1	. #x7361)	; &I-C1-7361; [83-65]
     (=jis-x0213-1	. #x5926)	; &I-JX1-5926; [57-06]
@@ -4887,7 +4887,7 @@
     (=koseki		. 131670)	; &MJ057543;
     (<-formed
      ((=ucs@unicode	  . #x6232)	; &AJ1-04941;
-      (=adobe-japan1-0	  . 04941)	; &I-AJ1-04941;
+      (=adobe-japan1-0	  . 04941)	; &AJ1-04941;
       )
      ((=ucs@unicode	  . #x622F)	; &AJ1-01620;
       (=adobe-japan1-0	  . 01620)	; &AJ1-01620;
