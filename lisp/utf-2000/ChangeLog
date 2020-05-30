@@ -1,3 +1,15 @@
+2020-05-29  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R069-Axe.el (U-0002309F): Apply new conventions for
+	glyph granularity.
+	(U-000230B2): Likewise.
+
+	* Ideograph-R046-Mountain.el (U-00021D64): New character; use
+	`<-denotational' for A-IWDSU+21D64.
+	(A-IWDSU+21D64): New abstract node.
+	(GT-K02925): New character; use `<-denotational' for
+	A-IWDSU+21D64.
+
 2020-05-28  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R068-Dipper.el (U+659C): Apply new conventions for
