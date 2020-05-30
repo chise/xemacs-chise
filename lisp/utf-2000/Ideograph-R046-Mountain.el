@@ -2719,6 +2719,40 @@
     (=cns11643-6	. #x2732)	; &I-C6-2732; [07-18]
     ))
 (define-char
+  '((<-denotational
+     ((=>ucs@iwds-1	  . #x21D64)	; &A-IWDSU+21D64;
+      ))
+    (ideographic-radical . 46)	; ⼭
+    (ideographic-strokes . 4)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x37A2)	; 㞢
+      )
+     ((=ucs		  . #x5C71)	; 山
+      ))
+    (=ucs		. #x21D64)	; 𡵤
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x21D64)	; 𡵤
+      ))
+    (ideographic-radical . 46)	; ⼭
+    (ideographic-strokes . 4)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs-var-002	  . #x37A2)	; &U-v002+37A2;
+      )
+     ((=ucs		  . #x5C71)	; 山
+      ))
+    (=ucs@iso		. #x21D64)	; &U-00021D64;
+    ))
+(define-char
   '((ideographic-radical . 46)	; ⼭
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
@@ -2822,6 +2856,21 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
+     ((=ucs		  . #x37A2)	; 㞢
+      )
+     ((=>ucs@component	  . #x5C6E)	; &A-compU+5C6E;
+      (=>iwds-1		  .  0096)	; &A-compU+5C6E;
+      ))
+    (=>ucs@iwds-1	. #x21D64)	; &A-IWDSU+21D64;
+    ))
+(define-char
+  '((ideographic-radical . 46)	; ⼭
+    (ideographic-strokes . 4)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
      ((=ucs		  . #x4E11)	; 丑
       )
      ((=ucs		  . #x5C71)	; 山
@@ -2873,6 +2922,28 @@
     (->subsumptive
      ((==gt-k		  . 02849)	; &g2-GT-K02849;
       (==gt-pj-k1	  . #x6779)	; &g2-GT-K02849; [71-89]
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@iwds-1	  . #x21D64)	; &A-IWDSU+21D64;
+      ))
+    (ideographic-radical . 46)	; ⼭
+    (ideographic-strokes . 4)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs-var-002	  . #x37A2)	; &U-v002+37A2;
+      )
+     ((=ucs		  . #x2F878)	; 屮
+      ))
+    (=gt-k		. 02925)	; &GT-K02925;
+    (=gt-pj-k1		. #x5126)	; &GT-K02925; [49-06]
+    (->subsumptive
+     ((==gt-k		  . 02925)	; &g2-GT-K02925;
+      (==gt-pj-k1	  . #x5126)	; &g2-GT-K02925; [49-06]
       ))
     ))
 (define-char
