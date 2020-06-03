@@ -1419,6 +1419,7 @@
     (ideographic-radical . 20)	; ⼓
     (ideographic-strokes . 3)
     (total-strokes	 . 5)
+    (sound@ja/on	"sou")
     (=ucs		. #x5306)	; 匆
     (=>jis-x0208	. #x5232)	; 匆 [50-18]
     (=>jis-x0213-1	. #x5232)	; 匆 [50-18]
@@ -1442,6 +1443,7 @@
       ))
     (=ucs		. #x2F82A)	; 匆
     (=cns11643-3	. #x2225)	; &I-C3-2225; [02-05]
+    (=hanyo-denshi/jt	. #xAE55)	; &I-HD-JT-AE55;
     (=gt		. 03218)	; &I-GT-03218;
     (=gt-pj-2		. #x4640)	; &I-GT-03218; [38-32]
     (=daikanwa		. 02511)	; &I-M-02511;
@@ -1452,8 +1454,42 @@
       (=jis-x0208	  . #x5232)	; &I-J90-5232; [50-18]
       (=shinjigen	  .  0772)	; &AJ1-04295;
       ))
+    (<-formed$_1*sources
+     shinjigen)
     (<-formed*sources
-     shinjigen@1ed)
+     shinjigen)
+    (<-same
+     ((=ucs@jis		  . #x60A4)	; &AJ1-14542;
+      (=ucs@ks		  . #x60A4)	; &AJ1-14542;
+      (=adobe-japan1-4	  . 14542)	; &AJ1-14542;
+      (=daikanwa	  . 10693)	; &I-M-10693;
+      ))
+    (<-same*sources
+     shuowen-tongxun-dingsheng daikanwa)
+    (<-vulgar
+     ((=ucs@jis		  . #x60A4)	; &AJ1-14542;
+      (=ucs@ks		  . #x60A4)	; &AJ1-14542;
+      (=adobe-japan1-4	  . 14542)	; &AJ1-14542;
+      ))
+    (->subsumptive
+     ((==ucs@iso	  . #x2F82A)	; &g2-HD-JT-AE55;
+      (==hanyo-denshi/jt  . #xAE55)	; &g2-HD-JT-AE55;
+      (==gt		  . 03218)	; &g2-HD-JT-AE55;
+      (==daikanwa	  . 02511)	; &g2-HD-JT-AE55;
+      (==shinjigen	  .  0774)	; &g2-HD-JT-AE55;
+      (->subsumptive
+       ((===daikanwa	    . 02511)	; &R-M-02511;
+	)
+       ((===hanyo-denshi/jt . #xAE55)	; &R-HD-JT-AE55;
+	)
+       ((===gt		    . 03218)	; &R-GT-03218;
+	)
+       ((===ucs@iso	    . #x2F82A)	; &R-U-0002F82A;
+	))
+      )
+     ((==ucs@cns	  . #x2F82A)	; &g2-CU+2F82A;
+      (==cns11643-3	  . #x2225)	; &g2-CU+2F82A; [02-05]
+      ))
     ))
 (define-char
   '((<-denotational
