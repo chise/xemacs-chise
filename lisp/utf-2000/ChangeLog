@@ -1,5 +1,24 @@
 2020-06-02  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R043-Lame.el (CU+378A): Use UU+795F instead of U+795F
+	as a glyph component.
+	(UU+378A): Likewise.
+
+2020-06-02  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R020-Wrap.el (U+5306): Add `sound@ja/on'.
+	(U-0002F82A): Unify HD-JT-AE55.
+
+	* Ideograph-R016-Table.el (U+51E6): Apply new conventions for
+	glyph granularity.
+	(A-cgnU+2065A): New abstract node.
+	(U-0002065A): Add `<-denotational' for A-cgnU+2065A; use
+	`->denotational' and `->subsumptive'.
+	(A-U+2065A-itaiji-001): New abstract node; use `<-denotational'
+	for A-cgnU+2065A.
+	(U+2065A-itaiji-001): New character; use `<-denotational' for
+	A-U+2065A-itaiji-001.
+
 	* maps-conf.el: Treat the difference of representative
 	glyph-images of 1-67-14 between JIS X 0213:2000 and :2004 as the
 	difference in glyph-image granularity.
