@@ -1,3 +1,9 @@
+2020-06-02  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* maps-conf.el: Treat the difference of representative
+	glyph-images of 1-67-14 between JIS X 0213:2000 and :2004 as the
+	difference in glyph-image granularity.
+
 2020-05-29  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R069-Axe.el (U-0002309F): Apply new conventions for
