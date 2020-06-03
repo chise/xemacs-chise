@@ -239,7 +239,8 @@
 	    (put-char-attribute char '=ucs@jis/2004 ucs)))
 	)
        (rep-char
-	(unless (and (= ku 47)(= ten 64))
+	(unless (or (and (= ku 47)(= ten 64))
+		    (and (= ku 67)(= ten 14)))
 	  (put-char-attribute rep-char '==jis-x0213-1@2000 code)
 	  (remove-char-attribute rep-char '==jis-x0213-1)
 	  (remove-char-attribute rep-char '==jis-x0213-1@2004)
