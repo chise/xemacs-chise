@@ -4764,7 +4764,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=ucs		  . #x795F)	; 祟
+     ((=ucs@unicode	  . #x795F)	; &AJ1-05889;
+      (=adobe-japan1-0	  . 05889)	; &AJ1-05889;
       )
      ((=ucs		  . #x5C24)	; 尤
       ))
@@ -4789,7 +4790,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=ucs		  . #x795F)	; 祟
+     ((=ucs@unicode	  . #x795F)	; &AJ1-05889;
+      (=adobe-japan1-0	  . 05889)	; &AJ1-05889;
       )
      ((=ucs		  . #x5C22)	; 尢
       ))
