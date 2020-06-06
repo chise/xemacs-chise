@@ -1,3 +1,20 @@
+2020-06-05  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R031-Enclosure.el:
+	- Add `=decomposition@hanyo-denshi' for some abstract glyph-forms
+	  of Hanyo-Denshi/IB.
+	- Add some missing Hanyo-Denshi/IB code point.
+	(U+56EA): Unify S-0773; add `<-original' for UU+5306.
+	(U+571B): Unify MJ008887, HD-JT-AF45 and KOSEKI-055350; add
+	MJ008888.
+
+2020-06-04  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R062-Halberd.el (U+6230-itaiji-004): New character;
+	use `<-denotational' for A-cgnU+6230.
+
+	* Ideograph-R028-Private.el (U+2D23C-itaiji-001): New character.
+
 2020-06-02  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R043-Lame.el (CU+378A): Use UU+795F instead of U+795F
