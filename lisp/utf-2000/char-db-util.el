@@ -1402,6 +1402,7 @@
 		    ))
 	       )
 	      ((or (eq name 'ideographic-structure)
+		   (eq name 'ideographic-structure@apparent)
 		   (eq name 'ideographic-combination)
                    ;; (eq name 'ideographic-)
 		   (eq name '=decomposition)
