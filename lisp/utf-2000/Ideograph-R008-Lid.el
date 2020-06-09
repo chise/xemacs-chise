@@ -1027,12 +1027,6 @@
     (=daikanwa		. 00293)	; &I-M-00293;
     (=daijiten		. 00154)	; &I-DJT-00154;
     (=shinjigen		.  0093)	; 亦
-    (<-simplified@CN/component
-     ((=ucs@unicode	  . #x470C)	; &AJ1-18690;
-      (=adobe-japan1-5	  . 18690)	; &AJ1-18690;
-      )
-     ((=ucs		  . #x9FBB)	; 龻
-      ))
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x4EA6)	; 亦
@@ -1095,8 +1089,8 @@
     (=ucs		. #x3005C)	; 𰁜
     (=ruimoku-v6	. #xE168)	; &I-RUI6-E168;
     (<-simplified@CN/component
-     ((=ucs@unicode	  . #x470C)	; &AJ1-18690;
-      (=adobe-japan1-5	  . 18690)	; &AJ1-18690;
+     ((=ucs@unicode	  . #x470C)	; &C5-6952;
+      (=cns11643-5	  . #x6952)	; &C5-6952; [73-50]
       )
      ((=ucs		  . #x9FBB)	; 龻
       ))
