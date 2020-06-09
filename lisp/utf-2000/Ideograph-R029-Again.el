@@ -6828,51 +6828,25 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=ucs@unicode	  . #x470C)	; &AJ1-18690;
-      (=adobe-japan1-5	  . 18690)	; &AJ1-18690;
+     ((=+>ucs@unicode	  . #x470C)	; &o-JX2-786B;
+      (=+>jis-x0213-2	  . #x786B)	; &o-JX2-786B; [88-75]
       )
      ((=ucs		  . #x53C8)	; 又
       ))
-    (=ucs@iso		. #x20B93)	; &MJ032097;
-    (=mj		. 032097)	; &MJ032097;
-    (=cns11643-4	. #x6631)	; &I-C4-6631; [70-17]
-    (=koseki		. 037460)	; &MJ032097;
-    (=daikanwa		. 03222)	; &I-M-03222;
-    (=daijiten		. 01140)	; &I-DJT-01140;
-    (<-formed
-     ((=ucs@unicode	  . #x8B8A)	; &AJ1-05075;
-      (=adobe-japan1-0	  . 05075)	; &AJ1-05075;
-      )
-     ((=ucs@unicode	  . #x5909)	; &AJ1-03617;
-      (=adobe-japan1-0	  . 03617)	; &AJ1-03617;
-      ))
-    (<-formed$_1*sources
-     koseki mj)
-    (<-formed$_2*sources
-     koseki@mj)
-    (<-formed*sources
-     koseki mj)
-    (<-vulgar
-     ((=ucs@unicode	  . #x8B8A)	; &AJ1-05075;
-      (=adobe-japan1-0	  . 05075)	; &AJ1-05075;
-      (=daikanwa	  . 36117)	; &I-M-36117;
-      ))
-    (<-vulgar*sources
-     daikanwa)
+    (=+>ucs@iso		. #x20B93)	; &o-IU+20B93;
     (->subsumptive
-     ((==mj		  . 032097)	; &g2-MJ032097;
-      (==koseki		  . 037460)	; &g2-MJ032097;
-      (==daikanwa	  . 03222)	; &g2-MJ032097;
-      (->subsumptive
-       ((===daikanwa	    . 03222)	; &R-M-03222;
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((===mj		    . 032097)	; &R-MJ032097;
+       ((=ucs@jis	    . #x470C)	; &AJ1-18690;
+	)
+       ((=ucs		    . #x53C8)	; 又
 	))
-      )
-     ((=>>ucs@iso	  . #x20B93)	; &MJ032098;
-      (=mj		  . 032098)	; &MJ032098;
-      (=>>cns11643-4	  . #x6631)	; &MJ032098; [70-17]
-      (=koseki		  . 409590)	; &MJ032098;
+      (=mj		  . 032097)	; &MJ032097;
+      (=koseki		  . 037460)	; &MJ032097;
+      (=daikanwa	  . 03222)	; &I-M-03222;
+      (=daijiten	  . 01140)	; &I-DJT-01140;
       (<-formed
        ((=ucs@unicode	    . #x8B8A)	; &AJ1-05075;
 	(=adobe-japan1-0    . 05075)	; &AJ1-05075;
@@ -6886,16 +6860,65 @@
        koseki@mj)
       (<-formed*sources
        koseki mj)
+      (<-vulgar
+       ((=ucs@unicode	    . #x8B8A)	; &AJ1-05075;
+	(=adobe-japan1-0    . 05075)	; &AJ1-05075;
+	(=daikanwa	    . 36117)	; &I-M-36117;
+	))
+      (<-vulgar*sources
+       daikanwa)
       (->subsumptive
-       ((==mj		    . 032098)	; &g2-MJ032098;
-	(==koseki	    . 409590)	; &g2-MJ032098;
-	(==daijiten	    . 01140)	; &g2-MJ032098;
+       ((=>>mj		    . 032097)	; &G-MJ032097;
 	(->subsumptive
-	 ((===daijiten	      . 01140)	; &R-DJT-01140;
-	  )
-	 ((===mj	      . 032098)	; &R-MJ032098;
+	 ((==mj		      . 032097)	; &g2-MJ032097;
+	  (==koseki	      . 037460)	; &g2-MJ032097;
+	  (==daikanwa	      . 03222)	; &g2-MJ032097;
+	  (->subsumptive
+	   ((===daikanwa	. 03222)	; &R-M-03222;
+	    )
+	   ((===mj		. 032097)	; &R-MJ032097;
+	    ))
 	  ))
 	)
+       ((=mj		    . 032098)	; &MJ032098;
+	(=koseki	    . 409590)	; &MJ032098;
+	(<-formed
+	 ((=ucs@unicode	      . #x8B8A)	; &AJ1-05075;
+	  (=adobe-japan1-0    . 05075)	; &AJ1-05075;
+	  )
+	 ((=ucs@unicode	      . #x5909)	; &AJ1-03617;
+	  (=adobe-japan1-0    . 03617)	; &AJ1-03617;
+	  ))
+	(<-formed$_1*sources
+	 koseki mj)
+	(<-formed$_2*sources
+	 koseki@mj)
+	(<-formed*sources
+	 koseki mj)
+	(->subsumptive
+	 ((==mj		      . 032098)	; &g2-MJ032098;
+	  (==koseki	      . 409590)	; &g2-MJ032098;
+	  (==daijiten	      . 01140)	; &g2-MJ032098;
+	  (->subsumptive
+	   ((===daijiten	. 01140)	; &R-DJT-01140;
+	    )
+	   ((===mj		. 032098)	; &R-MJ032098;
+	    ))
+	  ))
+	))
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((=ucs@unicode	    . #x470C)	; &C5-6952;
+	(=cns11643-5	    . #x6952)	; &C5-6952; [73-50]
+	)
+       ((=ucs		    . #x53C8)	; 又
+	))
+      (=ucs@iso		  . #x20B93)	; &C4-6631;
+      (=cns11643-4	  . #x6631)	; &C4-6631; [70-17]
+      (->subsumptive
        ((==ucs@iso	    . #x20B93)	; &g2-IU-00020B93;
 	(==cns11643-4	    . #x6631)	; &g2-IU-00020B93; [70-17]
 	(->subsumptive
