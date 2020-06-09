@@ -1,5 +1,8 @@
 2020-06-08  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R012-Eight.el (UU+5175): Add
+	`ideographic-structure@apparent'.
+
 	* char-db-util.el (insert-char-attributes): Format
 	`ideographic-structure@apparent' with the same format as
 	`ideographic-structure'.

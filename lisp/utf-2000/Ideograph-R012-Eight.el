@@ -2050,6 +2050,14 @@
       )
      ((=gt-k		  . 00264)	; &GT-K00264;
       ))
+    (ideographic-structure@apparent
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x4E18)	; 丘
+      )
+     ((=gt-k		  . 00059)	; &GT-K00059;
+      ))
     (=ucs@unicode	. #x5175)	; &AJ1-03596;
     (=adobe-japan1-0	. 03596)	; &AJ1-03596;
     (=jis-x0208		. #x4A3C)	; &I-J90-4A3C; [42-28]
