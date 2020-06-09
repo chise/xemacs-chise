@@ -1,3 +1,11 @@
+2020-06-09  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R019-Power.el (U-000208C8): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R028-Private.el (U+53C6): Apply new conventions for
+	glyph granularity.
+
 2020-06-08  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R012-Eight.el (UU+5175): Add
