@@ -1,5 +1,14 @@
 2020-06-09  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R016-Table.el (A-U+22376-itaiji-001): New abstract
+	node.
+	(U+22376-itaiji-001): New character; use `<-denotational' for
+	A-U+22376-itaiji-001.
+	(U+22376-itaiji-002): Ditto.
+
+	* Ideograph-R008-Lid.el (U+4EA6): Omit `<-simplified@CN/component'
+	for UU+470C and U+9FBB.
+
 	* Ideograph-R019-Power.el (U-000208C8): Apply new conventions for
 	glyph granularity.
 
