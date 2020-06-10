@@ -1,5 +1,8 @@
 2020-06-09  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R013-Down-Box.el (U+20541-itaiji-001): New character.
+	(BC-89E0): New character.
+
 	* Ideograph-R029-Again.el (o-IU+20B93): Changed from IU+20B93 to
 	sync with granularity change of
 	[o-UU+470C]<-[UU+470C] and separation of
