@@ -1977,6 +1977,20 @@
       ))
     ))
 (define-char
+  '((ideographic-radical . 13)	; ⼌
+    (ideographic-strokes . 3)
+    (total-strokes	 . 5)
+    (=ucs-itaiji-001	. #x20541)	; &U-i001+20541;
+    (<-formed@component
+     ((=ucs		  . #x20541)	; 𠕁
+      )
+     ((=ucs		  . #x518A)	; 冊
+      ))
+    (->subsumptive
+     ((==ucs-itaiji-001	  . #x20541)	; &g2-U-i001+20541;
+      ))
+    ))
+(define-char
   '((<-denotational@component
      ((=>ucs@component	  . #x20B26)	; &A-compU+20B26;
       (=>ucs-itaiji-001	  . #x56DF)	; &A-compU+20B26;
@@ -2766,6 +2780,23 @@
     (=big5-cdp		. #x86B0)	; &CDP-86B0;
     (->subsumptive
      ((==big5-cdp	  . #x86B0)	; &g2-CDP-86B0;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 13)	; ⼌
+    (ideographic-strokes . 4)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs-itaiji-001	  . #x20541)	; &U-i001+20541;
+      )
+     ((=ucs		  . #x4E00)	; 一
+      ))
+    (=big5-cdp		. #x89E0)	; &CDP-89E0;
+    (->subsumptive
+     ((==big5-cdp	  . #x89E0)	; &g2-CDP-89E0;
       ))
     ))
 (define-char
