@@ -4373,6 +4373,23 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=ucs		  . #x200B7)	; 𠂷
+      ))
+    (ideographic-radical . 4)	; ⼃
+    (ideographic-strokes . 8)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5929)	; 天
+      )
+     ((=ucs		  . #x22189)	; 𢆉
+      ))
+    (=ucs-var-001	. #x200B7)	; &U-v001+200B7;
+    ))
+(define-char
   '((<-denotational@usage
      ((==>ucs@bucs	  . #x4E58)	; &BUCS+4E58;
       ))
