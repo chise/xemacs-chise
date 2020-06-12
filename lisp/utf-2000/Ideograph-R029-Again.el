@@ -4242,6 +4242,10 @@
      ((=ucs@cns		  . #x6E9E)	; &C2-4438;
       (=cns11643-2	  . #x4438)	; &C2-4438; [36-24]
       (=daikanwa	  . 17945)	; &I-M-17945;
+      )
+     ((=ucs@cns		  . #x5AC2)	; &MJ009894;
+      (=mj		  . 009894)	; &MJ009894;
+      (=daikanwa	  . 06603)	; &I-M-06603;
       ))
     (->interchangeable$_1*sources
      jiyun daikanwa)
