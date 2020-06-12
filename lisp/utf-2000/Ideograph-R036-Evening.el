@@ -678,6 +678,26 @@
     (=cns11643-6	. #x243B)	; &I-C6-243B; [04-27]
     ))
 (define-char
+  '((<-denotational
+     ((=ucs		  . #x591A)	; 多
+      ))
+    (ideographic-radical . 36)	; ⼣
+    (ideographic-strokes . 3)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5915)	; 夕
+      )
+     ((=gt-k		  . 00207)	; &GT-K00207;
+      ))
+    (=ucs-var-002	. #x591A)	; &U-v002+591A;
+    (->subsumptive
+     ((==ucs-var-002	  . #x591A)	; &g2-U-v002+591A;
+      ))
+    ))
+(define-char
   '((ideographic-radical . 36)	; ⼣
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
