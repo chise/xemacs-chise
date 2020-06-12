@@ -3219,7 +3219,7 @@
      ((=ucs		  . #x5DFE)	; 巾
       ))
     (=ucs@unicode	. #x5E20)	; &AJ1-21494;
-    (=adobe-japan1-6	. 21494)	; &I-AJ1-21494;
+    (=adobe-japan1-6	. 21494)	; &AJ1-21494;
     (=jis-x0212		. #x3C2C)	; &I-JSP-3C2C; [28-12]
     (=cns11643-2	. #x2A34)	; &I-C2-2A34; [10-20]
     (=big5		. #xCEB3)	; &I-B-CEB3;
