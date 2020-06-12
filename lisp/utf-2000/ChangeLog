@@ -1,3 +1,18 @@
+2020-06-11  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R030-Mouth.el (U+54C6): Apply new conventions for
+	glyph granularity.
+	(U+54D3): Likewise.
+	(U-0002D23C): New character.
+	(U+5635): Apply new conventions for glyph granularity.
+	(o-UU+3618): Changed from UU+3618 to sync with granularity change
+	of
+	[o-UU+470C]<-[UU+470C] and separation of
+	[UU+470C]->[JU+470C],[UU+470C].
+
+	* Ideograph-R029-Again.el (CU+53DF): Add CU+5AC2 as a target of
+	`->interchangeable'.
+
 2020-06-09  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R013-Down-Box.el (U+20541-itaiji-001): New character.
@@ -22,6 +37,85 @@
 
 	* Ideograph-R028-Private.el (U+53C6): Apply new conventions for
 	glyph granularity.
+
+2020-06-08  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R066-Rap.el (U+6536): Apply new conventions for glyph
+	granularity.
+	(U+653C): Likewise.
+	(U-0002D8E3): New character; use `<-denotational@component' for
+	A-IWDSU+2DDC1.
+	(U+653E): Apply new conventions for glyph granularity.
+	(U-00022F02): New character.
+	(U-0002DDC1): New character; use `<-denotational@component' for
+	A-IWDSU+2DDC1.
+	(A-U+6538-itaiji-007): New abstract node.
+	(U+6538-itaiji-007): New character; use `<-denotational' for
+	A-U+6538-itaiji-007.
+	(A-U+6538-itaiji-004): New abstract node.
+	(U+6538-itaiji-004): New character; use `<-denotational' for
+	A-U+6538-itaiji-004.
+	(M-13149): Unify U+3A83; delete mapping for U-00022F14.
+	(U+6545): Apply new conventions for glyph granularity.
+	(U-00022F14): Likewise.
+	(U+6548): Likewise.
+	(U+6549): Likewise.
+	(U+2304B-itaiji-001): New character; use `<-denotational' for
+	A-IWDSU+2304B.
+	(U+555F): Add `sound@ja/on'.
+	(C1-5A76): Add `<-formed', `<-same' and `<-vulgar' for CU+5553.
+	(U+3A8B): Apply new conventions for glyph granularity.
+	(U-00022FA3): Use `->denotational' and `->subsumptive'.
+	(U-0002D8F2): New character.
+	(A-U+22F38-itaiji-002): New abstract node.
+	(U+22F38-itaiji-002): Add `<-denotational' for
+	A-U+22F38-itaiji-002.
+	(U-00022F60): Add `sound@ja/on'.
+	(IU+22F60): Unify MJ037303 and GT-16774.
+	(U+22F60-var-001): Add `ideographic-structure'.
+	(A-cgnU+22F62): New abstract node.
+	(U-00022F62): Add `<-denotational' for A-cgnU+22F62; apply new
+	conventions for glyph granularity.
+	(U-00022F75): Likewise.
+	(A-cgnU+6563): New abstract node.
+	(U+6563): Add `<-denotational' for A-cgnU+6563; add
+	`ideographic-structure'.
+	(UU+6563): Delete `=>ucs@iwds-1'.
+	(HNG-KHI0405-0): Use A-cgnU+6563 instead of U+6563 as its mother.
+	(U-00022F6B): New character.
+	(M-13272): Unify IU+22F6B, MJ037343 and KOSEKI-148640; add
+	`<-denotational' for U-00022F6B instead of `=>ucs' for U-00022FA3.
+	(U+656B): Apply new conventions for glyph granularity.
+	(U+3A9E): Likewise.
+	(U-00030550): New character.
+	(U+3AA4): Apply new conventions for glyph granularity.
+	(U+6579): Use A-IWDSU+28910 instead of U-00025E44 as a component.
+	(M-13366): Unify CU+6579, C2-5066 and B-E5BF; fix structure.
+	(UU+6579): Unify MJ013025 and KOSEKI-149800.
+	(U-00022FD3): Apply new conventions for glyph granularity.
+	(U-0002D910): Likewise.
+	(U-00022FDF): Likewise.
+	(U-00022FE1): Add `ideographic-structure'; add `sound@ja/on'; add
+	some relations for other characters.
+	(A-M-13383): New abstract node.
+	(U-00022FE3): Separate M-13383; add `<-denotational' for
+	A-M-13383; apply new conventions for glyph granularity.
+	(CB08027): New character; use `<-denotational' for U-00022FE3.
+	(U-00022FF2): Use `<-denotational' for A-M-13383 instead of
+	`morohashi-daikanwa'; apply new conventions for glyph granularity.
+	(hanaJU+22FF1): New character; use `<-denotational' for
+	U-00022FF1.
+	(U+6582): Apply new conventions for glyph granularity.
+	(U-0002300B): New character.
+	(U-00023013): Apply new conventions for glyph granularity.
+	(U-00023018): Likewise.
+	(C4-5B39): Unify MH-0227.
+	(A-cgnU+23030): New abstract node.
+	(U-00023030): Add `<-denotational' for A-cgnU+23030; use
+	`->denotational' and `->subsumptive'.
+	(U-00023031): Add `<-denotational' for A-cgnU+23030; apply new
+	conventions for glyph granularity.
+	(A-IWDSU+2DDC1): New abstract node.
 
 2020-06-08  MORIOKA Tomohiko  <tomo.git@chise.org>
 
