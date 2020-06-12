@@ -1,5 +1,16 @@
 2020-06-11  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R036-Evening.el (U+591A-var-002): New character; use
+	`<-denotational' for U+591A.
+
+	* Ideograph-R004-Slash.el (U+200B7-var-001): New character; use
+	`<-denotational' for U-000200B7.
+
+	* Ideograph-R002-Line.el (A-BC-89C5-itaiji-001): New abstract
+	node; use `<-denotational' for BC-89C5.
+	(BC-89C5-itaiji-001): New character; use `<-denotational' for
+	A-BC-89C5-itaiji-001.
+
 	* Ideograph-R030-Mouth.el (U+54C6): Apply new conventions for
 	glyph granularity.
 	(U+54D3): Likewise.
