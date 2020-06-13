@@ -61038,7 +61038,7 @@
       )
      ((=ucs		  . #x53E3)	; 口
       )
-     ((=>ruimoku-v6	  . #xE0B5)	; &A-CB12172;
+     ((=ucs		  . #x3054E)	; 𰕎
       ))
     (sound@ja/on/go	"deti")
     (sound@ja/on/kan	"tetu")
@@ -61058,7 +61058,8 @@
       )
      ((=ucs		  . #x53E3)	; 口
       )
-     ((=cbeta		  . 12172)	; &RUI6-E0B5;
+     ((=ucs@JP/hanazono	  . #x3054E)	; &RUI6-E0B5;
+      (=cbeta		  . 12172)	; &RUI6-E0B5;
       ))
     (=ucs@iso		. #x20F80)	; &M-04309;
     (=daikanwa		. 04309)	; &M-04309;
@@ -80044,6 +80045,7 @@
 	(=ucs		    . #x2FF1)	; ⿱
 	)
        ((=ucs@jis	    . #x470C)	; &AJ1-18690;
+	(=adobe-japan1-5    . 18690)	; &AJ1-18690;
 	)
        ((=ucs		    . #x53E3)	; 口
 	))
