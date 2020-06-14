@@ -1,3 +1,27 @@
+2020-06-13  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R013-Down-Box.el (U+5193-var-003): New character; use
+	`<-denotational' for U+5193.
+
+2020-06-12  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R053-Dotted-Cliff.el (U+3881): Apply new conventions
+	for glyph granularity.
+	(U+388B): Likewise.
+
+	* Ideograph-R031-Enclosure.el (U+56E0): Apply new conventions for
+	glyph granularity.
+	(o-UU+571D): Changed from UU+571D to sync with granularity change
+	of [o-UU+470C]<-[UU+470C] and separation of
+	[UU+470C]->[JU+470C],[UU+470C].
+
+2020-06-12  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R024-Ten.el (U+535B): Add `sound@ja/on'.
+	(o-UU+535B): Changed from UU+535B to sync with granularity change
+	of [o-UU+470C]<-[UU+470C] and separation of
+	[UU+470C]->[JU+470C],[UU+470C].
+
 2020-06-11  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R036-Evening.el (U+591A-var-002): New character; use
@@ -17,8 +41,7 @@
 	(U-0002D23C): New character.
 	(U+5635): Apply new conventions for glyph granularity.
 	(o-UU+3618): Changed from UU+3618 to sync with granularity change
-	of
-	[o-UU+470C]<-[UU+470C] and separation of
+	of [o-UU+470C]<-[UU+470C] and separation of
 	[UU+470C]->[JU+470C],[UU+470C].
 
 	* Ideograph-R029-Again.el (CU+53DF): Add CU+5AC2 as a target of
