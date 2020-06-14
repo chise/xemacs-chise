@@ -1,5 +1,23 @@
 2020-06-13  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R037-Big.el (U+5953): Add `ideographic-structure'; add
+	`sound@ja/on'.
+	(UU+5953): Add `ideographic-structure'; unify MJ009495 and
+	KOSEKI-067900; add `<-Zhouwen' for U-0002F85F; add `<-formed' and
+	`<-same' for UU+4F88.
+	(JU+5953): Add `ideographic-structure'.
+	(U+5962): Add `ideographic-structure'; add `sound@ja/on'.
+	(U-0002F85F): Apply new conventions for glyph granularity.
+	(UU+5962): Add `ideographic-structure'.
+	(U+5971): Apply new conventions for glyph granularity.
+
+	* Ideograph-R026-Seal.el (A-compU+5378): New abstract node.
+	(A-IWDSU+5378): Add `<-denotational' for A-compU+5378.
+	(A-U+5378-itaiji-003): New abstract node; use `<-denotational' for
+	A-compU+5378.
+	(U+5378-itaiji-003): New character; use `<-denotational' for
+	A-U+5378-itaiji-003.
+
 	* Ideograph-R013-Down-Box.el (U+5193-var-003): New character; use
 	`<-denotational' for U+5193.
 
