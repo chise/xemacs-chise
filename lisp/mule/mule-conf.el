@@ -4648,7 +4648,7 @@
                   ;; =>iso-ir	177
 		  mother	=ucs-var-001
 		  min-code #x2E00
-		  max-code #x9FCC
+		  max-code #x9FEA
 		  registry "ucs\\.var001-0"))
   (make-charset '=ucs-sip-var-001
 		"uXXXX-var-001 glyph-images in SIP"
