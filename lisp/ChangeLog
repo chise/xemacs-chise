@@ -1,3 +1,17 @@
+2020-06-14  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-conf.el (=ucs-bmp-var-001): Change `max-code' to
+	#x9FEA.
+
+2020-06-12  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`==ucs-bmp-var-001'.
+
+	* mule/mule-conf.el (==ucs-var-001): New coded-charset for XEmacs
+	CHISE.
+	(==ucs-bmp-var-001): Ditto.
+
 2020-05-28  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
