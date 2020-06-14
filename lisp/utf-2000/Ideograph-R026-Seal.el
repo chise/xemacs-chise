@@ -2095,6 +2095,13 @@
     ))
 (define-char
   '((ideographic-radical . 26)	; ⼙
+    (=>ucs@component	. #x5378)	; &A-compU+5378;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@component	  . #x5378)	; &A-compU+5378;
+      ))
+    (ideographic-radical . 26)	; ⼙
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -2225,6 +2232,39 @@
 	))
       (==adobe-japan1-4	  . 13663)	; &g2-AJ1-13663;
       ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@component	  . #x5378)	; &A-compU+5378;
+      ))
+    (ideographic-radical . 26)	; ⼙
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
+      (=ucs		  . #x2FF9)	; ⿹
+      )
+     ((=ucs-itaiji-001	  . #x3018D)	; &U-i001+3018D;
+      )
+     ((=ucs		  . #x6B62)	; 止
+      ))
+    (=>ucs-itaiji-003	. #x5378)	; &A-U-i003+5378;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs-itaiji-003	  . #x5378)	; &A-U-i003+5378;
+      ))
+    (ideographic-radical . 26)	; ⼙
+    (ideographic-strokes . 9)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
+      (=ucs		  . #x2FF9)	; ⿹
+      )
+     ((=ucs-itaiji-001	  . #x3018D)	; &U-i001+3018D;
+      )
+     ((=ucs@unicode	  . #x6B62)	; &AJ1-02221;
+      (=adobe-japan1-0	  . 02221)	; &AJ1-02221;
+      ))
+    (=ucs-itaiji-003	. #x5378)	; &U-i003+5378;
     ))
 (define-char
   '((ideographic-radical . 26)	; ⼙
