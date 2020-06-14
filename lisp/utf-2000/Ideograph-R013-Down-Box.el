@@ -4089,6 +4089,15 @@
     (ideographic-radical . 13)	; ⼌
     (ideographic-strokes . 8)
     (total-strokes	 . 10)
+    (=ucs-var-003	. #x5193)	; &U-v003+5193;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5193)	; 冓
+      ))
+    (ideographic-radical . 13)	; ⼌
+    (ideographic-strokes . 8)
+    (total-strokes	 . 10)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱

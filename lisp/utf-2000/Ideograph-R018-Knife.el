@@ -18316,8 +18316,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=>ucs@component	  . #x7CB5)	; &A-compU+7CB5;
-      (=>iwds-1		  .  0282)	; &A-compU+7CB5;
+     ((=>ucs@iwds-1	  . #x7CB5)	; &A-IWDSU+7CB5;
+      (=>iwds-1		  .  0282)	; &A-IWDSU+7CB5;
       )
      ((=ucs		  . #x5202)	; 刂
       ))
