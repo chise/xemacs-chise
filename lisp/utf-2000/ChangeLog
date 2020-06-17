@@ -1,3 +1,14 @@
+2020-06-15  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R032-Earth.el (U+5774): Apply new conventions for
+	glyph granularity.
+	(U+9FCD): New character.
+	(U+9FB3): New character.
+	(U-0002146E): Add `ideographic-structure'.
+	(U+9FBC): New character.
+
+	* Ideograph-R015-Ice.el (U+9FD1): New character.
+
 2020-06-13  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R037-Big.el (U+5953): Add `ideographic-structure'; add
