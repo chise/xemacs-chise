@@ -812,15 +812,18 @@
     (=daijiten		. 02419)	; &I-DJT-02419;
     (=cbeta		. 01002)	; &I-CB01002;
     (<-formed
-     ((=ucs		  . #x7919)	; 礙
+     ((=ucs@unicode	  . #x7919)	; &AJ1-05883;
+      (=adobe-japan1-0	  . 05883)	; &AJ1-05883;
       ))
     (<-formed$_1*sources
      jiyun)
     (<-same
-     ((=ucs		  . #x7919)	; 礙
+     ((=ucs@unicode	  . #x7919)	; &AJ1-05883;
+      (=adobe-japan1-0	  . 05883)	; &AJ1-05883;
       (=daikanwa	  . 24542)	; &I-M-24542;
       )
-     ((=ucs		  . #x4677)	; 䙷
+     ((=ucs@unicode	  . #x4677)	; &GT-46862;
+      (=cns11643-3	  . #x3379)	; &GT-46862; [19-89]
       (=daikanwa	  . 34804)	; &I-M-34804;
       ))
     (<-same$_1*sources
