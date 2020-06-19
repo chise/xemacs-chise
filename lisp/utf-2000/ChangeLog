@@ -1,3 +1,8 @@
+2020-06-19  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R044-Corpse.el (U+3794): Apply new conventions for
+	glyph granularity.
+
 2020-06-15  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R032-Earth.el (U+5774): Apply new conventions for
