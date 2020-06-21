@@ -5791,6 +5791,38 @@
   '((ideographic-radical . 1)	; ⼀
     (ideographic-strokes . 6)
     (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5408)	; 合
+      )
+     ((=ucs		  . #x4E00)	; 一
+      ))
+    (=ucs		. #x9FD6)	; 鿖
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x9FD6)	; 鿖
+      ))
+    (ideographic-radical . 1)	; ⼀
+    (ideographic-strokes . 6)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs@unicode	  . #x5408)	; &AJ1-02041;
+      (=adobe-japan1-0	  . 02041)	; &AJ1-02041;
+      )
+     ((=ucs		  . #x4E00)	; 一
+      ))
+    (=ucs@unicode	. #x9FD6)	; &UU+9FD6;
+    ))
+(define-char
+  '((ideographic-radical . 1)	; ⼀
+    (ideographic-strokes . 6)
+    (total-strokes	 . 7)
     (hanyu-dazidian	1 19 11)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -6915,6 +6947,43 @@
        ((=hanziku-1	    . #xA958)	; &HZK01-A958;
 	))
       ))
+    ))
+(define-char
+  '((ideographic-radical . 1)	; ⼀
+    (ideographic-strokes . 8)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
+      (=ucs		  . #x2FF3)	; ⿳
+      )
+     ((=>ucs@iwds-1	  . #x4EBA)	; &A-IWDSU+4EBA;
+      (=>iwds-1		  .  14623)	; &A-IWDSU+4EBA;
+      )
+     ((=ucs		  . #x4F0A)	; 伊
+      )
+     ((=ucs		  . #x4E00)	; 一
+      ))
+    (=ucs		. #x9FD7)	; 鿗
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x9FD7)	; 鿗
+      ))
+    (ideographic-radical . 1)	; ⼀
+    (ideographic-strokes . 8)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
+      (=ucs		  . #x2FF3)	; ⿳
+      )
+     ((=ucs		  . #x4EBA)	; 人
+      )
+     ((=ucs@unicode	  . #x4F0A)	; &MJ006569;
+      (=mj		  . 006569)	; &MJ006569;
+      )
+     ((=ucs		  . #x4E00)	; 一
+      ))
+    (=ucs@unicode	. #x9FD7)	; &UU+9FD7;
     ))
 (define-char
   '((ideographic-radical . 1)	; ⼀
