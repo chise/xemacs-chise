@@ -629,7 +629,7 @@
     (ideographic-strokes . 1)
     (total-strokes	 . 3)
     (=ucs@iso		. #x206A3)	; &C6-2139;
-    (=cns11643-6	. #x2139)	; &I-C6-2139; [01-25]
+    (=cns11643-6	. #x2139)	; &C6-2139; [01-25]
     (=daikanwa		. 01851)	; &I-M-01851;
     (=shinjigen		.  0589)	; &C6-2139;
     (<-Small-Seal
