@@ -1691,8 +1691,76 @@
   '((ideographic-radical . 70)	; ⽅
     (ideographic-strokes . 7)
     (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=cbeta		  . 12073)	; &U-i001+3AC3;
+      )
+     ((=ucs		  . #x6B63)	; 正
+      ))
+    (=ucs		. #x3ACC)	; 㫌
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x3ACC)	; 㫌
+      ))
+    (ideographic-radical . 70)	; ⽅
+    (ideographic-strokes . 7)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=cbeta		  . 12073)	; &U-i001+3AC3;
+      )
+     ((=ucs@unicode	  . #x6B63)	; &AJ1-02649;
+      (=adobe-japan1-0	  . 02649)	; &AJ1-02649;
+      ))
+    (=ucs@unicode	. #x3ACC)	; &UU+3ACC;
+    ))
+(define-char
+  '((ideographic-radical . 70)	; ⽅
+    (ideographic-strokes . 7)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x65B9)	; 方
+      )
+     ((=ucs		  . #x209DA)	; 𠧚
+      ))
     (=ucs		. #x230F7)	; 𣃷
-    (=cns11643-6	. #x404A)	; &I-C6-404A; [32-42]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x230F7)	; 𣃷
+      ))
+    (ideographic-radical . 70)	; ⽅
+    (ideographic-strokes . 7)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x65B9)	; 方
+      )
+     ((=ucs@iso		  . #x209DA)	; &C5-234F;
+      (=cns11643-5	  . #x234F)	; &C5-234F; [03-47]
+      (=daikanwa	  . 02790)	; &I-M-02790;
+      ))
+    (=ucs@iso		. #x230F7)	; &C6-404A;
+    (=cns11643-6	. #x404A)	; &C6-404A; [32-42]
+    (->subsumptive
+     ((==ucs@iso	  . #x230F7)	; &g2-IU-000230F7;
+      (==cns11643-6	  . #x404A)	; &g2-IU-000230F7; [32-42]
+      (->subsumptive
+       ((===cns11643-6	    . #x404A)	; &R-C6-404A; [32-42]
+	)
+       ((===ucs@iso	    . #x230F7)	; &R-U-000230F7;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 70)	; ⽅
