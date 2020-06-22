@@ -1,5 +1,9 @@
 2020-06-21  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R015-Ice.el (U+9FDB): New character.
+
+2020-06-21  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R070-Square.el (U+3ACC): New character.
 	(U-000230F7): Apply new conventions for glyph granularity.
 
