@@ -2361,11 +2361,11 @@
     ))
 (define-char
   '((ideographic-radical . 2)	; ⼁
-    (==>daijiten	. 00044)	; &A2-DJT-00044;
+    (==>daijiten	. 00045)	; &A2-DJT-00045;
     ))
 (define-char
   '((ideographic-radical . 2)	; ⼁
-    (==>daijiten	. 00045)	; &A2-DJT-00045;
+    (==>daijiten	. 00044)	; &A2-DJT-00044;
     ))
 (define-char
   '((ideographic-radical . 2)	; ⼁

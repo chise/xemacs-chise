@@ -1502,11 +1502,11 @@
     ))
 (define-char
   '((ideographic-radical . 3)	; ⼂
-    (==>daijiten	. 00062)	; &A2-DJT-00062;
+    (==>daijiten	. 00064)	; &A2-DJT-00064;
     ))
 (define-char
   '((ideographic-radical . 3)	; ⼂
-    (==>daijiten	. 00064)	; &A2-DJT-00064;
+    (==>daijiten	. 00062)	; &A2-DJT-00062;
     ))
 (define-char
   '((ideographic-radical . 3)	; ⼂
