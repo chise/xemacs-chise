@@ -6582,6 +6582,39 @@
     ))
 (define-char
   '((ideographic-radical . 15)	; ⼎
+    (ideographic-strokes . 22)
+    (total-strokes	 . 24)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x51CC)	; 凌
+      )
+     ((=>ucs@iwds-1	  . #x723E)	; &A-IWDSU+723E;
+      ))
+    (=ucs		. #x9FDB)	; 鿛
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x9FDB)	; 鿛
+      ))
+    (ideographic-radical . 15)	; ⼎
+    (ideographic-strokes . 22)
+    (total-strokes	 . 24)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs@unicode	  . #x51CC)	; &MJ007396;
+      (=mj		  . 007396)	; &MJ007396;
+      )
+     ((=ucs@unicode	  . #x723E)	; &MJ016762;
+      (=mj		  . 016762)	; &MJ016762;
+      ))
+    (=ucs@unicode	. #x9FDB)	; &UU+9FDB;
+    ))
+(define-char
+  '((ideographic-radical . 15)	; ⼎
     (ideographic-strokes . 24)
     (total-strokes	 . 26)
     (hanyu-dazidian	1 302 13)
