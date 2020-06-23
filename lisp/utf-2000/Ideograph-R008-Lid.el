@@ -2684,7 +2684,8 @@
     (=cns11643-6	. #x2E51)	; &I-C6-2E51; [14-49]
     (=daikanwa		. 00308)	; &I-M-00308;
     (<-ancient
-     ((=ucs		  . #x514B)	; 克
+     ((=ucs@unicode	  . #x514B)	; &MJ007226;
+      (=mj		  . 007226)	; &MJ007226;
       (=daikanwa	  . 01355)	; &I-M-01355;
       ))
     (<-ancient*sources
