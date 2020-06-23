@@ -319,6 +319,25 @@
   '((ideographic-radical . 27)	; ⼚
     (ideographic-strokes . 3)
     (total-strokes	 . 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=>ucs@component	  . #x4E06)	; &A-compU+4E06;
+      (=>iwds-1		  .  0150)	; &A-compU+4E06;
+      )
+     ((=ucs		  . #x5E72)	; 干
+      ))
+    (sound@ja/on	"kaN")
+    (=ucs		. #x5388)	; 厈
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5388)	; 厈
+      ))
+    (ideographic-radical . 27)	; ⼚
+    (ideographic-strokes . 3)
+    (total-strokes	 . 5)
     (hanyu-dazidian	1 68 6)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
@@ -328,14 +347,47 @@
       )
      ((=ucs		  . #x5E72)	; 干
       ))
-    (=ucs		. #x5388)	; 厈
-    (=adobe-japan1-6	. 21238)	; &I-AJ1-21238;
+    (=ucs@unicode	. #x5388)	; &AJ1-21238;
+    (=adobe-japan1-6	. 21238)	; &AJ1-21238;
     (=jis-x0212		. #x3445)	; &I-JSP-3445; [20-37]
     (=cns11643-4	. #x2166)	; &I-C4-2166; [01-70]
     (=big5-cdp		. #x8CF5)	; &I-CDP-8CF5;
     (=daikanwa		. 02896)	; &I-M-02896;
     (=cbeta		. 05809)	; &I-CB05809;
     (=jef-china3	. #x45D9)	; &I-JC3-45D9;
+    (<-Zhouwen
+     ((=ucs		  . #x5382)	; 厂
+      (=daikanwa	  . 02890)	; &I-M-02890;
+      ))
+    (<-Zhouwen*sources
+     shuowen daikanwa)
+    (->subsumptive
+     ((==ucs@unicode	  . #x5388)	; &g2-AJ1-21238;
+      (==adobe-japan1-6	  . 21238)	; &g2-AJ1-21238;
+      (==jis-x0212	  . #x3445)	; &g2-AJ1-21238; [20-37]
+      (==cns11643-4	  . #x2166)	; &g2-AJ1-21238; [01-70]
+      (==big5-cdp	  . #x8CF5)	; &g2-AJ1-21238;
+      (==daikanwa	  . 02896)	; &g2-AJ1-21238;
+      (==cbeta		  . 05809)	; &g2-AJ1-21238;
+      (==jef-china3	  . #x45D9)	; &g2-AJ1-21238;
+      (->subsumptive
+       ((===daikanwa	    . 02896)	; &R-M-02896;
+	)
+       ((===jis-x0212	    . #x3445)	; &R-JSP-3445; [20-37]
+	)
+       ((===adobe-japan1-6  . 21238)	; &R-AJ1-21238;
+	)
+       ((===big5-cdp	    . #x8CF5)	; &R-CDP-8CF5;
+	)
+       ((===cns11643-4	    . #x2166)	; &R-C4-2166; [01-70]
+	)
+       ((===jef-china3	    . #x45D9)	; &R-JC3-45D9;
+	)
+       ((===ucs@unicode	    . #x5388)	; &R-UU+5388;
+	)
+       ((===cbeta	    . 05809)	; &R-CB05809;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 27)	; ⼚
