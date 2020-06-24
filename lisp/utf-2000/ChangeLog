@@ -1,7 +1,21 @@
 2020-06-23  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R013-Down-Box.el (U-0002053D): Apply new conventions
+	for glyph granularity.
+	(A-U+5189-itaiji-005): New abstract node.
+	(GT-K07710): New character; unify U+5189-itaiji-005; use
+	`<-denotational' for A-U+5189-itaiji-005.
+	(GT-K07709): New character; use `<-subsumptive' for GT-K07710.
+
+	* Ideograph-R032-Earth.el (U+578E): Apply new conventions for
+	glyph granularity.
+
 	* Ideograph-R027-Cliff.el (U+5388): Apply new conventions for
 	glyph granularity.
+
+2020-06-22  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R051-Dry.el (U-0002D63E): New character.
 
 2020-06-21  MORIOKA Tomohiko  <tomo.git@chise.org>
 
