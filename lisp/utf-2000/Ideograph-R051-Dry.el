@@ -697,6 +697,20 @@
     ))
 (define-char
   '((ideographic-radical . 51)	; ⼲
+    (ideographic-strokes . 3)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
+      (=ucs		  . #x2FF4)	; ⿴
+      )
+     ((=ucs		  . #x5348)	; 午
+      )
+     ((=ucs		  . #x4E8C)	; 二
+      ))
+    (=ucs		. #x2D63E)	; 𭘾
+    ))
+(define-char
+  '((ideographic-radical . 51)	; ⼲
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
     (ideographic-structure
