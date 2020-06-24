@@ -1,3 +1,12 @@
+2020-06-24  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`=ucs-tip-var-001' and `=ucs-tip-var-002'.
+
+	* mule/mule-conf.el (=ucs-tip-var-001): New coded-charset for
+	XEmacs CHISE.
+	(=ucs-tip-var-002): Ditto.
+
 2020-06-14  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* mule/mule-conf.el (=ucs-bmp-var-001): Change `max-code' to
