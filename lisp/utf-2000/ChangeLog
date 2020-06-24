@@ -1,5 +1,22 @@
 2020-06-24  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R008-Lid.el (A-cgnU+2014F): New abstract node.
+	(U-00021C40): Copied from Ideograph-R044-Corpse.el; apply new
+	conventions for glyph granularity; add `<-denotational' for
+	A-cgnU+2014F.
+	(M-00302): Map to U-00021C40 instead of U-0002014F.
+	(U-0002014F): Apply new conventions for glyph granularity; add
+	`<-denotational' for A-cgnU+2014F.
+	(U-00020154): Apply new conventions for glyph granularity.
+	(U-00020161): Add `ideographic-structure'; add `sound@ja/on'.
+	(IU+20161): Apply new conventions for glyph granularity.
+
+	* Ideograph-R044-Corpse.el (U-00021C40): Apply new conventions for
+	glyph granularity; add `<-denotational' for A-cgnU+2014F; use
+	`ideographic-{radical|strokes}@ucs' instead of
+	`ideographic-{radical|strokes}'; add
+	`ideographic-{radical|strokes}@r008'.
+
 	* Ideograph-R025-Divination.el (U-000209DA): Apply new conventions
 	for glyph granularity.
 	(A-cgnU+209F9): New abstract node.
