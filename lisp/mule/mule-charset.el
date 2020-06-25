@@ -383,6 +383,7 @@ DESCRIPTION (string) is the description string of the charset."
 	  =ucs-tip-var-002
 	  =ucs-bmp-var-003
 	  =ucs-sip-var-003
+	  =ucs-tip-var-003
 	  =ucs-bmp-var-004
 	  =ucs-sip-var-004
 	  =ucs-bmp-var-005
@@ -672,6 +673,7 @@ DESCRIPTION (string) is the description string of the charset."
 	  =>zinbun-oracle
 	  =+>adobe-japan1-6
 	  =+>ucs-bmp-var-003
+	  =+>ucs-tip-var-003
 	  =+>jis-x0208@1978
 	  =+>big5-cdp
 	  )))

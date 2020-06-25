@@ -4810,6 +4810,17 @@
 		  mother	=ucs-var-003
 		  min-code #x20000 max-code #x2FFFF
 		  registry "ucs00\\.var003-2"))
+  (make-charset '=ucs-tip-var-003
+		"uXXXX-var-003 glyph-images in TIP"
+		'(long-name	"UCS-TIP-var-003"
+		  chars		256
+		  dimension	2
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  mother	=ucs-var-003
+		  min-code #x30000 max-code #x3FFFF
+		  registry "ucs00\\.var003-3"))
   (make-charset '=+>ucs-var-003
 		"uXXXX-var-003's unified glyphs of GlyphWiki"
 		'(long-name	"UCS-var-003 unified glyphs"
@@ -4833,6 +4844,17 @@
 		  min-code #x2E00
 		  max-code #x9FCC
 		  registry "ucs\\.var003-0"))
+  (make-charset '=+>ucs-tip-var-003
+		"uXXXX-var-003 unified glyphs in TIP"
+		'(long-name	"UCS-TIP-var-003 unified glyphs"
+		  chars		256
+		  dimension	2
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  mother	=+>ucs-var-003
+		  min-code #x30000 max-code #x3FFFF
+		  registry "ucs00\\.var003-3"))
 
   (make-charset '=ucs-var-004
 		"uXXXX-var-004 glyph-images of GlyphWiki"
