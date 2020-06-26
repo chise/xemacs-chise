@@ -1,4 +1,33 @@
+2020-06-26  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R029-Again.el (U+53D8): Use "⿱亦又" instead of
+	"⿳亠&CDP-89BB;又"; apply new conventions for glyph granularity.
+
 2020-06-25  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R070-Square.el (CB12073): Unify U-0002D928.
+
+2020-06-25  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R019-Power.el (A-IWDSU+52C0): New abstract node.
+	(U+52C0): Add `<-denotational' for A-IWDSU+52C0; apply new
+	conventions for glyph granularity.
+	(U+52C1): Use `<-denotational@component' instead of
+	`<-denotational' for BUCS+52C1.
+	(U+52CA): Add `<-denotational' for A-IWDSU+52C0; apply new
+	conventions for glyph granularity.
+	(A-cgnU+52DD): New abstract node; use `<-denotational@usage' for
+	BUCS+52DD.
+	(U+52DD): Use `<-denotational@component' instead of
+	`<-denotational' for BUCS+52DD; add `<-denotational' for
+	A-cgnU+52DD; use "⿸𰮤力" instead of "⿰月劵"; apply new
+	conventions for glyph granularity.
+	(U+52DD-itaiji-002): New character; use `<-denotational' for
+	A-cgnU+52DD.
+	(HNG-KHI0278-0): Use `<-subsumptive' for U+52DD-itaiji-002 instead
+	of `<-denotational' for U+52DD.
+	(HNG-KHM0220-0): Use `<-subsumptive' for g2-U+52DD-itaiji-002
+	instead of `<-denotational' for U+52DD.
 
 	* char-db-util.el (char-db-coded-charset-priority-list): Add
 	`=+>ucs-var-003'.
