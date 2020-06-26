@@ -240,13 +240,19 @@
      ((name*		  . "ideographic component person for top")
       (=ucs		  . #x20089)	; 𠂉
       ))
-    (=cbeta		. 12073)	; &U-i001+3AC3;
-    (=ucs-itaiji-001	. #x3AC3)	; &U-i001+3AC3;
+    (=ucs		. #x2D928)	; 𭤨
+    (=cbeta		. 12073)	; &I-CB12073;
+    (=ucs-itaiji-001	. #x3AC3)	; 𭤨
     (<-formed@component/surround-from-upper-left
      ((=ucs		  . #x3AC3)	; 㫃
       ))
     (->subsumptive
-     ((==cbeta		  . 12073)	; &g2-CB12073;
+     ((==ucs@JP/hanazono  . #x2D928)	; &g2-U-i001+3AC3;
+      (==cbeta		  . 12073)	; &g2-U-i001+3AC3;
+      (==ucs-itaiji-001	  . #x3AC3)	; &g2-U-i001+3AC3;
+      (->subsumptive
+       ((===cbeta	    . 12073)	; &R-CB12073;
+	))
       ))
     ))
 (define-char
@@ -1695,7 +1701,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
       (=ucs		  . #x2FF8)	; ⿸
       )
-     ((=cbeta		  . 12073)	; &U-i001+3AC3;
+     ((=ucs		  . #x2D928)	; 𭤨
       )
      ((=ucs		  . #x6B63)	; 正
       ))
@@ -1712,12 +1718,18 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
       (=ucs		  . #x2FF8)	; ⿸
       )
-     ((=cbeta		  . 12073)	; &U-i001+3AC3;
+     ((=ucs		  . #x2D928)	; 𭤨
       )
      ((=ucs@unicode	  . #x6B63)	; &AJ1-02649;
       (=adobe-japan1-0	  . 02649)	; &AJ1-02649;
       ))
     (=ucs@unicode	. #x3ACC)	; &UU+3ACC;
+    (->subsumptive
+     ((==ucs@unicode	  . #x3ACC)	; &g2-UU+3ACC;
+      (->subsumptive
+       ((===ucs@unicode	    . #x3ACC)	; &R-UU+3ACC;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 70)	; ⽅
@@ -1770,7 +1782,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
       (=ucs		  . #x2FF8)	; ⿸
       )
-     ((=cbeta		  . 12073)	; &U-i001+3AC3;
+     ((=ucs		  . #x2D928)	; 𭤨
       )
      ((=ucs		  . #x53F2)	; 史
       ))
@@ -2263,7 +2275,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
       (=ucs		  . #x2FF8)	; ⿸
       )
-     ((=cbeta		  . 12073)	; &U-i001+3AC3;
+     ((=ucs		  . #x2D928)	; 𭤨
       )
      ((=ucs		  . #x8ECD)	; 軍
       ))
@@ -2505,7 +2517,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
       (=ucs		  . #x2FF8)	; ⿸
       )
-     ((=cbeta		  . 12073)	; &U-i001+3AC3;
+     ((=ucs		  . #x2D928)	; 𭤨
       )
      ((=ucs		  . #x7568)	; 畨
       ))
