@@ -1,3 +1,8 @@
+2020-06-25  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* char-db-util.el (char-db-coded-charset-priority-list): Add
+	`=+>ucs-var-003'.
+
 2020-06-24  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R008-Lid.el (A-cgnU+2014F): New abstract node.

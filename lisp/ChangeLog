@@ -1,5 +1,8 @@
 2020-06-24  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
+	setting for `=+>ucs-var-003'.
+
 	* mule/mule-charset.el (default-coded-charset-priority-list): Add
 	`=ucs-tip-var-003' and `=+>ucs-tip-var-003'.
 
