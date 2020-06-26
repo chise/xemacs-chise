@@ -2989,18 +2989,35 @@
     (total-strokes	 . 8)
     (hanyu-dazidian	1 397 1)
     (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
-      (=ucs		  . #x2FF3)	; ⿳
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=ucs		  . #x4EA0)	; 亠
-      )
-     ((=big5-cdp	  . #x89BB)	; &CDP-89BB;
+     ((=ucs		  . #x4EA6)	; 亦
       )
      ((=ucs		  . #x53C8)	; 又
       ))
     (=ucs		. #x53D8)	; 变
     (=gb2312		. #x3164)	; &I-G0-3164; [17-68]
-    (=hanziku-1		. #xF7B3)	; &I-HZK01-F7B3;
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((=ucs		    . #x3005C)	; 𰁜
+	)
+       ((=ucs		    . #x53C8)	; 又
+	))
+      (=>>ucs@unicode	  . #x53D8)	; &G-UU+53D8;
+      (->subsumptive
+       ((==ucs@unicode	    . #x53D8)	; &g2-UU+53D8;
+	(==gb2312	    . #x3164)	; &g2-UU+53D8; [17-68]
+	(->subsumptive
+	 ((===ucs@unicode     . #x53D8)	; &R-UU+53D8;
+	  )
+	 ((=hanziku-1	      . #xF7B3)	; &HZK01-F7B3;
+	  ))
+	))
+      ))
     ))
 (define-char
   '((<-denotational@usage
