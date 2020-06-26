@@ -636,6 +636,7 @@
 	  (=>cns11643-5				"A-C5-" 4 X)
 	  (=>cns11643-7				"A-C7-" 4 X)
 	  (=>big5-cdp			       "A-CDP-" 4 X)
+	  (=+>ucs-var-003		    "o-U-v003+" 4 X)
 	  (=>ucs-itaiji-001		    "A-U-i001+" 4 X)
 	  (=>ucs-itaiji-002		    "A-U-i002+" 4 X)
 	  (=>ucs-itaiji-003		    "A-U-i003+" 4 X)
