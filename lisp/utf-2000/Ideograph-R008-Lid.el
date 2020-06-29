@@ -822,6 +822,30 @@
     (ideographic-radical . 8)	; ⼇
     (ideographic-strokes . 4)
     (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
+      (=ucs		  . #x2FF3)	; ⿳
+      )
+     ((=ucs		  . #x4EA0)	; 亠
+      )
+     ((=big5-cdp	  . #x89C2)	; &GT-00154;
+      (=daikanwa	  . 00114)	; &I-M-00114;
+      )
+     ((=>ucs@iwds-1	  . #x4EBA)	; &A-IWDSU+4EBA;
+      (=>iwds-1		  .  14623)	; &A-IWDSU+4EBA;
+      ))
+    (sound@ja/kun	"inosisi" "i")
+    (sound@ja/on/go	"gai" "kai")
+    (sound@ja/on/kan	"kai" "kai")
+    (=ucs		. #x4EA5)	; 亥
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x4EA5)	; 亥
+      ))
+    (ideographic-radical . 8)	; ⼇
+    (ideographic-strokes . 4)
+    (total-strokes	 . 6)
     (hanyu-dazidian	1 283 5)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
@@ -834,11 +858,8 @@
       )
      ((=ucs		  . #x4EBA)	; 人
       ))
-    (sound@ja/kun	"inosisi" "i")
-    (sound@ja/on/go	"gai" "kai")
-    (sound@ja/on/kan	"kai" "kai")
-    (=ucs		. #x4EA5)	; 亥
-    (=mj		. 006470)	; &I-MJ006470;
+    (=ucs@unicode	. #x4EA5)	; &MJ006470;
+    (=mj		. 006470)	; &MJ006470;
     (=adobe-japan1-0	. 01195)	; &I-AJ1-01195;
     (=jis-x0208		. #x3067)	; &I-J90-3067; [16-71]
     (=gb2312		. #x3A25)	; &I-G0-3A25; [26-05]
@@ -853,7 +874,7 @@
     (=gt-pj-1		. #x3067)	; &I-GT-00387; [16-71]
     (=daikanwa		. 00292)	; &I-M-00292;
     (=daijiten		. 00153)	; &I-DJT-00153;
-    (=shinjigen		.  0094)	; 亥
+    (=shinjigen		.  0094)	; &MJ006470;
     (->ancient
      ((=ucs		  . #x22053)	; 𢁓
       (=daikanwa	  . 08779)	; &I-M-08779;
@@ -1259,8 +1280,8 @@
     (=hanyo-denshi/jt	. #xC0B3)	; &I-HD-JT-C0B3;
     (=koseki		. 003590)	; 㐪
     (<-formed
-     ((=ucs		  . #x4EA5)	; 亥
-      (=mj		  . 006470)	; &I-MJ006470;
+     ((=ucs@unicode	  . #x4EA5)	; &MJ006470;
+      (=mj		  . 006470)	; &MJ006470;
       ))
     (<-formed*sources
      mj)
