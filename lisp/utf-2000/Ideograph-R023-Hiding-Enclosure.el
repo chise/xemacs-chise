@@ -679,16 +679,22 @@
     (=daikanwa		. 02679)	; &I-M-02679;
     ))
 (define-char
-  '((<-denotational
+  '((<-denotational@usage
      ((==>ucs@bucs	  . #x91AB)	; &BUCS+91AB;
       ))
     (ideographic-radical . 23)	; ⼖
     (ideographic-strokes . 5)
     (total-strokes	 . 7)
-    (=ucs		. #x533B)	; 医
-    (<-simplified@ucs
-     ((=ucs		  . #x91AB)	; 醫
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
+      (=ucs		  . #x2FF7)	; ⿷
+      )
+     ((=>ucs@component	  . #x531A)	; &A-compU+531A;
+      (=>iwds-1		  .  0209)	; &A-compU+531A;
+      )
+     ((=ucs		  . #x77E2)	; 矢
       ))
+    (=ucs		. #x533B)	; 医
     ))
 (define-char
   '((<-denotational
@@ -697,7 +703,6 @@
     (ideographic-radical . 23)	; ⼖
     (ideographic-strokes . 5)
     (total-strokes	 . 7)
-    (hanyu-dazidian	1 85 3)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
       (=ucs		  . #x2FF7)	; ⿷
@@ -706,58 +711,62 @@
       )
      ((=ucs		  . #x77E2)	; 矢
       ))
-    (=ucs@cns		. #x533B)	; &MJ007821;
-    (=mj		. 007821)	; &MJ007821;
-    (=cns11643-3	. #x2466)	; &I-C3-2466; [04-70]
-    (=big5-cdp		. #x8CD3)	; &I-CDP-8CD3;
-    (=hanyo-denshi/ks	. 030470)	; &MJ007821;
-    (=daikanwa		. 02680)	; &I-M-02680;
+    (=+>ucs@cns		. #x533B)	; &o-CDP-8CD3;
+    (=+>big5-cdp	. #x8CD3)	; &o-CDP-8CD3;
     (->subsumptive
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
-	(=ucs		    . #x2FF7)	; ⿷
-	)
-       ((==ucs@cns	    . #x5338)	; &g2-AJ1-04307;
-	(==ucs@jis	    . #x5338)	; &g2-AJ1-04307;
-	(==adobe-japan1-0   . 04307)	; &g2-AJ1-04307;
-	)
-       ((=gt-k		    . 01013)	; &GT-K01013;
-	))
-      (==ucs@cns	  . #x533B)	; &g2-CDP-8CD3;
-      (==cns11643-3	  . #x2466)	; &g2-CDP-8CD3; [04-70]
-      (==big5-cdp	  . #x8CD3)	; &g2-CDP-8CD3;
-      (==daikanwa	  . 02680)	; &g2-CDP-8CD3;
-      (->subsumptive
-       ((===daikanwa	    . 02680)	; &R-M-02680;
-	)
-       ((===big5-cdp	    . #x8CD3)	; &R-CDP-8CD3;
-	)
-       ((===cns11643-3	    . #x2466)	; &R-C3-2466; [04-70]
-	))
-      )
-     ((=decomposition@hanyo-denshi
-       ((=ucs		    . #x533B)	; 医
-	)
-       ((=ucs		    . #xE0102)	; 󠄂
-	))
+     ((hanyu-dazidian	  1 85 3)
       (ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
 	(=ucs		    . #x2FF7)	; ⿷
 	)
-       ((==ucs@cns	    . #x5338)	; &g2-AJ1-04307;
-	(==ucs@jis	    . #x5338)	; &g2-AJ1-04307;
-	(==adobe-japan1-0   . 04307)	; &g2-AJ1-04307;
+       ((=ucs@unicode	    . #x5338)	; &AJ1-04307;
+	(=adobe-japan1-0    . 04307)	; &AJ1-04307;
 	)
        ((=ucs		    . #x77E2)	; 矢
 	))
-      (==mj		  . 007821)	; &g2-MJ007821;
-      (==hanyo-denshi/ks  . 030470)	; &g2-MJ007821;
+      (=ucs@cns		  . #x533B)	; &MJ007821;
+      (=mj		  . 007821)	; &MJ007821;
+      (=cns11643-3	  . #x2466)	; &I-C3-2466; [04-70]
+      (=big5-cdp	  . #x8CD3)	; &I-CDP-8CD3;
+      (=hanyo-denshi/ks	  . 030470)	; &MJ007821;
+      (=daikanwa	  . 02680)	; &I-M-02680;
       (->subsumptive
-       ((===hanyo-denshi/ks . 030470)	; &R-HD-KS-030470;
-	(=hanyo-denshi/ks/mf . #x0BE7)	; &R-HD-KS-030470;
+       ((==ucs@cns	    . #x533B)	; &g2-CDP-8CD3;
+	(==cns11643-3	    . #x2466)	; &g2-CDP-8CD3; [04-70]
+	(==big5-cdp	    . #x8CD3)	; &g2-CDP-8CD3;
+	(==daikanwa	    . 02680)	; &g2-CDP-8CD3;
+	(->subsumptive
+	 ((===daikanwa	      . 02680)	; &R-M-02680;
+	  )
+	 ((===big5-cdp	      . #x8CD3)	; &R-CDP-8CD3;
+	  )
+	 ((===cns11643-3      . #x2466)	; &R-C3-2466; [04-70]
+	  ))
 	)
-       ((===mj		    . 007821)	; &R-MJ007821;
+       ((=decomposition@hanyo-denshi
+	 ((=ucs		      . #x533B)	; 医
+	  )
+	 ((=ucs		      . #xE0102)	; 󠄂
+	  ))
+	(==mj		    . 007821)	; &g2-MJ007821;
+	(==hanyo-denshi/ks  . 030470)	; &g2-MJ007821;
+	(->subsumptive
+	 ((===hanyo-denshi/ks . 030470)	; &R-HD-KS-030470;
+	  (=hanyo-denshi/ks/mf . #x0BE7)	; &R-HD-KS-030470;
+	  )
+	 ((===mj	      . 007821)	; &R-MJ007821;
+	  ))
 	))
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
+	(=ucs		    . #x2FF7)	; ⿷
+	)
+       ((=ucs-var-002	    . #x5338)	; &U-v002+5338;
+	)
+       ((=ucs		    . #x77E2)	; 矢
+	))
+      (=ucs-var-004	  . #x533B)	; &U-v004+533B;
       ))
     ))
 (define-char
@@ -806,14 +815,6 @@
        ((=ucs		    . #x533B)	; 医
 	)
        ((=ucs		    . #xE0100)	; 󠄀
-	))
-      (ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
-	(=ucs		    . #x2FF7)	; ⿷
-	)
-       ((=ucs		    . #x531A)	; 匚
-	)
-       ((=gt-k		    . 01013)	; &GT-K01013;
 	))
       (==ucs@unicode	  . #x533B)	; &g2-AJ1-01193;
       (==adobe-japan1-0	  . 01193)	; &g2-AJ1-01193;

@@ -1357,8 +1357,27 @@
       )
      ((=ucs		  . #x5BF8)	; 寸
       ))
+    (sound@ja/on	"koku")
     (=ucs		. #x5C05)	; 尅
-    (=adobe-japan1-0	. 04640)	; &I-AJ1-04640;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5C05)	; 尅
+      ))
+    (ideographic-radical . 41)	; ⼨
+    (ideographic-strokes . 7)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
+      (=ucs		  . #x2FFA)	; ⿺
+      )
+     ((=ucs@unicode	  . #x514B)	; &MJ007226;
+      (=mj		  . 007226)	; &MJ007226;
+      )
+     ((=ucs		  . #x5BF8)	; 寸
+      ))
+    (=ucs@unicode	. #x5C05)	; &AJ1-04640;
+    (=adobe-japan1-0	. 04640)	; &AJ1-04640;
     (=jis-x0208		. #x5571)	; &I-J90-5571; [53-81]
     (=iso-ir165		. #x2D61)	; &I-EGB-2D61; [13-65]
     (=cns11643-3	. #x3058)	; &I-C3-3058; [16-56]
@@ -1367,15 +1386,23 @@
     (=gt-pj-1		. #x5571)	; &I-GT-09352; [53-81]
     (=daikanwa		. 07435)	; &I-M-07435;
     (=daijiten		. 02423)	; &I-DJT-02423;
-    (=shinjigen		.  0639)	; 尅
+    (=shinjigen		.  0639)	; &AJ1-04640;
     (=cbeta		. 00018)	; &I-CB00018;
+    (<-same
+     ((=ucs@unicode	  . #x524B)	; &AJ1-04261;
+      (=adobe-japan1-0	  . 04261)	; &AJ1-04261;
+      (=daikanwa	  . 02009)	; &I-M-02009;
+      ))
+    (<-same*sources
+     zhengzitong daikanwa)
     (<-vulgar
-     ((=ucs		  . #x524B)	; 剋
+     ((=ucs@unicode	  . #x524B)	; &AJ1-04261;
+      (=adobe-japan1-0	  . 04261)	; &AJ1-04261;
       (=jis-x0208	  . #x516E)	; &I-J90-516E; [49-78]
-      (=shinjigen	  .  0638)	; 剋
+      (=shinjigen	  .  0638)	; &AJ1-04261;
       ))
     (<-vulgar*sources
-     shinjigen@1ed)
+     shinjigen)
     (->subsumptive
      ((==ucs@unicode	  . #x5C05)	; &g2-AJ1-04640;
       (==adobe-japan1-0	  . 04640)	; &g2-AJ1-04640;

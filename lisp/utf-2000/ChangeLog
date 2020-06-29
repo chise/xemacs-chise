@@ -1,4 +1,52 @@
+2020-06-27  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R023-Hiding-Enclosure.el (U+533B): Use
+	`<-denotational@usage' instead of `<-denotational' for BUCS+91AB;
+	add `ideographic-structure'; omit `<-simplified@ucs' for U+91AB.
+	(o-CU+533B): New abstract node to integrate CU+533B and
+	U+533B-var-004.
+	(U+533B-var-004): New character; use `<-subsumptive' for
+	o-CU+533B.
+
 2020-06-26  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R052-Short-Thread.el (A-BC-8BA4): New abstract node.
+	(BC-8BA4): New character; use `<-denotational' for A-BC-8BA4.
+	(A-BC-8BF4): New abstract node.
+	(BC-8BF4): New character; use `<-denotational' for A-BC-8BF4.
+
+	* Ideograph-R049-Oneself.el (A-cgnU+5DF8): New abstract node.
+	(A-IWDSU+5DF8): Add `<-denotational' for A-cgnU+5DF8.
+	(A-U+5DF8-itaiji-002): New abstract node; use `<-denotational' for
+	A-cgnU+5DF8.
+	(U+5DF8-var-002): New character; use `<-denotational' for
+	A-U+5DF8-itaiji-002.
+	(U+5DF8-itaiji-002): Likewise.
+
+	* Ideograph-R010-Legs.el (U+514B): Apply new conventions for glyph
+	granularity.
+	(U+5159): Likewise.
+	(A-U+7ADE-itaiji-001): New abstract node; unify
+	A-U+7ADE-itaiji-002.
+	(U+7ADE-itaiji-001): New character; use `<-denotational' for
+	A-U+7ADE-itaiji-001.
+	(U+7ADE-itaiji-001): Likewise.
+	(U+515B): Apply new conventions for glyph granularity.
+	(U+515D): Likewise.
+	(U+515E): Likewise.
+	(U-00020498): Likewise.
+	(U-00020499): Likewise.
+	(U-000204A0): Likewise.
+	(U+5161): Likewise.
+	(U+5162): Likewise.
+	(U-000204C6): Add `ideographic-structure'; add `sound@ja/on'.
+	(CU+204C6): Use U+7ADE-itaiji-001 instead of "⿱丯兄"; add
+	`<-original' for UU+5162.
+	(IU+204C6): Add `ideographic-structure'.
+	(U-000204CE): Apply new conventions for glyph granularity.
+
+	* Ideograph-R041-Inch.el (U+5C05): Apply new conventions for glyph
+	granularity.
 
 	* Ideograph-R029-Again.el (U+53D8): Use "⿱亦又" instead of
 	"⿳亠&CDP-89BB;又"; apply new conventions for glyph granularity.
