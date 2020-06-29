@@ -1,3 +1,8 @@
+2020-06-29  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R008-Lid.el (U+4EA5): Apply new conventions for glyph
+	granularity.
+
 2020-06-27  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R023-Hiding-Enclosure.el (U+533B): Use
