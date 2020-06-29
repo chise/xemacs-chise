@@ -898,6 +898,13 @@
     ))
 (define-char
   '((ideographic-radical . 49)	; ⼰
+    (=>ucs@cognate	. #x5DF8)	; &A-cgnU+5DF8;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@cognate	  . #x5DF8)	; &A-cgnU+5DF8;
+      ))
+    (ideographic-radical . 49)	; ⼰
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -1053,6 +1060,66 @@
       (->subsumptive
        ((===mj		    . 010793)	; &R-MJ010793;
 	))
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@cognate	  . #x5DF8)	; &A-cgnU+5DF8;
+      ))
+    (ideographic-radical . 49)	; ⼰
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO MIDDLE AND RIGHT")
+      (=ucs		  . #x2FF2)	; ⿲
+      )
+     ((=ucs		  . #x4E3F)	; 丿
+      )
+     ((=>ucs@iwds-1	  . #x268DE)	; &A-IWDSU+268DE;
+      (=>iwds-1		  .  16263)	; &A-IWDSU+268DE;
+      )
+     ((=>ucs@component	  . #x5DF1)	; &A-compU+5DF1;
+      (=>iwds-1		  .  0120)	; &A-compU+5DF1;
+      ))
+    (=>ucs-itaiji-002	. #x5DF8)	; &A-U-i002+5DF8;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs-itaiji-002	  . #x5DF8)	; &A-U-i002+5DF8;
+      ))
+    (ideographic-radical . 49)	; ⼰
+    (ideographic-strokes . 7)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO MIDDLE AND RIGHT")
+      (=ucs		  . #x2FF2)	; ⿲
+      )
+     ((=ucs		  . #x4E3F)	; 丿
+      )
+     ((=ucs		  . #x81E3)	; 臣
+      )
+     ((=ucs		  . #x5DF3)	; 巳
+      ))
+    (=ucs-var-002	. #x5DF8)	; &U-v002+5DF8;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs-itaiji-002	  . #x5DF8)	; &A-U-i002+5DF8;
+      ))
+    (ideographic-radical . 49)	; ⼰
+    (ideographic-strokes . 7)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO MIDDLE AND RIGHT")
+      (=ucs		  . #x2FF2)	; ⿲
+      )
+     ((=ucs		  . #x4E3F)	; 丿
+      )
+     ((=ucs		  . #x81E3)	; 臣
+      )
+     ((=ucs		  . #x5DF1)	; 己
+      ))
+    (=ucs-itaiji-002	. #x5DF8)	; &U-i002+5DF8;
+    (->subsumptive
+     ((==ucs-itaiji-002	  . #x5DF8)	; &g2-U-i002+5DF8;
       ))
     ))
 (define-char
