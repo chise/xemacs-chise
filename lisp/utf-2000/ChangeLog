@@ -1,3 +1,8 @@
+2020-06-30  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R027-Cliff.el (U+5388-var-001): New character; use
+	`<-denotational' for U+5388.
+
 2020-06-29  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R008-Lid.el (U+4EA5): Apply new conventions for glyph
