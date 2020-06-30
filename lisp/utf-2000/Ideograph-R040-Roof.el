@@ -3829,8 +3829,8 @@
     (=mj		. 057329)	; &MJ057329;
     (=koseki		. 080970)	; &MJ057329;
     (<-formed
-     ((=ucs		  . #x4EA5)	; 亥
-      (=mj		  . 006470)	; &I-MJ006470;
+     ((=ucs@unicode	  . #x4EA5)	; &MJ006470;
+      (=mj		  . 006470)	; &MJ006470;
       )
      ((=ucs@unicode	  . #x5B9B)	; &AJ1-01148;
       (=adobe-japan1-0	  . 01148)	; &AJ1-01148;
@@ -5069,8 +5069,8 @@
     (=mj		. 057331)	; &MJ057331;
     (=koseki		. 081270)	; &MJ057331;
     (<-formed
-     ((=ucs		  . #x4EA5)	; 亥
-      (=mj		  . 006470)	; &I-MJ006470;
+     ((=ucs@unicode	  . #x4EA5)	; &MJ006470;
+      (=mj		  . 006470)	; &MJ006470;
       )
      ((=ucs@unicode	  . #x5B9B)	; &AJ1-01148;
       (=adobe-japan1-0	  . 01148)	; &AJ1-01148;
