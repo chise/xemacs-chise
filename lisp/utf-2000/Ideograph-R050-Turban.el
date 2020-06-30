@@ -415,7 +415,8 @@
       (=mj		  . 024906)	; &MJ024906;
       (=daikanwa	  . 36334)	; &I-M-36334;
       )
-     ((=ucs		  . #x4EA5)	; 亥
+     ((=ucs@unicode	  . #x4EA5)	; &MJ006470;
+      (=mj		  . 006470)	; &MJ006470;
       (=daikanwa	  . 00292)	; &I-M-00292;
       ))
     (<-ancient$_1*sources
@@ -428,8 +429,8 @@
      ((=ucs@unicode	  . #x8C55)	; &MJ024906;
       (=mj		  . 024906)	; &MJ024906;
       )
-     ((=ucs		  . #x4EA5)	; 亥
-      (=mj		  . 006470)	; &I-MJ006470;
+     ((=ucs@unicode	  . #x4EA5)	; &MJ006470;
+      (=mj		  . 006470)	; &MJ006470;
       ))
     (<-formed*sources
      koseki mj)
@@ -1119,7 +1120,8 @@
      ((=ucs@unicode	  . #x8C55)	; &MJ024906;
       (=mj		  . 024906)	; &MJ024906;
       )
-     ((=ucs		  . #x4EA5)	; 亥
+     ((=ucs@unicode	  . #x4EA5)	; &MJ006470;
+      (=mj		  . 006470)	; &MJ006470;
       ))
     (->subsumptive
      ((==ucs-itaiji-001	  . #x22053)	; &g2-U-i001+22053;
