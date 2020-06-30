@@ -3537,6 +3537,15 @@
      ((=ucs		  . #x223DA)	; 𢏚
       ))
     (ideographic-radical . 57)	; ⼸
+    (ideographic-strokes . 6)
+    (total-strokes	 . 9)
+    (=ucs-var-005	. #x223DA)	; &U-v005+223DA;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x223DA)	; 𢏚
+      ))
+    (ideographic-radical . 57)	; ⼸
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
     (=big5-cdp		. #x8AC2)	; &CDP-8AC2;
