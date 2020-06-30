@@ -390,6 +390,26 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=ucs		  . #x5388)	; 厈
+      ))
+    (ideographic-radical . 27)	; ⼚
+    (ideographic-strokes . 3)
+    (total-strokes	 . 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs		  . #x4E06)	; 丆
+      )
+     ((=ucs		  . #x5E72)	; 干
+      ))
+    (=ucs-var-001	. #x5388)	; &U-v001+5388;
+    (->subsumptive
+     ((==ucs-var-001	  . #x5388)	; &MCS-000F483D;
+      ))
+    ))
+(define-char
   '((ideographic-radical . 27)	; ⼚
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
