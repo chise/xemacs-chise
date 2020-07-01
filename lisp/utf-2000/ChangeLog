@@ -1,5 +1,25 @@
 2020-06-30  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R039-Child.el (U+5B69): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R019-Power.el (U+52BE): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R018-Knife.el (U+523B): Add `ideographic-structure';
+	add `sound@ja/on'.
+	(UU+523B): Apply new conventions for glyph granularity.
+	(U-000206F3): Apply new conventions for glyph granularity.
+	(U+524B): Likewise.
+	(MJ031332): Apply new conventions for glyph granularity for
+	components of ideographic-structure.
+	(CB06530): Likewise.
+	(IU+20728): Likewise.
+	(U-000207AB): Apply new conventions for glyph granularity.
+
+	* Ideograph-R008-Lid.el (G-MJ006470): Unify G-UU+4EA5; omit
+	`=>>ucs@jis', `=>>ucs@ks' and `=>>ucs@cns'.
+
 	* Ideograph-R027-Cliff.el (U+5388-var-001): New character; use
 	`<-denotational' for U+5388.
 

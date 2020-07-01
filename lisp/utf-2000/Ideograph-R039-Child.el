@@ -1841,7 +1841,25 @@
      ((=ucs		  . #x4EA5)	; 亥
       ))
     (=ucs		. #x5B69)	; 孩
-    (=mj		. 010077)	; &I-MJ010077;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5B69)	; 孩
+      ))
+    (ideographic-radical . 39)	; ⼦
+    (ideographic-strokes . 6)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5B50)	; 子
+      )
+     ((=ucs@unicode	  . #x4EA5)	; &MJ006470;
+      (=mj		  . 006470)	; &MJ006470;
+      ))
+    (=ucs@unicode	. #x5B69)	; &MJ010077;
+    (=mj		. 010077)	; &MJ010077;
     (=adobe-japan1-0	. 04615)	; &I-AJ1-04615;
     (=jis-x0208		. #x5558)	; &I-J90-5558; [53-56]
     (=gb2312		. #x3A22)	; &I-G0-3A22; [26-02]
@@ -1850,7 +1868,7 @@
     (=jis-x0213-1	. #x5558)	; &I-JX1-5558; [53-56]
     (=big5		. #xABC4)	; &I-B-ABC4;
     (=hanyo-denshi/ja	. #x5558)	; &I-HD-JA-5558; [53-56]
-    (=hanyo-denshi/ks	. 079400)	; 孩
+    (=hanyo-denshi/ks	. 079400)	; &MJ010077;
     (=gt		. 08767)	; &I-GT-08767;
     (=gt-pj-1		. #x5558)	; &I-GT-08767; [53-56]
     (=daikanwa		. 06977)	; &I-M-06977;
@@ -1861,10 +1879,8 @@
 	)
        ((=ucs		    . #x5B50)	; 子
 	)
-       ((==ucs@cns	    . #x4EA5)	; &g2-MJ006470;
-	(==ucs@jis	    . #x4EA5)	; &g2-MJ006470;
-	(==ucs@ks	    . #x4EA5)	; &g2-MJ006470;
-	(==mj		    . 006470)	; &g2-MJ006470;
+       ((=>>ucs@unicode	    . #x4EA5)	; &G-MJ006470;
+	(=>>adobe-japan1-0  . 01195)	; &G-MJ006470;
 	))
       (=>>ucs@unicode	  . #x5B69)	; &G-MJ010077;
       (=>>mj		  . 010077)	; &G-MJ010077;
