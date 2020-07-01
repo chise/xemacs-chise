@@ -1,5 +1,97 @@
 2020-06-30  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R061-Heart.el (A-cgnU+5FC5): Changed from U+5FC5.
+	(AJ1-03486): Unify U+5FC5 instead of A-IWDSU+5FC5 and UU+5FC5; use
+	A-cgnU+5FC5 instead of U+5FC5 as its mother.
+	(U+5FC5-itaiji-001): Use A-cgnU+5FC5 instead of U+5FC5 as its
+	mother.
+	(U+5FC5-itaiji-002): Use A-cgnU+5FC5 instead of U+5FC5 as its
+	mother.
+	(A-IWDSU+5FD7): New abstract node.
+	(U+5FD7): Add `<-denotational' for A-IWDSU+5FD7; add
+	`ideographic-structure'.
+	(U+5FDC): Add `ideographic-structure'.
+	(U-000225BD): Add `<-denotational' for A-IWDSU+5FD7; add
+	`ideographic-structure'; add `sound@ja/on'; add `<-same' for
+	U+5FD7.
+	(U+5FE9): Apply new conventions for glyph granularity.
+	(U-00022607): Likewise.
+	(U+6029): Likewise.
+	(U+392C): Likewise.
+	(U+6042): Likewise.
+	(U+6052): Likewise.
+	(U+604B): Likewise.
+	(U+604D): Likewise.
+	(U+605A): Add `ideographic-structure'; add `sound@ja/on/{kan|go}'.
+	(UU+605A): Add `ideographic-structure'; unify MJ011527; add
+	`->formed' for UU+392C and UU+3707.
+	(U+6069): Apply new conventions for glyph granularity.
+	(U+3932): Likewise.
+	(U+60A4): Add `ideographic-structure'; add `sound@ja/on/{kan|go}'.
+	(JU+60A4): Add `ideographic-structure'; add some relations for
+	other characters.
+	(UU+60A4): Add `ideographic-structure'.
+	(CU+60A4): Add `ideographic-structure'.
+	(BC-8BDD): Add `ideographic-structure'.
+	(U+60A8): Apply new conventions for glyph granularity.
+	(U+60D2): Likewise.
+	(U+60D4): Add `ideographic-structure'; add `sound@ja/on/{kan|go}';
+	add some relations for other characters.
+	(U-0002270E): New character.
+	(A-GT-K09566): New abstract node.
+	(U+610F-itaiji-001): New character.
+	(GT-K09566): New character; use `<-denotational' for A-GT-K09566.
+	(U+60F8): Apply new conventions for glyph granularity.
+	(U+60FB): Likewise.
+	(U-0002272D): Likewise.
+	(U+610F): Add unified-glyph nodes.
+	(U-0002F8A4): Add `ideographic-structure'.
+	(U-00022729): Apply new conventions for glyph granularity.
+	(JU+60EE): Add `ideographic-structure'.
+	(U-0002AB07): New character.
+	(U+6134): Apply new conventions for glyph granularity.
+	(U-0002F8A6): Unify GT-13924 and GT-K11690.
+	(U+3977): Apply new conventions for glyph granularity.
+	(U+616E): Likewise.
+	(U+6183): Likewise.
+	(U-0002D790): New character.
+	(U+619A): Apply new conventions for glyph granularity.
+	(U+61A2): Likewise.
+	(U+61A7): Add `ideographic-structure'; add `sound@ja/on/{kan|go}'
+	and `sound@ja/on/conventional'; add `<-formed' and `<-same' for
+	JU+6183; add `->formed' for U-00022924.
+	(U-00022843): Use `->denotational' and `->subsumptive'.
+	(U+61BA): Apply new conventions for glyph granularity.
+	(U+3998): Use `->denotational' and `->subsumptive'.
+	(U+61BF): Likewise.
+	(U+61C9): Apply new conventions for glyph granularity.
+	(U-000228A7): Likewise.
+	(U+61E3): Likewise.
+	(A-cgnU+2291A): New abstract node.
+	(MJ036474): New character; use `<-denotational' for A-cgnU+2291A;
+	unify KOSEKI-128300 and M-11398'.
+	(U-0002291A): New character; use `<-denotational' for
+	A-cgnU+2291A.
+	(U-000228ED): New character.
+	(U-00022924): Use `->subsumptive'.
+	(U-00022938): New character.
+	(U+61F6): Add `ideographic-structure'.
+	(A-UU+61F6): Add `ideographic-structure'.
+	(JU+61F6): Add `ideographic-structure'.
+	(U-00020453): Use `->denotational' and `->subsumptive'.
+	(U-0002BEDB): New character.
+	(M-11473): Unify hanaJU+2BEDB, MJ057527, KOSEKI-129300 and
+	GT-14477; use `<-denotational' for U-0002BEDB; add
+	`ideographic-structure'; add `sound@ja/kun'.
+	(MJ057530): New character; unify KOSEKI-129470; use
+	`<-denotational' for U-0002BEDB.
+	(U+39A8): Apply new conventions for glyph granularity.
+	(U-00022958): Likewise.
+	(U+6200): Likewise.
+	(U+6207): Likewise.
+
+2020-06-30  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R039-Child.el (U+5B69): Apply new conventions for
 	glyph granularity.
 

@@ -3702,9 +3702,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=ucs@unicode	  . #x80B2)	; &MJ020960;
-      (=ucs@cns		  . #x2F982)	; &MJ020960;
-      (=mj		  . 020960)	; &MJ020960;
+     ((=ucs		  . #x2F982)	; 育
       )
      ((name		  . "CJK RADICAL SECOND TWO")
       (=ucs		  . #x2E83)	; ⺃
