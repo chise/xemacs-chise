@@ -406,7 +406,7 @@
       ))
     (=ucs-var-001	. #x5388)	; &U-v001+5388;
     (->subsumptive
-     ((==ucs-var-001	  . #x5388)	; &MCS-000F483D;
+     ((==ucs-var-001	  . #x5388)	; &g2-U-v001+5388;
       ))
     ))
 (define-char
