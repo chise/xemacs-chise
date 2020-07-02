@@ -1,3 +1,7 @@
+2020-07-01  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R001-One.el (U+4E3D-itaiji-006): New character.
+
 2020-06-30  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R061-Heart.el (A-cgnU+5FC5): Changed from U+5FC5.
