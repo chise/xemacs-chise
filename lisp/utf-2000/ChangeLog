@@ -1,5 +1,13 @@
 2020-07-01  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R032-Earth.el (A-BC-8A65): Add
+	`<-denotational@component' for A-compU+233B6.
+	(U+5793): Apply new conventions for glyph granularity.
+	(A-U+57F7-itaiji-007): New abstract node.
+	(U+57F7-itaiji-007): New character.
+
+2020-07-01  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R001-One.el (U+4E3D-itaiji-006): New character.
 
 2020-06-30  MORIOKA Tomohiko  <tomo.git@chise.org>
