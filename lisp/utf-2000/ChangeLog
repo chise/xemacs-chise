@@ -1,5 +1,11 @@
 2020-07-02  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R070-Square.el (U+3AC3): Apply new conventions for
+	glyph granularity.
+	(U+3AC6): New character.
+
+2020-07-02  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R063-Door.el (U+22A2F-var-001): New character; use
 	`<-denotational' for U-00022A2F.
 

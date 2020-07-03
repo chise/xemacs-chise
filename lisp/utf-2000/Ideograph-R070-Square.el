@@ -190,13 +190,31 @@
       )
      ((=ucs		  . #x65B9)	; 方
       )
-     ((=ucs		  . #x4EBA)	; 人
+     ((=>ucs@iwds-1	  . #x4EBA)	; &A-IWDSU+4EBA;
+      (=>iwds-1		  .  14623)	; &A-IWDSU+4EBA;
       ))
     (=ucs		. #x3AC3)	; 㫃
-    (=mj		. 001565)	; &I-MJ001565;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x3AC3)	; 㫃
+      ))
+    (ideographic-radical . 70)	; ⽅
+    (ideographic-strokes . 2)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x65B9)	; 方
+      )
+     ((=ucs		  . #x4EBA)	; 人
+      ))
+    (=ucs@unicode	. #x3AC3)	; &MJ001565;
+    (=mj		. 001565)	; &MJ001565;
     (=cns11643-3	. #x2371)	; &I-C3-2371; [03-81]
     (=big5-cdp		. #x8A7E)	; &I-CDP-8A7E;
-    (=koseki		. 152830)	; 㫃
+    (=koseki		. 152830)	; &MJ001565;
     (=daikanwa		. 13621)	; &I-M-13621;
     (=cbeta		. 08182)	; &I-CB08182;
     (->subsumptive
@@ -709,6 +727,45 @@
     (total-strokes	 . 9)
     (=ucs@iso		. #x230E2)	; &C6-3162;
     (=cns11643-6	. #x3162)	; &C6-3162; [17-66]
+    ))
+(define-char
+  '((ideographic-radical . 70)	; ⽅
+    (ideographic-strokes . 5)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs		  . #x3AC3)	; 㫃
+      )
+     ((=>ucs@iwds-1	  . #x5C0F)	; &A-IWDSU+5C0F;
+      (=>iwds-1		  .  0028)	; &A-IWDSU+5C0F;
+      ))
+    (=ucs		. #x3AC6)	; 㫆
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x3AC6)	; 㫆
+      ))
+    (ideographic-radical . 70)	; ⽅
+    (ideographic-strokes . 5)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs@unicode	  . #x3AC3)	; &MJ001565;
+      (=mj		  . 001565)	; &MJ001565;
+      )
+     ((=ucs		  . #x5C0F)	; 小
+      ))
+    (=ucs@unicode	. #x3AC6)	; &UU+3AC6;
+    (->subsumptive
+     ((==ucs@unicode	  . #x3AC6)	; &g2-UU+3AC6;
+      (->subsumptive
+       ((===ucs@unicode	    . #x3AC6)	; &R-UU+3AC6;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 70)	; ⽅
