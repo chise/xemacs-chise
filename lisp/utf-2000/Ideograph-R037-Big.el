@@ -9273,7 +9273,8 @@
       )
      ((=ucs		  . #x5927)	; 大
       )
-     ((=ucs		  . #x6B72)	; 歲
+     ((=ucs@unicode	  . #x6B72)	; &AJ1-13785;
+      (=adobe-japan1-4	  . 13785)	; &AJ1-13785;
       ))
     (=ucs@unicode	. #x596F)	; &AJ1-21386;
     (=adobe-japan1-6	. 21386)	; &AJ1-21386;

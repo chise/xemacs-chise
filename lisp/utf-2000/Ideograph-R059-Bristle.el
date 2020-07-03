@@ -1970,29 +1970,12 @@
     (=daikanwa		. 10019)	; &I-M-10019;
     (=shinjigen		.  2325)	; 影
     (->subsumptive
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	(=ucs		    . #x2FF0)	; ⿰
-	)
-       ((==daikanwa	    . 10019)	; &g2-M-10019;
-	)
-       ((=ucs		    . #x5F61)	; 彡
-	))
-      (==daikanwa	  . 10019)	; &g2-M-10019;
+     ((==daikanwa	  . 10019)	; &g2-M-10019;
       )
      ((=decomposition@cid
        ((=ucs		    . #x5F71)	; 影
 	)
        ((=ucs		    . #xE0100)	; 󠄀
-	))
-      (ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	(=ucs		    . #x2FF0)	; ⿰
-	)
-       ((==ucs@unicode	    . #x666F)	; &g2-AJ1-01824;
-	(==adobe-japan1-0   . 01824)	; &g2-AJ1-01824;
-	)
-       ((=ucs		    . #x5F61)	; 彡
 	))
       (==ucs@unicode	  . #x5F71)	; &g2-AJ1-01256;
       (==adobe-japan1-0	  . 01256)	; &g2-AJ1-01256;
