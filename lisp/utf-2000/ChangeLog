@@ -1,5 +1,13 @@
 2020-07-03  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R062-Halberd.el (A-BC-8CB3): New abstract node.
+	(BC-8CB3): New character; use `<-denotational' for A-BC-8CB3.
+	(U-000229E1): Add `ideographic-structure'.
+
+	* Ideograph-R032-Earth.el (U-000302A4): New character.
+
+2020-07-03  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R046-Mountain.el (U-00021D6F): Apply new conventions
 	for glyph granularity.
 	(U+5CB8): Likewise.
