@@ -622,8 +622,7 @@
     (=gb2312		. #x6A27)	; &I-G0-6A27; [74-07]
     (=big5-cdp		. #x89DC)	; &I-CDP-89DC;
     (<-simplified@CN
-     ((=ucs@unicode	  . #x6214)	; &AJ1-04934;
-      (=adobe-japan1-0	  . 04934)	; &AJ1-04934;
+     ((=ucs		  . #x6214)	; 戔
       (=gb12345		  . #x6A27)	; 戔 [74-07]
       ))
     (->subsumptive
@@ -1169,7 +1168,7 @@
      ((=ucs		  . #x6208)	; 戈
       ))
     (=ucs		. #x6214)	; 戔
-    (=adobe-japan1-0	. 04934)	; &AJ1-04934;
+    (=adobe-japan1-0	. 04934)	; &I-AJ1-04934;
     (=jis-x0208		. #x587D)	; &I-J90-587D; [56-93]
     (=cns11643-2	. #x2670)	; &I-C2-2670; [06-80]
     (=jis-x0213-1	. #x587D)	; &I-JX1-587D; [56-93]
@@ -1689,6 +1688,19 @@
     ))
 (define-char
   '((ideographic-radical . 62)	; ⼽
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
+      (=ucs		  . #x2FF5)	; ⿵
+      )
+     ((=ucs		  . #x620C)	; 戌
+      )
+     ((=>ucs@component	  . #x23942)	; &A-compU+23942;
+      (=>iwds-1		  .  0283)	; &A-compU+23942;
+      ))
+    (=>big5-cdp		. #x8CB3)	; &A-CDP-8CB3;
+    ))
+(define-char
+  '((ideographic-radical . 62)	; ⼽
     (ideographic-strokes . 5)
     (total-strokes	 . 9)
     (ideographic-structure
@@ -1741,6 +1753,26 @@
     (=ruimoku-v6	. #xE165)	; &RUI6-E165;
     (->subsumptive
      ((==ruimoku-v6	  . #xE165)	; &g2-RUI6-E165;
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>big5-cdp	  . #x8CB3)	; &A-CDP-8CB3;
+      ))
+    (ideographic-radical . 62)	; ⼽
+    (ideographic-strokes . 5)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
+      (=ucs		  . #x2FF5)	; ⿵
+      )
+     ((=ucs		  . #x620C)	; 戌
+      )
+     ((=ucs		  . #x23942)	; 𣥂
+      ))
+    (=big5-cdp		. #x8CB3)	; &CDP-8CB3;
+    (->subsumptive
+     ((==big5-cdp	  . #x8CB3)	; &g2-CDP-8CB3;
       ))
     ))
 (define-char
@@ -3072,10 +3104,19 @@
   '((ideographic-radical . 62)	; ⼽
     (ideographic-strokes . 9)
     (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=gt-k		  . 04236)	; &GT-K04236;
+      )
+     ((=ucs		  . #x620A)	; 戊
+      ))
     (=ucs		. #x229E1)	; 𢧡
     (=daikanwa		. 11627)	; &I-M-11627;
     (<-vulgar
-     ((=ucs		  . #x6B72)	; 歲
+     ((=ucs@unicode	  . #x6B72)	; &AJ1-13785;
+      (=adobe-japan1-4	  . 13785)	; &AJ1-13785;
       (=daikanwa	  . 16326)	; &I-M-16326;
       ))
     (<-vulgar*sources
