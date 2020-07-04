@@ -1,3 +1,19 @@
+2020-07-03  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R046-Mountain.el (U-00021D6F): Apply new conventions
+	for glyph granularity.
+	(U+5CB8): Likewise.
+	(S-1964): Unify U+5CB8-var-001.
+	(U+5CD0): Apply new conventions for glyph granularity.
+	(A-cgnU+5D57): New abstract node.
+	(U+5D57): Add `<-denotational' for A-cgnU+5D57; add
+	`ideographic-structure' and `ideographic-structure@apparent'.
+	(UU+5D57): Delete `=>ucs@iwds-1'; modify `ideographic-structure'
+	to represent functional structure; add
+	`ideographic-structure@apparent'.
+	(HNG-KHM0072-0): Use A-cgnU+5D57 instead of U+5D57 as its mother;
+	add `<-HNG@chise' for U+5D57.
+
 2020-07-02  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R070-Square.el (U+3AC3): Apply new conventions for
@@ -12,6 +28,9 @@
 	* Ideograph-R059-Bristle.el (g2-M-10019): Omit
 	`ideographic-structure'.
 	(g2-UU+5F71): Likewise.
+
+	* Ideograph-R018-Knife.el (UU+528C): Apply new conventions for
+	glyph granularity for components of ideographic-structure.
 
 2020-07-01  MORIOKA Tomohiko  <tomo.git@chise.org>
 
