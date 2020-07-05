@@ -1,3 +1,7 @@
+2020-07-04  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R042-Small.el (U-0003036A): New character.
+
 2020-07-03  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R062-Halberd.el (A-BC-8CB3): New abstract node.
