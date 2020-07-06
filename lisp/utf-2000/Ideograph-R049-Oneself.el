@@ -979,7 +979,8 @@
     (->ancient*sources
      jiyun daikanwa)
     (->formed
-     ((=daikanwa	  . 16059)	; &M-16059;
+     ((=mj		  . 038540)	; &MJ038540;
+      (=daikanwa	  . 16059)	; &I-M-16059;
       ))
     (->formed$_1*sources
      jiyun daikanwa)
