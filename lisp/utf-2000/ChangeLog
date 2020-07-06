@@ -1,3 +1,42 @@
+2020-07-06  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R044-Corpse.el (A-compU+21C25): Delete
+	`<-denotational' for A-BC-8C7A.
+	(A-BC-8C7A): Add `<-denotational' for A-compU+21C25.
+	(BC-8C7A-itaiji-001): New character; use `<-denotational' for
+	A-BC-8C7A.
+	(BC-8C7A): Use A-BC-8C7A instead of A-compU+21C25 as its mother.
+
+	* Ideograph-R035-Go-Slowly.el (A-U+590D-itaiji-001): New abstract
+	node.
+	(U+590D-itaiji-001): New character; use `<-denotational' for
+	A-U+590D-itaiji-001.
+
+	* Ideograph-R032-Earth.el (U-0003029E): New character.
+
+	* Ideograph-R025-Divination.el (CU+5368): Unify GT-03597 and
+	GT-K08972; apply new conventions for glyph granularity.
+
+	* Ideograph-R001-One.el (U-00020089): Add A-BC-8DD8 as a target of
+	`<-denotational@component'.
+
+	* Ideograph-R020-Wrap.el (U+208DA-itaiji-001): New character; use
+	`<-denotational' for U-000208DA.
+
+	* Ideograph-R018-Knife.el (BC-8DD8): New character; use
+	`<-denotational' for U-0002008A; use `<-denotational@component'
+	for A-BC-8DD8.
+	(GT-K00091): Use BC-8DD8 instead of U+2E88 as its mother.
+	(A-BC-8DD8): New abstract node.
+
+	* Ideograph-R006-Hook.el (U+4E87): Apply new conventions for glyph
+	granularity.
+
+2020-07-05  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R058-Snout.el (UU+5F50): Add `<-formed@component' for
+	U+722A; add `<-formed@flipped-horizontally' for U-00030004.
+
 2020-07-04  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R042-Small.el (U-0003036A): New character.
