@@ -124,6 +124,32 @@
   '((<-denotational
      ((=ucs		  . #x2008A)	; 𠂊
       ))
+    (<-denotational@component
+     ((=>big5-cdp	  . #x8DD8)	; &A-CDP-8DD8;
+      ))
+    (ideographic-radical . 18)	; ⼑
+    (ideographic-strokes . 0)
+    (total-strokes	 . 2)
+    (=big5-cdp		. #x8DD8)	; &CDP-8DD8;
+    (->subsumptive
+     ((==big5-cdp	  . #x8DD8)	; &g2-CDP-8DD8;
+      )
+     ((=gt-k		  . 00091)	; &GT-K00091;
+      (=gt-pj-k1	  . #x3234)	; &GT-K00091; [18-20]
+      (<-formed@component/connect-below
+       ((=ucs		    . #x5200)	; 刀
+	)
+       ((name		    . "CJK RADICAL KNIFE ONE")
+	(=ucs		    . #x2E88)	; ⺈
+	)
+       ((=big5-cdp	    . #x8DD8)	; &CDP-8DD8;
+	))
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2008A)	; 𠂊
+      ))
     (name		. "CJK RADICAL KNIFE ONE")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
@@ -148,16 +174,13 @@
      ((==big5-cdp	  . #x8B5B)	; &g2-CDP-8B5B;
       )
      ((==ucs@unicode	  . #x2E88)	; &g2-UU+2E88;
-      )
-     ((=gt-k		  . 00091)	; &GT-K00091;
-      (=gt-pj-k1	  . #x3234)	; &GT-K00091; [18-20]
-      (<-formed@component/connect-below
-       ((=ucs		    . #x5200)	; 刀
-	)
-       ((name		    . "CJK RADICAL KNIFE ONE")
-	(=ucs		    . #x2E88)	; ⺈
-	))
       ))
+    ))
+(define-char
+  '((ideographic-radical . 18)	; ⼑
+    (ideographic-strokes . 0)
+    (total-strokes	 . 2)
+    (=>big5-cdp		. #x8DD8)	; &A-CDP-8DD8;
     ))
 (define-char
   '((ideographic-radical . 18)	; ⼑
