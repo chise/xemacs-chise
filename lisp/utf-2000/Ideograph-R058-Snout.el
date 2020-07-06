@@ -136,6 +136,12 @@
     (=big5-cdp		. #x897C)	; &I-CDP-897C;
     (=gt-k		. 00266)	; &I-GT-K00266;
     (=gt-pj-k1		. #x3663)	; &G0-6566; [22-67]
+    (<-formed@component
+     ((=ucs		  . #x722A)	; 爪
+      ))
+    (<-formed@flipped-horizontally
+     ((=ucs		  . #x30004)	; 𰀄
+      ))
     (->subsumptive
      ((==ucs@unicode	  . #x5F50)	; &g2-UU+5F50;
       (==ucs@JP/hanazono  . nil)

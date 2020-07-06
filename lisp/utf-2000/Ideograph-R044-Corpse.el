@@ -496,10 +496,7 @@
       ))
     ))
 (define-char
-  '((<-denotational
-     ((=>big5-cdp	  . #x8C7A)	; &A-CDP-8C7A;
-      ))
-    (ideographic-radical . 44)	; ⼫
+  '((ideographic-radical . 44)	; ⼫
     (=>ucs@component	. #x21C25)	; &A-compU+21C25;
     ))
 (define-char
@@ -576,7 +573,31 @@
     (ideographic-strokes . 2)
     (total-strokes	 . 5)
     (sound@ja/on	"ka")
+    (=>big5-cdp		. #x8C7A)	; &A-CDP-8C7A;
+    ))
+(define-char
+  '((<-denotational
+     ((=>big5-cdp	  . #x8C7A)	; &A-CDP-8C7A;
+      ))
+    (ideographic-radical . 44)	; ⼫
+    (ideographic-strokes . 2)
+    (total-strokes	 . 5)
+    (=big5-cdp-itaiji-001 . #x8C7A)	; &CDP-i001-8C7A;
+    (->subsumptive
+     ((==big5-cdp-itaiji-001 . #x8C7A)	; &g2-CDP-i001-8C7A;
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>big5-cdp	  . #x8C7A)	; &A-CDP-8C7A;
+      ))
+    (ideographic-radical . 44)	; ⼫
+    (ideographic-strokes . 2)
+    (total-strokes	 . 5)
     (=big5-cdp		. #x8C7A)	; &CDP-8C7A;
+    (<-formed@component
+     ((=ucs		  . #x77F3)	; 石
+      ))
     (->subsumptive
      ((==big5-cdp	  . #x8C7A)	; &g2-CDP-8C7A;
       )
@@ -718,10 +739,6 @@
     (<-formed@component
      ((=ucs		  . #x20B1D)	; 𠬝
       ))
-    ))
-(define-char
-  '((ideographic-radical . 44)	; ⼫
-    (=>big5-cdp		. #x8C7A)	; &A-CDP-8C7A;
     ))
 (define-char
   '((<-denotational

@@ -646,6 +646,8 @@
 (define-char
   '((<-denotational@component
      ((=>ucs@component	  . #x20089)	; &A-compU+20089;
+      )
+     ((=>big5-cdp	  . #x8DD8)	; &A-CDP-8DD8;
       ))
     (name*		. "ideographic component person for top")
     (ideographic-radical@ucs . 4)	; ⼃
