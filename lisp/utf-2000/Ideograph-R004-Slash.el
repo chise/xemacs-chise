@@ -801,6 +801,8 @@
 (define-char
   '((<-denotational@component
      ((=>ucs@component	  . #x20089)	; &A-compU+20089;
+      )
+     ((=>big5-cdp	  . #x8DD8)	; &A-CDP-8DD8;
       ))
     (name*		. "ideographic component person for top")
     (ideographic-radical@ucs . 4)	; ⼃
@@ -1551,27 +1553,49 @@
     (=gb12345		. #x7D6B)	; 乊 [93-75]
     ))
 (define-char
-  '((total-strokes	 . 3)
-    (=ucs		. #x4E87)	; 亇
-    (->subsumptive
-     ((ideographic-radical . 4)	; ⼃
-      (ideographic-strokes . 2)
-      (=ucs@cns		  . #x4E87)	; &C3-212D;
-      (=cns11643-3	  . #x212D)	; &C3-212D; [01-13]
-      (=jef-china3	  . #x8FC2)	; &I-JC3-8FC2;
+  '((ideographic-radical@ucs . 6)	; ⼅
+    (ideographic-strokes@ucs . 2)
+    (ideographic-radical@cns . 4)	; ⼃
+    (ideographic-strokes@cns . 2)
+    (total-strokes	 . 3)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
       )
-     ((ideographic-radical . 6)	; ⼅
-      (ideographic-strokes . 2)
-      (ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	(=ucs		    . #x2FF1)	; ⿱
+     ((=>big5-cdp	  . #x8DD8)	; &A-CDP-8DD8;
+      )
+     ((=ucs		  . #x4E85)	; 亅
+      ))
+    (=ucs		. #x4E87)	; 亇
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x4E87)	; 亇
+      ))
+    (ideographic-radical . 4)	; ⼃
+    (ideographic-strokes . 2)
+    (total-strokes	 . 3)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((name*		  . "ideographic component person for top")
+      (=ucs		  . #x20089)	; 𠂉
+      )
+     ((=ucs		  . #x4E85)	; 亅
+      ))
+    (=ucs@cns		. #x4E87)	; &C3-212D;
+    (=cns11643-3	. #x212D)	; &C3-212D; [01-13]
+    (=jef-china3	. #x8FC2)	; &I-JC3-8FC2;
+    (->subsumptive
+     ((==ucs@cns	  . #x4E87)	; &g2-CU+4E87;
+      (==cns11643-3	  . #x212D)	; &g2-CU+4E87; [01-13]
+      (==jef-china3	  . #x8FC2)	; &g2-CU+4E87;
+      (->subsumptive
+       ((===cns11643-3	    . #x212D)	; &R-C3-212D; [01-13]
 	)
-       ((=big5-cdp	    . #x8DD8)	; &CDP-8DD8;
-	)
-       ((=ucs		    . #x4E85)	; 亅
+       ((===jef-china3	    . #x8FC2)	; &R-JC3-8FC2;
 	))
-      (=ucs@unicode	  . #x4E87)	; &UU+4E87;
-      (=gb12345		  . #x7D3B)	; &UU+4E87; [93-27]
       ))
     ))
 (define-char

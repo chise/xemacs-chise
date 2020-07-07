@@ -14284,6 +14284,44 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
+     ((=ucs		  . #x250ED)	; 𥃭
+      )
+     ((=ucs		  . #x5FC3)	; 心
+      ))
+    (=>cbeta		. 08671)	; &A-CB08671;
+    ))
+(define-char
+  '((<-denotational
+     ((=>cbeta		  . 08671)	; &A-CB08671;
+      ))
+    (ideographic-radical . 61)	; ⼼
+    (ideographic-strokes . 7)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs@iso		  . #x250ED)	; &CDP-8DD5;
+      (=big5-cdp	  . #x8DD5)	; &CDP-8DD5;
+      )
+     ((=ucs		  . #x5FC3)	; 心
+      ))
+    (=cbeta		. 08671)	; &U-v001+60EA;
+    (=ucs-var-001	. #x60EA)	; &U-v001+60EA;
+    (->subsumptive
+     ((==ucs-var-001	  . #x60EA)	; &g2-U-v001+60EA;
+      )
+     ((==cbeta		  . 08671)	; &g2-CB08671;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 61)	; ⼼
+    (ideographic-strokes . 7)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
      ((=ucs		  . #x8EAB)	; 身
       )
      ((=ucs		  . #x5FC3)	; 心
