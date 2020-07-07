@@ -1,3 +1,15 @@
+2020-07-07  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R004-Slash.el (U-00020089): Add A-BC-8DD8 as a target
+	of `<-denotational@component'.
+	(U+4E87): Apply new conventions for glyph granularity.
+
+2020-07-06  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R061-Heart.el (A-CB08671): New abstract node.
+	(CB08671): New character; use `<-denotational' for A-CB08671;
+	unify U+60EA-var-001.
+
 2020-07-06  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R044-Corpse.el (A-compU+21C25): Delete
