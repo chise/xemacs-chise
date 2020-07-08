@@ -1,5 +1,11 @@
 2020-07-07  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R022-Right-Open-Box.el (U-0002093C): Apply new
+	conventions for glyph granularity.
+
+	* Ideograph-R015-Ice.el (U+51CE): Apply new conventions for glyph
+	granularity.
+
 	* Ideograph-R004-Slash.el (U-00020089): Add A-BC-8DD8 as a target
 	of `<-denotational@component'.
 	(U+4E87): Apply new conventions for glyph granularity.
