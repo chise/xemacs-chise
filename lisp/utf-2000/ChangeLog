@@ -1,3 +1,17 @@
+2020-07-08  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R035-Go-Slowly.el (A-U+590D-itaiji-001): Unify
+	A-U+590D-itaiji-002.
+	(U+590D-itaiji-002): New character; use `<-denotational' for
+	A-U+590D-itaiji-001.
+
+	* Ideograph-R027-Cliff.el (A-IWDSU+5384): Delete `<-denotational'
+	for BUCS+5384.
+	(U+5384): Add `<-denotational@usage' for A2-DJT-01058 and
+	BUCS+5384; unify DJT-01058.
+	(A2-DJT-01058): New abstract node; use `<-denotational' for
+	BUCS+5384.
+
 2020-07-07  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R022-Right-Open-Box.el (U-0002093C): Apply new
