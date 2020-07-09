@@ -131,13 +131,6 @@
     ))
 (define-char
   '((ideographic-radical . 27)	; ⼚
-    (==>ucs@bucs	. #x5384)	; &BUCS+5384;
-    ))
-(define-char
-  '((<-denotational
-     ((==>ucs@bucs	  . #x5384)	; &BUCS+5384;
-      ))
-    (ideographic-radical . 27)	; ⼚
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
       (=ucs		  . #x2FF8)	; ⿸
@@ -154,6 +147,11 @@
   '((<-denotational
      ((=>ucs@iwds-1	  . #x5384)	; &A-IWDSU+5384;
       (=>ucs@iwds-1/normalized . #x5384)	; &A-IWDSU+5384;
+      ))
+    (<-denotational@usage
+     ((==>daijiten	  . 01058)	; &A2-DJT-01058;
+      )
+     ((==>ucs@bucs	  . #x5384)	; &BUCS+5384;
       ))
     (ideographic-radical . 27)	; ⼚
     (ideographic-strokes . 2)
@@ -179,6 +177,7 @@
     (=gt-k		. 00503)	; &I-GT-K00503;
     (=gt-pj-1		. #x4C71)	; &I-GT-03676; [44-81]
     (=daikanwa		. 02893)	; &I-M-02893;
+    (=daijiten		. 01058)	; &I-DJT-01058;
     (=shinjigen		.  0874)	; 厄
     (->subsumptive
      ((==ucs@unicode	  . #x5384)	; &g2-AJ1-03837;
@@ -191,9 +190,12 @@
       (==gt		  . 03676)	; &g2-AJ1-03837;
       (==gt-k		  . 00503)	; &g2-AJ1-03837;
       (==daikanwa	  . 02893)	; &g2-AJ1-03837;
+      (==daijiten	  . 01058)	; &g2-AJ1-03837;
       (==shinjigen	  .  0874)	; &g2-AJ1-03837;
       (->subsumptive
        ((===daikanwa	    . 02893)	; &R-M-02893;
+	)
+       ((===daijiten	    . 01058)	; &R-DJT-01058;
 	)
        ((===jis-x0208	    . #x4C71)	; &R-J0-4C71; [44-81]
 	(===jis-x0213-1	    . #x4C71)	; &R-J0-4C71; [44-81]
@@ -6893,4 +6895,15 @@
     (hanyu-dazidian	8 8 4)
     (=ucs		. #x20AD1)	; 𠫑
     (=hanziku-12	. #xEB5B)	; &I-HZK12-EB5B;
+    ))
+(define-char
+  '((ideographic-radical . 27)	; ⼚
+    (==>ucs@bucs	. #x5384)	; &BUCS+5384;
+    ))
+(define-char
+  '((<-denotational
+     ((==>ucs@bucs	  . #x5384)	; &BUCS+5384;
+      ))
+    (ideographic-radical . 27)	; ⼚
+    (==>daijiten	. 01058)	; &A2-DJT-01058;
     ))
