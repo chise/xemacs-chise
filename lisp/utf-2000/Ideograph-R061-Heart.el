@@ -14284,6 +14284,26 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
+     ((=ucs		  . #x8EAB)	; 身
+      )
+     ((=ucs		  . #x5FC3)	; 心
+      ))
+    (=ucs		. #x30462)	; 𰑢
+    (=ruimoku-v6	. #xE048)	; &I-RUI6-E048;
+    (->subsumptive
+     ((==ruimoku-v6	  . #xE048)	; &g2-RUI6-E048;
+      )
+     ((==ucs@JP/hanazono  . #x30462)	; &g2-hanaJU+30462;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 61)	; ⼼
+    (ideographic-strokes . 7)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
      ((=ucs		  . #x250ED)	; 𥃭
       )
      ((=ucs		  . #x5FC3)	; 心
@@ -14312,23 +14332,6 @@
      ((==ucs-var-001	  . #x60EA)	; &g2-U-v001+60EA;
       )
      ((==cbeta		  . 08671)	; &g2-CB08671;
-      ))
-    ))
-(define-char
-  '((ideographic-radical . 61)	; ⼼
-    (ideographic-strokes . 7)
-    (total-strokes	 . 11)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-      (=ucs		  . #x2FF1)	; ⿱
-      )
-     ((=ucs		  . #x8EAB)	; 身
-      )
-     ((=ucs		  . #x5FC3)	; 心
-      ))
-    (=ruimoku-v6	. #xE048)	; &RUI6-E048;
-    (->subsumptive
-     ((==ruimoku-v6	  . #xE048)	; &g2-RUI6-E048;
       ))
     ))
 (define-char
@@ -15323,6 +15326,8 @@
       )
      ((=ucs		  . #x5353)	; 卓
       ))
+    (sound@ja/on/go	"dou")
+    (sound@ja/on/kan	"tAu")
     (=ucs		. #x60BC)	; 悼
     (=adobe-japan1-0	. 03171)	; &I-AJ1-03171;
     (=jis-x0208		. #x4569)	; &I-J90-4569; [37-73]
@@ -15333,7 +15338,7 @@
     (=big5		. #xB1A5)	; &I-B-B1A5;
     (=gt		. 13568)	; &I-GT-13568;
     (=gt-pj-1		. #x4569)	; &I-GT-13568; [37-73]
-    (=daikanwa		. 10738)	; &I-M-10738;
+    (=daikanwa		. 10738)	; &M-10738;
     (=shinjigen		.  2561)	; 悼
     (->subsumptive
      ((==ucs@unicode	  . #x60BC)	; &g2-AJ1-03171;

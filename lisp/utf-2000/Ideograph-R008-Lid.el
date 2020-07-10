@@ -4642,6 +4642,23 @@
   '((ideographic-radical . 8)	; ⼇
     (ideographic-strokes . 11)
     (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
+      (=ucs		  . #x2FF4)	; ⿴
+      )
+     ((=ucs		  . #x8863)	; 衣
+      )
+     ((=>big5-cdp-itaiji-001 . #x8CA3)	; &A-CDP-i001-8CA3;
+      ))
+    (=ucs		. #x342E)	; 㐮
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x342E)	; 㐮
+      ))
+    (ideographic-radical . 8)	; ⼇
+    (ideographic-strokes . 11)
+    (total-strokes	 . 13)
     (hanyu-dazidian	1 291 8)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
@@ -4651,8 +4668,8 @@
       )
      ((=big5-cdp-itaiji-001 . #x8CA3)	; &CDP-i001-8CA3;
       ))
-    (=ucs		. #x342E)	; 㐮
-    (=adobe-japan1-4	. 14216)	; &I-AJ1-14216;
+    (=ucs@unicode	. #x342E)	; &AJ1-14216;
+    (=adobe-japan1-4	. 14216)	; &AJ1-14216;
     (=cns11643-3	. #x4034)	; &I-C3-4034; [32-20]
     (=jis-x0213-2	. #x2133)	; &I-JX2-2133; [01-19]
     (=daikanwa		. 00329)	; &I-M-00329;

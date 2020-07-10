@@ -1,3 +1,19 @@
+2020-07-09  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R061-Heart.el (RUI6-E048): Unify U-00030462.
+	(U+60BC): Add `sound@ja/on/{kan|go}'.
+
+	* Ideograph-R014-Cover.el (U-0002058A): Apply new conventions for
+	glyph granularity.
+
+2020-07-09  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R008-Lid.el (U+342E): Apply new conventions for glyph
+	granularity.
+
+	* Ideograph-R004-Slash.el (U-000200AC): Add `sound@ja/on'; add
+	`<-same' for U+5384.
+
 2020-07-08  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R035-Go-Slowly.el (A-U+590D-itaiji-001): Unify
