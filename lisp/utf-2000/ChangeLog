@@ -1,3 +1,24 @@
+2020-07-10  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R039-Child.el (U-00021948): Use `->denotational' and
+	`->subsumptive'.
+	(A-IWDSU+219B1): New abstract node.
+	(U-000219B1): New character; use `<-denotational' for
+	A-IWDSU+219B1.
+	(M-07049): Use `<-denotational' for U-000219B1; don't use `=>ucs'
+	for U-000219B5; unify IU+219B1, MJ033931 and KOSEKI-080160.
+	(U-000219B5): Use `->subsumptive'; add `<-denotational' for
+	A-IWDSU+219B1.
+	(U-000219AD): Use `->denotational' and `->subsumptive'.
+	(U-000219B2): New character; use `<-denotational' for
+	A-IWDSU+219B2.
+	(U-000219B3): Likewise.
+	(U-000219B4): New character.
+	(A-IWDSU+219B2): New abstract node.
+
+	* Ideograph-R024-Ten.el (U-000209D1): Use `->denotational' and
+	`->subsumptive'.
+
 2020-07-09  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R061-Heart.el (RUI6-E048): Unify U-00030462.
