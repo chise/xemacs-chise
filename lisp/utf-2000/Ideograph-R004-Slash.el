@@ -3495,10 +3495,17 @@
       )
      ((=ucs		  . #x5DF4)	; 巴
       ))
+    (sound@ja/on	"gWa")
     (=ucs		. #x200AC)	; 𠂬
     (=cns11643-6	. #x245D)	; &I-C6-245D; [04-61]
     (=daikanwa		. 08750)	; &I-M-08750;
     (=daijiten		. 02788)	; &I-DJT-02788;
+    (<-same
+     ((=ucs		  . #x5384)	; 厄
+      (=daikanwa	  . 02893)	; &I-M-02893;
+      ))
+    (<-same*sources
+     zhengzitong daikanwa)
     (->subsumptive
      ((==ucs@iso	  . #x200AC)	; &g2-M-08750;
       (==cns11643-6	  . #x245D)	; &g2-M-08750; [04-61]
