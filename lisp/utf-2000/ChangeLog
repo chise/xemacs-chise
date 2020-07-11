@@ -1,3 +1,17 @@
+2020-07-11  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* chise-subr.el (char-db-feature-domains): Add `mj', `r053' and
+	`r055'.
+
+2020-07-10  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R059-Bristle.el (U-000224BA): New character.
+
+	* Ideograph-R035-Go-Slowly.el (A-U+590D-itaiji-003): New abstract
+	node.
+	(U+590D-itaiji-003): New character; use `<-denotational' for
+	A-U+590D-itaiji-003.
+
 2020-07-10  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R039-Child.el (U-00021948): Use `->denotational' and

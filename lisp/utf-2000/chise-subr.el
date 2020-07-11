@@ -2,6 +2,7 @@
 
 ;; Copyright (C) 1999, 2001, 2002, 2003, 2004, 2005, 2007, 2008, 2009,
 ;;   2010, 2011, 2012, 2013, 2014, 2015, 2016 MORIOKA Tomohiko.
+;;   2010, 2011, 2012, 2013, 2014, 2015, 2020 MORIOKA Tomohiko.
 
 ;; Author: MORIOKA Tomohiko <tomo@kanji.zinbun.kyoto-u.ac.jp>
 ;; Keywords: CHISE, Character Database, ISO/IEC 10646, UCS, Unicode, MULE.
@@ -39,8 +40,8 @@
   ;;             (push domain dest))))))
   ;;   (sort dest #'string<))
   '(ucs ucs/compat daikanwa cns gt jis jis/a jis/b
-	jis-x0212 jis-x0213 cdp shinjigen
-	r030 r140 misc unknown))
+	jis-x0212 jis-x0213 cdp shinjigen mj
+	r030 r053 r055 r140 misc unknown))
 
 (defconst charset-id-=adobe-japan1-0 (charset-id '=adobe-japan1-0))
 (defconst charset-id-=adobe-japan1-6 (charset-id '=adobe-japan1-6))
