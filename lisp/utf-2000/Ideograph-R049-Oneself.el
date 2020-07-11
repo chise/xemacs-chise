@@ -275,6 +275,9 @@
      ((=>ucs@iwds-1	  . #x5384)	; &A-IWDSU+5384;
       (=>ucs@iwds-1/normalized . #x5384)	; &A-IWDSU+5384;
       ))
+    (<-denotational@usage
+     ((==>daijiten	  . 02786)	; &A2-DJT-02786;
+      ))
     (ideographic-radical . 49)	; ⼰
     (ideographic-strokes . 2)
     (total-strokes	 . 5)
@@ -309,6 +312,7 @@
     (=cns11643-6	. #x2274)	; &I-C6-2274; [02-84]
     (=hanyo-denshi/ks	. 099070)	; &MJ034957;
     (=daikanwa		. 08746)	; &I-M-08746;
+    (=daijiten		. 02786)	; &I-DJT-02786;
     (<-formed
      ((=ucs		  . #x5384)	; 厄
       ))
@@ -326,8 +330,11 @@
       (==cns11643-6	  . #x2274)	; &g2-MJ034957; [02-84]
       (==hanyo-denshi/ks  . 099070)	; &g2-MJ034957;
       (==daikanwa	  . 08746)	; &g2-MJ034957;
+      (==daijiten	  . 02786)	; &g2-MJ034957;
       (->subsumptive
        ((===daikanwa	    . 08746)	; &R-M-08746;
+	)
+       ((===daijiten	    . 02786)	; &R-DJT-02786;
 	)
        ((===hanyo-denshi/ks . 099070)	; &R-HD-KS-099070;
 	(=hanyo-denshi/ks/mf . #x26B3)	; &R-HD-KS-099070;
@@ -555,10 +562,17 @@
       )
      ((=ucs		  . #x5DF4)	; 巴
       ))
+    (sound@ja/on	"gWa")
     (=ucs		. #x200AC)	; 𠂬
     (=cns11643-6	. #x245D)	; &I-C6-245D; [04-61]
     (=daikanwa		. 08750)	; &I-M-08750;
     (=daijiten		. 02788)	; &I-DJT-02788;
+    (<-same
+     ((=ucs		  . #x5384)	; 厄
+      (=daikanwa	  . 02893)	; &I-M-02893;
+      ))
+    (<-same*sources
+     zhengzitong daikanwa)
     (->subsumptive
      ((==ucs@iso	  . #x200AC)	; &g2-M-08750;
       (==cns11643-6	  . #x245D)	; &g2-M-08750; [04-61]
@@ -2159,6 +2173,9 @@
     (=>ucs@iwds-1/normalized . #x5DFD)	; &A-IWDSU+5DFD;
     ))
 (define-char
-  '((ideographic-radical . 49)	; ⼰
+  '((<-denotational
+     ((==>ucs@bucs	  . #x5384)	; &BUCS+5384;
+      ))
+    (ideographic-radical . 49)	; ⼰
     (==>daijiten	. 02786)	; &A2-DJT-02786;
     ))

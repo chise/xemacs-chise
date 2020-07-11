@@ -21,6 +21,12 @@
 
 2020-07-09  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R049-Oneself.el (U-00022034): Add
+	`<-denotational@usage' for A2-DJT-02786.
+	(IU+22034): Unify DJT-02786.
+	(U-000200AC): Add `sound@ja/on'; add `<-same' for U+5384.
+	(A2-DJT-02786): Add `<-denotational' for BUCS+5384.
+
 	* Ideograph-R061-Heart.el (RUI6-E048): Unify U-00030462.
 	(U+60BC): Add `sound@ja/on/{kan|go}'.
 
