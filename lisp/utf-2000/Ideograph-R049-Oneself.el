@@ -2084,8 +2084,8 @@
   '((<-denotational
      ((=ucs		  . #x20A27)	; 𠨧
       ))
-    (ideographic-radical@daijiten . 26)	; ⼙
     (ideographic-radical@mj . 49)	; ⼰
+    (ideographic-radical@daijiten . 26)	; ⼙
     (ideographic-strokes . 16)
     (total-strokes	 . 19)
     (ideographic-structure
