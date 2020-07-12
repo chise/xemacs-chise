@@ -506,10 +506,10 @@
      ((<-denotational@component
        ((=ucs		    . #x342A)	; 㐪
 	))
-      (ideographic-strokes@koseki . 4)
-      (total-strokes@koseki	  . 6)
       (ideographic-strokes@mj . 3)
       (total-strokes@mj	      . 5)
+      (ideographic-strokes@koseki . 4)
+      (total-strokes@koseki	  . 6)
       (ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER OVERLAID")
 	(=ucs		    . #x2FFB)	; ⿻
