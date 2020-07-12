@@ -1,5 +1,13 @@
 2020-07-11  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R014-Cover.el (U-000300EE): Use
+	`ideographic-strokes@misc' instead of `ideographic-strokes@mj'
+	[fix typo].
+
+2020-07-11  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R055-Two-Hands.el (U-0002AAA9): New character.
+
 	* chise-subr.el (char-db-feature-domains): Add `mj', `r053' and
 	`r055'.
 

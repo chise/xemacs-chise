@@ -733,7 +733,7 @@
   '((ideographic-radical@ucs . 14)	; ⼍
     (ideographic-strokes@ucs . 3)
     (ideographic-radical@misc . 86)	; ⽕
-    (ideographic-strokes@mj . 2)
+    (ideographic-strokes@misc . 2)
     (total-strokes	 . 5)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
