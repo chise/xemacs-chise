@@ -1,3 +1,8 @@
+2020-07-12  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R058-Snout.el (U-0002CED1): New character; copied from
+	Ideograph-R001-One.el.
+
 2020-07-11  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R014-Cover.el (U-000300EE): Use
