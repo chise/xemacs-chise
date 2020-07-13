@@ -3565,8 +3565,8 @@
     (ideographic-strokes@daikanwa . 8)
     (total-strokes	 . 11)
     (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
-      (=ucs		  . #x2FFA)	; ⿺
+     ((=>ucs@iwds-1	  . #x2FFA)	; &A-IWDSU+2FFA;
+      (=>iwds-1		  .  0307)	; &A-IWDSU+2FFA;
       )
      ((=ucs		  . #x5149)	; 光
       )
@@ -3604,7 +3604,8 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
 	(=ucs		    . #x2FFA)	; ⿺
 	)
-       ((=ucs		    . #x5149)	; 光
+       ((=ucs@unicode	    . #x5149)	; &MJ007221;
+	(=mj		    . 007221)	; &MJ007221;
 	)
        ((=mj		    . 006328)	; &MJ006328;
 	))
@@ -3617,7 +3618,8 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
 	(=ucs		    . #x2FFA)	; ⿺
 	)
-       ((=ucs		    . #x5149)	; 光
+       ((=ucs@unicode	    . #x5149)	; &MJ007221;
+	(=mj		    . 007221)	; &MJ007221;
 	)
        ((=ucs@unicode	    . #x4E19)	; &MJ006327;
 	(=mj		    . 006327)	; &MJ006327;

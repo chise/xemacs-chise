@@ -1,5 +1,19 @@
 2020-07-12  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R070-Square.el (A-cgnU+65CB): New abstract node.
+	(U+65CB): Apply new conventions for glyph granularity; add
+	`<-denotational' for A-cgnU+65CB.
+	(U-0003056F): New character.
+	(U-0002D944): New character.
+
+	* Ideograph-R043-Lame.el (U-0002049D): Apply new conventions for
+	glyph granularity for components of ideographic-structure.
+
+	* Ideograph-R019-Power.el (U-0002D138): New character.
+	(A-IU+208B9): Changed from o-IU+208B9.
+
+2020-07-12  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R058-Snout.el (U-0002CED1): New character; copied from
 	Ideograph-R001-One.el.
 
