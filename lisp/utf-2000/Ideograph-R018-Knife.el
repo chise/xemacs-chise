@@ -3891,6 +3891,20 @@
   '((ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 4)
     (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x4E0D)	; 不
+      )
+     ((=ucs		  . #x5202)	; 刂
+      ))
+    (=ucs		. #x3011F)	; 𰄟
+    ))
+(define-char
+  '((ideographic-radical . 18)	; ⼑
+    (ideographic-strokes . 4)
+    (total-strokes	 . 6)
     (=>big5-cdp@component . #x8CAF)	; &A-compCDP-8CAF;
     ))
 (define-char
@@ -15413,6 +15427,38 @@
     (=ucs		. #x2079D)	; 𠞝
     (=cns11643-6	. #x466E)	; &I-C6-466E; [38-78]
     (=daikanwa		. 48940)	; &I-M-48940;
+    ))
+(define-char
+  '((ideographic-radical . 18)	; ⼑
+    (ideographic-strokes . 10)
+    (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x7D22)	; 索
+      )
+     ((=ucs		  . #x5202)	; 刂
+      ))
+    (=ucs		. #x2B98E)	; 𫦎
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2B98E)	; 𫦎
+      ))
+    (ideographic-radical . 18)	; ⼑
+    (ideographic-strokes . 10)
+    (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs@unicode	  . #x7D22)	; &AJ1-02151;
+      (=adobe-japan1-0	  . 02151)	; &AJ1-02151;
+      )
+     ((=ucs		  . #x5202)	; 刂
+      ))
+    (=ucs@JP/hanazono	. #x2B98E)	; &hanaJU+2B98E;
     ))
 (define-char
   '((ideographic-radical . 18)	; ⼑
