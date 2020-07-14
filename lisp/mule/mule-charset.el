@@ -603,6 +603,7 @@ DESCRIPTION (string) is the description string of the charset."
 	  =>>jis-x0213-2
 	  =>jis-x0208
 	  =>jis-x0213-1
+	  =>jis-x0213-2
 	  =>mj-0
 	  =>big5-cdp
 	  =>ruimoku-v6
