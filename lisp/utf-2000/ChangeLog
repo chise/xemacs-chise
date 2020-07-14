@@ -1,3 +1,8 @@
+2020-07-14  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R018-Knife.el (U-0003011F): New character.
+	(U-0002B98E): New character.
+
 2020-07-13  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R057-Bow.el (U+5F4D): Add `sound@ja/on'.
