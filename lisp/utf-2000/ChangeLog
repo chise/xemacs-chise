@@ -1,3 +1,16 @@
+2020-07-13  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R057-Bow.el (U+5F4D): Add `sound@ja/on'.
+	(A-JU+5F4D): Changed from o-JU+5F4D.
+	(A-UU+5F4D): Changed from o-UU+5F4D.
+
+	* Ideograph-R053-Dotted-Cliff.el (A-JU+5EE3): Changed from
+	o-JU+5EE3.
+	(U-0002AAA9): New character.
+	(U+5EF2): Apply new conventions for glyph granularity.
+	(U-00030406): New character.
+	(U-00022312): Use `->denotational' and `->subsumptive'.
+
 2020-07-12  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R070-Square.el (A-cgnU+65CB): New abstract node.
