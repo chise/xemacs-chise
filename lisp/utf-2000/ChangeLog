@@ -1,5 +1,16 @@
 2020-07-14  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R059-Bristle.el (A-BC-8D5A): New abstract node.
+	(BC-8D5A): New character; use `<-denotational' for A-BC-8D5A.
+
+	* Ideograph-R024-Ten.el (A-U+233B5-itaiji-001): New abstract node.
+	(U+233B5-itaiji-001): New character.
+	(BC-8D52): New character; use `<-subsumptive' for
+	U+233B5-itaiji-001; unify CB10813.
+	(U+5357): Apply new conventions for glyph granularity.
+
+2020-07-14  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R018-Knife.el (U-0003011F): New character.
 	(U-0002B98E): New character.
 
