@@ -1637,14 +1637,87 @@
   '((ideographic-radical . 27)	; ⼚
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
-    (=ucs		. #x20A4B)	; 𠩋
-    (->subsumptive
-     ((hanyu-dazidian	  1 71 15)
-      (=daikanwa	  . 02934)	; &M-02934;
-      (=hanziku-1	  . #xB2BA)	; &I-HZK01-B2BA;
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
       )
-     ((=ucs@iso		  . #x20A4B)	; &C6-2A26;
-      (=cns11643-6	  . #x2A26)	; &C6-2A26; [10-06]
+     ((=>ucs@component	  . #x4E06)	; &A-compU+4E06;
+      (=>iwds-1		  .  0150)	; &A-compU+4E06;
+      )
+     ((=ucs		  . #x5C70)	; 屰
+      ))
+    (=ucs		. #x20A4B)	; 𠩋
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x20A4B)	; 𠩋
+      ))
+    (ideographic-radical . 27)	; ⼚
+    (ideographic-strokes . 6)
+    (total-strokes	 . 8)
+    (hanyu-dazidian	1 71 15)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs		  . #x5382)	; 厂
+      )
+     ((=ucs-var-001	  . #x5C70)	; &U-v001+5C70;
+      ))
+    (=mj		. 031867)	; &MJ031867;
+    (=koseki		. 033950)	; &MJ031867;
+    (=daikanwa		. 02934)	; &I-M-02934;
+    (<-formed
+     ((=ucs@unicode	  . #x65A5)	; &AJ1-02673;
+      (=adobe-japan1-0	  . 02673)	; &AJ1-02673;
+      ))
+    (<-formed$_1*sources
+     koseki mj)
+    (<-formed*sources
+     koseki mj)
+    (->subsumptive
+     ((==mj		  . 031867)	; &g2-MJ031867;
+      (==koseki		  . 033950)	; &g2-MJ031867;
+      (==daikanwa	  . 02934)	; &g2-MJ031867;
+      (->subsumptive
+       ((===daikanwa	    . 02934)	; &R-M-02934;
+	)
+       ((===mj		    . 031867)	; &R-MJ031867;
+	)
+       ((=hanziku-1	    . #xB2BA)	; &HZK01-B2BA;
+	))
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x20A4B)	; 𠩋
+      ))
+    (ideographic-radical . 27)	; ⼚
+    (ideographic-strokes . 6)
+    (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs		  . #x5382)	; 厂
+      )
+     ((=ucs@unicode	  . #x5C70)	; &AJ1-17543;
+      (=adobe-japan1-5	  . 17543)	; &AJ1-17543;
+      ))
+    (=ucs@iso		. #x20A4B)	; &C6-2A26;
+    (=cns11643-6	. #x2A26)	; &C6-2A26; [10-06]
+    (=cbeta		. 08526)	; &I-CB08526;
+    (->subsumptive
+     ((==ucs@iso	  . #x20A4B)	; &g2-CB08526;
+      (==cns11643-6	  . #x2A26)	; &g2-CB08526; [10-06]
+      (==cbeta		  . 08526)	; &g2-CB08526;
+      (->subsumptive
+       ((===cns11643-6	    . #x2A26)	; &R-C6-2A26; [10-06]
+	)
+       ((===ucs@iso	    . #x20A4B)	; &R-U-00020A4B;
+	)
+       ((===cbeta	    . 08526)	; &R-CB08526;
+	))
       ))
     ))
 (define-char
