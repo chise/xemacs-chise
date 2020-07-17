@@ -611,6 +611,7 @@ DESCRIPTION (string) is the description string of the charset."
 	  =>big5-cdp@component
 	  =>big5-cdp@cognate
 	  =>big5-cdp-itaiji-001
+	  =>big5-cdp-itaiji-002
 	  =>big5-cdp-itaiji-003
 	  =>big5-cdp-var-001
 	  =>ucs-bmp-itaiji-001
