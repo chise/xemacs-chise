@@ -1,3 +1,9 @@
+2020-07-16  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R044-Corpse.el (U-00021C52): Apply new conventions for
+	glyph granularity.
+	(U-00021C5E): New character.
+
 2020-07-15  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R027-Cliff.el (U-00020A4B): Apply new conventions for
