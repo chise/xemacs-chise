@@ -1,5 +1,32 @@
 2020-07-17  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R037-Big.el (U-00021677): Use `->denotational' and
+	`->subsumptive'.
+	(U-00021687): Apply new conventions for glyph granularity.
+
+	* Ideograph-R031-Enclosure.el (U-000211CC): Apply new conventions
+	for glyph granularity.
+
+	* Ideograph-R029-Again.el (U+20B1B-itaiji-001): Add
+	`<-denotational@component' for A-compU+2A832; add U-0002A832 as a
+	target of `<-formed'.
+	(BC-8C79): New character; use `<-denotational' for A-cgnBC-8C79;
+	use `<-denotational@component' for A-compU+2A832.
+	(A-cgnBC-8C79): New abstract node.
+	(GT-K01143): New character; use `<-denotational' A-cgnBC-8C79; use
+	`<-denotational@component' for A-GT-K01143; unify
+	U+20B2A-itaiji-003.
+	(A-GT-K01143): New abstract node; unify A-U+20B2A-itaiji-003.
+	(U+53DA): Apply new conventions for glyph granularity.
+	(U+53DA-itaiji-006): New character; use `<-denotational' for
+	U+53DA.
+	(U-00020B4A): Apply new conventions for glyph granularity.
+	(A-U+3561-itaiji-001): New abstract node; use `<-denotational' for
+	A-compU+3561.
+	(U+3561-itaiji-001): New character; use `<-denotational' for
+	A-U+3561-itaiji-001.
+	(A-compU+2A832): New abstract node.
+
 	* Ideograph-R022-Right-Open-Box.el (U-00020951): Use
 	`->denotational' and `->subsumptive'.
 
