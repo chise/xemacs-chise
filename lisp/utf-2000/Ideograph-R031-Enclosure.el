@@ -3460,10 +3460,38 @@
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
     (hanyu-dazidian	1 717 4)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
+      (=ucs		  . #x2FF4)	; ⿴
+      )
+     ((=ucs		  . #x56D7)	; 囗
+      )
+     ((=ucs		  . #x76EE)	; 目
+      ))
+    (sound@ja/on	"kWai")
     (=ucs		. #x211CC)	; 𡇌
     (=cns11643-6	. #x2A42)	; &I-C6-2A42; [10-34]
     (=daikanwa		. 04748)	; &I-M-04748;
-    (=hanziku-2		. #xE5C3)	; &I-HZK02-E5C3;
+    (<-same
+     ((=ucs		  . #x56DE)	; 回
+      (=daikanwa	  . 04690)	; &I-M-04690;
+      ))
+    (<-same*sources
+     pianhai daikanwa)
+    (->subsumptive
+     ((==ucs@iso	  . #x211CC)	; &g2-M-04748;
+      (==cns11643-6	  . #x2A42)	; &g2-M-04748; [10-34]
+      (==daikanwa	  . 04748)	; &g2-M-04748;
+      (->subsumptive
+       ((===daikanwa	    . 04748)	; &R-M-04748;
+	)
+       ((===cns11643-6	    . #x2A42)	; &R-C6-2A42; [10-34]
+	)
+       ((===ucs@iso	    . #x211CC)	; &R-U-000211CC;
+	)
+       ((=hanziku-2	    . #xE5C3)	; &HZK02-E5C3;
+	))
+      ))
     ))
 (define-char
   '((=>ucs		. #x211CE)	; 𡇎
