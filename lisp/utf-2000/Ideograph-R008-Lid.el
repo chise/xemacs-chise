@@ -2700,6 +2700,26 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=ucs		  . #x4EAF)	; 亯
+      ))
+    (ideographic-radical . 8)	; ⼇
+    (ideographic-strokes . 8)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=gt-k		  . 02128)	; &GT-K02128;
+      )
+     ((=ucs		  . #x65E5)	; 日
+      ))
+    (=ucs-var-001	. #x4EAF)	; &U-v001+4EAF;
+    (->subsumptive
+     ((==ucs-var-001	  . #x4EAF)	; &g2-U-v001+4EAF;
+      ))
+    ))
+(define-char
   '((ideographic-radical . 8)	; ⼇
     (ideographic-strokes . 7)
     (total-strokes	 . 9)
@@ -5913,6 +5933,37 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=>ucs-itaiji-004	  . #x29ACF)	; &A-U-i004+29ACF;
+      ))
+    (ideographic-radical . 8)	; ⼇
+    (ideographic-strokes . 15)
+    (total-strokes	 . 17)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs@unicode	  . #x4EAF)	; &AJ1-21082;
+      (=adobe-japan1-6	  . 21082)	; &AJ1-21082;
+      )
+     ((=ucs		  . #x4EAC)	; 京
+      ))
+    (=ucs-itaiji-005	. #x29ACF)	; &U-i005+29ACF;
+    ))
+(define-char
+  '((ideographic-radical . 8)	; ⼇
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x4EAF)	; 亯
+      )
+     ((=ucs		  . #x4EAC)	; 京
+      ))
+    (=>ucs-itaiji-004	. #x29ACF)	; &A-U-i004+29ACF;
+    (=>ucs-itaiji-005	. #x29ACF)	; &A-U-i004+29ACF;
+    ))
+(define-char
   '((ideographic-radical . 8)	; ⼇
     (ideographic-strokes . 16)
     (total-strokes	 . 18)
@@ -6008,6 +6059,23 @@
 	))
       (==ucs@iso	  . #x2019B)	; &g2-IU-0002019B;
       ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs-itaiji-004	  . #x29ACF)	; &A-U-i004+29ACF;
+      ))
+    (ideographic-radical . 8)	; ⼇
+    (ideographic-strokes . 16)
+    (total-strokes	 . 18)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs-var-001	  . #x4EAF)	; &U-v001+4EAF;
+      )
+     ((=ucs		  . #x4EAC)	; 京
+      ))
+    (=ucs-itaiji-004	. #x29ACF)	; &U-i004+29ACF;
     ))
 (define-char
   '((ideographic-radical . 8)	; ⼇

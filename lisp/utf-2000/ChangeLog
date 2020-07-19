@@ -1,3 +1,18 @@
+2020-07-18  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* char-db-util.el (char-db-coded-charset-priority-list): Add
+	`=>big5-cdp-itaiji-002'.
+
+2020-07-17  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R008-Lid.el (U+4EAF-var-001): New character; use
+	`<-denotational' for U+4EAF.
+	(U+29ACF-itaiji-005): New character; use `<-denotational' for
+	A-U+29ACF-itaiji-004.
+	(A-U+29ACF-itaiji-004): New abstract node; unify
+	A-U+29ACF-itaiji-005.
+	(U+29ACF-itaiji-004): New character.
+
 2020-07-17  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R037-Big.el (U-00021677): Use `->denotational' and
