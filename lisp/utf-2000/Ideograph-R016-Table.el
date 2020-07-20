@@ -893,6 +893,42 @@
       ))
     ))
 (define-char
+  '((<-denotational@component
+     ((=>ucs@iwds-1	  . #x2062C)	; &A-IWDSU+2062C;
+      ))
+    (ideographic-radical . 16)	; ⼏
+    (ideographic-strokes . 2)
+    (total-strokes	 . 4)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=>ucs@component	  . #x51E0)	; &A-compU+51E0;
+      (=>iwds-1		  .  0119)	; &A-compU+51E0;
+      )
+     ((=>ucs@component	  . #x51E0)	; &A-compU+51E0;
+      (=>iwds-1		  .  0119)	; &A-compU+51E0;
+      ))
+    (=ucs		. #x2062C)	; 𠘬
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2062C)	; 𠘬
+      ))
+    (ideographic-radical . 16)	; ⼏
+    (ideographic-strokes . 2)
+    (total-strokes	 . 4)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x51E0)	; 几
+      )
+     ((=ucs		  . #x51E0)	; 几
+      ))
+    (=ucs@iso		. #x2062C)	; &U-0002062C;
+    ))
+(define-char
   '((<-denotational
      ((=>ucs@iwds-1	  . #x5141)	; &A-IWDSU+5141;
       (=>ucs@iwds-1/normalized . #x5141)	; &A-IWDSU+5141;
@@ -4099,6 +4135,20 @@
 (define-char
   '((ideographic-radical . 16)	; ⼏
     (==>daijiten	. 00701)	; &A2-DJT-00701;
+    ))
+(define-char
+  '((ideographic-radical . 16)	; ⼏
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=>ucs@iwds-1	  . #x4E38)	; &A-IWDSU+4E38;
+      (=>iwds-1		  .  65535)	; &A-IWDSU+4E38;
+      )
+     ((=>ucs@iwds-1	  . #x4E38)	; &A-IWDSU+4E38;
+      (=>iwds-1		  .  65535)	; &A-IWDSU+4E38;
+      ))
+    (=>ucs@iwds-1	. #x2062C)	; &A-IWDSU+2062C;
     ))
 (define-char
   '((ideographic-radical . 16)	; ⼏
