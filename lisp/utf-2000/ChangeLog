@@ -1,3 +1,9 @@
+2020-07-20  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R016-Table.el (U-0002062C): New character; use
+	`<-denotational@component' for A-IWDSU+2062C.
+	(A-IWDSU+2062C): New abstract node.
+
 2020-07-18  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R005-Second.el (U-000200D2): Apply new conventions for
