@@ -1,5 +1,11 @@
 2020-07-18  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R005-Second.el (U-000200D2): Apply new conventions for
+	glyph granularity.
+	(IU+200D2): Unify BC-86B4.
+	(U+200D2-var-001): New character; use `<-denotational' for
+	U-000200D2.
+
 	* char-db-util.el (char-db-coded-charset-priority-list): Add
 	`=>big5-cdp-itaiji-002'.
 

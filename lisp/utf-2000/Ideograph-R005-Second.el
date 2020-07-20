@@ -882,12 +882,65 @@
   '((ideographic-radical . 5)	; ⼄
     (ideographic-strokes . 2)
     (total-strokes	 . 3)
+    (sound@ja/on	"ya")
     (=ucs		. #x200D2)	; 𠃒
-    (=cns11643-5	. #x212B)	; &I-C5-212B; [01-11]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x200D2)	; 𠃒
+      ))
+    (ideographic-radical . 5)	; ⼄
+    (ideographic-strokes . 2)
+    (total-strokes	 . 3)
+    (=ucs@iso		. #x200D2)	; &GT-00232;
+    (=cns11643-5	. #x212B)	; &GT-00232; [01-11]
+    (=big5-cdp		. #x86B4)	; &I-CDP-86B4;
     (=gt		. 00232)	; &I-GT-00232;
     (=gt-k		. 00286)	; &I-GT-K00286;
     (=gt-pj-2		. #x3149)	; &I-GT-00232; [17-41]
     (=daikanwa		. 00172)	; &I-M-00172;
+    (<-same
+     ((=ucs		  . #x4E5F)	; 也
+      (=daikanwa	  . 00171)	; &I-M-00171;
+      ))
+    (<-same$_1*sources
+     zhengzitong daikanwa)
+    (<-same*sources
+     zhengzitong daikanwa)
+    (->Bopomofo
+     ((name		  . "BOPOMOFO LETTER EH")
+      (=ucs		  . #x311D)	; ㄝ
+      ))
+    (->Bopomofo*sources
+     daikanwa)
+    (->subsumptive
+     ((==ucs@iso	  . #x200D2)	; &g2-GT-00232;
+      (==cns11643-5	  . #x212B)	; &g2-GT-00232; [01-11]
+      (==gt		  . 00232)	; &g2-GT-00232;
+      (==gt-k		  . 00286)	; &g2-GT-00232;
+      (==daikanwa	  . 00172)	; &g2-GT-00232;
+      (->subsumptive
+       ((===daikanwa	    . 00172)	; &R-M-00172;
+	)
+       ((===cns11643-5	    . #x212B)	; &R-C5-212B; [01-11]
+	)
+       ((===gt		    . 00232)	; &R-GT-00232;
+	(===gt-k	    . 00286)	; &R-GT-00232;
+	)
+       ((===ucs@iso	    . #x200D2)	; &R-U-000200D2;
+	))
+      )
+     ((==big5-cdp	  . #x86B4)	; &g2-CDP-86B4;
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x200D2)	; 𠃒
+      ))
+    (ideographic-radical . 5)	; ⼄
+    (ideographic-strokes . 2)
+    (total-strokes	 . 3)
+    (=ucs-var-001	. #x200D2)	; &U-v001+200D2;
     ))
 (define-char
   '((ideographic-radical . 5)	; ⼄
