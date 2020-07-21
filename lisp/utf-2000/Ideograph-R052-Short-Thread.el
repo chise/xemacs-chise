@@ -368,6 +368,47 @@
     ))
 (define-char
   '((ideographic-radical . 52)	; ⼳
+    (ideographic-strokes . 2)
+    (total-strokes	 . 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>ucs@iwds-1	  . #x5E7A)	; &A-IWDSU+5E7A;
+      (=>iwds-1		  .  0129)	; &A-IWDSU+5E7A;
+      )
+     ((=>ucs@component	  . #x51E0)	; &A-compU+51E0;
+      (=>iwds-1		  .  0119)	; &A-compU+51E0;
+      ))
+    (=ucs		. #x303EF)	; 𰏯
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x303EF)	; 𰏯
+      ))
+    (ideographic-radical . 52)	; ⼳
+    (ideographic-strokes . 2)
+    (total-strokes	 . 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5E7A)	; 幺
+      )
+     ((=ucs		  . #x513F)	; 儿
+      ))
+    (=ucs@JP/hanazono	. #x303EF)	; &RUI6-E137;
+    (=ruimoku-v6	. #xE137)	; &RUI6-E137;
+    (->subsumptive
+     ((==ucs@JP/hanazono  . #x303EF)	; &g2-hanaJU+303EF;
+      (==ruimoku-v6	  . #xE137)	; &g2-hanaJU+303EF;
+      (->subsumptive
+       ((===ruimoku-v6	    . #xE137)	; &R-RUI6-E137;
+	))
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 52)	; ⼳
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
     (ideographic-structure

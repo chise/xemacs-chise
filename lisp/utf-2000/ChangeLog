@@ -1,5 +1,46 @@
 2020-07-20  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R010-Legs.el (U+5142): Add `<-denotational@component'
+	for A-compU+5142.
+	(A-BC-89B9): New abstract node.
+	(A-BC-8BCB): New abstract node.
+	(BC-89B9): New character; use `<-denotational' for A-BC-89B9.
+	(BC-8BCB): New character; use `<-denotational' for A-BC-8BCB.
+	(A-BC-89B9-itaiji-002): New abstract node.
+	(BC-89B9-itaiji-002): New character; use `<-denotational' for
+	A-BC-89B9-itaiji-002.
+	(U-0002D020): New character.
+	(A-BC-89B9-itaiji-003): New abstract node.
+	(BC-89B9-itaiji-003): New character; use `<-denotational' for
+	A-BC-89B9-itaiji-003.
+	(U-0002048B): Apply new conventions for glyph granularity.
+	(U+5153): Add `ideographic-structure'.
+	(U-0002D023): New character.
+	(U-0002D025): New character.
+	(U-0002049D): Apply IWDS1-0307.
+	(U-0002D029): New character.
+	(U-0002D02C): Apply new conventions for glyph granularity.
+	(U-000204B5): Use `->denotational' and `->subsumptive'.
+	(U-000204BF): Apply new conventions for glyph granularity.
+	(U-000204CA): Likewise.
+	(U+34AF): Add `ideographic-structure'; add `sound@ja/on'.
+	(CU+34AF): Add `<-same' for CU+71C1.
+	(UU+34AF): Add `ideographic-structure'.
+	(U-000204CC): Apply IWDS1-0307 and IWDS1-0337.
+	(U+5164): Apply IWDS1-0307; add `sound@ja/on'.
+	(A-CU+5164): Changed from o-CU+5164.
+	(JU+5164): Add `<-formed' and `<-same' for M-19548.
+	(U-000204D6): Apply new conventions for glyph granularity.
+	(U-000204DA): Apply IWDS1-0307.
+	(A-compU+5142): New abstract node.
+
+	* Ideograph-R005-Second.el (GT-K00140): New character.
+	(A-U+4E5E-itaiji-002): New abstract node.
+	(U+4E5E-itaiji-002): New character; use `<-denotational' for
+	A-U+4E5E-itaiji-002.
+
+	* Ideograph-R052-Short-Thread.el (U-000303EF): New character.
+
 	* Ideograph-R016-Table.el (U-0002062C): New character; use
 	`<-denotational@component' for A-IWDSU+2062C.
 	(A-IWDSU+2062C): New abstract node.
