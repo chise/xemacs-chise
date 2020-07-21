@@ -1,3 +1,36 @@
+2020-07-21  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R018-Knife.el (A-compU+206AA): New abstract node.
+	(U-000206AA): Apply new conventions for glyph granularity; add
+	`<-denotational' for A-compU+206AA.
+	(GT-K00881): New character; use `<-denotational' for
+	A-compU+206AA.
+	(U+5215): Apply new conventions for glyph granularity.
+
+2020-07-20  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R045-Sprout.el (U+5C70): Add `<-denotational@usage'
+	for A2-DJT-02521; add `sound@ja/on/{kan|go}'.
+	(UU+5C70): Unify DJT-02521; add some relations for other
+	characters.
+	(A-IWDSU+21636-itaiji-001): New abstract node.
+	(A-U+21636-itaiji-001): New abstract node; use `<-denotational'
+	for A-IWDSU+21636-itaiji-001.
+	(U+21636-itaiji-001): New character; use `<-denotational' for
+	A-U+21636-itaiji-001.
+	(U-00021D1C): Apply new conventions for glyph granularity.
+	(A-IWDSU+21D1E): New abstract node.
+	(U-00021D1E): Use `->denotational' and `->subsumptive'; add
+	`<-denotational' for A-IWDSU+21D1E.
+	(A2-DJT-02521): New abstract node.
+
+	* Ideograph-R044-Corpse.el (U-00021C5F): New character.
+
+	* Ideograph-R040-Roof.el (U+5B9A): Apply new conventions for glyph
+	granularity.
+	(U-00021A62): Likewise.
+	(U-00021A87): New character.
+
 2020-07-20  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R010-Legs.el (U+5142): Add `<-denotational@component'

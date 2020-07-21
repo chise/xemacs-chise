@@ -3266,6 +3266,30 @@
   '((ideographic-radical . 44)	; ⼫
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs		  . #x5C38)	; 尸
+      )
+     ((=ucs		  . #x373D)	; 㜽
+      ))
+    (=ucs		. #x21C5F)	; 𡱟
+    (=daikanwa		. 07703)	; &I-M-07703;
+    (->subsumptive
+     ((==ucs@iso	  . #x21C5F)	; &g2-M-07703;
+      (==daikanwa	  . 07703)	; &g2-M-07703;
+      (->subsumptive
+       ((===daikanwa	    . 07703)	; &R-M-07703;
+	)
+       ((===ucs@iso	    . #x21C5F)	; &R-U-00021C5F;
+	))
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 44)	; ⼫
+    (ideographic-strokes . 6)
+    (total-strokes	 . 9)
     (hanyu-dazidian	2 1095 2)
     (=ucs		. #x221C0)	; 𢇀
     (=cns11643-6	. #x3041)	; &I-C6-3041; [16-33]
