@@ -1475,6 +1475,19 @@
     ))
 (define-char
   '((ideographic-radical . 1)	; ⼀
+    (=ucs		. #x2A700)	; 𪜀
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2A700)	; 𪜀
+      ))
+    (ideographic-radical . 1)	; ⼀
+    (ideographic-strokes . 2)
+    (total-strokes	 . 3)
+    (=ucs@JP/hanazono	. #x2A700)	; &hanaJU+2A700;
+    ))
+(define-char
+  '((ideographic-radical . 1)	; ⼀
     (ideographic-strokes . 2)
     (total-strokes	 . 3)
     (ideographic-structure
