@@ -1,5 +1,15 @@
 2020-07-21  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R001-One.el (U-0002A700): New character.
+
+	* Ideograph-R037-Big.el (U-000215D5): Add
+	`<-denotational@component' for A-IWDSU+215DC; add
+	`<-denotational@usage' for A2-DJT-00154; unify DJT-01955.
+	(A-RUI6-E14B): New abstract node.
+	(RUI6-E14B): Copied from ruimoku6.el.
+	(U-000302E3): New character.
+	(U-000302E9): New character.
+
 	* Ideograph-R018-Knife.el (A-compU+206AA): New abstract node.
 	(U-000206AA): Apply new conventions for glyph granularity; add
 	`<-denotational' for A-compU+206AA.
