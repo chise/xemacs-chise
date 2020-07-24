@@ -1,3 +1,18 @@
+2020-07-23  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R055-Two-Hands.el (U+5F03): Use A-IWDSU+20AD3 instead
+	of U-00020AD3 as a component.
+	(CB07148): New character; use `<-denotational' for U+5F03.
+
+	* Ideograph-R045-Sprout.el (U+30009-itaiji-001): New character;
+	use `<-denotational' for A-U+21D42-itaiji-001.
+
+2020-07-22  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R039-Child.el (U+373D): Apply new conventions for
+	glyph granularity.
+	(U-0002195C): Use `->denotational' and `->subsumptive'.
+
 2020-07-22  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R013-Down-Box.el (U-0002053F): Add
