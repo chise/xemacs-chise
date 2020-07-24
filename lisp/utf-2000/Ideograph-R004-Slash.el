@@ -2256,6 +2256,28 @@
     ))
 (define-char
   '((<-denotational
+     ((=ucs		  . #x2CEB5)	; 𬺵
+      ))
+    (ideographic-radical . 4)	; ⼃
+    (ideographic-strokes . 3)
+    (total-strokes	 . 4)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x4E3F)	; 丿
+      )
+     ((=big5-cdp	  . #x85F1)	; &CDP-85F1;
+      ))
+    (=gt-k		. 00763)	; &GT-K00763;
+    (=gt-pj-k1		. #x6658)	; &GT-K00763; [70-56]
+    (->subsumptive
+     ((==gt-k		  . 00763)	; &g2-GT-K00763;
+      (==gt-pj-k1	  . #x6658)	; &g2-GT-K00763; [70-56]
+      ))
+    ))
+(define-char
+  '((<-denotational
      ((=ucs		  . #x723B)	; 爻
       ))
     (ideographic-radical@ucs . 89)	; ⽘
