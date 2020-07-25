@@ -1,5 +1,15 @@
 2020-07-24  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R018-Knife.el (A-GT-K06148): New abstract node; use
+	`<-denotational' for A-cgnU+206F1.
+	(GT-K06148): Use A-GT-K06148 instead of A-cgnU+206F1 as its
+	mother.
+
+	* Ideograph-R016-Table.el (U+51E4): Apply new conventions for
+	glyph granularity.
+
+2020-07-24  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R004-Slash.el (GT-K00763): New character; use
 	`<-denotational' for U-0002CEB5.
 
