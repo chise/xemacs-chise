@@ -7332,13 +7332,30 @@
      ((=>ucs@cognate	  . #x206F1)	; &A-cgnU+206F1;
       ))
     (ideographic-radical . 18)	; ⼑
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x239C4)	; 𣧄
+      )
+     ((=ucs		  . #x5202)	; 刂
+      ))
+    (=>gt-k		. 06148)	; &A-GT-K06148;
+    ))
+(define-char
+  '((<-denotational
+     ((=>gt-k		  . 06148)	; &A-GT-K06148;
+      ))
+    (ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 7)
     (total-strokes	 . 9)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=ucs		  . #x239C4)	; 𣧄
+     ((=ucs@iso		  . #x239C4)	; &C5-244D;
+      (=cns11643-5	  . #x244D)	; &C5-244D; [04-45]
+      (=daikanwa	  . 16377)	; &I-M-16377;
       )
      ((=ucs		  . #x5202)	; 刂
       ))
