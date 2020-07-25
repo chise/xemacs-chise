@@ -727,6 +727,22 @@
     ))
 (define-char
   '((ideographic-radical . 16)	; ⼏
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
+      (=ucs		  . #x2FF5)	; ⿵
+      )
+     ((=>ucs@iwds-1	  . #x4E38)	; &A-IWDSU+4E38;
+      (=>iwds-1		  .  65535)	; &A-IWDSU+4E38;
+      )
+     ((=ucs		  . #x53C8)	; 又
+      ))
+    (=ucs		. #x51E4)	; 凤
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x51E4)	; 凤
+      ))
+    (ideographic-radical . 16)	; ⼏
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
     (hanyu-dazidian	1 276 7)
@@ -738,21 +754,17 @@
       )
      ((=ucs		  . #x53C8)	; 又
       ))
-    (=ucs		. #x51E4)	; 凤
-    (=gb2312		. #x376F)	; &I-G0-376F; [23-79]
+    (=ucs@unicode	. #x51E4)	; &C3-2151;
+    (=gb2312		. #x376F)	; &C3-2151; [23-79]
     (=cns11643-3	. #x2151)	; &I-C3-2151; [01-49]
     (=daikanwa		. 01743)	; &I-M-01743;
+    (<-simplified@CN
+     ((=ucs@unicode	  . #x9CF3)	; &AJ1-03679;
+      (=adobe-japan1-0	  . 03679)	; &AJ1-03679;
+      (=gb12345		  . #x376F)	; &AJ1-03679; [23-79]
+      ))
     (->subsumptive
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
-	(=ucs		    . #x2FF5)	; ⿵
-	)
-       ((name		    . "CJK RADICAL TABLE")
-	(=ucs		    . #x2E87)	; ⺇
-	)
-       ((=gt-k		    . 00064)	; &GT-K00064;
-	))
-      (==ucs@unicode	  . #x51E4)	; &g2-M-01743;
+     ((==ucs@unicode	  . #x51E4)	; &g2-M-01743;
       (==gb2312		  . #x376F)	; &g2-M-01743; [23-79]
       (==daikanwa	  . 01743)	; &g2-M-01743;
       (->subsumptive
@@ -763,17 +775,7 @@
        ((=hanziku-1	    . #xDEEE)	; &HZK01-DEEE;
 	))
       )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
-	(=ucs		    . #x2FF5)	; ⿵
-	)
-       ((name		    . "CJK RADICAL TABLE")
-	(=ucs		    . #x2E87)	; ⺇
-	)
-       ((==ucs@unicode	    . #x53C8)	; &g2-AJ1-03746;
-	(==adobe-japan1-0   . 03746)	; &g2-AJ1-03746;
-	))
-      (==ucs@cns	  . #x51E4)	; &g2-CU+51E4;
+     ((==ucs@cns	  . #x51E4)	; &g2-CU+51E4;
       (==cns11643-3	  . #x2151)	; &g2-CU+51E4; [01-49]
       ))
     ))
