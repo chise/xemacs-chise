@@ -5918,6 +5918,65 @@
 (define-char
   '((ideographic-radical . 27)	; ⼚
     (ideographic-strokes . 12)
+    (total-strokes	 . 14)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs		  . #x5382)	; 厂
+      )
+     ((=>big5-cdp	  . #x8DC3)	; &A-CDP-8DC3;
+      ))
+    (=ucs		. #x20AA8)	; 𠪨
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x20AA8)	; 𠪨
+      ))
+    (ideographic-radical . 27)	; ⼚
+    (ideographic-strokes . 12)
+    (total-strokes	 . 14)
+    (hanyu-dazidian	8 7 21)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs		  . #x5382)	; 厂
+      )
+     ((=big5-cdp	  . #x8DC3)	; &CDP-8DC3;
+      ))
+    (=ucs@iso		. #x20AA8)	; &MJ031936;
+    (=mj		. 031936)	; &MJ031936;
+    (=koseki		. 035100)	; &MJ031936;
+    (<-formed
+     ((=ucs@unicode	  . #x5EDB)	; &AJ1-04752;
+      (=adobe-japan1-0	  . 04752)	; &AJ1-04752;
+      ))
+    (<-formed$_1*sources
+     koseki mj)
+    (<-formed*sources
+     koseki mj)
+    (->subsumptive
+     ((=>>mj		  . 031936)	; &G-MJ031936;
+      (->subsumptive
+       ((==mj		    . 031936)	; &g2-MJ031936;
+	(==koseki	    . 035100)	; &g2-MJ031936;
+	))
+      )
+     ((=>>ucs@iso	  . #x20AA8)	; &G-IU+20AA8;
+      (->subsumptive
+       ((==ucs@iso	    . #x20AA8)	; &g2-IU-00020AA8;
+	(->subsumptive
+	 ((===ucs@iso	      . #x20AA8)	; &R-U-00020AA8;
+	  )
+	 ((=hanziku-12	      . #xEB54)	; &HZK12-EB54;
+	  ))
+	))
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 27)	; ⼚
+    (ideographic-strokes . 12)
     (total-strokes	 . 13)
     (hanyu-dazidian	8 7 22)
     (ideographic-structure
@@ -6938,12 +6997,6 @@
     (hanyu-dazidian	8 7 20)
     (=ucs		. #x20AA1)	; 𠪡
     (=hanziku-12	. #xEB53)	; &I-HZK12-EB53;
-    ))
-(define-char
-  '((ideographic-radical . 27)	; ⼚
-    (hanyu-dazidian	8 7 21)
-    (=ucs		. #x20AA8)	; 𠪨
-    (=hanziku-12	. #xEB54)	; &I-HZK12-EB54;
     ))
 (define-char
   '((ideographic-radical . 27)	; ⼚
