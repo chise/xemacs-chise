@@ -916,6 +916,28 @@
     (=cbeta		. 07148)	; &CB07148;
     ))
 (define-char
+  '((<-denotational
+     ((=ucs		  . #x5F03)	; 弃
+      ))
+    (ideographic-radical . 55)	; ⼶
+    (ideographic-strokes . 3)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs@iso		  . #x20AD3)	; &MJ031959;
+      (=mj		  . 031959)	; &MJ031959;
+      )
+     ((=ucs@unicode	  . #x5EFE)	; &MJ011120;
+      (=mj		  . 011120)	; &MJ011120;
+      ))
+    (=ucs-var-002	. #x5F03)	; &U-v002+5F03;
+    (->subsumptive
+     ((==ucs-var-002	  . #x5F03)	; &g2-U-v002+5F03;
+      ))
+    ))
+(define-char
   '((ideographic-radical . 55)	; ⼶
     (ideographic-strokes . 4)
     (ideographic-structure
