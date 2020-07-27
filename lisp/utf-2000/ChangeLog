@@ -1,5 +1,16 @@
 2020-07-26  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R037-Big.el (A-BC-8872): New abstract node.
+	(BC-8872): New character; use `<-denotational' for A-BC-8872.
+	(A-U+26C29-itaiji-006): New abstract node; use `<-denotational'
+	for A-cgnU+26C29; unify A-U+26C29-itaiji-007.
+	(U+26C29-itaiji-006): New character; use `<-denotational' for
+	A-U+26C29-itaiji-006.
+	(A-BC-85B2): New abstract node.
+	(BC-85B2): New character; use `<-denotational' for A-BC-85B2.
+	(U+26C29-itaiji-007): New character; use `<-denotational' for
+	A-U+26C29-itaiji-006.
+
 	* Ideograph-R027-Cliff.el (U-00020AA8): Apply new conventions for
 	glyph granularity.
 
