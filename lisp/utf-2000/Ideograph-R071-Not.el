@@ -111,7 +111,13 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 71)	; ⽆
+  '((<-denotational@component
+     ((=>ucs@component	  . #x5142)	; &A-compU+5142;
+      ))
+    (<-denotational@usage
+     ((==>daijiten	  . 04440)	; &A2-DJT-04440;
+      ))
+    (ideographic-radical . 71)	; ⽆
     (ideographic-strokes . 1)
     (=ucs		. #x65E1)	; 旡
     (=adobe-japan1-0	. 05089)	; &I-AJ1-05089;
@@ -125,6 +131,7 @@
     (=gt-k		. 00533)	; &I-GT-K00533;
     (=gt-pj-1		. #x5A5C)	; &I-GT-17329; [58-60]
     (=daikanwa		. 13717)	; &I-M-13717;
+    (=daijiten		. 04440)	; &I-DJT-04440;
     (=shinjigen		.  3258)	; 旡
     (->subsumptive
      ((total-strokes	   . 4)
@@ -167,6 +174,8 @@
        ((=ucs		    . #xE0103)	; 󠄃
 	))
       (==hanyo-denshi/ft  . #x363B)	; &g2-HD-FT-363B; [22-27]
+      )
+     ((==daijiten	  . 04440)	; &g2-DJT-04440;
       ))
     ))
 (define-char

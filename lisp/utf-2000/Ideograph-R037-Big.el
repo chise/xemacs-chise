@@ -5035,6 +5035,38 @@
 (define-char
   '((ideographic-radical . 37)	; ⼤
     (ideographic-strokes . 6)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs		  . #x5383)	; 厃
+      )
+     ((=ucs		  . #x5931)	; 失
+      ))
+    (=ucs		. #x21613)	; 𡘓
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x21613)	; 𡘓
+      ))
+    (ideographic-radical . 37)	; ⼤
+    (ideographic-strokes . 6)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs@unicode	  . #x5383)	; &AJ1-21236;
+      (=adobe-japan1-6	  . 21236)	; &AJ1-21236;
+      )
+     ((=ucs		  . #x5931)	; 失
+      ))
+    (=ucs@iso		. #x21613)	; &U-00021613;
+    ))
+(define-char
+  '((ideographic-radical . 37)	; ⼤
+    (ideographic-strokes . 6)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
@@ -9888,6 +9920,37 @@
     (total-strokes	 . 17)
     (hanyu-dazidian	1 550 8)
     (=hanziku-2		. #xC141)	; &HZK02-C141;
+    ))
+(define-char
+  '((ideographic-radical . 37)	; ⼤
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x65D7)	; 旗
+      )
+     ((=>ucs@component	  . #x72AC)	; &A-compU+72AC;
+      (=>iwds-1		  .  0239)	; &A-compU+72AC;
+      ))
+    (=ucs		. #x2BC01)	; 𫰁
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2BC01)	; 𫰁
+      ))
+    (ideographic-radical . 37)	; ⼤
+    (ideographic-strokes . 14)
+    (total-strokes	 . 17)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs@unicode	  . #x65D7)	; &AJ1-01590;
+      (=adobe-japan1-0	  . 01590)	; &AJ1-01590;
+      )
+     ((=ucs		  . #x5927)	; 大
+      ))
+    (=ucs@JP/hanazono	. #x2BC01)	; &hanaJU+2BC01;
     ))
 (define-char
   '((ideographic-radical . 37)	; ⼤

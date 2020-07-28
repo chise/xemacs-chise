@@ -3209,7 +3209,10 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 16)	; ⼏
+  '((<-denotational
+     ((=>ucs@cognate	  . #x8655)	; &A-cgnU+8655;
+      ))
+    (ideographic-radical . 16)	; ⼏
     (ideographic-strokes . 9)
     (total-strokes	 . 11)
     (=>ucs@cognate	. #x2065A)	; &A-cgnU+2065A;

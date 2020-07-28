@@ -1037,6 +1037,44 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=>big5-cdp@cognate . #x8CC3)	; &A-cgnCDP-8CC3;
+      ))
+    (ideographic-radical . 48)	; ⼯
+    (ideographic-strokes . 5)
+    (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>ucs@iwds-1	  . #x4E37)	; &A-IWDSU+4E37;
+      (=>iwds-1		  .  22119)	; &A-IWDSU+4E37;
+      )
+     ((=ucs		  . #x2201B)	; 𢀛
+      ))
+    (=>big5-cdp-itaiji-001 . #x8CC3)	; &A-CDP-i001-8CC3;
+    ))
+(define-char
+  '((<-denotational
+     ((=>big5-cdp-itaiji-001 . #x8CC3)	; &A-CDP-i001-8CC3;
+      ))
+    (ideographic-radical . 48)	; ⼯
+    (ideographic-strokes . 5)
+    (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x513F)	; 儿
+      )
+     ((=ucs		  . #x2201B)	; 𢀛
+      ))
+    (=big5-cdp-itaiji-001 . #x8CC3)	; &CDP-i001-8CC3;
+    (->subsumptive
+     ((==big5-cdp-itaiji-001 . #x8CC3)	; &g2-CDP-i001-8CC3;
+      ))
+    ))
+(define-char
   '((ideographic-radical . 48)	; ⼯
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
@@ -1261,6 +1299,9 @@
     ))
 (define-char
   '((<-denotational
+     ((=>ucs@cognate	  . #x269D5)	; &A-cgnU+269D5;
+      ))
+    (<-denotational@usage
      ((==>ucs@bucs	  . #x8A79)	; &BUCS+8A79;
       ))
     (ideographic-radical . 48)	; ⼯
@@ -1270,20 +1311,34 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
       (=ucs		  . #x2FF8)	; ⿸
       )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
-	(=ucs		    . #x2FF8)	; ⿸
-	)
-       ((=ucs		    . #x5383)	; 厃
-	)
-       ((=ucs		    . #x513F)	; 儿
-	))
+     ((=ucs		  . #x5383)	; 厃
       )
-     ((=ucs		  . #x2201B)	; 𢀛
+     ((=>big5-cdp-itaiji-001 . #x8CC3)	; &A-CDP-i001-8CC3;
+      ))
+    (=>ucs-itaiji-001	. #x8A79)	; &A-U-i001+8A79;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs-itaiji-001	  . #x8A79)	; &A-U-i001+8A79;
+      ))
+    (ideographic-radical . 48)	; ⼯
+    (ideographic-strokes . 9)
+    (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs@unicode	  . #x5383)	; &AJ1-21236;
+      (=adobe-japan1-6	  . 21236)	; &AJ1-21236;
+      )
+     ((=big5-cdp-itaiji-001 . #x8CC3)	; &CDP-i001-8CC3;
       ))
     (=ucs-itaiji-001	. #x8A79)	; &U-i001+8A79;
     (<-formed
      ((=ucs		  . #x8A79)	; 詹
+      ))
+    (->subsumptive
+     ((==ucs-itaiji-001	  . #x8A79)	; &g2-U-i001+8A79;
       ))
     ))
 (define-char
