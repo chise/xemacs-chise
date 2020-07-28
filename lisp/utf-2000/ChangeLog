@@ -1,4 +1,30 @@
+2020-07-27  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R037-Big.el (U-00021613): New character.
+	(U-0002BC01): New character.
+
+	* Ideograph-R018-Knife.el (U-0002B993): New character.
+
+	* Ideograph-R016-Table.el (A-cgnU+2065A): Add `<-denotational' for
+	A-cgnU+8655.
+
+	* Ideograph-R004-Slash.el (U+4E87-var-002): New character; use
+	`<-denotational' for U+4E87.
+
+	* Ideograph-R048-Work.el (A-BC-8CC3-itaiji-001): New abstract
+	node; use `<-denotational' for A-cgnBC-8CC3.
+	(BC-8CC3-itaiji-001): New character; use `<-denotational' for
+	A-BC-8CC3-itaiji-001.
+	(A-U+8A79-itaiji-001): New abstract node; use `<-denotational' for
+	A-cgnU+269D5; use `<-denotational@usage' for BUCS+8A79.
+	(U+8A79-itaiji-001): Use A-U+8A79-itaiji-001 instead of BUCS+8A79
+	as its mother.
+
 2020-07-26  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R071-Not.el (U+65E1): Add `<-denotational@component'
+	for A-compU+5142; add `<-denotational@usage' for A2-DJT-04440;
+	unify DJT-04440.
 
 	* Ideograph-R037-Big.el (A-BC-8872): New abstract node.
 	(BC-8872): New character; use `<-denotational' for A-BC-8872.
