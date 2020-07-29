@@ -112,6 +112,24 @@
   '((ideographic-radical . 27)	; ⼚
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>ucs@component	  . #x5200)	; &A-compU+5200;
+      (=>iwds-1		  .  0149)	; &A-compU+5200;
+      )
+     ((=ucs		  . #x5382)	; 厂
+      ))
+    (=ucs		. #x5383)	; 厃
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5383)	; 厃
+      ))
+    (ideographic-radical . 27)	; ⼚
+    (ideographic-strokes . 2)
+    (total-strokes	 . 4)
     (hanyu-dazidian	1 68 2)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -122,12 +140,53 @@
       )
      ((=ucs		  . #x5382)	; 厂
       ))
-    (=ucs		. #x5383)	; 厃
-    (=adobe-japan1-6	. 21236)	; &I-AJ1-21236;
+    (=ucs@unicode	. #x5383)	; &AJ1-21236;
+    (=adobe-japan1-6	. 21236)	; &AJ1-21236;
     (=jis-x0212		. #x3443)	; &I-JSP-3443; [20-35]
     (=cns11643-4	. #x2144)	; &I-C4-2144; [01-36]
     (=big5-cdp		. #x8C5A)	; &I-CDP-8C5A;
     (=daikanwa		. 02892)	; &I-M-02892;
+    (->subsumptive
+     ((==ucs@unicode	  . #x5383)	; &g2-AJ1-21236;
+      (==adobe-japan1-6	  . 21236)	; &g2-AJ1-21236;
+      (==jis-x0212	  . #x3443)	; &g2-AJ1-21236; [20-35]
+      (==cns11643-4	  . #x2144)	; &g2-AJ1-21236; [01-36]
+      (==big5-cdp	  . #x8C5A)	; &g2-AJ1-21236;
+      (==daikanwa	  . 02892)	; &g2-AJ1-21236;
+      (->subsumptive
+       ((===daikanwa	    . 02892)	; &R-M-02892;
+	)
+       ((===jis-x0212	    . #x3443)	; &R-JSP-3443; [20-35]
+	)
+       ((===adobe-japan1-6  . 21236)	; &R-AJ1-21236;
+	)
+       ((===big5-cdp	    . #x8C5A)	; &R-CDP-8C5A;
+	)
+       ((===cns11643-4	    . #x2144)	; &R-C4-2144; [01-36]
+	)
+       ((===ucs@unicode	    . #x5383)	; &R-UU+5383;
+	))
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5383)	; 厃
+      ))
+    (ideographic-radical . 27)	; ⼚
+    (ideographic-strokes . 2)
+    (total-strokes	 . 4)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=big5-cdp	  . #x8B6C)	; &CDP-8B6C;
+      )
+     ((=ucs		  . #x5382)	; 厂
+      ))
+    (=ucs-var-001	. #x5383)	; &U-v001+5383;
+    (->subsumptive
+     ((==ucs-var-001	  . #x5383)	; &g2-U-v001+5383;
+      ))
     ))
 (define-char
   '((ideographic-radical . 27)	; ⼚
@@ -3315,8 +3374,70 @@
 (define-char
   '((ideographic-radical . 27)	; ⼚
     (ideographic-strokes . 8)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs		  . #x5383)	; 厃
+      )
+     ((=>big5-cdp-itaiji-003 . #x8CDE)	; &A-CDP-i003-8CDE;
+      ))
+    (=ucs		. #x2B756)	; 𫝖
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2B756)	; 𫝖
+      ))
+    (ideographic-radical . 27)	; ⼚
+    (ideographic-strokes . 8)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs-var-001	  . #x5383)	; &U-v001+5383;
+      )
+     ((=big5-cdp-itaiji-003 . #x8CDE)	; &CDP-i003-8CDE;
+      ))
+    (=ucs@JP/hanazono	. #x2B756)	; &hanaJU+2B756;
+    ))
+(define-char
+  '((ideographic-radical . 27)	; ⼚
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>cbeta		  . 10997)	; &A-CB10997;
+      )
+     ((=ucs		  . #x5382)	; 厂
+      ))
     (=ucs		. #x2D186)	; 𭆆
-    (=cbeta		. 12638)	; &I-CB12638;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2D186)	; 𭆆
+      ))
+    (ideographic-radical . 27)	; ⼚
+    (ideographic-strokes . 8)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=cbeta		  . 10997)	; &CB10997;
+      )
+     ((=ucs		  . #x5382)	; 厂
+      ))
+    (=ucs@JP/hanazono	. #x2D186)	; &CB12638;
+    (=cbeta		. 12638)	; &CB12638;
+    (->subsumptive
+     ((==ucs@JP/hanazono  . #x2D186)	; &g2-CB12638;
+      (==cbeta		  . 12638)	; &g2-CB12638;
+      (->subsumptive
+       ((===cbeta	    . 12638)	; &R-CB12638;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 27)	; ⼚
