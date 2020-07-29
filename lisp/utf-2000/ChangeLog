@@ -1,5 +1,9 @@
 2020-07-27  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R049-Oneself.el (IU+22034): Unify CB08035.
+
+2020-07-27  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R037-Big.el (U-00021613): New character.
 	(U-0002BC01): New character.
 
