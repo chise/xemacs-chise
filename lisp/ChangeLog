@@ -1,3 +1,8 @@
+2020-07-30  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-conf.el (=ucs-bmp-cjk@JP/hanazono): Change `max-code'
+	to #x9FFC.
+
 2020-07-26  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* mule/mule-charset.el (default-coded-charset-priority-list): Add
