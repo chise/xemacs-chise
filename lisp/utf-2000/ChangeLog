@@ -1,3 +1,34 @@
+2020-07-29  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R061-Heart.el (U-000225CB): Apply new conventions for
+	glyph granularity.
+	(U+5FF3): Likewise.
+	(U-000225E4): New character.
+	(U-0002B779): Apply new conventions for glyph granularity.
+	(IU+226F3): Modify structure.
+	(GT-K10080): New character.
+	(U+613C): Add `sound@ja/on/{kan|go}'.
+	(UU+613C): Add some relations for other characters.
+	(U+3972): Add `ideographic-structure'; add `sound@ja/on'.
+	(A-M-11025): Apply new conventions for glyph granularity; unify
+	A-CB01720.
+	(U-000227A3): Apply new conventions for glyph granularity.
+	(U-000227C5): Likewise.
+	(U-0002281F): Likewise.
+	(U-00030483): New character.
+	(U-0002D79D): New character.
+	(U+618C): Add `sound@ja/on/{kan|go}'.
+	(CU+618C): Add `<-formed' and `<-same' for UU+60F8; add `->formed'
+	for IU+225CB and JU+5FF3.
+	(U-0002284A): Apply new conventions for glyph granularity.
+	(U-000228D2): Likewise.
+	(U+61F2): Add `ideographic-structure'.
+	(U-0002F8B0): Ditto.
+	(U+61EC): Apply new conventions for glyph granularity.
+	(U+61ED): Likewise.
+	(U+61F2): Likewise.
+	(U-0002BED6): New character.
+
 2020-07-28  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R046-Mountain.el (GT-K00637): New character.
