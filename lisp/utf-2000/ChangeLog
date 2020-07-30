@@ -1,6 +1,36 @@
+2020-07-28  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R046-Mountain.el (GT-K00637): New character.
+	(A-U+21D49-itaiji-002): New abstract node.
+	(U+21D49-itaiji-002): New character; use `<-denotational' for
+	A-U+21D49-itaiji-002.
+	(GU+2D592): New character; use `<-subsumptive' for U-0002D592.
+	(A-U+21636-itaiji-002): New abstract node.
+	(U+21636-itaiji-002): New character; use `<-denotational' for
+	A-U+21636-itaiji-002.
+	(GT-K04175): New character; use `<-denotational' for
+	A-IWDSU+21636-itaiji-001.
+	(U-00021E52): Apply new conventions for glyph granularity.
+	(U-00021E4E): New character.
+	(U-00021E51): New character.
+	(U-00021E55): Apply new conventions for glyph granularity.
+	(U-00021E7F): New character; use `<-denotational' for
+	A-IWDSU+21D1E.
+	(U+5D74): Apply new conventions for glyph granularity.
+	(U+381E): New character.
+	(U-000303BE): New character.
+	(U-0002BDA2): New character.
+	(U-0002D5F2): New character.
+
 2020-07-27  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R049-Oneself.el (IU+22034): Unify CB08035.
+
+	* Ideograph-R027-Cliff.el (U+5383): Apply new conventions for
+	glyph granularity.
+	(U+5383-var-001): New character; use `<-denotational' for U+5383.
+	(U-0002B756): New character.
+	(U-0002D186): Apply new conventions for glyph granularity.
 
 2020-07-27  MORIOKA Tomohiko  <tomo.git@chise.org>
 
