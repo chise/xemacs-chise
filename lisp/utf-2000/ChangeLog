@@ -260,6 +260,35 @@
 	`<-denotational@component' for A-IWDSU+2062C.
 	(A-IWDSU+2062C): New abstract node.
 
+2020-07-19  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen.el (SW-JIGUGE5-06502): Add U-0002054B as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-06402): Ditto.
+	(SW-JIGUGE5-08722): Add U-00029C32 as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-08622): Ditto.
+	(SW-JIGUGE5-33715): Use U-000219B4 instead of "⿰⿱爻子⿸&CDP-8D56;&CDP-8C40;" as
+	a target of `<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-32715): Ditto.
+	(SW-JIGUGE5-34113): Add U+72E6 as a target of
+	`<-Small-Seal@shuowen'; use U+3E6A instead of "⿰犭册" as a target
+	of `<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-33113): Ditto.
+	(SW-JIGUGE5-35805): Add U-00021D1E as a target of
+	`<-Small-Seal@shuowen'; use U-00021E7F instead of "⿰⿱山⿱大十允"
+	as a target of `<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-35105): Ditto.
+	(SW-JIGUGE5-43520): Use U-00028EE4 instead of "⿰阝⿱夾女" as a
+	target of `<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-42220): Ditto.
+	(SW-JIGUGE5-46203): Use U+87C5 instead of "⿰虫庶" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-44903): Ditto.
+	(SW-JIGUGE5-47522): Add U+967B as a target of
+	`<-Small-Seal@shuowen'; use U-000286F9 instead of "⿰卥⻏" as a
+	target of `<-Small-Seal@shuowen'.
+
 2020-07-18  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R005-Second.el (U-000200D2): Apply new conventions for
