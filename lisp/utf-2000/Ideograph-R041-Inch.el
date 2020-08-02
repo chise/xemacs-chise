@@ -4001,16 +4001,69 @@
     ))
 (define-char
   '((ideographic-radical . 41)	; ⼨
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x3775)	; 㝵
+      )
+     ((=ucs		  . #x84A6)	; 蒦
+      ))
+    (sound@ja/on	"toku")
+    (=ucs		. #x2330F)	; 𣌏
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2330F)	; 𣌏
+      ))
+    (ideographic-radical . 41)	; ⼨
     (ideographic-strokes . 19)
     (total-strokes	 . 22)
-    (=ucs		. #x2330F)	; 𣌏
-    (->subsumptive
-     ((=ucs@iso		  . #x2330F)	; &C5-7339;
-      (=cns11643-5	  . #x7339)	; &C5-7339; [83-25]
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
       )
-     ((hanyu-dazidian	  2 1542 5)
-      (=hanziku-4	  . #xE7B0)	; &HZK04-E7B0;
+     ((=ucs@unicode	  . #x3775)	; &AJ1-17536;
+      (=adobe-japan1-5	  . 17536)	; &AJ1-17536;
+      )
+     ((=big5-cdp	  . #x8CB0)	; &GT-42188;
+      (=daikanwa	  . 31582)	; &I-M-31582;
       ))
+    (=ucs@iso		. #x2330F)	; &C5-7339;
+    (=cns11643-5	. #x7339)	; &C5-7339; [83-25]
+    (=daikanwa/ho	.  0242)	; &C5-7339;
+    (->subsumptive
+     ((==ucs@iso	  . #x2330F)	; &g2-M-H0242;
+      (==cns11643-5	  . #x7339)	; &g2-M-H0242; [83-25]
+      (==daikanwa/ho	  .  0242)	; &g2-M-H0242;
+      (->subsumptive
+       ((===daikanwa/ho	    .  0242)	; &R-M-H0242;
+	)
+       ((===cns11643-5	    . #x7339)	; &R-C5-7339; [83-25]
+	)
+       ((===ucs@iso	    . #x2330F)	; &R-U-0002330F;
+	))
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2330F)	; 𣌏
+      ))
+    (ideographic-radical . 41)	; ⼨
+    (ideographic-strokes . 18)
+    (total-strokes	 . 21)
+    (hanyu-dazidian	2 1542 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs@unicode	  . #x3775)	; &AJ1-17536;
+      (=adobe-japan1-5	  . 17536)	; &AJ1-17536;
+      )
+     ((=ucs@unicode	  . #x84A6)	; &MJ022475;
+      (=mj		  . 022475)	; &MJ022475;
+      ))
+    (=hanziku-4		. #xE7B0)	; &HZK04-E7B0;
     ))
 (define-char
   '((ideographic-radical . 41)	; ⼨
