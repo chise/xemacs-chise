@@ -1,3 +1,24 @@
+2020-08-01  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R047-River.el (U-0002200A): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R044-Corpse.el (A-RUI6-E147): New abstract node.
+	(RUI6-E147): Add `<-denotational' for A-RUI6-E147.
+
+	* Ideograph-R041-Inch.el (U-0002330F): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R012-Eight.el (A-BC-8CDE-itaiji-003): New abstract
+	node.
+	(BC-8CDE-itaiji-003): New character; use `<-denotational' for
+	A-BC-8CDE-itaiji-003.
+	(U-0002F813): Modify to integrate M-23802.
+
+	* Ideograph-R011-Enter.el (U-000204DE): Apply new conventions for
+	glyph granularity; add `<-denotational@component' for
+	A-IWDSU+4ED2.
+
 2020-07-31  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Oracle-Bones.el (ZOB-00356): Use "𰇑" instead of "⿱冊口".
