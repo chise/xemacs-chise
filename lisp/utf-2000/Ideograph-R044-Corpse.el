@@ -1224,6 +1224,24 @@
       )
      ((=ucs		  . #x4E47)	; 乇
       ))
+    (=>ruimoku-v6	. #xE147)	; &A-RUI6-E147;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ruimoku-v6	  . #xE147)	; &A-RUI6-E147;
+      ))
+    (ideographic-radical . 44)	; ⼫
+    (ideographic-strokes . 3)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs		  . #x5C38)	; 尸
+      )
+     ((=ucs@unicode	  . #x4E47)	; &AJ1-17239;
+      (=adobe-japan1-5	  . 17239)	; &AJ1-17239;
+      ))
     (=ruimoku-v6	. #xE147)	; &RUI6-E147;
     (->subsumptive
      ((==ruimoku-v6	  . #xE147)	; &g2-RUI6-E147;
