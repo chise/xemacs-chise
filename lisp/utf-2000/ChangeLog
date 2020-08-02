@@ -1,3 +1,21 @@
+2020-07-31  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Oracle-Bones.el (ZOB-00356): Use "𰇑" instead of "⿱冊口".
+	(ZOB-00853): Use "𬴶" instead of "⿰鬲辰".
+	(ZOB-00854): Likewise.
+	(ZOB-00951): Use "𰆲" instead of "⿰㞢又".
+	(ZOB-01307): Use "𰆍" instead of "⿰午卩".
+	(ZOB-01360): Use "𰄟" instead of "⿰不⺉".
+	(ZOB-01361): Use "𫦎" instead of "⿰索⺉".
+	(ZOB-01598): Use "&A-U-i004+29ACF;" instead of "⿱亯京"; add "就" as a target of
+	`<-Oracle-Bones'.
+	(ZOB-02679): Use "𱋁" instead of "⿰鹿鹿".
+
+2020-07-30  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R059-Bristle.el (U-0002249C): Apply new conventions
+	for glyph granularity.
+
 2020-07-29  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R061-Heart.el (U-000225CB): Apply new conventions for

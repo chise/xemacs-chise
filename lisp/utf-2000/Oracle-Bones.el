@@ -5920,14 +5920,7 @@
     (zinbun-oracle-page . 18)
     (=zinbun-oracle	. 00356)	; &ZOB-0356;
     (<-Oracle-Bones
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	(=ucs		    . #x2FF1)	; ⿱
-	)
-       ((=ucs		    . #x518A)	; 冊
-	)
-       ((=ucs		    . #x53E3)	; 口
-	))
+     ((=ucs		  . #x301D1)	; 𰇑
       ))
     ))
 (define-char
@@ -11069,14 +11062,7 @@
     (zinbun-oracle-page . 40)
     (=zinbun-oracle	. 00853)	; &ZOB-0853;
     (<-Oracle-Bones
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	(=ucs		    . #x2FF0)	; ⿰
-	)
-       ((=ucs		    . #x9B32)	; 鬲
-	)
-       ((=ucs		    . #x8FB0)	; 辰
-	))
+     ((=ucs		  . #x2CD36)	; 𬴶
       ))
     ))
 (define-char
@@ -11085,14 +11071,7 @@
     (=zinbun-oracle	. 00854)	; &ZOB-0854;
     (<-Oracle-Bones
      ((ideographic-combination
-       ((ideographic-structure
-	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	  (=ucs		      . #x2FF0)	; ⿰
-	  )
-	 ((=ucs		      . #x9B32)	; 鬲
-	  )
-	 ((=ucs		      . #x8FB0)	; 辰
-	  ))
+       ((=ucs		    . #x2CD36)	; 𬴶
 	)
        ((=ucs		    . #x65B9)	; 方
 	))
@@ -12026,14 +12005,7 @@
     (zinbun-oracle-page . 44)
     (=zinbun-oracle	. 00951)	; &ZOB-0951;
     (<-Oracle-Bones
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	(=ucs		    . #x2FF0)	; ⿰
-	)
-       ((=ucs		    . #x37A2)	; 㞢
-	)
-       ((=ucs		    . #x53C8)	; 又
-	))
+     ((=ucs		  . #x301B2)	; 𰆲
       ))
     ))
 (define-char
@@ -15037,14 +15009,7 @@
      ((ideographic-combination
        ((=ucs		    . #x221B6)	; 𢆶
 	)
-       ((ideographic-structure
-	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	  (=ucs		      . #x2FF0)	; ⿰
-	  )
-	 ((=ucs		      . #x5348)	; 午
-	  )
-	 ((=ucs		      . #x5369)	; 卩
-	  ))
+       ((=ucs		    . #x3018D)	; 𰆍
 	))
       ))
     ))
@@ -15628,15 +15593,7 @@
     (zinbun-oracle-page . 64)
     (=zinbun-oracle	. 01360)	; &ZOB-1360;
     (<-Oracle-Bones
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	(=ucs		    . #x2FF0)	; ⿰
-	)
-       ((=ucs		    . #x4E0D)	; 不
-	)
-       ((name		    . "CJK RADICAL KNIFE TWO")
-	(=ucs		    . #x2E89)	; ⺉
-	))
+     ((=ucs		  . #x3011F)	; 𰄟
       ))
     ))
 (define-char
@@ -15644,15 +15601,7 @@
     (zinbun-oracle-page . 64)
     (=zinbun-oracle	. 01361)	; &ZOB-1361;
     (<-Oracle-Bones
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	(=ucs		    . #x2FF0)	; ⿰
-	)
-       ((=ucs		    . #x7D22)	; 索
-	)
-       ((name		    . "CJK RADICAL KNIFE TWO")
-	(=ucs		    . #x2E89)	; ⺉
-	))
+     ((=ucs		  . #x2B98E)	; 𫦎
       ))
     ))
 (define-char
@@ -17802,14 +17751,9 @@
     (zinbun-oracle-page . 76)
     (=zinbun-oracle	. 01598)	; &ZOB-1598;
     (<-Oracle-Bones
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	(=ucs		    . #x2FF1)	; ⿱
-	)
-       ((=ucs		    . #x4EAF)	; 亯
-	)
-       ((=ucs		    . #x4EAC)	; 京
-	))
+     ((=>ucs-itaiji-004	  . #x29ACF)	; &A-U-i004+29ACF;
+      )
+     ((=ucs		  . #x5C31)	; 就
       ))
     ))
 (define-char
@@ -27501,14 +27445,7 @@
     (zinbun-oracle-page . 126)
     (=zinbun-oracle	. 02679)	; &ZOB-2679;
     (<-Oracle-Bones
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	(=ucs		    . #x2FF0)	; ⿰
-	)
-       ((=ucs		    . #x9E7F)	; 鹿
-	)
-       ((=ucs		    . #x9E7F)	; 鹿
-	))
+     ((=ucs		  . #x312C1)	; 𱋁
       ))
     ))
 (define-char
