@@ -1,3 +1,11 @@
+2020-08-02  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R040-Roof.el (A-RUI6-E134): New abstract node.
+	(RUI6-E134): New character; use `<-denotational' for A-RUI6-E134.
+
+	* Ideograph-R010-Legs.el (U-0002047F): Apply new conventions for
+	glyph granularity.
+
 2020-08-01  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R047-River.el (U-0002200A): Apply new conventions for
@@ -18,6 +26,12 @@
 	* Ideograph-R011-Enter.el (U-000204DE): Apply new conventions for
 	glyph granularity; add `<-denotational@component' for
 	A-IWDSU+4ED2.
+
+	* Ideograph-R008-Lid.el (A-IWDSU+4EAE): New abstract node.
+	(U+4EAE): Add `<-denotational' for A-IWDSU+4EAE; add
+	`ideographic-structure'.
+	(U-00020159): Apply new conventions for glyph granularity; add
+	`<-denotational' for A-IWDSU+4EAE.
 
 2020-07-31  MORIOKA Tomohiko  <tomo.git@chise.org>
 
