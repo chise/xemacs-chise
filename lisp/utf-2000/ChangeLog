@@ -1,5 +1,18 @@
 2020-08-02  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R029-Again.el (U-00020B22): Apply new conventions for
+	glyph granularity.
+	(U-000301B2): New character.
+	(A-U+7077-itaiji-003): New abstract node; unify
+	A-U+7077-itaiji-004.
+	(U+7077-itaiji-003): New character; use `<-denotational' for
+	A-U+7077-itaiji-003.
+	(U+7077-itaiji-004): Ditto.
+	(UU+53DA): Add `<-formed' for UU+5047.
+	(U-00020B46): Apply new conventions for glyph granularity.
+
+2020-08-02  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R040-Roof.el (A-RUI6-E134): New abstract node.
 	(RUI6-E134): New character; use `<-denotational' for A-RUI6-E134.
 
