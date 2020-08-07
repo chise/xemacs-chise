@@ -1,3 +1,17 @@
+2020-08-07  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R001-One.el (U+4E05): Add `sound@ja/on'; add some
+	relations for other characters.
+	(U+4E0B): Add some relations for other characters.
+	(U-0002CEB5): New character; use `<-denotational' for
+	A-IWDSU+248EB.
+	(BC-875C): New character.
+	(A-RUI6-E12A): New abstract node.
+	(RUI6-E12A): Copied from ruimoku6.el; add `<-denotational' for
+	A-RUI6-E12A.
+	(U+4E27): Use `<-denotational@usage' instead of `<-denotational'
+	for BUCS+55AA; apply new conventions for glyph granularity.
+
 2020-08-02  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R029-Again.el (U-00020B22): Apply new conventions for
