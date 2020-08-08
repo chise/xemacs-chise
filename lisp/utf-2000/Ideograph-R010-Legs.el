@@ -359,9 +359,42 @@
       ))
     ))
 (define-char
+  '((ideographic-radical . 10)	; ⼉
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x53B6)	; 厶
+      )
+     ((=>ucs@iwds-1	  . #x4E38)	; &A-IWDSU+4E38;
+      (=>iwds-1		  .  65535)	; &A-IWDSU+4E38;
+      ))
+    (=>ucs@iwds-1	. #x5141)	; &A-IWDSU+5141;
+    (=>ucs@iwds-1/normalized . #x5141)	; &A-IWDSU+5141;
+    ))
+(define-char
   '((<-denotational
      ((=>ucs@iwds-1	  . #x5141)	; &A-IWDSU+5141;
       (=>ucs@iwds-1/normalized . #x5141)	; &A-IWDSU+5141;
+      ))
+    (ideographic-radical . 10)	; ⼉
+    (ideographic-strokes . 2)
+    (total-strokes	 . 4)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x53B6)	; 厶
+      )
+     ((=>ucs@component	  . #x513F)	; &A-compU+513F;
+      (=>iwds-1		  .  0222)	; &A-compU+513F;
+      ))
+    (sound@ja/on	"Win")
+    (=ucs		. #x5141)	; 允
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5141)	; 允
       ))
     (ideographic-radical . 10)	; ⼉
     (ideographic-strokes . 2)
@@ -375,9 +408,8 @@
       )
      ((=ucs		  . #x513F)	; 儿
       ))
-    (sound@ja/on	"Win")
-    (=ucs		. #x5141)	; 允
-    (=mj		. 007209)	; &I-MJ007209;
+    (=ucs@unicode	. #x5141)	; &MJ007209;
+    (=mj		. 007209)	; &MJ007209;
     (=adobe-japan1-0	. 01208)	; &I-AJ1-01208;
     (=jis-x0208		. #x3074)	; &I-J90-3074; [16-84]
     (=gb2312		. #x544A)	; &I-G0-544A; [52-42]
@@ -385,12 +417,12 @@
     (=cns11643-1	. #x4478)	; &I-C1-4478; [36-88]
     (=jis-x0213-1	. #x3074)	; &I-JX1-3074; [16-84]
     (=big5		. #xA4B9)	; &I-B-A4B9;
-    (=koseki		. 015470)	; 允
+    (=koseki		. 015470)	; &MJ007209;
     (=gt		. 01733)	; &I-GT-01733;
     (=gt-k		. 00396)	; &I-GT-K00396;
     (=gt-pj-1		. #x3074)	; &I-GT-01733; [16-84]
     (=daikanwa		. 01338)	; &I-M-01338;
-    (=shinjigen		.  0446)	; 允
+    (=shinjigen		.  0446)	; &MJ007209;
     (->subsumptive
      ((==ucs@unicode	  . #x5141)	; &g2-MJ007209;
       (==mj		  . 007209)	; &g2-MJ007209;
