@@ -1,5 +1,12 @@
 2020-08-07  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R062-Halberd.el (U-00022A17): Apply new conventions
+	for glyph granularity.
+	(U-00022A15): New character.
+
+	* Ideograph-R010-Legs.el (A-IWDSU+5141): New abstract node.
+	(U+5141): Apply new conventions for glyph granularity.
+
 	* Ideograph-R001-One.el (U+4E05): Add `sound@ja/on'; add some
 	relations for other characters.
 	(U+4E0B): Add some relations for other characters.

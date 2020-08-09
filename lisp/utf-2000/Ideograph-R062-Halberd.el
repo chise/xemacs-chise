@@ -4902,14 +4902,80 @@
     ))
 (define-char
   '((ideographic-radical . 62)	; ⼽
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=>ucs@iwds-1	  . #x29871)	; &A-IWDSU+29871;
+      )
+     ((=ucs		  . #x6208)	; 戈
+      ))
+    (sound@ja/on	"zoku")
+    (=ucs		. #x22A17)	; 𢨗
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x22A17)	; 𢨗
+      ))
+    (ideographic-radical . 62)	; ⼽
     (ideographic-strokes . 13)
     (total-strokes	 . 17)
-    (=ucs		. #x22A17)	; 𢨗
-    (->subsumptive
-     ((=daikanwa	  . 11683)	; &M-11683;
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=ucs@iso		  . #x22A17)	; &U-00022A17;
+     ((=ucs		  . #x29871)	; 𩡱
+      )
+     ((=ucs		  . #x6208)	; 戈
       ))
+    (=ucs@iso		. #x22A17)	; &MJ036640;
+    (=mj		. 036640)	; &MJ036640;
+    (=koseki		. 131640)	; &MJ036640;
+    (=daikanwa		. 11683)	; &I-M-11683;
+    (->subsumptive
+     ((==mj		  . 036640)	; &g2-MJ036640;
+      (==koseki		  . 131640)	; &g2-MJ036640;
+      (==daikanwa	  . 11683)	; &g2-MJ036640;
+      (->subsumptive
+       ((===daikanwa	    . 11683)	; &R-M-11683;
+	)
+       ((===mj		    . 036640)	; &R-MJ036640;
+	))
+      )
+     ((==ucs@iso	  . #x22A17)	; &g2-IU-00022A17;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 62)	; ⼽
+    (ideographic-strokes . 13)
+    (total-strokes	 . 17)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x8A79)	; 詹
+      )
+     ((=ucs		  . #x6208)	; 戈
+      ))
+    (=ucs		. #x22A15)	; 𢨕
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x22A15)	; 𢨕
+      ))
+    (ideographic-radical . 62)	; ⼽
+    (ideographic-strokes . 13)
+    (total-strokes	 . 17)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs@unicode	  . #x8A79)	; &AJ1-08618;
+      (=adobe-japan1-2	  . 08618)	; &AJ1-08618;
+      )
+     ((=ucs		  . #x6208)	; 戈
+      ))
+    (=ucs@iso		. #x22A15)	; &U-00022A15;
     ))
 (define-char
   '((ideographic-radical . 62)	; ⼽
