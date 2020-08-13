@@ -1231,6 +1231,8 @@
       )
      ((=ucs		  . #x6597)	; 斗
       ))
+    (sound@ja/on/go	"tu")
+    (sound@ja/on/kan	"tou")
     (=ucs		. #x65A2)	; 斢
     ))
 (define-char
@@ -1248,39 +1250,64 @@
       )
      ((=ucs		  . #x6597)	; 斗
       ))
-    (=+>ucs@cns		. #x65A2)	; &o-CU+65A2;
-    (=big5		. #xE9B2)	; &o-CU+65A2;
-    (->subsumptive
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	(=ucs		    . #x2FF0)	; ⿰
-	)
-       ((=ucs@unicode	    . #x9EC3)	; &GT-65324;
-	(=ks-x1001	    . #x7C5C)	; &GT-65324; [92-60]
-	(=jis-x0213-1	    . #x7E71)	; &I-JX1-7E71; [94-81]
-	(=daikanwa	    . 47926)	; &I-M-47926;
-	)
-       ((=ucs		    . #x6597)	; 斗
-	))
-      (=daikanwa	  . 13528)	; &M-13528;
-      (->subsumptive
-       ((==daikanwa	    . 13528)	; &g2-M-13528;
-	))
+    (=>ucs@cns		. #x65A2)	; &A-CU+65A2;
+    (=>cns11643-2	. #x573D)	; &A-CU+65A2; [55-29]
+    (=big5		. #xE9B2)	; &A-CU+65A2;
+    (=>daikanwa		. 13528)	; &A-CU+65A2;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@cns	  . #x65A2)	; &A-CU+65A2;
+      ))
+    (ideographic-radical . 68)	; ⽃
+    (ideographic-strokes . 12)
+    (total-strokes	 . 16)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
       )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	(=ucs		    . #x2FF0)	; ⿰
-	)
-       ((=cns11643-1	    . #x6327)	; &C1-6327; [67-07]
-	)
-       ((=ucs		    . #x6597)	; 斗
-	))
-      (=ucs@cns		  . #x65A2)	; &C2-573D;
-      (=cns11643-2	  . #x573D)	; &C2-573D; [55-29]
+     ((=ucs@unicode	  . #x9EC3)	; &GT-65324;
+      (=ks-x1001	  . #x7C5C)	; &GT-65324; [92-60]
+      (=jis-x0213-1	  . #x7E71)	; &I-JX1-7E71; [94-81]
+      (=daikanwa	  . 47926)	; &I-M-47926;
+      )
+     ((=ucs		  . #x6597)	; 斗
+      ))
+    (=mj		. 013072)	; &MJ013072;
+    (=koseki		. 151670)	; &MJ013072;
+    (=daikanwa		. 13528)	; &I-M-13528;
+    (->subsumptive
+     ((==mj		  . 013072)	; &g2-MJ013072;
+      (==koseki		  . 151670)	; &g2-MJ013072;
+      (==daikanwa	  . 13528)	; &g2-MJ013072;
       (->subsumptive
-       ((==ucs@cns	    . #x65A2)	; &g2-CU+65A2;
-	(==cns11643-2	    . #x573D)	; &g2-CU+65A2; [55-29]
+       ((===daikanwa	    . 13528)	; &R-M-13528;
+	)
+       ((===mj		    . 013072)	; &R-MJ013072;
 	))
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@cns	  . #x65A2)	; &A-CU+65A2;
+      ))
+    (ideographic-radical . 68)	; ⽃
+    (ideographic-strokes . 12)
+    (total-strokes	 . 16)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs@cns		  . #x9EC3)	; &C1-6327;
+      (=cns11643-1	  . #x6327)	; &C1-6327; [67-07]
+      )
+     ((=ucs		  . #x6597)	; 斗
+      ))
+    (=ucs@cns		. #x65A2)	; &C2-573D;
+    (=cns11643-2	. #x573D)	; &C2-573D; [55-29]
+    (->subsumptive
+     ((==ucs@cns	  . #x65A2)	; &g2-CU+65A2;
+      (==cns11643-2	  . #x573D)	; &g2-CU+65A2; [55-29]
       ))
     ))
 (define-char
@@ -1298,25 +1325,31 @@
       )
      ((=ucs		  . #x6597)	; 斗
       ))
-    (=+>ucs@unicode	. #x65A2)	; &o-UU+65A2;
+    (=>ucs@unicode	. #x65A2)	; &A-UU+65A2;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@unicode	  . #x65A2)	; &A-UU+65A2;
+      ))
+    (ideographic-radical . 68)	; ⽃
+    (ideographic-strokes . 11)
+    (total-strokes	 . 15)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((name		  . "CJK RADICAL SIMPLIFIED YELLOW")
+      (=ucs		  . #x2EE9)	; ⻩
+      )
+     ((=ucs		  . #x6597)	; 斗
+      ))
+    (=ucs@unicode	. #x65A2)	; &EGB-2D4E;
+    (=ucs@JP/hanazono	. nil)
+    (=iso-ir165		. #x2D4E)	; &EGB-2D4E; [13-46]
     (->subsumptive
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	(=ucs		    . #x2FF0)	; ⿰
-	)
-       ((name		    . "CJK RADICAL SIMPLIFIED YELLOW")
-	(=ucs		    . #x2EE9)	; ⻩
-	)
-       ((=ucs		    . #x6597)	; 斗
-	))
-      (=ucs@unicode	  . #x65A2)	; &EGB-2D4E;
-      (=ucs@JP/hanazono	  . nil)
-      (=iso-ir165	  . #x2D4E)	; &EGB-2D4E; [13-46]
-      (->subsumptive
-       ((==ucs@unicode	    . #x65A2)	; &g2-UU+65A2;
-	(==ucs@JP/hanazono  . nil)
-	(==iso-ir165	    . #x2D4E)	; &g2-UU+65A2; [13-46]
-	))
+     ((==ucs@unicode	  . #x65A2)	; &g2-UU+65A2;
+      (==ucs@JP/hanazono  . nil)
+      (==iso-ir165	  . #x2D4E)	; &g2-UU+65A2; [13-46]
       ))
     ))
 (define-char

@@ -1,3 +1,18 @@
+2020-08-12  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R067-Script.el (U-0002304B): Apply new conventions for
+	glyph granularity; add `<-denotational@usage' for A2-DJT-04249.
+
+2020-08-10  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R070-Square.el (U-00023103): New character.
+	(U+65D7): Apply new conventions for glyph granularity.
+	(U-0002AC03): New character.
+	(U+65DF): Apply new conventions for glyph granularity.
+
+	* Ideograph-R068-Dipper.el (U+65A2): Apply new conventions for
+	glyph granularity.
+
 2020-08-07  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R062-Halberd.el (U-00022A17): Apply new conventions
