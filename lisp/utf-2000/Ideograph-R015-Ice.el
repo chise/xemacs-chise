@@ -3786,7 +3786,7 @@
      ((=ucs		  . #x51AB)	; 冫
       )
      ((=ucs@unicode	  . #x91D1)	; &AJ1-01754;
-      (=adobe-japan1-0	  . 01754)	; &I-AJ1-01754;
+      (=adobe-japan1-0	  . 01754)	; &AJ1-01754;
       ))
     (=ucs@unicode	. #x51CE)	; &C2-2E28;
     (=cns11643-2	. #x2E28)	; &C2-2E28; [14-08]
