@@ -406,6 +406,9 @@
     (=ucs		. #x3022)	; 〢
     (=cns11643-1	. #x2436)	; &I-C1-2436; [04-22]
     (=big5		. #xA2C4)	; &I-B-A2C4;
+    (<-Suzhou-Numerals
+     ((=big5-cdp	  . #x8969)	; &CDP-8969;
+      ))
     ))
 (define-char
   '((name		. "HANGZHOU NUMERAL THREE")
@@ -622,9 +625,44 @@
       ))
     ))
 (define-char
-  '((name		. "VERTICAL IDEOGRAPHIC ITERATION MARK")
+  '((<-denotational@usage
+     ((==>daijiten	  . 00064)	; &A2-DJT-00064;
+      ))
+    (name		. "VERTICAL IDEOGRAPHIC ITERATION MARK")
+    (ideographic-radical . 3)	; ⼂
+    (ideographic-strokes . 1)
+    (total-strokes	 . 2)
     (=ucs		. #x303B)	; 〻
+    (=mj		. 000003)	; &I-MJ000003;
     (=jis-x0213-1	. #x2236)	; &I-JX1-2236; [02-22]
+    (=koseki		. 001070)	; 〻
+    (=gt		. 00129)	; &I-GT-00129;
+    (=gt-pj-2		. #x3068)	; &I-GT-00129; [16-72]
+    (=daikanwa		. 00092)	; &I-M-00092;
+    (=daijiten		. 00064)	; &I-DJT-00064;
+    (->subsumptive
+     ((==daikanwa	  . 00092)	; &g2-M-00092;
+      )
+     ((==ucs@unicode	  . #x303B)	; &g2-GT-00129;
+      (==jis-x0213-1	  . #x2236)	; &g2-GT-00129; [02-22]
+      (==koseki		  . 001070)	; &g2-GT-00129;
+      (==gt		  . 00129)	; &g2-GT-00129;
+      (->subsumptive
+       ((===jis-x0213-1	    . #x2236)	; &R-JX1-2236; [02-22]
+	)
+       ((===gt		    . 00129)	; &R-GT-00129;
+	)
+       ((===ucs@unicode	    . #x303B)	; &R-UU+303B;
+	))
+      )
+     ((==mj		  . 000003)	; &g2-MJ000003;
+      (==daijiten	  . 00064)	; &g2-MJ000003;
+      (->subsumptive
+       ((===daijiten	    . 00064)	; &R-DJT-00064;
+	)
+       ((===mj		    . 000003)	; &R-MJ000003;
+	))
+      ))
     ))
 (define-char
   '((name		. "MASU MARK")

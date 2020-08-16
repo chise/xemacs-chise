@@ -1338,7 +1338,13 @@
     (=big5-eten		. #xC6DB)	; &I-B-C6DB;
     ))
 (define-char
-  '((name		. "KATAKANA DIGRAPH KOTO")
+  '((<-denotational@usage
+     ((==>daijiten	  . 00045)	; &A2-DJT-00045;
+      ))
+    (name		. "KATAKANA DIGRAPH KOTO")
+    (ideographic-radical . 2)	; ⼁
+    (ideographic-strokes . 0)
+    (total-strokes	 . 1)
     (=>decomposition@vertical
      ((name		  . "KATAKANA LETTER KO")
       (=ucs		  . #x30B3)	; コ
@@ -1346,6 +1352,8 @@
      ((name		  . "KATAKANA LETTER TO")
       (=ucs		  . #x30C8)	; ト
       ))
+    (sound@ja/kun	"koto")
     (=ucs		. #x30FF)	; ヿ
     (=jis-x0213-1	. #x2238)	; &I-JX1-2238; [02-24]
+    (=daijiten		. 00045)	; &I-DJT-00045;
     ))

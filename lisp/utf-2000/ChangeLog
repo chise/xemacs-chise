@@ -3,6 +3,18 @@
 	* Ideograph-R067-Script.el (U-0002304B): Apply new conventions for
 	glyph granularity; add `<-denotational@usage' for A2-DJT-04249.
 
+2020-08-11  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* u03100-Bopomofo.el (<BOPOMOFO LETTER L>): Add `<-Bopomofo' for
+	U-00020832.
+	(<BOPOMOFO LETTER X>): Add `<-Bopomofo' for U+4E05.
+	(<BOPOMOFO LETTER C>): Add `<-Bopomofo' for U-00020001.
+	(<BOPOMOFO LETTER A>): Add `<-Bopomofo' for U+4E2B.
+	(<BOPOMOFO LETTER EH>): Add `<-Bopomofo' for IU+200D2.
+	(<BOPOMOFO LETTER EI>): Add `<-Bopomofo' for UU+4E41.
+	(<BOPOMOFO LETTER ANG>): Add `<-Bopomofo' for U-00021BC1.
+	(<BOPOMOFO LETTER NG>): Add `<-Bopomofo' for MJ007207.
+
 2020-08-10  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R070-Square.el (U-00023103): New character.
@@ -5747,6 +5759,26 @@
 	`<-subsumptive' for IU+20A10.
 	(U+536C-itaiji-001): New character; use `<-subsumptive' for
 	HD-TK01012400.
+
+2020-06-20  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* u031C0-CJK-Strokes.el (<CJK STROKE HP>): Add
+	`ideographic-{radical|strokes}' and `total-strokes'; unify BC-8BA2
+	and GT-K00025; add GT-K00022.
+
+	* u030A0-Katakana.el (<KATAKANA DIGRAPH KOTO>): Add
+	`<-denotational@usage' for A2-DJT-00045; add
+	`ideographic-{radical|strokes}' and `total-strokes'; add
+	`sound@ja/kun'; unify DJT-00045.
+
+	* u03000-CJK-Symbols-and-Punctuation.el (<HANGZHOU NUMERAL TWO>):
+	Add `<-Suzhou-Numerals' for BC-8969.
+	(<VERTICAL IDEOGRAPHIC ITERATION MARK>): Add
+	`<-denotational@usage' for A2-DJT-00064; unify MJ000003,
+	KOSEKI-001070, GT-00129, M-00092 and DJT-00064.
+
+	* u02F00-Kangxi-Radicals.el (<KANGXI RADICAL TONGUE>): Delete
+	`ideograph-cdp'.
 
 2019-06-20  MORIOKA Tomohiko  <tomo.git@chise.org>
 
