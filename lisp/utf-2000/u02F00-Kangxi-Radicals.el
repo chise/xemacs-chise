@@ -1903,12 +1903,9 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (total-strokes	 . 6)
-    (ideograph-cdp	. -693)
     (ideographic-structure
-     (:cdp-combinator	2
-      :char	((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-		 (=ucs		     . #x2FF1)	; ⿱
-		 )
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
       )
      ((=ucs		  . #x5343)	; 千
       )
