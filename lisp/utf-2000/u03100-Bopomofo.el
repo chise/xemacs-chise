@@ -52,7 +52,9 @@
     (=cns11643-1	. #x254B)	; &I-C1-254B; [05-43]
     (=big5		. #xA378)	; &I-B-A378;
     (<-Bopomofo
-     ((=ucs		  . #x206A3)	; 𠚣
+     ((=ucs@iso		  . #x206A3)	; &C6-2139;
+      (=cns11643-6	  . #x2139)	; &C6-2139; [01-25]
+      (=daikanwa	  . 01851)	; &I-M-01851;
       ))
     ))
 (define-char
@@ -75,7 +77,9 @@
     (=cns11643-1	. #x254D)	; &I-C1-254D; [05-45]
     (=big5		. #xA37A)	; &I-B-A37A;
     (<-Bopomofo
-     ((=ucs		  . #x2010E)	; 𠄎
+     ((=ucs@iso		  . #x2010E)	; &GT-00303;
+      (=cns11643-4	  . #x2128)	; &GT-00303; [01-08]
+      (=daikanwa	  . 00228)	; &I-M-00228;
       ))
     ))
 (define-char
@@ -87,6 +91,9 @@
     (=gb2312		. #x284C)	; &I-G0-284C; [08-44]
     (=cns11643-1	. #x254E)	; &I-C1-254E; [05-46]
     (=big5		. #xA37B)	; &I-B-A37B;
+    (<-Bopomofo
+     ((=ucs		  . #x20832)	; 𠠲
+      ))
     ))
 (define-char
   '((name		. "BOPOMOFO LETTER G")
@@ -151,6 +158,9 @@
     (=gb2312		. #x2852)	; &I-G0-2852; [08-50]
     (=cns11643-1	. #x2554)	; &I-C1-2554; [05-52]
     (=big5		. #xA3A3)	; &I-B-A3A3;
+    (<-Bopomofo
+     ((=ucs		  . #x4E05)	; 丅
+      ))
     ))
 (define-char
   '((name		. "BOPOMOFO LETTER ZH")
@@ -218,8 +228,7 @@
     (=cns11643-1	. #x255A)	; &I-C1-255A; [05-58]
     (=big5		. #xA3A9)	; &I-B-A3A9;
     (<-Bopomofo
-     ((=gt		  . 00005)	; &GT-00005;
-      (=daikanwa	  . 00009)	; &I-M-00009;
+     ((=ucs		  . #x20001)	; 𠀁
       ))
     ))
 (define-char
@@ -241,6 +250,9 @@
     (=gb2312		. #x285A)	; &I-G0-285A; [08-58]
     (=cns11643-1	. #x255C)	; &I-C1-255C; [05-60]
     (=big5		. #xA3AB)	; &I-B-A3AB;
+    (<-Bopomofo
+     ((=ucs		  . #x4E2B)	; 丫
+      ))
     ))
 (define-char
   '((name		. "BOPOMOFO LETTER O")
@@ -280,6 +292,11 @@
     (=gb2312		. #x285D)	; &I-G0-285D; [08-61]
     (=cns11643-1	. #x255F)	; &I-C1-255F; [05-63]
     (=big5		. #xA3AE)	; &I-B-A3AE;
+    (<-Bopomofo
+     ((=ucs@iso		  . #x200D2)	; &GT-00232;
+      (=cns11643-5	  . #x212B)	; &GT-00232; [01-11]
+      (=daikanwa	  . 00172)	; &I-M-00172;
+      ))
     ))
 (define-char
   '((name		. "BOPOMOFO LETTER AI")
@@ -300,6 +317,10 @@
     (=gb2312		. #x285F)	; &I-G0-285F; [08-63]
     (=cns11643-1	. #x2561)	; &I-C1-2561; [05-65]
     (=big5		. #xA3B0)	; &I-B-A3B0;
+    (<-Bopomofo
+     ((=ucs@unicode	  . #x4E41)	; &AJ1-14303;
+      (=adobe-japan1-4	  . 14303)	; &AJ1-14303;
+      ))
     ))
 (define-char
   '((name		. "BOPOMOFO LETTER AU")
@@ -355,6 +376,9 @@
     (=gb2312		. #x2864)	; &I-G0-2864; [08-68]
     (=cns11643-1	. #x2566)	; &I-C1-2566; [05-70]
     (=big5		. #xA3B5)	; &I-B-A3B5;
+    (<-Bopomofo
+     ((=ucs		  . #x21BC1)	; 𡯁
+      ))
     ))
 (define-char
   '((name		. "BOPOMOFO LETTER ENG")
@@ -423,6 +447,9 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x312B)	; ㄫ
+    (<-Bopomofo
+     ((=mj		  . 007207)	; &MJ007207;
+      ))
     ))
 (define-char
   '((name		. "BOPOMOFO LETTER GN")
