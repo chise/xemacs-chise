@@ -1,3 +1,42 @@
+2020-08-14  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R053-Dotted-Cliff.el (U+3870): Apply new conventions
+	for glyph granularity.
+	(A-compU+221DB): New abstract node.
+	(U-000221DB): Apply new conventions for glyph granularity; add
+	`<-denotational@component' for A-compU+221DB.
+	(CB08770): New character; use `<-denotational@component' for
+	A-compU+221DB.
+	(U+5E86-itaiji-001): New character; use `<-denotational' for
+	U+5E86.
+	(U-0002D655): Apply new conventions for glyph granularity.
+	(GT-K03190): New character; use `<-denotational' for U-0002D655.
+	(U+3886): Apply new conventions for glyph granularity.
+	(U-00022259): Likewise.
+	(U-000303FC): New character; use `<-denotational' for
+	A-IWDSU+9FEE.
+	(A-IWDSU+9FEE): New abstract node.
+	(U+9FEE): New character.
+	(U+5ED7): Apply new conventions for glyph granularity.
+	(U+5EDB): Add `<-denotational@usage' for A2-DJT-02986; add
+	`ideographic-structure'; add `sound@ja/on/{kan|go}'.
+	(UU+5EDB): Add `ideographic-structure'; unify DJT-02986; add some
+	relations for other characters.
+	(U-000222D2): Use `->denotational' and `->subsumptive'.
+	(U-000222D3): Apply new conventions for glyph granularity.
+	(U-000222D6): New character.
+	(U-0002230B): Use `->denotational' and `->subsumptive'.
+	(A2-DJT-02986): New abstract node.
+
+	* Ideograph-R050-Turban.el (U+5E0C-itaiji-002): New character.
+	(U+5E2F): Apply new conventions for glyph granularity.
+	(A-RUI6-E150): New abstract node.
+	(RUI6-E150): Copied from ruimoku6.el; add `<-denotational' for
+	A-RUI6-E150.
+	(A-RUI6-E164): New abstract node.
+	(RUI6-E164): Copied from ruimoku6.el; add `<-denotational' for
+	A-RUI6-E164.
+
 2020-08-12  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R067-Script.el (U-0002304B): Apply new conventions for
