@@ -506,6 +506,23 @@
       ))
     ))
 (define-char
+  '((ideographic-radical . 50)	; ⼱
+    (ideographic-strokes . 2)
+    (total-strokes	 . 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x53C8)	; 又
+      )
+     ((=ucs		  . #x5DFE)	; 巾
+      ))
+    (=ucs-itaiji-002	. #x5E0C)	; &U-i002+5E0C;
+    (->subsumptive
+     ((==ucs-itaiji-002	  . #x5E0C)	; &g2-U-i002+5E0C;
+      ))
+    ))
+(define-char
   '((=>ucs		. #x3834)	; 㠴
     (ideographic-radical . 50)	; ⼱
     (ideographic-strokes . 3)
@@ -4720,9 +4737,40 @@
     (ideographic-radical . 50)	; ⼱
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
-    (hanyu-dazidian	1 739 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
+      (=ucs		  . #x2FF3)	; ⿳
+      )
+     ((=>ucs@iwds-1	  . #x4E17)	; &J97-5242;
+      (=>jis-x0208	  . #x5242)	; &J97-5242; [50-34]
+      )
+     ((=ucs		  . #x5196)	; 冖
+      )
+     ((=ucs		  . #x5DFE)	; 巾
+      ))
     (=ucs		. #x5E2F)	; 帯
-    (=adobe-japan1-0	. 02867)	; &I-AJ1-02867;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5E2F)	; 帯
+      ))
+    (ideographic-radical . 50)	; ⼱
+    (ideographic-strokes . 7)
+    (total-strokes	 . 10)
+    (hanyu-dazidian	1 739 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
+      (=ucs		  . #x2FF3)	; ⿳
+      )
+     ((=ucs@unicode	  . #x4E17)	; &AJ1-04311;
+      (=adobe-japan1-0	  . 04311)	; &AJ1-04311;
+      )
+     ((=ucs		  . #x5196)	; 冖
+      )
+     ((=ucs		  . #x5DFE)	; 巾
+      ))
+    (=ucs@unicode	. #x5E2F)	; &AJ1-02867;
+    (=adobe-japan1-0	. 02867)	; &AJ1-02867;
     (=jis-x0208		. #x4253)	; &I-J90-4253; [34-51]
     (=cns11643-3	. #x306A)	; &I-C3-306A; [16-74]
     (=jis-x0213-1	. #x4253)	; &I-JX1-4253; [34-51]
@@ -4730,7 +4778,7 @@
     (=gt-k		. 06496)	; &I-GT-K06496;
     (=gt-pj-1		. #x4253)	; &I-GT-11232; [34-51]
     (=daikanwa		. 08929)	; &I-M-08929;
-    (=shinjigen		.  2108)	; 帯
+    (=shinjigen		.  2108)	; &AJ1-02867;
     (<-simplified@JP/Jouyou
      ((=ucs		  . #x5E36)	; 帶
       (=jis-x0208	  . #x5668)	; &I-J90-5668; [54-72]
@@ -6007,6 +6055,37 @@
 	))
       (=ucs@iso		  . #x220E9)	; &U-000220E9;
       ))
+    ))
+(define-char
+  '((ideographic-radical . 50)	; ⼱
+    (ideographic-strokes . 8)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5DFE)	; 巾
+      )
+     ((=ucs		  . #x52B5)	; 劵
+      ))
+    (=>ruimoku-v6	. #xE150)	; &A-RUI6-E150;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ruimoku-v6	  . #xE150)	; &A-RUI6-E150;
+      ))
+    (ideographic-radical . 50)	; ⼱
+    (ideographic-strokes . 8)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5DFE)	; 巾
+      )
+     ((=mj		  . 007646)	; &MJ007646;
+      ))
+    (=ruimoku-v6	. #xE150)	; &RUI6-E150;
     ))
 (define-char
   '((ideographic-radical . 50)	; ⼱
@@ -8722,6 +8801,37 @@
      ((=ucs-var-002	  . #x5C03)	; &U-v002+5C03;
       ))
     (=cbeta		. 03133)	; &CB03133;
+    ))
+(define-char
+  '((ideographic-radical . 50)	; ⼱
+    (ideographic-strokes . 10)
+    (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=>ucs-itaiji-011	  . #x38C7)	; &A-U-i011+38C7;
+      )
+     ((=ucs-itaiji-002	  . #x5E0C)	; &U-i002+5E0C;
+      ))
+    (=>ruimoku-v6	. #xE164)	; &A-RUI6-E164;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ruimoku-v6	  . #xE164)	; &A-RUI6-E164;
+      ))
+    (ideographic-radical . 50)	; ⼱
+    (ideographic-strokes . 10)
+    (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs-itaiji-011	  . #x38C7)	; &U-i011+38C7;
+      )
+     ((=ucs-itaiji-002	  . #x5E0C)	; &U-i002+5E0C;
+      ))
+    (=ruimoku-v6	. #xE164)	; &RUI6-E164;
     ))
 (define-char
   '((ideographic-radical . 50)	; ⼱
