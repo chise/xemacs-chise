@@ -1,5 +1,16 @@
 2020-08-14  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R058-Snout.el (A-IWDSU+5F51-itaiji-002): New abstract
+	node.
+	(A-U+5F51-itaiji-002): New abstract node; use
+	`<-denotational@component' for A-IWDSU+5F51-itaiji-002.
+	(U+5F51-itaiji-002): New character; use `<-denotational' for
+	A-U+5F51-itaiji-002.
+	(A-U+38C7-itaiji-011): New abstract node; use `<-denotational' for
+	A-cgnU+38C7.
+	(U+38C7-itaiji-011): New character; use `<-denotational' for
+	A-U+38C7-itaiji-011.
+
 	* Ideograph-R053-Dotted-Cliff.el (U+3870): Apply new conventions
 	for glyph granularity.
 	(A-compU+221DB): New abstract node.
