@@ -1,3 +1,82 @@
+2020-08-20  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R214-Flute.el (U+9FA0): Apply new conventions for
+	glyph granularity.
+	(U-0002A6CD): Likewise.
+	(U-0002A6D4): Likewise.
+
+2020-08-19  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R030-Mouth.el (U-0002A832): Add A-compU+2A832 as a
+	target of `<-denotational@component'.
+	(U-000301D1): New character.
+	(U+54B3): Apply new conventions for glyph granularity; add
+	`<-denotational@usage' for A2-DJT-01285.
+	(U-00020C6A): Apply new conventions for glyph granularity.
+	(U-00020CB7): Use `->denotational' and `->subsumptive'.
+	(U-00020CB9): Apply new conventions for glyph granularity.
+	(U+54F6): Apply new conventions for glyph granularity for
+	components of ideographic-structure.
+	(U-00020CEE): Apply new conventions for glyph granularity.
+	(U-00020CE0): New character.
+	(U-00020CE6): New character.
+	(U+552B): Apply new conventions for glyph granularity; add
+	`<-denotational@usage' for A2-DJT-01346.
+	(U+555A): Add `ideographic-structure'; add `sound@ja/on'.
+	(JU+555A): Add `ideographic-structure'; add some relations for
+	other characters.
+	(U-00020D3F): Apply new conventions for glyph granularity.
+	(U+556E): Likewise.
+	(U-000301FA): New character; unify CB09057.
+	(U+35BE): Apply new conventions for glyph granularity.
+	(U+20DCE-var-004): New character; use `<-denotational' for
+	U-00020DCE.
+	(U-00020DD1): Use `->denotational' and `->subsumptive'.
+	(U+55AA): Apply new conventions for glyph granularity; add
+	`<-denotational@usage' for BUCS+55AA.
+	(U-0002D247): New character.
+	(A-BC-88A5): New abstract node.
+	(BC-88A5): New character; use `<-denotational' for A-BC-88A5.
+	(A-IWDSU+55E4): New abstract node.
+	(U+55E4): Add `<-denotational' for A-IWDSU+55E4.
+	(o-UU+55E4): Add `ideographic-structure'.
+	(U-0002BABB): Add `<-denotational' for A-IWDSU+55E4.
+	(hanaJU+2BABB): New character; use `<-denotational' for
+	U-0002BABB; add HNG-GOK0059-0.
+	(U-00020ECA): New character.
+	(U-0002D27B): Add `total-strokes'.
+	(U+55FB): Use `->denotational' and `->subsumptive'.
+	(U+35E3): Add `sound@ja/on'; add some relations for other
+	characters.
+	(U+560F): Apply new conventions for glyph granularity; add
+	`<-denotational@usage' for A2-DJT-01472.
+	(U-00020F25): Apply new conventions for glyph granularity.
+	(U-00020FCE): Use `->denotational' and `->subsumptive'.
+	(U+5666): Add `<-denotational@usage' for A2-DJT-01521; add
+	`ideographic-structure'; add `sound@ja/on/{kan|go}'.
+	(UU+5666): Unify DJT-01521; add some relations for other
+	characters.
+	(A-IWDSU+5694): New abstract node.
+	(U+568F): Apply new conventions for glyph granularity; add
+	`<-denotational' for A-IWDSU+5694.
+	(U-000210AA): Add `<-denotational' for A-IWDSU+210AA.
+	(U-000210AD): Apply new conventions for glyph granularity; add
+	`<-denotational' for A-IWDSU+210AA.
+	(A-IWDSU+210AA): New abstract node.
+	(U+5694): Apply new conventions for glyph granularity; add
+	`<-denotational' for A-IWDSU+5694.
+	(U+5699): Apply new conventions for glyph granularity.
+	(U+569D): Likewise.
+	(U-000210D6): Likewise.
+	(U-000210DA): New character.
+	(U-000210DB): New character.
+	(U-00021190): Use `->denotational' and `->subsumptive'.
+	(U-00021192): Likewise.
+	(BUCS+55AA): New abstract node.
+	(A2-DJT-01346): New abstract node.
+	(A2-DJT-01472): New abstract node.
+	(A2-DJT-01521): New abstract node.
+
 2020-08-19  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R031-Enclosure.el (A-U+342D-itaiji-004): New abstract
