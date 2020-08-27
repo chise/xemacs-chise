@@ -1,3 +1,18 @@
+2020-08-26  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R045-Sprout.el (A-U+21D06-itaiji-001): New abstract
+	node; unify A-U+21D06-itaiji-002.
+	(U+21D06-itaiji-001): New character; use `<-denotational' for
+	A-U+21D06-itaiji-001.
+	(U+21D06-itaiji-002): Ditto.
+	(A-IWDSU+21D1B): New abstract node.
+	(U-00021D1B): Use `->denotational' and `->subsumptive'; add
+	`<-denotational' for A-IWDSU+21D1B.
+	(A-IWDSU+21D2B): New abstract node.
+	(U-00021D2B): Add `<-denotational' for A-IWDSU+21D2B.
+	(U-00021D2A): New character; use `<-denotational' for
+	A-IWDSU+21D2B.
+
 2020-08-20  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R214-Flute.el (U+9FA0): Apply new conventions for
