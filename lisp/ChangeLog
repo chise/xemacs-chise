@@ -1,3 +1,14 @@
+2020-08-28  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`=big5-cdp-itaiji-004', `=big5-cdp-itaiji-005' and
+	`=>big5-cdp-itaiji-004'.
+
+	* mule/mule-conf.el (=big5-cdp-itaiji-004): New coded-charset for
+	XEmacs CHISE.
+	(=>big5-cdp-itaiji-004): Ditto.
+	(=big5-cdp-itaiji-005): Ditto.
+
 2020-07-30  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* mule/mule-conf.el (=ucs-bmp-cjk@JP/hanazono): Change `max-code'

@@ -419,6 +419,8 @@ DESCRIPTION (string) is the description string of the charset."
 	  =big5-cdp-itaiji-001
 	  =big5-cdp-itaiji-002
 	  =big5-cdp-itaiji-003
+	  =big5-cdp-itaiji-004
+	  =big5-cdp-itaiji-005
 	  =big5-cdp-var-001
 	  =big5-cdp-var-002
 	  =big5-cdp-var-003
@@ -613,6 +615,7 @@ DESCRIPTION (string) is the description string of the charset."
 	  =>big5-cdp-itaiji-001
 	  =>big5-cdp-itaiji-002
 	  =>big5-cdp-itaiji-003
+	  =>big5-cdp-itaiji-004
 	  =>big5-cdp-var-001
 	  =>ucs-bmp-itaiji-001
 	  =>ucs-sip-itaiji-001
