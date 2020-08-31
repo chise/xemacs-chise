@@ -1,3 +1,58 @@
+2020-08-29  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R032-Earth.el (A-GT-K01486): New abstract node; unify
+	A-U+758B-itaiji-002.
+	(U+758B-itaiji-002): New character; use `<-denotational' for
+	A-GT-K01486.
+	(GT-K01486): Ditto.
+	(A-cgnU+21275): Changed from U-00021275.
+	(U-00021275): Changed from A-IWDSU+21275; separate IU+21275,
+	IU+21275, C6-2661 and M-04959; use A-cgnU+21275 instead of
+	U-00021275 as its mother; add `ideographic-structure'; add
+	`sound@ja/on'.
+	(M-04959): Unify MJ032961 and KOSEKI-056610.
+	(IU+21275): Unify C6-2661.
+	(A-MJ057209): A-cgnU+21275 instead of U-00021275 as its mother.
+	(GU+2D592): New character; use `<-subsumptive' for U-0002D592.
+	(U-0002129F): Apply new conventions for glyph granularity.
+	(M-05024): Add `<-denotational' for U-0002129F; unify IU+2129F,
+	MJ032986 and KOSEKI-057260.
+	(A-cgnU+212A5): Changed from U-000212A5.
+	(U-000212A5): Changed from A-IWDSU+212A5; omit A-IU+212A5; use
+	A-cgnU+212A5 instead of U-000212A5 as its mother; add
+	`ideographic-structure'; add `sound@ja/on'.
+	(M-05027): unify MJ032991 and KOSEKI-057290; use `<-denotational'
+	for U-000212A5 instead of `<-subsumptive' for A-IWDSU+212A5.
+	(IU+212A5): Separate C6-2A4D; use `<-denotational' for U-000212A5
+	instead of `<-subsumptive' for A-IWDSU+212A5.
+	(C6-2A4D): Use `<-denotational' for U-000212A5 instead of
+	`<-subsumptive' for A-IWDSU+212A5.
+	(MJ057212): Use A-cgnU+212A5 instead of U-000212A5 as its mother.
+	(U-000212BB): Apply new conventions for glyph granularity.
+	(U-000213AA): Use `->denotational' and `->subsumptive'.
+	(U-00021397): Apply new conventions for glyph granularity.
+	(A-BC-8DC3): New abstract node.
+	(BC-8DC3): New character; use `<-denotational' for A-BC-8DC3.
+	(U-000213B8): Apply new conventions for glyph granularity.
+	(U+213B8-var-001): New character; use `<-denotational' for
+	U-000213B8.
+	(U-000213C2): Use `->denotational' and `->subsumptive'.
+	(U-000213C4): New character.
+	(U-0002D3CD): New character.
+	(U-000213F3): Apply new conventions for glyph granularity.
+	(U-0002143D): New character.
+	(U-0002BBAC): New character.
+	(U+58CC): Apply new conventions for glyph granularity.
+	(U-000214A3): Apply new conventions for glyph granularity.
+	(U+367B): Add `ideographic-structure'.
+	(UU+367B): Add `ideographic-structure'; add `<-formed' and
+	`<-vulgar' for UU+5EDB.
+	(U+58D9): Apply new conventions for glyph granularity.
+	(U-0002D401): New character.
+	(U-000302BC): New character.
+	(U+58E4): Apply new conventions for glyph granularity.
+	(U-0002150E): New character.
+
 2020-08-26  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R045-Sprout.el (A-U+21D06-itaiji-001): New abstract
