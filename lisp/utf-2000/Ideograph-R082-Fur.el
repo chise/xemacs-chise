@@ -1890,12 +1890,12 @@
     (=cns11643-6	. #x4A51)	; &C6-4A51; [42-49]
     (=daikanwa		. 16868)	; &I-M-16868;
     (<-formed
-     ((=ucs		  . #x2F949)	; 䀹
+     ((=ucs		  . #x4039)	; 䀹
       ))
     (<-formed*sources
      jiyun)
     (<-same
-     ((=ucs		  . #x2F949)	; 䀹
+     ((=ucs		  . #x4039)	; 䀹
       (=daikanwa	  . 23381)	; &I-M-23381;
       )
      ((=ucs@iso		  . #x25286)	; &C7-3047;
@@ -1976,7 +1976,7 @@
     (=koseki		. 190960)	; &MJ039051;
     (=daikanwa		. 16869)	; &I-M-16869;
     (<-formed
-     ((=ucs		  . #x2F949)	; 䀹
+     ((=ucs		  . #x4039)	; 䀹
       )
      ((=ucs@iso		  . #x23B8C)	; &C6-4A51;
       (=cns11643-6	  . #x4A51)	; &C6-4A51; [42-49]
@@ -1985,7 +1985,7 @@
     (<-formed$_1*sources
      jiyun koseki mj)
     (<-same
-     ((=ucs		  . #x2F949)	; 䀹
+     ((=ucs		  . #x4039)	; 䀹
       (=daikanwa	  . 23381)	; &I-M-23381;
       ))
     (<-same*sources
@@ -2273,6 +2273,23 @@
     (total-strokes	 . 12)
     (=ucs		. #x23B95)	; 𣮕
     (=cns11643-6	. #x4A52)	; &I-C6-4A52; [42-50]
+    ))
+(define-char
+  '((ideographic-radical . 82)	; ⽑
+    (ideographic-strokes . 8)
+    (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
+      (=ucs		  . #x2FFA)	; ⿺
+      )
+     ((=ucs		  . #x6BDB)	; 毛
+      )
+     ((=ucs		  . #x22A99)	; 𢪙
+      ))
+    (=ucs		. #x23B9A)	; 𣮚
+    (->subsumptive
+     ((==ucs@iso	  . #x23B9A)	; &g2-IU-00023B9A;
+      ))
     ))
 (define-char
   '((ideographic-radical . 82)	; ⽑
@@ -3814,7 +3831,7 @@
      ((=ucs@unicode	  . #x776B)	; &AJ1-05825;
       (=adobe-japan1-0	  . 05825)	; &AJ1-05825;
       )
-     ((=ucs		  . #x2F949)	; 䀹
+     ((=ucs		  . #x4039)	; 䀹
       ))
     (<-formed$_1*sources
      koseki mj)
@@ -4835,7 +4852,7 @@
     (=koseki		. 192270)	; &MJ039136;
     (=daikanwa		. 16999)	; &I-M-16999;
     (<-formed
-     ((=ucs		  . #x2F949)	; 䀹
+     ((=ucs		  . #x4039)	; 䀹
       )
      ((=ucs@iso		  . #x23B8C)	; &C6-4A51;
       (=cns11643-6	  . #x4A51)	; &C6-4A51; [42-49]
@@ -4844,7 +4861,7 @@
     (<-formed$_1*sources
      jiyun koseki mj)
     (<-same
-     ((=ucs		  . #x2F949)	; 䀹
+     ((=ucs		  . #x4039)	; 䀹
       (=daikanwa	  . 23381)	; &I-M-23381;
       ))
     (<-same*sources
