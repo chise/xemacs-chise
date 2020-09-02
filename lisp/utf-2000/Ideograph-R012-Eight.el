@@ -222,6 +222,31 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=>gt-k		  . 00291)	; &A-GT-K00291;
+      ))
+    (ideographic-radical . 12)	; ⼋
+    (ideographic-strokes . 1)
+    (total-strokes	 . 3)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
+      (=ucs		  . #x2FF5)	; ⿵
+      )
+     ((=ucs		  . #x516B)	; 八
+      )
+     ((=ucs		  . #x4E36)	; 丶
+      ))
+    (=gt-k		. 00385)	; &GT-K00385;
+    (=gt-pj-k1		. #x4B5F)	; &GT-K00385; [43-63]
+    (<-formed
+     ((=ucs		  . #x55AE)	; 單
+      ))
+    (->subsumptive
+     ((==gt-k		  . 00385)	; &g2-GT-K00385;
+      (==gt-pj-k1	  . #x4B5F)	; &g2-GT-K00385; [43-63]
+      ))
+    ))
+(define-char
   '((<-denotational@component
      ((=>ucs@component	  . #x516C)	; &A-compU+516C;
       )
