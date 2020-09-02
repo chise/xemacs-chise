@@ -1,5 +1,7 @@
 2020-09-02  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R010-Legs.el (U+5153): Unify IWDS1-0213.
+
 	* Ideograph-R016-Table.el (A-GT-K00291): New abstract node; use
 	`<-denotational' for U+51E1; unify A-U+51E1-itaiji-006.
 	(U+51E1-itaiji-006): Use A-GT-K00291 as its mother instead of
@@ -18,6 +20,11 @@
 	(g2-JU+5153): use G-JU+5153 instead of JU+5153 as its mother.
 
 2020-09-01  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R046-Mountain.el (A-U+590C-itaiji-002): New abstract
+	node.
+	(U+590C-itaiji-002): New character; use `<-denotational' for
+	A-U+590C-itaiji-002.
 
 	* Ideograph-R068-Dipper.el (U-00023081): Apply new conventions for
 	glyph granularity.
