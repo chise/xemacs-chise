@@ -1826,16 +1826,20 @@
     (<-Liwen*sources
      jiyun)
     (<-ancient
-     ((=ucs		  . #x875F)	; 蝟
+     ((=ucs@unicode	  . #x875F)	; &AJ1-06525;
+      (=adobe-japan1-0	  . 06525)	; &AJ1-06525;
       ))
     (->formed
-     ((=ucs		  . #x875F)	; 蝟
+     ((=ucs@unicode	  . #x875F)	; &AJ1-06525;
+      (=adobe-japan1-0	  . 06525)	; &AJ1-06525;
       (=daikanwa	  . 33287)	; &I-M-33287;
       )
-     ((=ucs		  . #x27CEA)	; 𧳪
+     ((=ucs@iso		  . #x27CEA)	; &MJ049540;
+      (=mj		  . 049540)	; &MJ049540;
       (=daikanwa	  . 36593)	; &I-M-36593;
       )
-     ((=ucs		  . #x732C)	; 猬
+     ((=ucs@unicode	  . #x732C)	; &AJ1-18071;
+      (=adobe-japan1-5	  . 18071)	; &AJ1-18071;
       (=daikanwa	  . 20536)	; &I-M-20536;
       )
      ((=ucs@unicode	  . #x5F5A)	; &HD-IP-5F5A;
@@ -2485,11 +2489,12 @@
     (=cns11643-7	. #x2D61)	; &C7-2D61; [13-65]
     (=daikanwa		. 09947)	; &I-M-09947;
     (<-same
-     ((=ucs		  . #x875F)	; 蝟
+     ((=ucs@unicode	  . #x875F)	; &AJ1-06525;
+      (=adobe-japan1-0	  . 06525)	; &AJ1-06525;
       (=jis-x0208	  . #x6976)	; &I-J90-6976; [73-86]
       (=daikanwa	  . 33287)	; &I-M-33287;
-      (=shinjigen@1ed	  .  7215)	; 蝟
-      (=shinjigen@rev	  .  7216)	; 蝟
+      (=shinjigen@1ed	  .  7215)	; &AJ1-06525;
+      (=shinjigen@rev	  .  7216)	; &AJ1-06525;
       )
      ((=ucs		  . #x5F59)	; 彙
       (=jis-x0208	  . #x5743)	; &I-J90-5743; [55-35]
