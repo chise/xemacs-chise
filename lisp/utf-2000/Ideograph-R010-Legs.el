@@ -3595,24 +3595,29 @@
     (->subsumptive
      ((ideographic-strokes . 6)
       (total-strokes	   . 8)
-      (=decomposition@hanyo-denshi
-       ((=ucs		    . #x5153)	; 兓
-	)
-       ((=ucs		    . #xE0102)	; 󠄂
-	))
-      (==mj		  . 007239)	; &g2-MJ007239;
-      (==hanyo-denshi/ks  . 016040)	; &g2-MJ007239;
-      (==koseki		  . 016040)	; &g2-MJ007239;
-      (==daikanwa	  . 01367)	; &g2-MJ007239;
+      (=>>mj		  . 007239)	; &G-MJ007239;
+      (=>>hanyo-denshi/ks . 016040)	; &G-MJ007239;
+      (=>>daikanwa	  . 01367)	; &G-MJ007239;
       (->subsumptive
-       ((===daikanwa	    . 01367)	; &R-M-01367;
-	)
-       ((===hanyo-denshi/ks . 016040)	; &R-HD-KS-016040;
-	(=hanyo-denshi/ks/mf . #x0644)	; &R-HD-KS-016040;
-	)
-       ((===mj		    . 007239)	; &R-MJ007239;
-	)
-       ((=hanziku-1	    . #xDE47)	; &HZK01-DE47;
+       ((=decomposition@hanyo-denshi
+	 ((=ucs		      . #x5153)	; 兓
+	  )
+	 ((=ucs		      . #xE0102)	; 󠄂
+	  ))
+	(==mj		    . 007239)	; &g2-MJ007239;
+	(==hanyo-denshi/ks  . 016040)	; &g2-MJ007239;
+	(==koseki	    . 016040)	; &g2-MJ007239;
+	(==daikanwa	    . 01367)	; &g2-MJ007239;
+	(->subsumptive
+	 ((===daikanwa	      . 01367)	; &R-M-01367;
+	  )
+	 ((===hanyo-denshi/ks . 016040)	; &R-HD-KS-016040;
+	  (=hanyo-denshi/ks/mf . #x0644)	; &R-HD-KS-016040;
+	  )
+	 ((===mj	      . 007239)	; &R-MJ007239;
+	  )
+	 ((=hanziku-1	      . #xDE47)	; &HZK01-DE47;
+	  ))
 	))
       )
      ((ideographic-strokes . 6)
@@ -3622,18 +3627,22 @@
       )
      ((ideographic-strokes . 8)
       (total-strokes	   . 10)
-      (=decomposition@cid
-       ((=ucs		    . #x5153)	; 兓
-	)
-       ((=ucs		    . #xE0100)	; 󠄀
-	))
-      (==ucs@jis	  . #x5153)	; &g2-AJ1-21179;
-      (==adobe-japan1-6	  . 21179)	; &g2-AJ1-21179;
-      (==jis-x0212	  . #x3268)	; &g2-AJ1-21179; [18-72]
+      (=>>ucs@jis	  . #x5153)	; &G-AJ1-21179;
+      (=>>adobe-japan1-6  . 21179)	; &G-AJ1-21179;
       (->subsumptive
-       ((===jis-x0212	    . #x3268)	; &R-JSP-3268; [18-72]
-	)
-       ((===adobe-japan1-6  . 21179)	; &R-AJ1-21179;
+       ((=decomposition@cid
+	 ((=ucs		      . #x5153)	; 兓
+	  )
+	 ((=ucs		      . #xE0100)	; 󠄀
+	  ))
+	(==ucs@jis	    . #x5153)	; &g2-AJ1-21179;
+	(==adobe-japan1-6   . 21179)	; &g2-AJ1-21179;
+	(==jis-x0212	    . #x3268)	; &g2-AJ1-21179; [18-72]
+	(->subsumptive
+	 ((===jis-x0212	      . #x3268)	; &R-JSP-3268; [18-72]
+	  )
+	 ((===adobe-japan1-6  . 21179)	; &R-AJ1-21179;
+	  ))
 	))
       ))
     ))
