@@ -3568,6 +3568,7 @@
      ((=>ucs@component	  . #x5142)	; &A-compU+5142;
       ))
     (=ucs		. #x5153)	; 兓
+    (=>iwds-1		.  0213)	; 兓
     ))
 (define-char
   '((<-denotational
