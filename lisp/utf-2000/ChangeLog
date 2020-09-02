@@ -1,5 +1,13 @@
 2020-09-01  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R010-Legs.el (G-MJ007239): New glyph node; use
+	`<-subsumptive' for JU+5153.
+	(g2-MJ007239): use G-MJ007239 instead of JU+5153 as its mother.
+	(G-JU+5153): New glyph node; use `<-subsumptive' for JU+5153.
+	(g2-JU+5153): use G-JU+5153 instead of JU+5153 as its mother.
+
+2020-09-01  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R068-Dipper.el (U-00023081): Apply new conventions for
 	glyph granularity.
 
