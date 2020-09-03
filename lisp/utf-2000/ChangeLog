@@ -1,5 +1,37 @@
 2020-09-02  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R057-Bow.el (U-0002239D): Apply new conventions for
+	glyph granularity.
+	(A-U+223A5-itaiji-001): New abstract node.
+	(U+223A5-itaiji-001): New character; use `<-denotational' for
+	A-U+223A5-itaiji-001.
+	(A-C6-246A): Unify A-compU+223AC.
+	(U-000223AC): Apply new conventions for glyph granularity.
+	(U-000223B2): Likewise.
+	(U-000223FD): Likewise.
+	(U-000223FB): New character.
+	(U-00022406): Apply new conventions for glyph granularity.
+	(A-IWDSU+5F3E): New abstract node.
+	(U+5F3E): Add `<-denotational' for A-IWDSU+5F3E; add
+	`ideographic-structure'; add `sound@ja/on'.
+	(U+5F39): Apply new conventions for glyph granularity; add
+	`<-denotational' for A-IWDSU+5F3E.
+	(U-0002240F): Use `->denotational' and `->subsumptive'.
+	(U+5F48): Apply new conventions for glyph granularity.
+	(U-0002244B): Add `ideographic-structure'.
+	(IU+2244B): Add `ideographic-structure'.
+
+	* Ideograph-R024-Ten.el (U+5355): Apply new conventions for glyph
+	granularity; add `<-denotational@usage' for A2-DJT-01427.
+	(U-0002099D): Apply new conventions for glyph granularity; modify
+	structure.
+	(IU+2099D): Unify U+9FBA; modify structure.
+	(U+5358): Add `<-denotational@usage' for A2-DJT-01427; unify
+	DJT-01012.
+	(U-000209A4): Add `<-denotational@usage' for A2-DJT-01427; unify
+	DJT-01013.
+	(A2-DJT-01427): New abstract node.
+
 	* Ideograph-R010-Legs.el (U+5153): Unify IWDS1-0213.
 
 	* Ideograph-R016-Table.el (A-GT-K00291): New abstract node; use
