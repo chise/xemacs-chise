@@ -1,5 +1,7 @@
 2020-09-06  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* README.en: Use UTF-8-jp-er instead of iso-2022-7bit-ss2.
+
 	* char-db-util.el (char-db-coded-charset-priority-list): Add
 	`=>big5-cdp-itaiji-004'.
 
