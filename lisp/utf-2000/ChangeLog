@@ -1,11 +1,31 @@
 2020-09-06  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R024-Ten.el (U-0002097D): Apply new conventions for
+	glyph granularity.
+	(BC-89E4): New character; use `<-denotational' for U-0002097D.
+
+	* Ideograph-R021-Spoon.el (BC-8CBD): New character; unify
+	GT-K00147.
+
+	* Ideograph-R006-Hook.el (A-U+624D-itaiji-005): New abstract node.
+	(U+624D-itaiji-005): New character; use `<-denotational' for
+	A-U+624D-itaiji-005.
+
 	* README.en: Use UTF-8-jp-er instead of iso-2022-7bit-ss2.
 
 	* char-db-util.el (char-db-coded-charset-priority-list): Add
 	`=>big5-cdp-itaiji-004'.
 
 2020-09-05  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R061-Heart.el (U+61C5): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R050-Turban.el (U-00022172): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R044-Corpse.el (U+5C6C): Apply new conventions for
+	glyph granularity.
 
 	* Ideograph-R019-Power.el (U+52EE): Apply new conventions for
 	glyph granularity.

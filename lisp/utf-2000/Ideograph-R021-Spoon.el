@@ -219,6 +219,20 @@
     ))
 (define-char
   '((ideographic-radical . 21)	; ⼔
+    (ideographic-strokes . 0)
+    (total-strokes	 . 2)
+    (=big5-cdp		. #x8CBD)	; &CDP-8CBD;
+    (=gt-k		. 00147)	; &I-GT-K00147;
+    (=gt-pj-k1		. #x3530)	; &CDP-8CBD; [21-16]
+    (->subsumptive
+     ((==big5-cdp	  . #x8CBD)	; &g2-CDP-8CBD;
+      )
+     ((==gt-k		  . 00147)	; &g2-GT-K00147;
+      (==gt-pj-k1	  . #x3530)	; &g2-GT-K00147; [21-16]
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 21)	; ⼔
     (=ucs		. #x2A7E8)	; 𪟨
     ))
 (define-char

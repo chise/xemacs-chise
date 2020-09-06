@@ -392,6 +392,24 @@
       ))
     ))
 (define-char
+  '((ideographic-radical . 6)	; ⼅
+    (ideographic-strokes . 2)
+    (total-strokes	 . 3)
+    (=>ucs-itaiji-005	. #x624D)	; &A-U-i005+624D;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs-itaiji-005	  . #x624D)	; &A-U-i005+624D;
+      ))
+    (ideographic-radical . 6)	; ⼅
+    (ideographic-strokes . 2)
+    (total-strokes	 . 3)
+    (=ucs-itaiji-005	. #x624D)	; &U-i005+624D;
+    (->subsumptive
+     ((==ucs-itaiji-005	  . #x624D)	; &g2-U-i005+624D;
+      ))
+    ))
+(define-char
   '((<-denotational@usage
      ((==>daijiten	  . 00126)	; &A2-DJT-00126;
       ))
