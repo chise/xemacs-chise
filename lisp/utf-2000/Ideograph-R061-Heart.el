@@ -37268,15 +37268,57 @@
   '((ideographic-radical . 61)	; ⼼
     (ideographic-strokes . 13)
     (total-strokes	 . 16)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5FC4)	; 忄
+      )
+     ((=ucs		  . #x8C66)	; 豦
+      ))
+    (sound@ja/on/go	"go")
+    (sound@ja/on/kan	"kyo")
     (=ucs		. #x61C5)	; 懅
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x61C5)	; 懅
+      ))
+    (ideographic-radical . 61)	; ⼼
+    (ideographic-strokes . 13)
+    (total-strokes	 . 16)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5FC4)	; 忄
+      )
+     ((=ucs@unicode	  . #x8C66)	; &GT-48799;
+      (=jis-x0212	  . #x5E75)	; &GT-48799; [62-85]
+      (=cns11643-2	  . #x475D)	; &I-C2-475D; [39-61]
+      (=daikanwa	  . 36391)	; &I-M-36391;
+      ))
+    (=ucs@unicode	. #x61C5)	; &MJ011975;
+    (=mj		. 011975)	; &MJ011975;
+    (=cns11643-2	. #x5726)	; &I-C2-5726; [55-06]
     (=big5		. #xE979)	; &I-B-E979;
+    (=koseki		. 127610)	; &MJ011975;
+    (=daikanwa		. 11324)	; &I-M-11324;
     (->subsumptive
-     ((=daikanwa	  . 11324)	; &M-11324;
+     ((==mj		  . 011975)	; &g2-MJ011975;
+      (==koseki		  . 127610)	; &g2-MJ011975;
+      (==daikanwa	  . 11324)	; &g2-MJ011975;
+      (->subsumptive
+       ((===daikanwa	    . 11324)	; &R-M-11324;
+	)
+       ((===mj		    . 011975)	; &R-MJ011975;
+	))
       )
-     ((=ucs@unicode	  . #x61C5)	; &UU+61C5;
+     ((==ucs@unicode	  . #x61C5)	; &g2-UU+61C5;
+      (==ucs@JP/hanazono  . nil)
       )
-     ((=ucs@cns		  . #x61C5)	; &C2-5726;
-      (=cns11643-2	  . #x5726)	; &C2-5726; [55-06]
+     ((==ucs@cns	  . #x61C5)	; &g2-CU+61C5;
+      (==cns11643-2	  . #x5726)	; &g2-CU+61C5; [55-06]
       ))
     ))
 (define-char
