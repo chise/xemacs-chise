@@ -1971,6 +1971,67 @@
     ))
 (define-char
   '((ideographic-radical . 17)	; ⼐
+    (ideographic-strokes . 9)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM BELOW")
+      (=ucs		  . #x2FF6)	; ⿶
+      )
+     ((=ucs		  . #x51F5)	; 凵
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
+	(=ucs		    . #x2FF3)	; ⿳
+	)
+       ((=>ucs@iwds-1	    . #x4ECE)	; &A-IWDSU+4ECE;
+	(=>ucs@iwds-1/normalized . #x4ECE)	; &A-IWDSU+4ECE;
+	)
+       ((=ucs		    . #x4E00)	; 一
+	)
+       ((=>ucs@iwds-1	    . #x4ECE)	; &A-IWDSU+4ECE;
+	(=>ucs@iwds-1/normalized . #x4ECE)	; &A-IWDSU+4ECE;
+	))
+      ))
+    (=ucs		. #x20695)	; 𠚕
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x20695)	; 𠚕
+      ))
+    (ideographic-radical . 17)	; ⼐
+    (ideographic-strokes . 9)
+    (total-strokes	 . 11)
+    (hanyu-dazidian	8 10 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM BELOW")
+      (=ucs		  . #x2FF6)	; ⿶
+      )
+     ((=ucs@unicode	  . #x51F5)	; &AJ1-04248;
+      (=adobe-japan1-0	  . 04248)	; &AJ1-04248;
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
+	(=ucs		    . #x2FF3)	; ⿳
+	)
+       ((=ucs		    . #x4ECE)	; 从
+	)
+       ((=ucs		    . #x4E00)	; 一
+	)
+       ((=ucs		    . #x4ECE)	; 从
+	))
+      ))
+    (=ucs@iso		. #x20695)	; &U-00020695;
+    (->subsumptive
+     ((==ucs@iso	  . #x20695)	; &g2-IU-00020695;
+      (->subsumptive
+       ((===ucs@iso	    . #x20695)	; &R-U-00020695;
+	)
+       ((=hanziku-12	    . #xEBB2)	; &HZK12-EBB2;
+	))
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 17)	; ⼐
     (ideographic-strokes . 10)
     (total-strokes	 . 12)
     (ideographic-structure
@@ -2377,12 +2438,6 @@
     (hanyu-dazidian	1 310 1)
     (=ucs		. #x20694)	; 𠚔
     (=hanziku-1		. #xE5DD)	; &I-HZK01-E5DD;
-    ))
-(define-char
-  '((ideographic-radical . 17)	; ⼐
-    (hanyu-dazidian	8 10 8)
-    (=ucs		. #x20695)	; 𠚕
-    (=hanziku-12	. #xEBB2)	; &I-HZK12-EBB2;
     ))
 (define-char
   '((ideographic-radical . 17)	; ⼐
