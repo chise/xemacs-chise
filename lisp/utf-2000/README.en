@@ -40,46 +40,47 @@ describes meaning of keys:
 	Meaning of some symbols are defined.  Following list describes
 	meaning of symbols:
 
-		zhonghua-dazidian (chuuka-daijiten)	$BCf$(Ga^DKGsL((B
-		tongwen-tongkao (doubun-tsuukou)	$BF1J8DL9M(B
-		yupian (gyokuhen)			$B6LJS(B
-		pianhai (henkai)			$BJS3$(B
-		pianhai-leibian (henkai-ruihen)		$BJS3$$(GyK$(Cx:(B
-		yunhai (inkai)				$B1$2q(B
-		yunhai-bei (inkaiho)			$B1$2qJd(B
-		zihui (jii)				$B;zWC(B
-		zihui-biansi				$B;zWC(B-$BQ~;w(B
-		zihui-biansi-2char			$B;zWC(B-$BQ~;w(B-$BFs;zAj;w(B
-		zihui-bu (zihui-bei, jiiho)		$B;zWCJd(B
-		cihai (jikai)				$B<-3$(B
-		jiyun (shuuin)				$B=81$(B
-		wuyinjiyun (goon-shuuin)		$B8^2;=81$(B
-		wuyin-pianhai (goon-henkai)		$B8^2;JS3$(B
-		haipian (kaihen)			$B3$JS(B
-		kangxi					$B9/_f;zE5(B
-		kangxi-biansi-2char			$B9/_f;zE5(B-$BQ~;w(B-$BFs;zAj;w(B
-		kangxi-biansi-3char			$B9/_f;zE5(B-$BQ~;w(B-$B;0;zAj;w(B
-		guangyun (kouin)			$B9-1$(B
-		daikanwa (morohashi-daikanwa)		$BBg4AOB<-E5(B
-		(goonruiju)				$B8^2;N`f\(B
-		ruijumyougishou (ruishuu-meigishou)	$BN`f\L>5A>6(B
-		zhengyun (seiin)			$B@51$(B
-		zhengzitong (zhengzi-tong, seiji-tsuu)	$B@5;z$(CwW(B
+		zhonghua-dazidian (chuuka-daijiten)	中華大字典
+		tongwen-tongkao (doubun-tsuukou)	同文通考
+		yupian (gyokuhen)			玉篇
+		pianhai (henkai)			篇海
+		pianhai-leibian (henkai-ruihen)		篇海類編
+		yunhai (inkai)				韻会
+		yunhai-bei (inkaiho)			韻会補
+		zihui (jii)				字彙
+		zihui-biansi				字彙-辨似
+		zihui-biansi-2char			字彙-辨似-二字相似
+		zihui-bu (zihui-bei, jiiho)		字彙補
+		cihai (jikai)				辞海
+		jiyun (shuuin)				集韻
+		wuyinjiyun (goon-shuuin)		五音集韻
+		wuyin-pianhai (goon-henkai)		五音篇海
+		haipian (kaihen)			海篇
+		kangxi					康煕字典
+		kangxi-biansi-2char			康煕字典-辨似-二字相似
+		kangxi-biansi-3char			康煕字典-辨似-三字相似
+		guangyun (kouin)			広韻
+		daikanwa (morohashi-daikanwa)		大漢和辞典
+		(goonruiju)				五音類聚
+		ruijumyougishou (ruishuu-meigishou)	類聚名義抄
+		zhengyun (seiin)			正韻
+		zhengzitong (zhengzi-tong, seiji-tsuu)	正字通
 		shuowen-tongxun-dingsheng
-			(setsumon-tsuukun-teisei)	$B@bJ8DL71Djfa(B
-		shuowen					$B@bJ8(B
-		shuowen-zhu (danchuu)			~$BJ82r;zCm!JCJCp!K(B
-		shuowen-changjian			$B@bJ8D9d5(B
+			(setsumon-tsuukun-teisei)	説文通訓定聲
+		shuowen					説文
+		shuowen-zhu (danchuu)			説文解字注（段註）
+		shuowen-changjian			説文長箋
 		songyuan-yilai-suzipu
-			(sougen-irai-zokujifu)		$BAW850JMhB/;zIh(B
-		yuquan					$B6L@t(B
-		chuanpian (senhen)			$B@nJS(B
-		hanshu (kanjo)				$B4A=q(B
-		lunheng (ronkou)			$BO@9U(B
+			(sougen-irai-zokujifu)		宋元以来俗字譜
+		yuquan					玉泉
+		chuanpian (senhen)			川篇
+		hanshu (kanjo)				漢書
+		lunheng (ronkou)			論衡
 		hougen
-		(jigakushinan)				$B;z3X;XFn(B
-		zengyun (zouin)				$(O/]1$(B
-		yunxuejicheng (ingakushuusei)		$B1$U\=8@.(B
+		(jigakushinan)				字学指南
+		zengyun (zouin)				增韻
+		yunxuejicheng (ingakushuusei)		韻學集成
+		longkanshoujian				龍龕手鑑
 
 
 ** Features
@@ -91,18 +92,18 @@ describes meaning of keys:
 ->fullwidth	indicates ``fullwidth'' characters
 <-fullwidth	a ``fullwidth'' character of
 
-->same			indicates same characters ($BF1;z(B)
-->original		indicates ``original'' characters ($BK\;z(B)
+->same			indicates same characters (同字)
+->original		indicates ``original'' characters (本字)
 <-original		an ``original'' character of
-->ancient		indicates ``ancient'' characters ($B8E;z(B)
+->ancient		indicates ``ancient'' characters (古字)
 <-ancient		an ``ancient'' character of
-->vulgar		indicates ``vulgar'' characters ($BB/;z(B)
+->vulgar		indicates ``vulgar'' characters (俗字)
 <-vulgar		a ``vulgar'' character of
-->wrong			indicates ``wrong'' characters ($Bkw;z(B)
+->wrong			indicates ``wrong'' characters (譌字)
 <-wrong			a ``wrong'' character of
 ->simplified		indicates simplified characters
 <-simplified		a simplified character of
-->ideographic-variants	indicates variants ($B0[BN;z(B)
+->ideographic-variants	indicates variants (異体字)
 ->synonyms		indicates synonyms
 
 ->radical		indicates corresponding radical forms
