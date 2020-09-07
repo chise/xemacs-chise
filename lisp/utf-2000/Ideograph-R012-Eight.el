@@ -4652,7 +4652,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=ucs		  . #x5206)	; 分
+     ((=ucs@unicode	  . #x5206)	; &MJ007455;
+      (=mj		  . 007455)	; &MJ007455;
       )
      ((=ucs		  . #x2F83A)	; 叱
       ))
