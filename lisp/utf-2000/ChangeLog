@@ -1,5 +1,11 @@
 2020-09-06  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R059-Bristle.el (A-GT-K09415): New abstract node.
+	(GT-K09415): New character; use `<-denotational' for A-GT-K09415.
+
+	* Ideograph-R017-Open-Box.el (U-00020695): Apply new conventions
+	for glyph granularity.
+
 	* Ideograph-R024-Ten.el (U-0002097D): Apply new conventions for
 	glyph granularity.
 	(BC-89E4): New character; use `<-denotational' for U-0002097D.
