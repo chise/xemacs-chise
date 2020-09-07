@@ -1833,6 +1833,41 @@
     ))
 (define-char
   '((ideographic-radical . 59)	; ⼺
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x9769)	; 革
+      )
+     ((=ucs		  . #x5F61)	; 彡
+      ))
+    (=>gt-k		. 09415)	; &A-GT-K09415;
+    ))
+(define-char
+  '((<-denotational
+     ((=>gt-k		  . 09415)	; &A-GT-K09415;
+      ))
+    (ideographic-radical . 59)	; ⼺
+    (ideographic-strokes . 9)
+    (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs@unicode	  . #x9769)	; &AJ1-01461;
+      (=adobe-japan1-0	  . 01461)	; &AJ1-01461;
+      )
+     ((=ucs		  . #x5F61)	; 彡
+      ))
+    (=gt-k		. 09415)	; &GT-K09415;
+    (=gt-pj-k2		. #x403C)	; &GT-K09415; [32-28]
+    (->subsumptive
+     ((==gt-k		  . 09415)	; &g2-GT-K09415;
+      (==gt-pj-k2	  . #x403C)	; &g2-GT-K09415; [32-28]
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 59)	; ⼺
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
     (hanyu-dazidian	2 856 10)
