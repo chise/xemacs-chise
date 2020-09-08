@@ -1,3 +1,14 @@
+2020-09-08  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R046-Mountain.el (GT-K02925): Use U+4DB9 instead of
+	U-0002F878 as a component.
+
+	* Ideograph-R029-Again.el (MJ057134): New character; use
+	`<-denotational' for U+53D0; unify KOSEKI-036460.
+
+	* Ideograph-R020-Wrap.el (BC-8D65): Use U+4DB9 instead of
+	U-0002F878.
+
 2020-09-07  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R027-Cliff.el (U+5391): Apply new conventions for
