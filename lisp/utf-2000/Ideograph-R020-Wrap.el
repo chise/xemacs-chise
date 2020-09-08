@@ -1819,7 +1819,7 @@
       )
      ((=ucs		  . #x52F9)	; 勹
       )
-     ((=ucs		  . #x2F878)	; 屮
+     ((=ucs		  . #x4DB9)	; 䶹
       ))
     (=big5-cdp		. #x8D65)	; &CDP-8D65;
     (->subsumptive
