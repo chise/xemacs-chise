@@ -1,3 +1,8 @@
+2020-09-07  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R027-Cliff.el (U+5391): Apply new conventions for
+	glyph granularity.
+
 2020-09-06  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R059-Bristle.el (A-GT-K09415): New abstract node.
