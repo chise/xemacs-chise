@@ -1,5 +1,7 @@
 2020-09-08  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R001-One.el (U+4DB6): New character.
+
 	* Ideograph-R046-Mountain.el (GT-K02925): Use U+4DB9 instead of
 	U-0002F878 as a component.
 
