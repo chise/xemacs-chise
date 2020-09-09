@@ -8179,6 +8179,38 @@
     (ideographic-strokes . 14)
     (total-strokes	 . 15)
     (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x4E0A)	; 上
+      )
+     ((=ucs		  . #x63D0)	; 提
+      ))
+    (=ucs		. #x4DB6)	; 䶶
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x4DB6)	; 䶶
+      ))
+    (ideographic-radical . 1)	; ⼀
+    (ideographic-strokes . 14)
+    (total-strokes	 . 15)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x4E0A)	; 上
+      )
+     ((=ucs@unicode	  . #x63D0)	; &AJ1-03087;
+      (=adobe-japan1-0	  . 03087)	; &AJ1-03087;
+      ))
+    (=ucs@JP/hanazono	. #x4DB6)	; &hanaJU+4DB6;
+    ))
+(define-char
+  '((ideographic-radical . 1)	; ⼀
+    (ideographic-strokes . 14)
+    (total-strokes	 . 15)
+    (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
       (=ucs		  . #x2FF4)	; ⿴
       )
