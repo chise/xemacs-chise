@@ -1,3 +1,9 @@
+2020-09-08  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* JX1-to-UCS.txt (JX1-5625): Delete mapping for U-0002F878.
+
+	* J90-to-UCS.txt (J90-5625): Delete mapping for U-0002F878.
+
 2020-04-12  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* JC3-to-UCS.txt (JC3-68CC): Map to U+F9DC instead of U+9686.
