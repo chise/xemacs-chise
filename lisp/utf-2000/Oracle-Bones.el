@@ -6109,14 +6109,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	(=ucs		    . #x2FF0)	; ⿰
-	)
-       ((=ucs		    . #x65E1)	; 旡
-	)
-       ((=ucs		    . #x65E1)	; 旡
-	))
+     ((=ucs		  . #x5153)	; 兓
       )
      ((=zinbun-oracle	  . 00315)	; &ZOB-0315;
       ))
@@ -6128,14 +6121,7 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((ideographic-structure
-	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	  (=ucs		      . #x2FF0)	; ⿰
-	  )
-	 ((=ucs		      . #x65E1)	; 旡
-	  )
-	 ((=ucs		      . #x65E1)	; 旡
-	  ))
+       ((=ucs		    . #x5153)	; 兓
 	)
        ((=ucs		    . #x53E3)	; 口
 	))
