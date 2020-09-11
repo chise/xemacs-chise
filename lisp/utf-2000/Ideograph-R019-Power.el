@@ -7868,8 +7868,6 @@
     ))
 (define-char
   '((ideographic-radical . 19)	; ⼒
-    (ideographic-strokes . 11)
-    (total-strokes	 . 13)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -7879,7 +7877,24 @@
      ((=ucs		  . #x529B)	; 力
       ))
     (=ucs		. #x2A7E3)	; 𪟣
-    (=ruimoku-v6	. #xE159)	; &I-RUI6-E159;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2A7E3)	; 𪟣
+      ))
+    (ideographic-radical . 19)	; ⼒
+    (ideographic-strokes . 11)
+    (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs@JP/hanazono	  . #x2BAA1)	; &hanaJU+2BAA1;
+      )
+     ((=ucs		  . #x529B)	; 力
+      ))
+    (=ucs@JP/hanazono	. #x2A7E3)	; &RUI6-E159;
+    (=ruimoku-v6	. #xE159)	; &RUI6-E159;
     (->subsumptive
      ((==ucs@JP/hanazono  . #x2A7E3)	; &g2-hanaJU+2A7E3;
       (==ruimoku-v6	  . #xE159)	; &g2-hanaJU+2A7E3;
