@@ -63786,11 +63786,19 @@
     (->subsumptive
      ((===shuowen-jiguge5 . 20303)	; &SW-JIGUGE5-20303;
       (<-Small-Seal@shuowen
+       ((=ucs		    . #x2097D)	; 𠥽
+	)
+       ((=big5-cdp	    . #x89E4)	; &CDP-89E4;
+	)
        ((=ucs		    . #x20094)	; 𠂔
 	))
       )
      ((===shuowen-jiguge4 . 20003)	; &SW-JIGUGE4-20003;
       (<-Small-Seal@shuowen
+       ((=ucs		    . #x2097D)	; 𠥽
+	)
+       ((=big5-cdp	    . #x89E4)	; &CDP-89E4;
+	)
        ((=ucs		    . #x20094)	; 𠂔
 	))
       ))
@@ -152693,26 +152701,12 @@
     (->subsumptive
      ((===shuowen-jiguge5 . 49911)	; &SW-JIGUGE5-49911;
       (<-Small-Seal@shuowen
-       ((ideographic-structure
-	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	  (=ucs		      . #x2FF0)	; ⿰
-	  )
-	 ((=ucs		      . #x8ECA)	; 車
-	  )
-	 ((=ucs		      . #x83D0)	; 菐
-	  ))
+       ((=ucs		    . #x8F50)	; 轐
 	))
       )
      ((===shuowen-jiguge4 . 48411)	; &SW-JIGUGE4-48411;
       (<-Small-Seal@shuowen
-       ((ideographic-structure
-	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	  (=ucs		      . #x2FF0)	; ⿰
-	  )
-	 ((=ucs		      . #x8ECA)	; 車
-	  )
-	 ((=ucs		      . #x83D0)	; 菐
-	  ))
+       ((=ucs		    . #x8F50)	; 轐
 	))
       ))
     ))
@@ -153295,26 +153289,16 @@
     (->subsumptive
      ((===shuowen-jiguge5 . 50023)	; &SW-JIGUGE5-50023;
       (<-Small-Seal@shuowen
-       ((ideographic-structure
-	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	  (=ucs		      . #x2FF0)	; ⿰
-	  )
-	 ((=ucs		      . #x8ECA)	; 車
-	  )
-	 ((=ucs		      . #x20B1D)	; 𠬝
-	  ))
+       ((=ucs		    . #x282DA)	; 𨋚
+	)
+       ((=ucs		    . #x282C1)	; 𨋁
 	))
       )
      ((===shuowen-jiguge4 . 48523)	; &SW-JIGUGE4-48523;
       (<-Small-Seal@shuowen
-       ((ideographic-structure
-	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	  (=ucs		      . #x2FF0)	; ⿰
-	  )
-	 ((=ucs		      . #x8ECA)	; 車
-	  )
-	 ((=ucs		      . #x20B1D)	; 𠬝
-	  ))
+       ((=ucs		    . #x282DA)	; 𨋚
+	)
+       ((=ucs		    . #x282C1)	; 𨋁
 	))
       ))
     ))
@@ -157321,40 +157305,12 @@
     (->subsumptive
      ((===shuowen-jiguge5 . 51813)	; &SW-JIGUGE5-51813;
       (<-Small-Seal@shuowen
-       ((ideographic-structure
-	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	  (=ucs		      . #x2FF1)	; ⿱
-	  )
-	 ((ideographic-structure
-	   ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	    (=ucs		. #x2FF0)	; ⿰
-	    )
-	   ((=ucs		. #x77E5)	; 知
-	    )
-	   ((=ucs		. #x4E8E)	; 于
-	    ))
-	  )
-	 ((=ucs		      . #x9149)	; 酉
-	  ))
+       ((=ucs		    . #x288AE)	; 𨢮
 	))
       )
      ((===shuowen-jiguge4 . 50313)	; &SW-JIGUGE4-50313;
       (<-Small-Seal@shuowen
-       ((ideographic-structure
-	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	  (=ucs		      . #x2FF1)	; ⿱
-	  )
-	 ((ideographic-structure
-	   ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	    (=ucs		. #x2FF0)	; ⿰
-	    )
-	   ((=ucs		. #x77E5)	; 知
-	    )
-	   ((=ucs		. #x4E8E)	; 于
-	    ))
-	  )
-	 ((=ucs		      . #x9149)	; 酉
-	  ))
+       ((=ucs		    . #x288AE)	; 𨢮
 	))
       ))
     ))
