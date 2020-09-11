@@ -1,5 +1,18 @@
 2020-09-10  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* ShuoWen.el (SW-JIGUGE5-20303): Add U-0002097D and BC-89E4 to the
+	corresponding modern characters.
+	(SW-JIGUGE4-20003): Ditto.
+	(SW-JIGUGE5-49911): Use "轐" instead of "⿰車菐".
+	(SW-JIGUGE4-48411): Ditto.
+	(SW-JIGUGE5-50023): Use "𨋁" instead of "⿰車𠬝"; add U-000282DA
+	to the corresponding modern characters.
+	(SW-JIGUGE4-48523): Ditto.
+	(SW-JIGUGE5-51813): Use "𨢮" instead of "⿱⿰知于酉".
+	(SW-JIGUGE4-50313): Ditto.
+
+2020-09-10  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R019-Power.el (U-0002A7E3): Apply new conventions for
 	glyph granularity.
 
