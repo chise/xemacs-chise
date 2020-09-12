@@ -1,3 +1,12 @@
+2020-09-12  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Oracle-Bones.el (ZOB-00181): Add `<-Oracle-Bones' for U+76FE.
+	(ZOB-00365): Use U+53E4-itaiji-003 instead of "⿱中口"; add U+53E4
+	as a value of `<-Oracle-Bones'.
+	(ZOB-00405): Add `ideographic-structure'; add `<-Oracle-Bones' for
+	U+53E4.
+	(ZOB-00690): Add `<-Oracle-Bones' for U+76FE.
+
 2020-09-11  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* ShuoWen.el: If the value of feature `<-Small-Seal@shuowen' of
