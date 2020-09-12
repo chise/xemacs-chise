@@ -3062,6 +3062,13 @@
     (sources		zob1959=0417 zob1959=0723 zob1959=1817)
     (zinbun-oracle-page . 9)
     (=zinbun-oracle	. 00181)	; &ZOB-0181;
+    (<-Oracle-Bones
+     ((=ucs		  . #x76FE)	; 盾
+      ))
+    (<-Oracle-Bones$_1*note "based on "
+			    (link (:ref "http://humanum.arts.cuhk.edu.hk/Lexis/lexi-mf/search.php?word=%E7%9B%BE") "theory")
+			    " of "
+			    (link (:ref "http://ruimoku.zinbun.kyoto-u.ac.jp/est/view/person-name@ruimoku/rep.id=u90EDu6CABu2F998") "Guo Moruo"))
     ))
 (define-char
   '((<-denotational
@@ -6093,15 +6100,14 @@
     (zinbun-oracle-page . 19)
     (=zinbun-oracle	. 00365)	; &ZOB-0365;
     (<-Oracle-Bones
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	(=ucs		    . #x2FF1)	; ⿱
-	)
-       ((=ucs		    . #x4E2D)	; 中
-	)
-       ((=ucs		    . #x53E3)	; 口
-	))
+     ((=ucs-itaiji-003	  . #x53E4)	; &U-i003+53E4;
+      )
+     ((=ucs		  . #x53E4)	; 古
       ))
+    (<-Oracle-Bones$_2*note "based on "
+			    (link (:ref "http://humanum.arts.cuhk.edu.hk/Lexis/lexi-mf/search.php?word=%E5%8F%A4") "theory")
+			    " of "
+			    (link (:ref "http://ruimoku.zinbun.kyoto-u.ac.jp/est/view/person-name@ruimoku/rep.id=qiu0075_xi_gu0075i") "Qiu Xigui"))
     ))
 (define-char
   '((shuowen-radical	. 22)	; 口
@@ -6383,8 +6389,23 @@
     ))
 (define-char
   '((shuowen-radical	. 22)	; 口
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=zinbun-oracle	  . 00690)	; &ZOB-0690;
+      )
+     ((=zinbun-oracle	  . 00315)	; &ZOB-0315;
+      ))
     (zinbun-oracle-page . 20)
     (=zinbun-oracle	. 00405)	; &ZOB-0405;
+    (<-Oracle-Bones
+     ((=ucs		  . #x53E4)	; 古
+      ))
+    (<-Oracle-Bones$_1*note "based on "
+			    (link (:ref "http://humanum.arts.cuhk.edu.hk/Lexis/lexi-mf/search.php?word=%E5%8F%A4") "theory")
+			    " of "
+			    (link (:ref "http://ruimoku.zinbun.kyoto-u.ac.jp/est/view/person-name@ruimoku/rep.id=qiu0075_xi_gu0075i") "Qiu Xigui"))
     ))
 (define-char
   '((shuowen-radical	. 22)	; 口
@@ -9630,6 +9651,11 @@
     (sources		zob1959=3021)
     (zinbun-oracle-page . 33)
     (=zinbun-oracle	. 00690)	; &ZOB-0690;
+    (<-Oracle-Bones
+     ((=ucs		  . #x76FE)	; 盾
+      ))
+    (<-Oracle-Bones$_1*note (link (:ref "http://humanum.arts.cuhk.edu.hk/Lexis/lexi-mf/search.php?word=%E7%9B%BE") "based on theory of ")
+			    (link (:ref "http://ruimoku.zinbun.kyoto-u.ac.jp/est/view/person-name@ruimoku/rep.id=u90EDu6CABu2F998") "Guo Moruo"))
     ))
 (define-char
   '((shuowen-radical	. 47)	; 干
