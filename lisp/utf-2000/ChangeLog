@@ -1,3 +1,10 @@
+2020-09-11  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen.el: If the value of feature `<-Small-Seal@shuowen' of
+	`===shuowen-jiguge5' object and `===shuowen-jiguge4' object
+	subsumed in each `=shuowen-jiguge' object are the same, move
+	feature `<-Small-Seal@shuowen' to the `=shuowen-jiguge' object.
+
 2020-09-10  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* ShuoWen.el (SW-JIGUGE5-20303): Add U-0002097D and BC-89E4 to the
