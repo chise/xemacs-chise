@@ -34,6 +34,9 @@
 
 	* Oracle-Bones.el (ZOB-00366): Use "兓" instead of "⿰旡旡".
 
+	* char-db-util.el (char-db-coded-charset-priority-list): Add
+	`=big5-cdp-itaiji-004' and `=big5-cdp-itaiji-005'.
+
 2020-09-08  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R001-One.el (U+4DB6): New character.
