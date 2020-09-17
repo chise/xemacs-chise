@@ -2054,7 +2054,7 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((=ucs@unicode	    . #x9FB9)	; &CDP-8BFA;
+       ((=ucs@gb	    . #x9FB9)	; &CDP-8BFA;
 	(=big5-cdp	    . #x8BFA)	; &CDP-8BFA;
 	)
        ((=ucs		    . #x353E)	; 㔾
@@ -2701,7 +2701,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=ucs@unicode	  . #x9FB9)	; &CDP-8BFA;
+     ((=ucs@gb		  . #x9FB9)	; &CDP-8BFA;
       (=big5-cdp	  . #x8BFA)	; &CDP-8BFA;
       )
      ((=ucs-var-001	  . #x2A701)	; &U-v001+2A701;
