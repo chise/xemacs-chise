@@ -5233,7 +5233,7 @@
       )
      ((=ucs		  . #x51AB)	; 冫
       )
-     ((=hanyo-denshi/jt	  . #xBE75)	; &HD-JT-BE75;
+     ((=adobe-japan1-2	  . 08686)	; &AJ1-08686;
       ))
     (=ucs@iso		. #x20613)	; &U-00020613;
     (->subsumptive

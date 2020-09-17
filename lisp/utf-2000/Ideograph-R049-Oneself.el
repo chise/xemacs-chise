@@ -1342,7 +1342,7 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((=ucs@unicode	    . #x9FB9)	; &CDP-8BFA;
+       ((=ucs@gb	    . #x9FB9)	; &CDP-8BFA;
 	(=big5-cdp	    . #x8BFA)	; &CDP-8BFA;
 	)
        ((=ucs		    . #x5DF1)	; 己
@@ -1438,15 +1438,6 @@
 	  )
 	 ((=ucs		      . #xE0103)	; 󠄃
 	  ))
-	(ideographic-structure
-	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	  (=ucs		      . #x2FF1)	; ⿱
-	  )
-	 ((==ucs@JP	      . #x9FB9)	; &g2-GT-K01769;
-	  (==gt-k	      . 01769)	; &g2-GT-K01769;
-	  )
-	 ((=ucs		      . #x5DF3)	; 巳
-	  ))
 	(==mj		    . 010799)	; &g2-MJ010799;
 	(==hanyo-denshi/jt  . #xB098)	; &g2-MJ010799;
 	(==koseki	    . 099270)	; &g2-MJ010799;
@@ -1463,7 +1454,7 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((=ucs@unicode	    . #x9FB9)	; &CDP-8BFA;
+       ((=ucs@gb	    . #x9FB9)	; &CDP-8BFA;
 	(=big5-cdp	    . #x8BFA)	; &CDP-8BFA;
 	)
        ((=ucs		    . #x5DF3)	; 巳
