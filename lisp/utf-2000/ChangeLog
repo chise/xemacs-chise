@@ -1,4 +1,14 @@
+2020-09-17  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R049-Oneself.el (g2-MJ010799): Omit
+	`ideographic-structure'.
+
 2020-09-15  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R040-Roof.el (U-00021A04): Apply new conventions for
+	glyph granularity.
+	(U-00021ADF): Likewise.
+	(U-00021AFC): Likewise.
 
 	* Ideograph-R008-Lid.el (A-cgnU+4EA2): New abstract node.
 	(A-IWDSU+4EA2): Add `<-denotational' for A-cgnU+4EA2.
