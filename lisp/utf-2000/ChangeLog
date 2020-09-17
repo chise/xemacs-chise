@@ -1,3 +1,8 @@
+2020-09-15  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R008-Lid.el (A-cgnU+4EA2): New abstract node.
+	(A-IWDSU+4EA2): Add `<-denotational' for A-cgnU+4EA2.
+
 2020-09-12  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Oracle-Bones.el (ZOB-00181): Add `<-Oracle-Bones' for U+76FE.
