@@ -514,8 +514,10 @@
      ((=ucs@unicode	  . #x7C65)	; &AJ1-06033;
       (=adobe-japan1-0	  . 06033)	; &AJ1-06033;
       )
-     ((=ucs@unicode	  . #x864E)	; &G0-3B22;
-      (=gb2312		  . #x3B22)	; &G0-3B22; [27-02]
+     ((=ucs@cns		  . #x864E)	; &AJ1-01931;
+      (=ucs@jis		  . #x864E)	; &AJ1-01931;
+      (=ucs@ks		  . #x864E)	; &AJ1-01931;
+      (=adobe-japan1-0	  . 01931)	; &AJ1-01931;
       ))
     (=ucs@iso		. #x2A6D4)	; &MJ056815;
     (=mj		. 056815)	; &MJ056815;
