@@ -997,6 +997,64 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=>ucs@cognate	  . #x4EA2)	; &A-cgnU+4EA2;
+      ))
+    (ideographic-radical . 12)	; ⼋
+    (ideographic-strokes . 2)
+    (total-strokes	 . 4)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((name*		  . "ideographic component person for top")
+      (=ucs		  . #x20089)	; 𠂉
+      )
+     ((=>ucs@iwds-1	  . #x513F)	; &A-IWDSU+513F;
+      (=>iwds-1		  .  11922)	; &A-IWDSU+513F;
+      ))
+    (=>mj		. 006465)	; &A-CB07841;
+    (=>cbeta		. 07841)	; &A-CB07841;
+    ))
+(define-char
+  '((<-denotational
+     ((=>mj		  . 006465)	; &A-CB07841;
+      ))
+    (ideographic-radical . 12)	; ⼋
+    (ideographic-strokes . 2)
+    (total-strokes	 . 4)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((name*		  . "ideographic component person for top")
+      (=ucs		  . #x20089)	; 𠂉
+      )
+     ((=ucs		  . #x51E0)	; 几
+      ))
+    (=mj		. 006465)	; &MJ006465;
+    (=koseki		. 016990)	; &MJ006465;
+    (=cbeta		. 07841)	; &I-CB07841;
+    (<-formed
+     ((=ucs@unicode	  . #x4EA2)	; &AJ1-04111;
+      (=adobe-japan1-0	  . 04111)	; &AJ1-04111;
+      ))
+    (<-formed$_1*sources
+     koseki mj)
+    (<-formed*sources
+     koseki mj)
+    (->subsumptive
+     ((==mj		  . 006465)	; &g2-MJ006465;
+      (==koseki		  . 016990)	; &g2-MJ006465;
+      (==cbeta		  . 07841)	; &g2-MJ006465;
+      (->subsumptive
+       ((===mj		    . 006465)	; &R-MJ006465;
+	)
+       ((===cbeta	    . 07841)	; &R-CB07841;
+	))
+      ))
+    ))
+(define-char
   '((ideographic-radical . 12)	; ⼋
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
@@ -1751,14 +1809,14 @@
 	(==gt-k		    . 01769)	; &g2-GT-K01769;
 	))
       )
-     ((=ucs@unicode	  . #x9FB9)	; &CDP-8BFA;
+     ((=ucs@gb		  . #x9FB9)	; &CDP-8BFA;
       (=ucs@JP/hanazono	  . nil)
       (=big5-cdp	  . #x8BFA)	; &CDP-8BFA;
       (->subsumptive
-       ((==ucs@unicode	    . #x9FB9)	; &g2-UU+9FB9;
-	(==ucs@JP/hanazono  . nil)
-	)
        ((==big5-cdp	    . #x8BFA)	; &g2-CDP-8BFA;
+	)
+       ((==ucs@gb	    . #x9FB9)	; &g2-GU+9FB9;
+	(==ucs@JP/hanazono  . nil)
 	))
       ))
     ))
