@@ -1959,7 +1959,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=ucs@unicode	  . #x9FB9)	; &CDP-8BFA;
+     ((=ucs@gb		  . #x9FB9)	; &CDP-8BFA;
       (=big5-cdp	  . #x8BFA)	; &CDP-8BFA;
       )
      ((=ucs@unicode	  . #x58EC)	; &AJ1-02583;
