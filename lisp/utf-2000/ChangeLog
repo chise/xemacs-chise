@@ -37,6 +37,10 @@
 	* char-db-util.el (char-db-coded-charset-priority-list): Add
 	`=big5-cdp-itaiji-004' and `=big5-cdp-itaiji-005'.
 
+2020-09-09  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R214-Flute.el (IU+2A6D4): Fix component.
+
 2020-09-08  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R001-One.el (U+4DB6): New character.

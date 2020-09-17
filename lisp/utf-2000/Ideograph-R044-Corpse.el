@@ -4861,17 +4861,17 @@
     (=daijiten		. 02501)	; &I-DJT-02501;
     (<-simplified@CN
      ((=ucs@unicode	  . #x5C6C)	; &AJ1-04657;
-      (=adobe-japan1-0	  . 04657)	; &I-AJ1-04657;
+      (=adobe-japan1-0	  . 04657)	; &AJ1-04657;
       (=gb12345		  . #x4A74)	; &AJ1-04657; [42-84]
       ))
     (<-simplified@JP/Jouyou
      ((=ucs@unicode	  . #x5C6C)	; &AJ1-04657;
-      (=adobe-japan1-0	  . 04657)	; &I-AJ1-04657;
+      (=adobe-japan1-0	  . 04657)	; &AJ1-04657;
       (=jis-x0208	  . #x5624)	; &I-J90-5624; [54-04]
       ))
     (<-vulgar
      ((=ucs@unicode	  . #x5C6C)	; &AJ1-04657;
-      (=adobe-japan1-0	  . 04657)	; &I-AJ1-04657;
+      (=adobe-japan1-0	  . 04657)	; &AJ1-04657;
       (=daikanwa	  . 07821)	; &I-M-07821;
       ))
     (<-vulgar*sources
@@ -6964,7 +6964,7 @@
      ((=ucs		  . #x8700)	; 蜀
       ))
     (=ucs@unicode	. #x5C6C)	; &AJ1-04657;
-    (=adobe-japan1-0	. 04657)	; &I-AJ1-04657;
+    (=adobe-japan1-0	. 04657)	; &AJ1-04657;
     (=jis-x0208		. #x5624)	; &I-J90-5624; [54-04]
     (=ks-x1001		. #x6155)	; &I-K0-6155; [65-53]
     (=cns11643-1	. #x7A68)	; &I-C1-7A68; [90-72]
