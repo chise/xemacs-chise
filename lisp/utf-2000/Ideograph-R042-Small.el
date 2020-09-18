@@ -1492,8 +1492,9 @@
     (=gt-pj-3		. #x3237)	; &I-GT-09457; [18-23]
     (=daikanwa		. 07505)	; &I-M-07505;
     (<-same
-     ((=ucs@unicode	  . #x9699)	; &AJ1-01850;
-      (=adobe-japan1-0	  . 01850)	; &AJ1-01850;
+     ((=ucs@unicode	  . #x9699)	; &AJ1-20273;
+      (=adobe-japan1-0	  . 01850)	; &AJ1-20273;
+      (=adobe-japan1-5	  . 20273)	; &I-AJ1-20273;
       (=daikanwa	  . 41792)	; &I-M-41792;
       ))
     (<-same*sources

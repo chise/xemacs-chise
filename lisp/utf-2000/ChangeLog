@@ -1,7 +1,334 @@
 2020-09-17  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R046-Mountain.el (A-BC-8DD1): New abstract node.
+	(BC-8DD1): New character; use `<-denotational' for A-BC-8DD1.
+
+	* Ideograph-R032-Earth.el (U+21249-var-001): Unify RUI6-E0BE.
+	(U+585E): Apply new conventions for glyph granularity.
+	(U+58C9): Likewise.
+	(U-0002146E): Likewise.
+
+	* Ideograph-R012-Eight.el (A-MJ006465): New abstract node; use
+	`<-denotational' for A-cgnU+4EA2; unify A-CB07841.
+	(MJ006465): New character; use `<-denotational' for A-MJ006465;
+	unify KOSEKI-016990 and CB07841.
+
 	* Ideograph-R049-Oneself.el (g2-MJ010799): Omit
 	`ideographic-structure'.
+
+2020-09-16  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ruimoku6.el (RUI6-E005): Add `<-denotational' for A-RUI6-E005.
+	(RUI6-E00A): Add `ideographic-structure'.
+	(RUI6-E00C): Add `<-denotational' for U-0002DAA4; unify
+	hanaJU+2DAA4.
+	(RUI6-E00E): Unify IU+22189 instead of U-00022189; add
+	`<-denotational' for U-00022189; add `ideographic-structure';
+	unify MJ035213, KOSEKI-103680 and DJT-02898.
+	(RUI6-E015): Add `<-denotational' for A-RUI6-E015.
+	(RUI6-E016): Add `ideographic-structure'.
+	(RUI6-E017): Add `<-denotational' for U-00030BFC; unify
+	hanaJU+30BFC.
+	(RUI6-E018): Add `<-denotational' for U-0002C2DD; unify
+	hanaJU+2C2DD.
+	(RUI6-E019): Add `<-denotational' for A-RUI6-E019.
+	(RUI6-E01C): Unify UU+3694 instead of U+3694; add `<-denotational'
+	for U+3694; unify MJ000571 and KOSEKI-067420.
+	(RUI6-E02A): Add `<-denotational' for A-RUI6-E02A.
+	(RUI6-E02D): Unify U-0002C433.
+	(RUI6-E02E): Add `<-formed' for U+5215.
+	(RUI6-E030): Add `<-denotational' for U-0002C2E7.
+	(RUI6-E037): Unify U-0002E980 and MJ060323.
+	(RUI6-E038): Separate IU+2A75D.
+	(RUI6-E039): Use U-0002B41F instead of A-RUI6-E039 as the mother.
+	(RUI6-E03E): Add `<-unknown' for U-0002C767.
+	(RUI6-E041): Unify hanaJU+2A894 instead of U-0002A894; add
+	`<-denotational' for U-0002A894.
+	(RUI6-E048): Unify U-00030462.
+	(RUI6-E04F): Unify U-0002C41E; add RUI6-E0EE.
+	(RUI6-E050): Add `<-simplified@CN/misc' for U-0002B2A3.
+	(RUI6-E059): Add `<-denotational@component' for A-IWDSU+2CD44.
+	(RUI6-E05E): Apply new conventions for glyph granularity.
+	(RUI6-E061): Use U+45B5-itaiji-002 instead of "⿱虫虫" in
+	`ideographic-structure'.
+	(RUI6-E063): Unify IU+24C9F instead of U-00024C9F; add
+	`<-denotational' for U-00024C9F; add `ideographic-structure'.
+	(RUI6-E06A): Unify hanaJU+2BFF7; add `<-denotational' for
+	U-0002BFF7; fix strokes; modify structure.
+	(RUI6-E06B): Add `<-unknown' for U-0002E803.
+	(RUI6-E06E): Add `<-denotational' for A-RUI6-E06E.
+	(RUI6-E073): Add `<-denotational' for A-RUI6-E073.
+	(RUI6-E074): Add `<-denotational' for A-RUI6-E074.
+	(RUI6-E076): Add `<-denotational' for A-RUI6-E076.
+	(RUI6-E077): Add `<-denotational' for A-RUI6-E077; add
+	`ideographic-{radical|strokes}' and `total-strokes'; add
+	`ideographic-structure'.
+	(RUI6-E078): Add `<-denotational' for A-RUI6-E078; add
+	`ideographic-{radical|strokes}' and `total-strokes'; add
+	`ideographic-structure'.
+	(RUI6-E079): Add `<-denotational' for A-RUI6-E079; add
+	`ideographic-{radical|strokes}' and `total-strokes'; add
+	`ideographic-structure'.
+	(RUI6-E07A): Add `ideographic-{radical|strokes}' and
+	`total-strokes'; add `ideographic-structure'.
+	(RUI6-E07E): Add `ideographic-structure'.
+	(RUI6-E07F): Add `ideographic-{radical|strokes}' and
+	`total-strokes'; add `ideographic-structure'.
+	(RUI6-E080): Likewise.
+	(RUI6-E081): Add `<-denotational' for A-RUI6-E081; add
+	`ideographic-{radical|strokes}' and `total-strokes'; add
+	`ideographic-structure'.
+	(RUI6-E082): Add `ideographic-{radical|strokes}' and
+	`total-strokes'; add `ideographic-structure'.
+	(RUI6-E083): Add `<-denotational' for U-0002E6BE; add
+	`ideographic-{radical|strokes}' and `total-strokes'; add
+	`ideographic-structure'; unify hanaJU+2E6BE.
+	(RUI6-E084): Add `<-denotational' for A-RUI6-E084; add
+	`ideographic-{radical|strokes}' and `total-strokes'; add
+	`ideographic-structure'.
+	(RUI6-E088): Unify hanaJU+2B1C6 instead of U-0002B1C6; add
+	`<-denotational' for U-0002B1C6.
+	(RUI6-E08C): Add `ideographic-{radical|strokes}' and
+	`total-strokes'; add `ideographic-structure'; unify CB11757.
+	(RUI6-E08F): Add `<-denotational' for A-RUI6-E08F; add
+	`ideographic-{radical|strokes}' and `total-strokes'; add
+	`ideographic-structure'.
+	(RUI6-E093): Add `ideographic-{radical|strokes}' and
+	`total-strokes'; add `ideographic-structure'.
+	(RUI6-E098): Add `<-denotational' for A-RUI6-E098; add
+	`ideographic-{radical|strokes}' and `total-strokes'; add
+	`ideographic-structure'.
+	(RUI6-E099): Add `ideographic-{radical|strokes}' and
+	`total-strokes'; add `ideographic-structure'.
+	(RUI6-E09A): Add `ideographic-{radical|strokes}' and
+	`total-strokes'; add `ideographic-structure'; unify U-00030AE8.
+	(RUI6-E09B): Add `<-denotational' for A-cgnU+2A7CA; add
+	`ideographic-{radical|strokes}' and `total-strokes'; add
+	`ideographic-structure'; unify U-0002A7CA and GT-K08316.
+	(RUI6-E09D): Add `<-denotational' for U-00028615; add
+	`ideographic-{radical|strokes}' and `total-strokes'; add
+	`ideographic-structure'; unify IU+28615.
+	(RUI6-E0A8): Unify IU+2931E instead of U-0002931E; add
+	`<-denotational' for U-0002931E; add `ideographic-structure'.
+	(RUI6-E0AA): Add `ideographic-{radical|strokes}' and
+	`total-strokes'; add `ideographic-structure'.
+	(RUI6-E0AB): New character.
+	(RUI6-E0AC): New character; use `<-denotational' for U-00030ED4.
+	(RUI6-E0AD): New character.
+	(RUI6-E0AE): New character.
+	(RUI6-E0AF): New character.
+	(RUI6-E0B0): New character.
+	(RUI6-E0B1): New character.
+	(RUI6-E0B2): New character.
+	(RUI6-E0B3): New character; use `<-denotational' for U-0002D4FD;
+	unify hanaJU+2D4FD, KOSEKI-552700 and GT-09052.
+	(RUI6-E0B4): New character.
+	(RUI6-E0B5): New character; use `<-denotational' for U-0003054E;
+	unify hanaJU+3054E and CB12172.
+	(RUI6-E0B6): New character.
+	(RUI6-E0B7): New character.
+	(RUI6-E0B8): New character.
+	(RUI6-E0B9): New character.
+	(RUI6-E0BA): New character; use `<-subsumptive' for RUI6-E0B3.
+	(RUI6-E0BB): New character; unify U-0002C008.
+	(RUI6-E0BC): New character; unify hanaJU+2CB1A.
+	(RUI6-E0BD): New character.
+	(RUI6-E0BE): New character; unify U+21249-var-001; use
+	`<-denotational' for U-00021249.
+	(RUI6-E0BF): New character.
+	(RUI6-E0C0): New character.
+	(RUI6-E0C1): New character.
+	(RUI6-E0C2): New character; unify U-0002C6E7.
+	(RUI6-E0C3): New character.
+	(RUI6-E0C4): New character.
+	(RUI6-E0C5): New character; unify U-0002BE49.
+	(RUI6-E0C6): New character.
+	(RUI6-E0C7): New character.
+	(RUI6-E0C8): New character.
+	(RUI6-E0C9): New character.
+	(RUI6-E0CA): New character.
+	(RUI6-E0CB): New character.
+	(RUI6-E0CC): New character.
+	(RUI6-E0CD): New character.
+	(RUI6-E0CE): New character.
+	(RUI6-E0CF): New character.
+	(RUI6-E0D0): New character.
+	(RUI6-E0D1): New character.
+	(RUI6-E0D2): New character.
+	(RUI6-E0D3): New character; use `<-denotational' for U-00031035;
+	unify hanaJU+31035.
+	(RUI6-E0D4): New character.
+	(RUI6-E0D5): New character.
+	(RUI6-E0D6): New character.
+	(RUI6-E0D7): New character.
+	(RUI6-E0D8): New character.
+	(RUI6-E0D9): New character.
+	(RUI6-E0DA): New character.
+	(RUI6-E0DB): New character.
+	(RUI6-E0DC): New character.
+	(RUI6-E0DD): New character.
+	(RUI6-E0DE): New character.
+	(RUI6-E0DF): New character.
+	(RUI6-E0E0): New character; unify U-0002C68B.
+	(RUI6-E0E1): New character.
+	(RUI6-E0E2): New character.
+	(RUI6-E0E3): New character; use `<-denotational' for U-0002AFD6;
+	unify hanaJU+2AFD6.
+	(RUI6-E0E4): New character; use `<-denotational' for U-0002BAA6;
+	unify hanaJU+2BAA6 and CB02913.
+	(RUI6-E0E5): New character.
+	(RUI6-E0E6): New character.
+	(RUI6-E0E7): New character.
+	(RUI6-E0E8): New character.
+	(RUI6-E0E9): New character.
+	(RUI6-E0EA): New character.
+	(RUI6-E0EB): New character; unify U-0002BD56, BC-8D70 and
+	GT-K04469.
+	(RUI6-E0EC): New character.
+	(RUI6-E0ED): New character.
+	(RUI6-E0EE): New character; use `<-subsumptive' for
+	g2-hanaJU+2C41E.
+	(RUI6-E0EF): New character; use `<-denotational' for U-0002AE95.
+	(RUI6-E0F0): New character.
+	(RUI6-E0F1): New character.
+	(RUI6-E0F2): New character.
+	(RUI6-E0F3): New character; unify U-0002BA35.
+	(RUI6-E0F4): New character.
+	(RUI6-E0F5): New character.
+	(RUI6-E0F6): New character; use `<-denotational' for
+	A-IWDSU+2BE78; unify U-0002BE78.
+	(RUI6-E0F7): New character.
+	(RUI6-E0F8): New character.
+	(RUI6-E0F9): New character.
+	(RUI6-E0FA): New character.
+	(RUI6-E0FB): New character.
+	(RUI6-E0FC): New character.
+	(RUI6-E0FD): New character.
+	(RUI6-E0FE): New character.
+	(RUI6-E0FF): New character.
+	(RUI6-E100): New character.
+	(RUI6-E101): New character.
+	(RUI6-E102): New character.
+	(RUI6-E103): New character.
+	(RUI6-E104): New character.
+	(RUI6-E105): New character.
+	(RUI6-E106): New character; unify U-0002BB53.
+	(RUI6-E107): New character.
+	(RUI6-E108): New character; use `<-denotational' for U-0002DBA8;
+	unify hanaJU+2DBA8 and CB00142.
+	(RUI6-E109): New character.
+	(RUI6-E10A): New character.
+	(RUI6-E10B): New character; use `<-denotational' for U-0002C510;
+	unify hanaJU+2C510.
+	(RUI6-E10C): New character.
+	(RUI6-E10D): New character.
+	(RUI6-E10E): New character.
+	(RUI6-E10F): New character; use `<-denotational' for U-0002B74A;
+	unify hanaJU+2B74A, MJ007022 and KOSEKI-010800.
+	(RUI6-E110): New character.
+	(RUI6-E111): New character.
+	(RUI6-E112): New character; use `<-denotational' for U-000256DC;
+	unify GT-31952, M-24816 and CB07572.
+	(RUI6-E113): New character.
+	(RUI6-E114): New character.
+	(RUI6-E115): New character.
+	(RUI6-E116): New character.
+	(RUI6-E117): New character.
+	(RUI6-E118): New character.
+	(RUI6-E119): New character; use `<-denotational' for U-0002B2A3;
+	unify hanaJU+2B2A3.
+	(RUI6-E11A): New character; use `<-denotational' for U-0002D910;
+	unify hanaJU+2D910 and CB01078.
+	(RUI6-E11B): New character; use `<-denotational' for U-00030329;
+	unify hanaJU+30329.
+	(RUI6-E11C): New character.
+	(RUI6-E11D): New character.
+	(RUI6-E11E): New character.
+	(RUI6-E11F): New character.
+	(RUI6-E120): New character.
+	(RUI6-E121): New character.
+	(RUI6-E122): New character.
+	(RUI6-E123): New character; unify U+7EBB and EGB-2C42.
+	(RUI6-E124): New character.
+	(RUI6-E125): New character.
+	(RUI6-E126): New character; unify U-0002C4B5.
+	(RUI6-E127): New character.
+	(RUI6-E128): New character.
+	(RUI6-E129): New character.
+	(RUI6-E12A): New character.
+	(RUI6-E12B): New character.
+	(RUI6-E12C): New character.
+	(RUI6-E12D): New character.
+	(RUI6-E12E): New character.
+	(RUI6-E12F): New character.
+	(RUI6-E130): New character.
+	(RUI6-E131): New character; use `<-denotational' for U-00023130.
+	(RUI6-E132): New character.
+	(RUI6-E133): New character.
+	(RUI6-E134): New character.
+	(RUI6-E135): New character.
+	(RUI6-E136): New character.
+	(RUI6-E137): New character; use `<-denotational' for U-000303EF;
+	unify hanaJU+303EF.
+	(RUI6-E138): New character.
+	(RUI6-E139): New character; use `<-denotational' for U-0002CB90;
+	unify hanaJU+2CB90.
+	(RUI6-E13A): New character.
+	(RUI6-E13B): New character.
+	(RUI6-E13C): New character.
+	(RUI6-E13D): New character.
+	(RUI6-E13E): New character.
+	(RUI6-E13F): New character.
+	(RUI6-E140): New character.
+	(RUI6-E141): New character.
+	(RUI6-E142): New character; unify U-0002C46A.
+	(RUI6-E143): New character.
+	(RUI6-E144): New character.
+	(RUI6-E145): New character.
+	(RUI6-E146): New character.
+	(RUI6-E147): New character.
+	(RUI6-E148): New character.
+	(RUI6-E149): New character.
+	(RUI6-E14A): New character.
+	(RUI6-E14B): New character.
+	(RUI6-E14C): New character; use `<-denotational' for U-0002B340;
+	unify hanaJU+2B340.
+	(RUI6-E14D): New character.
+	(RUI6-E14E): New character; use `<-denotational' for U-0002BC8C.
+	(RUI6-E14F): New character.
+	(RUI6-E150): New character.
+	(RUI6-E151): New character; use `<-denotational' for U-0002BF06;
+	unify hanaJU+2BF06.
+	(RUI6-E152): New character; use `<-denotational' for U-0002C8C6.
+	(RUI6-E153): New character.
+	(RUI6-E154): New character.
+	(RUI6-E155): New character.
+	(RUI6-E156): New character.
+	(RUI6-E157): New character.
+	(RUI6-E158): New character; use `<-denotational' for U-0002C2F4.
+	(RUI6-E159): New character; unify U-0002A7E3.
+	(RUI6-E15A): New character.
+	(RUI6-E15B): New character.
+	(RUI6-E15C): New character; unify U-0002574C, C4-217E and M-24907.
+	(RUI6-E15D): New character.
+	(RUI6-E15E): New character.
+	(RUI6-E15F): New character.
+	(RUI6-E160): New character.
+	(RUI6-E161): New character.
+	(RUI6-E162): New character.
+	(RUI6-E163): New character.
+	(RUI6-E164): New character.
+	(RUI6-E165): New character.
+	(RUI6-E166): New character.
+	(RUI6-E167): New character; unify U-0002C1DE.
+	(RUI6-E168): New character; unify U-0003005C; use `<-denotational'
+	for U+4EA6.
+	(RUI6-E169): New character.
+	(RUI6-E16A): New character.
+	(RUI6-E16B): New character.
+	(RUI6-E16C): New character; unify U-0002B937.
+	(RUI6-E16D): New character.
+	(RUI6-E16E): New character.
 
 2020-09-15  MORIOKA Tomohiko  <tomo.git@chise.org>
 
