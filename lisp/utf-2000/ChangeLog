@@ -1,5 +1,26 @@
 2020-09-17  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R004-Slash.el (A-cgnU+4E45): New abstract node.
+	(A-IWDSU+4E45): New abstract node; use `<-denotational' for
+	A-cgnU+4E45; use `<-denotational@usage' for BUCS+4E45.
+	(U+4E45): Add `<-denotational' for A-IWDSU+4E45; omit
+	`<-denotational@usage' for BUCS+4E45.
+	(U-0002B744): New character; use `<-denotational' for
+	A-IWDSU+4E45.
+	(U+4E46): Add `<-denotational' for A-cgnU+4E45; apply new
+	conventions for glyph granularity.
+	(A-cgnU+20094): New abstract node.
+	(U-00020094): Add `<-denotational' for A-cgnU+20094; add
+	`sound@ja/on'.
+	(IU+20094): Add `{ideographic|total}-strokes@{ucs|gt}'; add
+	`<-vulgar' for IU+2097D.
+	(A-U+20094-itaiji-001): New abstract node; use `<-denotational'
+	for A-cgnU+20094; use `<-denotational@usage' for A2-DJT-00091.
+	(U+20094-itaiji-001): New character; use `<-denotational' for
+	A-U+20094-itaiji-001.
+	(MJ056861): New character; use `<-denotational' for U+53D0; unify
+	KOSEKI-001740 and CB00794.
+
 	* Ideograph-R046-Mountain.el (A-BC-8DD1): New abstract node.
 	(BC-8DD1): New character; use `<-denotational' for A-BC-8DD1.
 
