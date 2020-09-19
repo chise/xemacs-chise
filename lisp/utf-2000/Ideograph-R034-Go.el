@@ -853,6 +853,37 @@
     (=>ucs-itaiji-002	. #x2158B)	; &A-GT-K03080;
     ))
 (define-char
+  '((ideographic-radical . 34)	; ⼡
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>ucs@component	  . #x590A)	; &A-compU+590A;
+      (=>iwds-1		  .  0092)	; &A-compU+590A;
+      )
+     ((=>ucs@component	  . #x72AC)	; &A-compU+72AC;
+      (=>iwds-1		  .  0239)	; &A-compU+72AC;
+      ))
+    (=>ucs-itaiji-001	. #x302CE)	; &A-U-i001+302CE;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs-itaiji-001	  . #x302CE)	; &A-U-i001+302CE;
+      ))
+    (ideographic-radical . 34)	; ⼡
+    (ideographic-strokes . 4)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5902)	; 夂
+      )
+     ((=ucs		  . #x72AC)	; 犬
+      ))
+    (=ucs-itaiji-001	. #x302CE)	; &U-i001+302CE;
+    ))
+(define-char
   '((<-denotational@component
      ((=>gt-k		  . 03080)	; &A-GT-K03080;
       ))
@@ -1123,6 +1154,37 @@
     (=ucs		. #x2155A)	; 𡕚
     (=cns11643-6	. #x3643)	; &I-C6-3643; [22-35]
     (=daikanwa		. 05704)	; &I-M-05704;
+    ))
+(define-char
+  '((ideographic-radical . 34)	; ⼡
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>ucs@component	  . #x590A)	; &A-compU+590A;
+      (=>iwds-1		  .  0092)	; &A-compU+590A;
+      )
+     ((=>ucs@iwds-1	  . #x8C55)	; &A-IWDSU+8C55;
+      (=>iwds-1		  .  0246)	; &A-IWDSU+8C55;
+      ))
+    (=ucs		. #x302CE)	; 𰋎
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x302CE)	; 𰋎
+      ))
+    (ideographic-radical . 34)	; ⼡
+    (ideographic-strokes . 7)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5902)	; 夂
+      )
+     ((=ucs		  . #x8C55)	; 豕
+      ))
+    (=ucs@JP/hanazono	. #x302CE)	; &hanaJU+302CE;
     ))
 (define-char
   '((=>ucs		. #x2155B)	; 𡕛
