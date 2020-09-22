@@ -5360,8 +5360,8 @@
       )
      ((=ucs		  . #x200B9)	; 𠂹
       )
-     ((=>ucs@component	  . #x4E06)	; &A-compU+4E06;
-      (=>iwds-1		  .  0150)	; &A-compU+4E06;
+     ((=>ucs@iwds-1	  . #x4E06)	; &A-IWDSU+4E06;
+      (=>iwds-1		  .  0150)	; &A-IWDSU+4E06;
       ))
     (=>gt-k		. 09373)	; &A-GT-K09373;
     (<-simplified@component
