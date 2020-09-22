@@ -1,3 +1,15 @@
+2020-09-20  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R059-Bristle.el (U+987B): Apply new conventions for
+	glyph granularity.
+	(U-0002B778): New character; use `<-denotational' for
+	A-cgnU+2B778.
+	(MJ057482): New character; use `<-denotational' for U-0002B778;
+	unify HD-JT-B789 and KOSEKI-112910.
+	(HD-JT-B128): New character; use `<-denotational' for U-0002B778.
+	(A-cgnU+2B778): New abstract node.
+	(HD-TK01001520): New character; use `<-denotational' A-cgnU+2B778.
+
 2020-09-18  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R034-Go.el (A-U+302CE-itaiji-001): New abstract node.
