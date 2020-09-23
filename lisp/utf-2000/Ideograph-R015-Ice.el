@@ -404,7 +404,8 @@
       (->formed*sources
        daikanwa)
       (->vulgar
-       ((=ucs		    . #x6C70)	; 汰
+       ((=ucs@unicode	    . #x6C70)	; &AJ1-02849;
+	(=adobe-japan1-0    . 02849)	; &AJ1-02849;
 	(=daikanwa	    . 17160)	; &I-M-17160;
 	)
        ((=ucs@jis	    . #x6FBE)	; &MJ016037;
