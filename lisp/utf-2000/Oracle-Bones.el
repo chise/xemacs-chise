@@ -18208,15 +18208,38 @@
     (zinbun-oracle-page . 78)
     (=zinbun-oracle	. 01653)	; &ZOB-1653;
     (<-Oracle-Bones
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	(=ucs		    . #x2FF1)	; ⿱
-	)
-       ((=ucs		    . #x5902)	; 夂
-	)
-       ((=ucs		    . #x72AC)	; 犬
-	))
+     ((=ucs-itaiji-001	  . #x302CE)	; &U-i001+302CE;
+      )
+     ((=ucs		  . #x302CE)	; 𰋎
+      )
+     ((=ucs		  . #x908D)	; 邍
       ))
+    (<-Oracle-Bones$_2*note "based on "
+			    (link (:ref "http://www.ctwx.tsinghua.edu.cn/publish/cetrp/6830/20180524180213894409101/1527156144285.pdf#page=9") "paper")
+			    " by "
+			    (link (:ref "http://ruimoku.zinbun.kyoto-u.ac.jp/est/view/person-name@ruimoku/rep.id=u55AEu80B2u8FB0") "Shan Yuchen")
+			    " and "
+			    (link (:ref "http://humanum.arts.cuhk.edu.hk/Lexis/lexi-mf/search.php?word=%E9%82%8D") "item"))
+    (<-Oracle-Bones$_2*sources
+     bos=A2008-10903-00021)
+    (<-Oracle-Bones$_3*note "based on "
+			    (link (:ref "http://www.ctwx.tsinghua.edu.cn/publish/cetrp/6830/20180524180213894409101/1527156144285.pdf#page=9") "theory")
+			    " of "
+			    (link (:ref "http://ruimoku.zinbun.kyoto-u.ac.jp/est/view/person-name@ruimoku/rep.id=u5546u627Fu795A") "Shang Chengzuo")
+			    " ("
+			    (link (:ref "http://kanji.zinbun.kyoto-u.ac.jp/kanseki?query=%E6%AE%B7%E5%A5%91%E4%BD%9A%E5%AD%98+%E6%94%B7%E9%87%8B") "Kanseki-DB")
+			    "), "
+			    (link (:ref "http://ruimoku.zinbun.kyoto-u.ac.jp/est/view/article@ruimoku/rep.id=A2008-10903-00021") "Chen Jian")
+			    " and "
+			    (link (:ref "http://ruimoku.zinbun.kyoto-u.ac.jp/est/view/person-name@ruimoku/rep.id=u55AEu80B2u8FB0") "Shan Yuchen")
+			    ", and "
+			    (link (:ref "http://humanum.arts.cuhk.edu.hk/Lexis/lexi-mf/search.php?word=%E9%82%8D") "theory")
+			    " of "
+			    (link (:ref "http://ruimoku.zinbun.kyoto-u.ac.jp/est/view/person-name@ruimoku/rep.id=u5289u91D7") "Liu Zhao")
+			    " and "
+			    (link (:ref "http://ruimoku.zinbun.kyoto-u.ac.jp/est/view/person-name@ruimoku/rep.id=u5B63u65EDu6607") "Ji Xusheng"))
+    (<-Oracle-Bones$_3*sources
+     bos=A2008-10903-00021)
     ))
 (define-char
   '((shuowen-radical	. 203)	; 夂
