@@ -1,3 +1,19 @@
+2020-09-23  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Oracle-Bones.el (ZOB-01653): Use U+302CE-itaiji-001 instead of
+	"⿱夂犬"; add U-000302CE and U+908D as the corresponding modern
+	characters.
+
+2020-09-22  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R029-Again.el (U-0002D1A5): Add `<-denotational@usage'
+	for A2-DJT-01116.
+	(U+53CD): Apply new conventions for glyph granularity.
+	(U+53CD-var-002): New character; use `<-denotational' for U+53CD.
+
+	* Ideograph-R027-Cliff.el (A-compU+5382): Add
+	`<-denotational@component' for A-compU+4E06.
+
 2020-09-21  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R032-Earth.el (U+5742): Apply new conventions for
