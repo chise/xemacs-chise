@@ -1,0 +1,37 @@
+;; -*- coding: utf-8-mcs-er -*-
+(define-char
+  '((shuowen-radical	. 365)	; 豚
+    (=shuowen-jiguge	. 32504)	; &SW-JIGUGE-32504;
+    (<-Small-Seal@shuowen
+     ((=ucs		  . #x22109)	; 𢄉
+      ))
+    (->subsumptive
+     ((===shuowen-jiguge5 . 32504)	; &SW-JIGUGE5-32504;
+      )
+     ((===shuowen-jiguge4 . 32004)	; &SW-JIGUGE4-32004;
+      ))
+    ))
+(define-char
+  '((shuowen-radical	. 365)	; 豚
+    (=shuowen-jiguge	. 32505)	; &SW-JIGUGE-32505;
+    (<-Small-Seal@shuowen
+     ((=ucs		  . #x8C5A)	; 豚
+      ))
+    (->subsumptive
+     ((===shuowen-jiguge5 . 32505)	; &SW-JIGUGE5-32505;
+      )
+     ((===shuowen-jiguge4 . 32005)	; &SW-JIGUGE4-32005;
+      ))
+    ))
+(define-char
+  '((shuowen-radical	. 365)	; 豚
+    (=shuowen-jiguge	. 32506)	; &SW-JIGUGE-32506;
+    (<-Small-Seal@shuowen
+     ((=ucs		  . #x27C9E)	; 𧲞
+      ))
+    (->subsumptive
+     ((===shuowen-jiguge5 . 32506)	; &SW-JIGUGE5-32506;
+      )
+     ((===shuowen-jiguge4 . 32006)	; &SW-JIGUGE4-32006;
+      ))
+    ))
