@@ -65,6 +65,7 @@
 	"u02E00-CJK-Radical-Supplement"
 	"u02F00-Kangxi-Radicals"
 	"u02FF0-Ideographic-Description-Characters"
+	"additional-idc"
 	"u03000-CJK-Symbols-and-Punctuation"
 	"u03040-Hiragana"
 	"u030A0-Katakana"
@@ -305,7 +306,6 @@
 	"Oracle-Bones"
 	"ShuoWen"
 	"ruimoku6"
-	"additional-idc"
 	"additional-precomposed"
 	"maps-conf"
 	"ccs-tcvn5712.el"))
