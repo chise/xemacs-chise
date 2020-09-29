@@ -1,3 +1,7 @@
+2020-09-29  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* char-db-util.el (shuowen-radicals): Add SR401〜SR540.
+
 2020-09-24  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* ruimoku6.el (RUI6-E02F): Add `<-denotational' for A-RUI6-E02F.
@@ -5124,7 +5128,13 @@
 	(U+52DB): Use `<-denotational@usage' instead of `<-denotational'
 	for BUCS+52F3.
 
-2020-12-12  MORIOKA Tomohiko  <tomo.git@chise.org>
+2019-12-12  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* dumped-chars.el (system-char-db-source-file-list): Load
+	"additional-idc" before loading "Ideograph-R*" and some CJK
+	related character definitions.
+
+2019-12-12  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* ShuoWen.el (SW-JIGUGE5-09919): Add "暋" as a target of
 	`<-Small-Seal@shuowen'.
