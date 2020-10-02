@@ -8312,7 +8312,9 @@
       (=daikanwa	  . 21999)	; &I-M-21999;
       ))
     (->mistakable
-     ((=ucs		  . #x7590)	; 疐
+     ((=ucs@unicode	  . #x7590)	; &JSP-4D45;
+      (=jis-x0212	  . #x4D45)	; &JSP-4D45; [45-37]
+      (=cns11643-2	  . #x4C21)	; &I-C2-4C21; [44-01]
       (=daikanwa	  . 22006)	; &I-M-22006;
       ))
     (->mistakable*sources
