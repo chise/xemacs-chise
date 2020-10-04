@@ -1181,6 +1181,7 @@
   '((ideographic-radical . 24)	; ⼗
     (ideographic-strokes . 3)
     (total-strokes	 . 5)
+    (sound@ja/on	"si")
     (=ucs		. #x2097D)	; 𠥽
     ))
 (define-char
@@ -1195,6 +1196,24 @@
     (=cns11643-5	. #x215A)	; &C5-215A; [01-58]
     (=big5-cdp		. #x8654)	; &I-CDP-8654;
     (=daikanwa		. 02708)	; &I-M-02708;
+    (->mistakable
+     ((=ucs		  . #x5932)	; 夲
+      (=daikanwa	  . 05845)	; &I-M-05845;
+      )
+     ((=ucs		  . #x672C)	; 本
+      (=daikanwa	  . 14421)	; &I-M-14421;
+      ))
+    (->mistakable*sources
+     kangxi-biansi-3char daikanwa)
+    (->vulgar
+     ((=ucs@iso		  . #x20094)	; &GT-00171;
+      (=cns11643-5	  . #x214E)	; &GT-00171; [01-46]
+      (=daikanwa	  . 00132)	; &I-M-00132;
+      ))
+    (->vulgar$_1*sources
+     daikanwa)
+    (->vulgar*sources
+     daikanwa)
     (->subsumptive
      ((==ucs@iso	  . #x2097D)	; &g2-CDP-8654;
       (==cns11643-5	  . #x215A)	; &g2-CDP-8654; [01-58]
@@ -3236,9 +3255,12 @@
       )
      ((=ucs		  . #x53E3)	; 口
       ))
-    (=gt-k		. 04221)	; &GT-K04221;
-    (=gt-pj-k1		. #x442B)	; &GT-K04221; [36-11]
+    (=big5-cdp		. #x88D9)	; &CDP-88D9;
+    (=gt-k		. 04221)	; &I-GT-K04221;
+    (=gt-pj-k1		. #x442B)	; &CDP-88D9; [36-11]
     (->subsumptive
+     ((==big5-cdp	  . #x88D9)	; &g2-CDP-88D9;
+      )
      ((==gt-k		  . 04221)	; &g2-GT-K04221;
       (==gt-pj-k1	  . #x442B)	; &g2-GT-K04221; [36-11]
       ))
@@ -3743,13 +3765,60 @@
     ))
 (define-char
   '((ideographic-radical . 24)	; ⼗
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5349)	; 卉
+      )
+     ((=>ucs@iwds-1	  . #x672C)	; &A-IWDSU+672C;
+      (=>iwds-1		  .  0126)	; &A-IWDSU+672C;
+      ))
+    (sound@ja/on/go	"kuti" "ki")
+    (sound@ja/on/kan	"kutu" "ki")
+    (=ucs		. #x209AA)	; 𠦪
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x209AA)	; 𠦪
+      ))
+    (ideographic-radical . 24)	; ⼗
     (ideographic-strokes . 9)
     (total-strokes	 . 11)
     (hanyu-dazidian	1 65 6)
-    (=ucs		. #x209AA)	; 𠦪
-    (=cns11643-4	. #x3063)	; &I-C4-3063; [16-67]
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x2F82C)	; 卉
+      )
+     ((=ucs		  . #x5932)	; 夲
+      ))
+    (=ucs@iso		. #x209AA)	; &C4-3063;
+    (=cns11643-4	. #x3063)	; &C4-3063; [16-67]
     (=daikanwa		. 02758)	; &I-M-02758;
-    (=hanziku-1		. #xB16C)	; &I-HZK01-B16C;
+    (<-interchangeable
+     ((=ucs		  . #x2F82C)	; 卉
+      (=daikanwa	  . 02720)	; &I-M-02720;
+      ))
+    (<-interchangeable$_1*sources
+     daikanwa)
+    (<-interchangeable*sources
+     daikanwa)
+    (->subsumptive
+     ((==ucs@iso	  . #x209AA)	; &g2-M-02758;
+      (==cns11643-4	  . #x3063)	; &g2-M-02758; [16-67]
+      (==daikanwa	  . 02758)	; &g2-M-02758;
+      (->subsumptive
+       ((===daikanwa	    . 02758)	; &R-M-02758;
+	)
+       ((===cns11643-4	    . #x3063)	; &R-C4-3063; [16-67]
+	)
+       ((===ucs@iso	    . #x209AA)	; &R-U-000209AA;
+	)
+       ((=hanziku-1	    . #xB16C)	; &HZK01-B16C;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 24)	; ⼗
