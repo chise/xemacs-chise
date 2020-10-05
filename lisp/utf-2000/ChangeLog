@@ -6,6 +6,14 @@
 	(GT-K04221): Unify BC-88D9.
 	(U-000209AA): Apply new conventions for glyph granularity.
 
+2020-10-04  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R050-Turban.el (U+5E23): Use `->denotational' and
+	`->subsumptive'.
+	(U+5E23-itaiji-001): New character; use `<-denotational' for
+	A-U+5E23-itaiji-001.
+	(A-U+5E23-itaiji-001): New abstract node.
+
 2020-10-03  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R053-Dotted-Cliff.el (U-00022219): Apply new
