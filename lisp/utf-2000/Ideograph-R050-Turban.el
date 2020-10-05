@@ -3336,16 +3336,27 @@
     (=daikanwa		. 08880)	; &I-M-08880;
     ))
 (define-char
-  '((=>ucs		. #x5E23)	; 帣
-    (ideographic-radical . 50)	; ⼱
+  '((ideographic-radical . 50)	; ⼱
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
-    (=ucs@big5		. #x5E23)	; &M-08881;
-    (=big5		. #xCEB2)	; &M-08881;
-    (=daikanwa		. 08881)	; &I-M-08881;
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>ucs@iwds-1	  . #x20509)	; &A-IWDSU+20509;
+      (=>iwds-1		  .  0026)	; &A-IWDSU+20509;
+      )
+     ((=ucs		  . #x5DFE)	; 巾
+      ))
+    (sound@ja/on/go	"keN" "geN")
+    (sound@ja/on/kan	"keN" "keN")
+    (=ucs		. #x5E23)	; 帣
+    (=big5		. #xCEB2)	; &I-B-CEB2;
     ))
 (define-char
-  '((morohashi-daikanwa	8881 0 2)
+  '((<-denotational
+     ((=ucs		  . #x5E23)	; 帣
+      ))
     (ideographic-radical . 50)	; ⼱
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
@@ -3353,13 +3364,67 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=ucs@unicode	  . #x9FB9)	; &CDP-8BFA;
+     ((=ucs@jis		  . #x20509)	; &AJ1-17299;
+      (=adobe-japan1-5	  . 17299)	; &AJ1-17299;
+      )
+     ((=ucs		  . #x5DFE)	; 巾
+      ))
+    (=hanyo-denshi/ip	. #x5E23)	; &HD-IP-5E23;
+    (=daikanwa		. 08881)	; &I-M-08881;
+    (<-interchangeable
+     ((=gt		  . 35296)	; &GT-35296;
+      (=daikanwa	  . 27442)	; &I-M-27442;
+      ))
+    (<-interchangeable$_1*sources
+     shuowen-tongxun-dingsheng daikanwa)
+    (<-interchangeable*sources
+     shuowen-tongxun-dingsheng daikanwa)
+    (->original
+     ((=ucs-itaiji-001	  . #x5E23)	; &U-i001+5E23;
+      ))
+    (->original$_1*sources
+     daikanwa)
+    (->original*sources
+     daikanwa)
+    (->subsumptive
+     ((==hanyo-denshi/ip  . #x5E23)	; &g2-HD-IP-5E23;
+      (==daikanwa	  . 08881)	; &g2-HD-IP-5E23;
+      (->subsumptive
+       ((===daikanwa	    . 08881)	; &R-M-08881;
+	)
+       ((===hanyo-denshi/ip . #x5E23)	; &R-HD-IP-5E23;
+	))
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5E23)	; 帣
+      ))
+    (ideographic-radical . 50)	; ⼱
+    (ideographic-strokes . 6)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs@gb		  . #x9FB9)	; &CDP-8BFA;
       (=big5-cdp	  . #x8BFA)	; &CDP-8BFA;
       )
      ((=ucs		  . #x5DFE)	; 巾
       ))
-    (=ucs		. #x5E23)	; 帣
-    (=cns11643-2	. #x2A33)	; &I-C2-2A33; [10-19]
+    (=ucs@unicode	. #x5E23)	; &C2-2A33;
+    (=ucs@JP/hanazono	. nil)
+    (=cns11643-2	. #x2A33)	; &C2-2A33; [10-19]
+    (->subsumptive
+     ((==ucs@unicode	  . #x5E23)	; &g2-UU+5E23;
+      (==ucs@JP/hanazono  . nil)
+      (==cns11643-2	  . #x2A33)	; &g2-UU+5E23; [10-19]
+      (->subsumptive
+       ((===cns11643-2	    . #x2A33)	; &R-C2-2A33; [10-19]
+	)
+       ((===ucs@unicode	    . #x5E23)	; &R-UU+5E23;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 50)	; ⼱
@@ -8803,6 +8868,38 @@
     (=cbeta		. 03133)	; &CB03133;
     ))
 (define-char
+  '((<-denotational
+     ((=>ucs-itaiji-001	  . #x5E23)	; &A-U-i001+5E23;
+      ))
+    (ideographic-radical . 50)	; ⼱
+    (ideographic-strokes . 10)
+    (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
+      (=ucs		  . #x2FF5)	; ⿵
+      )
+     ((=gt-k		  . 07025)	; &GT-K07025;
+      )
+     ((=ucs		  . #x5DFE)	; 巾
+      ))
+    (=ucs-itaiji-001	. #x5E23)	; &U-i001+5E23;
+    (<-original
+     ((=daikanwa	  . 08881)	; &I-M-08881;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 50)	; ⼱
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
+      (=ucs		  . #x2FF5)	; ⿵
+      )
+     ((=>gt-k		  . 07025)	; &A-GT-K07025;
+      )
+     ((=ucs		  . #x5DFE)	; 巾
+      ))
+    (=>ucs-itaiji-001	. #x5E23)	; &A-U-i001+5E23;
+    ))
+(define-char
   '((ideographic-radical . 50)	; ⼱
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
@@ -13668,8 +13765,8 @@
      ((=>ucs@iwds-1	  . #x2FF8)	; &U-v002+2FF1;
       (=>iwds-1		  .  0305)	; &U-v002+2FF1;
       )
-     ((=>ucs@component	  . #x4E06)	; &A-compU+4E06;
-      (=>iwds-1		  .  0150)	; &A-compU+4E06;
+     ((=>ucs@iwds-1	  . #x4E06)	; &A-IWDSU+4E06;
+      (=>iwds-1		  .  0150)	; &A-IWDSU+4E06;
       )
      ((=ucs		  . #x5DFE)	; 巾
       ))

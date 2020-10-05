@@ -8201,7 +8201,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=daikanwa	  . 27442)	; &M-27442;
+     ((=gt		  . 35296)	; &GT-35296;
+      (=daikanwa	  . 27442)	; &I-M-27442;
       )
      ((=ucs		  . #x529B)	; 力
       ))
@@ -8244,7 +8245,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=ucs@unicode	  . #x7D6D)	; &UU+7D6D;
+     ((=ucs@unicode	  . #x7D6D)	; &C2-3E77;
       )
      ((=ucs		  . #x529B)	; 力
       ))
