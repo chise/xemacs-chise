@@ -6,6 +6,9 @@
 	(GT-K04221): Unify BC-88D9.
 	(U-000209AA): Apply new conventions for glyph granularity.
 
+	* Ideograph-R016-Table.el (U-00020635): Apply new conventions for
+	glyph granularity.
+
 2020-10-04  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R050-Turban.el (U+5E23): Use `->denotational' and

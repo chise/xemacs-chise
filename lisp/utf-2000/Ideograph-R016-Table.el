@@ -1481,11 +1481,60 @@
   '((ideographic-radical . 16)	; ⼏
     (ideographic-strokes . 4)
     (total-strokes	 . 6)
-    (hanyu-dazidian	1 277 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
+      (=ucs		  . #x2FF5)	; ⿵
+      )
+     ((=>ucs@component	  . #x51E0)	; &A-compU+51E0;
+      (=>iwds-1		  .  0119)	; &A-compU+51E0;
+      )
+     ((=>ucs@iwds-1	  . #x516E)	; &A-IWDSU+516E;
+      (=>ucs@iwds-1/normalized . #x516E)	; &A-IWDSU+516E;
+      ))
+    (sound@ja/on	"syuku")
     (=ucs		. #x20635)	; 𠘵
-    (=cns11643-6	. #x235E)	; &I-C6-235E; [03-62]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x20635)	; 𠘵
+      ))
+    (ideographic-radical . 16)	; ⼏
+    (ideographic-strokes . 4)
+    (total-strokes	 . 6)
+    (hanyu-dazidian	1 277 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
+      (=ucs		  . #x2FF5)	; ⿵
+      )
+     ((name		  . "CJK RADICAL TABLE")
+      (=ucs		  . #x2E87)	; ⺇
+      )
+     ((=ucs		  . #x20503)	; 𠔃
+      ))
+    (=ucs@iso		. #x20635)	; &C6-235E;
+    (=cns11643-6	. #x235E)	; &C6-235E; [03-62]
     (=daikanwa		. 01750)	; &I-M-01750;
-    (=hanziku-1		. #xDF4F)	; &I-HZK01-DF4F;
+    (<-same
+     ((=ucs@unicode	  . #x5919)	; &AJ1-02386;
+      (=adobe-japan1-0	  . 02386)	; &AJ1-02386;
+      (=daikanwa	  . 05755)	; &I-M-05755;
+      ))
+    (<-same*sources
+     zihui-bu daikanwa)
+    (->subsumptive
+     ((==ucs@iso	  . #x20635)	; &g2-M-01750;
+      (==cns11643-6	  . #x235E)	; &g2-M-01750; [03-62]
+      (==daikanwa	  . 01750)	; &g2-M-01750;
+      (->subsumptive
+       ((===daikanwa	    . 01750)	; &R-M-01750;
+	)
+       ((===cns11643-6	    . #x235E)	; &R-C6-235E; [03-62]
+	)
+       ((===ucs@iso	    . #x20635)	; &R-U-00020635;
+	)
+       ((=hanziku-1	    . #xDF4F)	; &HZK01-DF4F;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 16)	; ⼏
@@ -3088,10 +3137,13 @@
     (=cns11643-5	. #x3129)	; &C5-3129; [17-09]
     (=daikanwa		. 01786)	; &I-M-01786;
     (<-formed@kangxi
-     ((=ucs		  . #x24954)	; 𤥔
+     ((=ucs@iso		  . #x24954)	; &C4-3331;
+      (=cns11643-4	  . #x3331)	; &C4-3331; [19-17]
+      (=daikanwa	  . 20955)	; &I-M-20955;
       ))
     (<-wrong@kangxi
-     ((=ucs		  . #x24954)	; 𤥔
+     ((=ucs@iso		  . #x24954)	; &C4-3331;
+      (=cns11643-4	  . #x3331)	; &C4-3331; [19-17]
       (=daikanwa	  . 20955)	; &I-M-20955;
       ))
     (<-wrong@kangxi*sources
@@ -3119,7 +3171,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
       (=ucs		  . #x2FF5)	; ⿵
       )
-     ((=ucs		  . #x5919)	; 夙
+     ((=ucs@unicode	  . #x5919)	; &AJ1-02386;
+      (=adobe-japan1-0	  . 02386)	; &AJ1-02386;
       )
      ((=ucs		  . #x7389)	; 玉
       ))
