@@ -2450,6 +2450,25 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
+     ((=ucs		  . #x5B80)	; 宀
+      )
+     ((=ucs-itaiji-001	  . #x5928)	; &U-i001+5928;
+      ))
+    (=gt-k		. 03157)	; &GT-K03157;
+    (=gt-pj-k1		. #x7172)	; &GT-K03157; [81-82]
+    (->subsumptive
+     ((==gt-k		  . 03157)	; &g2-GT-K03157;
+      (==gt-pj-k1	  . #x7172)	; &g2-GT-K03157; [81-82]
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 40)	; ⼧
+    (ideographic-strokes . 4)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
      ((=ucs-itaiji-001	  . #x56DF)	; &U-i001+56DF;
       )
      ((=ucs		  . #x5196)	; 冖
