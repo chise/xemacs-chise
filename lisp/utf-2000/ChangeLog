@@ -1,3 +1,7 @@
+2020-10-06  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R040-Roof.el (GT-K03157): New character.
+
 2020-10-04  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R024-Ten.el (U-0002097D): Add `sound@ja/on'.
