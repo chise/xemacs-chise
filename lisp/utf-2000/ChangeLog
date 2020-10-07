@@ -1,5 +1,9 @@
 2020-10-06  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R019-Power.el (U-0003015A): New character.
+
+2020-10-06  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R040-Roof.el (GT-K03157): New character.
 
 2020-10-04  MORIOKA Tomohiko  <tomo.git@chise.org>
