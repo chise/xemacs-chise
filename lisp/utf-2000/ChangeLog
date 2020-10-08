@@ -1,3 +1,8 @@
+2020-10-07  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R001-One.el (U+4E09-var-001): New character; use
+	`<-denotational' for U+4E09.
+
 2020-10-06  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R019-Power.el (U-0003015A): New character.
