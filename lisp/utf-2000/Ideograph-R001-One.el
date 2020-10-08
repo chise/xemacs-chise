@@ -1109,6 +1109,18 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=ucs		  . #x4E09)	; 三
+      ))
+    (ideographic-radical . 1)	; ⼀
+    (ideographic-strokes . 2)
+    (total-strokes	 . 3)
+    (=ucs-var-001	. #x4E09)	; &U-v001+4E09;
+    (->subsumptive
+     ((==ucs-var-001	  . #x4E09)	; &g2-U-v001+4E09;
+      ))
+    ))
+(define-char
   '((<-denotational@component
      ((=>ucs@component	  . #x4E0A)	; &A-compU+4E0A;
       ))
