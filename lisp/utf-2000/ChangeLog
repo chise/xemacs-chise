@@ -1,5 +1,15 @@
 2020-10-09  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R012-Eight.el (U-00020503): Unify CB08861.
+	(U+5171-itaiji-002): New character; use `<-denotational' for
+	A-U+5171-itaiji-001.
+	(A-U+5171-itaiji-001): New abstract node; unify
+	A-U+5171-itaiji-002.
+	(U+5171-itaiji-001): New character; use `<-denotational' for
+	A-U+5171-itaiji-001.
+
+2020-10-09  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R051-Dry.el (U+5E72): Add
 	`ideographic-structure@apparent'.
 
