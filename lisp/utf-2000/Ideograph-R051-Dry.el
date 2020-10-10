@@ -9,6 +9,14 @@
     (ideographic-radical . 51)	; ⼲
     (ideographic-strokes . 0)
     (total-strokes	 . 3)
+    (ideographic-structure@apparent
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x4E00)	; 一
+      )
+     ((=ucs		  . #x5341)	; 十
+      ))
     (=ucs		. #x5E72)	; 干
     (=adobe-japan1-0	. 01519)	; &I-AJ1-01519;
     (=jis-x0208		. #x3433)	; &I-J90-3433; [20-19]
