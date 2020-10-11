@@ -1,5 +1,16 @@
 2020-10-10  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R048-Work.el (A-cgnU+22029): New abstract node.
+	(U-00022029): Add `<-denotational' for A-cgnU+22029.
+	(A-U+22029-itaiji-001): New abstract node; use `<-denotational'
+	for A-cgnU+22029.
+	(U+22029-itaiji-001): New character; use `<-denotational' for
+	A-U+22029-itaiji-001.
+
+	* Ideograph-R029-Again.el (A-compU+53C8): New abstract node.
+	(U+53C8): Add `<-denotational@component' for A-compU+53C8.
+	(U+53D1): Apply new conventions for glyph granularity.
+
 	* Ideograph-R032-Earth.el (U-0002D38B): New character.
 	(U+589F): Add `ideographic-structure'.
 	(JU+589F): Add `ideographic-structure'.
