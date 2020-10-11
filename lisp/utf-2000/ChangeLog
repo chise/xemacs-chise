@@ -1,3 +1,16 @@
+2020-10-10  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R032-Earth.el (U-0002D38B): New character.
+	(U+589F): Add `ideographic-structure'.
+	(JU+589F): Add `ideographic-structure'.
+	(UU+589F): Add `ideographic-structure'.
+	(U-0002D409): New character.
+
+2020-10-10  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R004-Slash.el (U+4E42): Add `<-denotational@component'
+	for A-compU+53C8.
+
 2020-10-09  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R012-Eight.el (U-00020503): Unify CB08861.
