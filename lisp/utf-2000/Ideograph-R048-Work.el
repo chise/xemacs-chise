@@ -1359,6 +1359,13 @@
     ))
 (define-char
   '((ideographic-radical . 48)	; ⼯
+    (=>ucs@cognate	. #x22029)	; &A-cgnU+22029;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@cognate	  . #x22029)	; &A-cgnU+22029;
+      ))
+    (ideographic-radical . 48)	; ⼯
     (ideographic-strokes . 12)
     (total-strokes	 . 15)
     (ideographic-structure
@@ -1486,6 +1493,45 @@
       (=mj		  . 010774)	; &MJ010774;
       ))
     (=ucs-itaiji-002	. #x22029)	; &U-i002+22029;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@cognate	  . #x22029)	; &A-cgnU+22029;
+      ))
+    (ideographic-radical . 48)	; ⼯
+    (ideographic-strokes . 10)
+    (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x2020C)	; 𠈌
+      )
+     ((=>ucs@component	  . #x5DE6)	; &A-compU+5DE6;
+      ))
+    (=>ucs-itaiji-001	. #x22029)	; &A-U-i001+22029;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs-itaiji-001	  . #x22029)	; &A-U-i001+22029;
+      ))
+    (ideographic-radical . 48)	; ⼯
+    (ideographic-strokes . 10)
+    (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs@iso		  . #x2020C)	; &C4-2535;
+      (=cns11643-4	  . #x2535)	; &C4-2535; [05-21]
+      (=daikanwa	  . 00611)	; &I-M-00611;
+      )
+     ((=ucs-itaiji-002	  . #x5DE6)	; &U-i002+5DE6;
+      ))
+    (=ucs-itaiji-001	. #x22029)	; &U-i001+22029;
+    (->subsumptive
+     ((==ucs-itaiji-001	  . #x22029)	; &g2-U-i001+22029;
+      ))
     ))
 (define-char
   '((ideographic-radical . 48)	; ⼯

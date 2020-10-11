@@ -1,6 +1,15 @@
 ;; -*- coding: utf-8-mcs-er -*-
 (define-char
-  '((<-denotational@usage
+  '((ideographic-radical . 29)	; ⼜
+    (ideographic-strokes . 0)
+    (total-strokes	 . 2)
+    (=>ucs@component	. #x53C8)	; &A-compU+53C8;
+    ))
+(define-char
+  '((<-denotational@component
+     ((=>ucs@component	  . #x53C8)	; &A-compU+53C8;
+      ))
+    (<-denotational@usage
      ((==>daijiten	  . 01108)	; &A2-DJT-01108;
       ))
     (ideographic-radical . 29)	; ⼜
@@ -2024,25 +2033,53 @@
   '((ideographic-radical . 29)	; ⼜
     (ideographic-strokes . 3)
     (total-strokes	 . 5)
-    (hanyu-dazidian	1 394 1)
     (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
-      (=ucs		  . #x2FFA)	; ⿺
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
       )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
-	(=ucs		    . #x2FF8)	; ⿸
-	)
-       ((=big5-cdp	    . #x89F6)	; &CDP-89F6;
-	)
-       ((=ucs		    . #x53C8)	; 又
-	))
+     ((=big5-cdp-itaiji-001 . #x89F6)	; &CDP-i001-89F6;
       )
-     ((=ucs		  . #x4E36)	; 丶
+     ((=>ucs@component	  . #x53C8)	; &A-compU+53C8;
       ))
     (=ucs		. #x53D1)	; 发
-    (=gb2312		. #x3722)	; &I-G0-3722; [23-02]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x53D1)	; 发
+      ))
+    (ideographic-radical . 29)	; ⼜
+    (ideographic-strokes . 3)
+    (total-strokes	 . 5)
+    (hanyu-dazidian	1 394 1)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=big5-cdp-itaiji-001 . #x89F6)	; &CDP-i001-89F6;
+      )
+     ((=ucs		  . #x53C8)	; 又
+      ))
+    (=ucs@unicode	. #x53D1)	; &G0-3722;
+    (=gb2312		. #x3722)	; &G0-3722; [23-02]
     (=big5-cdp		. #x8A6A)	; &I-CDP-8A6A;
+    (<-simplified@CN
+     ((=ucs@unicode	  . #x767C)	; &AJ1-05785;
+      (=adobe-japan1-0	  . 05785)	; &AJ1-05785;
+      (=gb12345		  . #x3722)	; &AJ1-05785; [23-02]
+      )
+     ((=ucs@unicode	  . #x9AEE)	; &UU+9AEE;
+      (=gb12345		  . #x7831)	; &UU+9AEE; [88-17]
+      ))
+    (->subsumptive
+     ((==ucs@unicode	  . #x53D1)	; &g2-CDP-8A6A;
+      (==gb2312		  . #x3722)	; &g2-CDP-8A6A; [23-02]
+      (==big5-cdp	  . #x8A6A)	; &g2-CDP-8A6A;
+      (->subsumptive
+       ((===big5-cdp	    . #x8A6A)	; &R-CDP-8A6A;
+	)
+       ((===ucs@unicode	    . #x53D1)	; &R-UU+53D1;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 29)	; ⼜
