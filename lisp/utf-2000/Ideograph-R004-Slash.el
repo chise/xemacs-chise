@@ -314,7 +314,10 @@
      daikanwa)
     ))
 (define-char
-  '((<-denotational@usage
+  '((<-denotational@component
+     ((=>ucs@component	  . #x53C8)	; &A-compU+53C8;
+      ))
+    (<-denotational@usage
      ((==>daijiten	  . 00076)	; &A2-DJT-00076;
       ))
     (ideographic-radical . 4)	; ⼃
