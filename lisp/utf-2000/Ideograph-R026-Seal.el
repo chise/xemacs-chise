@@ -2121,6 +2121,22 @@
      ((==>daijiten	  . 01050)	; &A2-DJT-01050;
       ))
     (ideographic-radical . 26)	; ⼙
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
+      (=ucs		  . #x2FF9)	; ⿹
+      )
+     ((=ucs		  . #x3018D)	; 𰆍
+      )
+     ((=ucs		  . #x6B62)	; 止
+      ))
+    (sound@ja/on	"sya")
+    (=ucs		. #x5378)	; 卸
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5378)	; 卸
+      ))
+    (ideographic-radical . 26)	; ⼙
     (ideographic-strokes@ucs . 6)
     (total-strokes@ucs	     . 8)
     (ideographic-strokes@ucs*sources
@@ -2140,9 +2156,8 @@
       )
      ((=ucs		  . #x5369)	; 卩
       ))
-    (sound@ja/on	"sya")
-    (=ucs		. #x5378)	; 卸
-    (=adobe-japan1-0	. 01335)	; &I-AJ1-01335;
+    (=ucs@unicode	. #x5378)	; &AJ1-13663;
+    (=adobe-japan1-0	. 01335)	; &AJ1-13663;
     (=adobe-japan1-4	. 13663)	; &I-AJ1-13663;
     (=jis-x0208		. #x3237)	; &I-J90-3237; [18-23]
     (=gb2312		. #x5036)	; &I-G0-5036; [48-22]
@@ -2154,7 +2169,7 @@
     (=gt-pj-1		. #x3237)	; &I-GT-03640; [18-23]
     (=daikanwa		. 02861)	; &I-M-02861;
     (=daijiten		. 01050)	; &I-DJT-01050;
-    (=shinjigen		.  0865)	; 卸
+    (=shinjigen		.  0865)	; &AJ1-13663;
     (->formed
      ((=ucs@unicode	  . #x5BEB)	; &AJ1-04636;
       (=adobe-japan1-0	  . 04636)	; &AJ1-04636;
@@ -2231,6 +2246,27 @@
        ((=ucs		    . #xE0101)	; 󠄁
 	))
       (==adobe-japan1-4	  . 13663)	; &g2-AJ1-13663;
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5378)	; 卸
+      ))
+    (ideographic-radical . 26)	; ⼙
+    (ideographic-strokes . 8)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
+      (=ucs		  . #x2FF9)	; ⿹
+      )
+     ((=ucs		  . #x3018D)	; 𰆍
+      )
+     ((=ucs@unicode	  . #x6B62)	; &AJ1-02221;
+      (=adobe-japan1-0	  . 02221)	; &AJ1-02221;
+      ))
+    (=ucs-itaiji-005	. #x5378)	; &U-i005+5378;
+    (->subsumptive
+     ((==ucs-itaiji-005	  . #x5378)	; &g2-U-i005+5378;
       ))
     ))
 (define-char
@@ -2557,7 +2593,9 @@
     (=cns11643-4	. #x2557)	; &I-C4-2557; [05-55]
     (=daikanwa		. 28110)	; &I-M-28110;
     (<-vulgar
-     ((=ucs		  . #x5378)	; 卸
+     ((=ucs@unicode	  . #x5378)	; &AJ1-13663;
+      (=adobe-japan1-0	  . 01335)	; &AJ1-13663;
+      (=adobe-japan1-4	  . 13663)	; &I-AJ1-13663;
       (=daikanwa	  . 02861)	; &I-M-02861;
       ))
     (<-vulgar*sources
