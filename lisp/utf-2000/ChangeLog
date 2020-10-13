@@ -1,3 +1,12 @@
+2020-10-13  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R026-Seal.el (U+5378): Apply new conventions for glyph
+	granularity.
+	(U+5378-itaiji-005): New character; use `<-denotational' for
+	U+5378.
+
+	* Ideograph-R024-Ten.el (U+5348-itaiji-001): New character.
+
 2020-10-10  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R048-Work.el (A-cgnU+22029): New abstract node.
