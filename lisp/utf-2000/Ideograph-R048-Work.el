@@ -592,8 +592,8 @@
       )
      ((=ucs		  . #x5DE5)	; 工
       )
-     ((=>ucs@iwds-1	  . #x5342)	; &A-IWDSU+5342;
-      (=>iwds-1		  .  0055)	; &A-IWDSU+5342;
+     ((=>ucs@iwds-1	  . #x4E38)	; &A-IWDSU+4E38;
+      (=>iwds-1		  .  65535)	; &A-IWDSU+4E38;
       ))
     (=ucs		. #x5DE9)	; 巩
     ))
@@ -680,6 +680,27 @@
        ((==ucs@cns	    . #x5DE9)	; &g2-CU+5DE9;
 	(==cns11643-4	    . #x2263)	; &g2-CU+5DE9; [02-67]
 	))
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5DE9)	; 巩
+      ))
+    (ideographic-radical . 48)	; ⼯
+    (ideographic-strokes . 2)
+    (total-strokes	 . 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs@unicode	  . #x5DE5)	; &AJ1-01979;
+      (=adobe-japan1-0	  . 01979)	; &AJ1-01979;
+      )
+     ((=ucs		  . #x51E0)	; 几
+      ))
+    (=ucs-var-001	. #x5DE9)	; &U-v001+5DE9;
+    (->subsumptive
+     ((==ucs-var-001	  . #x5DE9)	; &g2-U-v001+5DE9;
       ))
     ))
 (define-char
