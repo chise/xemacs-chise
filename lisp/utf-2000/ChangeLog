@@ -1,3 +1,35 @@
+2020-10-14  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R101-Use.el (A-cgnU+7528): New abstract node.
+	(AJ1-03899): Unify U+7528 instead of UU+7528 and A-IWDSU+7528; use
+	A-cgnU+7528 instead of U+7528 as its mother.
+	(U+7528-itaiji-002): Use A-cgnU+7528 instead of U+7528 as its
+	mother.
+	(HNG-KAR1081-0): Ditto.
+	(U+752C-itaiji-004): Use `<-denotational@usage' instead of
+	`<-denotational' for BUCS+752C.
+	(A-cgnU+752C): New abstract node.
+	(U+752C): Use `<-denotational@usage' instead of `<-denotational'
+	for BUCS+752C; add `<-denotational' for A-cgnU+752C; unify
+	A-J0-6135, A-GT-27879, A-GT-K02719 and IWDS1-0069.
+	(A-J0-6135): Unify U+752C instead of A-IWDSU+752C and A-UU+752C;
+	use A-cgnU+752C instead of U+752C as its mother; add
+	`<-denotational@usage' for BUCS+752C.
+	(U+752C-itaiji-005): Use A-cgnU+752C instead of U+752C as its
+	mother; add `<-denotational@usage' for BUCS+752C.
+	(U+752C-itaiji-003): Use `<-denotational@usage' instead of
+	`<-denotational' for BUCS+752C.
+	(U-00024C06): Use `->denotational' and `->subsumptive'.
+	(U-000200B5): Add `ideographic-structure'.
+	(IU+200B5): Apply new conventions for glyph granularity.
+	(U-0002DEBA): New character.
+
+2020-10-13  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R048-Work.el (U+5DE9): Use A-IWDSU+4E38 instead of
+	A-IWDSU+5342.
+	(U+5DE9-var-001): New character; use `<-denotational' for U+5DE9.
+
 2020-10-13  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R026-Seal.el (U+5378): Apply new conventions for glyph
