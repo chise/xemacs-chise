@@ -1,3 +1,10 @@
+2020-10-15  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R001-One.el (GT-K03455): New character; use
+	`<-subsumptive' for g2-UU+4E23.
+	(GT-K03250): Ditto.
+	(BC-89B6-var-003): New character; use `<-subsumptive' for BC-89B6.
+
 2020-10-14  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R041-Inch.el (U-0002D52B): New character.
