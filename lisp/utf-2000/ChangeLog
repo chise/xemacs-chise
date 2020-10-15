@@ -1,5 +1,17 @@
 2020-10-14  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R041-Inch.el (U-0002D52B): New character.
+	(U+2D52B-itaiji-001): New character; use `<-denotational' for
+	U-0002D52B.
+	(A-cgnU+5C0B): New abstract node.
+	(U+5C0B): Add `<-denotational' for A-cgnU+5C0B.
+	(U-00021B36): New character; use `<-denotational' for A-cgnU+5C0B;
+	use `<-denotational@usage' for A2-DJT-02430; unify A-MJ057349.
+	(DJT-02428): Add `<-denotational' for U-00021B36; add
+	`ideographic-structure'; unify MJ057349 and KOSEKI-084570.
+
+2020-10-14  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R101-Use.el (A-cgnU+7528): New abstract node.
 	(AJ1-03899): Unify U+7528 instead of UU+7528 and A-IWDSU+7528; use
 	A-cgnU+7528 instead of U+7528 as its mother.
