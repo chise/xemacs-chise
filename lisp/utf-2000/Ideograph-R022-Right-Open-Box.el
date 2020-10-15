@@ -1218,7 +1218,8 @@
       )
      ((=ucs		  . #x531A)	; 匚
       )
-     ((=ucs		  . #x5408)	; 合
+     ((=ucs@unicode	  . #x5408)	; &AJ1-02041;
+      (=adobe-japan1-0	  . 02041)	; &AJ1-02041;
       ))
     (=ucs@unicode	. #x533C)	; &C2-2558;
     (=ucs@JP/hanazono	. nil)
