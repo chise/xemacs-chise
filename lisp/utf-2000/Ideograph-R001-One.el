@@ -5641,6 +5641,20 @@
 	)
        ((===gt		    . 00076)	; &R-GT-00076;
 	)
+       ((=gt-k		    . 03455)	; &GT-K03455;
+	(=gt-pj-k1	    . #x3F67)	; &GT-K03455; [31-71]
+	(->subsumptive
+	 ((==gt-k	      . 03455)	; &g2-GT-K03455;
+	  (==gt-pj-k1	      . #x3F67)	; &g2-GT-K03455; [31-71]
+	  ))
+	)
+       ((=gt-k		    . 03250)	; &GT-K03250;
+	(=gt-pj-k1	    . #x3378)	; &GT-K03250; [19-88]
+	(->subsumptive
+	 ((==gt-k	      . 03250)	; &g2-GT-K03250;
+	  (==gt-pj-k1	      . #x3378)	; &g2-GT-K03250; [19-88]
+	  ))
+	)
        ((===ucs@unicode	    . #x4E23)	; &R-UU+4E23;
 	))
       ))
@@ -5657,6 +5671,14 @@
      ((=ucs		  . #x623C)	; 戼
       )
      ((=ucs		  . #x4E23)	; 丣
+      ))
+    (->subsumptive
+     ((=>>big5-cdp	  . #x89B6)	; &G-CDP-89B6;
+      (->subsumptive
+       ((==big5-cdp	    . #x89B6)	; &g2-CDP-89B6;
+	))
+      )
+     ((=big5-cdp-var-003  . #x89B6)	; &CDP-v003-89B6;
       ))
     ))
 (define-char
