@@ -1,5 +1,13 @@
 2020-10-16  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R023-Hiding-Enclosure.el (U+533C): Add
+	`sound@ja/on/{kan|go}'.
+	(JU+533C): Apply new conventions for glyph granularity for a
+	component of ideographic-structure.
+
+	* Ideograph-R022-Right-Open-Box.el (U+533C): Add
+	`sound@ja/on/{kan|go}'.
+
 	* Ideograph-R013-Down-Box.el (U+5183-itaiji-001): New character;
 	use `<-denotational' for U+5183; use `<-denotational@component'
 	for IWDS1-0118.
