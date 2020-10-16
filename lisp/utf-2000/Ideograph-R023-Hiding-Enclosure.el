@@ -1008,6 +1008,8 @@
       )
      ((=ucs		  . #x5408)	; 合
       ))
+    (sound@ja/on/go	"oN")
+    (sound@ja/on/kan	"aN")
     (=ucs		. #x533C)	; 匼
     ))
 (define-char
@@ -1023,7 +1025,8 @@
       )
      ((=ucs		  . #x5338)	; 匸
       )
-     ((=ucs		  . #x5408)	; 合
+     ((=ucs@unicode	  . #x5408)	; &AJ1-02041;
+      (=adobe-japan1-0	  . 02041)	; &AJ1-02041;
       ))
     (=ucs@jis		. #x533C)	; &AJ1-21232;
     (=adobe-japan1-6	. 21232)	; &AJ1-21232;
@@ -1034,16 +1037,6 @@
        ((=ucs		    . #x533C)	; 匼
 	)
        ((=ucs		    . #xE0100)	; 󠄀
-	))
-      (ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
-	(=ucs		    . #x2FF7)	; ⿷
-	)
-       ((==ucs@cns	    . #x5338)	; &g2-AJ1-04307;
-	(==ucs@jis	    . #x5338)	; &g2-AJ1-04307;
-	(==adobe-japan1-0   . 04307)	; &g2-AJ1-04307;
-	)
-       ((=ucs		    . #x5408)	; 合
 	))
       (==ucs@jis	  . #x533C)	; &g2-AJ1-21232;
       (==adobe-japan1-6	  . 21232)	; &g2-AJ1-21232;
