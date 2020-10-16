@@ -397,6 +397,38 @@
      ((=>ucs@component	  . #x65E5)	; &A-compU+65E5;
       (=>iwds-1		  .  0118)	; &A-compU+65E5;
       ))
+    (ideographic-radical . 13)	; ⼌
+    (ideographic-strokes . 2)
+    (total-strokes	 . 4)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5182)	; 冂
+      )
+     ((=>ucs@component	  . #x4E8C)	; &A-compU+4E8C;
+      ))
+    (ideographic-structure@apparent
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=gt-k		  . 00393)	; &GT-K00393;
+      )
+     ((=ucs		  . #x4E00)	; 一
+      ))
+    (=ucs-itaiji-001	. #x5183)	; &U-i001+5183;
+    (->subsumptive
+     ((==ucs-itaiji-001	  . #x5183)	; &g2-U-i001+5183;
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5183)	; 冃
+      ))
+    (<-denotational@component
+     ((=>ucs@component	  . #x65E5)	; &A-compU+65E5;
+      (=>iwds-1		  .  0118)	; &A-compU+65E5;
+      ))
     (name		. "CJK RADICAL SUN")
     (name*		. "ideographic component hood")
     (general-category	symbol other) ; Informative Category
