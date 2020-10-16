@@ -1,5 +1,17 @@
 2020-10-15  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R005-Second.el (GT-K00039): Unify G-IU+200D1 instead
+	of g2-IU+200D1.
+	(g2-IU+200D1): Use `<-subsumptive' for GT-K00039.
+	(BC-8873): Unify GT-K00038.
+	(GT-K00041): Unify BC-88CD; use `<-denotational' for U-000200D1
+	instead of `<-subsumptive' for BC-8873.
+	(GT-K00127): New character; use `<-subsumptive' for BC-88CD.
+	(U-000200DB): Add `<-formed@flipped-horizontally' for U-00020063.
+
+	* Ideograph-R002-Line.el (U-00020063): Add `<-formed@component'
+	for U+6236; add `<-formed@flipped-horizontally' for U-000200DB.
+
 	* Ideograph-R008-Lid.el (BC-8DEB-itaiji-004): New character; use
 	`<-denotational' for A-cgnBC-8DEB.
 	(U-00020196): Apply new conventions for glyph granularity.

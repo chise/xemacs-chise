@@ -1042,6 +1042,21 @@
     (hanyu-dazidian	1 28 9)
     (=ucs		. #x20063)	; 𠁣
     (=big5-cdp		. #x88CF)	; &I-CDP-88CF;
+    (<-formed@component
+     ((=ucs		  . #x6236)	; 戶
+      ))
+    (<-formed@flipped-horizontally
+     ((=ucs		  . #x200DB)	; 𠃛
+      ))
+    (->subsumptive
+     ((==ucs@iso	  . #x20063)	; &g2-CDP-88CF;
+      (==big5-cdp	  . #x88CF)	; &g2-CDP-88CF;
+      (->subsumptive
+       ((===big5-cdp	    . #x88CF)	; &R-CDP-88CF;
+	)
+       ((===ucs@iso	    . #x20063)	; &R-U-00020063;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical@ucs . 2)	; ⼁
