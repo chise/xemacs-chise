@@ -1,4 +1,15 @@
+2020-10-16  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R013-Down-Box.el (U+5183-itaiji-001): New character;
+	use `<-denotational' for U+5183; use `<-denotational@component'
+	for IWDS1-0118.
+
 2020-10-15  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R035-Go-Slowly.el (A-U+21568-itaiji-001): New abstract
+	node.
+	(U+21568-itaiji-001): New character; use `<-denotational' for
+	A-U+21568-itaiji-001.
 
 	* Ideograph-R005-Second.el (GT-K00039): Unify G-IU+200D1 instead
 	of g2-IU+200D1.
