@@ -77,7 +77,7 @@
       )
      ((=big5-cdp	  . #x8BC8)	; &CDP-8BC8;
       )
-     ((=gt-k		  . 00041)	; &GT-K00041;
+     ((=big5-cdp	  . #x88CD)	; &CDP-88CD;
       ))
     (=ucs-var-002	. #x5F13)	; &U-v002+5F13;
     (<-formed@component
