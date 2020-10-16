@@ -1202,6 +1202,8 @@
       )
      ((=ucs		  . #x5408)	; 合
       ))
+    (sound@ja/on/go	"oN")
+    (sound@ja/on/kan	"aN")
     (=ucs		. #x533C)	; 匼
     ))
 (define-char
