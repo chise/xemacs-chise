@@ -1,5 +1,29 @@
 2020-10-16  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R063-Door.el (A-GT-K06337): New abstract node.
+	(GT-K06337): New character; use `<-denotational' for A-GT-K06337.
+	(U-00022A60): Apply new conventions for glyph granularity.
+	(U-0002BF12): New character.
+
+	* Ideograph-R031-Enclosure.el (U-000211A8): Use `->denotational'
+	and `->subsumptive'.
+	(U+211A8-itaiji-001): New character.
+	(U+211A8-itaiji-002): New character.
+	(A-U+9F52-itaiji-002): New abstract node.
+	(U+9F52-itaiji-002): New character; use `<-denotational' for
+	A-U+9F52-itaiji-002.
+	(A-U+23788-itaiji-001): New abstract node.
+	(U+23788-itaiji-001): Add `<-denotational' for
+	A-U+23788-itaiji-001.
+
+	* Ideograph-R027-Cliff.el (U+3549): Apply new conventions for
+	glyph granularity.
+	(U-00020A75): Likewise.
+	(U+53A4): Likewise.
+	(U-00020AB1): Likewise.
+	(U-00020ABE): Likewise.
+	(A-IWDSU+5C75): New abstract node.
+
 	* Ideograph-R029-Again.el (U-00020B3E): Apply new conventions for
 	glyph granularity.
 	(M-03161): Unify IU+20B3E, MJ032035 and KOSEKI-036620; add
