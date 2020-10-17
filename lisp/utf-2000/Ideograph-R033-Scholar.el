@@ -3811,8 +3811,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=ucs@iso		  . #x23A11)	; &M-16480;
-      (=daikanwa	  . 16480)	; &M-16480;
+     ((=ucs@iso		  . #x23A11)	; &MJ038811;
+      (=mj		  . 038811)	; &MJ038811;
       )
      ((=ucs		  . #x571F)	; 土
       ))
