@@ -1,5 +1,13 @@
 2020-10-16  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R029-Again.el (U-00020B3E): Apply new conventions for
+	glyph granularity.
+	(M-03161): Unify IU+20B3E, MJ032035 and KOSEKI-036620; add
+	`<-denotational' for U-00020B3E.
+	(U-0002A828): New character.
+
+2020-10-16  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R023-Hiding-Enclosure.el (U+533C): Add
 	`sound@ja/on/{kan|go}'.
 	(JU+533C): Apply new conventions for glyph granularity for a
@@ -7,6 +15,10 @@
 
 	* Ideograph-R022-Right-Open-Box.el (U+533C): Add
 	`sound@ja/on/{kan|go}'.
+
+	* Ideograph-R015-Ice.el (U+51BE): Apply new conventions for glyph
+	granularity.
+	(U-0002061F): Likewise.
 
 	* Ideograph-R013-Down-Box.el (U+5183-itaiji-001): New character;
 	use `<-denotational' for U+5183; use `<-denotational@component'
