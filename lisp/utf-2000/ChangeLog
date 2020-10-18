@@ -1,4 +1,16 @@
+2020-10-17  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R032-Earth.el (A-CB01513): New abstract node.
+	(CB01513): New character; use `<-denotational' for A-CB01513.
+	(U+5813): Apply new conventions for glyph granularity.
+	(U-000213F7): Likewise.
+	(U-0002D408): New character.
+
 2020-10-16  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R066-Rap.el (U-00022FB0): New character.
+	(M-13333): Add `<-denotational' for U-00022FB0; unify IU+22FB0,
+	MJ037353 and KOSEKI-149440.
 
 	* Ideograph-R063-Door.el (A-GT-K06337): New abstract node.
 	(GT-K06337): New character; use `<-denotational' for A-GT-K06337.
