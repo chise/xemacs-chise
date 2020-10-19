@@ -1,3 +1,8 @@
+2020-10-18  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R041-Inch.el (U+5C0C-var-001): New character; use
+	`<-denotational' for U+5C0C.
+
 2020-10-17  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R044-Corpse.el (U-00021CA1): Apply new conventions for
