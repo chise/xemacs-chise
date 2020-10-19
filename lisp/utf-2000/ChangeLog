@@ -1,5 +1,10 @@
 2020-10-17  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R044-Corpse.el (U-00021CA1): Apply new conventions for
+	glyph granularity.
+
+2020-10-17  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R032-Earth.el (A-CB01513): New abstract node.
 	(CB01513): New character; use `<-denotational' for A-CB01513.
 	(U+5813): Apply new conventions for glyph granularity.
