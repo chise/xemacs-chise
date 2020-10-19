@@ -3092,6 +3092,26 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=ucs		  . #x5C0C)	; 尌
+      ))
+    (ideographic-radical . 41)	; ⼨
+    (ideographic-strokes . 9)
+    (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=mj		  . 009392)	; &MJ009392;
+      )
+     ((=ucs		  . #x5BF8)	; 寸
+      ))
+    (=ucs-var-001	. #x5C0C)	; &U-v001+5C0C;
+    (->subsumptive
+     ((==ucs-var-001	  . #x5C0C)	; &g2-U-v001+5C0C;
+      ))
+    ))
+(define-char
   '((ideographic-radical . 41)	; ⼨
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
