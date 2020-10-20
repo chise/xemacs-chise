@@ -2140,9 +2140,6 @@
      ((==>ucs@bucs	  . #x5BCC)	; &BUCS+5BCC;
       ))
     (ideographic-radical . 14)	; ⼍
-    (ideographic-strokes . 9)
-    (total-strokes	 . 11)
-    (hanyu-dazidian	1 305 3)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
@@ -2152,7 +2149,26 @@
      ((=ucs		  . #x7550)	; 畐
       ))
     (=ucs		. #x51A8)	; 冨
-    (=adobe-japan1-0	. 03532)	; &I-AJ1-03532;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x51A8)	; 冨
+      ))
+    (ideographic-radical . 14)	; ⼍
+    (ideographic-strokes . 9)
+    (total-strokes	 . 11)
+    (hanyu-dazidian	1 305 3)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5196)	; 冖
+      )
+     ((=ucs@unicode	  . #x7550)	; &AJ1-18129;
+      (=adobe-japan1-5	  . 18129)	; &AJ1-18129;
+      ))
+    (=ucs@unicode	. #x51A8)	; &AJ1-03532;
+    (=adobe-japan1-0	. 03532)	; &AJ1-03532;
     (=jis-x0208		. #x495A)	; &I-J90-495A; [41-58]
     (=iso-ir165		. #x2E2B)	; &I-EGB-2E2B; [14-11]
     (=cns11643-3	. #x344D)	; &I-C3-344D; [20-45]
@@ -2162,12 +2178,13 @@
     (=gt-pj-1		. #x495A)	; &I-GT-02099; [41-58]
     (=daikanwa		. 01592)	; &I-M-01592;
     (=daijiten		. 00653)	; &I-DJT-00653;
-    (=shinjigen		.  1853)	; 冨
+    (=shinjigen		.  1853)	; &AJ1-03532;
     (<-vulgar
-     ((=ucs		  . #x5BCC)	; 富
+     ((=ucs@unicode	  . #x5BCC)	; &AJ1-03531;
+      (=adobe-japan1-0	  . 03531)	; &AJ1-03531;
       (=jis-x0208	  . #x4959)	; &I-J90-4959; [41-57]
       (=daikanwa	  . 07230)	; &I-M-07230;
-      (=shinjigen	  .  1852)	; 富
+      (=shinjigen	  .  1852)	; &AJ1-03531;
       ))
     (<-vulgar*sources
      zhengzitong daikanwa shinjigen)
