@@ -4209,8 +4209,9 @@
     (=ucs@unicode	. #x4E1B)	; &G0-3454;
     (=gb2312		. #x3454)	; &G0-3454; [20-52]
     (<-simplified@CN
-     ((=ucs		  . #x53E2)	; 叢
-      (=gb12345		  . #x3454)	; 叢 [20-52]
+     ((=ucs@unicode	  . #x53E2)	; &AJ1-02771;
+      (=adobe-japan1-0	  . 02771)	; &AJ1-02771;
+      (=gb12345		  . #x3454)	; &AJ1-02771; [20-52]
       ))
     (->subsumptive
      ((==ucs@unicode	  . #x4E1B)	; &g2-UU+4E1B;
@@ -5399,6 +5400,12 @@
        ((===gt		    . 00055)	; &R-GT-00055;
 	))
       ))
+    ))
+(define-char
+  '((ideographic-radical . 1)	; ⼀
+    (ideographic-strokes . 5)
+    (total-strokes	 . 6)
+    (=ucs		. #x2CEBF)	; 𬺿
     ))
 (define-char
   '((<-denotational@component
@@ -7962,6 +7969,38 @@
        ((===ucs@iso	    . #x2004A)	; &R-U-0002004A;
 	))
       ))
+    ))
+(define-char
+  '((ideographic-radical . 1)	; ⼀
+    (ideographic-strokes . 11)
+    (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=gt-k		  . 03592)	; &GT-K03592;
+      )
+     ((=>ucs@component	  . #x4E14)	; &A-compU+4E14;
+      (=>iwds-1		  .  0114)	; &A-compU+4E14;
+      ))
+    (=ucs		. #x2CEE7)	; 𬻧
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2CEE7)	; 𬻧
+      ))
+    (ideographic-radical . 1)	; ⼀
+    (ideographic-strokes . 11)
+    (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=gt-k		  . 03592)	; &GT-K03592;
+      )
+     ((=ucs		  . #x4E14)	; 且
+      ))
+    (=ucs@JP/hanazono	. #x2CEE7)	; &hanaJU+2CEE7;
     ))
 (define-char
   '((ideographic-radical . 1)	; ⼀

@@ -1,3 +1,11 @@
+2020-10-20  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R014-Cover.el (U+51A8): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R001-One.el (U-0002CEBF): New character.
+	(U-0002CEE7): New character.
+
 2020-10-18  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R041-Inch.el (U+5C0C-var-001): New character; use
