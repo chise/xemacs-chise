@@ -1,5 +1,14 @@
 2020-10-20  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R025-Divination.el (U-0002D170): New character; use
+	`<-denotational' for A-cgnU+2E4D7.
+	(U+5366): Add `<-denotational@usage' for A2-DJT-01024; apply new
+	conventions for glyph granularity.
+	(UU+5366): Unify DJT-01024.
+	(A2-DJT-01024): New abstract node.
+
+2020-10-20  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R002-Line.el (AJ1-21075): Separate UU+4E35, C4-2B5E,
 	BC-8AA8 and DJT-00061.
 	(UU+4E35): New character; use `<-denotational' for U+4E35; unify
