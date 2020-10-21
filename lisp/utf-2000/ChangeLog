@@ -1,5 +1,10 @@
 2020-10-20  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R002-Line.el (AJ1-21075): Separate UU+4E35, C4-2B5E,
+	BC-8AA8 and DJT-00061.
+	(UU+4E35): New character; use `<-denotational' for U+4E35; unify
+	C4-2B5E, BC-8AA8 and DJT-00061.
+
 	* Ideograph-R014-Cover.el (U+51A8): Apply new conventions for
 	glyph granularity.
 
