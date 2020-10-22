@@ -3905,7 +3905,8 @@
     (=daijiten		. 02496)	; &I-DJT-02496;
     (=shinjigen		.  1937)	; &AJ1-03122;
     (<-formed
-     ((=ucs		  . #x27751)	; 𧝑
+     ((=ucs@iso		  . #x27751)	; &MJ048416;
+      (=mj		  . 048416)	; &MJ048416;
       )
      ((=ucs@unicode	  . #x8962)	; &JX2-7844;
       (=jis-x0212	  . #x5C77)	; &JX2-7844; [60-87]
@@ -3914,12 +3915,14 @@
       (=daikanwa	  . 34652)	; &I-M-34652;
       ))
     (->formed@shuowen
-     ((=ucs		  . #x37A1)	; 㞡
+     ((=ucs@unicode	  . #x37A1)	; &MJ000813;
+      (=mj		  . 000813)	; &MJ000813;
       ))
     (->formed@shuowen*sources
      zhengzitong)
     (->original
-     ((=ucs		  . #x37A1)	; 㞡
+     ((=ucs@unicode	  . #x37A1)	; &MJ000813;
+      (=mj		  . 000813)	; &MJ000813;
       (=daikanwa	  . 07816)	; &I-M-07816;
       ))
     (->original*sources
@@ -6879,13 +6882,30 @@
       )
      ((=ucs		  . #x5C38)	; 尸
       )
-     ((=ucs-itaiji-001	  . #x27763)	; &U-i001+27763;
+     ((=>ucs-itaiji-001	  . #x27763)	; &A-U-i001+27763;
       ))
     (sound@ja/on	"teN")
     (=ucs		. #x37A1)	; 㞡
-    (=mj		. 000813)	; &I-MJ000813;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x37A1)	; 㞡
+      ))
+    (ideographic-radical . 44)	; ⼫
+    (ideographic-strokes . 16)
+    (total-strokes	 . 19)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs		  . #x5C38)	; 尸
+      )
+     ((=ucs-itaiji-001	  . #x27763)	; &U-i001+27763;
+      ))
+    (=ucs@unicode	. #x37A1)	; &MJ000813;
+    (=mj		. 000813)	; &MJ000813;
     (=cns11643-3	. #x5A37)	; &I-C3-5A37; [58-23]
-    (=koseki		. 088720)	; 㞡
+    (=koseki		. 088720)	; &MJ000813;
     (=daikanwa		. 07816)	; &I-M-07816;
     (=daijiten		. 02514)	; &I-DJT-02514;
     (<-formed@shuowen
