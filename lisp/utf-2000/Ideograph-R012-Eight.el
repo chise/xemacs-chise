@@ -5021,7 +5021,8 @@
     (=cns11643-6	. #x3D3C)	; &I-C6-3D3C; [29-28]
     (=daikanwa		. 01487)	; &I-M-01487;
     (<-ancient
-     ((=ucs		  . #x5764)	; 坤
+     ((=ucs@unicode	  . #x5764)	; &AJ1-02069;
+      (=adobe-japan1-0	  . 02069)	; &AJ1-02069;
       (=daikanwa	  . 04969)	; &I-M-04969;
       ))
     (<-ancient*sources
@@ -5032,11 +5033,12 @@
     (->subsumptive
      ((==ucs@iso	  . #x2051C)	; &g2-M-01487;
       (==daikanwa	  . 01487)	; &g2-M-01487;
-      (=hanziku-1	  . #xD9BC)	; &g2-M-01487;
       (->subsumptive
        ((===daikanwa	    . 01487)	; &R-M-01487;
 	)
        ((===ucs@iso	    . #x2051C)	; &R-U-0002051C;
+	)
+       ((=hanziku-1	    . #xD9BC)	; &HZK01-D9BC;
 	))
       )
      ((==ucs@iso	  . #x2F812)	; &g2-IU-0002F812;
