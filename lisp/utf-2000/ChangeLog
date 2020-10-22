@@ -1,3 +1,18 @@
+2020-10-21  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R012-Eight.el (U-0002F812): Apply new conventions for
+	glyph granularity.
+
+2020-10-21  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R004-Slash.el (U-0002009B): New character.
+	(BC-8D62-var-001): New character; use `<-denotational' for
+	U-0002009B.
+	(BC-8D62): Ditto.
+
+	* Ideograph-R044-Corpse.el (U+37A1): Apply new conventions for
+	glyph granularity.
+
 2020-10-20  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R025-Divination.el (U-0002D170): New character; use
