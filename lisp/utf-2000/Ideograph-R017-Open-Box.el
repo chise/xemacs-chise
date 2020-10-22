@@ -465,11 +465,15 @@
     (=daikanwa		. 01807)	; &I-M-01807;
     (=cbeta		. 00631)	; &I-CB00631;
     (<-original
-     ((=ucs@jis		  . #x584A)	; &AJ1-01396;
+     ((=ucs@cns		  . #x584A)	; &AJ1-01396;
+      (=ucs@jis		  . #x584A)	; &AJ1-01396;
+      (=ucs@ks		  . #x584A)	; &AJ1-01396;
       (=adobe-japan1-0	  . 01396)	; &AJ1-01396;
       ))
     (->formed
-     ((=ucs@jis		  . #x584A)	; &AJ1-01396;
+     ((=ucs@cns		  . #x584A)	; &AJ1-01396;
+      (=ucs@jis		  . #x584A)	; &AJ1-01396;
+      (=ucs@ks		  . #x584A)	; &AJ1-01396;
       (=adobe-japan1-0	  . 01396)	; &AJ1-01396;
       (=daikanwa	  . 05319)	; &I-M-05319;
       )
@@ -495,7 +499,9 @@
     (->formed*sources
      jiyun daikanwa)
     (->vulgar
-     ((=ucs@jis		  . #x584A)	; &AJ1-01396;
+     ((=ucs@cns		  . #x584A)	; &AJ1-01396;
+      (=ucs@jis		  . #x584A)	; &AJ1-01396;
+      (=ucs@ks		  . #x584A)	; &AJ1-01396;
       (=adobe-japan1-0	  . 01396)	; &AJ1-01396;
       ))
     (->vulgar*sources
