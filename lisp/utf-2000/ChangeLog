@@ -13,6 +13,10 @@
 	* Ideograph-R044-Corpse.el (U+37A1): Apply new conventions for
 	glyph granularity.
 
+	* Ideograph-R029-Again.el (U-00020B38): Apply new conventions for
+	glyph granularity.
+	(U+53E2): Likewise.
+
 2020-10-20  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R025-Divination.el (U-0002D170): New character; use
