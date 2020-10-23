@@ -1202,15 +1202,9 @@
       )
      ((=ucs		  . #x5C38)	; 尸
       )
-     ((=ucs		  . #x5F73)	; 彳
+     ((=ucs		  . #x4E47)	; 乇
       ))
-    (=ucs-itaiji-002	. #x5C65)	; &U-i002+5C65;
-    (<-simplified@component
-     ((=ucs		  . #x21CD0)	; 𡳐
-      ))
-    (->subsumptive
-     ((==ucs-itaiji-002	  . #x5C65)	; &g2-U-i002+5C65;
-      ))
+    (=>ruimoku-v6	. #xE147)	; &A-RUI6-E147;
     ))
 (define-char
   '((ideographic-radical . 44)	; ⼫
@@ -1222,9 +1216,15 @@
       )
      ((=ucs		  . #x5C38)	; 尸
       )
-     ((=ucs		  . #x4E47)	; 乇
+     ((=ucs		  . #x5F73)	; 彳
       ))
-    (=>ruimoku-v6	. #xE147)	; &A-RUI6-E147;
+    (=ucs-itaiji-002	. #x5C65)	; &U-i002+5C65;
+    (<-simplified@component
+     ((=ucs		  . #x21CD0)	; 𡳐
+      ))
+    (->subsumptive
+     ((==ucs-itaiji-002	  . #x5C65)	; &g2-U-i002+5C65;
+      ))
     ))
 (define-char
   '((<-denotational
