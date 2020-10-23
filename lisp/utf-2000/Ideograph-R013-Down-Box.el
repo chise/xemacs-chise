@@ -152,7 +152,15 @@
        ((===ucs@iso	    . #x2053C)	; &R-U-0002053C;
 	))
       )
-     ((=gt-k		  . 00393)	; &GT-K00393;
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
+	(=ucs		    . #x2FF5)	; ⿵
+	)
+       ((=ucs		    . #x5196)	; 冖
+	)
+       ((=ucs		    . #x4E00)	; 一
+	))
+      (=gt-k		  . 00393)	; &GT-K00393;
       (=gt-pj-k1	  . #x6743)	; &GT-K00393; [71-35]
       (<-formed@component/connect-below
        ((=ucs		    . #x2053C)	; 𠔼
@@ -1218,7 +1226,8 @@
     (<-same*sources
      jiyun daikanwa)
     (->formed
-     ((=ucs		  . #x67D3)	; 染
+     ((=ucs@unicode	  . #x67D3)	; &AJ1-02715;
+      (=adobe-japan1-0	  . 02715)	; &AJ1-02715;
       (=daikanwa	  . 14621)	; &I-M-14621;
       )
      ((=ucs@JP/hanazono	  . #x2D060)	; &MJ057001;
@@ -1229,7 +1238,8 @@
     (->formed*sources
      daikanwa)
     (->interchangeable
-     ((=ucs		  . #x67D3)	; 染
+     ((=ucs@unicode	  . #x67D3)	; &AJ1-02715;
+      (=adobe-japan1-0	  . 02715)	; &AJ1-02715;
       ))
     (->interchangeable$_1*sources
      shuowen-zhu)
