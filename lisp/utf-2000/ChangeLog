@@ -1,3 +1,8 @@
+2020-10-22  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R013-Down-Box.el (GT-K00393): Add
+	`ideographic-structure'.
+
 2020-10-21  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R012-Eight.el (U-0002F812): Apply new conventions for
