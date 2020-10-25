@@ -1,3 +1,23 @@
+2020-10-23  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R015-Ice.el (U+51B7): Apply new conventions for glyph
+	granularity.
+
+	* Ideograph-R005-Second.el (U+4E71): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R027-Cliff.el (U+5398): Apply new conventions for
+	glyph granularity.
+
+2020-10-23  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R042-Small.el (A-compU+5C13): New abstract node.
+	(A-IWDSU+5C13): Add `<-denotational' for A-compU+5C13.
+	(A-U+5C14-itaiji-001): New abstract node; use `<-denotational' for
+	A-compU+5C13.
+	(U+5C14-itaiji-001): New character; use `<-denotational' for
+	A-U+5C14-itaiji-001.
+
 2020-10-22  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R013-Down-Box.el (GT-K00393): Add

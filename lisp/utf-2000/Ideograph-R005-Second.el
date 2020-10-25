@@ -2541,7 +2541,6 @@
     (ideographic-radical . 5)	; ⼄
     (ideographic-strokes . 6)
     (total-strokes	 . 7)
-    (hanyu-dazidian	1 53 17)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -2553,7 +2552,26 @@
     (sound@ja/kun	"mida-r+eru" "mida+s5")
     (sound@ja/on	"ran")
     (=ucs		. #x4E71)	; 乱
-    (=adobe-japan1-0	. 03930)	; &I-AJ1-03930;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x4E71)	; 乱
+      ))
+    (ideographic-radical . 5)	; ⼄
+    (ideographic-strokes . 6)
+    (total-strokes	 . 7)
+    (hanyu-dazidian	1 53 17)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs@unicode	  . #x820C)	; &AJ1-02697;
+      (=adobe-japan1-0	  . 02697)	; &AJ1-02697;
+      )
+     ((=ucs		  . #x4E5A)	; 乚
+      ))
+    (=ucs@unicode	. #x4E71)	; &AJ1-03930;
+    (=adobe-japan1-0	. 03930)	; &AJ1-03930;
     (=jis-x0208		. #x4D70)	; &I-J90-4D70; [45-80]
     (=gb2312		. #x4252)	; &I-G0-4252; [34-50]
     (=cns11643-3	. #x2440)	; &I-C3-2440; [04-32]
@@ -2563,10 +2581,7 @@
     (=gt-pj-1		. #x4D70)	; &I-GT-00251; [45-80]
     (=daikanwa		. 00187)	; &I-M-00187;
     (=daijiten		. 00112)	; &I-DJT-00112;
-    (=shinjigen		.  0060)	; 乱
-    (<-simplified
-     ((=ucs		  . #x4E82)	; 亂
-      ))
+    (=shinjigen		.  0060)	; &AJ1-03930;
     (<-simplified@CN
      ((=ucs@unicode	  . #x4E82)	; &GT-00286;
       (=cns11643-1	  . #x632A)	; &GT-00286; [67-10]
