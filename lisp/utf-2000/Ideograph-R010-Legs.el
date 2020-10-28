@@ -4528,8 +4528,8 @@
     (->interchangeable*sources
      jiyun)
     (->mistakable
-     ((=ucs@unicode	  . #x889E)	; &MJ023949;
-      (=mj		  . 023949)	; &MJ023949;
+     ((=ucs@unicode	  . #x889E)	; &AJ1-06582;
+      (=adobe-japan1-0	  . 06582)	; &AJ1-06582;
       (=daikanwa	  . 34203)	; &I-M-34203;
       ))
     (->mistakable*sources
