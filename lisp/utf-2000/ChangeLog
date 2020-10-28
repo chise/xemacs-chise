@@ -1,3 +1,12 @@
+2020-10-26  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R063-Door.el (U-00022A51): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R033-Scholar.el (U+2151E-var-001): New character; use
+	`<-denotational' for U-0002151E.
+	(U+2151E-var-002): Ditto.
+
 2020-10-23  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R015-Ice.el (U+51B7): Apply new conventions for glyph
