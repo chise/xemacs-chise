@@ -806,6 +806,41 @@
     ))
 (define-char
   '((<-denotational
+     ((=ucs		  . #x2151E)	; 𡔞
+      ))
+    (ideographic-radical . 33)	; ⼠
+    (ideographic-strokes . 4)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=mj		  . 006462)	; &MJ006462;
+      )
+     ((=ucs		  . #x2123C)	; 𡈼
+      ))
+    (=ucs-var-001	. #x2151E)	; &U-v001+2151E;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2151E)	; 𡔞
+      ))
+    (ideographic-radical . 33)	; ⼠
+    (ideographic-strokes . 4)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs@unicode	  . #x4EA1)	; &MJ006463;
+      (=mj		  . 006463)	; &MJ006463;
+      )
+     ((=ucs		  . #x2123C)	; 𡈼
+      ))
+    (=ucs-var-002	. #x2151E)	; &U-v002+2151E;
+    ))
+(define-char
+  '((<-denotational
      ((=+>ucs@iso	  . #x2151E)	; &o-IU+2151E;
       ))
     (ideographic-radical . 33)	; ⼠
