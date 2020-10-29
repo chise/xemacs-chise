@@ -1978,16 +1978,19 @@
     (=koseki		. 036320)	; 𠬦
     (=daikanwa		. 03136)	; &I-M-03136;
     (<-formed
-     ((=ucs		  . #x7847)	; 硇
+     ((=ucs@unicode	  . #x7847)	; &AJ1-18215;
+      (=adobe-japan1-5	  . 18215)	; &AJ1-18215;
       ))
     (->formed
      ((=ucs		  . #x23CBF)	; 𣲿
       (=daikanwa	  . 17331)	; &I-M-17331;
       )
-     ((=ucs		  . #x7847)	; 硇
+     ((=ucs@unicode	  . #x7847)	; &AJ1-18215;
+      (=adobe-japan1-5	  . 18215)	; &AJ1-18215;
       (=daikanwa	  . 24162)	; &I-M-24162;
       )
-     ((=ucs		  . #x40E9)	; 䃩
+     ((=ucs@unicode	  . #x40E9)	; &C3-5841;
+      (=cns11643-3	  . #x5841)	; &C3-5841; [56-33]
       (=daikanwa	  . 24504)	; &I-M-24504;
       ))
     (->formed*sources
