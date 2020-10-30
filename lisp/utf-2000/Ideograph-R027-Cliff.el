@@ -6309,6 +6309,22 @@
     ))
 (define-char
   '((ideographic-radical . 27)	; ⼚
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=>ucs@iwds-1	  . #x4E06)	; &A-IWDSU+4E06;
+      (=>iwds-1		  .  0150)	; &A-IWDSU+4E06;
+      )
+     ((=>jis-x0208@1997	  . #x3975)	; &J97-3975; [25-85]
+      ))
+    (=ucs		. #x20AA9)	; 𠪩
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x20AA9)	; 𠪩
+      ))
+    (ideographic-radical . 27)	; ⼚
     (ideographic-strokes . 12)
     (total-strokes	 . 13)
     (hanyu-dazidian	8 7 22)
@@ -6318,10 +6334,15 @@
       )
      ((=ucs		  . #x5382)	; 厂
       )
-     ((=ucs		  . #x9ED1)	; 黑
+     ((=ucs@unicode	  . #x9ED1)	; &JX1-7E72;
+      (=gb2312		  . #x3A5A)	; &JX1-7E72; [26-58]
+      (=ks-x1001	  . #x7D59)	; &I-K0-7D59; [93-57]
+      (=cns11643-1	  . #x6329)	; &I-C1-6329; [67-09]
+      (=jis-x0213-1	  . #x7E72)	; &I-JX1-7E72; [94-82]
+      (=daikanwa	  . 48038)	; &I-M-48038;
       ))
-    (=ucs		. #x20AA9)	; 𠪩
-    (=cbeta		. 01086)	; &I-CB01086;
+    (=ucs@iso		. #x20AA9)	; &CB01086;
+    (=cbeta		. 01086)	; &CB01086;
     (->subsumptive
      ((==ucs@iso	  . #x20AA9)	; &g2-CB01086;
       (==cbeta		  . 01086)	; &g2-CB01086;
