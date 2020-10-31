@@ -5478,8 +5478,26 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=>big5-cdp	  . #x88BC)	; &A-GT-K01853;
+      ))
+    (ideographic-radical . 1)	; ⼀
+    (ideographic-strokes . 5)
+    (total-strokes	 . 6)
+    (=ucs		. #x2CEC9)	; 𬻉
+    ))
+(define-char
   '((ideographic-radical . 1)	; ⼀
     (=>ucs@cognate	. #x2B741)	; &A-cgnU+2B741;
+    ))
+(define-char
+  '((<-denotational
+     ((=>big5-cdp	  . #x88BC)	; &A-GT-K01853;
+      ))
+    (ideographic-radical . 1)	; ⼀
+    (ideographic-strokes . 5)
+    (total-strokes	 . 6)
+    (=ucs-itaiji-001	. #x2CEC9)	; &U-i001+2CEC9;
     ))
 (define-char
   '((<-denotational@usage
