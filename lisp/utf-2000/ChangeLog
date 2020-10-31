@@ -1,3 +1,9 @@
+2020-10-30  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R001-One.el (U-0002CEC9): New character; use
+	`<-denotational' for A-BC-88BC.
+	(U+2CEC9-itaiji-001): Ditto.
+
 2020-10-29  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R027-Cliff.el (U-00020AA9): Apply new conventions for
