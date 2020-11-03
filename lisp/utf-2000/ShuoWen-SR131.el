@@ -77,6 +77,8 @@
   '((shuowen-radical	. 131)	; 歺
     (=shuowen-jiguge	. 13206)	; &SW-JIGUGE-13206;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x23A0F)	; 𣨏
+      )
      ((=ucs		  . #x6B7F)	; 歿
       ))
     (->subsumptive

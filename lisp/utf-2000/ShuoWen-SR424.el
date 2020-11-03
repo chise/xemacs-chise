@@ -158,30 +158,13 @@
 (define-char
   '((shuowen-radical	. 424)	; 魚
     (=shuowen-jiguge	. 40002)	; &SW-JIGUGE-40002;
+    (<-Small-Seal@shuowen
+     ((=ucs		  . #x29DA1)	; 𩶡
+      ))
     (->subsumptive
      ((===shuowen-jiguge5 . 40002)	; &SW-JIGUGE5-40002;
-      (<-Small-Seal@shuowen
-       ((ideographic-structure
-	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	  (=ucs		      . #x2FF0)	; ⿰
-	  )
-	 ((=ucs		      . #x9B5A)	; 魚
-	  )
-	 ((=ucs		      . #x3829)	; 㠩
-	  ))
-	))
       )
      ((===shuowen-jiguge4 . 39202)	; &SW-JIGUGE4-39202;
-      (<-Small-Seal@shuowen
-       ((ideographic-structure
-	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	  (=ucs		      . #x2FF0)	; ⿰
-	  )
-	 ((=ucs		      . #x9B5A)	; 魚
-	  )
-	 ((=ucs		      . #x3829)	; 㠩
-	  ))
-	))
       ))
     ))
 (define-char
