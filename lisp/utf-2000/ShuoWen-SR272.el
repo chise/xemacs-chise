@@ -77,6 +77,8 @@
   '((shuowen-radical	. 272)	; 穴
     (=shuowen-jiguge	. 25005)	; &SW-JIGUGE-25005;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x25A4B)	; 𥩋
+      )
      ((=ucs		  . #x7AC8)	; 竈
       ))
     (->subsumptive
