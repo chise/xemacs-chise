@@ -1,3 +1,16 @@
+2020-11-01  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R051-Dry.el (U-000303EE): New character.
+
+2020-10-31  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R069-Axe.el (U+65A5): Apply new conventions for glyph
+	granularity; add `<-denotational@usage' for A2-DJT-04363.
+	(HD-KS151750): New character; use `<-denotational' for U+65A5;
+	unify CB06608; use `<-denotational@component' for U+5388.
+	(U-0002D91F): Unify CB08739.
+	(A2-DJT-04363): New abstract node.
+
 2020-10-31  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R036-Evening.el (U+5919): Apply new conventions for
@@ -36,6 +49,20 @@
 	* Ideograph-R033-Scholar.el (U+2151E-var-001): New character; use
 	`<-denotational' for U-0002151E.
 	(U+2151E-var-002): Ditto.
+
+2020-10-26  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR490.el (SW-JIGUGE-48920): Use U-00028995 instead of
+	"⿰金⿰井刂" as the corresponding modern characters.
+
+	* ShuoWen-SR424.el (SW-JIGUGE-40002): Use U-00029DA1 instead of
+	"⿰魚㠩" as the corresponding modern characters.
+
+	* ShuoWen-SR272.el (SW-JIGUGE-25005): Add U-00025A4B to the
+	corresponding modern characters.
+
+	* ShuoWen-SR131.el (SW-JIGUGE-13206): Add U-00023A0F to the
+	corresponding modern characters.
 
 2020-10-23  MORIOKA Tomohiko  <tomo.git@chise.org>
 
