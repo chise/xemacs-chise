@@ -1,3 +1,9 @@
+2020-11-03  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R013-Down-Box.el (A-MJ057006): New abstract node; use
+	`<-denotational' for A-cgnU+518E.
+	(MJ057006): Use A-MJ057006 instead of A-cgnU+518E as its mother.
+
 2020-11-01  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R051-Dry.el (U-000303EE): New character.
