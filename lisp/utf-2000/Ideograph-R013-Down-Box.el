@@ -2491,6 +2491,23 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
+     ((=>ucs@iwds-1	  . #x2053F)	; &A-IWDSU+2053F;
+      )
+     ((=ucs		  . #x5182)	; 冂
+      ))
+    (=>mj		. 057006)	; &A-MJ057006;
+    ))
+(define-char
+  '((<-denotational
+     ((=>mj		  . 057006)	; &A-MJ057006;
+      ))
+    (ideographic-radical . 13)	; ⼌
+    (ideographic-strokes . 4)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
      ((=ucs		  . #x2053F)	; 𠔿
       )
      ((=ucs		  . #x5182)	; 冂
