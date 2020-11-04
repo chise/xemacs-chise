@@ -1442,8 +1442,8 @@
      ((=>ucs@component	  . #x4E37)	; &A-compU+4E37;
       (=>iwds-1		  .  0022)	; &A-compU+4E37;
       )
-     ((=>ucs@component	  . #x5929)	; &A-compU+5929;
-      (=>iwds-1		  .  0008)	; &A-compU+5929;
+     ((=>ucs@iwds-1	  . #x5929)	; &A-IWDSU+5929;
+      (=>iwds-1		  .  0008)	; &A-IWDSU+5929;
       ))
     (=ucs		. #x5173)	; 关
     ))

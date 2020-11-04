@@ -2713,7 +2713,8 @@
       (=daikanwa	  . 31989)	; &I-M-31989;
       ))
     (<-interchangeable
-     ((=ucs		  . #x7C23)	; 簣
+     ((=ucs@unicode	  . #x7C23)	; &AJ1-06016;
+      (=adobe-japan1-0	  . 06016)	; &AJ1-06016;
       (=daikanwa	  . 26524)	; &I-M-26524;
       )
      ((=ucs		  . #x6F70)	; 潰

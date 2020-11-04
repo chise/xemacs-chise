@@ -1,4 +1,27 @@
+2020-11-04  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R007-Two.el (U-00020121): Apply new conventions for
+	glyph granularity.
+	(A-compBC-89AE): New abstract node.
+	(GT-K00691): New character; use `<-denotational@component' for
+	A-compBC-89AE.
+	(GT-K00866): Ditto.
+	(BC-89AE): Ditto; unify GT-K00830.
+	(U+4E9B): Apply new conventions for glyph granularity.
+
+	* Ideograph-R004-Slash.el (A-BC-86AA): New abstract node.
+	(BC-86AA): New character; use `<-denotational' for A-BC-86AA.
+	(U-0002CF0E): New character.
+
 2020-11-03  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R033-Scholar.el (U+58EE): Add `<-denotational@usage'
+	for A2-DJT-01905.
+	(A-IWDSU+58EF): New abstract node; use `<-denotational' for
+	A-IWDSU+58EE.
+	(U+58EF): Use A-IWDSU+58EF instead of A-IWDSU+58EE as its mother;
+	add `<-denotational@usage' for A2-DJT-01905; unify DJT-01905.
+	(A2-DJT-01905): New abstract node.
 
 	* Ideograph-R013-Down-Box.el (A-MJ057006): New abstract node; use
 	`<-denotational' for A-cgnU+518E.
