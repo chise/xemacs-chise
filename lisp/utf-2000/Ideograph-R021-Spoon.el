@@ -890,8 +890,8 @@
      ((=>ucs@iwds-1	  . #x5315)	; &J97-5238;
       (=>jis-x0208	  . #x5238)	; &J97-5238; [50-24]
       )
-     ((=>ucs@component	  . #x5929)	; &A-compU+5929;
-      (=>iwds-1		  .  0008)	; &A-compU+5929;
+     ((=>ucs@iwds-1	  . #x5929)	; &A-IWDSU+5929;
+      (=>iwds-1		  .  0008)	; &A-IWDSU+5929;
       ))
     (=ucs		. #x2A7E9)	; 𪟩
     ))
@@ -2270,10 +2270,12 @@
     (=daikanwa		. 02589)	; &I-M-02589;
     (=daijiten		. 00944)	; &I-DJT-00944;
     (<-original
-     ((=ucs		  . #x8166)	; 腦
+     ((=ucs@unicode	  . #x8166)	; &AJ1-06261;
+      (=adobe-japan1-0	  . 06261)	; &AJ1-06261;
       ))
     (->formed
-     ((=ucs		  . #x8166)	; 腦
+     ((=ucs@unicode	  . #x8166)	; &AJ1-06261;
+      (=adobe-japan1-0	  . 06261)	; &AJ1-06261;
       (=daikanwa	  . 29681)	; &I-M-29681;
       )
      ((=ucs		  . #x266C1)	; 𦛁
