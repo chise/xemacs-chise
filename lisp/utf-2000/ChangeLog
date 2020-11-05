@@ -1,5 +1,44 @@
 2020-11-04  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R048-Work.el (U-00022018): Add
+	`<-denotational@component' for A-IWDSU+22018; add
+	`sound@ja/on/{kan|go}'.
+	(GT-K01179): New character; use `<-denotational@component' for
+	A-IWDSU+22018.
+	(A-IWDSU+22018): New abstract node; use `<-denotational@component'
+	for A-compU+5929.
+
+	* Ideograph-R040-Roof.el (U+5B95): Apply new conventions for glyph
+	granularity.
+	(U-000219E2): Use `->denotational' and `->subsumptive'.
+	(U+5BCC): Apply new conventions for glyph granularity.
+
+	* Ideograph-R037-Big.el (IWDS1-0008): Unify A-IWDSU+5929 instead
+	of A-compU+5929; add `<-denotational@component' for A-compU+5929.
+	(U+592B): Add `<-denotational@component' for A-IWDSU+592B.
+	(U+5932): Apply new conventions for glyph granularity; add
+	`<-denotational@usage' for A2-DJT-01958 and BUCS+672C.
+	(U-000215E1): Add `sound@ja/on'.
+	(IU+215E1): Add `<-ancient' for U+9751.
+	(A-cgnU+21606): New abstract node.
+	(U-00021606): Apply new conventions for glyph granularity; add
+	`<-denotational' for A-cgnU+21606.
+	(U+21606-itaiji-001): New character; use `<-denotational' for
+	A-cgnU+21606.
+	(A-U+2234D-itaiji-001): New abstract node; unify
+	A-U+2234D-itaiji-002.
+	(U+2234D-itaiji-001): New character; use `<-denotational' for
+	A-U+2234D-itaiji-001.
+	(U+2234D-itaiji-002): Ditto.
+	(U-00021636): Add `ideographic-structure'.
+	(U-00021653): Use `->denotational' and `->subsumptive'.
+	(MJ033486): New character; unify KOSEKI-068540 and M-05978; use
+	`<-denotational' for U-00021653.
+	(U-0002166F): New character.
+	(A-compU+5929): New abstract node.
+	(A-IWDSU+592B): New abstract node.
+	(A2-DJT-019580: New abstract node.
+
 	* Ideograph-R007-Two.el (U-00020121): Apply new conventions for
 	glyph granularity.
 	(A-compBC-89AE): New abstract node.
