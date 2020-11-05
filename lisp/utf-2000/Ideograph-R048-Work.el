@@ -551,12 +551,52 @@
     (=daikanwa		. 08724)	; &I-M-08724;
     ))
 (define-char
-  '((ideographic-radical . 48)	; ⼯
+  '((<-denotational@component
+     ((=>ucs@iwds-1	  . #x22018)	; &A-IWDSU+22018;
+      ))
+    (ideographic-radical . 48)	; ⼯
     (ideographic-strokes . 2)
     (total-strokes	 . 5)
+    (sound@ja/on/go	"e")
+    (sound@ja/on/kan	"ya")
     (=ucs		. #x22018)	; 𢀘
     (=cns11643-5	. #x2168)	; &I-C5-2168; [01-72]
     (=daikanwa		. 08725)	; &I-M-08725;
+    (->subsumptive
+     ((==ucs@iso	  . #x22018)	; &g2-M-08725;
+      (==cns11643-5	  . #x2168)	; &g2-M-08725; [01-72]
+      (==daikanwa	  . 08725)	; &g2-M-08725;
+      (->subsumptive
+       ((===daikanwa	    . 08725)	; &R-M-08725;
+	)
+       ((===cns11643-5	    . #x2168)	; &R-C5-2168; [01-72]
+	)
+       ((===ucs@iso	    . #x22018)	; &R-U-00022018;
+	))
+      ))
+    ))
+(define-char
+  '((<-denotational@component
+     ((=>ucs@iwds-1	  . #x22018)	; &A-IWDSU+22018;
+      ))
+    (ideographic-radical . 48)	; ⼯
+    (ideographic-strokes . 2)
+    (total-strokes	 . 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs@unicode	  . #x5DE5)	; &AJ1-01979;
+      (=adobe-japan1-0	  . 01979)	; &AJ1-01979;
+      )
+     ((=ucs		  . #x516B)	; 八
+      ))
+    (=gt-k		. 01179)	; &GT-K01179;
+    (=gt-pj-k1		. #x4E33)	; &GT-K01179; [46-19]
+    (->subsumptive
+     ((==gt-k		  . 01179)	; &g2-GT-K01179;
+      (==gt-pj-k1	  . #x4E33)	; &g2-GT-K01179; [46-19]
+      ))
     ))
 (define-char
   '((<-denotational
@@ -1665,4 +1705,20 @@
     (ideographic-strokes . 17)
     (total-strokes	 . 20)
     (=ucs		. #x22030)	; 𢀰
+    ))
+(define-char
+  '((<-denotational@component
+     ((=>ucs@component	  . #x5929)	; &A-compU+5929;
+      ))
+    (ideographic-radical . 48)	; ⼯
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x4E05)	; 丅
+      )
+     ((=>ucs@iwds-1	  . #x4E0C)	; &A-IWDSU+4E0C;
+      (=>iwds-1		  .  0221)	; &A-IWDSU+4E0C;
+      ))
+    (=>ucs@iwds-1	. #x22018)	; &A-IWDSU+22018;
     ))
