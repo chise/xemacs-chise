@@ -1,3 +1,25 @@
+2020-11-05  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R016-Table.el (U-0002062B): New character; use
+	`<-denotational@component' for A-IWDSU+2062B.
+	(A-IWDSU+2062B): New abstract node.
+
+	* Ideograph-R015-Ice.el (g2-UU+51B4): Omit
+	`ideographic-structure'.
+	(g2-UU+51B3): Ditto.
+	(g2-CU+51B3): Ditto.
+	(U+34C7): Use A-IWDSU+51AB instead of U+51AB.
+	(U+51C5): Apply new conventions for glyph granularity.
+	(g2-UU+51C6): Omit `ideographic-structure'.
+	(g2-UU+51C9): Ditto.
+	(g2-JU+51CA): Ditto.
+	(g2-UU+51CA): Ditto.
+	(g2-CU+51CA): Ditto.
+	(g2-M-01669): Ditto.
+	(g2-CU+51CC): Ditto.
+	(g2-CU+51DB): Ditto.
+	(g2-UU+51DB): Ditto.
+
 2020-11-04  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R048-Work.el (U-00022018): Add

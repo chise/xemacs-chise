@@ -915,6 +915,40 @@
     ))
 (define-char
   '((<-denotational@component
+     ((=>ucs@iwds-1	  . #x2062B)	; &A-IWDSU+2062B;
+      ))
+    (ideographic-radical . 16)	; ⼏
+    (ideographic-strokes . 2)
+    (total-strokes	 . 4)
+    (ideographic-structure
+     ((=>ucs@iwds-1	  . #x2FFA)	; &A-IWDSU+2FFA;
+      (=>iwds-1		  .  0307)	; &A-IWDSU+2FFA;
+      )
+     ((=ucs		  . #x51E0)	; 几
+      )
+     ((=ucs		  . #x53C8)	; 又
+      ))
+    (=ucs		. #x2062B)	; 𠘫
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2062B)	; 𠘫
+      ))
+    (ideographic-radical . 16)	; ⼏
+    (ideographic-strokes . 2)
+    (total-strokes	 . 4)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
+      (=ucs		  . #x2FFA)	; ⿺
+      )
+     ((=ucs		  . #x51E0)	; 几
+      )
+     ((=ucs		  . #x53C8)	; 又
+      ))
+    (=ucs@iso		. #x2062B)	; &U-0002062B;
+    ))
+(define-char
+  '((<-denotational@component
      ((=>ucs@iwds-1	  . #x2062C)	; &A-IWDSU+2062C;
       ))
     (ideographic-radical . 16)	; ⼏
@@ -4212,6 +4246,19 @@
 (define-char
   '((ideographic-radical . 16)	; ⼏
     (==>daijiten	. 00701)	; &A2-DJT-00701;
+    ))
+(define-char
+  '((ideographic-radical . 16)	; ⼏
+    (ideographic-structure
+     ((=>ucs@iwds-1	  . #x2FFA)	; &A-IWDSU+2FFA;
+      (=>iwds-1		  .  0307)	; &A-IWDSU+2FFA;
+      )
+     ((=>ucs@iwds-1	  . #x4E38)	; &A-IWDSU+4E38;
+      (=>iwds-1		  .  65535)	; &A-IWDSU+4E38;
+      )
+     ((=ucs		  . #x53C8)	; 又
+      ))
+    (=>ucs@iwds-1	. #x2062B)	; &A-IWDSU+2062B;
     ))
 (define-char
   '((ideographic-radical . 16)	; ⼏
