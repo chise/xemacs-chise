@@ -821,6 +821,20 @@
   '((ideographic-radical . 20)	; ⼓
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
+      (=ucs		  . #x2FF9)	; ⿹
+      )
+     ((=ucs		  . #x52F9)	; 勹
+      )
+     ((=ucs		  . #x53C8)	; 又
+      ))
+    (=ucs		. #x2D144)	; 𭅄
+    ))
+(define-char
+  '((ideographic-radical . 20)	; ⼓
+    (ideographic-strokes . 2)
+    (total-strokes	 . 4)
     (==>ucs@bucs	. #x52FB)	; &BUCS+52FB;
     ))
 (define-char

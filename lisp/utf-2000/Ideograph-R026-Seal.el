@@ -656,6 +656,20 @@
   '((ideographic-radical . 26)	; ⼙
     (ideographic-strokes . 2)
     (total-strokes	 . 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x53C8)	; 又
+      )
+     ((=ucs		  . #x5369)	; 卩
+      ))
+    (=ucs		. #x20A0F)	; 𠨏
+    ))
+(define-char
+  '((ideographic-radical . 26)	; ⼙
+    (ideographic-strokes . 2)
+    (total-strokes	 . 5)
     (=big5-cdp		. #x87FE)	; &CDP-87FE;
     (=gt-k		. 02440)	; &I-GT-K02440;
     (=gt-pj-k1		. #x3945)	; &CDP-87FE; [25-37]

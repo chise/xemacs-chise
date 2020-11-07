@@ -1,3 +1,9 @@
+2020-11-06  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R026-Seal.el (U-00020A0F): New character.
+
+	* Ideograph-R020-Wrap.el (U-0002D144): New character.
+
 2020-11-05  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R016-Table.el (U-0002062B): New character; use
