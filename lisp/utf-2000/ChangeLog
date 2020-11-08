@@ -1,5 +1,15 @@
 2020-11-06  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R043-Lame.el (A-IWDSU+21BC9): Add
+	`<-denotational@component' for A-IWDSU+2062B.
+
+	* Ideograph-R042-Small.el (A-U+3036A-itaiji-001): New abstract
+	node.
+	(U+3036A-itaiji-001): New character; use `<-denotational' for
+	A-U+3036A-itaiji-001.
+
+2020-11-06  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R026-Seal.el (U-00020A0F): New character.
 
 	* Ideograph-R020-Wrap.el (U-0002D144): New character.
