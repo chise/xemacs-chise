@@ -901,7 +901,10 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 43)	; ⼪
+  '((<-denotational@component
+     ((=>ucs@iwds-1	  . #x2062B)	; &A-IWDSU+2062B;
+      ))
+    (ideographic-radical . 43)	; ⼪
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
       (=ucs		  . #x2FFA)	; ⿺
