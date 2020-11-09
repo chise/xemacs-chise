@@ -4825,6 +4825,42 @@
     (=cns11643-3	. #x396E)	; &C3-396E; [25-78]
     ))
 (define-char
+  '((ideographic-radical . 5)	; ⼄
+    (ideographic-strokes . 11)
+    (total-strokes	 . 12)
+    (ideographic-structure
+     ((=>ucs@iwds-1	  . #x2FF8)	; &U-v002+2FF1;
+      (=>iwds-1		  .  0305)	; &U-v002+2FF1;
+      )
+     ((=ucs		  . #x9EBB)	; 麻
+      )
+     ((=>ucs@component	  . #x4E59)	; &A-compU+4E59;
+      (=>iwds-1		  .  0340)	; &A-compU+4E59;
+      ))
+    (=ucs		. #x2CF33)	; 𬼳
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2CF33)	; 𬼳
+      ))
+    (ideographic-radical . 5)	; ⼄
+    (ideographic-strokes . 11)
+    (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs@cns		  . #x9EBB)	; &GT-65256;
+      (=ucs@ks		  . #x9EBB)	; &GT-65256;
+      (=ks-x1001	  . #x582B)	; &GT-65256; [56-11]
+      (=cns11643-1	  . #x5E28)	; &I-C1-5E28; [62-08]
+      (=daikanwa	  . 47887)	; &I-M-47887;
+      )
+     ((=ucs		  . #x4E59)	; 乙
+      ))
+    (=ucs@JP/hanazono	. #x2CF33)	; &hanaJU+2CF33;
+    ))
+(define-char
   '((<-denotational@usage
      ((==>ucs@bucs	  . #x4E82)	; &BUCS+4E82;
       ))

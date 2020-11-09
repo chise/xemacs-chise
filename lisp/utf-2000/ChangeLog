@@ -1,5 +1,7 @@
 2020-11-09  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R005-Second.el (U-0002CF33): New character.
+
 	* Ideograph-R012-Eight.el (A-IWDSU+5171): Use
 	`ideographic-structure@apparent' instead of
 	`ideographic-structure' for [⿱ IWDS1-0303 A-IWDSU+4E38].
