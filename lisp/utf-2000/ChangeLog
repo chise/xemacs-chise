@@ -1,3 +1,15 @@
+2020-11-09  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R012-Eight.el (A-IWDSU+5171): Use
+	`ideographic-structure@apparent' instead of
+	`ideographic-structure' for [⿱ IWDS1-0303 A-IWDSU+4E38].
+	(U+5171): Likewise.
+	(U+5177): Use `ideographic-structure@apparent' instead of
+	`ideographic-structure' for [⿱ A-BC-8BA5 八].
+	(UU+5177): Likewise.
+	(A-MJ007290): Likewise.
+	(MJ007290): Likewise.
+
 2020-11-06  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R043-Lame.el (A-IWDSU+21BC9): Add
