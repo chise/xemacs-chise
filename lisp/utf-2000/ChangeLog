@@ -1,5 +1,9 @@
 2020-11-09  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R028-Private.el (g2-UU+53C5): Omit
+	`ideographic-structure'.
+	(g2-JU+53C5): Omit `ideographic-structure'.
+
 	* Ideograph-R005-Second.el (U-0002CF33): New character.
 
 	* Ideograph-R012-Eight.el (A-IWDSU+5171): Use
@@ -11,6 +15,12 @@
 	(UU+5177): Likewise.
 	(A-MJ007290): Likewise.
 	(MJ007290): Likewise.
+
+2020-11-08  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R034-Go.el (U+5909): Add `ideographic-structure'.
+	(UU+5909): Apply new conventions for glyph granularity.
+	(g2-CU+5909): Omit `ideographic-structure'.
 
 2020-11-06  MORIOKA Tomohiko  <tomo.git@chise.org>
 
