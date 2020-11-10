@@ -128,6 +128,11 @@
 	`<-denotational' for A-cgnU+518E.
 	(MJ057006): Use A-MJ057006 instead of A-cgnU+518E as its mother.
 
+2020-11-03  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Oracle-Bones.el (ZOB-00362): Use U+2EB72-itaiji-001 instead of
+	"⿸&CDP-8D56;口" as the corresponding modern characters.
+
 2020-11-01  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R051-Dry.el (U-000303EE): New character.
