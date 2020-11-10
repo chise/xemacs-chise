@@ -2532,15 +2532,7 @@
     (<-vulgar*sources
      guangyun daikanwa shinjigen)
     (->subsumptive
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	(=ucs		    . #x2FF1)	; ⿱
-	)
-       ((=ucs		    . #x53BD)	; 厽
-	)
-       ((=ucs		    . #x201CD)	; 𠇍
-	))
-      (==ucs@unicode	  . #x53C5)	; &g2-M-03100;
+     ((==ucs@unicode	  . #x53C5)	; &g2-M-03100;
       (==ucs@JP/hanazono  . nil)
       (==cns11643-3	  . #x3A29)	; &g2-M-03100; [26-09]
       (==daikanwa	  . 03100)	; &g2-M-03100;
@@ -2560,14 +2552,6 @@
        ((=ucs		    . #x53C5)	; 叅
 	)
        ((=ucs		    . #xE0100)	; 󠄀
-	))
-      (ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
-	(=ucs		    . #x2FF5)	; ⿵
-	)
-       ((=ucs		    . #x53BD)	; 厽
-	)
-       ((=ucs		    . #x201CD)	; 𠇍
 	))
       (==ucs@jis	  . #x53C5)	; &g2-AJ1-19218;
       (==adobe-japan1-5	  . 19218)	; &g2-AJ1-19218;
