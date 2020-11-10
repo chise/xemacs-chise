@@ -1046,6 +1046,15 @@
   '((ideographic-radical . 34)	; ⼡
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x4EA6)	; 亦
+      )
+     ((=>ucs@component	  . #x590A)	; &A-compU+590A;
+      (=>iwds-1		  .  0092)	; &A-compU+590A;
+      ))
     (=ucs		. #x5909)	; 変
     ))
 (define-char
@@ -1072,7 +1081,7 @@
     (=daikanwa		. 05703)	; &I-M-05703;
     (=shinjigen		.  3201)	; &AJ1-03617;
     (<-simplified@JP/Jouyou
-     ((=ucs@unicode	  . #x8B8A)	; &AJ1-05075;
+     ((=ucs@jis		  . #x8B8A)	; &AJ1-05075;
       (=adobe-japan1-0	  . 05075)	; &AJ1-05075;
       (=jis-x0208	  . #x5A4E)	; &I-J90-5A4E; [58-46]
       ))
@@ -1081,15 +1090,6 @@
        ((=ucs		    . #x5909)	; 変
 	)
        ((=ucs		    . #xE0100)	; 󠄀
-	))
-      (ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	(=ucs		    . #x2FF1)	; ⿱
-	)
-       ((==ucs@unicode	    . #x4EA6)	; &g2-AJ1-03744;
-	(==adobe-japan1-0   . 03744)	; &g2-AJ1-03744;
-	)
-       ((=ucs		    . #x5902)	; 夂
 	))
       (==ucs@jis	  . #x5909)	; &g2-AJ1-03617;
       (==adobe-japan1-0	  . 03617)	; &g2-AJ1-03617;
@@ -1109,8 +1109,19 @@
        ((===gt		    . 07215)	; &R-GT-07215;
 	))
       )
-     ((==ucs@unicode	  . #x5909)	; &g2-UU+5909;
-      (==ucs@JP/hanazono  . nil)
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((=ucs		    . #x3005C)	; 𰁜
+	)
+       ((=ucs		    . #x5902)	; 夂
+	))
+      (=>>ucs@unicode	  . #x5909)	; &G-UU+5909;
+      (->subsumptive
+       ((==ucs@unicode	    . #x5909)	; &g2-UU+5909;
+	(==ucs@JP/hanazono  . nil)
+	))
       ))
     ))
 (define-char
@@ -1132,16 +1143,7 @@
     (=ucs@cns		. #x5909)	; &C3-2B79;
     (=cns11643-3	. #x2B79)	; &C3-2B79; [11-89]
     (->subsumptive
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	(=ucs		    . #x2FF1)	; ⿱
-	)
-       ((==ucs@unicode	    . #x4EA6)	; &g2-AJ1-03744;
-	(==adobe-japan1-0   . 03744)	; &g2-AJ1-03744;
-	)
-       ((==ucs@unicode	    . #x590A)	; &g2-CDP-8A71;
-	))
-      (==ucs@cns	  . #x5909)	; &g2-CU+5909;
+     ((==ucs@cns	  . #x5909)	; &g2-CU+5909;
       (==cns11643-3	  . #x2B79)	; &g2-CU+5909; [11-89]
       )
      ((=hanziku-3	  . #xAEED)	; &HZK03-AEED;
