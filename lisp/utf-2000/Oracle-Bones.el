@@ -5794,7 +5794,7 @@
 	  )
 	 ((=ucs		      . #x7ACB)	; 立
 	  )
-	 ((=gt-k	      . 00041)	; &GT-K00041;
+	 ((=big5-cdp	      . #x88CD)	; &CDP-88CD;
 	  ))
 	)
        ((=ucs		    . #x53E3)	; 口
@@ -5825,7 +5825,7 @@
 	    )
 	   ((=ucs		. #x7ACB)	; 立
 	    )
-	   ((=gt-k		. 00041)	; &GT-K00041;
+	   ((=big5-cdp		. #x88CD)	; &CDP-88CD;
 	    ))
 	  )
 	 ((=ucs		      . #x53E3)	; 口
@@ -6037,14 +6037,7 @@
     (zinbun-oracle-page . 18)
     (=zinbun-oracle	. 00362)	; &ZOB-0362;
     (<-Oracle-Bones
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
-	(=ucs		    . #x2FF8)	; ⿸
-	)
-       ((=big5-cdp	    . #x8D56)	; &CDP-8D56;
-	)
-       ((=ucs		    . #x53E3)	; 口
-	))
+     ((=ucs-itaiji-001	  . #x2EB72)	; &U-i001+2EB72;
       ))
     ))
 (define-char
@@ -28258,7 +28251,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=ruimoku-v6	  . #xE057)	; &RUI6-E057;
+     ((=ucs		  . #x30C9B)	; 𰲛
       )
      ((=zinbun-oracle	  . 02746)	; &ZOB-2746;
       ))
@@ -28270,7 +28263,7 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((=ruimoku-v6	    . #xE057)	; &RUI6-E057;
+       ((=ucs		    . #x30C9B)	; 𰲛
 	)
        ((=ucs		    . #x706B)	; 火
 	))
