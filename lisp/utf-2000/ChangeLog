@@ -1,3 +1,8 @@
+2020-11-14  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R001-One.el (U+4E1D): Apply new conventions for glyph
+	granularity.
+
 2020-11-09  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R028-Private.el (g2-UU+53C5): Omit
