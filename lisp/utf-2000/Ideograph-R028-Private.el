@@ -1363,7 +1363,8 @@
     (=gt-k		. 03587)	; &GT-K03587;
     (=gt-pj-k1		. #x4875)	; &GT-K03587; [40-85]
     (<-formed
-     ((=ucs		  . #x7CF8)	; 糸
+     ((=ucs@unicode	  . #x7CF8)	; &AJ1-02227;
+      (=adobe-japan1-0	  . 02227)	; &I-AJ1-02227;
       ))
     (->subsumptive
      ((==gt-k		  . 03587)	; &g2-GT-K03587;
