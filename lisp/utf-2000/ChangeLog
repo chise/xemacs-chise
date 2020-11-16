@@ -1,5 +1,16 @@
 2020-11-14  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R039-Child.el (U-0002D4C1): New character.
+
+	* Ideograph-R017-Open-Box.el (U+51FE): Use `<-denotational@usage'
+	instead of `<-denotational' for BUCS+51FD; apply new conventions
+	for glyph granularity.
+	(MJ007446): New character; use `<-denotational' for U+51FE; unify
+	HD-JT-AE86.
+	(U-00020697): Apply new conventions for glyph granularity.
+
+2020-11-14  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R001-One.el (U+4E1D): Apply new conventions for glyph
 	granularity.
 

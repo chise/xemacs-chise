@@ -5721,7 +5721,8 @@
     (=cns11643-7	. #x3724)	; &C7-3724; [23-04]
     (=daikanwa		. 02567)	; &I-M-02567;
     (<-ancient
-     ((=ucs		  . #x7D55)	; 絕
+     ((=ucs@unicode	  . #x7D55)	; &GT-35333;
+      (=cns11643-1	  . #x613A)	; &GT-35333; [65-26]
       (=daikanwa	  . 27407)	; &I-M-27407;
       ))
     (<-ancient*sources
