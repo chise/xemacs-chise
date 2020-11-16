@@ -4932,6 +4932,17 @@
 		  mother	=ucs-var-004
 		  min-code #x20000 max-code #x2FFFF
 		  registry "ucs00\\.var004-2"))
+  (make-charset '=ucs-tip-var-004
+		"uXXXX-var-004 glyph-images in TIP"
+		'(long-name	"UCS-TIP-var-004"
+		  chars		256
+		  dimension	2
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  mother	=ucs-var-004
+		  min-code #x30000 max-code #x3FFFF
+		  registry "ucs00\\.var004-3"))
 
   (make-charset '=ucs-var-005
 		"uXXXX-var-005 glyph-images of GlyphWiki"
