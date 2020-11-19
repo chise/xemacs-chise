@@ -1,3 +1,14 @@
+2020-11-16  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R042-Small.el (A-BC-885E): New abstract node; use
+	`<-denotational@component' for A-compU+5C0F.
+	(U+5C0F): Add `<-denotational@component' for A-BC-885E.
+	(BC-885E-var-003): Add A-BC-885E and U-0002D544 as targets of
+	`<-denotational@component'.
+	(BC-885E): Likewise.
+
+	* Ideograph-R040-Roof.el (U-000219D5): New character.
+
 2020-11-14  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R039-Child.el (U-0002D4C1): New character.
