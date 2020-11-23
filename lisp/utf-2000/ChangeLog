@@ -1,3 +1,22 @@
+2020-11-22  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R031-Enclosure.el (U-00021235): Apply new conventions
+	for glyph granularity.
+	(M-04862): Add `<-denotational' for U-00021235; unify IU+21235,
+	MJ032926 and KOSEKI-055480.
+	(U-00021236): Apply new conventions for glyph granularity.
+	(M-04863): Add `<-denotational' for U-00021236; unify IU+21236,
+	MJ032927 and KOSEKI-055490.
+	(U-00021237): Use `->denotational' and `->subsumptive'.
+	(U+571D): Apply new conventions for glyph granularity about
+	<IWDS1-0046:糸|糹>.
+	(U+571E): Likewise.
+
+2020-11-21  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R024-Ten.el (U+535B): Apply new conventions for glyph
+	granularity about <IWDS1-0046:糸|糹>.
+
 2020-11-18  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R016-Table.el (A-U+22376-itaiji-001): Apply new
