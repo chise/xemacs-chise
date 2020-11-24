@@ -2694,7 +2694,8 @@
     (<-interchangeable*sources
      shuowen-zhu daikanwa)
     (->formed
-     ((=ucs		  . #x782B)	; 砫
+     ((=ucs@unicode	  . #x782B)	; &C2-3143;
+      (=cns11643-2	  . #x3143)	; &C2-3143; [17-35]
       (=daikanwa	  . 24107)	; &I-M-24107;
       )
      ((=mj		  . 042977)	; &MJ042977;
