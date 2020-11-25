@@ -1,5 +1,43 @@
 2020-11-22  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R018-Knife.el (U-000206AB): New character.
+	(U+5218): Use `<-denotational@usage' instead of `<-denotational'
+	for BUCS+5289.
+	(U+5226): Use `<-denotational@usage' instead of `<-denotational'
+	for BUCS+52AB; apply new conventions for glyph granularity.
+	(U+5227): Use `<-denotational@usage' instead of `<-denotational'
+	for BUCS+52AB; apply new conventions for glyph granularity.
+	(U-000206D7): Apply new conventions for glyph granularity.
+	(U-0002B975): New character.
+	(U+522F): Apply new conventions for glyph granularity.
+	(U+523D): Use `<-denotational@usage' instead of `<-denotational'
+	for BUCS+528A; apply new conventions for glyph granularity.
+	(U+5245): Apply new conventions for glyph granularity.
+	(U-00020736): Likewise.
+	(U+5263): Likewise.
+	(U-00020796): New character.
+	(A-IWDSU+207B0): New abstract node.
+	(U-000207B0): Add `<-denotational' A-IWDSU+207B0.
+	(U-000207C4): Apply new conventions for glyph granularity.
+	(U+5287): Use `<-denotational@usage' instead of `<-denotational'
+	for BUCS+5287; apply new conventions for glyph granularity.
+	(U+5289): Use `<-denotational@usage' instead of `<-denotational'
+	for BUCS+5289.
+	(U+528A): Use `<-denotational@usage' instead of `<-denotational'
+	for BUCS+528A; apply new conventions for glyph granularity.
+	(U-000207F7): New character.
+	(U-000207FE): Apply new conventions for glyph granularity.
+	(U-000207FF): Add `<-denotational' for A-IWDSU+207B0; apply new
+	conventions for glyph granularity.
+	(U-00020804): Apply new conventions for glyph granularity.
+	(U-00020808): New character.
+	(U-0002D117): Apply new conventions for glyph granularity.
+	(U-0002D118): New character.
+	(U-0002081D): Apply new conventions for glyph granularity.
+	(U-00020826): Likewise.
+
+2020-11-22  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R031-Enclosure.el (U-00021235): Apply new conventions
 	for glyph granularity.
 	(M-04862): Add `<-denotational' for U-00021235; unify IU+21235,
