@@ -10301,6 +10301,7 @@
      ((=>ucs@component	  . #x72AC)	; &A-compU+72AC;
       (=>iwds-1		  .  0239)	; &A-compU+72AC;
       ))
+    (sound@ja/on	"reN")
     (=ucs		. #x5971)	; 奱
     ))
 (define-char
@@ -10314,24 +10315,35 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=+>ucs@unicode	  . #x470C)	; &o-JX2-786B;
-      (=+>jis-x0213-2	  . #x786B)	; &o-JX2-786B; [88-75]
+     ((=ucs@unicode	  . #x470C)	; &AJ1-18690;
+      (=adobe-japan1-5	  . 18690)	; &AJ1-18690;
       )
      ((=ucs		  . #x5927)	; 大
       ))
-    (=+>ucs@unicode	. #x5971)	; &o-UU+5971;
-    (=big5		. #xF6DA)	; &o-UU+5971;
+    (=ucs@unicode	. #x5971)	; &C2-6D48;
+    (=cns11643-2	. #x6D48)	; &C2-6D48; [77-40]
+    (=big5		. #xF6DA)	; &I-B-F6DA;
+    (=daikanwa		. 06031)	; &I-M-06031;
+    (->formed
+     ((=ucs@unicode	  . #x5B4C)	; &MJ010047;
+      (=mj		  . 010047)	; &MJ010047;
+      (=daikanwa	  . 06912)	; &I-M-06912;
+      ))
+    (->formed$_1*sources
+     jiyun daikanwa)
+    (->formed*sources
+     jiyun daikanwa)
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((=ucs@jis	    . #x470C)	; &AJ1-18690;
-	(=adobe-japan1-5    . 18690)	; &AJ1-18690;
+       ((=>>ucs@jis	    . #x470C)	; &U-v005+470C;
+	(=>>adobe-japan1-5  . 18690)	; &U-v005+470C;
 	)
        ((=ucs		    . #x5927)	; 大
 	))
-      (=daikanwa	  . 06031)	; &M-06031;
+      (=>>daikanwa	  . 06031)	; &G-M-06031;
       (->subsumptive
        ((==daikanwa	    . 06031)	; &g2-M-06031;
 	))
@@ -10340,14 +10352,12 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((=ucs@unicode	    . #x470C)	; &C5-6952;
-	(=cns11643-5	    . #x6952)	; &C5-6952; [73-50]
+       ((=>>ucs@unicode	    . #x470C)	; &G-CDP-8BE7;
 	)
        ((=ucs		    . #x5927)	; 大
 	))
-      (=ucs@unicode	  . #x5971)	; &C2-6D48;
-      (=ucs@JP/hanazono	  . nil)
-      (=cns11643-2	  . #x6D48)	; &C2-6D48; [77-40]
+      (=>>ucs@unicode	  . #x5971)	; &G-UU+5971;
+      (=>>cns11643-2	  . #x6D48)	; &G-UU+5971; [77-40]
       (->subsumptive
        ((==ucs@unicode	    . #x5971)	; &g2-UU+5971;
 	(==ucs@JP/hanazono  . nil)
