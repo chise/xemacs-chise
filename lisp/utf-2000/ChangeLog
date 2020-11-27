@@ -1,3 +1,20 @@
+2020-11-25  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R044-Corpse.el (U+3799): Apply new conventions for
+	glyph granularity.
+	(U+5C61): Likewise.
+
+	* Ideograph-R037-Big.el (U+5971): Apply new conventions for glyph
+	granularity about <IWDS1-0046:糸|糹>.
+
+2020-11-23  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* maps-conf.el:
+	- Don't set `=ucs@JP/hanazono' to nil if `=ucs@JP/hanazono' has
+	  the same value as `=ucs@jis'.
+	- Don't set `==ucs@JP/hanazono' to nil if `==ucs@JP/hanazono' has
+	  the same value as `==ucs@jis' or `==ucs@unicode' or `==ucs@cns'.
+
 2020-11-22  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R018-Knife.el (U-000206AB): New character.
