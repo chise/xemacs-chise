@@ -442,8 +442,8 @@
     (=daijiten		. 00050)	; &I-DJT-00050;
     (=jef-china3	. #x41AE)	; &I-JC3-41AE;
     (<-wrong
-     ((=hanyo-denshi/ks	  . 065140)	; &HD-KS-065140;
-      (=daikanwa	  . 05692)	; &HD-KS-065140;
+     ((=mj		  . 033317)	; &MJ033317;
+      (=daikanwa	  . 05692)	; &I-M-05692;
       ))
     (<-wrong*sources
      zhengzitong daikanwa)
