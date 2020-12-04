@@ -1954,8 +1954,8 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((=ucs@jis	    . #x20509)	; &AJ1-17299;
-	(=adobe-japan1-5    . 17299)	; &AJ1-17299;
+       ((=ucs@jis	    . #x20509)	; &MJ030984;
+	(=mj		    . 030984)	; &MJ030984;
 	)
        ((=ucs		    . #x353E)	; 㔾
 	))
@@ -2275,8 +2275,8 @@
       )
      ((=ucs		  . #x3018D)	; 𰆍
       )
-     ((=ucs@unicode	  . #x6B62)	; &AJ1-02221;
-      (=adobe-japan1-0	  . 02221)	; &AJ1-02221;
+     ((=ucs@unicode	  . #x6B62)	; &MJ014823;
+      (=mj		  . 014823)	; &MJ014823;
       ))
     (=ucs-itaiji-005	. #x5378)	; &U-i005+5378;
     (->subsumptive
@@ -2311,8 +2311,8 @@
       )
      ((=ucs-itaiji-001	  . #x3018D)	; &U-i001+3018D;
       )
-     ((=ucs@unicode	  . #x6B62)	; &AJ1-02221;
-      (=adobe-japan1-0	  . 02221)	; &AJ1-02221;
+     ((=ucs@unicode	  . #x6B62)	; &MJ014823;
+      (=mj		  . 014823)	; &MJ014823;
       ))
     (=ucs-itaiji-003	. #x5378)	; &U-i003+5378;
     ))
@@ -2774,8 +2774,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=ucs@jis		  . #x20509)	; &AJ1-17299;
-      (=adobe-japan1-5	  . 17299)	; &AJ1-17299;
+     ((=ucs@jis		  . #x20509)	; &MJ030984;
+      (=mj		  . 030984)	; &MJ030984;
       )
      ((=ucs-var-001	  . #x2A701)	; &U-v001+2A701;
       ))
