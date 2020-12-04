@@ -6368,8 +6368,8 @@
       )
      ((=ucs		  . #x4E0D)	; 不
       )
-     ((=ucs@unicode	  . #x4E47)	; &AJ1-17239;
-      (=adobe-japan1-5	  . 17239)	; &AJ1-17239;
+     ((=ucs@unicode	  . #x4E47)	; &MJ006381;
+      (=mj		  . 006381)	; &MJ006381;
       ))
     (=ruimoku-v6	. #xE12A)	; &RUI6-E12A;
     ))

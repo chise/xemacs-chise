@@ -4614,9 +4614,9 @@
     (hanyu-dazidian	1 67 12)
     (=daikanwa		. 02771)	; &M-02771;
     (<-ancient
-     ((=ucs@jis		  . #x4E82)	; &AJ1-04101;
-      (=ucs@ks		  . #x4E82)	; &AJ1-04101;
-      (=adobe-japan1-0	  . 04101)	; &AJ1-04101;
+     ((=ucs@jis		  . #x4E82)	; &MJ006426;
+      (=ucs@ks		  . #x4E82)	; &MJ006426;
+      (=mj		  . 006426)	; &MJ006426;
       ))
     (<-same*sources
      jiyun daikanwa)

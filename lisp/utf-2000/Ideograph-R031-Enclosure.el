@@ -5087,8 +5087,8 @@
       )
      ((=ucs-itaiji-001	  . #x26270)	; &U-i001+26270;
       )
-     ((=ucs@unicode	  . #x6B62)	; &AJ1-02221;
-      (=adobe-japan1-0	  . 02221)	; &AJ1-02221;
+     ((=ucs@unicode	  . #x6B62)	; &MJ014823;
+      (=mj		  . 014823)	; &MJ014823;
       ))
     (=ucs@iso		. #x211EC)	; &M-04784;
     (=daikanwa		. 04784)	; &M-04784;
