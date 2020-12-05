@@ -1,5 +1,17 @@
 2020-12-03  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R004-Slash.el:
+	- Add some Hanyo-Denshi code points.
+	- Add `=decomposition@hanyo-denshi' for some abstract glyph-forms
+	  of Hanyo-Denshi.
+	- Add some MJ code points corresponding to Hanyo-Denshi IVSes.
+	(A-cgnU+4E47): New abstract node.
+	(U+4E47): Add `<-denotational' for A-cgnU+4E47.
+	(U+4E55): Add `<-denotational' for A-cgnU+4E55.
+	(A-cgnU+4E55): New abstract node.
+
+2020-12-03  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R013-Down-Box.el (U-00020563): Apply new conventions
 	for glyph granularity.
 
