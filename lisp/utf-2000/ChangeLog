@@ -1,3 +1,39 @@
+2020-12-04  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R034-Go.el:
+	- Add some Hanyo-Denshi code points.
+	- Add `=decomposition@hanyo-denshi' for some abstract glyph-forms
+	  of Hanyo-Denshi.
+	- Add some MJ code points corresponding to Hanyo-Denshi IVSes.
+	(UU+5907): Add `<-simplified@CN' for UU+5099.
+
+	* Ideograph-R029-Again.el (U+53CB): Apply new conventions for
+	glyph granularity.
+	(U-00020B3A): Likewise.
+	(U-0002D1A9): New character.
+	(U-00020B53): New character.
+	(U-00020B6B): New character.
+	(U-00020B6C): New character.
+	(U-00020B70): Apply new conventions for glyph granularity.
+	(U-00020B79): Likewise.
+	(M-03202): Add `<-denotational' for U-00020B79; unify IU+20B79.
+	(U-00020B7A): Apply new conventions for glyph granularity.
+	(U-00020B81): Likewise.
+	(U-00020B8C): Likewise.
+	(U-00020B8E): Likewise.
+	(U-00020B93): Apply new conventions for glyph granularity about
+	<IWDS1-0046:糸|糹>.
+	(U-00020B94): New character.
+
+	* Ideograph-R018-Knife.el (U-0002073C): Use `->denotational' and
+	`->subsumptive'.
+
+	* Ideograph-R016-Table.el:
+	- Add some Hanyo-Denshi code points.
+	- Add `=decomposition@hanyo-denshi' for some abstract glyph-forms
+	  of Hanyo-Denshi.
+	- Add some MJ code points corresponding to Hanyo-Denshi IVSes.
+
 2020-12-03  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R004-Slash.el:
