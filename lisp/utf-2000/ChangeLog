@@ -1,3 +1,42 @@
+2020-12-05  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R019-Power.el (U+52AB): Apply new conventions for
+	glyph granularity; use `<-denotational@usage' instead of
+	`<-denotational' for BUCS+52AB; add A2-DJT-00865 as a target of
+	`<-denotational@usage'.
+	(U+52B1): Apply new conventions for glyph granularity; use
+	`<-denotational@usage' instead of `<-denotational' for BUCS+52F5.
+	(A-IWDSU+2084D): New abstract node.
+	(U-0002084D): Use `<-denotational@usage' instead of
+	`<-denotational' for BUCS+52C1; add `<-denotational' for
+	A-IWDSU+2084D.
+	(U+52B2): Likewise.
+	(U+52B3): Use `<-denotational@usage' instead of `<-denotational'
+	for BUCS+52DE.
+	(U+52B4): Likewise.
+	(U-0002D12B): New character.
+	(U-0002D136): New character.
+	(A-compU+20885): New abstract node; unify A-C5-3669.
+	(U-00020885): Add `<-denotational' for A-compU+20885; apply new
+	conventions for glyph granularity.
+	(U-0002088D): New character; use `<-denotational' for
+	A-compU+20885.
+	(U-0002D139): New character.
+	(U+52F0): Apply new conventions for glyph granularity.
+	(U+52F3): Add `<-denotational' for A-IWDSU+52F3.
+	(U+52F4): Apply new conventions for glyph granularity.
+	(U+52F5): Use `<-denotational@usage' instead of `<-denotational'
+	for BUCS+52F5.
+	(IU+208C8): Apply new conventions for glyph granularity about
+	<IWDS1-0046:糸|糹>.
+	(BUCS+52AB): Unify A2-DJT-00766.
+	(A2-DJT-00865): New abstract node.
+
+2020-12-04  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* char-db-util.el (char-db-coded-charset-priority-list): Add
+	`=daikanwa/ho'.
+
 2020-12-04  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R034-Go.el:
