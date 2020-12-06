@@ -214,6 +214,7 @@
     =daikanwa@rev2
     =daikanwa@rev1
     =daikanwa/+p
+    =daikanwa/ho
     ==daikanwa
     ==daijiten
     =cbeta
