@@ -2828,8 +2828,8 @@
     (=cbeta		. 02324)	; &I-CB02324;
     (=jef-china3	. #x45BC)	; &I-JC3-45BC;
     (<-formed@jiyun
-     ((=ucs@jis		  . #x5969)	; &AJ1-04559;
-      (=adobe-japan1-0	  . 04559)	; &AJ1-04559;
+     ((=ucs@jis		  . #x5969)	; &MJ009530;
+      (=mj		  . 009530)	; &MJ009530;
       ))
     (<-vulgar
      ((=ucs@unicode	  . #x5333)	; &AJ1-04306;
