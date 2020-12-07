@@ -1,5 +1,12 @@
 2020-12-05  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R014-Cover.el (U+51A1): Apply new conventions for
+	glyph granularity.
+	(U+51A2): Add `ideographic-structure'.
+	(U-00020594): Apply new conventions for glyph granularity.
+
+2020-12-05  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R019-Power.el (U+52AB): Apply new conventions for
 	glyph granularity; use `<-denotational@usage' instead of
 	`<-denotational' for BUCS+52AB; add A2-DJT-00865 as a target of
