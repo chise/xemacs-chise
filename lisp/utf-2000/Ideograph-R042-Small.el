@@ -1112,8 +1112,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=ucs@unicode	  . #x6B62)	; &AJ1-02221;
-      (=adobe-japan1-0	  . 02221)	; &AJ1-02221;
+     ((=ucs@unicode	  . #x6B62)	; &MJ014823;
+      (=mj		  . 014823)	; &MJ014823;
       )
      ((=ucs		  . #x5C0F)	; 小
       ))
@@ -1383,8 +1383,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=ucs@unicode	  . #x6B62)	; &AJ1-02221;
-      (=adobe-japan1-0	  . 02221)	; &AJ1-02221;
+     ((=ucs@unicode	  . #x6B62)	; &MJ014823;
+      (=mj		  . 014823)	; &MJ014823;
       )
      ((=gt-k		  . 00803)	; &GT-K00803;
       ))
@@ -1694,8 +1694,8 @@
       )
      ((=ucs		  . #x5C0F)	; 小
       )
-     ((=ucs@ks		  . #x4E73)	; &AJ1-13968;
-      (=adobe-japan1-4	  . 13968)	; &AJ1-13968;
+     ((=ucs@ks		  . #x4E73)	; &MJ006416;
+      (=mj		  . 006416)	; &MJ006416;
       ))
     (=mj		. 034217)	; &MJ034217;
     (=koseki		. 085390)	; &MJ034217;
@@ -1739,8 +1739,8 @@
       )
      ((=ucs		  . #x5C0F)	; 小
       )
-     ((=ucs@unicode	  . #x4E73)	; &AJ1-03285;
-      (=adobe-japan1-0	  . 03285)	; &AJ1-03285;
+     ((=ucs@unicode	  . #x4E73)	; &MJ006417;
+      (=mj		  . 006417)	; &MJ006417;
       ))
     (=ucs@iso		. #x21B7E)	; &C5-3171;
     (=cns11643-5	. #x3171)	; &C5-3171; [17-81]
@@ -2115,8 +2115,8 @@
       )
      ((=ucs		  . #x5C11)	; 少
       )
-     ((=ucs@unicode	  . #x4E73)	; &AJ1-03285;
-      (=adobe-japan1-0	  . 03285)	; &AJ1-03285;
+     ((=ucs@unicode	  . #x4E73)	; &MJ006417;
+      (=mj		  . 006417)	; &MJ006417;
       ))
     (=ucs@iso		. #x21B91)	; &U-00021B91;
     (->subsumptive
