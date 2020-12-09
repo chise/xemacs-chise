@@ -4007,7 +4007,8 @@
     (=mj		. 057069)	; &I-MJ057069;
     (=koseki		. 027490)	; 𭄧
     (<-formed
-     ((=ucs		  . #x5937)	; 夷
+     ((=ucs@unicode	  . #x5937)	; &AJ1-01172;
+      (=adobe-japan1-0	  . 01172)	; &AJ1-01172;
       ))
     (<-formed$_1*sources
      koseki mj)
