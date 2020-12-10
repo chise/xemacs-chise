@@ -1,3 +1,9 @@
+2020-12-09  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R018-Knife.el (U-00020701): Apply new conventions for
+	glyph granularity.
+	(U-0002D109): New character.
+
 2020-12-07  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R027-Cliff.el (A-cgnU+5389): New abstract node.
