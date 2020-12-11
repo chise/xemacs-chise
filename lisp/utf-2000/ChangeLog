@@ -1,9 +1,18 @@
 2020-12-10  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R012-Eight.el:
+	- Add some Hanyo-Denshi code points.
+	- Add `=decomposition@hanyo-denshi' for some abstract glyph-forms
+	  of Hanyo-Denshi.
+	- Add some MJ code points corresponding to Hanyo-Denshi IVSes.
+
 	* char-db-util.el (char-db-coded-charset-priority-list): Add
 	`=koseki'.
 
 2020-12-10  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R029-Again.el (A-GT-K07586): New abstract node.
+	(GT-K07586): New character; use `<-denotational' for A-GT-K07586.
 
 	* Ideograph-R008-Lid.el (U-00020187): Add `sound@ja/on'.
 	(IU+20187): Apply new conventions for glyph granularity.
