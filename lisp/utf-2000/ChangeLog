@@ -1,3 +1,13 @@
+2020-12-10  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* char-db-util.el (char-db-coded-charset-priority-list): Add
+	`=koseki'.
+
+2020-12-10  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R008-Lid.el (U-00020187): Add `sound@ja/on'.
+	(IU+20187): Apply new conventions for glyph granularity.
+
 2020-12-09  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R018-Knife.el (U-00020701): Apply new conventions for

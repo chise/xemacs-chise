@@ -5218,6 +5218,7 @@
      ((=>ucs@iwds-1	  . #x5967)	; &A-IWDSU+5967;
       (=>iwds-1		  .  0281)	; &A-IWDSU+5967;
       ))
+    (sound@ja/on	"Au")
     (=ucs		. #x20187)	; 𠆇
     ))
 (define-char
@@ -5234,41 +5235,34 @@
       )
      ((=ucs		  . #x4EA0)	; 亠
       )
-     ((=ucs		  . #x5967)	; 奧
+     ((=ucs@unicode	  . #x5967)	; &AJ1-04557;
+      (=adobe-japan1-0	  . 04557)	; &AJ1-04557;
       ))
-    (=ucs@iso		. #x20187)	; &C7-2124;
-    (=cns11643-7	. #x2124)	; &C7-2124; [01-04]
+    (=ucs@iso		. #x20187)	; &MJ030514;
+    (=mj		. 030514)	; &MJ030514;
+    (=cns11643-7	. #x2124)	; &I-C7-2124; [01-04]
+    (=koseki		. 004130)	; &MJ030514;
     (=daikanwa		. 00332)	; &I-M-00332;
+    (<-same
+     ((=ucs@unicode	  . #x5967)	; &AJ1-04557;
+      (=adobe-japan1-0	  . 04557)	; &AJ1-04557;
+      (=daikanwa	  . 05985)	; &I-M-05985;
+      ))
+    (<-same*sources
+     zihui-bu daikanwa)
     (->subsumptive
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	(=ucs		    . #x2FF1)	; ⿱
-	)
-       ((=ucs@jis	    . #x4EA0)	; &AJ1-04110;
-	(=adobe-japan1-0    . 04110)	; &AJ1-04110;
-	)
-       ((==ucs@unicode	    . #x5967)	; &g2-AJ1-04557;
-	(==adobe-japan1-0   . 04557)	; &g2-AJ1-04557;
-	))
-      (==daikanwa	  . 00332)	; &g2-M-00332;
+     ((==mj		  . 030514)	; &g2-MJ030514;
+      (==koseki		  . 004130)	; &g2-MJ030514;
+      (==daikanwa	  . 00332)	; &g2-MJ030514;
       (->subsumptive
        ((===daikanwa	    . 00332)	; &R-M-00332;
+	)
+       ((===mj		    . 030514)	; &R-MJ030514;
 	)
        ((=hanziku-1	    . #xE25A)	; &HZK01-E25A;
 	))
       )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	(=ucs		    . #x2FF1)	; ⿱
-	)
-       ((=ucs@unicode	    . #x4EA0)	; &GT-00375;
-	(=gb2312	    . #x596F)	; &GT-00375; [57-79]
-	(=daikanwa	    . 00286)	; &I-M-00286;
-	)
-       ((==ucs@cns	    . #x5967)	; &g2-CU+5967;
-	(==cns11643-1	    . #x635F)	; &g2-CU+5967; [67-63]
-	))
-      (==ucs@iso	  . #x20187)	; &g2-IU-00020187;
+     ((==ucs@iso	  . #x20187)	; &g2-IU-00020187;
       )
      ((==ucs@cns	  . #x20187)	; &g2-CU+20187;
       (==cns11643-7	  . #x2124)	; &g2-CU+20187; [01-04]
