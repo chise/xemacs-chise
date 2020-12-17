@@ -1,3 +1,10 @@
+2020-12-15  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R044-Corpse.el (UU+5C39): Unify MJ010329 and
+	HD-JA5390.
+	(U-00021CB6): Apply new conventions for glyph granularity.
+	(U-00021CFC): New character.
+
 2020-12-10  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R012-Eight.el:
