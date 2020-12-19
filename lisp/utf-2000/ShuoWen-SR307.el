@@ -3,6 +3,12 @@
   '((shuowen-radical	. 307)	; 尾
     (=shuowen-jiguge	. 28701)	; &SW-JIGUGE-28701;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x3791)	; 㞑
+      )
+     ((=gt-k		  . 04055)	; &GT-K04055;
+      )
+     ((=ucs		  . #x21C55)	; 𡱕
+      )
      ((=ucs		  . #x5C3E)	; 尾
       ))
     (->subsumptive
@@ -29,6 +35,10 @@
   '((shuowen-radical	. 307)	; 尾
     (=shuowen-jiguge	. 28703)	; &SW-JIGUGE-28703;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x21CB6)	; 𡲶
+      )
+     ((=ucs		  . #x21CAC)	; 𡲬
+      )
      ((=ucs		  . #x5C48)	; 屈
       ))
     (->subsumptive
