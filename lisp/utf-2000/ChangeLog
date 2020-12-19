@@ -1,3 +1,12 @@
+2020-12-17  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R023-Hiding-Enclosure.el (U-00020976): Add
+	`ideographic-structure'; add `sound@ja/on'.
+	(IU+20976): Apply new conventions for glyph granularity.
+	(MJ031717): New character; use `<-denotational' for A-IU+20976.
+	(U+3538): Use `->denotational' and `->subsumptive'.
+	(U-00020978): Likewise.
+
 2020-12-16  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R005-Second.el:
@@ -15,6 +24,13 @@
 	HD-JA5390.
 	(U-00021CB6): Apply new conventions for glyph granularity.
 	(U-00021CFC): New character.
+
+2020-12-12  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR307.el (SW-JIGUGE-28701): Add U+3791, GT-K04055 and
+	U-00021C55 as the corresponding modern characters.
+	(SW-JIGUGE-28703): Add U-00021CB6 and U-00021CAC as the
+	corresponding modern characters.
 
 2020-12-10  MORIOKA Tomohiko  <tomo.git@chise.org>
 
