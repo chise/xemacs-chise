@@ -28051,7 +28051,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=big5-cdp	  . #x8BD3)	; &CDP-8BD3;
+     ((=mj		  . 057282)	; &MJ057282;
       )
      ((=zinbun-oracle	  . 02746)	; &ZOB-2746;
       ))
