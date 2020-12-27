@@ -1,3 +1,23 @@
+2020-12-19  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R047-River.el (GT-10943): Unify U-00021FE6.
+	(U-00021FEC): Apply new conventions for glyph granularity.
+	(A-IWDSU+21FFA-itaiji-002): New abstract node; use
+	`<-denotational' for A-U+21FFA-itaiji-002.
+	(U+21FFA-itaiji-002): Use A-IWDSU+21FFA-itaiji-002 instead of
+	A-U+21FFA-itaiji-002 as the mother.
+	(U-00021FFA): Apply new conventions for glyph granularity.
+	(A-IWDSU+5DE2): New abstract node.
+	(U+5DE2): Add `<-denotational' for A-IWDSU+5DE2; add
+	`ideographic-structure'; add `ideographic-structure@apparent';
+	unify IWDS1-0174.
+	(U+5DE3): Apply new conventions for glyph granularity; add
+	`<-denotational' for A-IWDSU+5DE2.
+	(A-CU+2F882): New abstract node; use `<-denotational' for U+5DE2.
+	(CU+2F882): Use A-CU+2F882 instead of U+5DE2 as its mother.
+	(U-00022010): Apply new conventions for glyph granularity for
+	components of ideographic-structure.
+
 2020-12-17  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R023-Hiding-Enclosure.el (U-00020976): Add
