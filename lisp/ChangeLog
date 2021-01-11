@@ -1,3 +1,8 @@
+2021-01-06  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-conf.el (=>>ruimoku-v6): (Re)Define as an entity
+	instead of an alias to `=>ruimoku-v6'.
+
 2020-12-16  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* mule/mule-charset.el (default-coded-charset-priority-list): Add

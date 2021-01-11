@@ -3643,6 +3643,16 @@
 		  direction	l2r
 		  registry	"rui6-0"
 		  mother	==ruimoku-v6))
+  (make-charset '=>>ruimoku-v6
+		"RUIMOKU Version.6 detailed-glyphs."
+		'(long-name	"RUI6 characters."
+		  chars		256
+		  dimension	2
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  registry	"rui6-0"
+		  mother	=ruimoku-v6))
   (make-charset '=>ruimoku-v6
 		"RUIMOKU Version.6 abstract characters."
 		'(long-name	"RUI6 characters."
@@ -3653,7 +3663,6 @@
 		  direction	l2r
 		  registry	"rui6-0"
 		  mother	=ruimoku-v6))
-  (define-charset-alias '=>>ruimoku-v6 '=>ruimoku-v6)
 
   (make-charset '=shuowen-jiguge "汲古閣本説文解字"
 		'(long-name "汲古閣本説文解字（抽象字体）"
