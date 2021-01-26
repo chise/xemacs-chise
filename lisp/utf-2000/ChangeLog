@@ -1,3 +1,11 @@
+2021-01-16  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R031-Enclosure.el (U+56DB): Add
+	`<-denotational@component' for A-compU+7F52.
+
+	* char-db-util.el (char-db-coded-charset-priority-list): Add
+	`=shuowen-jiguge'.
+
 2021-01-13  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R030-Mouth.el (U-00020B99): Apply new conventions for

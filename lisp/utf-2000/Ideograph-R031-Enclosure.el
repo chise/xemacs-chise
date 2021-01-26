@@ -397,7 +397,10 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 31)	; ⼞
+  '((<-denotational@component
+     ((=>ucs@component	  . #x7F52)	; &A-compU+7F52;
+      ))
+    (ideographic-radical . 31)	; ⼞
     (ideographic-strokes . 2)
     (total-strokes	 . 5)
     (=ucs		. #x56DB)	; 四

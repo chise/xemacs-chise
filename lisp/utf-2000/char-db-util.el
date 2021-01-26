@@ -414,7 +414,8 @@
     =ucs@gb
     ==ucs-var-002
     =ucs@JP/hanazono
-    =koseki))
+    =koseki
+    =shuowen-jiguge))
 
 
 ;;; @ char-db formatters
