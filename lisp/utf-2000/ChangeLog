@@ -1,3 +1,40 @@
+2021-01-23  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ruimoku6.el (RUI6-E030): Apply new conventions for glyph
+	granularity for components of ideographic-structure.
+	(g2-hanaJU+2A7CD): Omit `ideographic-structure'.
+	(RUI6-E057): Unify hanaJU+30C9B.
+	(RUI6-E093): Add `<-denotational' for A-RUI6-E093.
+	(RUI6-E09A): Add `<-denotational' for U-00030AE8; unify
+	hanaJU+30AE8.
+	(RUI6-E0AD): Add `<-denotational' for A-RUI6-E0AD.
+	(RUI6-E0D4): Add `ideographic-radical', `ideographic-strokes' and
+	`total-strokes'; add `ideographic-structure'.
+	(RUI6-E0E2): Likewise; add `<-denotational' for A-RUI6-E0E2.
+	(hanaJU+2AFD6): Apply new conventions for glyph granularity for
+	components of ideographic-structure.
+	(RUI6-E109): Add `ideographic-radical', `ideographic-strokes' and
+	`total-strokes'; add `ideographic-structure'.
+	(RUI6-E10A): Likewise; add `<-denotational' for A-RUI6-E10A; add
+	`<-simplified@CN' for U+31230-var-001.
+	(hanaJU+2C510): Apply new conventions for glyph granularity for
+	components of ideographic-structure.
+	(RUI6-E10D): Add `ideographic-radical', `ideographic-strokes' and
+	`total-strokes'; add `ideographic-structure'.
+	(RUI6-E10E): Likewise; unify U-00030A29.
+	(RUI6-E13A): Add `ideographic-radical', `ideographic-strokes' and
+	`total-strokes'; add `ideographic-structure'; add `<-denotational'
+	for A-RUI6-E13A.
+	(RUI6-E13D): Add `ideographic-radical', `ideographic-strokes' and
+	`total-strokes'; add `ideographic-structure'; add `<-denotational'
+	for A-RUI6-E13D.
+	(RUI6-E13E): Add `ideographic-radical', `ideographic-strokes' and
+	`total-strokes'; add `ideographic-structure'.
+	(RUI6-E13F): Likewise; add `<-denotational' for A-RUI6-E13F.
+	(RUI6-E143): Add `ideographic-radical', `ideographic-strokes' and
+	`total-strokes'; add `ideographic-structure'.
+	(RUI6-E16A): Add `<-denotational' for A-RUI6-E16A.
+
 2021-01-16  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R031-Enclosure.el (U+56DB): Add
