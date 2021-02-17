@@ -5,8 +5,7 @@
     ))
 (define-char
   '((<-denotational
-     ((shuowen-radical	. 31)	; 正
-      (=shuowen-jiguge	  . 05004)	; &SW-JIGUGE-05004;
+     ((=shuowen-jiguge	  . 05004)	; &SW-JIGUGE-05004;
       ))
     (===shuowen-jiguge5 . 05004)	; &SW-JIGUGE5-05004;
     (<-Small-Seal@shuowen
@@ -15,8 +14,7 @@
     ))
 (define-char
   '((<-denotational
-     ((shuowen-radical	. 31)	; 正
-      (=shuowen-jiguge	  . 05004)	; &SW-JIGUGE-05004;
+     ((=shuowen-jiguge	  . 05004)	; &SW-JIGUGE-05004;
       ))
     (===shuowen-jiguge4 . 04904)	; &SW-JIGUGE4-04904;
     (<-Small-Seal@shuowen
