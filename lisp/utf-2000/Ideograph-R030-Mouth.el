@@ -82006,14 +82006,32 @@
   '((ideographic-radical . 30)	; ⼝
     (ideographic-strokes . 19)
     (total-strokes	 . 22)
-    (=ucs		. #x21159)	; 𡅙
-    (->subsumptive
-     ((=daikanwa	  . 04632)	; &M-04632;
+    (hanyu-dazidian	1 708 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
       )
-     ((hanyu-dazidian	  1 708 8)
-      (=ucs@iso		  . #x21159)	; &C5-7333;
-      (=cns11643-5	  . #x7333)	; &C5-7333; [83-19]
-      (=hanziku-2	  . #xE3E1)	; &I-HZK02-E3E1;
+     ((=ucs		  . #x53E3)	; 口
+      )
+     ((=ucs		  . #x97FB)	; 韻
+      ))
+    (sound@ja/on	"uN")
+    (=ucs		. #x21159)	; 𡅙
+    (=cns11643-5	. #x7333)	; &I-C5-7333; [83-19]
+    (=daikanwa		. 04632)	; &I-M-04632;
+    (->subsumptive
+     ((==ucs@iso	  . #x21159)	; &g2-M-04632;
+      (==cns11643-5	  . #x7333)	; &g2-M-04632; [83-19]
+      (==daikanwa	  . 04632)	; &g2-M-04632;
+      (->subsumptive
+       ((===daikanwa	    . 04632)	; &R-M-04632;
+	)
+       ((===cns11643-5	    . #x7333)	; &R-C5-7333; [83-19]
+	)
+       ((===ucs@iso	    . #x21159)	; &R-U-00021159;
+	)
+       ((=hanziku-2	    . #xE3E1)	; &HZK02-E3E1;
+	))
       ))
     ))
 (define-char

@@ -1,4 +1,20 @@
+2021-02-12  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Oracle-Bones.el:
+	- Use SW-JIGUGE-00215 instead of g2-CU+793A as an Oracle-Bones
+	  component.
+	(ZOB-00100): Use SW-JIGUGE-47010 instead of U+571F as an
+	Oracle-Bones component; use ZOB-02516 instead of U+5369 as an
+	Oracle-Bones component.
+	(ZOB-00328): Use SW-JIGUGE-41313 instead of g2-M-41208 as an
+	Oracle-Bones component.
+	(ZOB-01235): Use U+96C8 instead of U+8411 as the corresponding
+	modern character.
+
 2021-02-11  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R030-Mouth.el (U-00021159): Apply new conventions for
+	glyph granularity.
 
 	* char-db-util.el (shuowen-radicals): Use ?𠬞 instead of ?廾; use
 	?卣 instead of ?𠧪.
