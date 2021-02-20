@@ -1,6 +1,6 @@
 ;; -*- coding: utf-8-mcs-er -*-
 (define-char
-  '((shuowen-radical	. 246)	; 𠧪
+  '((shuowen-radical	. 246)	; 卣
     (=shuowen-jiguge	. 23304)	; &SW-JIGUGE-23304;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x209EA)	; 𠧪
@@ -14,7 +14,7 @@
       ))
     ))
 (define-char
-  '((shuowen-radical	. 246)	; 𠧪
+  '((shuowen-radical	. 246)	; 卣
     (=shuowen-jiguge	. 23305)	; &SW-JIGUGE-23305;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x20A0B)	; 𠨋
@@ -26,7 +26,7 @@
       ))
     ))
 (define-char
-  '((shuowen-radical	. 246)	; 𠧪
+  '((shuowen-radical	. 246)	; 卣
     (=shuowen-jiguge	. 23306)	; &SW-JIGUGE-23306;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x6817)	; 栗
@@ -38,7 +38,7 @@
       ))
     ))
 (define-char
-  '((shuowen-radical	. 246)	; 𠧪
+  '((shuowen-radical	. 246)	; 卣
     (=shuowen-jiguge	. 23307)	; &SW-JIGUGE-23307;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x23877)	; 𣡷
@@ -50,7 +50,7 @@
       ))
     ))
 (define-char
-  '((shuowen-radical	. 246)	; 𠧪
+  '((shuowen-radical	. 246)	; 卣
     (=shuowen-jiguge	. 23308)	; &SW-JIGUGE-23308;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x7C9F)	; 粟
@@ -62,7 +62,7 @@
       ))
     ))
 (define-char
-  '((shuowen-radical	. 246)	; 𠧪
+  '((shuowen-radical	. 246)	; 卣
     (=shuowen-jiguge	. 23309)	; &SW-JIGUGE-23309;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x25F84)	; 𥾄
