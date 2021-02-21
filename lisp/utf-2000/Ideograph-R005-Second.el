@@ -415,6 +415,28 @@
     ))
 (define-char
   '((ideographic-radical . 5)	; ⼄
+    (ideographic-strokes . 0)
+    (total-strokes	 . 1)
+    (=ucs		. #x200CE)	; 𠃎
+    (=big5-cdp		. #x88CA)	; &I-CDP-88CA;
+    (=gt-k		. 00116)	; &I-GT-K00116;
+    (=gt-pj-k1		. #x3B34)	; 𠃎 [27-20]
+    (->subsumptive
+     ((==ucs@iso	  . #x200CE)	; &g2-CDP-88CA;
+      (==big5-cdp	  . #x88CA)	; &g2-CDP-88CA;
+      (==gt-k		  . 00116)	; &g2-CDP-88CA;
+      (==gt-pj-k1	  . #x3B34)	; &g2-CDP-88CA; [27-20]
+      (->subsumptive
+       ((===big5-cdp	    . #x88CA)	; &R-CDP-88CA;
+	)
+       ((===gt-k	    . 00116)	; &R-GT-K00116;
+	)
+       ((===ucs@iso	    . #x200CE)	; &R-U-000200CE;
+	))
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 5)	; ⼄
     (ideographic-strokes . 1)
     (total-strokes	 . 2)
     (hanyu-dazidian	1 49 9)
