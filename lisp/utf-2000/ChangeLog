@@ -1,3 +1,8 @@
+2021-02-19  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R005-Second.el (U-000200CE): New character; unify
+	BC-88CA and GT-K00116.
+
 2021-02-12  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Oracle-Bones.el:
