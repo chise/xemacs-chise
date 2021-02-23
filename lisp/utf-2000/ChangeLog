@@ -1,3 +1,11 @@
+2021-02-20  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R039-Child.el (U+5B79): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R008-Lid.el (U-00020141): Apply new conventions for
+	glyph granularity.
+
 2021-02-19  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R005-Second.el (U-000200CE): New character; unify
