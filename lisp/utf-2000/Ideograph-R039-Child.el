@@ -4109,12 +4109,35 @@
   '((ideographic-radical . 39)	; ⼦
     (ideographic-strokes . 13)
     (total-strokes	 . 16)
-    (=ucs		. #x5B79)	; 孹
-    (->subsumptive
-     ((=daikanwa	  . 07041)	; &M-07041;
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=ucs@unicode	  . #x5B79)	; &C3-5057;
-      (=cns11643-3	  . #x5057)	; &C3-5057; [48-55]
+     ((=ucs		  . #x8F9F)	; 辟
+      )
+     ((=ucs		  . #x5B50)	; 子
+      ))
+    (sound@ja/on	"haku")
+    (=ucs		. #x5B79)	; 孹
+    (=cns11643-3	. #x5057)	; &I-C3-5057; [48-55]
+    (=daikanwa		. 07041)	; &I-M-07041;
+    (<-same
+     ((=ucs		  . #x64D8)	; 擘
+      (=daikanwa	  . 12835)	; &I-M-12835;
+      ))
+    (<-same*sources
+     pianhai-leibian daikanwa)
+    (->subsumptive
+     ((==ucs@unicode	  . #x5B79)	; &g2-M-07041;
+      (==cns11643-3	  . #x5057)	; &g2-M-07041; [48-55]
+      (==daikanwa	  . 07041)	; &g2-M-07041;
+      (->subsumptive
+       ((===daikanwa	    . 07041)	; &R-M-07041;
+	)
+       ((===cns11643-3	    . #x5057)	; &R-C3-5057; [48-55]
+	)
+       ((===ucs@unicode	    . #x5B79)	; &R-UU+5B79;
+	))
       ))
     ))
 (define-char
