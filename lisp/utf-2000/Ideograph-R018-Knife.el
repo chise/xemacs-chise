@@ -335,6 +335,24 @@
     ))
 (define-char
   '((ideographic-radical . 18)	; ⼑
+    (ideographic-strokes . 0)
+    (total-strokes	 . 2)
+    (=>ucs-itaiji-002	. #x5200)	; &A-U-i002+5200;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs-itaiji-002	  . #x5200)	; &A-U-i002+5200;
+      ))
+    (ideographic-radical . 18)	; ⼑
+    (ideographic-strokes . 0)
+    (total-strokes	 . 2)
+    (=ucs-itaiji-002	. #x5200)	; &U-i002+5200;
+    (<-ancient
+     ((=ucs		  . #x5200)	; 刀
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 1)
     (total-strokes	 . 3)
     (=>ucs@cognate	. #x5203)	; &A-cgnU+5203;
