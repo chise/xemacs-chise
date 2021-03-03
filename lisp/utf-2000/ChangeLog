@@ -1,3 +1,20 @@
+2021-03-03  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* chise-subr.el (char-attribute-name<): Fix problem when comparing '
+	=mj', `=>>mj' and `==mj'.
+
+	* Ideograph-R037-Big.el:
+	- Add some Hanyo-Denshi code points.
+	- Add `=decomposition@hanyo-denshi' for some abstract glyph-forms
+	  of Hanyo-Denshi.
+	- Add some MJ code points corresponding to Hanyo-Denshi IVSes.
+
+2021-03-02  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R013-Down-Box.el (A-U+5705-itaiji-001): New abstract
+	node.
+	(U+5705-itaiji-001): New character.
+
 2021-02-28  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R042-Small.el (U-0002D545): New character.
