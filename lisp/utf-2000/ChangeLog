@@ -1,3 +1,14 @@
+2021-02-28  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R042-Small.el (U-0002D545): New character.
+
+2021-02-28  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R035-Go-Slowly.el (U-0002D431): New character.
+
+	* Ideograph-R029-Again.el (U-0002D1A8): New character.
+	(U-0002D1B1): New character.
+
 2021-02-24  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R018-Knife.el (A-U+5200-itaiji-002): New abstract
