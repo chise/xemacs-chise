@@ -1,5 +1,10 @@
 2021-03-03  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R030-Mouth.el (A-IWDSU+53E3): Delete
+	`=>ucs@component'.
+
+2021-03-03  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* chise-subr.el (char-attribute-name<): Fix problem when comparing '
 	=mj', `=>>mj' and `==mj'.
 
