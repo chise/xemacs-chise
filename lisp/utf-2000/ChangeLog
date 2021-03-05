@@ -1,3 +1,359 @@
+2021-03-04  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R019-Power.el (U+6530): Apply new conventions for
+	glyph granularity.
+	(U+6530-var-001): New character; use `<-denotational' for U+6530.
+
+	* Ideograph-R032-Earth.el (GT-K00199): Add
+	`<-denotational@component' for IWDS1-0312.
+	(U+5720): Apply new conventions for glyph granularity.
+	(U+5725): Add `<-denotational@component' for A-IWDSU+592B.
+	(U+5725-var-001): New character; use `<-denotational' for U+5725.
+	(U-0002124A): Use A-IWDSU+2124A instead of A-compU+2124A as the
+	target of `<-denotational@component'; omit A-IWDSU+21240 as the
+	target of `<-denotational@component'.
+	(U+58EE): Add `<-denotational@usage' for A2-DJT-01905.
+	(U-0002F851): Unify DJT-01667.
+	(U-0002124D): Apply new conventions for glyph granularity for
+	components of ideographic-structure.
+	(U-0002A8B4): Likewise.
+	(U-0002A8B5): Likewise.
+	(A-GT-K01821): New abstract node.
+	(GT-K01821): Add `<-denotational' for A-GT-K01821.
+	(U-00021264): Use A-IWDSU+2124A instead of A-compU+2124A as the
+	target of `<-denotational@component'.
+	(U+5740): Apply new conventions for glyph granularity for
+	components of ideographic-structure.
+	(UU+5743): Likewise.
+	(U+5747): Likewise.
+	(U+5748): Likewise.
+	(CU+3628): Likewise.
+	(UU+3628): Likewise.
+	(UU+574B): Likewise.
+	(U+5751): Likewise.
+	(U-0002127D): Likewise.
+	(U+5752): Apply new conventions for glyph granularity.
+	(U-00021274): Apply new conventions for glyph granularity for
+	components of ideographic-structure.
+	(U-0002126E): New character.
+	(MJ032961): Apply new conventions for glyph granularity for
+	components of ideographic-structure.
+	(IU+21275): Likewise.
+	(U+21275-itaiji-001): Likewise.
+	(MJ057209): Likewise.
+	(UU+362D): Likewise.
+	(U-0002125F): Use A-IWDSU+58EF instead of A-IWDSU+58EE as the
+	target of `<-denotational'; add `<-denotational@usage' for
+	A2-DJT-01905; unify DJT-01686.
+	(U-00021268): Apply new conventions for glyph granularity for
+	components of ideographic-structure.
+	(U-0002A8B8): Likewise.
+	(hanaJU+2BB5B): Likewise.
+	(CB11746): Likewise.
+	(U-0002D37E): New character.
+	(U+5764): Apply new conventions for glyph granularity.
+	(U+5765): Likewise.
+	(U+5766): Likewise.
+	(U+576A): Apply new conventions for glyph granularity for
+	components of ideographic-structure.
+	(CU+3631): Likewise.
+	(UU+3631): Likewise.
+	(UU+5773): Likewise.
+	(U+5776): Apply new conventions for glyph granularity.
+	(U-000212B0): Likewise.
+	(IU+2129F): Apply new conventions for glyph granularity for
+	components of ideographic-structure.
+	(U+5789): Likewise.
+	(IU+21291): Likewise.
+	(CB12542): Likewise.
+	(U-000212A9): Likewise.
+	(U-000212AF): Likewise.
+	(U-0002D385): New character.
+	(CB01513): Apply new conventions for glyph granularity for
+	components of ideographic-structure.
+	(U+578E): Likewise.
+	(UU+5793): Likewise.
+	(U+579B): Likewise.
+	(U+57A3): Likewise.
+	(U+57AA): Add `ideographic-structure'.
+	(U+57AC): Apply new conventions for glyph granularity for
+	components of ideographic-structure.
+	(hanaJU+9FCD): Likewise.
+	(U-0002A8D3): Apply new conventions for glyph granularity.
+	(U-0002D395): New character.
+	(hanaJU+2D398): Apply new conventions for glyph granularity for
+	components of ideographic-structure.
+	(A-GT-K05974): New abstract node.
+	(GT-K05974): New character; add `<-denotational' for A-GT-K05974.
+	(GT-K06022): Ditto.
+	(UU+363F): Apply new conventions for glyph granularity for
+	components of ideographic-structure.
+	(U+3641): Apply new conventions for glyph granularity.
+	(CU+57C6): Apply new conventions for glyph granularity for
+	components of ideographic-structure.
+	(UU+57C6): Likewise.
+	(U+57CB): Apply new conventions for glyph granularity.
+	(CU+57D0): Apply new conventions for glyph granularity for
+	components of ideographic-structure.
+	(UU+57D0): Likewise.
+	(A-cgnU+57D4): Likewise.
+	(U+57D4): Apply new conventions for glyph granularity.
+	(U+FA0F): Likewise.
+	(UU+FA0F): Likewise; add `script' and `sound@ja/kun'; unify
+	MJ030193 and KOSEKI-058790.
+	(U-00021314): Apply new conventions for glyph granularity for
+	components of ideographic-structure.
+	(hanaJU+2A8D8): Likewise.
+	(hanaJU+30270): Likewise.
+	(U+57DC): Apply new conventions for glyph granularity.
+	(U+3647): Apply new conventions for glyph granularity for
+	components of ideographic-structure.
+	(U+57E0): Apply new conventions for glyph granularity.
+	(U+3648): Apply new conventions for glyph granularity for
+	components of ideographic-structure.
+	(U+57E4): Likewise.
+	(U-00021328): Likewise.
+	(U-00021338): Likewise.
+	(U-00021339): Likewise.
+	(JU+57E9): Likewise.
+	(CU+57E9): Likewise.
+	(UU+57E9): Likewise.
+	(U+57EC): Apply new conventions for glyph granularity.
+	(U+57FC): Likewise.
+	(U+5800): Apply new conventions for glyph granularity for
+	components of ideographic-structure.
+	(U+5801): Apply new conventions for glyph granularity.
+	(A-cgnU+5805): New abstract node.
+	(U+5805): Add `<-denotational' for A-cgnU+5805; add
+	`ideographic-structure'.
+	(UU+5805): Delete `=>ucs@iwds-1' [moved to U+5805].
+	(HNG-KHI0313-0): Use A-cgnU+5805 instead of U+5805 as the mother.
+	(UU+5806): Apply new conventions for glyph granularity for
+	components of ideographic-structure.
+	(U+580B): Likewise.
+	(IU+21356): Likewise.
+	(CB05740): Likewise.
+	(U+57D6): Likewise.
+	(UU+5813): Likewise.
+	(U-00021357): Apply new conventions for glyph granularity.
+	(U-0002D3AD): New character.
+	(U-0002D3B3): New character.
+	(A-RUI6-E093): New abstract node.
+	(RUI6-E093): New character; add `<-denotational' for A-RUI6-E093.
+	(U+5817): Apply new conventions for glyph granularity for
+	components of ideographic-structure.
+	(U+5818): Apply new conventions for glyph granularity.
+	(UU+5819): Apply new conventions for glyph granularity for
+	components of ideographic-structure.
+	(CU+5819): Likewise.
+	(U+581A): Apply new conventions for glyph granularity.
+	(U-00021369): Apply new conventions for glyph granularity for
+	components of ideographic-structure.
+	(JU+581D): Likewise.
+	(UU+581D): Likewise.
+	(IU+2136B): Likewise.
+	(U+5824): Apply new conventions for glyph granularity.
+	(U-00021377): Apply new conventions for glyph granularity for
+	components of ideographic-structure.
+	(IU+21377): Add `ideographic-structure'.
+	(A-cgnU+582A): New abstract node.
+	(U+582A): Add `<-denotational' for A-cgnU+582A; add
+	`ideographic-structure'; apply new conventions for glyph
+	granularity for components of ideographic-structure.
+	(UU+582A): Delete `=>ucs@iwds-1' [moved to U+582A].
+	(HNG-KAR0074-0): Use A-cgnU+582A instead of U+582A as the mother;
+	apply new conventions for glyph granularity for components of
+	ideographic-structure.
+	(UU+5830): Apply new conventions for glyph granularity for
+	components of ideographic-structure.
+	(CU+5830): Likewise.
+	(U+5834): Likewise.
+	(J2000U+5835): Likewise.
+	(UU+5835): Likewise.
+	(U+583A): Apply new conventions for glyph granularity.
+	(U+583D): Apply new conventions for glyph granularity for
+	components of ideographic-structure.
+	(IU+21394): Likewise.
+	(U-00021395): Add `ideographic-structure'.
+	(M-05315): Unify MJ033107 and KOSEKI-060570.
+	(U+5840): Apply new conventions for glyph granularity for
+	components of ideographic-structure.
+	(AJ1-13384): Unify U+FA39 instead of UU+FA39.
+	(g2-AJ1-13384): Unify g2-U+FA39 instead of U+FA39.
+	(U-00021391): New character.
+	(U+584A): Apply new conventions for glyph granularity.
+	(U+584C): Apply new conventions for glyph granularity for
+	components of ideographic-structure.
+	(U+584D): Apply new conventions for glyph granularity.
+	(U+5852): Apply new conventions for glyph granularity for
+	components of ideographic-structure.
+	(UU+5853): Likewise.
+	(A-cgnU+5854): Changed from U+5854.
+	(B-B6F0): Unify U+5854 instead of A-IWDSU+5854 and A-UU+5854; use
+	A-cgnU+5854 instead of U+5854; apply new conventions for glyph
+	granularity for components of ideographic-structure.
+	(HNG-KHI0323-0): Use A-cgnU+5854 instead of U+5854 as the mother.
+	(U+5856): Apply new conventions for glyph granularity.
+	(U+365B): Apply new conventions for glyph granularity for
+	components of ideographic-structure.
+	(UU+5858): Likewise.
+	(J2004U+5858): Likewise.
+	(U+585C): Apply new conventions for glyph granularity.
+	(U+585A): Apply new conventions for glyph granularity for
+	components of ideographic-structure.
+	(U+5860): Likewise.
+	(A-IWDSU+5861): Likewise.
+	(U+5861): Likewise.
+	(A-IWDSU+21396): Likewise.
+	(U+5864): Apply new conventions for glyph granularity.
+	(U-00021396): Likewise.
+	(U-000213BD): Apply new conventions for glyph granularity for
+	components of ideographic-structure.
+	(IU+213D7): Likewise.
+	(CB10454): Likewise.
+	(U+5869): Apply new conventions for glyph granularity.
+	(U+586A): Apply new conventions for glyph granularity for
+	components of ideographic-structure.
+	(JU+586B): Likewise.
+	(UU+586B): Likewise.
+	(U-000213D9): Apply new conventions for glyph granularity.
+	(UU+586C): Apply new conventions for glyph granularity for
+	components of ideographic-structure.
+	(IU+213DA): Likewise.
+	(CB00695): Add `ideographic-structure'.
+	(U-000213DF): Apply new conventions for glyph granularity for
+	components of ideographic-structure.
+	(hanaJU+2D3D6): Likewise.
+	(A-cgnU+5872): Likewise.
+	(U+5872): Likewise.
+	(M-05386): Likewise.
+	(CU+5873): Likewise.
+	(UU+5873): Likewise.
+	(U+5878): Likewise.
+	(U+587A): Apply new conventions for glyph granularity.
+	(CU+587B): Apply new conventions for glyph granularity for
+	components of ideographic-structure.
+	(UU+587B): Likewise.
+	(U+5884): Apply new conventions for glyph granularity.
+	(U+5885): Likewise.
+	(IU+213F0): Apply new conventions for glyph granularity for
+	components of ideographic-structure.
+	(U+3664): Likewise.
+	(U+588C): Likewise.
+	(IU+213F7): Likewise.
+	(U+5896): Apply new conventions for glyph granularity.
+	(A-IWDSU+5897): Apply new conventions for glyph granularity for
+	components of ideographic-structure.
+	(U+5897): Likewise.
+	(UU+5899): Likewise.
+	(U+58B8): Likewise.
+	(IU+21403): Likewise.
+	(U-00021404): New character.
+	(IU+21405): Apply new conventions for glyph granularity for
+	components of ideographic-structure.
+	(IU+2143D): Likewise.
+	(hanaJU+2A90F): Likewise.
+	(hanaJU+2D3DF): Likewise.
+	(hanaJU+2D3E3): Likewise.
+	(U-0003029E): Likewise.
+	(hanaJU+3029E): Likewise.
+	(U+589D): Apply new conventions for glyph granularity.
+	(CU+589F): Apply new conventions for glyph granularity for
+	components of ideographic-structure.
+	(UU+58A0): Likewise.
+	(UU+366A): Likewise.
+	(UU+58A4): Likewise.
+	(JU+FA3A): Unify U+FA3A.
+	(g2-JU+FA3A): Move U+FA3A into JU+FA3A.
+	(U+58AB): Apply new conventions for glyph granularity for
+	components of ideographic-structure.
+	(U+58AD): Apply new conventions for glyph granularity.
+	(U+58B3): Apply new conventions for glyph granularity for
+	components of ideographic-structure.
+	(U+58C4): Apply new conventions for glyph granularity.
+	(U-00021428): Likewise; add `<-denotational' for U+58C4.
+	(UU+366D): Apply new conventions for glyph granularity for
+	components of ideographic-structure.
+	(U+58B6): Likewise.
+	(UU+58B6): Likewise.
+	(JU+58B8): Likewise.
+	(hanaJU+2BBAC): Likewise.
+	(U-000302A6): Likewise.
+	(A-U+26C29-itaiji-003): New abstract node.
+	(U+26C29-itaiji-003): New character; use `<-denotational' for
+	A-U+26C29-itaiji-003.
+	(U+58BA): Apply new conventions for glyph granularity for
+	components of ideographic-structure; add `sound@ja/on/{kan|go}'.
+	(JU+58BA): Add `<-interchangeable' for JU+96A9 and UU+5967.
+	(U+58BB): Apply new conventions for glyph granularity.
+	(U-0002BBB0): Likewise.
+	(U-0002145E): Apply new conventions for glyph granularity for
+	components of ideographic-structure.
+	(U+58BD): Apply new conventions for glyph granularity.
+	(U+58C0): Likewise.
+	(U-00021462): Apply new conventions for glyph granularity for
+	components of ideographic-structure.
+	(C4-4F79): Likewise; unify IU+21463 instead of UU+21463.
+	(UU+58C7): Apply new conventions for glyph granularity for
+	components of ideographic-structure.
+	(MJ009338): Likewise.
+	(U-00021488): Likewise.
+	(A-cgnU+58CA): New abstract node.
+	(U+58CA): Add `<-denotational' for A-cgnU+58CA; add
+	`ideographic-structure'.
+	(UU+58CA): Delete `=>ucs@iwds-1'.
+	(U+58CA-itaiji-002): Use A-cgnU+58CA instead of U+58CA as its
+	mother.
+	(IU+21485): Apply new conventions for glyph granularity for
+	components of ideographic-structure.
+	(UU+58CC): Likewise.
+	(U-00021465): New character.
+	(U-0002146E): Apply new conventions for glyph granularity for
+	components of ideographic-structure.
+	(UU+58CE): Likewise.
+	(MJ009345): Likewise.
+	(U+58CF): Likewise.
+	(CU+3679): Likewise.
+	(UU+3679): Likewise.
+	(U-000214A8): Likewise.
+	(U+58D7): Likewise.
+	(UU+9FBC): Likewise.
+	(U-000214A7): Likewise.
+	(IU+214A7): Likewise.
+	(U+58D9): Likewise.
+	(A-cgnU+214CD): Likewise.
+	(U-000214CD): Likewise.
+	(U-0002148F): Likewise.
+	(U-000214E4): Likewise.
+	(U+367D): Apply new conventions for glyph granularity.
+	(IU+214C4): Apply new conventions for glyph granularity for
+	components of ideographic-structure.
+	(CB02751): Likewise.
+	(CB02209): Likewise.
+	(JU+58DD): Likewise.
+	(CU+58DD): Likewise.
+	(UU+58DD): Likewise.
+	(U+58E0): Likewise.
+	(U-0002F859): Likewise.
+	(U+367F): Likewise.
+	(U-000214DC): Likewise.
+	(hanaJU+2BBBC): Likewise.
+	(hanaJU+2D408): Likewise.
+	(UU+58E4): Likewise.
+	(U+58E5): Likewise.
+	(hanaJU+2D40C): Likewise.
+	(U-000214F4): Likewise.
+	(U-00021503): Likewise.
+	(CU+58E7): Likewise.
+	(UU+58E7): Likewise.
+	(U-00021513): New character.
+	(U-00021518): Apply new conventions for glyph granularity.
+	(A-IWDSU+2124A): New abstract node; use `<-denotational@component'
+	for A-IWDSU+21240.
+	(A-IWDSU+21251): Apply new conventions for glyph granularity for
+	components of ideographic-structure.
+	(A-compU+2124A): Unify A-IWDSU+21264.
+
 2021-03-03  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R030-Mouth.el (A-IWDSU+53E3): Delete
