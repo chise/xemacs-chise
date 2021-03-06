@@ -1,5 +1,18 @@
 2021-03-04  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R029-Again.el (U+FA0E): Add `<-denotational' for
+	A-IWDSU+2ABE9; use `ideographic-structure@apparent' instead of
+	`ideographic-structure'; use "𮥷" instead of "⿰文隹"; apply new
+	conventions for glyph granularity.
+	(A-IWDSU+2ABE9): New abstract node.
+
+	* Ideograph-R027-Cliff.el (U+538C): Apply new conventions for
+	glyph granularity.
+	(g2-UU+53AD): Omit `ideographic-structure'.
+	(g2-CU+53AD): Omit `ideographic-structure'.
+	(g2-UU+53B4): Omit `ideographic-structure'.
+	(g2-CU+53B4): Omit `ideographic-structure'.
+
 	* Ideograph-R019-Power.el (U+6530): Apply new conventions for
 	glyph granularity.
 	(U+6530-var-001): New character; use `<-denotational' for U+6530.
