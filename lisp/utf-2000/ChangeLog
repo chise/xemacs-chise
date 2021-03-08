@@ -717,6 +717,16 @@
 	glyph granularity.
 	(U-0002D109): New character.
 
+2020-12-08  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R055-Two-Hands.el (U+2234D-var-001): New character;
+	use `<-denotational' for U-0002234D.
+	(U+2234D-var-002): Likewise.
+	(HZK2-BA6E): Use `<-subsumptive' for g2-U+2234D-var-002 instead of
+	`<-denotational' for U-0002234D.
+	(U-0002236E): Apply new conventions for glyph granularity.
+	(U-00022377): Likewise.
+
 2020-12-07  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R027-Cliff.el (A-cgnU+5389): New abstract node.
