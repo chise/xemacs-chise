@@ -1,3 +1,11 @@
+2021-03-09  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R057-Bow.el (A-U+5F37-itaiji-002): New abstract node.
+	(U+5F37-itaiji-002): New character; use `<-denotational' for
+	A-U+5F37-itaiji-002.
+	(RUI6-E109): New character; copied from ruimoku6.el.
+	(U+5F4E): Apply new conventions for glyph granularity.
+
 2021-03-04  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R029-Again.el (U+FA0E): Add `<-denotational' for
