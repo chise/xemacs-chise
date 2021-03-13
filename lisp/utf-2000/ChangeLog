@@ -1,3 +1,244 @@
+2021-03-11  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R013-Down-Box.el (A-U+5705-itaiji-001): Unify
+	A-U+5705-itaiji-002.
+	(U+5705-itaiji-002): New character; use `<-denotational' for
+	A-U+5705-itaiji-001.
+
+	* Ideograph-R009-Man.el:
+	- Add `=decomposition@cid' for some Adobe-Japan1 abstract
+	  glyph-forms.
+	- Add abstract node based on IWDS-1 and relations between the
+	  abstract node and abstract characters.
+	(A-IWDSU+4EBA): Add `<-denotational@component' for A-compU+516B.
+	(U+4EBA): Omit A-compU+516B as a target of
+	`<-denotational@component'.
+	(U-00020089): Add A-BC-8DD8 as a target of
+	`<-denotational@component'.
+	(U-000201A4): Apply new conventions for glyph granularity.
+	(U+4EBF): Use `<-denotational@usage' instead of `<-denotational'
+	for BUCS+5104; apply new conventions for glyph granularity.
+	(U-0002B885): New character.
+	(U+4EC0): Apply new conventions for glyph granularity.
+	(U+4EC1): Likewise; add `<-denotational@usage' for BUCS+4EC1.
+	(U+4EC4): Apply new conventions for glyph granularity.
+	(U+4EC6): Likewise; use `<-denotational@usage' instead of
+	`<-denotational' for BUCS+50D5.
+	(A-cgnU+4ECB): New abstract node.
+	(U+4ECB): Add `<-denotational' for A-cgnU+4ECB; apply new
+	conventions for glyph granularity.
+	(U+4ECC): Apply new conventions for glyph granularity.
+	(U+4ECE): Use `<-denotational@usage' instead of `<-denotational'
+	for BUCS+5F9E; apply new conventions for glyph granularity.
+	(U+4ED1): Use `<-denotational@usage' instead of `<-denotational'
+	for BUCS+4F96.
+	(U+4ED2): Add `<-denotational@usage' instead of `<-denotational'
+	for BUCS+4ED2; apply new conventions for glyph granularity.
+	(U-000201A7): New character.
+	(GT-K00795): New character; use `<-denotational' for U-000204DE.
+	(U-0002A727): New character.
+	(U-0002B886): New character.
+	(U-0002B887): New character.
+	(U-0002B888): New character.
+	(U-0002CF62): New character; use `<-denotational' for
+	A-IWDSU+2CF62.
+	(A-IWDSU+4ED2): New abstract node.
+	(A-IWDSU+2CF62): New abstract node.
+	(A-GT-K00801): New abstract node.
+	(A-GT-K00799): New abstract node.
+	(GT-K00799): New character; use `<-denotational' for A-GT-K00799.
+	(GT-K00801): New character; use `<-denotational' for A-GT-K00801.
+	(U-0002CF66): New character; use `<-denotational' for
+	A-IWDSU+4EC7.
+	(U+4ED5): Apply new conventions for glyph granularity.
+	(U+3430): Likewise.
+	(U+4ED9): Use `<-denotational@usage' instead of `<-denotational'
+	for BUCS+50CA; apply new conventions for glyph granularity.
+	(U+4EDB): Apply new conventions for glyph granularity.
+	(U+4EDD): Use `<-denotational@usage' instead of `<-denotational'
+	for BUCS+540C.
+	(A-IWDSU+4EDE): New abstract node.
+	(U+4EDE): Use `<-denotational@usage' instead of `<-denotational'
+	for BUCS+4EDE.
+	(U+4EE1): Apply new conventions for glyph granularity.
+	(U+3432): Add `sound@ja/on/{kan|go}'; unify MJ000033 and
+	KOSEKI-004900; add `<-formed' and `->mistakable' for U+4F0F.
+	(U-000201A9): Add `sound@ja/on/{kan|go}'; unify MJ030536 and
+	KOSEKI-004690; apply new conventions for glyph granularity.
+	(U+4EE2): Apply new conventions for glyph granularity.
+	(U+4EE4): Likewise.
+	(U+4EE5): Likewise.
+	(U+3433): Add A-IWDSU+4EC7 as a target of
+	`<-denotational@component'.
+	(U-000201AA): Apply new conventions for glyph granularity.
+	(U+4EE6): Likewise.
+	(U+4EE7): Likewise.
+	(U+36A2): Add `ideographic-structure'; unify CB11985.
+	(M-00395): Unify MJ000583 and KOSEKI-004790; add `sound@ja/on'.
+	(M-06040): Unify MJ000584 and KOSEKI-069260.
+	(U-000201AD): Apply new conventions for glyph granularity.
+	(U+4EED): Use `<-denotational@usage' instead of `<-denotational'
+	for BUCS+4EDE.
+	(U+3435): New character.
+	(U+3436): New character; use `<-denotational' for A-IWDSU+2CF62.
+	(U+3437): New character.
+	(U+4EEA): Use `<-denotational@usage' instead of `<-denotational'
+	for BUCS+5100; apply new conventions for glyph granularity.
+	(U+4EEB): Apply new conventions for glyph granularity.
+	(U+4EEC): Use `<-denotational@usage' instead of `<-denotational'
+	for BUCS+5011; apply new conventions for glyph granularity.
+	(U-000201AB): New character.
+	(U-000201AC): New character.
+	(U-000201B3): New character.
+	(U-0002B889): Add `<-denotational' for A-compU+2B889.
+	(U-0002B88A): New character.
+	(U-0002CF63): New character.
+	(U-0002CF64): New character.
+	(U-0002CF65): New character.
+	(U-0002CF67): New character.
+	(U-0002CF68): New character.
+	(A-compU+2B889): New abstract node.
+	(A-U+5144-itaiji-001): New abstract node.
+	(U+5144-itaiji-001): New character; use `<-denotational' for
+	A-U+5144-itaiji-001.
+	(U+4EEE): Use `<-denotational@usage' instead of `<-denotational'
+	for BUCS+5047; apply new conventions for glyph granularity.
+	(U+4EEF): Apply new conventions for glyph granularity.
+	(U+4EF0): Likewise.
+	(U+3438): Likewise.
+	(U+4EF3): Likewise.
+	(U-000201B4): Likewise.
+	(U+3439): Likewise.
+	(U+4EF4): Likewise.
+	(U+4EF7): Use `<-denotational@usage' instead of `<-denotational'
+	for BUCS+50F9; apply new conventions for glyph granularity.
+	(A-IWDSU+4EF8): New abstract node.
+	(U+4EF8): Apply new conventions for glyph granularity.
+	(U-0002B88B): New character; use `<-denotational@component' for
+	A-IWDSU+4EF8.
+	(U+4EFC): Unify CB10336.
+	(U+4EFD): Apply new conventions for glyph granularity.
+	(U+4EFE): Likewise.
+	(U+4F00): Likewise.
+	(U+4F01): Likewise.
+	(U-000201B7): Apply new conventions for glyph granularity.
+	(U+4F02): Apply new conventions for glyph granularity.
+	(U+4F06): Likewise.
+	(A-IWDSU+4F07): New abstract node.
+	(UU+4F07): Unify MJ006566 and KOSEKI-005220.
+	(U-0002CF79): New character; use `<-denotational' for
+	A-IWDSU+4F07.
+	(A-IWDSU+4F09): New abstract node.
+	(U+4F09): Apply new conventions for glyph granularity.
+	(U-000201BE): New character; use `<-denotational@component' for
+	A-IWDSU+4F09.
+	(U+4F0C): Apply new conventions for glyph granularity.
+	(U+343A-itaiji-003): New character; use `<-denotational' for
+	U+343A.
+	(U-000201B9): Apply new conventions for glyph granularity.
+	(U-000201BA): Likewise.
+	(U-000201BB): Likewise.
+	(CB08680): New character; use `<-denotational' for U+343B.
+	(U+343C): Apply new conventions for glyph granularity.
+	(U-000201BC): Add `ideographic-structure'.
+	(U+4F16): Apply new conventions for glyph granularity.
+	(U+4F17): Use `<-denotational@usage' instead of `<-denotational'
+	for BUCS+8846; apply new conventions for glyph granularity.
+	(U+4F18): Use `<-denotational@usage' instead of `<-denotational'
+	for BUCS+512A.
+	(U-000201CB): Apply new conventions for glyph granularity.
+	(U+4F1A): Likewise.
+	(A-IWDSU+4F1C): New abstract node.
+	(U+4F1C): Use `<-denotational@usage' instead of `<-denotational'
+	for BUCS+5005; apply new conventions for glyph granularity.
+	(U+4F1D): Use `<-denotational@usage' instead of `<-denotational'
+	for BUCS+50B3; apply new conventions for glyph granularity.
+	(U-000201D3): Apply new conventions for glyph granularity.
+	(U+343D): New character.
+	(U+343E): New character.
+	(U+343F): New character.
+	(U+3440): New character.
+	(U+4F1F): Apply new conventions for glyph granularity; use
+	`<-denotational@usage' instead of `<-denotational' for BUCS+5049.
+	(U+4F20): Apply new conventions for glyph granularity; use
+	`<-denotational@usage' instead of `<-denotational' for BUCS+50B3.
+	(U+4F21): Add `<-simplified@CN' for U+4FE5.
+	(U+4F24): Use `<-denotational@usage' instead of `<-denotational'
+	for BUCS+50B7.
+	(U+4F25): Apply new conventions for glyph granularity; use
+	`<-denotational@usage' instead of `<-denotational' for BUCS+5000.
+	(U+4F26): Apply new conventions for glyph granularity; use
+	`<-denotational@usage' instead of `<-denotational' for BUCS+502B.
+	(U+4F27): Apply new conventions for glyph granularity; use
+	`<-denotational@usage' instead of `<-denotational' for BUCS+5096.
+	(U+4F29): Unify CB07418.
+	(U+4F2A): Apply new conventions for glyph granularity; use
+	`<-denotational@usage' instead of `<-denotational' for BUCS+50DE.
+	(U+4F2B): Use `<-denotational@usage' instead of `<-denotational'
+	for BUCS+4F47.
+	(U-000201BD): New character.
+	(U-000201BF): New character.
+	(U-000201C0): New character.
+	(U-000201C1): New character.
+	(U-000201C3): Apply new conventions for glyph granularity.
+	(U-000201C4): New character.
+	(U-000201C5): New character.
+	(U-000201C6): New character.
+	(U-000201C8): New character.
+	(U-000201C9): New character.
+	(U-000201CA): New character.
+	(U-000201CC): Apply new conventions for glyph granularity.
+	(U-000201CD): Likewise.
+	(U-000201CE): Likewise.
+	(U-000201D4): New character.
+	(U-000201D5): New character.
+	(IU+204E2): Apply new conventions for glyph granularity.
+	(U-0002A728): New character.
+	(U-0002A729): New character.
+	(U-0002A72A): New character.
+	(U-0002A72B): New character.
+	(U-0002B88C): New character.
+	(U-0002B88D): New character.
+	(U-0002B88E): New character.
+	(U-0002B88F): New character.
+	(U-0002B890): New character.
+	(U-0002CF69): New character.
+	(U-0002CF6B): New character.
+	(U-0002CF6C): New character.
+	(U-0002CF6D): New character.
+	(A-BC-88D2): New abstract node.
+	(BC-88D2): Add `<-denotational' for A-BC-88D2.
+	(U+4F2D): Apply new conventions for glyph granularity.
+	(U+3441): Likewise.
+	(A-IWDSU+4F30): New abstract node.
+	(UU+3442): Apply new conventions for glyph granularity.
+	(U+4F31): Use `<-denotational@usage' instead of `<-denotational'
+	for BUCS+4F60; apply new conventions for glyph granularity.
+	(U+4F60): Use `<-denotational@usage' instead of `<-denotational'
+	for BUCS+4F60.
+	(U+4F32): Apply new conventions for glyph granularity.
+	(U+4F33): Likewise.
+	(U+4F36): Likewise.
+	(U+4F37): Likewise.
+	(U+3443): Likewise.
+	(A-IWDSU+4F39): New abstract node.
+	(U+4F3C): Use `<-denotational@usage' instead of `<-denotational'
+	for BUCS+4F3C; apply new conventions for glyph granularity.
+	(U+3446): New character; use `<-denotational@component' for
+	A-IWDSU+4F3F.
+	(U+4F40): Use `<-denotational@usage' instead of `<-denotational'
+	for BUCS+4F3C.
+	(U+4F41): Apply new conventions for glyph granularity.
+	(U+4F42): Likewise.
+	(U+4F43): Apply new conventions for glyph granularity.
+	(U+4F44): Apply new conventions for glyph granularity.
+	(U+4F45): Likewise.
+	(U+4F47): Use `<-denotational@usage' instead of `<-denotational'
+	for BUCS+4F47.
+	(U+3444): Apply new conventions for glyph granularity.
+	(U+4F49): Apply new conventions for glyph granularity.
+	(U+4F4B): Likewise.  etc.
+
 2021-03-10  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R052-Short-Thread.el (U-000221B8): Apply new
