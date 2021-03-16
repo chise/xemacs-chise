@@ -1,3 +1,10 @@
+2021-03-13  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R032-Earth.el (U+574E): Apply new conventions for
+	glyph granularity.
+	(U+57F3): Likewise.
+	(U+5888): Likewise.
+
 2021-03-11  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R013-Down-Box.el (A-U+5705-itaiji-001): Unify
