@@ -1,5 +1,11 @@
 2021-03-13  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R048-Work.el (U+5DEB): Apply new conventions for glyph
+	granularity.
+	(U-00022023): Use `->denotational' and `->subsumptive'.
+	(A-BC-85AB): New abstract node.
+	(BC-85AB): New character; use `<-denotational' for A-BC-85AB.
+
 	* Ideograph-R032-Earth.el (U+574E): Apply new conventions for
 	glyph granularity.
 	(U+57F3): Likewise.
