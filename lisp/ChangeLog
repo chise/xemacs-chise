@@ -1,3 +1,8 @@
+2021-03-22  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-conf.el (===hng-kkd): New coded-charset for XEmacs
+	CHISE.
+
 2021-01-21  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
