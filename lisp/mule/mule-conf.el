@@ -4,7 +4,7 @@
 ;; Licensed to the Free Software Foundation.
 ;; Copyright (C) 1997, 1999, 2000, 2002, 2003, 2004, 2005, 2006, 2008,
 ;;   2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019,
-;;   2020 MORIOKA Tomohiko
+;;   2020, 2021 MORIOKA Tomohiko
 
 ;; Keywords: mule, multilingual, character set, coding system
 
@@ -3499,6 +3499,14 @@
 		  chars		256
 		  dimension	2
 		  registry	"hng-78$"
+		  graphic	2
+		  columns	2
+		  direction	l2r))
+  (make-charset '===hng-kkd "HNG:金剛大教王經卷第二(高山寺本)"
+		'(long-name "HNG/院政大教"
+		  chars		256
+		  dimension	2
+		  registry	"hng-79$"
 		  graphic	2
 		  columns	2
 		  direction	l2r))
