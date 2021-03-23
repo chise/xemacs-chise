@@ -788,7 +788,7 @@
 		 ===hng-sai ===hng-kad ===hng-kss
 		 ===hng-kyo ===hng-ykk ===hng-saa
 		 ===hng-sab ===hng-wks ===hng-wke ===hng-smk
-		 ===hng-sgs ===hng-sts
+		 ===hng-sgs ===hng-sts ===hng-kkd
 		 =shuowen-jiguge ===shuowen-jiguge4 ===shuowen-jiguge5))
 	 ;; (string-match "^=adobe-" (symbol-name name))
 	 )
