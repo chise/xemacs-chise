@@ -471,6 +471,7 @@
 	  (===hng-smk			      "HNG074-" 5 d)
 	  (===hng-sgs			      "HNG077-" 5 d)
 	  (===hng-sts			      "HNG078-" 5 d)
+	  (===hng-kkd			      "HNG079-" 5 d)
 	  (=shuowen-jiguge		   "SW-JIGUGE-" 5 d)
 	  (===shuowen-jiguge4		  "SW-JIGUGE4-" 5 d)
 	  (===shuowen-jiguge5		  "SW-JIGUGE5-" 5 d)
