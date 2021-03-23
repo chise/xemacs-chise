@@ -1,3 +1,11 @@
+2021-03-23  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
+	setting for `===hng-kkd'.
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`===hng-kkd'.
+
 2021-03-22  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* mule/mule-conf.el (===hng-kkd): New coded-charset for XEmacs
