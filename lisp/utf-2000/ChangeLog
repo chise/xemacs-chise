@@ -1,5 +1,10 @@
 2021-03-23  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R002-Line.el (HNG-KKD0149-0): New character; use
+	`<-subsumptive' for g2-UU+4E2D.
+
+	* Ideograph-R001-One.el: Add glyph-images of HNG-KKD.
+
 	* Ideograph-R007-Two.el (HNG-KKD0001-0): New character; use
 	`<-subsumptive' for g2-UU+4E94.
 
