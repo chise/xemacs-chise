@@ -1864,6 +1864,8 @@
     (=shuowen-jiguge	. 43328)	; &SW-JIGUGE-43328;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x21817)	; 𡠗
+      )
+     ((=ucs		  . #x218FC)	; 𡣼
       ))
     (->subsumptive
      ((===shuowen-jiguge5 . 43328)	; &SW-JIGUGE5-43328;
