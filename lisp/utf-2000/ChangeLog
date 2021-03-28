@@ -1,3 +1,8 @@
+2021-03-25  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR443.el (SW-JIGUGE-43328): Add U-000218FC as a
+	corresponding modern character.
+
 2021-03-23  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R002-Line.el (HNG-KKD0149-0): New character; use
