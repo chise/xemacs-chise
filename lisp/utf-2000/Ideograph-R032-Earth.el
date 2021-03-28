@@ -14904,6 +14904,20 @@
       ))
     ))
 (define-char
+  '((ideographic-radical . 32)	; ⼟
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5E78)	; 幸
+      )
+     ((=>ucs@iwds-1	  . #x4E38)	; &A-IWDSU+4E38;
+      (=>iwds-1		  .  65535)	; &A-IWDSU+4E38;
+      ))
+    (=>ucs@iwds-1	. #x57F7)	; &A-IWDSU+57F7;
+    (=>ucs@iwds-1/normalized . #x57F7)	; &A-IWDSU+57F7;
+    ))
+(define-char
   '((<-denotational
      ((=>ucs@iwds-1	  . #x57F7)	; &A-IWDSU+57F7;
       (=>ucs@iwds-1/normalized . #x57F7)	; &A-IWDSU+57F7;
