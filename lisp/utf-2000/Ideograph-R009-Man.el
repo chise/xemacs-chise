@@ -21511,6 +21511,7 @@
      ((=>ucs@iwds-1	  . #x518A)	; &A-IWDSU+518A;
       (=>iwds-1		  .  0176)	; &A-IWDSU+518A;
       ))
+    (sound@ja/on	"roN" "riN")
     (=ucs		. #x4F96)	; 侖
     ))
 (define-char
@@ -21542,6 +21543,28 @@
     (=gt-pj-1		. #x5055)	; &I-GT-00805; [48-53]
     (=daikanwa		. 00599)	; &I-M-00599;
     (=shinjigen		.  0245)	; &AJ1-04142;
+    (<-interchangeable
+     ((=ucs@unicode	  . #x6DEA)	; &AJ1-05450;
+      (=adobe-japan1-0	  . 05450)	; &AJ1-05450;
+      (=daikanwa	  . 17675)	; &I-M-17675;
+      )
+     ((=ucs@unicode	  . #x5D19)	; &AJ1-04691;
+      (=adobe-japan1-0	  . 04691)	; &AJ1-04691;
+      (=daikanwa	  . 08183)	; &I-M-08183;
+      ))
+    (<-interchangeable$_1*sources
+     daikanwa)
+    (<-interchangeable*sources
+     daikanwa)
+    (->Zhouwen
+     ((=ucs@iso		  . #x2039A)	; &C6-5A77;
+      (=cns11643-6	  . #x5A77)	; &C6-5A77; [58-87]
+      (=daikanwa	  . 01157)	; &I-M-01157;
+      ))
+    (->Zhouwen$_1*sources
+     shuowen daikanwa)
+    (->Zhouwen*sources
+     shuowen daikanwa)
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x4F96)	; 侖
@@ -67769,6 +67792,16 @@
     ))
 (define-char
   '((ideographic-radical . 9)	; ⼈
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>ucs@iwds-1	  . #x4EBC)	; &A-IWDSU+4EBC;
+      (=>iwds-1		  .  64146)	; &A-IWDSU+4EBC;
+      )
+     ((=ucs		  . #x7B27)	; 笧
+      ))
+    (sound@ja/on	"roN")
     (=ucs		. #x2039A)	; 𠎚
     ))
 (define-char
@@ -67780,19 +67813,23 @@
     (total-strokes	 . 14)
     (hanyu-dazidian	1 216 3)
     (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
-      (=ucs		  . #x2FF3)	; ⿳
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
       )
      ((=big5-cdp	  . #x8AFC)	; &CDP-8AFC;
       )
-     ((name		  . "CJK RADICAL BAMBOO")
-      (=ucs		  . #x2EAE)	; ⺮
-      )
-     ((=ucs		  . #x20541)	; 𠕁
+     ((=ucs-var-001	  . #x7B27)	; &U-v001+7B27;
       ))
     (=ucs@iso		. #x2039A)	; &C6-5A77;
     (=cns11643-6	. #x5A77)	; &C6-5A77; [58-87]
     (=daikanwa		. 01157)	; &I-M-01157;
+    (<-Zhouwen
+     ((=ucs@unicode	  . #x4F96)	; &AJ1-04142;
+      (=adobe-japan1-0	  . 04142)	; &AJ1-04142;
+      (=daikanwa	  . 00599)	; &I-M-00599;
+      ))
+    (<-Zhouwen*sources
+     shuowen daikanwa)
     (->subsumptive
      ((==ucs@iso	  . #x2039A)	; &g2-M-01157;
       (==cns11643-6	  . #x5A77)	; &g2-M-01157; [58-87]
