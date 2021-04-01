@@ -1866,6 +1866,8 @@
      ((=ucs		  . #x21817)	; 𡠗
       )
      ((=ucs		  . #x218FC)	; 𡣼
+      )
+     ((=ucs		  . #x21826)	; 𡠦
       ))
     (->subsumptive
      ((===shuowen-jiguge5 . 43328)	; &SW-JIGUGE5-43328;
