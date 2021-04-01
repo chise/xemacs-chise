@@ -1,3 +1,13 @@
+2021-03-28  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R032-Earth.el (A-IWDSU+57F7): New abstract node.
+
+	* Ideograph-R009-Man.el (U+4F96): Add `sound@ja/on'.
+	(UU+4F96): Add `<-interchangeable' for UU+6DEA and UU+5D19; add
+	`->Zhouwen' for IU+2039A.
+	(U-0002039A): Add `ideographic-structure'; add `sound@ja/on'.
+	(IU+2039A): Modify structure; add `<-Zhouwen' for UU+4F96.
+
 2021-03-25  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* ShuoWen-SR443.el (SW-JIGUGE-43328): Add U-000218FC as a
