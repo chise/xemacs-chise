@@ -1,3 +1,8 @@
+2021-04-01  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR443.el (SW-JIGUGE-43328): Add U-00021826 as a
+	corresponding modern character.
+
 2021-03-28  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R032-Earth.el (A-IWDSU+57F7): New abstract node.
