@@ -1,3 +1,28 @@
+2021-04-04  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R008-Lid.el (A-U+3694-itaiji-002): New abstract node;
+	unify A-U+3694-itaiji-003.
+	(U+3694-itaiji-002): New character; use `<-denotational' for
+	A-U+3694-itaiji-002.
+	(U+3694-itaiji-003): Ditto.
+	(A-U+21655-itaiji-002): New abstract node; unify
+	A-U+57F7-itaiji-004.
+	(U+21655-itaiji-002): New character; use `<-denotational' for
+	A-U+21655-itaiji-002.
+	(U+57F7-itaiji-004): New character; use `<-denotational' for
+	A-U+21655-itaiji-002.
+
+	* Ideograph-R005-Second.el (U-000200E8): Apply new conventions for
+	glyph granularity.
+	(U+200E8-itaiji-001): New character; use `<-denotational' for
+	U-000200E8.
+
+2021-04-02  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R017-Open-Box.el (BC-88C6): New character; use
+	`<-denotational@component' for A-IWDSU+51FA.
+	(BC-88C6-var-001): New character; use `<-subsumptive' for BC-88C6.
+
 2021-04-01  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* ShuoWen-SR443.el (SW-JIGUGE-43328): Add U-00021826 as a
