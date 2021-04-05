@@ -878,6 +878,23 @@
       ))
     ))
 (define-char
+  '((<-denotational@component
+     ((=>ucs@iwds-1	  . #x51FA)	; &A-IWDSU+51FA;
+      ))
+    (ideographic-radical . 17)	; ⼐
+    (ideographic-strokes . 3)
+    (total-strokes	 . 5)
+    (=big5-cdp		. #x88C6)	; &CDP-88C6;
+    (->subsumptive
+     ((=>>big5-cdp	  . #x88C6)	; &G-CDP-88C6;
+      (->subsumptive
+       ((==big5-cdp	    . #x88C6)	; &g2-CDP-88C6;
+	))
+      )
+     ((=big5-cdp-var-001  . #x88C6)	; &CDP-v001-88C6;
+      ))
+    ))
+(define-char
   '((script		Zetian Ideograph)
     (ideographic-radical . 17)	; ⼐
     (ideographic-strokes . 3)
