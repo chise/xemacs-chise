@@ -1,3 +1,10 @@
+2021-04-05  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R029-Again.el (A-U+20B38-itaiji-001): New abstract
+	node.
+	(U+20B38-itaiji-001): New character; use `<-denotational' for
+	A-U+20B38-itaiji-001.
+
 2021-04-04  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R008-Lid.el (A-U+3694-itaiji-002): New abstract node;
