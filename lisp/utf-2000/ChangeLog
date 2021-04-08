@@ -1,3 +1,46 @@
+2021-04-07  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R046-Mountain.el (U+5C75): Add
+	`<-denotational@component' for A-IWDSU+5C75; apply new conventions
+	for glyph granularity.
+	(A-U+21D42-itaiji-002): New abstract node.
+	(U+21D42-itaiji-002): New character; use `<-denotational' for
+	A-U+21D42-itaiji-002.
+	(U-0002D587): New character.
+	(U+5CB8): Modify structure.
+	(U+37C1): Apply new conventions for glyph granularity.
+	(U-0002D597): New character.
+	(U-0002D598): New character.
+	(U-00021DE6): Apply new conventions for glyph granularity.
+	(U-00021E0D): New character.
+	(U+5D01): Apply new conventions for glyph granularity.
+	(U+5D10): Likewise.
+	(U+5D11): Likewise.
+	(U-00021E1E): Use `->denotational' and `->subsumptive'.
+	(U+5D18): Apply new conventions for glyph granularity.
+	(U+5D19): Add `sound@ja/on'.
+	(UU+5D19): Add some relations for other characters.
+	(U+5D1F): Apply new conventions for glyph granularity.
+	(U-0002BD82): New character.
+	(U-0002F87D): Apply new conventions for glyph granularity; add
+	`<-denotational' for U-00021DE6.
+	(U+FA11): Unify MJ030196 and KOSEKI-094190.
+	(U-0002AA46): New character.
+	(U-0002D5BB): New character.
+	(U+5D79): Apply new conventions for glyph granularity.
+	(U-00021F02): New character.
+	(U+380A): Apply new conventions for glyph granularity.
+	(U+5DAC): Likewise.
+	(U+3816): Likewise.
+	(U+5DAE): Likewise.
+	(U-00021F48): Use `->denotational' and `->subsumptive'.
+	(U+5DC0): Apply new conventions for glyph granularity.
+	(U+3823): New character.
+	(U-00021FB3): New character.
+	(U+5DD2): Apply new conventions for glyph granularity.
+	(U+3827): Likewise.
+	(U-00021FD0): New character.
+
 2021-04-05  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R029-Again.el (A-U+20B38-itaiji-001): New abstract
