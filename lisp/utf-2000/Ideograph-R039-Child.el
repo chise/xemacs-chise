@@ -3023,12 +3023,43 @@
   '((ideographic-radical . 39)	; ⼦
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
-    (=ucs		. #x21983)	; 𡦃
-    (->subsumptive
-     ((=ucs@iso		  . #x21983)	; &M-07008;
-      (=daikanwa	  . 07008)	; &M-07008;
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=cns11643-4	  . #x3C66)	; &C4-3C66; [28-70]
+     ((=ucs		  . #x241FE)	; 𤇾
+      )
+     ((=ucs		  . #x5B50)	; 子
+      ))
+    (sound@ja/on/go	"gIyAu")
+    (sound@ja/on/kan	"kei")
+    (=ucs		. #x21983)	; 𡦃
+    (=cns11643-4	. #x3C66)	; &I-C4-3C66; [28-70]
+    (=daikanwa		. 07008)	; &I-M-07008;
+    (<-formed
+     ((=ucs@unicode	  . #x5B1B)	; &MJ009992;
+      (=mj		  . 009992)	; &MJ009992;
+      ))
+    (<-formed$_1*sources
+     jiyun)
+    (<-same
+     ((=ucs@unicode	  . #x5B1B)	; &MJ009992;
+      (=mj		  . 009992)	; &MJ009992;
+      (=daikanwa	  . 06782)	; &I-M-06782;
+      ))
+    (<-same*sources
+     jiyun daikanwa)
+    (->subsumptive
+     ((==ucs@iso	  . #x21983)	; &g2-M-07008;
+      (==daikanwa	  . 07008)	; &g2-M-07008;
+      (->subsumptive
+       ((===daikanwa	    . 07008)	; &R-M-07008;
+	)
+       ((===ucs@iso	    . #x21983)	; &R-U-00021983;
+	))
+      )
+     ((==ucs@cns	  . #x21983)	; &g2-CU+21983;
+      (==cns11643-4	  . #x3C66)	; &g2-CU+21983; [28-70]
       ))
     ))
 (define-char
