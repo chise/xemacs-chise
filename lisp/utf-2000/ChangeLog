@@ -1,3 +1,8 @@
+2021-04-08  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R039-Child.el (U-00021983): Apply new conventions for
+	glyph granularity.
+
 2021-04-07  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R046-Mountain.el (U+5C75): Add
@@ -40,6 +45,18 @@
 	(U+5DD2): Apply new conventions for glyph granularity.
 	(U+3827): Likewise.
 	(U-00021FD0): New character.
+
+2021-04-07  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R054-Long-Stride.el (UU+389F): Unify MJ001056 and
+	KOSEKI-108140.
+	(U+5EF6): Add `ideographic-structure'; add `sound@ja/on'.
+	(UU+5EF6): Add `ideographic-structure'; unify MJ011102; add some
+	relations for other characters.
+	(JU+5EF6): Add `ideographic-structure'.
+	(U-0002231B): Apply new conventions for glyph granularity.
+	(U+5EF7): Likewise.
+	(U+5EFC): Likewise.
 
 2021-04-05  MORIOKA Tomohiko  <tomo.git@chise.org>
 
