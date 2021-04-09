@@ -916,6 +916,23 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=>ucs@iwds-1	  . #x2ABE9)	; &A-IWDSU+2ABE9;
+      ))
+    (ideographic-radical . 67)	; ⽂
+    (ideographic-strokes . 10)
+    (total-strokes	 . 14)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x6587)	; 文
+      )
+     ((=ucs		  . #x96BB)	; 隻
+      ))
+    (=ucs		. #x2ABE9)	; 𪯩
+    ))
+(define-char
   '((ideographic-radical . 67)	; ⽂
     (ideographic-strokes . 11)
     (total-strokes	 . 15)
