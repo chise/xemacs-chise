@@ -1,5 +1,17 @@
 2021-04-08  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R067-Script.el (U-0002ABE9): New character; use
+	`<-denotational' for A-IWDSU+2ABE9.
+
+	* Ideograph-R063-Door.el (U-00022A3F): Add
+	`ideographic-structure'; add `sound@ja/on'.
+	(M-11736): Unify MJ036670 and KOSEKI-132250; add
+	`ideographic-structure'.
+	(IU+22A3F): Add `ideographic-structure'.
+	(U-0002D806): New character.
+
+2021-04-08  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R039-Child.el (U-00021983): Apply new conventions for
 	glyph granularity.
 
