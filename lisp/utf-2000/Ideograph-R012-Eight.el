@@ -3312,6 +3312,30 @@
     (ideographic-radical . 12)	; ⼋
     (ideographic-strokes . 5)
     (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
+      (=ucs		  . #x2FFA)	; ⿺
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((=ucs		    . #x200CA)	; 𠃊
+	)
+       ((=ucs		    . #x516B)	; 八
+	))
+      )
+     ((=big5-cdp	  . #x865E)	; &CDP-865E;
+      ))
+    (=ucs-itaiji-004	. #x5177)	; &U-i004+5177;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@cognate	  . #x5177)	; &A-cgnU+5177;
+      ))
+    (ideographic-radical . 12)	; ⼋
+    (ideographic-strokes . 5)
+    (total-strokes	 . 7)
     (ideographic-structure@apparent
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
