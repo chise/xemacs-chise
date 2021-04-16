@@ -1,3 +1,30 @@
+2021-04-15  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R012-Eight.el (U+5177-itaiji-004): New character; use
+	`<-denotational' for A-cgnU+5177.
+
+2021-04-14  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R050-Turban.el (U+5E22): Apply new conventions for
+	glyph granularity.
+	(U+5E2C): Likewise.
+	(U-000220C6): Likewise.
+	(U-000220BF): Likewise.
+	(U-000220BD): Likewise.
+	(U-000220D3): Likewise.
+	(U+384A): Likewise.
+	(U-000220EB): Likewise.
+	(U+5E45): Likewise.
+	(U+3857): Likewise.
+	(U+5E4D): Add `sound@ja/on/{kan|go}'.
+	(MJ010888): Add some relations for other characters.
+	(U+5E50): Add `ideographic-structure'; add `sound@ja/on/{kan|go}'.
+	(JU+5E50): Add `ideographic-structure'; add `<-interchangeable'
+	for M-27783.
+	(UU+5E50): Add `ideographic-structure'.
+	(U+5E52): Apply new conventions for glyph granularity.
+	(U+5E61): Likewise.
+
 2021-04-08  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R067-Script.el (U-0002ABE9): New character; use
