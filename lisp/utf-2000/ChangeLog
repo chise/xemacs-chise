@@ -1,3 +1,8 @@
+2021-04-16  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R063-Door.el (U+39BF): Apply new conventions for glyph
+	granularity.
+
 2021-04-15  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R012-Eight.el (U+5177-itaiji-004): New character; use
