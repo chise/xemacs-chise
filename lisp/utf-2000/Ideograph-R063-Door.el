@@ -1034,8 +1034,11 @@
      ((=>ucs@iwds-1	  . #x6236)	; &A-IWDSU+6236;
       (=>iwds-1		  .  0007)	; &A-IWDSU+6236;
       )
-     ((=ucs		  . #x6728)	; 木
+     ((=>ucs@iwds-1	  . #x6728)	; &A-IWDSU+6728;
+      (=>iwds-1		  .  0233)	; &A-IWDSU+6728;
       ))
+    (sound@ja/on/go	"keN" "ko")
+    (sound@ja/on/kan	"kaN" "ko")
     (=ucs		. #x39BF)	; 㦿
     ))
 (define-char
@@ -1051,16 +1054,70 @@
       )
      ((=ucs		  . #x6236)	; 戶
       )
-     ((=ucs		  . #x6728)	; 木
+     ((=>ucs@iwds-1	  . #x6728)	; &A-IWDSU+6728;
+      (=>iwds-1		  .  0233)	; &A-IWDSU+6728;
       ))
-    (=ucs@cns		. #x39BF)	; &C4-2655;
-    (=cns11643-4	. #x2655)	; &C4-2655; [06-53]
+    (=ucs@cns		. #x39BF)	; &MJ001332;
+    (=mj		. 001332)	; &MJ001332;
+    (=cns11643-4	. #x2655)	; &I-C4-2655; [06-53]
+    (=koseki		. 131970)	; &MJ001332;
     (=daikanwa		. 11710)	; &I-M-11710;
+    (<-ancient
+     ((=ucs		  . #x6236)	; 戶
+      (=daikanwa	  . 11696)	; &I-M-11696;
+      ))
+    (<-ancient$_1*sources
+     shuowen daikanwa)
+    (<-ancient*sources
+     shuowen daikanwa)
+    (<-formed
+     ((=daikanwa	  . 15321)	; &M-15321;
+      ))
+    (<-formed$_1*sources
+     jiyun)
+    (<-same
+     ((=daikanwa	  . 15321)	; &M-15321;
+      ))
+    (<-same$_1*sources
+     jiyun daikanwa)
+    (<-same*sources
+     jiyun daikanwa)
     (->subsumptive
-     ((==daikanwa	  . 11710)	; &g2-M-11710;
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+	(=ucs		    . #x2FF8)	; ⿸
+	)
+       ((=ucs		    . #x6236)	; 戶
+	)
+       ((=ucs		    . #x6728)	; 木
+	))
+      (=>>mj		  . 001332)	; &G-MJ001332;
+      (=>>daikanwa	  . 11710)	; &G-MJ001332;
+      (->subsumptive
+       ((==mj		    . 001332)	; &g2-MJ001332;
+	(==koseki	    . 131970)	; &g2-MJ001332;
+	(==daikanwa	    . 11710)	; &g2-MJ001332;
+	(->subsumptive
+	 ((===daikanwa	      . 11710)	; &R-M-11710;
+	  )
+	 ((===mj	      . 001332)	; &R-MJ001332;
+	  ))
+	))
       )
-     ((==ucs@cns	  . #x39BF)	; &g2-CU+39BF;
-      (==cns11643-4	  . #x2655)	; &g2-CU+39BF; [06-53]
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+	(=ucs		    . #x2FF8)	; ⿸
+	)
+       ((=ucs		    . #x6236)	; 戶
+	)
+       ((=ucs		    . #x6729)	; 朩
+	))
+      (=>>ucs@cns	  . #x39BF)	; &G-C4-2655;
+      (=>>cns11643-4	  . #x2655)	; &G-C4-2655; [06-53]
+      (->subsumptive
+       ((==ucs@cns	    . #x39BF)	; &g2-CU+39BF;
+	(==cns11643-4	    . #x2655)	; &g2-CU+39BF; [06-53]
+	))
       ))
     ))
 (define-char
@@ -1077,7 +1134,8 @@
      ((=+>ucs@jis	  . #x6238)	; &o-J0-384D;
       (=+>jis-x0208	  . #x384D)	; &o-J0-384D; [24-45]
       )
-     ((=ucs		  . #x6728)	; 木
+     ((=>ucs@iwds-1	  . #x6728)	; &A-IWDSU+6728;
+      (=>iwds-1		  .  0233)	; &A-IWDSU+6728;
       ))
     (=ucs@unicode	. #x39BF)	; &UU+39BF;
     (=ucs@JP/hanazono	. nil)
