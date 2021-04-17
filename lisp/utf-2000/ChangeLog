@@ -1,5 +1,12 @@
 2021-04-16  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R005-Second.el (U-000200CA): Apply new conventions for
+	glyph granularity.
+	(U+200CA-itaiji-001): New character; use `<-denotational' for
+	U-000200CA.
+
+2021-04-16  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R012-Eight.el (A-U+5177-itaiji-004): New abstract
 	node; unify A-U+5177-itaiji-005; use `<-denotational' for
 	A-cgnU+5177.
