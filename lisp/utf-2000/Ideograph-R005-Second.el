@@ -370,12 +370,32 @@
 (define-char
   '((ideographic-radical . 5)	; ⼄
     (ideographic-strokes . 0)
+    (=ucs		. #x200CA)	; 𠃊
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x200CA)	; 𠃊
+      ))
+    (ideographic-radical . 5)	; ⼄
+    (ideographic-strokes . 0)
+    (total-strokes	 . 2)
+    (=ucs-itaiji-001	. #x200CA)	; &U-i001+200CA;
+    (->subsumptive
+     ((==ucs-itaiji-001	  . #x200CA)	; &g2-U-i001+200CA;
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x200CA)	; 𠃊
+      ))
+    (ideographic-radical . 5)	; ⼄
+    (ideographic-strokes . 0)
     (total-strokes	 . 1)
     (hanyu-dazidian	1 47 5)
-    (=ucs		. #x200CA)	; 𠃊
-    (=big5-cdp		. #x8C7B)	; &I-CDP-8C7B;
+    (=ucs@iso		. #x200CA)	; &CDP-8C7B;
+    (=big5-cdp		. #x8C7B)	; &CDP-8C7B;
     (=gt-k		. 00029)	; &I-GT-K00029;
-    (=gt-pj-k1		. #x303A)	; 𠃊 [16-26]
+    (=gt-pj-k1		. #x303A)	; &CDP-8C7B; [16-26]
     (->subsumptive
      ((=>>ucs@iso	  . #x200CA)	; &G-CDP-8C7B;
       (=>>big5-cdp	  . #x8C7B)	; &G-CDP-8C7B;
@@ -384,6 +404,7 @@
        ((==ucs@iso	    . #x200CA)	; &g2-CDP-8C7B;
 	(==big5-cdp	    . #x8C7B)	; &g2-CDP-8C7B;
 	(==gt-k		    . 00029)	; &g2-CDP-8C7B;
+	(==gt-pj-k1	    . #x303A)	; &g2-CDP-8C7B; [16-26]
 	(->subsumptive
 	 ((===big5-cdp	      . #x8C7B)	; &R-CDP-8C7B;
 	  )
