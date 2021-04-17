@@ -1,5 +1,13 @@
 2021-04-16  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R012-Eight.el (A-U+5177-itaiji-004): New abstract
+	node; unify A-U+5177-itaiji-005; use `<-denotational' for
+	A-cgnU+5177.
+	(U+5177-itaiji-004): Use A-U+5177-itaiji-004 instead of
+	A-cgnU+5177 as its mother.
+	(U+5177-itaiji-005): New character; use `<-denotational' for
+	A-U+5177-itaiji-004.
+
 	* Ideograph-R063-Door.el (U+39BF): Apply new conventions for glyph
 	granularity.
 
