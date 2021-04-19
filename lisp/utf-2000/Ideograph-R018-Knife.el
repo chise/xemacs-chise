@@ -20369,13 +20369,45 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
+     ((=ucs-itaiji-002	  . #x2896B)	; &U-i002+2896B;
+      )
+     ((=ucs		  . #x5202)	; 刂
+      ))
+    (=koseki		. 026340)	; &KOSEKI-026340;
+    (=ucs-var-001	. #x2D118)	; &KOSEKI-026340;
+    (=ucs-var-002	. #x2D118)	; &KOSEKI-026340;
+    (<-formed
+     ((=ucs@unicode	  . #x5289)	; &MJ007602;
+      (=mj		  . 007602)	; &MJ007602;
+      ))
+    (<-formed$_1*sources
+     koseki mj)
+    (<-formed*sources
+     koseki mj)
+    (->subsumptive
+     ((==koseki		  . 026340)	; &g2-KOSEKI-026340;
+      (==ucs-var-002	  . #x2D118)	; &g2-KOSEKI-026340;
+      )
+     ((==ucs-var-001	  . #x2D118)	; &g2-U-v001+2D118;
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2D118)	; 𭄘
+      ))
+    (ideographic-radical . 18)	; ⼑
+    (ideographic-strokes . 15)
+    (total-strokes	 . 17)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
      ((=ucs-itaiji-001	  . #x2896B)	; &U-i001+2896B;
       )
      ((=ucs		  . #x5202)	; 刂
       ))
     (=ucs@JP/hanazono	. #x2D118)	; &MJ057058;
     (=mj		. 057058)	; &MJ057058;
-    (=koseki		. 026340)	; &MJ057058;
     (<-formed
      ((=ucs@unicode	  . #x5289)	; &MJ007602;
       (=mj		  . 007602)	; &MJ007602;
@@ -20387,7 +20419,6 @@
     (->subsumptive
      ((==ucs@JP/hanazono  . #x2D118)	; &g2-MJ057058;
       (==mj		  . 057058)	; &g2-MJ057058;
-      (==koseki		  . 026340)	; &g2-MJ057058;
       (->subsumptive
        ((===mj		    . 057058)	; &R-MJ057058;
 	))
