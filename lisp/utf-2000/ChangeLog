@@ -1,3 +1,52 @@
+2021-04-17  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R040-Roof.el:
+	- Add some Hanyo-Denshi code points.
+	- Add `=decomposition@hanyo-denshi' for some abstract glyph-forms
+	  of Hanyo-Denshi.
+	- Add some MJ code points corresponding to Hanyo-Denshi IVSes.
+	(A-cgnU+5B85): New abstract node.
+	(U+5B85): Add `<-denotational' for A-cgnU+5B85.
+	(U+5B90): Unify IWDS1-0277.
+	(U+5B9D-itaiji-002): New character; use `<-denotational' for
+	U+5B9D.
+	(U+5BA4): Apply new conventions for glyph granularity.
+	(U-000219FE): New character.
+	(U+5B93-itaiji-002): New character.
+	(U+5BAD): Apply new conventions for glyph granularity.
+	(U+5BB6): Add `ideographic-structure'.
+	(UU+5BB6): Add `ideographic-structure'.
+	(A-cgnU+5BBB): New abstract node.
+	(U+5BBB): Add `<-denotational' for A-cgnU+5BBB.
+	(A-U+219FE-itaiji-001): New abstract node; unify
+	A-U+5BCD-itaiji-002.
+	(U+5BCD-itaiji-002): Add `<-denotational' for
+	A-U+219FE-itaiji-001.
+	(U+219FE-itaiji-001): New character; use <-denotational' for
+	A-U+219FE-itaiji-001.
+	(U-00021A26): Use `->denotational' and `->subsumptive'.
+	(U+5BC8): Likewise.
+	(U-00021A3C): Use `->subsumptive'.
+	(U-00021A41): Likewise.
+	(U+5BD1): Add `sound@ja/on'.
+	(U-00021A60): Add `sound@ja/on'.
+	(IU+21A60): Add `<-Zhouwen' for UU+5BD1.
+	(A-cgnU+5BD7): New abstract node.
+	(U+5BD7): Add `<-denotational' for A-cgnU+5BD7.
+	(A-IWDSU+5BDA): New abstract node.
+	(U+5BDA): Add `<-denotational' for A-IWDSU+5BDA; add
+	`ideographic-structure'; add `sound@ja/on'.
+	(U-00021A67): Add `<-denotational' for A-IWDSU+5BDA; apply new
+	conventions for glyph granularity.
+	(U+5BE2): Add `sound@ja/on'.
+	(JU+5BE2): Add some relations for other characters.
+	(U-00021A93): Use `->denotational' and `->subsumptive'.
+	(U+21A93-itaiji-001): New character.
+	(IU+21AA2): Add `<-original' for UU+5BD1.
+	(U+5BED): Apply new conventions for glyph granularity.
+	(U+5BF6): Add `ideographic-structure'; add `sound@ja/on/{kan|go}'.
+	(U+3772): Apply new conventions for glyph granularity.
+
 2021-04-16  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R005-Second.el (U-000200CA): Apply new conventions for
