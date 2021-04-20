@@ -1817,6 +1817,8 @@
   '((shuowen-radical	. 408)	; 心
     (=shuowen-jiguge	. 36615)	; &SW-JIGUGE-36615;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x3900)	; 㤀
+      )
      ((=ucs		  . #x5FD8)	; 忘
       ))
     (->subsumptive

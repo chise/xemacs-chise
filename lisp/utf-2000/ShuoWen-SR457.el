@@ -3,6 +3,12 @@
   '((shuowen-radical	. 457)	; 亡
     (=shuowen-jiguge	. 44208)	; &SW-JIGUGE-44208;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x5166)	; 兦
+      )
+     ((=ucs		  . #x4EBE)	; 亾
+      )
+     ((=>ucs@iwds-1	  . #x5166)	; &A-IWDSU+5166;
+      )
      ((=ucs		  . #x4EA1)	; 亡
       ))
     (->subsumptive

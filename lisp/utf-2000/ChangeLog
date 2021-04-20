@@ -1,3 +1,11 @@
+2021-04-18  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR457.el (SW-JIGUGE-44208): Add U+5166, U+4EBE and
+	A-IWDSU+5166 as corresponding modern characters.
+
+	* ShuoWen-SR408.el (SW-JIGUGE-36615): Add U+3900 as a
+	corresponding modern character.
+
 2021-04-17  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R040-Roof.el:
