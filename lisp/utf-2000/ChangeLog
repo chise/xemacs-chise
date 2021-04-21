@@ -1,3 +1,8 @@
+2021-04-19  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R018-Knife.el (KOSEKI-026340): Separate hanaJU+2D118
+	and MJ057058; unify U+2D118-var-001 and U+2D118-var-002.
+
 2021-04-18  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* ShuoWen-SR457.el (SW-JIGUGE-44208): Add U+5166, U+4EBE and
