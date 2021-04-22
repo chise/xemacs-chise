@@ -1,3 +1,13 @@
+2021-04-21  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R030-Mouth.el (A-GT-K09455): New abstract node.
+	(GT-K09455): New character; use `<-denotational' for A-GT-K09455.
+
+	* Ideograph-R029-Again.el (A-U+53E2-itaiji-001): New abstract
+	node.
+	(U+53E2-itaiji-001): New character; use `<-denotational' for
+	A-U+53E2-itaiji-001.
+
 2021-04-19  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R018-Knife.el (KOSEKI-026340): Separate hanaJU+2D118
