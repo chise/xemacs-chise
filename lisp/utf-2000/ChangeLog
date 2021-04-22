@@ -1,5 +1,10 @@
 2021-04-21  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R043-Lame.el (A-U+2E9FB-itaiji-002): New abstract
+	node.
+	(U+2E9FB-itaiji-002): New character; use `<-denotational' for
+	A-U+2E9FB-itaiji-002.
+
 	* Ideograph-R030-Mouth.el (A-GT-K09455): New abstract node.
 	(GT-K09455): New character; use `<-denotational' for A-GT-K09455.
 
