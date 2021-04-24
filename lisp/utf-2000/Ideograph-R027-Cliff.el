@@ -6906,8 +6906,75 @@
 (define-char
   '((ideographic-radical . 27)	; ⼚
     (ideographic-strokes . 13)
+    (total-strokes	 . 15)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=>ucs@iwds-1	  . #x4E06)	; &A-IWDSU+4E06;
+      (=>iwds-1		  .  0150)	; &A-IWDSU+4E06;
+      )
+     ((=>ucs-itaiji-002	  . #x2E9FB)	; &A-U-i002+2E9FB;
+      ))
+    (=ucs		. #x2A819)	; 𪠙
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2A819)	; 𪠙
+      ))
+    (ideographic-radical . 27)	; ⼚
+    (ideographic-strokes . 13)
+    (total-strokes	 . 15)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs		  . #x5382)	; 厂
+      )
+     ((=ucs-itaiji-002	  . #x2E9FB)	; &U-i002+2E9FB;
+      ))
+    (=ucs@JP/hanazono	. #x2A819)	; &hanaJU+2A819;
+    ))
+(define-char
+  '((ideographic-radical . 27)	; ⼚
+    (ideographic-strokes . 13)
+    (total-strokes	 . 15)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=>ucs@iwds-1	  . #x4E06)	; &A-IWDSU+4E06;
+      (=>iwds-1		  .  0150)	; &A-IWDSU+4E06;
+      )
+     ((=ucs		  . #x7169)	; 煩
+      ))
     (=ucs		. #x2D196)	; 𭆖
-    (=cbeta		. 04989)	; &I-CB04989;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2D196)	; 𭆖
+      ))
+    (ideographic-radical . 27)	; ⼚
+    (ideographic-strokes . 13)
+    (total-strokes	 . 15)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs		  . #x5382)	; 厂
+      )
+     ((=ucs@unicode	  . #x7169)	; &AJ1-03429;
+      (=adobe-japan1-0	  . 03429)	; &AJ1-03429;
+      ))
+    (=ucs@JP/hanazono	. #x2D196)	; &CB04989;
+    (=cbeta		. 04989)	; &CB04989;
+    (->subsumptive
+     ((==ucs@JP/hanazono  . #x2D196)	; &g2-CB04989;
+      (==cbeta		  . 04989)	; &g2-CB04989;
+      (->subsumptive
+       ((===cbeta	    . 04989)	; &R-CB04989;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 27)	; ⼚

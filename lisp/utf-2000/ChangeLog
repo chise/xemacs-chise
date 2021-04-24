@@ -1,3 +1,27 @@
+2021-04-23  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R062-Halberd.el (U+6208-itaiji-003): New character.
+	(A-BC-8CB8): New abstract node.
+	(BC-8CB8): Add `<-denotational' for A-BC-8CB8.
+	(A-U+6211-itaiji-001): Separate A-U+6211-itaiji-003.
+	(A-U+6211-itaiji-003): Separate A-U+6211-itaiji-001; add
+	`<-denotational' for A-U+6211-itaiji-001.
+	(U+6211-itaiji-005): New character; use `<-denotational' for
+	A-U+6211-itaiji-001.
+	(U+6211-itaiji-001): Use A-U+6211-itaiji-003 instead of
+	A-U+6211-itaiji-001 as its mother.
+	(U-0002D7F0): New character.
+	(A-RUI6-E13F): New abstract node.
+	(RUI6-E13F): New character; use `<-denotational' for A-RUI6-E13F.
+	(U+621C): Apply new conventions for glyph granularity.
+	(U-000229CA): Use `->denotational' and `->subsumptive'.
+	(U-000229CC): Likewise.
+	(IU+229F5): Unify CB07984.
+	(U+6231): Apply new conventions for glyph granularity.
+
+	* Ideograph-R027-Cliff.el (U-0002A819): New character.
+	(U-0002D196): Apply new conventions for glyph granularity.
+
 2021-04-21  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R043-Lame.el (A-U+2E9FB-itaiji-002): New abstract
