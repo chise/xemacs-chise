@@ -1,3 +1,10 @@
+2021-05-01  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R032-Earth.el (U+5821): Apply new conventions for
+	glyph granularity.
+	(U+5822): Likewise.
+	(U+58E5): Add `<-denotational@usage' for BUCS+5EDB.
+
 2021-04-30  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R009-Man.el (A-cgnU+20203): New abstract node.
