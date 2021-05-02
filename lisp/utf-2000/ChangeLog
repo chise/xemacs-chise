@@ -1,3 +1,23 @@
+2021-04-30  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R009-Man.el (A-cgnU+20203): New abstract node.
+	(U-00020203): Add `<-denotational' for A-cgnU+20203; add
+	`ideographic-structure'; add some relations for other characters.
+	(U+20203-itaiji-001): New character; use `<-denotational' for
+	A-cgnU+20203.
+	(U+4FDD): Add `<-denotational@usage' for BUCS+4FDD; add
+	`sound@ja/on/{kan|go}' and `sound@ja/on/conventional'; add some
+	relations for other characters.
+	(M-00905): Unify MJ030683 and KOSEKI-010500.
+	(U-000202FE): Add `ideographic-structure'; add `sound@ja/on'.
+	(IU+202FE): Add `ideographic-structure'; add `<-ancient' for
+	UU+5BF6.
+	(U-00020300): Apply new conventions for glyph granularity.
+	(A-IWDSU+348C): Add `ideographic-structure'.
+	(U+348C): Apply new conventions for glyph granularity.
+	(o-IU+203BD): Likewise.
+	(BUCS+4FDD): New abstract node; unify A2-DJT-00342.
+
 2021-04-23  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R062-Halberd.el (U+6208-itaiji-003): New character.
