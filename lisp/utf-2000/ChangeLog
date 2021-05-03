@@ -1,3 +1,8 @@
+2021-05-02  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R040-Roof.el (U+5B9B): Add `sound@ja/on/{kan|go}'.
+	(UU+5B9B): Add some relations for other characters.
+
 2021-05-01  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R032-Earth.el (U+5821): Apply new conventions for
