@@ -24971,7 +24971,24 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=ucs		  . #x5C71)	; 山
+     ((=>ucs@component	  . #x5C6E)	; &A-compU+5C6E;
+      (=>iwds-1		  .  0096)	; &A-compU+5C6E;
+      )
+     ((=>ucs@cognate	  . #x9B4F)	; &A-cgnU+9B4F;
+      ))
+    (=>ucs@cognate	. #x5DCD)	; &A-cgnU+5DCD;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@cognate	  . #x5DCD)	; &A-cgnU+5DCD;
+      ))
+    (ideographic-radical . 46)	; ⼭
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>ucs@component	  . #x5C6E)	; &A-compU+5C6E;
+      (=>iwds-1		  .  0096)	; &A-compU+5C6E;
       )
      ((=ucs		  . #x9B4F)	; 魏
       ))
@@ -24989,11 +25006,8 @@
       )
      ((=ucs		  . #x5C71)	; 山
       )
-     ((=>ucs@iwds-1	  . #x9B4F)	; &o-J0-7232;
-      (=+>ucs@unicode	  . #x9B4F)	; &o-J0-7232;
-      (=+>jis-x0208	  . #x7232)	; &o-J0-7232; [82-18]
+     ((=ucs		  . #x9B4F)	; 魏
       ))
-    (=>ucs@iwds-1	. #x5DCD)	; &o-J0-565B;
     (=+>ucs@unicode	. #x5DCD)	; &o-J0-565B;
     (=+>jis-x0208	. #x565B)	; &o-J0-565B; [54-59]
     (=+>jis-x0213-1	. #x565B)	; &o-J0-565B; [54-59]
@@ -25119,7 +25133,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=ucs		  . #x5DCD)	; 巍
+     ((=>ucs@cognate	  . #x5DCD)	; &A-cgnU+5DCD;
       ))
     (ideographic-radical . 46)	; ⼭
     (ideographic-strokes . 17)
