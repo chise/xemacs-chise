@@ -3347,6 +3347,8 @@
       )
      ((=ucs		  . #x5917)	; 夗
       ))
+    (sound@ja/on/go	"WoN" "uti")
+    (sound@ja/on/kan	"WeN" "utu")
     (=ucs		. #x5B9B)	; 宛
     ))
 (define-char
@@ -3378,6 +3380,62 @@
     (=gt-pj-1		. #x3038)	; &I-GT-08917; [16-24]
     (=daikanwa		. 07110)	; &I-M-07110;
     (=shinjigen		.  1814)	; &AJ1-01148;
+    (<-formed
+     ((=ucs@unicode	  . #x614D)	; &AJ1-04859;
+      (=adobe-japan1-0	  . 04859)	; &AJ1-04859;
+      ))
+    (<-formed$_1*sources
+     jiyun)
+    (<-interchangeable
+     ((=ucs@cns		  . #x860A)	; &C1-7A38;
+      (=cns11643-1	  . #x7A38)	; &C1-7A38; [90-24]
+      (=daikanwa	  . 32434)	; &I-M-32434;
+      )
+     ((=ucs@unicode	  . #x5A49)	; &MJ009765;
+      (=mj		  . 009765)	; &MJ009765;
+      (=daikanwa	  . 06396)	; &I-M-06396;
+      )
+     ((=ucs@unicode	  . #x9B31)	; &AJ1-05332;
+      (=adobe-japan1-0	  . 05332)	; &AJ1-05332;
+      (=daikanwa	  . 45671)	; &I-M-45671;
+      )
+     ((=ucs@cns		  . #x860A)	; &C1-7A38;
+      (=cns11643-1	  . #x7A38)	; &C1-7A38; [90-24]
+      (=daikanwa	  . 32434)	; &I-M-32434;
+      ))
+    (<-interchangeable$_1*sources
+     daikanwa)
+    (<-interchangeable$_2*sources
+     shuowen-tongxun-dingsheng daikanwa)
+    (<-interchangeable$_3*sources
+     zhengzitong daikanwa)
+    (<-interchangeable$_4*sources
+     shuowen-tongxun-dingsheng xunzi-zhu daikanwa)
+    (<-interchangeable*sources
+     daikanwa)
+    (<-same
+     ((=ucs@unicode	  . #x614D)	; &AJ1-04859;
+      (=adobe-japan1-0	  . 04859)	; &AJ1-04859;
+      (=daikanwa	  . 11059)	; &I-M-11059;
+      ))
+    (<-same$_1*sources
+     jiyun daikanwa)
+    (<-same*sources
+     jiyun daikanwa)
+    (->formed
+     ((=ucs@unicode	  . #x60CC)	; &MJ011657;
+      (=mj		  . 011657)	; &MJ011657;
+      (=daikanwa	  . 10772)	; &I-M-10772;
+      )
+     ((=ucs@JP/hanazono	  . #x2D4E9)	; &MJ057329;
+      (=mj		  . 057329)	; &MJ057329;
+      )
+     ((=mj		  . 057331)	; &MJ057331;
+      ))
+    (->formed$_1*sources
+     shuowen daikanwa)
+    (->formed*sources
+     shuowen daikanwa)
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x5B9B)	; 宛
