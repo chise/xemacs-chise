@@ -1,3 +1,10 @@
+2021-05-03  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R046-Mountain.el (A-cgnU+5DCD): New abstract node.
+	(U+5DCD): Add `<-denotational' for A-cgnU+5DCD; apply new
+	conventions for glyph granularity.
+	(HNG-KAR0793-0): Use A-cgnU+5DCD instead of U+5DCD as its mother.
+
 2021-05-02  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R040-Roof.el (U+5B9B): Add `sound@ja/on/{kan|go}'.
