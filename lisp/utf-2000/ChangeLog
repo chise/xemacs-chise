@@ -1,3 +1,10 @@
+2021-05-06  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R050-Turban.el (U+5E00): Add `<-denotational@usage'
+	for BUCS+531D and A2-DJT-02798; unify DJT-02798.
+	(A2-DJT-02798): New abstract node; use `<-denotational@usage' for
+	BUCS+531D.
+
 2021-05-03  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R046-Mountain.el (A-cgnU+5DCD): New abstract node.
