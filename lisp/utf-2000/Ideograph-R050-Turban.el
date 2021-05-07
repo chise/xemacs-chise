@@ -64,7 +64,12 @@
     (=daikanwa		. 08772)	; &I-M-08772;
     ))
 (define-char
-  '((ideographic-radical . 50)	; ⼱
+  '((<-denotational@usage
+     ((==>ucs@bucs	  . #x531D)	; &BUCS+531D;
+      )
+     ((==>daijiten	  . 02798)	; &A2-DJT-02798;
+      ))
+    (ideographic-radical . 50)	; ⼱
     (ideographic-strokes . 1)
     (total-strokes	 . 4)
     (hanyu-dazidian	1 728 1)
@@ -84,6 +89,7 @@
     (=jis-x0213-2	. #x2870)	; &I-JX2-2870; [08-80]
     (=big5-cdp		. #x8BD7)	; &I-CDP-8BD7;
     (=daikanwa		. 08773)	; &I-M-08773;
+    (=daijiten		. 02798)	; &I-DJT-02798;
     (=shinjigen		.  2079)	; 帀
     (=cbeta		. 00038)	; &I-CB00038;
     (=jef-china3	. #x4BF7)	; &I-JC3-4BF7;
@@ -107,11 +113,14 @@
       (==jis-x0213-2	  . #x2870)	; &g2-AJ1-14497; [08-80]
       (==big5-cdp	  . #x8BD7)	; &g2-AJ1-14497;
       (==daikanwa	  . 08773)	; &g2-AJ1-14497;
+      (==daijiten	  . 02798)	; &g2-AJ1-14497;
       (==shinjigen	  .  2079)	; &g2-AJ1-14497;
       (==cbeta		  . 00038)	; &g2-AJ1-14497;
       (==jef-china3	  . #x4BF7)	; &g2-AJ1-14497;
       (->subsumptive
        ((===daikanwa	    . 08773)	; &R-M-08773;
+	)
+       ((===daijiten	    . 02798)	; &R-DJT-02798;
 	)
        ((===jis-x0212	    . #x3C24)	; &R-JX2-2870; [28-04]
 	(===jis-x0213-2	    . #x2870)	; &R-JX2-2870; [08-80]
@@ -14511,6 +14520,13 @@
       (=>iwds-1		  .  0337)	; &A-IWDSU+5EC9;
       ))
     (=>ucs@iwds-1	. #x2214F)	; &A-IWDSU+2214F;
+    ))
+(define-char
+  '((<-denotational@usage
+     ((==>ucs@bucs	  . #x531D)	; &BUCS+531D;
+      ))
+    (ideographic-radical . 50)	; ⼱
+    (==>daijiten	. 02798)	; &A2-DJT-02798;
     ))
 (define-char
   '((ideographic-radical . 50)	; ⼱
