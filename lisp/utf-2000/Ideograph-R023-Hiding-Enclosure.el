@@ -2097,15 +2097,18 @@
     (=cns11643-7	. #x4D45)	; &C7-4D45; [45-37]
     (=daikanwa		. 02693)	; &I-M-02693;
     (<-formed
-     ((=daikanwa/+p	  . 32784)	; &M-p32784;
+     ((=ucs@cns		  . #x4599)	; &C4-5D32;
+      (=cns11643-4	  . #x5D32)	; &C4-5D32; [61-18]
       ))
     (<-formed$_1*sources
      jiyun)
     (<-same
-     ((=daikanwa/+p	  . 32784)	; &M-p32784;
+     ((=ucs@cns		  . #x4599)	; &C4-5D32;
+      (=cns11643-4	  . #x5D32)	; &C4-5D32; [61-18]
+      (=daikanwa/+p	  . 32784)	; &C4-5D32;
       ))
     (<-same*sources
-     jiyun daikanwa)
+     jiyun daikanwa daikanwa/+p)
     (->subsumptive
      ((==daikanwa	  . 02693)	; &g2-M-02693;
       )
