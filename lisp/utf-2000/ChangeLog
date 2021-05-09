@@ -1,3 +1,23 @@
+2021-05-08  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R012-Eight.el (A-U+5140-itaiji-002): New abstract
+	node; use `<-denotational@component' for A-IWDSU+4E38.
+	(U+5140-itaiji-002): New character; use `<-denotational' for
+	A-U+5140-itaiji-002; use `<-denotational@component' for U+5140.
+	(A-IWDSU+516E): Add `<-denotational@component' for A-IWDSU+2009E;
+	delete `=>ucs@iwds-1/normalized'.
+	(A-IWDSU+2009E): New abstract node; use `<-denotational@component'
+	for A-IWDSU+20012.
+
+2021-05-07  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R022-Right-Open-Box.el (U+531D): Add
+	`<-denotational@usage' for BUCS+531D and A2-DJT-00951.
+	(UU+531D): Unify DJT-00951.
+	(BUCS+531D): New abstract node.
+	(A2-DJT-00951): New abstract node; use `<-denotational@usage' for
+	BUCS+531D.
+
 2021-05-06  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R050-Turban.el (U+5E00): Add `<-denotational@usage'
