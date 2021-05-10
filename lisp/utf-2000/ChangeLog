@@ -1,5 +1,64 @@
 2021-05-08  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R053-Dotted-Cliff.el (U+5E7F): Unify CB01314.
+	(GT-K00228): New character.
+	(U+5E90): Use `->denotational' and `->subsumptive'; add
+	`<-denotational@usage' for BUCS+5EEC.
+	(U-000221EC): Apply new conventions for glyph granularity.
+	(U-00022208): Likewise.
+	(UU+387F): Add `<-original' for UU+65A5.
+	(UU+5EA6): Unify DJT-02944.
+	(U-0002D65A): Apply new conventions for glyph granularity.
+	(U+5EA7): Likewise; use `<-denotational@usage' instead of
+	`<-denotational' for BUCS+5EA7.
+	(U+3888): Apply new conventions for glyph granularity.
+	(U+3889): Likewise.
+	(U-0002B776): Likewise; use `<-denotational@usage' instead of
+	`<-denotational' for BUCS+5EA7.
+	(U-0002B777): Likewise.
+	(A-U+22281-itaiji-002): New abstract node; unify
+	A-U+22281-itaiji-003.
+	(U+22281-itaiji-002): New character; use `<-denotational' for
+	A-U+22281-itaiji-002.
+	(U+22281-itaiji-003): Likewise.
+	(U-00022288): New character.
+	(U-00022291): New character.
+	(A-GT-K10683): Use IWDS1-0305 instead of ⿸ in
+	`ideographic-structure'.
+	(U+5ECE): Apply new conventions for glyph granularity.
+	(U-00022295): Likewise.
+	(U-0002A392): Likewise.
+	(U+5ECD): Add `ideographic-structure'.
+	(U-000222A0): New character.
+	(U-000222A2): New character.
+	(U-0002D673): New character.
+	(U-000222AD): Use `->denotational' and `->subsumptive'.
+	(U-000222B4): Apply new conventions for glyph granularity.
+	(U-000222C7): Likewise.
+	(U-0002D67D): New character.
+	(U-000222E8): New character; use `<-denotational@usage' for
+	BUCS+5EDB.
+	(U-000222E9): New character.
+	(U+5EEC): Apply new conventions for glyph granularity; add
+	`<-denotational@usage' for BUCS+5EEC.
+	(U-000222F1): Use `->denotational' and `->subsumptive'.
+	(U-000222F2): Likewise.
+	(U-000222F9): New character.
+	(M-09540): Unify IU+222F9, MJ035448 and KOSEKI-107860; add
+	`<-denotational' for U-000222F9.
+	(U-0002D689): New character.
+	(U-00022311): Use `->denotational' and `->subsumptive'.
+	(U+882F): Likewise.
+	(U-0002D691): New character.
+	(A2-DJT-02986): Unify BUCS+5EDB.
+	(A2-DJT-02919): Unify BUCS+5E80.
+	(BUCS+5EEC): New abstract node; unify A2-DJT-02999.
+	(BUCS+5EA6): Unify A2-DJT-02944.
+	(BUCS+5EA7): New abstract node; unify A2-DJT-02946.
+
+	* Ideograph-R006-Hook.el (U-00020029): Apply new conventions for
+	glyph granularity.
+
 	* Ideograph-R012-Eight.el (A-U+5140-itaiji-002): New abstract
 	node; use `<-denotational@component' for A-IWDSU+4E38.
 	(U+5140-itaiji-002): New character; use `<-denotational' for
