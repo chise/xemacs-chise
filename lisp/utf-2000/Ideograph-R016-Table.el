@@ -1535,7 +1535,6 @@
       (=>iwds-1		  .  0119)	; &A-compU+51E0;
       )
      ((=>ucs@iwds-1	  . #x516E)	; &A-IWDSU+516E;
-      (=>ucs@iwds-1/normalized . #x516E)	; &A-IWDSU+516E;
       ))
     (sound@ja/on	"syuku")
     (=ucs		. #x20635)	; 𠘵
