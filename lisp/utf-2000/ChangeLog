@@ -1,3 +1,14 @@
+2021-05-09  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R001-One.el (U-00020012): Apply new conventions for
+	glyph granularity; add `<-denotational@component' for
+	A-IWDSU+20012.
+	(GT-00060): Add `<-denotational' for U+531D; add
+	`ideographic-structure'; subsume HNG-HOS0036-0 and HNG-SAI0017-0.
+	(U-0002B825): New character.
+	(U-00020029): Apply new conventions for glyph granularity.
+	(A-IWDSU+20012): New abstract node.
+
 2021-05-08  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R053-Dotted-Cliff.el (U+5E7F): Unify CB01314.
