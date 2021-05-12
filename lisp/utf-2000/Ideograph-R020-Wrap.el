@@ -3281,7 +3281,6 @@
      ((=ucs		  . #x65EC)	; 旬
       )
      ((=>ucs@iwds-1	  . #x516E)	; &A-IWDSU+516E;
-      (=>ucs@iwds-1/normalized . #x516E)	; &A-IWDSU+516E;
       ))
     (sound@ja/on	"syuN")
     (=ucs		. #x208E4)	; 𠣤
@@ -3350,7 +3349,6 @@
      ((=ucs		  . #x65EC)	; 旬
       )
      ((=>ucs@iwds-1	  . #x516E)	; &A-IWDSU+516E;
-      (=>ucs@iwds-1/normalized . #x516E)	; &A-IWDSU+516E;
       ))
     (=ucs		. #x208EC)	; 𠣬
     ))
