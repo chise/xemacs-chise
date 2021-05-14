@@ -1,3 +1,11 @@
+2021-05-13  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R001-One.el (IU+20012): Add `<-Small-Seal' and
+	`<-original' for MJ010942.
+	(A-IWDSU+2002D): New abstract node.
+	(U-0002002D): Add `<-denotational' for A-IWDSU+2002D; apply new
+	conventions for glyph granularity.
+
 2021-05-09  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R001-One.el (U-00020012): Apply new conventions for
