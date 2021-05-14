@@ -898,7 +898,8 @@
     (=cns11643-6	. #x2563)	; &C6-2563; [05-67]
     (=daikanwa		. 00239)	; &I-M-00239;
     (<-same
-     ((=daikanwa	  . 09171)	; &M-09171;
+     ((=mj		  . 035214)	; &MJ035214;
+      (=daikanwa	  . 09171)	; &I-M-09171;
       ))
     (<-same*sources
      zihui-bu daikanwa)
