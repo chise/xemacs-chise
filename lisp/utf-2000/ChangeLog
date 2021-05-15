@@ -1,3 +1,9 @@
+2021-05-14  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R051-Dry.el (U+5E73): Add `sound@ja/on/{kan|go}'.
+	(KU+5E73): Add some relations for other characters.
+	(U-0002218A): Apply new conventions for glyph granularity.
+
 2021-05-13  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R001-One.el (IU+20012): Add `<-Small-Seal' and
