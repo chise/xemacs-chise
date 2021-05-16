@@ -1,3 +1,12 @@
+2021-05-15  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R033-Scholar.el (A-cgnU+58FD): Abolished; unified with
+	A-IWDSU+58FD.
+	(A-IWDSU+58FD): Delete `<-denotational' for A-cgnU+58FD.
+	(C6-5C2F): Unify UU+5900 instead of U+5900; use `<-denotational'
+	for U+5900 instead of `<-denotational' for A-cgnU+5900 and
+	`<-denotational@component' for A-IWDSU+58FD.
+
 2021-05-14  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R051-Dry.el (U+5E73): Add `sound@ja/on/{kan|go}'.
