@@ -3517,7 +3517,8 @@
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@cognate	  . #x58FD)	; &A-cgnU+58FD;
+     ((=>ucs@iwds-1	  . #x58FD)	; &A-IWDSU+58FD;
+      (=>iwds-1		  .  0330)	; &A-IWDSU+58FD;
       ))
     (ideographic-radical . 41)	; ⼨
     (ideographic-structure
@@ -3528,15 +3529,11 @@
       )
      ((=ucs		  . #x540B)	; 吋
       ))
-    (=>ucs@cognate	. #x5900)	; &A-cgnU+5900;
+    (=ucs		. #x5900)	; 夀
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@cognate	  . #x5900)	; &A-cgnU+5900;
-      ))
-    (<-denotational@component
-     ((=>ucs@iwds-1	  . #x58FD)	; &A-IWDSU+58FD;
-      (=>iwds-1		  .  0330)	; &A-IWDSU+58FD;
+     ((=ucs		  . #x5900)	; 夀
       ))
     (ideographic-radical@ucs . 33)	; ⼠
     (ideographic-radical@cns . 41)	; ⼨
@@ -3551,8 +3548,8 @@
       )
      ((=ucs		  . #x540B)	; 吋
       ))
-    (=ucs		. #x5900)	; 夀
-    (=cns11643-6	. #x5C2F)	; &I-C6-5C2F; [60-15]
+    (=ucs@unicode	. #x5900)	; &C6-5C2F;
+    (=cns11643-6	. #x5C2F)	; &C6-5C2F; [60-15]
     (=daikanwa		. 07459)	; &I-M-07459;
     (<-formed
      ((=ucs		  . #x58FD)	; 壽
@@ -3590,7 +3587,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@cognate	  . #x5900)	; &A-cgnU+5900;
+     ((=ucs		  . #x5900)	; 夀
       ))
     (ideographic-radical . 41)	; ⼨
     (ideographic-strokes . 11)
