@@ -1,3 +1,20 @@
+2021-05-17  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R009-Man.el (U-0002CFF2): Add `ideographic-structure'.
+	(U+2CFF2-itaiji-001): New character; use `<-denotational' for
+	U-0002CFF2.
+	(U-0002CFF1): Add `total-strokes'.
+	(hanaJU+2CFF2): Add `ideographic-structure'.
+	(U-0002CFF5): Apply new conventions for glyph granularity.
+	(U-0002CFFB): Add `ideographic-structure'.
+	(U-0002D003): Use IWDS1-0173 instead of BC-89E7 in
+	`ideographic-structure'.
+
+	* Ideograph-R031-Enclosure.el (A-IWDSU+56F1): Delete
+	`<-denotational' for BUCS+5306.
+	(U+56EA-var-001): Add `<-denotational@usage' for BUCS+5306.
+	(U+56EA): Ditto.
+
 2021-05-16  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* char-db-util.el (char-db-coded-charset-priority-list): Add
