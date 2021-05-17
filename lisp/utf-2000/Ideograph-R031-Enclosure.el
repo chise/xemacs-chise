@@ -1941,10 +1941,7 @@
     (=hanziku-2		. #xE542)	; &I-HZK02-E542;
     ))
 (define-char
-  '((<-denotational
-     ((==>ucs@bucs	  . #x5306)	; &BUCS+5306;
-      ))
-    (ideographic-radical . 31)	; ⼞
+  '((ideographic-radical . 31)	; ⼞
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
     (ideographic-structure
@@ -2093,6 +2090,9 @@
      ((=>ucs@iwds-1	  . #x56F1)	; &A-IWDSU+56F1;
       (=>iwds-1		  .  0361)	; &A-IWDSU+56F1;
       ))
+    (<-denotational@usage
+     ((==>ucs@bucs	  . #x5306)	; &BUCS+5306;
+      ))
     (ideographic-radical . 31)	; ⼞
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
@@ -2110,6 +2110,9 @@
   '((<-denotational
      ((=>ucs@iwds-1	  . #x56F1)	; &A-IWDSU+56F1;
       (=>iwds-1		  .  0361)	; &A-IWDSU+56F1;
+      ))
+    (<-denotational@usage
+     ((==>ucs@bucs	  . #x5306)	; &BUCS+5306;
       ))
     (ideographic-radical . 31)	; ⼞
     (ideographic-strokes . 4)
