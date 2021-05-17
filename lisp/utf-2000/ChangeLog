@@ -1,3 +1,8 @@
+2021-05-16  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* char-db-util.el (char-db-coded-charset-priority-list): Add
+	`=>ucs-itaiji-006@iwds-1'.
+
 2021-05-15  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R046-Mountain.el (U-0002D5D8): New character.

@@ -660,6 +660,7 @@
 	  (=>big5-cdp-var-001		  "A-CDP-v001-" 4 X)
 	  (=>ucs-itaiji-001@iwds-1	"A-IWDSU-i001+" 4 X)
 	  (=>ucs-itaiji-002@iwds-1	"A-IWDSU-i002+" 4 X)
+	  (=>ucs-itaiji-006@iwds-1	"A-IWDSU-i006+" 4 X)
 	  (=>big5-cdp@iwds-1		   "A-IWDSCDP-" 4 X)
 	  (=>big5-cdp@component		   "A-compCDP-" 4 X)
 	  (=>big5-cdp@cognate		    "A-cgnCDP-" 4 X)
