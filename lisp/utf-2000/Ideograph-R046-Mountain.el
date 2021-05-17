@@ -20407,6 +20407,37 @@
      ((=>ucs@component	  . #x5C6E)	; &A-compU+5C6E;
       (=>iwds-1		  .  0096)	; &A-compU+5C6E;
       )
+     ((=ucs		  . #x83D0)	; 菐
+      ))
+    (=ucs		. #x2D5D8)	; 𭗘
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2D5D8)	; 𭗘
+      ))
+    (ideographic-radical . 46)	; ⼭
+    (ideographic-strokes . 12)
+    (total-strokes	 . 15)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5C71)	; 山
+      )
+     ((=ucs@unicode	  . #x83D0)	; &AJ1-18500;
+      (=adobe-japan1-5	  . 18500)	; &AJ1-18500;
+      ))
+    (=ucs@JP/hanazono	. #x2D5D8)	; &hanaJU+2D5D8;
+    ))
+(define-char
+  '((ideographic-radical . 46)	; ⼭
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>ucs@component	  . #x5C6E)	; &A-compU+5C6E;
+      (=>iwds-1		  .  0096)	; &A-compU+5C6E;
+      )
      ((=>jis-x0208@1997	  . #x3975)	; &J97-3975; [25-85]
       ))
     (=>ucs@iwds-1	. #x21F21)	; &A-IWDSU+21F21;

@@ -1,5 +1,14 @@
 2021-05-15  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R046-Mountain.el (U-0002D5D8): New character.
+
+	* Ideograph-R041-Inch.el (A-cgnU+5900): Abolished; changed to
+	U+5900.
+	(U+5900): Apply new conventions for glyph granularity; use
+	`<-denotational' for A-IWDSU+58FD instead of `<-denotational' for
+	A-cgnU+5900 and `<-denotational@component' for A-IWDSU+58FD.
+	(MJ057358): Use U+5900 instead of A-cgnU+5900 as its mother.
+
 	* Ideograph-R033-Scholar.el (A-cgnU+58FD): Abolished; unified with
 	A-IWDSU+58FD.
 	(A-IWDSU+58FD): Delete `<-denotational' for A-cgnU+58FD.
