@@ -1,5 +1,29 @@
 2021-05-17  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R020-Wrap.el (U+5305): Use `<-denotational@usage'
+	instead of `<-denotational' for BUCS+5305; use "⿵" instead of
+	"⿻".
+	(UU+5305): Use "⿵" instead of "⿻"; unify DJT-00924.
+	(U+5305-itaiji-002): Add `<-denotational@component' for U-0002D073
+	and A-MJ058438; use "⿵" instead of "⿱".
+	(A-cgnU+5306): Delete `<-denotational@usage' for BUCS+5306.
+	(U+5306): Add `<-denotational@usage' for BUCS+5306.
+	(U-0002F82A): Unify DJT-00923.
+	(U+5306-itaiji-002): Add `<-denotational@usage' for BUCS+5306.
+	(U+5307):Ditto.
+	(BUCS+5305): New abstract node; unify A2-DJT-00924.
+	(BUCS+5306): Unify A2-DJT-00923.
+
+	* Ideograph-R029-Again.el (U+6182-itaiji-006): New character; use
+	`<-denotational' for A-U+6182-itaiji-006.
+	(A-U+6182-itaiji-006): New abstract node; use `<-denotational' for
+	A-IWDSU+6182-itaiji-006.
+	(A-IWDSU+6182-itaiji-006): New abstract node.
+	(U+6182-itaiji-007): New character; use `<-denotational' for
+	A-U+6182-itaiji-007.
+	(A-U+6182-itaiji-007): New abstract node; use `<-denotational' for
+	A-IWDSU+6182-itaiji-006.
+
 	* Ideograph-R009-Man.el (U-0002CFF2): Add `ideographic-structure'.
 	(U+2CFF2-itaiji-001): New character; use `<-denotational' for
 	U-0002CFF2.
