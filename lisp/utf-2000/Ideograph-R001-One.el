@@ -6597,7 +6597,7 @@
     ))
 (define-char
   '((<-denotational@usage
-     ((==>daijiten	  . 08361)	; &A2-DJT-08361;
+     ((==>ucs@bucs	  . #x7ADD)	; &BUCS+7ADD;
       ))
     (ideographic-radical . 1)	; ⼀
     (ideographic-structure
