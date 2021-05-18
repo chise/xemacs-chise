@@ -1,3 +1,13 @@
+2021-05-18  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R009-Man.el (A-IWDSU+5002): Delete
+	`<-denotational@usage' for BUCS+5002.
+	(U+4F75): Add `<-denotational@usage' for BUCS+5002.
+	(UU+4F75): Unify DJT-00269.
+	(U+5002): Add `<-denotational@usage' for BUCS+5002; unify
+	DJT-00362.
+	(BUCS+5002): Unify A2-DJT-00269.
+
 2021-05-17  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R020-Wrap.el (U+5305): Use `<-denotational@usage'
