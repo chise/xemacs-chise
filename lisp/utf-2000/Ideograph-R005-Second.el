@@ -1113,6 +1113,14 @@
     (ideographic-radical . 5)	; ⼄
     (ideographic-strokes . 2)
     (total-strokes	 . 3)
+    (ideographic-structure@apparent
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
+      (=ucs		  . #x2FFA)	; ⿺
+      )
+     ((=ucs@iso		  . #x200CA)	; &CDP-8C7B;
+      )
+     ((=ucs		  . #x4E8C)	; 二
+      ))
     (=koseki		. 002080)	; &KOSEKI-002080;
     (=ucs-itaiji-001	. #x2CF16)	; &KOSEKI-002080;
     (<-formed
