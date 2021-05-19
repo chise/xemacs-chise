@@ -1,3 +1,8 @@
+2021-05-19  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R005-Second.el (KOSEKI-002080): Add
+	`ideographic-structure@apparent'.
+
 2021-05-18  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R051-Dry.el (A-IWDSU+5E77): Delete
