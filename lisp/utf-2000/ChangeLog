@@ -1,5 +1,19 @@
 2021-05-19  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R019-Power.el (U+52E4): Add `<-denotational@usage' for
+	BUCS+52E4; add `ideographic-structure'.
+	(A-UU+52E4): New abstract node; use `<-denotational' for U+52E4.
+	(o-JU+52E4): Use A-UU+52E4 instead of U+52E4 as its mother.
+	(HNG-KHM0225-0): Likewise; add `ideographic-structure'.
+	(A-U+52E4-itaiji-003): New abstract node; use `<-denotational' for
+	U+52E4.
+	(U+52E4-itaiji-003): New character; use `<-denotational' for
+	A-U+52E4-itaiji-003.
+	(UU+52E4): Use A-UU+52E4 instead of U+52E4 as its mother; unify
+	U+FA34.
+	(g2-UU+52E4): Move U+FA34 to UU+52E4.
+	(BUCS+52E4): New abstract node; unify A2-DJT-00900.
+
 	* Ideograph-R005-Second.el (KOSEKI-002080): Add
 	`ideographic-structure@apparent'.
 
