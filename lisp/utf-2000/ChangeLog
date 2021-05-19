@@ -1,5 +1,14 @@
 2021-05-18  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R051-Dry.el (A-IWDSU+5E77): Delete
+	`<-denotational@usage' for BUCS+5002.
+	(U+5E76): Add `<-denotational@usage' for BUCS+5E77, BUCS+5002 and
+	BUCS+7ADD.
+	(U+5E77): Add `<-denotational@usage' for BUCS+5E77.
+	(BUCS+5E77): New abstract node; unify A2-DJT-02902.
+
+2021-05-18  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R009-Man.el (A-IWDSU+5002): Delete
 	`<-denotational@usage' for BUCS+5002.
 	(U+4F75): Add `<-denotational@usage' for BUCS+5002.
