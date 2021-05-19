@@ -6898,13 +6898,36 @@
     (=daikanwa		. 02415)	; &I-M-02415;
     ))
 (define-char
-  '((ideographic-radical . 19)	; ⼒
+  '((<-denotational@usage
+     ((==>ucs@bucs	  . #x52E4)	; &BUCS+52E4;
+      ))
+    (ideographic-radical . 19)	; ⼒
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=>ucs@iwds-1	  . #x5807)	; &A-IWDSU+5807;
+      (=>iwds-1		  .  27630)	; &A-IWDSU+5807;
+      )
+     ((=ucs		  . #x529B)	; 力
+      ))
     (=ucs		. #x52E4)	; 勤
     (=>jis-x0208@1997	. #x3650)	; 勤 [22-48]
     ))
 (define-char
   '((<-denotational
      ((=ucs		  . #x52E4)	; 勤
+      ))
+    (ideographic-radical . 19)	; ⼒
+    (=>ucs@unicode	. #x52E4)	; &A-GT-03088;
+    (=>cns11643-1	. #x633B)	; &A-GT-03088; [67-27]
+    (=>cns11643-4	. #x364C)	; &A-GT-03088; [22-44]
+    (=>gt		. 03088)	; &A-GT-03088;
+    (=>gt-k		. 09036)	; &A-GT-03088;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@unicode	  . #x52E4)	; &A-GT-03088;
       ))
     (ideographic-radical . 19)	; ⼒
     (ideographic-structure
@@ -6953,11 +6976,9 @@
     (=daikanwa/+p	. 02415)	; 勤
     (=shinjigen		.  0743)	; 勤
     (<-simplified@JP/Jouyou
-     ((=ucs@unicode	  . #x52E4)	; &AJ1-13338;
-      (=ucs@jis		  . #xFA34)	; &AJ1-13338;
-      (=adobe-japan1-4	  . 13338)	; &AJ1-13338;
+     ((=ucs		  . #xFA34)	; 勤
       (=daikanwa	  . 02424)	; &I-M-02424;
-      (=shinjigen	  .  0744)	; &AJ1-13338;
+      (=shinjigen	  .  0744)	; 勤
       ))
     (<-simplified@JP/Jouyou*sources
      daikanwa JP/Jouyou)
@@ -6966,15 +6987,6 @@
        ((=ucs		    . #x52E4)	; 勤
 	)
        ((=ucs		    . #xE0100)	; 󠄀
-	))
-      (ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	(=ucs		    . #x2FF0)	; ⿰
-	)
-       ((=gt-k		    . 06725)	; &GT-K06725;
-	)
-       ((==ucs@unicode	    . #x529B)	; &g2-AJ1-03991;
-	(==adobe-japan1-0   . 03991)	; &g2-AJ1-03991;
 	))
       (==ucs@iso	  . #x2F827)	; &g2-AJ1-01736;
       (==ucs@jis	  . #x52E4)	; &g2-AJ1-01736;
@@ -7007,12 +7019,44 @@
     ))
 (define-char
   '((<-denotational
-     ((=ucs		  . #x52E4)	; 勤
+     ((=>ucs@unicode	  . #x52E4)	; &A-GT-03088;
       ))
     (ideographic-radical . 19)	; ⼒
     (ideographic-strokes . 11)
     (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs-var-001	  . #x26C0C)	; &U-v001+26C0C;
+      )
+     ((=ucs		  . #x529B)	; 力
+      ))
     (===hng-khm		. 02250)	; &HNG011-02250;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x52E4)	; 勤
+      ))
+    (ideographic-radical . 19)	; ⼒
+    (=>ucs-itaiji-003	. #x52E4)	; &A-U-i003+52E4;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs-itaiji-003	  . #x52E4)	; &A-U-i003+52E4;
+      ))
+    (ideographic-radical . 19)	; ⼒
+    (ideographic-strokes . 10)
+    (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs-var-002	  . #x5807)	; &U-v002+5807;
+      )
+     ((=ucs		  . #x529B)	; 力
+      ))
+    (=ucs-itaiji-003	. #x52E4)	; &U-i003+52E4;
     ))
 (define-char
   '((ideographic-radical . 19)	; ⼒
@@ -7733,8 +7777,9 @@
     ))
 (define-char
   '((<-denotational
-     ((=ucs		  . #x52E4)	; 勤
+     ((=>ucs@unicode	  . #x52E4)	; &A-GT-03088;
       ))
+    (=>ucs*		. #x52E4)	; 勤
     (ideographic-radical . 19)	; ⼒
     (ideographic-strokes . 11)
     (total-strokes	 . 13)
@@ -7743,41 +7788,43 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=ucs		  . #x5807)	; 堇
+     ((=ucs@unicode	  . #x5807)	; &C2-343E;
+      (=gb2312		  . #x5D40)	; &C2-343E; [61-32]
+      (=cns11643-2	  . #x343E)	; &I-C2-343E; [20-30]
+      (=daikanwa	  . 05212)	; &I-M-05212;
       )
      ((=ucs		  . #x529B)	; 力
       ))
-    (=ucs@unicode	. #x52E4)	; &AJ1-13338;
-    (=ucs@jis		. #xFA34)	; &AJ1-13338;
+    (=ucs		. #xFA34)	; 勤
+    (=ucs@unicode	. #x52E4)	; 勤
+    (=ucs@jis		. #xFA34)	; 勤
     (=ucs@JP/hanazono	. nil)
-    (=adobe-japan1-4	. 13338)	; &AJ1-13338;
+    (=adobe-japan1-4	. 13338)	; &I-AJ1-13338;
     (=gb2312		. #x475A)	; &I-G0-475A; [39-58]
     (=ks-x1001		. #x5043)	; &I-K0-5043; [48-35]
     (=cns11643-1	. #x633B)	; &I-C1-633B; [67-27]
     (=jis-x0213-1	. #x2E68)	; &I-JX1-2E68; [14-72]
     (=big5		. #xB6D4)	; &I-B-B6D4;
     (=daikanwa		. 02424)	; &I-M-02424;
-    (=shinjigen		.  0744)	; &AJ1-13338;
+    (=shinjigen		.  0744)	; 勤
     (=jef-china3	. #x44EF)	; &I-JC3-44EF;
     (->subsumptive
-     ((=>ucs*		  . #x52E4)	; 勤
-      (=decomposition@cid
+     ((=decomposition@cid
        ((=ucs		    . #x52E4)	; 勤
 	)
        ((=ucs		    . #xE0101)	; 󠄁
 	))
-      (=ucs		  . #xFA34)	; 勤
-      (==ucs@unicode	  . #x52E4)	; 勤
-      (==ucs@jis	  . #xFA34)	; 勤
+      (==ucs@unicode	  . #x52E4)	; &g2-AJ1-13338;
+      (==ucs@jis	  . #xFA34)	; &g2-AJ1-13338;
       (==ucs@JP/hanazono  . nil)
-      (==adobe-japan1-4	  . 13338)	; 勤
-      (==gb2312		  . #x475A)	; 勤 [39-58]
-      (==ks-x1001	  . #x5043)	; 勤 [48-35]
-      (==cns11643-1	  . #x633B)	; 勤 [67-27]
-      (==jis-x0213-1	  . #x2E68)	; 勤 [14-72]
-      (==daikanwa	  . 02424)	; 勤
-      (==shinjigen	  .  0744)	; 勤
-      (==jef-china3	  . #x44EF)	; 勤
+      (==adobe-japan1-4	  . 13338)	; &g2-AJ1-13338;
+      (==gb2312		  . #x475A)	; &g2-AJ1-13338; [39-58]
+      (==ks-x1001	  . #x5043)	; &g2-AJ1-13338; [48-35]
+      (==cns11643-1	  . #x633B)	; &g2-AJ1-13338; [67-27]
+      (==jis-x0213-1	  . #x2E68)	; &g2-AJ1-13338; [14-72]
+      (==daikanwa	  . 02424)	; &g2-AJ1-13338;
+      (==shinjigen	  .  0744)	; &g2-AJ1-13338;
+      (==jef-china3	  . #x44EF)	; &g2-AJ1-13338;
       (->subsumptive
        ((===daikanwa	    . 02424)	; &R-M-02424;
 	)
@@ -10436,4 +10483,9 @@
 (define-char
   '((ideographic-radical . 19)	; ⼒
     (==>ucs@bucs	. #x52DD)	; &BUCS+52DD;
+    ))
+(define-char
+  '((ideographic-radical . 19)	; ⼒
+    (==>ucs@bucs	. #x52E4)	; &BUCS+52E4;
+    (==>daijiten	. 00900)	; &BUCS+52E4;
     ))
