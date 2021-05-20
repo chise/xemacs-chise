@@ -1,5 +1,9 @@
 2021-05-19  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R001-One.el (U-0002CEF1): New character.
+	(GT-00100): Add `<-denotational' for A-cgnU+2DB3A; add
+	`ideographic-structure'.
+
 	* Ideograph-R019-Power.el (U+52E4): Add `<-denotational@usage' for
 	BUCS+52E4; add `ideographic-structure'.
 	(A-UU+52E4): New abstract node; use `<-denotational' for U+52E4.
