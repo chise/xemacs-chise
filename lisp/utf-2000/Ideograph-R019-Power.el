@@ -9187,6 +9187,7 @@
       (=>iwds-1		  .  0307)	; &A-IWDSU+2FFA;
       )
      ((=>ucs@iwds-1	  . #x718F)	; &A-IWDSU+718F;
+      (=>iwds-1		  .  0185)	; &A-IWDSU+718F;
       )
      ((=ucs		  . #x529B)	; 力
       ))
@@ -9205,6 +9206,7 @@
       (=ucs		  . #x2FFA)	; ⿺
       )
      ((=>ucs@iwds-1	  . #x718F)	; &A-IWDSU+718F;
+      (=>iwds-1		  .  0185)	; &A-IWDSU+718F;
       )
      ((=ucs		  . #x529B)	; 力
       ))
@@ -9313,6 +9315,7 @@
       (=ucs		  . #x2FF0)	; ⿰
       )
      ((=>ucs@iwds-1	  . #x718F)	; &A-IWDSU+718F;
+      (=>iwds-1		  .  0185)	; &A-IWDSU+718F;
       )
      ((=ucs		  . #x529B)	; 力
       ))
