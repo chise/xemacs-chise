@@ -1,3 +1,14 @@
+2021-05-20  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R039-Child.el (U-0002D4D9): New character.
+
+	* Ideograph-R013-Down-Box.el (U+518E): Unify IWDS1-0338.
+	(GT-K02493): New character; use `<-denotational' for JU+518E.
+	(U+518E-var-001): New character; use `<-denotational' for
+	A-cgnU+518E.
+	(MJ057006): Unify GT-K02339.
+	(U-0002D072): New character.
+
 2021-05-19  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R001-One.el (U-0002CEF1): New character.
