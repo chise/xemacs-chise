@@ -1,5 +1,8 @@
 2021-05-20  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R037-Big.el (U-0002B764): New character.
+	(U-0002BBE6): New character.
+
 	* Ideograph-R039-Child.el (U-0002D4D9): New character.
 
 	* Ideograph-R013-Down-Box.el (U+518E): Unify IWDS1-0338.
