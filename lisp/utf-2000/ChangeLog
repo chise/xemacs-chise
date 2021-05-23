@@ -100,6 +100,14 @@
 	* char-db-util.el (char-db-coded-charset-priority-list): Add
 	`=>ucs-itaiji-006@iwds-1'.
 
+2021-05-16  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR440.el (SW-JIGUGE-41714): Add U-000268DD as a
+	corresponding modern characters.
+
+	* ShuoWen-SR410.el (SW-JIGUGE-38714): Add U-00020029 as a
+	corresponding modern characters.
+
 2021-05-15  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R046-Mountain.el (U-0002D5D8): New character.
