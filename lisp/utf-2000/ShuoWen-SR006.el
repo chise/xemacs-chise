@@ -803,6 +803,10 @@
   '((shuowen-radical	. 6)	; 玉
     (=shuowen-jiguge	. 00911)	; &SW-JIGUGE-00911;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x24A48)	; 𤩈
+      )
+     ((=ucs		  . #x24A47)	; 𤩇
+      )
      ((=ucs		  . #x74B9)	; 璹
       ))
     (->subsumptive
