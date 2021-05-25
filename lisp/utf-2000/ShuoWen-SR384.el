@@ -6,6 +6,8 @@
      ((=ucs		  . #x2A417)	; 𪐗
       )
      ((=ucs		  . #x9ED1)	; 黑
+      )
+     ((=>jis-x0208@1997	  . #x3975)	; &J97-3975; [25-85]
       ))
     (->subsumptive
      ((===shuowen-jiguge5 . 35015)	; &SW-JIGUGE5-35015;

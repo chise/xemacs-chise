@@ -6,6 +6,8 @@
      ((=ucs		  . #x5200)	; 刀
       )
      ((=ucs		  . #x5202)	; 刂
+      )
+     ((=big5-cdp	  . #x8968)	; &CDP-8968;
       ))
     (->subsumptive
      ((===shuowen-jiguge5 . 14010)	; &SW-JIGUGE5-14010;

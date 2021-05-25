@@ -76,6 +76,9 @@
     (=shuowen-jiguge	. 13120)	; &SW-JIGUGE-13120;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x777F)	; 睿
+      )
+     ((=>ucs@iwds-1	  . #x777F)	; &A-IWDSU+777F;
+      (=>iwds-1		  .  0306)	; &A-IWDSU+777F;
       ))
     (->subsumptive
      ((===shuowen-jiguge5 . 13120)	; &SW-JIGUGE5-13120;

@@ -4,6 +4,9 @@
     (=shuowen-jiguge	. 15706)	; &SW-JIGUGE-15706;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x4E8F)	; 亏
+      )
+     ((=>ucs@iwds-1	  . #x4E8F)	; &A-IWDSU+4E8F;
+      (=>iwds-1		  .  0093)	; &A-IWDSU+4E8F;
       ))
     (->subsumptive
      ((===shuowen-jiguge5 . 15706)	; &SW-JIGUGE5-15706;
@@ -65,6 +68,8 @@
   '((shuowen-radical	. 157)	; 亏
     (=shuowen-jiguge	. 15711)	; &SW-JIGUGE-15711;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x20012)	; 𠀒
+      )
      ((=ucs		  . #x5E73)	; 平
       ))
     (->subsumptive
@@ -78,6 +83,8 @@
     (=shuowen-jiguge	. 15712)	; &SW-JIGUGE-15712;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x2002D)	; 𠀭
+      )
+     ((=ucs		  . #x24501)	; 𤔁
       ))
     (->subsumptive
      ((===shuowen-jiguge5 . 15712)	; &SW-JIGUGE5-15712;

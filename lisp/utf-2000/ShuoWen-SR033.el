@@ -655,6 +655,8 @@
   '((shuowen-radical	. 33)	; 辵
     (=shuowen-jiguge	. 05236)	; &SW-JIGUGE-05236;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x2846D)	; 𨑭
+      )
      ((=ucs		  . #x5F99)	; 徙
       ))
     (->subsumptive
