@@ -3,6 +3,40 @@
 	* Ideograph-R001-One.el (RUI6-E0D7): New character [copied from
 	ruimoku6.el].
 
+	* ShuoWen-SR434.el (SW-JIGUGE-41203): Add U+38B4 as a
+	corresponding modern character.
+
+	* ShuoWen-SR384.el (SW-JIGUGE-35015): Add J97-3975 as a
+	corresponding modern character.
+
+	* ShuoWen-SR272.el (SW-JIGUGE-25007): Add U-0002594D as a
+	corresponding modern character.
+
+	* ShuoWen-SR157.el (SW-JIGUGE-15706): Add A-IWDSU+4E8F as a
+	corresponding modern character.
+	(SW-JIGUGE-15711): Add U-00020012 as a corresponding modern
+	character.
+	(SW-JIGUGE-15712): Add U-00024501 as a corresponding modern
+	character.
+
+	* ShuoWen-SR137.el (SW-JIGUGE-14010): Add BC-8968 as a
+	corresponding modern character.
+
+	* ShuoWen-SR130.el (SW-JIGUGE-13120): Add A-IWDSU+777F as a
+	corresponding modern character.
+
+	* ShuoWen-SR033.el (SW-JIGUGE-05236): Add U-0002846D as a
+	corresponding modern character.
+
+	* ShuoWen-SR006.el (SW-JIGUGE-00911): Add U-00024A48 and
+	U-00024A47 as corresponding modern characters.
+
+	* ShuoWen-SR005.el (SW-JIGUGE-00604): Add U-00026903 as a
+	corresponding modern character.
+
+	* ShuoWen-SR003.el (SW-JIGUGE-00320): Add U+256AA-var-001 as a
+	corresponding modern character.
+
 2021-05-20  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R037-Big.el (U-0002B764): New character.
