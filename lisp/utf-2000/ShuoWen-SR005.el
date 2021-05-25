@@ -39,6 +39,8 @@
   '((shuowen-radical	. 5)	; 王
     (=shuowen-jiguge	. 00604)	; &SW-JIGUGE-00604;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x26903)	; 𦤃
+      )
      ((=ucs		  . #x7687)	; 皇
       ))
     (->subsumptive
