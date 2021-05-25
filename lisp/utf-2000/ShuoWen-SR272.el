@@ -104,6 +104,8 @@
     (=shuowen-jiguge	. 25007)	; &SW-JIGUGE-25007;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x2594D)	; 𥥍
+      )
+     ((=>ucs@component	  . #x2594D)	; &A-compU+2594D;
       ))
     (->subsumptive
      ((===shuowen-jiguge5 . 25007)	; &SW-JIGUGE5-25007;
