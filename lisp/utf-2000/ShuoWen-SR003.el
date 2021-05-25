@@ -278,6 +278,8 @@
     (<-Small-Seal@shuowen
      ((=ucs		  . #x256AA)	; 𥚪
       )
+     ((=ucs-var-001	  . #x256AA)	; &U-v001+256AA;
+      )
      ((=ucs		  . #x9F4B)	; 齋
       )
      ((=ucs		  . #x658E)	; 斎
