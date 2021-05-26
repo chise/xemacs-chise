@@ -1432,7 +1432,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@iwds-1	  . #x22482)	; &A-IWDSU+22482;
+     ((=>ucs@component	  . #x5C28)	; &A-compU+5C28;
       ))
     (ideographic-radical . 43)	; ⼪
     (ideographic-strokes . 4)

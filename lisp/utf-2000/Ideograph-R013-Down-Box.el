@@ -89,7 +89,10 @@
       ))
     ))
 (define-char
-  '((<-denotational@usage
+  '((<-denotational@component
+     ((=>ucs@component	  . #x53E3)	; &A-compU+53E3;
+      ))
+    (<-denotational@usage
      ((==>daijiten	  . 00621)	; &A2-DJT-00621;
       ))
     (ideographic-radical . 13)	; ⼌

@@ -147,7 +147,7 @@
     (=daikanwa		. 09191)	; &I-M-09191;
     (<-ancient
      ((=ucs@unicode	  . #x7CF8)	; &AJ1-02227;
-      (=adobe-japan1-0	  . 02227)	; &I-AJ1-02227;
+      (=adobe-japan1-0	  . 02227)	; &AJ1-02227;
       (=daikanwa	  . 27221)	; &I-M-27221;
       )
      ((=ucs@unicode	  . #x7384)	; &AJ1-01904;

@@ -1,4 +1,232 @@
+2021-05-26  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R013-Down-Box.el (U-0002053C): Add
+	`<-denotational@component' for A-compU+53E3.
+
 2021-05-25  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R060-Step.el:
+	- Add Daijiten numbers.
+	- Add some MJ and KOSEKI code points corresponding to Daikanwa.
+	(U-000224BC): New character.
+	(U+38D5): Apply new conventions for glyph granularity.
+	(U-000224C1): New character.
+	(U-0002BE4C): New character.
+	(U-0002D6DC): New character.
+	(U-0002D6DD): New character.
+	(A-IWDSU+5F79): New abstract node.
+	(U+5F79): Apply new conventions for glyph granularity; add
+	`<-denotational' for A-IWDSU+5F79.
+	(U-0002D6E0): New character; add `<-denotational' for
+	A-IWDSU+5F79.
+	(U+38D6): New character.
+	(U+38D7): New character.
+	(U+5F7B): Apply new conventions for glyph granularity.
+	(U+9FC8): New character.
+	(U+9FC9): New character.
+	(U-000224CC): New character.
+	(U-000224CD): New character.
+	(U-000224D1): New character.
+	(U-0002AACB): New character.
+	(U-0002BE4D): Apply new conventions for glyph granularity.
+	(U-0002BE4E): New character.
+	(U-0002BE4F): New character.
+	(U-0002BE50): New character.
+	(U-0002D6DE): New character.
+	(A-U+8FB5-itaiji-001): New abstract node.
+	(U+8FB5-itaiji-001): New character; use `<-denotational' for
+	A-U+8FB5-itaiji-001.
+	(U-000224D8): Apply new conventions for glyph granularity.
+	(U+5F84): Likewise.
+	(U-000224DA): New character.
+	(U-000224DB): New character.
+	(U-0002AACC): New character.
+	(U-0002BE51): New character.
+	(U-0002D6DF): New character.
+	(U-0002D6E1): New character.
+	(U-0002D6E2): New character.
+	(U-0002D6E3): New character.
+	(U-0002D6E4): New character.
+	(U-0002D6E5): New character.
+	(U-0002D6E6): New character.
+	(U+5F94): Apply new conventions for glyph granularity.
+	(U-000224E4): New character.
+	(U-000224E5): New character.
+	(U-000224E6): New character.
+	(U-000224E7): New character.
+	(U-000224E8): New character.
+	(U-0002BE52): New character.
+	(U-0002BE53): New character.
+	(U-0002D6E7): New character.
+	(U-0002D6E8): New character.
+	(U-0002D6E9): New character.
+	(U-000224F9): New character.
+	(U-000224FA): New character.
+	(U-000224FA): New character.
+	(U-0002AACD): New character.
+	(U-0002AACE): New character.
+	(U-0002BE54): New character.
+	(U-0002D6EA): New character.
+	(U-0002D6EB): New character.
+	(U-0002D6EC): New character.
+	(U-0002D6ED): New character.
+	(U-0002D6EE): New character.
+	(A-U+5F93-itaiji-001): New abstract node.
+	(U+5F93-itaiji-001): New character; use `<-denotational' for
+	A-U+5F93-itaiji-001; use `<-denotational@usage' for BUCS+5F9E.
+	(IWDS1-0261): New abstract node; unify A-IWDSU+5FAE-itaiji-003.
+	(A-U+5FAE-itaiji-003): New abstract node; use `<-denotational' for
+	IWDS1-0261.
+	(U+5FAE-itaiji-003): New character; use `<-denotational' for
+	A-U+5FAE-itaiji-003.
+	(U+38E7): New character.
+	(U+38E8): New character.
+	(U+38E9): New character.
+	(U-00022512): New character.
+	(U-00022513): New character.
+	(U-00022515): New character.
+	(U-00022516): New character.
+	(U-00022517): New character.
+	(U-00022519): New character.
+	(U-0002251B): New character.
+	(U-0002251E): New character; use `<-denotational' for
+	A-IWDSU+2252B.
+	(U-0002AACF): New character.
+	(U-0002AAD0): New character.
+	(U-0002BE55): New character.
+	(U-0002BE56): New character.
+	(U-0002BE57): New character.
+	(U-0002BE58): New character.
+	(U-0002D6EF): New character.
+	(U-0002D6F0): New character.
+	(U-0002D6F1): New character.
+	(U-0002D6F2): New character.
+	(U-0002D6F3): New character.
+	(U-0002D6F4): New character.
+	(CB05237): Unify U-0002D6F5.
+	(U-0002D6F6): New character.
+	(U+5FAE-itaiji-004): Add `<-denotational' for A-U+5FAE-itaiji-004.
+	(A-IWDSU+2252B): New abstract node.
+	(A-U+5FAE-itaiji-004): New abstract node; use `<-denotational' for
+	IWDS1-0261.
+	(U+38EE): New character.
+	(U-0002252B): New character; use `<-denotational' for
+	A-IWDSU+2252B.
+	(U-0002252E): New character.
+	(U-0002252F): New character.
+	(U-00022530): New character.
+	(U-0002AAD1): New character.
+	(U-0002AAD2): New character.
+	(U-0002AAD3): New character.
+	(U-0002BE59): New character.
+	(U-0002BE5A): New character.
+	(U-0002BE5B): New character.
+	(U-0002BE5C): New character.
+	(U-0002D6F7): New character.
+	(U-0002D6F8): New character.
+	(U-0002D6F9): New character.
+	(U-0002D6FA): New character.
+	(U-0002D6FB): New character.
+	(U-0002D6FC): New character.
+	(A-U+5FAE-itaiji-006): New abstract node.
+	(U+5FAE-itaiji-006): New character; use `<-denotational' for
+	A-U+5FAE-itaiji-006.
+	(U-00022532): New character.
+	(U-0002253B): New character.
+	(U-0002253C): New character.
+	(U-0002253D): New character.
+	(U-0002253E): New character.
+	(U-0002253F): New character.
+	(U-00022540): New character.
+	(U-00022541): New character.
+	(U-00022542): New character.
+	(U-00022544): Apply new conventions for glyph granularity.
+	(U-00022545): New character.
+	(U-00022546): New character.
+	(U-00022549): New character.
+	(U-0002254A): New character.
+	(U-0002254B): New character.
+	(U-0002254C): New character.
+	(U-0002AAD4): New character.
+	(U-0002AAD5): New character.
+	(U-0002BE5D): New character.
+	(U-0002BE5E): New character.
+	(U-0002BE5F): New character.
+	(U-0002BE60): New character.
+	(U-0002D6FD): New character.
+	(U-00022556): Use `->denotational' and `->subsumptive'.
+	(U+38F4): New character.
+	(U-00022560): New character.
+	(U-00022561): New character.
+	(U-00022562): New character.
+	(U-00022563): New character.
+	(U-00022564): New character.
+	(U-00022565): New character.
+	(U-00022569): New character.
+	(U-0002AAD6): New character.
+	(U-0002AAD7): New character.
+	(U-0002AAD8): New character.
+	(U-0002BE61): New character.
+	(U-0002BE62): New character.
+	(U-0002D6FE): New character.
+	(U-0002D6FF): New character.
+	(U-0002D700): New character.
+	(U-0002256A): Apply new conventions for glyph granularity.
+	(U-0002256E): Apply new conventions for glyph granularity.
+	(U-00022572): New character.
+	(U+38F3): New character.
+	(U+5FBA): Apply new conventions for glyph granularity.
+	(U-00022573): New character.
+	(U-00022574): New character.
+	(U-00022575): New character.
+	(U-00022578): New character.
+	(U-0002BE63): New character.
+	(U-0002BE64): New character.
+	(U-0002BE65): New character.
+	(U-0002D701): New character.
+	(U-0002D702): New character.
+	(U-0002D703): New character.
+	(U-0002D704): New character.
+	(U-0002D705): New character.
+	(U-0002257F): New character.
+	(U-00022580): New character.
+	(U-00022581): New character.
+	(U-00022582): New character.
+	(U-00022586): New character.
+	(U-00022587): New character.
+	(U-0002AAD9): New character.
+	(U-0002D706): New character.
+	(U-0002D707): New character.
+	(U-0002D708): New character.
+	(U-0002258C): New character.
+	(U-0002258D): New character; use `<-denotational' for
+	A-IWDSU+8861.
+	(U-0002AADA): New character.
+	(U-0002BE66): New character.
+	(U-00022593): New character.
+	(U-00022594): New character.
+	(U-00022595): New character.
+	(U-00022596): New character.
+	(U-0002AADB): New character.
+	(U-0002AADC): New character.
+	(U-0002BE67): New character.
+	(U-0002BE68): New character.
+	(U-0002D709): New character.
+	(A-cgnU+2259A): New abstract node; unify A-C7-4676.
+	(U-0002259A): Use `->denotational' and `->subsumptive'; add
+	`<-denotational' for A-cgnU+2259A.
+	(C7-4676): Use `<-denotational' for A-cgnU+2259A instead of
+	`=>ucs' for U-0002259A.
+	(U+38F8): New character.
+	(U-0002D70A): New character.
+	(U+38F9): New character.
+	(U-000225A0): New character.
+	(U-0002BE69): New character.
+	(U-0002BE6A): New character.
+	(U-000225A8): New character.
+
+	* Ideograph-R043-Lame.el (U+5C28): Use A-compU+5C28 instead of
+	A-IWDSU+22482 as its mother.
 
 	* Ideograph-R016-Table.el (U+9F21): Apply new conventions for
 	glyph granularity.
