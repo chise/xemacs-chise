@@ -1,5 +1,8 @@
 2021-05-25  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R016-Table.el (U+9F21): Apply new conventions for
+	glyph granularity.
+
 	* Ideograph-R001-One.el (GT-K01514): New character.
 
 2021-05-25  MORIOKA Tomohiko  <tomo.git@chise.org>
