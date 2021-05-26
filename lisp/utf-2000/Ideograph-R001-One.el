@@ -4647,6 +4647,20 @@
       ))
     ))
 (define-char
+  '((ideographic-radical . 1)	; ⼀
+    (ideographic-strokes . 4)
+    (total-strokes	 . 5)
+    (=gt-k		. 01514)	; &GT-K01514;
+    (=gt-pj-k1		. #x432A)	; &GT-K01514; [35-10]
+    (<-formed@component
+     ((=ucs		  . #x5C39)	; 尹
+      ))
+    (->subsumptive
+     ((==gt-k		  . 01514)	; &g2-GT-K01514;
+      (==gt-pj-k1	  . #x432A)	; &g2-GT-K01514; [35-10]
+      ))
+    ))
+(define-char
   '((<-denotational
      ((=>ucs@component	  . #x2000E)	; &A-compU+2000E;
       ))
