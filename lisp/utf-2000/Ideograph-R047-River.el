@@ -2776,11 +2776,11 @@
 	(=daikanwa	    . 08705)	; &I-M-08705;
 	)
        ((=ucs@unicode	    . #x7CF8)	; &AJ1-02227;
-	(=adobe-japan1-0    . 02227)	; &I-AJ1-02227;
+	(=adobe-japan1-0    . 02227)	; &AJ1-02227;
 	))
       )
      ((=ucs@unicode	  . #x7CF8)	; &AJ1-02227;
-      (=adobe-japan1-0	  . 02227)	; &I-AJ1-02227;
+      (=adobe-japan1-0	  . 02227)	; &AJ1-02227;
       ))
     (=ucs@iso		. #x22010)	; &MJ034939;
     (=mj		. 034939)	; &MJ034939;
