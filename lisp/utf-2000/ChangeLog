@@ -1,3 +1,9 @@
+2021-05-25  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R029-Again.el (A-RUI6-E0D9): New abstract node.
+	(RUI6-E0D9): New character [copied from ruimoku6.el]; add
+	`<-denotational' for A-RUI6-E0D9.
+
 2021-05-23  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R001-One.el (RUI6-E0D7): New character [copied from

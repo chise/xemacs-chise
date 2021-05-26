@@ -5366,6 +5366,38 @@
       ))
     ))
 (define-char
+  '((ideographic-radical . 29)	; ⼜
+    (ideographic-strokes . 8)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x3401)	; 㐁
+      )
+     ((=ucs		  . #x53CD)	; 反
+      ))
+    (=>ruimoku-v6	. #xE0D9)	; &A-RUI6-E0D9;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ruimoku-v6	  . #xE0D9)	; &A-RUI6-E0D9;
+      ))
+    (ideographic-radical . 29)	; ⼜
+    (ideographic-strokes . 8)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x3401)	; 㐁
+      )
+     ((=ucs@unicode	  . #x53CD)	; &AJ1-03411;
+      (=adobe-japan1-0	  . 03411)	; &AJ1-03411;
+      ))
+    (=ruimoku-v6	. #xE0D9)	; &RUI6-E0D9;
+    ))
+(define-char
   '((<-denotational
      ((=>gt-k		  . 07586)	; &A-GT-K07586;
       ))
