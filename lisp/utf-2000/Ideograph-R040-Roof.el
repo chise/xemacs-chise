@@ -9024,7 +9024,8 @@
     (=cns11643-6	. #x3E57)	; &I-C6-3E57; [30-55]
     (=daikanwa		. 07201)	; &I-M-07201;
     (<-wrong
-     ((=ucs		  . #x7AA1)	; 窡
+     ((=ucs@unicode	  . #x7AA1)	; &C3-4346;
+      (=cns11643-3	  . #x4346)	; &C3-4346; [35-38]
       (=daikanwa	  . 25558)	; &I-M-25558;
       ))
     (<-wrong*sources
