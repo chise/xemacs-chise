@@ -829,12 +829,70 @@
   '((ideographic-radical . 42)	; ⼩
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
-    (=ucs		. #x21B59)	; 𡭙
-    (->subsumptive
-     ((=daikanwa	  . 07481)	; &M-07481;
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=ucs@iso		  . #x21B59)	; &C6-244C;
-      (=cns11643-6	  . #x244C)	; &C6-244C; [04-44]
+     ((=>ucs@iwds-1	  . #x5C0F)	; &A-IWDSU+5C0F;
+      (=>iwds-1		  .  0028)	; &A-IWDSU+5C0F;
+      )
+     ((=ucs		  . #x2053C)	; 𠔼
+      ))
+    (sound@ja/on	"ki")
+    (=ucs		. #x21B59)	; 𡭙
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x21B59)	; 𡭙
+      ))
+    (ideographic-radical . 42)	; ⼩
+    (ideographic-strokes . 3)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5C0F)	; 小
+      )
+     ((=ucs		  . #x2053C)	; 𠔼
+      ))
+    (=ucs@iso		. #x21B59)	; &MJ034193;
+    (=mj		. 034193)	; &MJ034193;
+    (=cns11643-6	. #x244C)	; &I-C6-244C; [04-44]
+    (=koseki		. 085090)	; &MJ034193;
+    (=daikanwa		. 07481)	; &I-M-07481;
+    (<-ancient
+     ((=ucs@unicode	  . #x8CB4)	; &AJ1-01608;
+      (=adobe-japan1-0	  . 01608)	; &AJ1-01608;
+      (=daikanwa	  . 36704)	; &I-M-36704;
+      ))
+    (<-ancient*sources
+     jiyun daikanwa)
+    (<-formed
+     ((=ucs@unicode	  . #x8CB4)	; &AJ1-01608;
+      (=adobe-japan1-0	  . 01608)	; &AJ1-01608;
+      ))
+    (<-formed$_1*sources
+     koseki mj)
+    (<-formed*sources
+     koseki mj)
+    (->subsumptive
+     ((==mj		  . 034193)	; &g2-MJ034193;
+      (==koseki		  . 085090)	; &g2-MJ034193;
+      (==daikanwa	  . 07481)	; &g2-MJ034193;
+      (->subsumptive
+       ((===daikanwa	    . 07481)	; &R-M-07481;
+	)
+       ((===mj		    . 034193)	; &R-MJ034193;
+	))
+      )
+     ((==ucs@iso	  . #x21B59)	; &g2-IU-00021B59;
+      (==cns11643-6	  . #x244C)	; &g2-IU-00021B59; [04-44]
+      (->subsumptive
+       ((===cns11643-6	    . #x244C)	; &R-C6-244C; [04-44]
+	)
+       ((===ucs@iso	    . #x21B59)	; &R-U-00021B59;
+	))
       ))
     ))
 (define-char
