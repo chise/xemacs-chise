@@ -608,9 +608,50 @@
   '((ideographic-radical . 39)	; ⼦
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5B50)	; 子
+      )
+     ((=>ucs@iwds-1	  . #x5C0F)	; &A-IWDSU+5C0F;
+      (=>iwds-1		  .  0028)	; &A-IWDSU+5C0F;
+      ))
     (=ucs		. #x5B59)	; 孙
-    (=gb2312		. #x4B6F)	; &I-G0-4B6F; [43-79]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5B59)	; 孙
+      ))
+    (ideographic-radical . 39)	; ⼦
+    (ideographic-strokes . 3)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5B51)	; 孑
+      )
+     ((=ucs		  . #x5C0F)	; 小
+      ))
+    (=ucs@unicode	. #x5B59)	; &G0-4B6F;
+    (=gb2312		. #x4B6F)	; &G0-4B6F; [43-79]
     (=jef-china3	. #x81DE)	; &I-JC3-81DE;
+    (<-simplified@CN
+     ((=ucs@unicode	  . #x5B6B)	; &AJ1-02841;
+      (=adobe-japan1-0	  . 02841)	; &AJ1-02841;
+      (=gb12345		  . #x4B6F)	; &AJ1-02841; [43-79]
+      ))
+    (->subsumptive
+     ((==ucs@unicode	  . #x5B59)	; &g2-UU+5B59;
+      (==gb2312		  . #x4B6F)	; &g2-UU+5B59; [43-79]
+      (==jef-china3	  . #x81DE)	; &g2-UU+5B59;
+      (->subsumptive
+       ((===ucs@unicode	    . #x5B59)	; &R-UU+5B59;
+	)
+       ((===jef-china3	    . #x81DE)	; &R-JC3-81DE;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 39)	; ⼦

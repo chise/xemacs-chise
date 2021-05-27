@@ -1,5 +1,11 @@
 2021-05-26  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R039-Child.el (U+5B59): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R027-Cliff.el (U-00020A47): Apply new conventions for
+	glyph granularity.
+
 	* Ideograph-R013-Down-Box.el (U-0002053C): Add
 	`<-denotational@component' for A-compU+53E3.
 

@@ -2417,6 +2417,21 @@
      ((=>ucs@iwds-1	  . #x20A47)	; &A-IWDSU+20A47;
       ))
     (ideographic-radical . 27)	; ⼚
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs		  . #x5382)	; 厂
+      )
+     ((=>ucs@iwds-1	  . #x22482)	; &A-IWDSU+22482;
+      ))
+    (=ucs		. #x20A47)	; 𠩇
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x20A47)	; 𠩇
+      ))
+    (ideographic-radical . 27)	; ⼚
     (ideographic-strokes . 5)
     (total-strokes	 . 7)
     (ideographic-structure
@@ -2427,7 +2442,7 @@
       )
      ((=ucs		  . #x22482)	; 𢒂
       ))
-    (=ucs		. #x20A47)	; 𠩇
+    (=ucs@iso		. #x20A47)	; &U-00020A47;
     ))
 (define-char
   '((ideographic-radical . 27)	; ⼚
