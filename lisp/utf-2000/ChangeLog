@@ -96,6 +96,9 @@
 
 2021-05-27  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R042-Small.el (U-00021B59): Apply new conventions for
+	glyph granularity.
+
 	* Ideograph-R059-Bristle.el (A-compU+5C28): New abstract node; use
 	`<-denotational@component' for A-IWDSU+5C28.
 	(A-IWDSU+22482): New abstract node; use `<-denotational@component'
