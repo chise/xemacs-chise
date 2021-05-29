@@ -1,3 +1,8 @@
+2021-05-29  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R048-Work.el (U-00022021): Apply new conventions for
+	glyph granularity.
+
 2021-05-27  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R038-Woman.el: Add some MJ and KOSEKI code points
