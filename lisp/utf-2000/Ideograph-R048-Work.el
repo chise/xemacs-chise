@@ -1377,9 +1377,56 @@
   '((ideographic-radical . 48)	; ⼯
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5DE6)	; 左
+      )
+     ((=ucs		  . #x5DE6)	; 左
+      ))
+    (sound@ja/on	"ki")
     (=ucs		. #x22021)	; 𢀡
-    (=cns11643-6	. #x3728)	; &I-C6-3728; [23-08]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x22021)	; 𢀡
+      ))
+    (ideographic-radical . 48)	; ⼯
+    (ideographic-strokes . 7)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs@unicode	  . #x5DE6)	; &MJ010774;
+      (=mj		  . 010774)	; &MJ010774;
+      )
+     ((=ucs@unicode	  . #x5DE6)	; &MJ010774;
+      (=mj		  . 010774)	; &MJ010774;
+      ))
+    (=ucs@iso		. #x22021)	; &C6-3728;
+    (=cns11643-6	. #x3728)	; &C6-3728; [23-08]
     (=daikanwa		. 08733)	; &I-M-08733;
+    (<-same
+     ((=ucs@unicode	  . #x96B3)	; &AJ1-18899;
+      (=adobe-japan1-5	  . 18899)	; &AJ1-18899;
+      (=daikanwa	  . 41895)	; &I-M-41895;
+      ))
+    (<-same*sources
+     zihui-bu daikanwa)
+    (->subsumptive
+     ((==ucs@iso	  . #x22021)	; &g2-M-08733;
+      (==cns11643-6	  . #x3728)	; &g2-M-08733; [23-08]
+      (==daikanwa	  . 08733)	; &g2-M-08733;
+      (->subsumptive
+       ((===daikanwa	    . 08733)	; &R-M-08733;
+	)
+       ((===cns11643-6	    . #x3728)	; &R-C6-3728; [23-08]
+	)
+       ((===ucs@iso	    . #x22021)	; &R-U-00022021;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 48)	; ⼯
