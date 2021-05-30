@@ -13,6 +13,14 @@
     ))
 (define-char
   '((shuowen-radical	. 4)	; 三
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
+      (=ucs		  . #x2FF9)	; ⿹
+      )
+     ((=shuowen-jiguge	  . 43809)	; &SW-JIGUGE-43809;
+      )
+     ((=shuowen-jiguge	  . 00520)	; &SW-JIGUGE-00520;
+      ))
     (=shuowen-jiguge	. 00600)	; &SW-JIGUGE-00600;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x5F0E)	; 弎
