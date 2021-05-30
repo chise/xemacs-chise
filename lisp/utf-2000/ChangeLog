@@ -1,5 +1,27 @@
 2021-05-29  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R026-Seal.el (U-0003018A): Add
+	`<-denotational@component' for A-compU+5369.
+	(hanaJU+3018A): Omit `<-denotational@component' for A-compU+5369;
+	add `<-simplified@CN/second/table1' for U+90E8.
+	(A-GT-K01547): New abstract node; unify A-U+5917-itaiji-003.
+	(U+5917-itaiji-003): New character; use `<-denotational' for
+	A-GT-K01547.
+	(GT-K01547): Ditto.
+	(U-00020A1D): Add `<-denotational@usage' for A2-DJT-03245; add
+	`ideographic-structure'; add `sound@ja/on'; add `<-ancient' for
+	UU+6028.
+
+	* Ideograph-R009-Man.el (U+4EE4): Use A-compU+5369 instead of
+	U-0003018A as a component.
+	(U+4EE4-var-002): New character; use `<-denotational' for U+4EE4.
+	(A-U+5917-itaiji-002): New abstract node.
+	(U+5917-itaiji-002): New character; use `<-denotational' for
+	A-U+5917-itaiji-002.
+	(U-00020222): Add `<-denotational@usage' for A2-DJT-03245; add
+	`ideographic-structure'; add `sound@ja/on'.
+	(IU+20222): Add `<-ancient' for UU+6028.
+
 	* Ideograph-R048-Work.el (U-00022021): Apply new conventions for
 	glyph granularity.
 
