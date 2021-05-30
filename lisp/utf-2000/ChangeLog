@@ -1,5 +1,22 @@
 2021-05-29  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R004-Slash.el (A-compU+2009E): New abstract node.
+	(U-0002009E): Apply new conventions for glyph granularity; add
+	`<-denotational@component' for A-compU+2009E; add
+	`<-denotational@usage' for BUCS+4E4E.
+	(IU+200A1): Unify GT-K01457.
+	(A2-DJT-00092): Unify BUCS+4E4E.
+
+	* ShuoWen-SR010.el (SW-JIGUGE-01311): Add `ideographic-structure'.
+
+	* ShuoWen-SR008.el (SW-JIGUGE-01300): Add `ideographic-structure'.
+	(SW-JIGUGE-01301): Add `ideographic-structure'.
+
+	* ShuoWen-SR004.el (SW-JIGUGE-00600): Add `ideographic-structure'.
+
+	* ShuoWen-SR001.el: Add `ideographic-structure' for some ShuoWen's
+	characters.
+
 	* Ideograph-R026-Seal.el (U-0003018A): Add
 	`<-denotational@component' for A-compU+5369.
 	(hanaJU+3018A): Omit `<-denotational@component' for A-compU+5369;
