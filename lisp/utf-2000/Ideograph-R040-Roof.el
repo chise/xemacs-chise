@@ -15857,7 +15857,7 @@
     ))
 (define-char
   '((<-denotational@usage
-     ((==>daijiten	  . 01823)	; &A2-DJT-01823;
+     ((==>ucs@bucs	  . #x585E)	; &BUCS+585E;
       ))
     (ideographic-radical . 40)	; ⼧
     (ideographic-strokes . 11)
