@@ -15,6 +15,14 @@
     ))
 (define-char
   '((shuowen-radical	. 8)	; 气
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
+      (=ucs		  . #x2FF9)	; ⿹
+      )
+     ((=shuowen-jiguge	  . 01219)	; &SW-JIGUGE-01219;
+      )
+     ((=shuowen-jiguge	  . 03303)	; &SW-JIGUGE-03303;
+      ))
     (=shuowen-jiguge	. 01300)	; &SW-JIGUGE-01300;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x6C1B)	; 氛
@@ -27,6 +35,14 @@
     ))
 (define-char
   '((shuowen-radical	. 8)	; 气
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=shuowen-jiguge	  . 39700)	; &SW-JIGUGE-39700;
+      )
+     ((=shuowen-jiguge	  . 03303)	; &SW-JIGUGE-03303;
+      ))
     (=shuowen-jiguge	. 01301)	; &SW-JIGUGE-01301;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x96F0)	; 雰
