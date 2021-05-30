@@ -1,3 +1,20 @@
+2021-05-30  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R032-Earth.el (A-GT-K04772): New abstract node.
+	(GT-K04772): New character.
+	(U+5815): Add `<-denotational@usage' for BUCS+58AE; add
+	`ideographic-structure'.
+	(UU+5815): Delete `=>ucs@iwds-1'.
+	(U+585E): Add `<-denotational@usage' for BUCS+585E.
+	(U+58AE): Apply new conventions for glyph granularity; add
+	`<-denotational@usage' for BUCS+58AE.
+	(U-00021426): Likewise.
+	(U+58AF): Apply new conventions for glyph granularity.
+	(U-00021491): New character.
+	(U-0002D404): Apply new conventions for glyph granularity.
+	(BUCS+58AE): New abstract node; unify A2-DJT-01863.
+	(BUCS+585E): New abstract node; unify A2-DJT-01823.
+
 2021-05-29  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R004-Slash.el (A-compU+2009E): New abstract node.
