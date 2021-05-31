@@ -36213,8 +36213,8 @@
       )
      ((=ucs-itaiji-006	  . #x675F)	; &U-i006+675F;
       )
-     ((=ucs@unicode	  . #x548E)	; &G0-3E4C;
-      (=gb2312		  . #x3E4C)	; &G0-3E4C; [30-44]
+     ((=ucs@unicode	  . #x548E)	; &HD-KS-040610;
+      (=gb2312		  . #x3E4C)	; &HD-KS-040610; [30-44]
       ))
     (=ucs@iso		. #x214A9)	; &U-000214A9;
     (->subsumptive
