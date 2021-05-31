@@ -1,3 +1,10 @@
+2021-05-31  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R012-Eight.el (A-BC-8DE2-itaiji-001): New abstract
+	node; use `<-denotational' for A-BC-8DE2.
+	(BC-8DE2-itaiji-001): New character; use `<-denotational' for
+	A-BC-8DE2-itaiji-001.
+
 2021-05-30  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R032-Earth.el (A-GT-K04772): New abstract node.
