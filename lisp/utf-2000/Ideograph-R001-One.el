@@ -4322,20 +4322,20 @@
   '((ideographic-radical . 1)	; ⼀
     (ideographic-strokes . 4)
     (total-strokes	 . 5)
+    (hanyu-dazidian	1 17 5)
     (=ucs		. #x4E1C)	; 东
     (=gb2312		. #x362B)	; &I-G0-362B; [22-11]
+    (=big5-cdp		. #x89CB)	; &I-CDP-89CB;
     (<-simplified@CN
      ((=ucs		  . #x6771)	; 東
       (=gb12345		  . #x362B)	; 東 [22-11]
       ))
-    ))
-(define-char
-  '((=>ucs		. #x4E1C)	; 东
-    (ideographic-radical . 1)	; ⼀
-    (ideographic-strokes . 4)
-    (total-strokes	 . 5)
-    (hanyu-dazidian	1 17 5)
-    (=big5-cdp		. #x89CB)	; &CDP-89CB;
+    (->subsumptive
+     ((==ucs@unicode	  . #x4E1C)	; &g2-UU+4E1C;
+      (==gb2312		  . #x362B)	; &g2-UU+4E1C; [22-11]
+      )
+     ((==big5-cdp	  . #x89CB)	; &g2-CDP-89CB;
+      ))
     ))
 (define-char
   '((ideographic-radical . 1)	; ⼀
