@@ -32,6 +32,14 @@
     ))
 (define-char
   '((shuowen-radical	. 3)	; 示
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=shuowen-jiguge	  . 00215)	; &SW-JIGUGE-00215;
+      )
+     ((=shuowen-jiguge	  . 06906)	; &SW-JIGUGE-06906;
+      ))
     (=shuowen-jiguge	. 00301)	; &SW-JIGUGE-00301;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x795C)	; 祜
@@ -44,6 +52,14 @@
     ))
 (define-char
   '((shuowen-radical	. 3)	; 示
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=shuowen-jiguge	  . 00215)	; &SW-JIGUGE-00215;
+      )
+     ((=shuowen-jiguge	  . 16006)	; &SW-JIGUGE-16006;
+      ))
     (=shuowen-jiguge	. 00302)	; &SW-JIGUGE-00302;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x25728)	; 𥜨
@@ -74,6 +90,14 @@
     ))
 (define-char
   '((shuowen-radical	. 3)	; 示
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=shuowen-jiguge	  . 00215)	; &SW-JIGUGE-00215;
+      )
+     ((=shuowen-jiguge	  . 15802)	; &SW-JIGUGE-15802;
+      ))
     (=shuowen-jiguge	. 00304)	; &SW-JIGUGE-00304;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x79A7)	; 禧
@@ -86,6 +110,14 @@
     ))
 (define-char
   '((shuowen-radical	. 3)	; 示
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=shuowen-jiguge	  . 00215)	; &SW-JIGUGE-00215;
+      )
+     ((=shuowen-jiguge	  . 27410)	; &SW-JIGUGE-27410;
+      ))
     (=shuowen-jiguge	. 00305)	; &SW-JIGUGE-00305;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x799B)	; 禛
@@ -112,6 +144,14 @@
     ))
 (define-char
   '((shuowen-radical	. 3)	; 示
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=shuowen-jiguge	  . 00215)	; &SW-JIGUGE-00215;
+      )
+     ((=shuowen-jiguge	  . 16207)	; &SW-JIGUGE-16207;
+      ))
     (=shuowen-jiguge	. 00307)	; &SW-JIGUGE-00307;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x79A0)	; 禠
@@ -124,6 +164,14 @@
     ))
 (define-char
   '((shuowen-radical	. 3)	; 示
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=shuowen-jiguge	  . 00215)	; &SW-JIGUGE-00215;
+      )
+     ((=shuowen-jiguge	  . 10013)	; &SW-JIGUGE-10013;
+      ))
     (=shuowen-jiguge	. 00308)	; &SW-JIGUGE-00308;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x798E)	; 禎
@@ -136,6 +184,14 @@
     ))
 (define-char
   '((shuowen-radical	. 3)	; 示
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=shuowen-jiguge	  . 00215)	; &SW-JIGUGE-00215;
+      )
+     ((=shuowen-jiguge	  . 11911)	; &SW-JIGUGE-11911;
+      ))
     (=shuowen-jiguge	. 00309)	; &SW-JIGUGE-00309;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x7965)	; 祥
@@ -148,6 +204,14 @@
     ))
 (define-char
   '((shuowen-radical	. 3)	; 示
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=shuowen-jiguge	  . 00215)	; &SW-JIGUGE-00215;
+      )
+     ((=shuowen-jiguge	  . 04821)	; &SW-JIGUGE-04821;
+      ))
     (=shuowen-jiguge	. 00310)	; &SW-JIGUGE-00310;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x7949)	; 祉
@@ -172,6 +236,14 @@
     ))
 (define-char
   '((shuowen-radical	. 3)	; 示
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=shuowen-jiguge	  . 00215)	; &SW-JIGUGE-00215;
+      )
+     ((=shuowen-jiguge	  . 04018)	; &SW-JIGUGE-04018;
+      ))
     (=shuowen-jiguge	. 00312)	; &SW-JIGUGE-00312;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x7950)	; 祐
@@ -184,6 +256,14 @@
     ))
 (define-char
   '((shuowen-radical	. 3)	; 示
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=shuowen-jiguge	  . 00215)	; &SW-JIGUGE-00215;
+      )
+     ((=shuowen-jiguge	  . 15216)	; &SW-JIGUGE-15216;
+      ))
     (=shuowen-jiguge	. 00313)	; &SW-JIGUGE-00313;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x797A)	; 祺
@@ -196,6 +276,14 @@
     ))
 (define-char
   '((shuowen-radical	. 3)	; 示
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=shuowen-jiguge	  . 00215)	; &SW-JIGUGE-00215;
+      )
+     ((=shuowen-jiguge	  . 47126)	; &SW-JIGUGE-47126;
+      ))
     (=shuowen-jiguge	. 00314)	; &SW-JIGUGE-00314;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x79A5)	; 禥
@@ -208,6 +296,14 @@
     ))
 (define-char
   '((shuowen-radical	. 3)	; 示
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=shuowen-jiguge	  . 00215)	; &SW-JIGUGE-00215;
+      )
+     ((=shuowen-jiguge	  . 43904)	; &SW-JIGUGE-43904;
+      ))
     (=shuowen-jiguge	. 00315)	; &SW-JIGUGE-00315;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x7957)	; 祗
@@ -220,6 +316,14 @@
     ))
 (define-char
   '((shuowen-radical	. 3)	; 示
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=shuowen-jiguge	  . 00215)	; &SW-JIGUGE-00215;
+      )
+     ((=shuowen-jiguge	  . 05100)	; &SW-JIGUGE-05100;
+      ))
     (=shuowen-jiguge	. 00316)	; &SW-JIGUGE-00316;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x7994)	; 禔
@@ -232,6 +336,14 @@
     ))
 (define-char
   '((shuowen-radical	. 3)	; 示
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=shuowen-jiguge	  . 00215)	; &SW-JIGUGE-00215;
+      )
+     ((=shuowen-jiguge	  . 51702)	; &SW-JIGUGE-51702;
+      ))
     (=shuowen-jiguge	. 00317)	; &SW-JIGUGE-00317;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x256C3)	; 𥛃
@@ -248,6 +360,14 @@
     ))
 (define-char
   '((shuowen-radical	. 3)	; 示
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=shuowen-jiguge	  . 00215)	; &SW-JIGUGE-00215;
+      )
+     ((=shuowen-jiguge	  . 43902)	; &SW-JIGUGE-43902;
+      ))
     (=shuowen-jiguge	. 00318)	; &SW-JIGUGE-00318;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x7947)	; 祇
@@ -260,6 +380,14 @@
     ))
 (define-char
   '((shuowen-radical	. 3)	; 示
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=shuowen-jiguge	  . 00215)	; &SW-JIGUGE-00215;
+      )
+     ((=shuowen-jiguge	  . 03312)	; &SW-JIGUGE-03312;
+      ))
     (=shuowen-jiguge	. 00319)	; &SW-JIGUGE-00319;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x7955)	; 祕
@@ -306,6 +434,14 @@
     ))
 (define-char
   '((shuowen-radical	. 3)	; 示
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=shuowen-jiguge	  . 00215)	; &SW-JIGUGE-00215;
+      )
+     ((=shuowen-jiguge	  . 47412)	; &SW-JIGUGE-47412;
+      ))
     (=shuowen-jiguge	. 00322)	; &SW-JIGUGE-00322;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x256FF)	; 𥛿
@@ -344,6 +480,14 @@
     ))
 (define-char
   '((shuowen-radical	. 3)	; 示
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=shuowen-jiguge	  . 00215)	; &SW-JIGUGE-00215;
+      )
+     ((=shuowen-jiguge	  . 51602)	; &SW-JIGUGE-51602;
+      ))
     (=shuowen-jiguge	. 00325)	; &SW-JIGUGE-00325;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x7940)	; 祀
@@ -356,6 +500,14 @@
     ))
 (define-char
   '((shuowen-radical	. 3)	; 示
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=shuowen-jiguge	  . 00215)	; &SW-JIGUGE-00215;
+      )
+     ((=shuowen-jiguge	  . 08213)	; &SW-JIGUGE-08213;
+      ))
     (=shuowen-jiguge	. 00326)	; &SW-JIGUGE-00326;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x79A9)	; 禩
@@ -368,6 +520,14 @@
     ))
 (define-char
   '((shuowen-radical	. 3)	; 示
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=shuowen-jiguge	  . 05000)	; &SW-JIGUGE-05000;
+      )
+     ((=shuowen-jiguge	  . 00215)	; &SW-JIGUGE-00215;
+      ))
     (=shuowen-jiguge	. 00327)	; &SW-JIGUGE-00327;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x7961)	; 祡
@@ -392,6 +552,14 @@
     ))
 (define-char
   '((shuowen-radical	. 3)	; 示
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=shuowen-jiguge	  . 00215)	; &SW-JIGUGE-00215;
+      )
+     ((=shuowen-jiguge	  . 34302)	; &SW-JIGUGE-34302;
+      ))
     (=shuowen-jiguge	. 00329)	; &SW-JIGUGE-00329;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x79B7)	; 禷
@@ -404,6 +572,14 @@
     ))
 (define-char
   '((shuowen-radical	. 3)	; 示
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=shuowen-jiguge	  . 00215)	; &SW-JIGUGE-00215;
+      )
+     ((=shuowen-jiguge	  . 31904)	; &SW-JIGUGE-31904;
+      ))
     (=shuowen-jiguge	. 00330)	; &SW-JIGUGE-00330;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x796A)	; 祪
@@ -416,6 +592,14 @@
     ))
 (define-char
   '((shuowen-radical	. 3)	; 示
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=shuowen-jiguge	  . 00215)	; &SW-JIGUGE-00215;
+      )
+     ((=shuowen-jiguge	  . 26832)	; &SW-JIGUGE-26832;
+      ))
     (=shuowen-jiguge	. 00331)	; &SW-JIGUGE-00331;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x7954)	; 祔
@@ -428,6 +612,14 @@
     ))
 (define-char
   '((shuowen-radical	. 3)	; 示
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=shuowen-jiguge	  . 00215)	; &SW-JIGUGE-00215;
+      )
+     ((=shuowen-jiguge	  . 49604)	; &SW-JIGUGE-49604;
+      ))
     (=shuowen-jiguge	. 00332)	; &SW-JIGUGE-00332;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x7956)	; 祖
@@ -440,6 +632,14 @@
     ))
 (define-char
   '((shuowen-radical	. 3)	; 示
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=shuowen-jiguge	  . 15809)	; &SW-JIGUGE-15809;
+      )
+     ((=shuowen-jiguge	  . 00215)	; &SW-JIGUGE-00215;
+      ))
     (=shuowen-jiguge	. 00400)	; &SW-JIGUGE-00400;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x256F1)	; 𥛱
@@ -452,6 +652,14 @@
     ))
 (define-char
   '((shuowen-radical	. 3)	; 示
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=shuowen-jiguge	  . 00215)	; &SW-JIGUGE-00215;
+      )
+     ((=shuowen-jiguge	  . 28817)	; &SW-JIGUGE-28817;
+      ))
     (=shuowen-jiguge	. 00401)	; &SW-JIGUGE-00401;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x794A)	; 祊
@@ -464,6 +672,14 @@
     ))
 (define-char
   '((shuowen-radical	. 3)	; 示
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=shuowen-jiguge	  . 00215)	; &SW-JIGUGE-00215;
+      )
+     ((=shuowen-jiguge	  . 03616)	; &SW-JIGUGE-03616;
+      ))
     (=shuowen-jiguge	. 00402)	; &SW-JIGUGE-00402;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x7970)	; 祰
@@ -476,6 +692,14 @@
     ))
 (define-char
   '((shuowen-radical	. 3)	; 示
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=shuowen-jiguge	  . 00215)	; &SW-JIGUGE-00215;
+      )
+     ((=shuowen-jiguge	  . 31906)	; &SW-JIGUGE-31906;
+      ))
     (=shuowen-jiguge	. 00403)	; &SW-JIGUGE-00403;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x794F)	; 祏
@@ -488,6 +712,14 @@
     ))
 (define-char
   '((shuowen-radical	. 3)	; 示
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=shuowen-jiguge	  . 00215)	; &SW-JIGUGE-00215;
+      )
+     ((=shuowen-jiguge	  . 27508)	; &SW-JIGUGE-27508;
+      ))
     (=shuowen-jiguge	. 00404)	; &SW-JIGUGE-00404;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x40FE)	; 䃾
@@ -500,6 +732,14 @@
     ))
 (define-char
   '((shuowen-radical	. 3)	; 示
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=shuowen-jiguge	  . 00215)	; &SW-JIGUGE-00215;
+      )
+     ((=shuowen-jiguge	  . 30515)	; &SW-JIGUGE-30515;
+      ))
     (=shuowen-jiguge	. 00405)	; &SW-JIGUGE-00405;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x7960)	; 祠
@@ -512,6 +752,14 @@
     ))
 (define-char
   '((shuowen-radical	. 3)	; 示
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=shuowen-jiguge	  . 00215)	; &SW-JIGUGE-00215;
+      )
+     ((=shuowen-jiguge	  . 49509)	; &SW-JIGUGE-49509;
+      ))
     (=shuowen-jiguge	. 00406)	; &SW-JIGUGE-00406;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x793F)	; 礿
@@ -524,6 +772,14 @@
     ))
 (define-char
   '((shuowen-radical	. 3)	; 示
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=shuowen-jiguge	  . 00215)	; &SW-JIGUGE-00215;
+      )
+     ((=shuowen-jiguge	  . 00207)	; &SW-JIGUGE-00207;
+      ))
     (=shuowen-jiguge	. 00407)	; &SW-JIGUGE-00407;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x7998)	; 禘
@@ -536,6 +792,14 @@
     ))
 (define-char
   '((shuowen-radical	. 3)	; 示
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=shuowen-jiguge	  . 00215)	; &SW-JIGUGE-00215;
+      )
+     ((=shuowen-jiguge	  . 17110)	; &SW-JIGUGE-17110;
+      ))
     (=shuowen-jiguge	. 00408)	; &SW-JIGUGE-00408;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x796B)	; 祫
@@ -548,6 +812,14 @@
     ))
 (define-char
   '((shuowen-radical	. 3)	; 示
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=shuowen-jiguge	  . 00215)	; &SW-JIGUGE-00215;
+      )
+     ((=shuowen-jiguge	  . 18907)	; &SW-JIGUGE-18907;
+      ))
     (=shuowen-jiguge	. 00409)	; &SW-JIGUGE-00409;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x797C)	; 祼
@@ -560,6 +832,14 @@
     ))
 (define-char
   '((shuowen-radical	. 3)	; 示
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=shuowen-jiguge	  . 28412)	; &SW-JIGUGE-28412;
+      )
+     ((=shuowen-jiguge	  . 00215)	; &SW-JIGUGE-00215;
+      ))
     (=shuowen-jiguge	. 00410)	; &SW-JIGUGE-00410;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x411F)	; 䄟
@@ -572,6 +852,14 @@
     ))
 (define-char
   '((shuowen-radical	. 3)	; 示
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=shuowen-jiguge	  . 00215)	; &SW-JIGUGE-00215;
+      )
+     ((=shuowen-jiguge	  . 28906)	; &SW-JIGUGE-28906;
+      ))
     (=shuowen-jiguge	. 00411)	; &SW-JIGUGE-00411;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x795D)	; 祝
@@ -584,6 +872,14 @@
     ))
 (define-char
   '((shuowen-radical	. 3)	; 示
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=shuowen-jiguge	  . 00215)	; &SW-JIGUGE-00215;
+      )
+     ((=shuowen-jiguge	  . 47806)	; &SW-JIGUGE-47806;
+      ))
     (=shuowen-jiguge	. 00412)	; &SW-JIGUGE-00412;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x256FD)	; 𥛽
@@ -596,6 +892,14 @@
     ))
 (define-char
   '((shuowen-radical	. 3)	; 示
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=shuowen-jiguge	  . 00215)	; &SW-JIGUGE-00215;
+      )
+     ((=shuowen-jiguge	  . 34211)	; &SW-JIGUGE-34211;
+      ))
     (=shuowen-jiguge	. 00413)	; &SW-JIGUGE-00413;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x7953)	; 祓
@@ -608,6 +912,14 @@
     ))
 (define-char
   '((shuowen-radical	. 3)	; 示
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=shuowen-jiguge	  . 00215)	; &SW-JIGUGE-00215;
+      )
+     ((=shuowen-jiguge	  . 49607)	; &SW-JIGUGE-49607;
+      ))
     (=shuowen-jiguge	. 00414)	; &SW-JIGUGE-00414;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x7948)	; 祈
@@ -620,6 +932,14 @@
     ))
 (define-char
   '((shuowen-radical	. 3)	; 示
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=shuowen-jiguge	  . 00215)	; &SW-JIGUGE-00215;
+      )
+     ((=shuowen-jiguge	  . 28310)	; &SW-JIGUGE-28310;
+      ))
     (=shuowen-jiguge	. 00415)	; &SW-JIGUGE-00415;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x25723)	; 𥜣
@@ -676,6 +996,14 @@
     ))
 (define-char
   '((shuowen-radical	. 3)	; 示
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=shuowen-jiguge	  . 00215)	; &SW-JIGUGE-00215;
+      )
+     ((=shuowen-jiguge	  . 28104)	; &SW-JIGUGE-28104;
+      ))
     (=shuowen-jiguge	. 00419)	; &SW-JIGUGE-00419;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x79B3)	; 禳
@@ -688,6 +1016,14 @@
     ))
 (define-char
   '((shuowen-radical	. 3)	; 示
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=shuowen-jiguge	  . 00215)	; &SW-JIGUGE-00215;
+      )
+     ((=shuowen-jiguge	  . 17116)	; &SW-JIGUGE-17116;
+      ))
     (=shuowen-jiguge	. 00420)	; &SW-JIGUGE-00420;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x79AC)	; 禬
@@ -700,6 +1036,14 @@
     ))
 (define-char
   '((shuowen-radical	. 3)	; 示
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=shuowen-jiguge	  . 00215)	; &SW-JIGUGE-00215;
+      )
+     ((=shuowen-jiguge	  . 04408)	; &SW-JIGUGE-04408;
+      ))
     (=shuowen-jiguge	. 00421)	; &SW-JIGUGE-00421;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x79AA)	; 禪
@@ -714,6 +1058,14 @@
     ))
 (define-char
   '((shuowen-radical	. 3)	; 示
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=shuowen-jiguge	  . 05718)	; &SW-JIGUGE-05718;
+      )
+     ((=shuowen-jiguge	  . 00215)	; &SW-JIGUGE-00215;
+      ))
     (=shuowen-jiguge	. 00422)	; &SW-JIGUGE-00422;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x79A6)	; 禦
@@ -726,6 +1078,14 @@
     ))
 (define-char
   '((shuowen-radical	. 3)	; 示
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=shuowen-jiguge	  . 00215)	; &SW-JIGUGE-00215;
+      )
+     ((=shuowen-jiguge	  . 04229)	; &SW-JIGUGE-04229;
+      ))
     (=shuowen-jiguge	. 00423)	; &SW-JIGUGE-00423;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x25671)	; 𥙱
@@ -740,6 +1100,14 @@
     ))
 (define-char
   '((shuowen-radical	. 3)	; 示
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=shuowen-jiguge	  . 00215)	; &SW-JIGUGE-00215;
+      )
+     ((=shuowen-jiguge	  . 18827)	; &SW-JIGUGE-18827;
+      ))
     (=shuowen-jiguge	. 00424)	; &SW-JIGUGE-00424;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x7996)	; 禖
@@ -752,6 +1120,14 @@
     ))
 (define-char
   '((shuowen-radical	. 3)	; 示
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=shuowen-jiguge	  . 00215)	; &SW-JIGUGE-00215;
+      )
+     ((=shuowen-jiguge	  . 13819)	; &SW-JIGUGE-13819;
+      ))
     (=shuowen-jiguge	. 00425)	; &SW-JIGUGE-00425;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x256A9)	; 𥚩
@@ -764,6 +1140,14 @@
     ))
 (define-char
   '((shuowen-radical	. 3)	; 示
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=shuowen-jiguge	  . 00215)	; &SW-JIGUGE-00215;
+      )
+     ((=shuowen-jiguge	  . 51506)	; &SW-JIGUGE-51506;
+      ))
     (=shuowen-jiguge	. 00500)	; &SW-JIGUGE-00500;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x7973)	; 祳
@@ -776,6 +1160,14 @@
     ))
 (define-char
   '((shuowen-radical	. 3)	; 示
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=shuowen-jiguge	  . 00215)	; &SW-JIGUGE-00215;
+      )
+     ((=shuowen-jiguge	  . 08117)	; &SW-JIGUGE-08117;
+      ))
     (=shuowen-jiguge	. 00501)	; &SW-JIGUGE-00501;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x7974)	; 祴
@@ -788,6 +1180,14 @@
     ))
 (define-char
   '((shuowen-radical	. 3)	; 示
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=shuowen-jiguge	  . 00215)	; &SW-JIGUGE-00215;
+      )
+     ((=shuowen-jiguge	  . 33200)	; &SW-JIGUGE-33200;
+      ))
     (=shuowen-jiguge	. 00502)	; &SW-JIGUGE-00502;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x79A1)	; 禡
@@ -800,6 +1200,14 @@
     ))
 (define-char
   '((shuowen-radical	. 3)	; 示
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=shuowen-jiguge	  . 00215)	; &SW-JIGUGE-00215;
+      )
+     ((=shuowen-jiguge	  . 04021)	; &SW-JIGUGE-04021;
+      ))
     (=shuowen-jiguge	. 00503)	; &SW-JIGUGE-00503;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x7982)	; 禂
@@ -828,6 +1236,14 @@
     ))
 (define-char
   '((shuowen-radical	. 3)	; 示
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=shuowen-jiguge	  . 00215)	; &SW-JIGUGE-00215;
+      )
+     ((=shuowen-jiguge	  . 47010)	; &SW-JIGUGE-47010;
+      ))
     (=shuowen-jiguge	. 00505)	; &SW-JIGUGE-00505;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x793E)	; 社
@@ -844,6 +1260,11 @@
     (<-Small-Seal@shuowen
      ((=ucs		  . #x2566D)	; 𥙭
       ))
+    (<-ancient@shuowen
+     ((=shuowen-jiguge	  . 00505)	; &SW-JIGUGE-00505;
+      )
+     ((=ucs		  . #x793E)	; 社
+      ))
     (->subsumptive
      ((===shuowen-jiguge5 . 00506)	; &SW-JIGUGE5-00506;
       )
@@ -852,6 +1273,14 @@
     ))
 (define-char
   '((shuowen-radical	. 3)	; 示
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=shuowen-jiguge	  . 00215)	; &SW-JIGUGE-00215;
+      )
+     ((=shuowen-jiguge	  . 32208)	; &SW-JIGUGE-32208;
+      ))
     (=shuowen-jiguge	. 00507)	; &SW-JIGUGE-00507;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x7993)	; 禓
@@ -878,6 +1307,14 @@
     ))
 (define-char
   '((shuowen-radical	. 3)	; 示
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=shuowen-jiguge	  . 00215)	; &SW-JIGUGE-00215;
+      )
+     ((=shuowen-jiguge	  . 04226)	; &SW-JIGUGE-04226;
+      ))
     (=shuowen-jiguge	. 00509)	; &SW-JIGUGE-00509;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x798D)	; 禍
@@ -914,6 +1351,14 @@
     ))
 (define-char
   '((shuowen-radical	. 3)	; 示
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=shuowen-jiguge	  . 00215)	; &SW-JIGUGE-00215;
+      )
+     ((=shuowen-jiguge	  . 01912)	; &SW-JIGUGE-01912;
+      ))
     (=shuowen-jiguge	. 00512)	; &SW-JIGUGE-00512;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x410F)	; 䄏
@@ -926,6 +1371,14 @@
     ))
 (define-char
   '((shuowen-radical	. 3)	; 示
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=shuowen-jiguge	  . 00215)	; &SW-JIGUGE-00215;
+      )
+     ((=shuowen-jiguge	  . 00215)	; &SW-JIGUGE-00215;
+      ))
     (=shuowen-jiguge	. 00513)	; &SW-JIGUGE-00513;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x7958)	; 祘
@@ -938,6 +1391,14 @@
     ))
 (define-char
   '((shuowen-radical	. 3)	; 示
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=shuowen-jiguge	  . 19913)	; &SW-JIGUGE-19913;
+      )
+     ((=shuowen-jiguge	  . 00215)	; &SW-JIGUGE-00215;
+      ))
     (=shuowen-jiguge	. 00514)	; &SW-JIGUGE-00514;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x7981)	; 禁
@@ -950,6 +1411,14 @@
     ))
 (define-char
   '((shuowen-radical	. 3)	; 示
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=shuowen-jiguge	  . 00215)	; &SW-JIGUGE-00215;
+      )
+     ((=shuowen-jiguge	  . 17607)	; &SW-JIGUGE-17607;
+      ))
     (=shuowen-jiguge	. 00515)	; &SW-JIGUGE-00515;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x25738)	; 𥜸
@@ -966,6 +1435,14 @@
     ))
 (define-char
   '((shuowen-radical	. 3)	; 示
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=shuowen-jiguge	  . 00215)	; &SW-JIGUGE-00215;
+      )
+     ((=shuowen-jiguge	  . 10108)	; &SW-JIGUGE-10108;
+      ))
     (=shuowen-jiguge	. 00516)	; &SW-JIGUGE-00516;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x79B0)	; 禰
@@ -980,6 +1457,14 @@
     ))
 (define-char
   '((shuowen-radical	. 3)	; 示
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=shuowen-jiguge	  . 00215)	; &SW-JIGUGE-00215;
+      )
+     ((=shuowen-jiguge	  . 10018)	; &SW-JIGUGE-10018;
+      ))
     (=shuowen-jiguge	. 00517)	; &SW-JIGUGE-00517;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x7967)	; 祧
@@ -992,6 +1477,14 @@
     ))
 (define-char
   '((shuowen-radical	. 3)	; 示
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=shuowen-jiguge	  . 00215)	; &SW-JIGUGE-00215;
+      )
+     ((=shuowen-jiguge	  . 00202)	; &SW-JIGUGE-00202;
+      ))
     (=shuowen-jiguge	. 00518)	; &SW-JIGUGE-00518;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x7946)	; 祆
@@ -1004,6 +1497,14 @@
     ))
 (define-char
   '((shuowen-radical	. 3)	; 示
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=shuowen-jiguge	  . 00215)	; &SW-JIGUGE-00215;
+      )
+     ((=shuowen-jiguge	  . 44209)	; &SW-JIGUGE-44209;
+      ))
     (=shuowen-jiguge	. 00519)	; &SW-JIGUGE-00519;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x795A)	; 祚
