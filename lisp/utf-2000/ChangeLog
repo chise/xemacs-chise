@@ -7,6 +7,10 @@
 
 2021-05-30  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R053-Dotted-Cliff.el (U-0002220F): New character.
+
+2021-05-30  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R032-Earth.el (A-GT-K04772): New abstract node.
 	(GT-K04772): New character.
 	(U+5815): Add `<-denotational@usage' for BUCS+58AE; add
