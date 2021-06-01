@@ -4,6 +4,8 @@
     (=shuowen-jiguge	. 22711)	; &SW-JIGUGE-22711;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x3AC3)	; 㫃
+      )
+     ((=ucs		  . #x2D928)	; 𭤨
       ))
     (->subsumptive
      ((===shuowen-jiguge5 . 22711)	; &SW-JIGUGE5-22711;
@@ -15,6 +17,11 @@
   '((shuowen-radical	. 234)	; 㫃
     (=shuowen-jiguge	. 22712)	; &SW-JIGUGE-22712;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x3AC3)	; 㫃
+      ))
+    (<-ancient@shuowen
+     ((=shuowen-jiguge	  . 22711)	; &SW-JIGUGE-22711;
+      )
      ((=ucs		  . #x3AC3)	; 㫃
       ))
     (->subsumptive

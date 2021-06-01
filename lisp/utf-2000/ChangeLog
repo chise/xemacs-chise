@@ -1,7 +1,36 @@
 2021-06-01  MORIOKA Tomohiko  <tomo.git@chise.org>
 
-	* ShuoWen-SR480.el (SW-JIGUGE-47412): Add U-0002136F and
-	A-U+2136F-itaiji-001 as corresponding modern characters.
+	* ShuoWen-SR467.el (SW-JIGUGE-45518): Add U+7DD0 as a
+	corresponding modern character.
+	(SW-JIGUGE-45601): Add `<-ancient@shuowen' for SW-JIGUGE-45600.
+	(SW-JIGUGE-45602): Add `<-Zhouwen@shuowen' for SW-JIGUGE-45600.
+	(SW-JIGUGE-45719): Add `<-ancient@shuowen' for SW-JIGUGE-45718.
+	(SW-JIGUGE-45720): Ditto.
+
+	* ShuoWen-SR410.el (SW-JIGUGE-38419): Add U-00023E01 as a
+	corresponding modern character.
+
+	* ShuoWen-SR408.el (SW-JIGUGE-36701): Add `ideographic-structure'.
+	(SW-JIGUGE-36702): Add `<-formed@shuowen' for SW-JIGUGE-36701.
+	(SW-JIGUGE-36703): Add `ideographic-structure'; add
+	`<-Zhouwen@shuowen' for SW-JIGUGE-36701.
+	(SW-JIGUGE-36917): Add `<-ancient@shuowen' for SW-JIGUGE-36916.
+	(SW-JIGUGE-36918): Ditto.
+
+	* ShuoWen-SR353.el (SW-JIGUGE-31703): Add U-00022259, A-compU+5EB6
+	and U+5EBB as corresponding modern characters.
+
+	* ShuoWen-SR308.el (SW-JIGUGE-28706): Add `<-ancient@shuowen' for
+	SW-JIGUGE-28705.
+
+	* ShuoWen-SR234.el (SW-JIGUGE-22711): Add U-0002D928 as a
+	corresponding modern character.
+	(SW-JIGUGE-22712): Add `<-ancient@shuowen' for SW-JIGUGE-22711.
+
+	* ShuoWen-SR137.el (SW-JIGUGE-14213): Add U-000206D0 as a
+	corresponding modern character.
+	(SW-JIGUGE-14214): Add U-00020749 and U-00020766 as corresponding
+	modern characters; add `<-ancient@shuowen' for SW-JIGUGE-14213.
 
 	* Ideograph-R013-Down-Box.el (U+518F-var-006): New character; use
 	`<-denotational' for U+518F.
@@ -80,6 +109,9 @@
 	(SW-JIGUGE-00714): Add `<-formed@shuowen' for SW-JIGUGE-00713.
 	(SW-JIGUGE-00715): Ditto.
 	(SW-JIGUGE-00716): Ditto.
+
+	* ShuoWen-SR480.el (SW-JIGUGE-47412): Add U-0002136F and
+	A-U+2136F-itaiji-001 as corresponding modern characters.
 
 	* ShuoWen-SR012.el (SW-JIGUGE-01511): Add U-00024588 as a
 	corresponding modern character; add `<-ancient@shuowen' for

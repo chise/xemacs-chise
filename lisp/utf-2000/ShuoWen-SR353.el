@@ -453,7 +453,14 @@
   '((shuowen-radical	. 353)	; 广
     (=shuowen-jiguge	. 31703)	; &SW-JIGUGE-31703;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x22259)	; 𢉙
+      )
      ((=ucs		  . #x5EB6)	; 庶
+      )
+     ((=>ucs@component	  . #x5EB6)	; &A-compU+5EB6;
+      (=>iwds-1		  .  0365)	; &A-compU+5EB6;
+      )
+     ((=ucs		  . #x5EBB)	; 庻
       ))
     (->subsumptive
      ((===shuowen-jiguge5 . 31703)	; &SW-JIGUGE5-31703;

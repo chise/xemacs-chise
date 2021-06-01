@@ -737,6 +737,8 @@
   '((shuowen-radical	. 137)	; 刀
     (=shuowen-jiguge	. 14213)	; &SW-JIGUGE-14213;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x206D0)	; 𠛐
+      )
      ((=ucs		  . #x5236)	; 制
       ))
     (->subsumptive
@@ -750,6 +752,15 @@
     (=shuowen-jiguge	. 14214)	; &SW-JIGUGE-14214;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x20741)	; 𠝁
+      )
+     ((=ucs		  . #x20749)	; 𠝉
+      )
+     ((=ucs		  . #x20766)	; 𠝦
+      ))
+    (<-ancient@shuowen
+     ((=shuowen-jiguge	  . 14213)	; &SW-JIGUGE-14213;
+      )
+     ((=ucs		  . #x5236)	; 制
       ))
     (->subsumptive
      ((===shuowen-jiguge5 . 14214)	; &SW-JIGUGE5-14214;
