@@ -13,6 +13,13 @@
     ))
 (define-char
   '((shuowen-radical	. 9)	; 士
+    (ideographic-structure
+     ((=ucs-itaiji-001	  . #x2FF6)	; &U-i001+2FF6;
+      )
+     ((=shuowen-jiguge	  . 13819)	; &SW-JIGUGE-13819;
+      )
+     ((=shuowen-jiguge	  . 01302)	; &SW-JIGUGE-01302;
+      ))
     (=shuowen-jiguge	. 01303)	; &SW-JIGUGE-01303;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x58FB)	; 壻
@@ -25,9 +32,22 @@
     ))
 (define-char
   '((shuowen-radical	. 9)	; 士
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=shuowen-jiguge	  . 42800)	; &SW-JIGUGE-42800;
+      )
+     ((=shuowen-jiguge	  . 13819)	; &SW-JIGUGE-13819;
+      ))
     (=shuowen-jiguge	. 01304)	; &SW-JIGUGE-01304;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x5A7F)	; 婿
+      ))
+    (<-formed@shuowen
+     ((=shuowen-jiguge	  . 01303)	; &SW-JIGUGE-01303;
+      )
+     ((=ucs		  . #x58FB)	; 壻
       ))
     (->subsumptive
      ((===shuowen-jiguge5 . 01304)	; &SW-JIGUGE5-01304;
@@ -37,6 +57,14 @@
     ))
 (define-char
   '((shuowen-radical	. 9)	; 士
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=zinbun-oracle	  . 01968)	; &ZOB-1968;
+      )
+     ((=shuowen-jiguge	  . 01302)	; &SW-JIGUGE-01302;
+      ))
     (=shuowen-jiguge	. 01305)	; &SW-JIGUGE-01305;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x58EF)	; 壯
@@ -51,19 +79,24 @@
     ))
 (define-char
   '((shuowen-radical	. 9)	; 士
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=shuowen-jiguge	  . 01302)	; &SW-JIGUGE-01302;
+      )
+     ((=shuowen-jiguge	  . 52017)	; &SW-JIGUGE-52017;
+      ))
     (=shuowen-jiguge	. 01306)	; &SW-JIGUGE-01306;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x58FF)	; 壿
       ))
+    (<-Small-Seal@shuowen/mpsuzuki
+     ((=ucs		  . #x58AB)	; 墫
+      ))
     (->subsumptive
      ((===shuowen-jiguge5 . 01306)	; &SW-JIGUGE5-01306;
-      (<-Small-Seal@shuowen/mpsuzuki
-       ((=ucs		    . #x58AB)	; 墫
-	))
       )
      ((===shuowen-jiguge4 . 01306)	; &SW-JIGUGE4-01306;
-      (<-Small-Seal@shuowen/mpsuzuki
-       ((=ucs		    . #x58AB)	; 墫
-	))
       ))
     ))
