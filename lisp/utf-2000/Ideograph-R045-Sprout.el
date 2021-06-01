@@ -2233,6 +2233,11 @@
     (total-strokes	 . 21)
     (sound@ja/on	"riku")
     (=ucs		. #x21D2B)	; 𡴫
+    (<-Zhouwen
+     ((=ucs		  . #x5725)	; 圥
+      ))
+    (<-Zhouwen*sources
+     shuowen)
     ))
 (define-char
   '((<-denotational

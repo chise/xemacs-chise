@@ -32,6 +32,9 @@
 	(SW-JIGUGE-14214): Add U-00020749 and U-00020766 as corresponding
 	modern characters; add `<-ancient@shuowen' for SW-JIGUGE-14213.
 
+	* Ideograph-R045-Sprout.el (U-00021D2B): Add `<-Zhouwen' for
+	U+5725.
+
 	* Ideograph-R013-Down-Box.el (U+518F-var-006): New character; use
 	`<-denotational' for U+518F.
 	(U-0002A78E): Apply new conventions for glyph granularity.
@@ -73,6 +76,8 @@
 	modern characters; add `<-Zhouwen@shuowen' for SW-JIGUGE-01506.
 
 2021-05-31  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R047-River.el (U-00021FF3): New character.
 
 	* Ideograph-R012-Eight.el (U-0003094D): Copied from
 	Ideograph-R037-Big.el.
