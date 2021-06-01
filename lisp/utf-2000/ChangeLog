@@ -1,5 +1,11 @@
 2021-05-31  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R012-Eight.el (U-0003094D): Copied from
+	Ideograph-R037-Big.el.
+
+	* Ideograph-R008-Lid.el (GT-K01447): New character; use
+	`<-denotational' for A-cgnU+4EA2.
+
 	* Ideograph-R045-Sprout.el (BC-88B8): Add
 	`<-denotational@component' for A-IWDSU+37A4.
 
@@ -19,6 +25,9 @@
 	* Ideograph-R053-Dotted-Cliff.el (U-0002220F): New character.
 
 2021-05-30  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR031.el (SW-JIGUGE-05004): Add `<-Small-Seal@shuowen'
+	for U+6B63.
 
 	* ShuoWen-SR006.el: Add `ideographic-structure' for some ShuoWen's
 	characters.
@@ -80,6 +89,12 @@
 	`<-denotational@usage' for BUCS+4E4E.
 	(IU+200A1): Unify GT-K01457.
 	(A2-DJT-00092): Unify BUCS+4E4E.
+
+	* ShuoWen-SR099.el (SW-JIGUGE-11200): Add A-IWDSU+25117 as a
+	corresponding modern character.
+
+	* ShuoWen-SR098.el (SW-JIGUGE-10800): Add A-cgnU+5910 as a
+	corresponding modern character.
 
 	* ShuoWen-SR010.el (SW-JIGUGE-01311): Add `ideographic-structure'.
 
