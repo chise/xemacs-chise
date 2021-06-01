@@ -1403,6 +1403,8 @@
     (<-Small-Seal@shuowen
      ((=ucs		  . #x25117)	; 𥄗
       )
+     ((=>ucs@iwds-1	  . #x25117)	; &A-IWDSU+25117;
+      )
      ((=ucs		  . #x4011)	; 䀑
       ))
     (->subsumptive
