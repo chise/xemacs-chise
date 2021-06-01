@@ -5,6 +5,8 @@
     (<-Small-Seal@shuowen
      ((=ucs		  . #x6B65)	; 步
       )
+     ((=>ucs@iwds-1	  . #x6B65)	; &A-IWDSU+6B65;
+      )
      ((=ucs		  . #x6B69)	; 歩
       ))
     (->subsumptive
@@ -18,6 +20,10 @@
     (=shuowen-jiguge	. 04916)	; &SW-JIGUGE-04916;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x6B72)	; 歲
+      )
+     ((=>ucs@iwds-1	  . #x6B72)	; &J97-3A50;
+      (=>ucs@jis	  . #x6B73)	; &J97-3A50;
+      (=>jis-x0208	  . #x3A50)	; &J97-3A50; [26-48]
       )
      ((=ucs		  . #x6B73)	; 歳
       ))
