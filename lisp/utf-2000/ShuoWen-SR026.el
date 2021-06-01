@@ -6,6 +6,8 @@
      ((=ucs		  . #x27E86)	; 𧺆
       )
      ((=ucs		  . #x8D70)	; 走
+      )
+     ((=>ucs@iwds-1	  . #x8D70)	; &A-IWDSU+8D70;
       ))
     (->subsumptive
      ((===shuowen-jiguge5 . 04412)	; &SW-JIGUGE5-04412;
