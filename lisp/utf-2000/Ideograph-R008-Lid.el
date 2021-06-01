@@ -467,6 +467,28 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=>ucs@cognate	  . #x4EA2)	; &A-cgnU+4EA2;
+      ))
+    (ideographic-radical . 8)	; ⼇
+    (ideographic-strokes . 3)
+    (total-strokes	 . 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x4EA0)	; 亠
+      )
+     ((=gt-k		  . 00291)	; &GT-K00291;
+      ))
+    (=gt-k		. 01447)	; &GT-K01447;
+    (=gt-pj-k1		. #x4433)	; &GT-K01447; [36-19]
+    (->subsumptive
+     ((==gt-k		  . 01447)	; &g2-GT-K01447;
+      (==gt-pj-k1	  . #x4433)	; &g2-GT-K01447; [36-19]
+      ))
+    ))
+(define-char
   '((ideographic-radical . 8)	; ⼇
     (ideographic-strokes . 3)
     (total-strokes	 . 5)
