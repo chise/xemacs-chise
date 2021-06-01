@@ -2,6 +2,9 @@
 (define-char
   '((shuowen-radical	. 31)	; 正
     (=shuowen-jiguge	. 05004)	; &SW-JIGUGE-05004;
+    (<-Small-Seal@shuowen
+     ((=ucs		  . #x6B63)	; 正
+      ))
     ))
 (define-char
   '((<-denotational
