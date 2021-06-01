@@ -2033,6 +2033,14 @@
     ))
 (define-char
   '((shuowen-radical	. 408)	; 心
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=shuowen-jiguge	  . 37915)	; &SW-JIGUGE-37915;
+      )
+     ((=shuowen-jiguge	  . 36106)	; &SW-JIGUGE-36106;
+      ))
     (=shuowen-jiguge	. 36701)	; &SW-JIGUGE-36701;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x6106)	; 愆
@@ -2049,6 +2057,11 @@
     (<-Small-Seal@shuowen
      ((=ucs		  . #x3976)	; 㥶
       ))
+    (<-formed@shuowen
+     ((=shuowen-jiguge	  . 36701)	; &SW-JIGUGE-36701;
+      )
+     ((=ucs		  . #x6106)	; 愆
+      ))
     (->subsumptive
      ((===shuowen-jiguge5 . 36702)	; &SW-JIGUGE5-36702;
       )
@@ -2057,9 +2070,22 @@
     ))
 (define-char
   '((shuowen-radical	. 408)	; 心
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=shuowen-jiguge	  . 39409)	; &SW-JIGUGE-39409;
+      )
+     ((=shuowen-jiguge	  . 07005)	; &SW-JIGUGE-07005;
+      ))
     (=shuowen-jiguge	. 36703)	; &SW-JIGUGE-36703;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x8AD0)	; 諐
+      ))
+    (<-Zhouwen@shuowen
+     ((=shuowen-jiguge	  . 36701)	; &SW-JIGUGE-36701;
+      )
+     ((=ucs		  . #x6106)	; 愆
       ))
     (->subsumptive
      ((===shuowen-jiguge5 . 36703)	; &SW-JIGUGE5-36703;
@@ -3009,6 +3035,11 @@
     (<-Small-Seal@shuowen
      ((=ucs		  . #x28D2E)	; 𨴮
       ))
+    (<-ancient@shuowen
+     ((=shuowen-jiguge	  . 36916)	; &SW-JIGUGE-36916;
+      )
+     ((=ucs		  . #x60A3)	; 患
+      ))
     (->subsumptive
      ((===shuowen-jiguge5 . 36917)	; &SW-JIGUGE5-36917;
       )
@@ -3020,6 +3051,11 @@
     (=shuowen-jiguge	. 36918)	; &SW-JIGUGE-36918;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x22912)	; 𢤒
+      ))
+    (<-ancient@shuowen
+     ((=shuowen-jiguge	  . 36916)	; &SW-JIGUGE-36916;
+      )
+     ((=ucs		  . #x60A3)	; 患
       ))
     (->subsumptive
      ((===shuowen-jiguge5 . 36918)	; &SW-JIGUGE5-36918;
