@@ -1,3 +1,48 @@
+2021-06-01  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR480.el (SW-JIGUGE-47412): Add U-0002136F and
+	A-U+2136F-itaiji-001 as corresponding modern characters.
+
+	* Ideograph-R013-Down-Box.el (U+518F-var-006): New character; use
+	`<-denotational' for U+518F.
+	(U-0002A78E): Apply new conventions for glyph granularity.
+
+	* ShuoWen-SR198.el (SW-JIGUGE-17912): Add U-0002157E and U+5913 as
+	corresponding modern characters.
+	(SW-JIGUGE-17913): Add `<-ancient@shuowen' for SW-JIGUGE-17912.
+
+	* ShuoWen-SR135.el (SW-JIGUGE-13927): Add A-IWDSU+26760 as a
+	corresponding modern character.
+
+	* ShuoWen-SR029.el (SW-JIGUGE-04915): Add A-IWDSU+6B65 as a
+	corresponding modern character.
+	(SW-JIGUGE-04916): Add A-IWDSU+6B72 as a corresponding modern
+	character.
+
+	* ShuoWen-SR027.el (SW-JIGUGE-04821): Add U+9FB0 as a
+	corresponding modern character.
+
+	* ShuoWen-SR026.el (SW-JIGUGE-04412): Add A-IWDSU+8D70 as a
+	corresponding modern character.
+
+	* ShuoWen-SR024.el (SW-JIGUGE-04402): Add A-compU+5405 as a
+	corresponding modern character.
+	(SW-JIGUGE-04407): Add U+35BE as a corresponding modern character.
+	(SW-JIGUGE-04408): Add A-IWDSU+55AE as a corresponding modern
+	character.
+
+	* ShuoWen-SR022.el (SW-JIGUGE-04221): Add `<-identical@shuowen'
+	for SW-JIGUGE-41104.
+
+	* ShuoWen-SR011.el: Add `ideographic-structure' for some ShuoWen's
+	characters.
+	(SW-JIGUGE-01502): Add U-00021D1B and U-00021E46 as corresponding
+	modern characters.
+	(SW-JIGUGE-01503): Add U-00026E15 as a corresponding modern
+	character; add `<-ancient@shuowen' for SW-JIGUGE-01502.
+	(SW-JIGUGE-01507): Add U-00021D2A and U-000204B6 as corresponding
+	modern characters; add `<-Zhouwen@shuowen' for SW-JIGUGE-01506.
+
 2021-05-31  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R012-Eight.el (U-0003094D): Copied from

@@ -1347,6 +1347,10 @@
   '((shuowen-radical	. 480)	; 土
     (=shuowen-jiguge	. 47412)	; &SW-JIGUGE-47412;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x2136F)	; 𡍯
+      )
+     ((=>ucs-itaiji-001	  . #x2136F)	; &A-U-i001+2136F;
+      )
      ((=ucs		  . #x5794)	; 垔
       ))
     (->subsumptive
