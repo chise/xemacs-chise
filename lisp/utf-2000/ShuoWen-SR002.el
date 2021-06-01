@@ -67,6 +67,11 @@
     (<-Small-Seal@shuowen
      ((=ucs		  . #x230DF)	; 𣃟
       ))
+    (<-ancient@shuowen
+     ((=shuowen-jiguge	  . 00209)	; &SW-JIGUGE-00209;
+      )
+     ((=ucs		  . #x65C1)	; 旁
+      ))
     (->subsumptive
      ((===shuowen-jiguge5 . 00210)	; &SW-JIGUGE5-00210;
       )
@@ -79,6 +84,11 @@
     (<-Small-Seal@shuowen
      ((=ucs		  . #x230D9)	; 𣃙
       ))
+    (<-ancient@shuowen
+     ((=shuowen-jiguge	  . 00209)	; &SW-JIGUGE-00209;
+      )
+     ((=ucs		  . #x65C1)	; 旁
+      ))
     (->subsumptive
      ((===shuowen-jiguge5 . 00211)	; &SW-JIGUGE5-00211;
       )
@@ -87,9 +97,22 @@
     ))
 (define-char
   '((shuowen-radical	. 2)	; 上
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
+      (=ucs		  . #x2FF5)	; ⿵
+      )
+     ((=shuowen-jiguge	  . 39700)	; &SW-JIGUGE-39700;
+      )
+     ((=shuowen-jiguge	  . 28817)	; &SW-JIGUGE-28817;
+      ))
     (=shuowen-jiguge	. 00212)	; &SW-JIGUGE-00212;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x96F1)	; 雱
+      ))
+    (<-Zhouwen@shuowen
+     ((=shuowen-jiguge	  . 00209)	; &SW-JIGUGE-00209;
+      )
+     ((=ucs		  . #x65C1)	; 旁
       ))
     (->subsumptive
      ((===shuowen-jiguge5 . 00212)	; &SW-JIGUGE5-00212;

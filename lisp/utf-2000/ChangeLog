@@ -1,13 +1,59 @@
 2021-05-31  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R045-Sprout.el (BC-88B8): Add
+	`<-denotational@component' for A-IWDSU+37A4.
+
 	* Ideograph-R012-Eight.el (A-BC-8DE2-itaiji-001): New abstract
 	node; use `<-denotational' for A-BC-8DE2.
 	(BC-8DE2-itaiji-001): New character; use `<-denotational' for
 	A-BC-8DE2-itaiji-001.
 
+	* Ideograph-R015-Ice.el (U+51BB): Apply new conventions for glyph
+	granularity.
+	(U+51CD): Likewise.
+
+	* Ideograph-R001-One.el (U+4E1C): Use `->subsumptive'.
+
 2021-05-30  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R053-Dotted-Cliff.el (U-0002220F): New character.
+
+2021-05-30  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR006.el: Add `ideographic-structure' for some ShuoWen's
+	characters.
+	(SW-JIGUGE-00700): Add `<-ancient@shuowen' for SW-JIGUGE-00605.
+	(SW-JIGUGE-00714): Add `<-formed@shuowen' for SW-JIGUGE-00713.
+	(SW-JIGUGE-00715): Ditto.
+	(SW-JIGUGE-00716): Ditto.
+
+	* ShuoWen-SR012.el (SW-JIGUGE-01511): Add U-00024588 as a
+	corresponding modern character; add `<-ancient@shuowen' for
+	SW-JIGUGE-01510.
+
+	* ShuoWen-SR009.el: Add `ideographic-structure' for some ShuoWen's
+	characters.
+	(SW-JIGUGE-01304): Add `<-formed@shuowen' for SW-JIGUGE-01303.
+
+	* ShuoWen-SR007.el: Add `ideographic-structure' for some ShuoWen's
+	characters.
+	(SW-JIGUGE-01215): Add U+73CF as a corresponding modern character.
+	(SW-JIGUGE-01216): Add `<-formed@shuowen' for SW-JIGUGE-01215.
+
+	* ShuoWen-SR005.el (SW-JIGUGE-00602): Add `<-ancient@shuowen' for
+	SW-JIGUGE-00601.
+	(SW-JIGUGE-00603): Add `ideographic-structure'.
+	(SW-JIGUGE-00604): Add `ideographic-structure'.
+
+	* ShuoWen-SR003.el: Add `ideographic-structure' for some ShuoWen's
+	characters.
+	(SW-JIGUGE-00506): Add `<-ancient@shuowen' for SW-JIGUGE-00505.
+
+	* ShuoWen-SR002.el (SW-JIGUGE-00210): Add `<-ancient@shuowen' for
+	SW-JIGUGE-00209.
+	(SW-JIGUGE-00211): Ditto.
+	(SW-JIGUGE-00212): Add `ideographic-structure'; add
+	`<-Zhouwen@shuowen' for SW-JIGUGE-00209.
 
 2021-05-30  MORIOKA Tomohiko  <tomo.git@chise.org>
 

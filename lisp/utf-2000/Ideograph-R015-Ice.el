@@ -1704,6 +1704,24 @@
     (ideographic-radical . 15)	; ⼎
     (ideographic-strokes . 5)
     (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=>ucs@iwds-1	  . #x51AB)	; &A-IWDSU+51AB;
+      (=>iwds-1		  .  47219)	; &A-IWDSU+51AB;
+      )
+     ((=ucs		  . #x4E1C)	; 东
+      ))
+    (=ucs		. #x51BB)	; 冻
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x51BB)	; 冻
+      ))
+    (ideographic-radical . 15)	; ⼎
+    (ideographic-strokes . 5)
+    (total-strokes	 . 7)
     (hanyu-dazidian	1 295 15)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -1713,11 +1731,12 @@
       )
      ((=ucs		  . #x4E1C)	; 东
       ))
-    (=ucs		. #x51BB)	; 冻
-    (=gb2312		. #x3633)	; &I-G0-3633; [22-19]
+    (=ucs@unicode	. #x51BB)	; &G0-3633;
+    (=gb2312		. #x3633)	; &G0-3633; [22-19]
     (<-simplified@CN
-     ((=ucs		  . #x51CD)	; 凍
-      (=gb12345		  . #x3633)	; 凍 [22-19]
+     ((=ucs@unicode	  . #x51CD)	; &AJ1-03162;
+      (=adobe-japan1-0	  . 03162)	; &AJ1-03162;
+      (=gb12345		  . #x3633)	; &AJ1-03162; [22-19]
       ))
     (->subsumptive
      ((==ucs@unicode	  . #x51BB)	; &g2-UU+51BB;
@@ -3551,6 +3570,25 @@
     (ideographic-radical . 15)	; ⼎
     (ideographic-strokes . 8)
     (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=>ucs@iwds-1	  . #x51AB)	; &A-IWDSU+51AB;
+      (=>iwds-1		  .  47219)	; &A-IWDSU+51AB;
+      )
+     ((=>ucs@component	  . #x67EC)	; &A-compU+67EC;
+      (=>iwds-1		  .  0186)	; &A-compU+67EC;
+      ))
+    (=ucs		. #x51CD)	; 凍
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x51CD)	; 凍
+      ))
+    (ideographic-radical . 15)	; ⼎
+    (ideographic-strokes . 8)
+    (total-strokes	 . 10)
     (hanyu-dazidian	1 298 7)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -3560,19 +3598,51 @@
       )
      ((=ucs		  . #x6771)	; 東
       ))
-    (=ucs		. #x51CD)	; 凍
-    (=adobe-japan1-0	. 03162)	; &I-AJ1-03162;
+    (=ucs@unicode	. #x51CD)	; &AJ1-03162;
+    (=adobe-japan1-0	. 03162)	; &AJ1-03162;
     (=jis-x0208		. #x4560)	; &I-J90-4560; [37-64]
     (=ks-x1001		. #x5450)	; &I-K0-5450; [52-48]
     (=cns11643-1	. #x5444)	; &I-C1-5444; [52-36]
     (=jis-x0213-1	. #x4560)	; &I-JX1-4560; [37-64]
-    (=gb12345		. #x3633)	; 凍 [22-19]
+    (=gb12345		. #x3633)	; &AJ1-03162; [22-19]
     (=big5		. #xADE1)	; &I-B-ADE1;
     (=gt		. 02199)	; &I-GT-02199;
     (=gt-pj-1		. #x4560)	; &I-GT-02199; [37-64]
     (=daikanwa		. 01670)	; &I-M-01670;
     (=daijiten		. 00684)	; &I-DJT-00684;
-    (=shinjigen		.  0554)	; 凍
+    (=shinjigen		.  0554)	; &AJ1-03162;
+    (->subsumptive
+     ((==ucs@unicode	  . #x51CD)	; &g2-AJ1-03162;
+      (==adobe-japan1-0	  . 03162)	; &g2-AJ1-03162;
+      (==ks-x1001	  . #x5450)	; &g2-AJ1-03162; [52-48]
+      (==jis-x0208	  . #x4560)	; &g2-AJ1-03162; [37-64]
+      (==cns11643-1	  . #x5444)	; &g2-AJ1-03162; [52-36]
+      (==jis-x0213-1	  . #x4560)	; &g2-AJ1-03162; [37-64]
+      (==gb12345	  . #x3633)	; &g2-AJ1-03162; [22-19]
+      (==gt		  . 02199)	; &g2-AJ1-03162;
+      (==daikanwa	  . 01670)	; &g2-AJ1-03162;
+      (==daijiten	  . 00684)	; &g2-AJ1-03162;
+      (==shinjigen	  .  0554)	; &g2-AJ1-03162;
+      (->subsumptive
+       ((===daikanwa	    . 01670)	; &R-M-01670;
+	)
+       ((===daijiten	    . 00684)	; &R-DJT-00684;
+	)
+       ((===jis-x0208	    . #x4560)	; &R-J0-4560; [37-64]
+	(===jis-x0213-1	    . #x4560)	; &R-J0-4560; [37-64]
+	)
+       ((===adobe-japan1-0  . 03162)	; &R-AJ1-03162;
+	)
+       ((===cns11643-1	    . #x5444)	; &R-C1-5444; [52-36]
+	)
+       ((===gt		    . 02199)	; &R-GT-02199;
+	)
+       ((===ucs@ks	    . #x51CD)	; &R-K0-5450;
+	(===ks-x1001	    . #x5450)	; &R-K0-5450; [52-48]
+	)
+       ((===ucs@unicode	    . #x51CD)	; &R-UU+51CD;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 15)	; ⼎

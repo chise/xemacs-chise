@@ -17,6 +17,11 @@
     (<-Small-Seal@shuowen
      ((=ucs		  . #x2067B)	; 𠙻
       ))
+    (<-ancient@shuowen
+     ((=shuowen-jiguge	  . 00601)	; &SW-JIGUGE-00601;
+      )
+     ((=ucs		  . #x738B)	; 王
+      ))
     (->subsumptive
      ((===shuowen-jiguge5 . 00602)	; &SW-JIGUGE5-00602;
       )
@@ -25,6 +30,14 @@
     ))
 (define-char
   '((shuowen-radical	. 5)	; 王
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
+      (=ucs		  . #x2FF5)	; ⿵
+      )
+     ((=shuowen-jiguge	  . 41313)	; &SW-JIGUGE-41313;
+      )
+     ((=shuowen-jiguge	  . 00601)	; &SW-JIGUGE-00601;
+      ))
     (=shuowen-jiguge	. 00603)	; &SW-JIGUGE-00603;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x958F)	; 閏
@@ -37,6 +50,14 @@
     ))
 (define-char
   '((shuowen-radical	. 5)	; 王
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=shuowen-jiguge	  . 11305)	; &SW-JIGUGE-11305;
+      )
+     ((=shuowen-jiguge	  . 00601)	; &SW-JIGUGE-00601;
+      ))
     (=shuowen-jiguge	. 00604)	; &SW-JIGUGE-00604;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x26903)	; 𦤃

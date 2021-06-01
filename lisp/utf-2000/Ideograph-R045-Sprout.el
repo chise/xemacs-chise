@@ -373,7 +373,10 @@
     (=daikanwa		. 07830)	; &I-M-07830;
     ))
 (define-char
-  '((ideographic-radical . 45)	; ⼬
+  '((<-denotational@component
+     ((=>ucs@iwds-1	  . #x37A4)	; &A-IWDSU+37A4;
+      ))
+    (ideographic-radical . 45)	; ⼬
     (ideographic-strokes . 1)
     (total-strokes	 . 4)
     (ideographic-structure
