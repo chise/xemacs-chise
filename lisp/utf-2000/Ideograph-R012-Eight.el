@@ -3353,6 +3353,62 @@
     ))
 (define-char
   '((<-denotational
+     ((=>ucs@iwds-1	  . #x5177)	; &A-IWDSU+5177;
+      (=>iwds-1		  .  11039)	; &A-IWDSU+5177;
+      ))
+    (<-denotational@component
+     ((=>ucs@component	  . #x5177)	; &A-compU+5177;
+      (=>iwds-1		  .  1139)	; &A-compU+5177;
+      )
+     ((=>ucs@iwds-1	  . #x72CA)	; &A-IWDSU+72CA;
+      ))
+    (ideographic-radical@ucs . 109)	; ⽬
+    (ideographic-strokes@ucs . 3)
+    (ideographic-radical@mj . 37)	; ⼤
+    (ideographic-strokes@mj . 5)
+    (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x76EE)	; 目
+      )
+     ((=ucs		  . #x5927)	; 大
+      ))
+    (=ucs		. #x3094D)	; 𰥍
+    (=mj		. 016916)	; &I-MJ016916;
+    (=koseki		. 067660)	; 𰥍
+    (=gt-k		. 04005)	; &I-GT-K04005;
+    (=gt-pj-k1		. #x406A)	; 𰥍 [32-74]
+    (<-formed
+     ((=ucs		  . #x2F811)	; 具
+      (=mj		  . 007288)	; &I-MJ007288;
+      ))
+    (<-formed$_1*sources
+     koseki mj)
+    (<-formed*sources
+     koseki mj)
+    (->subsumptive
+     ((==ucs@JP/hanazono  . #x3094D)	; &g2-MJ016916;
+      (==mj		  . 016916)	; &g2-MJ016916;
+      (==koseki		  . 067660)	; &g2-MJ016916;
+      (->subsumptive
+       ((===mj		    . 016916)	; &R-MJ016916;
+	))
+      )
+     ((==gt-k		  . 04005)	; &g2-GT-K04005;
+      (==gt-pj-k1	  . #x406A)	; &g2-GT-K04005; [32-74]
+      )
+     ((=gt-k		  . 04006)	; &GT-K04006;
+      (=gt-pj-k1	  . #x6A5B)	; &GT-K04006; [74-59]
+      (->subsumptive
+       ((==gt-k		    . 04006)	; &g2-GT-K04006;
+	(==gt-pj-k1	    . #x6A5B)	; &g2-GT-K04006; [74-59]
+	))
+      ))
+    ))
+(define-char
+  '((<-denotational
      ((=>ucs@cognate	  . #x5177)	; &A-cgnU+5177;
       ))
     (ideographic-radical . 12)	; ⼋
@@ -6634,7 +6690,9 @@
       )
      ((=ucs		  . #x516B)	; 八
       )
-     ((=ucs		  . #x5546)	; 商
+     ((=ucs@unicode	  . #x5546)	; &AJ1-13830;
+      (=adobe-japan1-0	  . 02446)	; &AJ1-13830;
+      (=adobe-japan1-4	  . 13830)	; &I-AJ1-13830;
       ))
     (=ucs@JP/hanazono	. #x2A78A)	; &hanaJU+2A78A;
     ))
