@@ -740,6 +740,21 @@
     (ideographic-strokes . 2)
     (total-strokes	 . 5)
     (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>ucs@component	  . #x5200)	; &A-compU+5200;
+      (=>iwds-1		  .  0149)	; &A-compU+5200;
+      )
+     ((=ucs		  . #x5C38)	; 尸
+      ))
+    (=>gt-k		. 01413)	; &A-GT-K01413;
+    ))
+(define-char
+  '((ideographic-radical . 44)	; ⼫
+    (ideographic-strokes . 2)
+    (total-strokes	 . 5)
+    (ideographic-structure
      ((name		  . "IDEOGRAPHIC DESCRIPTION CHARACTER OVERLAID")
       (=ucs		  . #x2FFB)	; ⿻
       )
@@ -750,6 +765,32 @@
     (=ucs-itaiji-001	. #x378B)	; &U-i001+378B;
     (<-formed@component
      ((=ucs		  . #x20B1D)	; 𠬝
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>gt-k		  . 01413)	; &A-GT-K01413;
+      ))
+    (ideographic-radical . 44)	; ⼫
+    (ideographic-strokes . 2)
+    (total-strokes	 . 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((name		  . "CJK RADICAL KNIFE ONE")
+      (=ucs		  . #x2E88)	; ⺈
+      )
+     ((=ucs		  . #x5C38)	; 尸
+      ))
+    (=gt-k		. 01413)	; &GT-K01413;
+    (=gt-pj-k1		. #x3F59)	; &GT-K01413; [31-57]
+    (<-formed@component
+     ((=ucs		  . #x21C24)	; 𡰤
+      ))
+    (->subsumptive
+     ((==gt-k		  . 01413)	; &g2-GT-K01413;
+      (==gt-pj-k1	  . #x3F59)	; &g2-GT-K01413; [31-57]
       ))
     ))
 (define-char
