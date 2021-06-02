@@ -1059,6 +1059,11 @@
 	)
        ((===ucs@iso	    . #x20063)	; &R-U-00020063;
 	))
+      )
+     ((=big5-cdp	  . #x89CE)	; &CDP-89CE;
+      (->subsumptive
+       ((==big5-cdp	    . #x89CE)	; &g2-CDP-89CE;
+	))
       ))
     ))
 (define-char
