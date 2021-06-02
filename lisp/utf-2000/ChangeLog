@@ -1,5 +1,10 @@
 2021-06-01  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R002-Line.el (BC-89CE): New character; use
+	`<-subsumptive' for U-00020063.
+
+2021-06-01  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R044-Corpse.el (A-GT-K01413): New abstract node.
 	(GT-K01413): New character; use `<-denotational' for A-GT-K01413.
 
