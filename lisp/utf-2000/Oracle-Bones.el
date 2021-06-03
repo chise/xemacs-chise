@@ -17378,6 +17378,9 @@
     (<-Oracle-Bones
      ((=ucs		  . #x5165)	; 入
       ))
+    (<-Small-Seal@component
+     ((=ucs		  . #x5165)	; 入
+      ))
     ))
 (define-char
   '((shuowen-radical	. 184)	; 入
@@ -21165,6 +21168,9 @@
     (<-Oracle-Bones
      ((=ucs		  . #x723F)	; 爿
       ))
+    (<-Small-Seal@component
+     ((=ucs		  . #x723F)	; 爿
+      ))
     ))
 (define-char
   '((shuowen-radical	. 250)	; 鼎
@@ -21953,10 +21959,9 @@
 	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	  (=ucs		      . #x2FF0)	; ⿰
 	  )
-	 ((name		      . "CJK RADICAL WATER ONE")
-	  (=ucs		      . #x2EA1)	; ⺡
+	 ((=ucs		      . #x6C35)	; 氵
 	  )
-	 ((=gt-k	      . 01457)	; &GT-K01457;
+	 ((=ucs		      . #x200A1)	; 𠂡
 	  ))
 	))
       ))
