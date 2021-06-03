@@ -1,3 +1,23 @@
+2021-06-03  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR092.el (SW-JIGUGE-09707): Add `<-ancient@shuowen' for
+	SW-JIGUGE-09706.
+	(SW-JIGUGE-09807): Add U+3A85 as a corresponding modern character.
+
+	* ShuoWen-SR086.el (SW-JIGUGE-09504): Add U-00023A8D and
+	U-00023AAB as corresponding modern characters.
+
+	* ShuoWen-SR082.el (SW-JIGUGE-09304): Add U-00028F76 as a
+	corresponding modern character; add `<-ancient@shuowen' for
+	SW-JIGUGE-09303.
+	(SW-JIGUGE-09305): Add U-000207F7, U+5283 and U+34F0 as
+	corresponding modern characters; add `<-ancient@shuowen' for
+	SW-JIGUGE-09303.
+	(SW-JIGUGE-09307): Add `<-Zhouwen@shuowen' for SW-JIGUGE-09306.
+
+	* ShuoWen-SR077.el (SW-JIGUGE-09200): Add A-compU+5351 as a
+	corresponding modern character.
+
 2021-06-02  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* ShuoWen-SR070.el (SW-JIGUGE-08608): Add `<-Zhouwen@shuowen' for
@@ -13,6 +33,8 @@
 	corresponding modern character.
 
 2021-06-02  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R028-Private.el (U-00020AE1): New character.
 
 	* Ideograph-R015-Ice.el (U-000205B2): New character.
 	(U-0002B941): New character.
