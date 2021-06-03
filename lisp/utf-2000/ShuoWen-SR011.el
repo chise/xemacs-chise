@@ -37,6 +37,9 @@
     (<-Small-Seal@shuowen
      ((=ucs		  . #x6BCF)	; 每
       )
+     ((=>ucs@iwds-1	  . #x6BCF)	; &J97-4B68;
+      (=>jis-x0208@1997	  . #x4B68)	; &J97-4B68; [43-72]
+      )
      ((=ucs		  . #x6BCE)	; 毎
       ))
     (->subsumptive
