@@ -16,6 +16,9 @@
     (=shuowen-jiguge	. 09200)	; &SW-JIGUGE-09200;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x5351)	; 卑
+      )
+     ((=>ucs@component	  . #x5351)	; &A-compU+5351;
+      (=>iwds-1		  .  0287)	; &A-compU+5351;
       ))
     (->subsumptive
      ((===shuowen-jiguge5 . 09200)	; &SW-JIGUGE5-09200;

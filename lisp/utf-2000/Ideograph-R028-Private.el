@@ -1208,6 +1208,23 @@
   '((ideographic-radical . 28)	; ⼛
     (ideographic-strokes . 4)
     (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x53B6)	; 厶
+      )
+     ((=ucs		  . #x6728)	; 木
+      ))
+    (=ucs		. #x20AE1)	; 𠫡
+    (->subsumptive
+     ((==ucs@iso	  . #x20AE1)	; &g2-IU-00020AE1;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 28)	; ⼛
+    (ideographic-strokes . 4)
+    (total-strokes	 . 6)
     (=ucs		. #x20AE3)	; 𠫣
     ))
 (define-char

@@ -143,6 +143,10 @@
   '((shuowen-radical	. 86)	; 殳
     (=shuowen-jiguge	. 09504)	; &SW-JIGUGE-09504;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x23A8D)	; 𣪍
+      )
+     ((=ucs		  . #x23AAB)	; 𣪫
+      )
      ((=ucs		  . #x6BBF)	; 殿
       ))
     (->subsumptive
