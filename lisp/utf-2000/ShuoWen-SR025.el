@@ -15,6 +15,10 @@
   '((shuowen-radical	. 25)	; 哭
     (=shuowen-jiguge	. 04411)	; &SW-JIGUGE-04411;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x20DD4)	; 𠷔
+      )
+     ((=ucs		  . #x20E36)	; 𠸶
+      )
      ((=ucs		  . #x55AA)	; 喪
       ))
     (->subsumptive
