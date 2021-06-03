@@ -1,5 +1,7 @@
 2021-06-03  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R060-Step.el (U-00022589): Add `<-ancient' for U+5FB9.
+
 	* ShuoWen-SR092.el (SW-JIGUGE-09707): Add `<-ancient@shuowen' for
 	SW-JIGUGE-09706.
 	(SW-JIGUGE-09807): Add U+3A85 as a corresponding modern character.

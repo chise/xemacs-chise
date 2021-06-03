@@ -18347,6 +18347,11 @@
       ))
     (sound@ja/on	"tetu")
     (=ucs		. #x22589)	; 𢖉
+    (<-ancient
+     ((=ucs		  . #x5FB9)	; 徹
+      ))
+    (<-ancient*sources
+     shuowen)
     ))
 (define-char
   '((<-denotational
