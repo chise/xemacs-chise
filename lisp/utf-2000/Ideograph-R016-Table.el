@@ -1128,12 +1128,50 @@
       )
      ((=ucs		  . #x51E0)	; 几
       )
+     ((=>ucs@iwds-1	  . #x51AB)	; &A-IWDSU+51AB;
+      (=>iwds-1		  .  47219)	; &A-IWDSU+51AB;
+      ))
+    (=ucs		. #x2D0AC)	; 𭂬
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2D0AC)	; 𭂬
+      ))
+    (ideographic-radical . 16)	; ⼏
+    (ideographic-strokes . 2)
+    (total-strokes	 . 4)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
+      (=ucs		  . #x2FF5)	; ⿵
+      )
+     ((=ucs		  . #x51E0)	; 几
+      )
+     ((=ucs		  . #x51AB)	; 冫
+      ))
+    (=ucs-var-001	. #x2D0AC)	; &U-v001+2D0AC;
+    (->subsumptive
+     ((==ucs-var-001	  . #x2D0AC)	; &g2-U-v001+2D0AC;
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2D0AC)	; 𭂬
+      ))
+    (ideographic-radical . 16)	; ⼏
+    (ideographic-strokes . 2)
+    (total-strokes	 . 4)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
+      (=ucs		  . #x2FF5)	; ⿵
+      )
+     ((=ucs		  . #x51E0)	; 几
+      )
      ((name		  . "CJK RADICAL REPEAT")
       (=ucs		  . #x2E80)	; ⺀
       ))
-    (=ucs		. #x2D0AC)	; 𭂬
-    (=mj		. 058055)	; &I-MJ058055;
-    (=koseki		. 240370)	; 𭂬
+    (=ucs@JP/hanazono	. #x2D0AC)	; &MJ058055;
+    (=mj		. 058055)	; &MJ058055;
+    (=koseki		. 240370)	; &MJ058055;
     (<-formed
      ((=ucs		  . #x74E6)	; 瓦
       (=mj		  . 017540)	; &I-MJ017540;
