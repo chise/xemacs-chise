@@ -5786,6 +5786,8 @@
   '((shuowen-radical	. 12)	; 艸
     (=shuowen-jiguge	. 03019)	; &SW-JIGUGE-03019;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x8405)	; 萅
+      )
      ((=ucs		  . #x6625)	; 春
       ))
     (->subsumptive
