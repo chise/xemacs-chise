@@ -939,6 +939,42 @@
   '((ideographic-radical . 26)	; ⼙
     (ideographic-strokes . 3)
     (total-strokes	 . 5)
+    (=ucs		. #x2D174)	; 𭅴
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2D174)	; 𭅴
+      ))
+    (ideographic-radical . 26)	; ⼙
+    (ideographic-strokes . 3)
+    (total-strokes	 . 5)
+    (=ucs@JP/hanazono	. #x2D174)	; &MJ057106;
+    (=mj		. 057106)	; &MJ057106;
+    (=koseki		. 032920)	; &MJ057106;
+    (<-formed
+     ((=ucs		  . #x5370)	; 印
+      )
+     ((=ucs		  . #x536C)	; 卬
+      ))
+    (<-formed$_1*sources
+     mj)
+    (<-formed$_2*sources
+     mj)
+    (<-formed*sources
+     mj)
+    (->subsumptive
+     ((==ucs@JP/hanazono  . #x2D174)	; &g2-MJ057106;
+      (==mj		  . 057106)	; &g2-MJ057106;
+      (==koseki		  . 032920)	; &g2-MJ057106;
+      (->subsumptive
+       ((===mj		    . 057106)	; &R-MJ057106;
+	))
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 26)	; ⼙
+    (ideographic-strokes . 3)
+    (total-strokes	 . 5)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
