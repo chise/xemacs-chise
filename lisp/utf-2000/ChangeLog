@@ -1,5 +1,12 @@
 2021-06-03  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R016-Table.el (U-0002D0AC): Apply new conventions for
+	glyph granularity.
+	(U+2D0AC-var-001): New character; use `<-denotational' for
+	U-0002D0AC.
+
+2021-06-03  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R026-Seal.el (U-0002D174): New character.
 
 	* Ideograph-R060-Step.el (U-00022589): Add `<-ancient' for U+5FB9.
