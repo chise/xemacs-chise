@@ -1,3 +1,17 @@
+2021-06-04  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R033-Scholar.el (U+58FB): Add `<-denotational@usage'
+	for BUCS+5A7F.
+	(UU+58FB): Unify DJT-01911.
+	(BUCS+5A7F): New abstract node; unify A2-DJT-01911.
+
+	* Ideograph-R032-Earth.el (U-000212C7): New character.
+	(U-000212C8): New character.
+	(U-000212CF): New character.
+	(U-000212D3): New character.
+	(U-000212F0): Add `<-denotational@component' for A-IWDSU+3698;
+	apply new conventions for glyph granularity.
+
 2021-06-03  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R016-Table.el (U-0002D0AC): Apply new conventions for
