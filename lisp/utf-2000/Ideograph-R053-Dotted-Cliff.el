@@ -6824,6 +6824,23 @@
       ))
     ))
 (define-char
+  '((ideographic-radical . 53)	; ⼴
+    (ideographic-strokes . 8)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs		  . #x5E7F)	; 广
+      )
+     ((=ucs		  . #x241AC)	; 𤆬
+      ))
+    (=ucs		. #x22250)	; 𢉐
+    (->subsumptive
+     ((==ucs@iso	  . #x22250)	; &g2-IU-00022250;
+      ))
+    ))
+(define-char
   '((<-denotational@usage
      ((==>ucs@bucs	  . #x5EA7)	; &BUCS+5EA7;
       ))

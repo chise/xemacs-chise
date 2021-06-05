@@ -1,5 +1,38 @@
 2021-06-04  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R053-Dotted-Cliff.el (U-00022250): New character.
+
+	* Ideograph-R046-Mountain.el (A-IWDSU+37A4): New abstract node.
+	(U+37A4): Apply new conventions for glyph granularity; add
+	`<-denotational' for A-IWDSU+37A4.
+	(U+37A5): Likewise.
+	(U-00021D8D): Use `->denotational' and `->subsumptive'.
+	(U-00021D96): New character.
+	(U+37CE): Add `<-denotational@usage' for A2-DJT-02595; add
+	`sound@ja/on/{kan|go}'.
+	(M-08113): Unify MJ000857 and KOSEKI-091940; add `->formed' for
+	CU+21F43 and UU+5D9E.
+	(UU+37CE): Unify DJT-02595.
+	(U+5D9E): Apply new conventions for glyph granularity.
+	(U-00021F43): Use `->denotational' and `->subsumptive'.
+	(U-00021FB4): New character.
+	(U-00021FB5): New character.
+	(U-00021FDB): Use `->denotational' and `->subsumptive'.
+	(U-00021FD9): New character.
+	(A2-DJT-02595): New abstract node.
+
+	* Ideograph-R010-Legs.el (A-U+514D-itaiji-003): New abstract node.
+	(U+514D-itaiji-003): New character; use `<-denotational' for
+	A-U+514D-itaiji-003.
+	(U-0002047E): Apply new conventions for glyph granularity.
+	(A-U+2047E-itaiji-001): New abstract node; use `<-denotational'
+	for U-0002047E.
+	(U+2047E-itaiji-001): New character; use `<-denotational' for
+	A-U+2047E-itaiji-001.
+	(U-000204B6): Apply new conventions for glyph granularity.
+
+2021-06-04  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R041-Inch.el (U+5BF9): Add `<-simplified@CN' for
 	UU+5C0D.
 
