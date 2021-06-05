@@ -8466,21 +8466,75 @@
       ))
     ))
 (define-char
-  '((=>ucs		. #x2244C)	; 𢑌
+  '((ideographic-radical . 57)	; ⼸
+    (ideographic-strokes . 22)
+    (total-strokes	 . 25)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
+      (=ucs		  . #x2FF4)	; ⿴
+      )
+     ((=ucs		  . #x5F1C)	; 弜
+      )
+     ((=>ucs@iwds-1	  . #x7FB9)	; &A-IWDSU+7FB9;
+      (=>iwds-1		  .  0391)	; &A-IWDSU+7FB9;
+      ))
+    (sound@ja/on	"kAu")
+    (=ucs		. #x2244C)	; 𢑌
+    (<-formed
+     ((=ucs		  . #x29C67)	; 𩱧
+      ))
+    (<-formed*sources
+     shuowen)
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2244C)	; 𢑌
+      ))
     (ideographic-radical . 57)	; ⼸
     (ideographic-strokes . 22)
     (total-strokes	 . 25)
     (hanyu-dazidian	2 1006 4)
-    (=daikanwa		. 09907)	; &M-09907;
-    (=hanziku-3		. #xCD7C)	; &I-HZK03-CD7C;
-    ))
-(define-char
-  '((morohashi-daikanwa	9907 0 0)
-    (ideographic-radical . 57)	; ⼸
-    (ideographic-strokes . 22)
-    (total-strokes	 . 25)
-    (=ucs		. #x2244C)	; 𢑌
-    (=cns11643-7	. #x606F)	; &I-C7-606F; [64-79]
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
+      (=ucs		  . #x2FF4)	; ⿴
+      )
+     ((=ucs		  . #x5F1C)	; 弜
+      )
+     ((=ucs@unicode	  . #x7FB9)	; &AJ1-06186;
+      (=adobe-japan1-0	  . 06186)	; &AJ1-06186;
+      ))
+    (=ucs@iso		. #x2244C)	; &C7-606F;
+    (=cns11643-7	. #x606F)	; &C7-606F; [64-79]
+    (=daikanwa		. 09907)	; &I-M-09907;
+    (<-formed
+     ((=ucs@unicode	  . #x7FB9)	; &AJ1-06186;
+      (=adobe-japan1-0	  . 06186)	; &AJ1-06186;
+      ))
+    (<-formed$_1*sources
+     jiyun)
+    (<-same
+     ((=ucs@unicode	  . #x7FB9)	; &AJ1-06186;
+      (=adobe-japan1-0	  . 06186)	; &AJ1-06186;
+      (=daikanwa	  . 28584)	; &I-M-28584;
+      ))
+    (<-same*sources
+     jiyun shuowen daikanwa)
+    (->subsumptive
+     ((==daikanwa	  . 09907)	; &g2-M-09907;
+      (->subsumptive
+       ((===daikanwa	    . 09907)	; &R-M-09907;
+	)
+       ((=hanziku-3	    . #xCD7C)	; &HZK03-CD7C;
+	)
+       ((==ucs@iso	    . #x2244C)	; &g2-IU-0002244C;
+	(==cns11643-7	    . #x606F)	; &g2-IU-0002244C; [64-79]
+	(->subsumptive
+	 ((===cns11643-7      . #x606F)	; &R-C7-606F; [64-79]
+	  )
+	 ((===ucs@iso	      . #x2244C)	; &R-U-0002244C;
+	  ))
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 57)	; ⼸
