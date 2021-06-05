@@ -122,6 +122,11 @@
     (=daikanwa		. 07413)	; &I-M-07413;
     (=daijiten		. 02414)	; &I-DJT-02414;
     (=shinjigen		.  1882)	; 对
+    (<-simplified@CN
+     ((=ucs@unicode	  . #x5C0D)	; &AJ1-04643;
+      (=adobe-japan1-0	  . 04643)	; &AJ1-04643;
+      (=gb12345		  . #x3654)	; &AJ1-04643; [22-52]
+      ))
     (<-vulgar
      ((=ucs@unicode	  . #x5C0D)	; &AJ1-04643;
       (=adobe-japan1-0	  . 04643)	; &AJ1-04643;
