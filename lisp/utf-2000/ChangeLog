@@ -1,9 +1,40 @@
 2021-06-04  MORIOKA Tomohiko  <tomo.git@chise.org>
 
-	* Ideograph-R033-Scholar.el (U+58FB): Add `<-denotational@usage'
-	for BUCS+5A7F.
-	(UU+58FB): Unify DJT-01911.
-	(BUCS+5A7F): New abstract node; unify A2-DJT-01911.
+	* Ideograph-R041-Inch.el (U+5BF9): Add `<-simplified@CN' for
+	UU+5C0D.
+
+	* Ideograph-R030-Mouth.el:
+	- Add Hanyo-Denshi/KS code points.
+	- Add `=decomposition@hanyo-denshi' for some abstract glyph-forms
+	  of Hanyo-Denshi/KS.
+	(A-compU+53E3): New abstract node.
+	(A-IWDSU+53E3): Add `<-denotational@component' for A-compU+53E3.
+	(U+53E4-var-002): New character; use `<-subsumptive' for U+53E4.
+	(HNG-KAR0673-0): Use `<-subsumptive' for g2-U+53E4-var-002 instead
+	of `<-denotational' for U+53E4.
+	(U+66F3-itaiji-001): New character.
+	(U-00020BBA): New character.
+	(U+66F5-itaiji-002): New character.
+	(A-cgnU+20BCC): New abstract node.
+	(U-00020BCC): Apply new conventions for glyph granularity; add
+	`<-denotational' for A-cgnU+20BCC.
+	(U-0002BA59): New character.
+	(U+547D): Apply new conventions for glyph granularity; modify
+	structure.
+	(A-cgnU+548E): New abstract node.
+	(U-00020C50): Use `->denotational' and `->subsumptive'.
+	(U-00020C81): New character.
+	(U-00020C84): New character.
+	(A-BC-857A): New abstract node.
+	(BC-857A): New character; use `<-denotational' for A-BC-857A.
+	(A-cgnU+559C): New abstract node.
+	(U+559C): Add `<-denotational' for A-cgnU+559C.
+	(U-00020DD4): Use `->denotational' and `->subsumptive'.
+	(A-cgnU+55AE): New abstract node.
+	(A-IWDSU+55AE): Add `<-denotational' for A-cgnU+55AE.
+	(U-00020F2C): Apply new conventions for glyph granularity.
+	(U-00021057): Use `->denotational' and `->subsumptive'.
+	(U-0002D2E8): New character.
 
 	* Ideograph-R032-Earth.el (U-000212C7): New character.
 	(U-000212C8): New character.
@@ -13,6 +44,11 @@
 	apply new conventions for glyph granularity.
 
 2021-06-03  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R033-Scholar.el (U+58FB): Add `<-denotational@usage'
+	for BUCS+5A7F.
+	(UU+58FB): Unify DJT-01911.
+	(BUCS+5A7F): New abstract node; unify A2-DJT-01911.
 
 	* Ideograph-R016-Table.el (U-0002D0AC): Apply new conventions for
 	glyph granularity.
