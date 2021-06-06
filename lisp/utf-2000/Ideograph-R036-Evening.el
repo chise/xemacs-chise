@@ -481,9 +481,13 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 36)	; ⼣
-    (ideographic-strokes . 2)
-    (total-strokes	 . 5)
+  '((<-denotational
+     ((=>ucs@cognate	  . #x5347)	; &A-cgnU+5347;
+      ))
+    (<-denotational@usage
+     ((==>ucs@bucs	  . #x5347)	; &BUCS+5347;
+      ))
+    (ideographic-radical . 36)	; ⼣
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -493,8 +497,25 @@
      ((=ucs		  . #x5341)	; 十
       ))
     (=ucs		. #x3688)	; 㚈
-    (=mj		. 000558)	; &I-MJ000558;
-    (=koseki		. 031450)	; 㚈
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x3688)	; 㚈
+      ))
+    (ideographic-radical . 36)	; ⼣
+    (ideographic-strokes . 2)
+    (total-strokes	 . 5)
+    (ideographic-structure@apparent
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5915)	; 夕
+      )
+     ((=ucs		  . #x5341)	; 十
+      ))
+    (=ucs@unicode	. #x3688)	; &MJ000558;
+    (=mj		. 000558)	; &MJ000558;
+    (=koseki		. 031450)	; &MJ000558;
     (<-formed
      ((=ucs		  . #x5347)	; 升
       ))
