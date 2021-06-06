@@ -1,3 +1,8 @@
+2021-06-06  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R052-Short-Thread.el (U-000221CF): Apply new
+	conventions for glyph granularity.
+
 2021-06-05  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R057-Bow.el (U-0002244C): Use `->denotational' and
@@ -114,6 +119,10 @@
 	glyph granularity.
 	(U+2D0AC-var-001): New character; use `<-denotational' for
 	U-0002D0AC.
+
+	* Oracle-Bones.el (ZOB-01554): Add `<-Small-Seal@component' for
+	U+5165.
+	(ZOB-01968): Add `<-Small-Seal@component' for U+723F.
 
 2021-06-03  MORIOKA Tomohiko  <tomo.git@chise.org>
 
