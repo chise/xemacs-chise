@@ -1,5 +1,10 @@
 2021-06-05  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R057-Bow.el (U-0002244C): Use `->denotational' and
+	`->subsumptive'.
+
+2021-06-05  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R038-Woman.el (U+5A7F): Add `<-denotational@usage' for
 	BUCS+5A7F; add `sound@ja/on'; add `<-formed' for U+58FB; apply new
 	conventions for glyph granularity.
