@@ -1,3 +1,25 @@
+2021-06-05  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R038-Woman.el (U+5A7F): Add `<-denotational@usage' for
+	BUCS+5A7F; add `sound@ja/on'; add `<-formed' for U+58FB; apply new
+	conventions for glyph granularity.
+	(U+5AA0): Apply new conventions for glyph granularity; add
+	`<-denotational@usage' for BUCS+5AA0.
+	(U+5AF7): Likewise.
+	(U+5B03): Apply new conventions for glyph granularity.
+	(U-00021853): Likewise.
+	(BUCS+5AA0): New abstract node; unify A2-DJT-02181.
+
+	* Ideograph-R036-Evening.el (U+3688): Apply new conventions for
+	glyph granularity; add `<-denotational' for A-cgnU+5347; add
+	`<-denotational@usage' for BUCS+5347.
+
+	* Ideograph-R031-Enclosure.el (GT-04091): Unify <IDEOGRAPHIC
+	NUMBER ZERO>; add `<-formed@Zetian' for U+661F.
+	(U-000211A0): Apply new conventions for glyph granularity.
+	(U-000211A1): Use `->denotational' and `->subsumptive'.
+	(CB05924): New character.
+
 2021-06-04  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R053-Dotted-Cliff.el (U-00022250): New character.
