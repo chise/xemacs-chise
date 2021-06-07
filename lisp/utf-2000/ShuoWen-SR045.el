@@ -39,9 +39,9 @@
   '((shuowen-radical	. 45)	; 㗊
     (=shuowen-jiguge	. 06702)	; &SW-JIGUGE-06702;
     (<-Small-Seal@shuowen
-     ((=ucs		  . #x56BB)	; 嚻
-      )
      ((=ucs		  . #x56C2)	; 囂
+      )
+     ((=ucs		  . #x56BB)	; 嚻
       ))
     (->subsumptive
      ((===shuowen-jiguge5 . 06702)	; &SW-JIGUGE5-06702;

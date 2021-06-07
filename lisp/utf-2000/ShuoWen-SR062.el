@@ -29,6 +29,8 @@
   '((shuowen-radical	. 62)	; 𠬞
     (=shuowen-jiguge	. 08105)	; &SW-JIGUGE-08105;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x20B3B)	; 𠬻
+      )
      ((=ucs		  . #x5949)	; 奉
       ))
     (->subsumptive
