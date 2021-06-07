@@ -35,6 +35,8 @@
       ))
     (=shuowen-jiguge	. 01501)	; &SW-JIGUGE-01501;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x21D0B)	; 𡴋
+      )
      ((=ucs		  . #x6BCF)	; 每
       )
      ((=>ucs@iwds-1	  . #x6BCF)	; &J97-4B68;
