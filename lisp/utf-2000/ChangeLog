@@ -1,3 +1,21 @@
+2021-06-07  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR072.el (SW-JIGUGE-08807): Add U-00029C4B as a
+	corresponding modern character; add `<-simplified@shuowen' for
+	SW-JIGUGE-08806.
+	(SW-JIGUGE-08808): Add `<-formed@shuowen' for SW-JIGUGE-08806.
+	(SW-JIGUGE-08809): Add `<-simplified@Small-Seal/shuowen' for
+	SW-JIGUGE-08806.
+	(SW-JIGUGE-08821): Add U+7151 as a corresponding modern character;
+	add `<-formed@shuowen' for SW-JIGUGE-08820.
+	(SW-JIGUGE-08822): Add `<-formed@shuowen' for SW-JIGUGE-08820.
+
+	* ShuoWen-SR062.el (SW-JIGUGE-08105): Add U-00020B3B as a
+	corresponding modern character.
+
+	* ShuoWen-SR045.el (SW-JIGUGE-06702): Change order of
+	`<-Small-Seal@shuowen'.
+
 2021-06-06  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* ShuoWen-SR056.el (SW-JIGUGE-07021): Add `<-ancient@shuowen' for
