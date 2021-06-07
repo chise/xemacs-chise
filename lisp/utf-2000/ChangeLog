@@ -1,7 +1,27 @@
 2021-06-06  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* ShuoWen-SR056.el (SW-JIGUGE-07021): Add `<-ancient@shuowen' for
+	SW-JIGUGE-07020.
+
+	* ShuoWen-SR011.el (SW-JIGUGE-01501): Add U-00021D0B as a
+	corresponding modern character.
+
 	* Ideograph-R052-Short-Thread.el (U-000221CF): Apply new
 	conventions for glyph granularity.
+
+	* Ideograph-R046-Mountain.el (U+37A4-itaiji-001): New character;
+	use `<-denotational@component' for A-IWDSU+37A4.
+	(U+37A4-itaiji-002): Ditto.
+	(A-IWDSU+672A-itaiji-001): New abstract node; unify
+	A-IWDSU+672A-itaiji-002.
+	(A-U+672A-itaiji-001): New abstract node; add `<-denotational' for
+	A-IWDSU+672A-itaiji-001.
+	(U+672A-itaiji-001): New character; use `<-denotational' for
+	A-U+672A-itaiji-001.
+	(A-U+672A-itaiji-002): New abstract node; add `<-denotational' for
+	A-IWDSU+672A-itaiji-001.
+	(U+672A-itaiji-002): New character; use `<-denotational' for
+	A-U+672A-itaiji-002.
 
 2021-06-05  MORIOKA Tomohiko  <tomo.git@chise.org>
 
