@@ -10566,14 +10566,17 @@
     (ideographic-strokes . 11)
     (total-strokes	 . 14)
     (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
       )
      ((=ucs		  . #x5E7F)	; 广
       )
      ((=ucs		  . #x90E8)	; 部
       ))
     (=ucs		. #x5ECD)	; 廍
+    (->subsumptive
+     ((==ucs@unicode	  . #x5ECD)	; &g2-UU+5ECD;
+      ))
     ))
 (define-char
   '((ideographic-radical . 53)	; ⼴
