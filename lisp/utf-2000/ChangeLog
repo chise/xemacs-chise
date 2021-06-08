@@ -1,8 +1,16 @@
 2021-06-07  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R001-One.el (U-00020012): Use "⿴" instead of "⿻".
+
 	* Ideograph-R040-Roof.el (A-IWDSU+5BAE): Fixed
 	`ideographic-structure'.
 	(U+5BAE): Ditto.
+
+	* ShuoWen-SR073.el (SW-JIGUGE-08827): Add U+7232 as a
+	corresponding modern character.
+
+	* ShuoWen-SR044.el (SW-JIGUGE-06502): Add U-00020541 as a
+	corresponding modern character.
 
 	* Ideograph-R029-Again.el (U-00020B46): Use A-U+21D42-itaiji-001
 	instead of A-U+30009-itaiji-001 as a component.
