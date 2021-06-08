@@ -5,6 +5,8 @@
     (<-Small-Seal@shuowen
      ((=ucs		  . #x2054B)	; 𠕋
       )
+     ((=ucs		  . #x20541)	; 𠕁
+      )
      ((=ucs		  . #x518A)	; 冊
       )
      ((=ucs		  . #x518C)	; 册

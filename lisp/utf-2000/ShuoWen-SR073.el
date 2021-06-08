@@ -41,6 +41,8 @@
   '((shuowen-radical	. 73)	; 爪
     (=shuowen-jiguge	. 08827)	; &SW-JIGUGE-08827;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x7232)	; 爲
+      )
      ((=ucs		  . #x70BA)	; 為
       ))
     (->subsumptive
