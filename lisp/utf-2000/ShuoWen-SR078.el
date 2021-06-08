@@ -31,9 +31,16 @@
   '((shuowen-radical	. 78)	; 史
     (=shuowen-jiguge	. 09203)	; &SW-JIGUGE-09203;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x20B46)	; 𠭆
+      )
      ((=ucs		  . #x20B4F)	; 𠭏
       )
      ((=ucs		  . #x355D)	; 㕝
+      ))
+    (<-ancient@shuowen
+     ((=shuowen-jiguge	  . 09202)	; &SW-JIGUGE-09202;
+      )
+     ((=ucs		  . #x4E8B)	; 事
       ))
     (->subsumptive
      ((===shuowen-jiguge5 . 09203)	; &SW-JIGUGE5-09203;
