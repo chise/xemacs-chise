@@ -1,5 +1,12 @@
 2021-06-07  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R040-Roof.el (A-IWDSU+5BAE): Fixed
+	`ideographic-structure'.
+	(U+5BAE): Ditto.
+
+	* Ideograph-R029-Again.el (U-00020B46): Use A-U+21D42-itaiji-001
+	instead of A-U+30009-itaiji-001 as a component.
+
 	* ShuoWen-SR072.el (SW-JIGUGE-08807): Add U-00029C4B as a
 	corresponding modern character; add `<-simplified@shuowen' for
 	SW-JIGUGE-08806.
@@ -15,6 +22,11 @@
 
 	* ShuoWen-SR045.el (SW-JIGUGE-06702): Change order of
 	`<-Small-Seal@shuowen'.
+
+2021-06-06  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R053-Dotted-Cliff.el (U+5ECD): Fixed
+	`ideographic-structure'.
 
 2021-06-06  MORIOKA Tomohiko  <tomo.git@chise.org>
 
