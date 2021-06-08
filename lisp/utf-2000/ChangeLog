@@ -1,3 +1,52 @@
+2021-06-08  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR079.el (SW-JIGUGE-09205): Add U-00022EB6 as a
+	corresponding modern character; add `<-ancient@shuowen' for
+	SW-JIGUGE-09204.
+
+	* ShuoWen-SR078.el (SW-JIGUGE-09203): Change order of the value of
+	`<-Small-Seal@shuowen'; add `<-ancient@shuowen' for
+	SW-JIGUGE-09202.
+
+	* ShuoWen-SR085.el (SW-JIGUGE-09407): Add U-00021489 and
+	U-000214A5 as corresponding modern characters; use
+	`->denotational' instead of `->subsumptive' for SW-JIGUGE5-09407
+	and SW-JIGUGE4-09307.
+
+2021-06-07  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R058-Snout.el (U-00030425): New character.
+	(A-U+30425-itaiji-001): New abstract node; use `<-denotational'
+	for U-00030425.
+	(U+30425-itaiji-001): New character; use `<-denotational' for
+	A-U+30425-itaiji-001.
+	(CB13274): New character; use `<-denotational' for U-00030425.
+	(A-J0-5734): Add `ideographic-structure'.
+	(U+5F5C): Apply new conventions for glyph granularity.
+	(U+5F5D): Likewise.
+	(U-000261DA): Add `<-ancient' for U+5F5D.
+
+	* Ideograph-R037-Big.el (U+5930): Apply new conventions for glyph
+	granularity; add `<-denotational@usage' for A2-DJT-01956.
+	(U+368F): Add `sound@ja/on'.
+	(UU+368F): Add `<-wrong' for UU+5930.
+	(U+3690): Apply new conventions for glyph granularity.
+	(U+593B): Likewise.
+	(U+3698): Add `<-denotational@component' for A-IWDSU+3698.
+	(MJ016916): Unify U-0003094D; use
+	`ideographic-{radical|strokes}@mj' instead of
+	`ideographic-{radical|strokes}'; add
+	`ideographic-{radical|strokes}@ucs'.
+	(U-00021643): Apply new conventions for glyph granularity.
+	(U-00021624): New character.
+	(U-0002163D): New character.
+	(A-IWDSU+3698): New abstract node.
+	(A2-DJT-01956): New abstract node.
+
+	* Ideograph-R032-Earth.el (U+5750): Add `<-ancient' for
+	U-000212F2.
+	(U-000214A5): New character.
+
 2021-06-07  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R001-One.el (U-00020012): Use "⿴" instead of "⿻".
