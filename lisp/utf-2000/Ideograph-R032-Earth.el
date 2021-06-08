@@ -3815,6 +3815,11 @@
       (=>ucs@iwds-1/normalized . #x4ECE)	; &A-IWDSU+4ECE;
       ))
     (=ucs		. #x5750)	; 坐
+    (<-ancient
+     ((=ucs		  . #x212F2)	; 𡋲
+      ))
+    (<-ancient*sources
+     shuowen)
     ))
 (define-char
   '((<-denotational
@@ -36332,6 +36337,38 @@
     ))
 (define-char
   '((ideographic-radical . 32)	; ⼟
+    (ideographic-strokes . 14)
+    (total-strokes	 . 17)
+    (ideographic-structure
+     ((=>ucs@iwds-1	  . #x2FF8)	; &U-v002+2FF1;
+      (=>iwds-1		  .  0305)	; &U-v002+2FF1;
+      )
+     ((=ucs		  . #x81E7)	; 臧
+      )
+     ((=ucs		  . #x4E0A)	; 上
+      ))
+    (=ucs		. #x214A5)	; 𡒥
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x214A5)	; 𡒥
+      ))
+    (ideographic-radical . 32)	; ⼟
+    (ideographic-strokes . 14)
+    (total-strokes	 . 17)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs@unicode	  . #x81E7)	; &AJ1-06292;
+      (=adobe-japan1-0	  . 06292)	; &AJ1-06292;
+      )
+     ((=ucs		  . #x4E0A)	; 上
+      ))
+    (=ucs@iso		. #x214A5)	; &U-000214A5;
+    ))
+(define-char
+  '((ideographic-radical . 32)	; ⼟
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -36390,8 +36427,8 @@
       )
      ((=ucs-itaiji-006	  . #x675F)	; &U-i006+675F;
       )
-     ((=ucs@unicode	  . #x548E)	; &HD-KS-040610;
-      (=gb2312		  . #x3E4C)	; &HD-KS-040610; [30-44]
+     ((=ucs@unicode	  . #x548E)	; &MJ057147;
+      (=mj		  . 057147)	; &MJ057147;
       ))
     (=ucs@iso		. #x214A9)	; &U-000214A9;
     (->subsumptive
