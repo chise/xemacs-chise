@@ -1434,6 +1434,16 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
+     ((=>ucs@iwds-1	  . #x4EBC)	; &A-IWDSU+4EBC;
+      (=>iwds-1		  .  64146)	; &A-IWDSU+4EBC;
+      )
+     ((name		  . "CJK STROKE HP")
+      (=ucs		  . #x31C7)	; ㇇
+      ))
+    (ideographic-structure@apparent
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
      ((=>ucs@iwds-1	  . #x4EBA)	; &A-IWDSU+4EBA;
       (=>iwds-1		  .  14623)	; &A-IWDSU+4EBA;
       )
@@ -1450,6 +1460,14 @@
     (total-strokes	 . 4)
     (hanyu-dazidian	1 105 5)
     (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=big5-cdp	  . #x8AFC)	; &CDP-8AFC;
+      )
+     ((=gt-k		  . 00022)	; &GT-K00022;
+      ))
+    (ideographic-structure@apparent
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
@@ -4712,6 +4730,14 @@
     (ideographic-strokes . 3)
     (total-strokes	 . 5)
     (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=big5-cdp	  . #x8AFC)	; &CDP-8AFC;
+      )
+     ((=ucs		  . #x4E06)	; 丆
+      ))
+    (ideographic-structure@apparent
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
@@ -34177,8 +34203,8 @@
       )
      ((=ucs		  . #x4EBB)	; 亻
       )
-     ((=ucs@unicode	  . #x548E)	; &HD-KS-040610;
-      (=gb2312		  . #x3E4C)	; &HD-KS-040610; [30-44]
+     ((=ucs@unicode	  . #x548E)	; &MJ057147;
+      (=mj		  . 057147)	; &MJ057147;
       ))
     (=ucs@unicode	. #x5003)	; &HZK01-CBD3;
     (=hanziku-1		. #xCBD3)	; &HZK01-CBD3;
@@ -63556,8 +63582,8 @@
       )
      ((=ucs		  . #x4EBB)	; 亻
       )
-     ((=ucs@cns		  . #x5584)	; &HD-KS-046170;
-      (=cns11643-1	  . #x6143)	; &HD-KS-046170; [65-35]
+     ((=ucs@cns		  . #x5584)	; &MJ008430;
+      (=mj		  . 008430)	; &MJ008430;
       ))
     (=ucs@cns		. #x50D0)	; &C3-456B;
     (=cns11643-3	. #x456B)	; &C3-456B; [37-75]
