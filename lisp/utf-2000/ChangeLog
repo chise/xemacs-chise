@@ -1,8 +1,19 @@
 2021-06-09  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* ShuoWen-SR003.el (SW-JIGUGE-00416): Add `<-simplified@shuowen'
+	for SW-JIGUGE-00415.
+	(SW-JIGUGE-00417): Add `<-Zhouwen@shuowen' for SW-JIGUGE-00415.
+
+	* Ideograph-R014-Cover.el (U+519B): Add `<-simplified@CN' for
+	U+8ECD.
+
 	* Ideograph-R019-Power.el (U+3514): New character.
 
 2021-06-08  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR103.el (SW-JIGUGE-11306): Add U-000250ED as a
+	corresponding modern character; add `<-ancient@shuowen' for
+	SW-JIGUGE-11305.
 
 	* Ideograph-R031-Enclosure.el (GT-04091): Unify <CJK STROKE Q>
 	instead <IDEOGRAPHIC NUMBER ZERO>; separate J0-213B and BE-C6E2;

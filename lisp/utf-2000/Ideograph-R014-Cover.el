@@ -906,7 +906,19 @@
       ))
     (=ucs		. #x519B)	; 军
     (=gb2312		. #x3E7C)	; &I-G0-3E7C; [30-92]
-    (=hanziku-1		. #xE47E)	; &I-HZK01-E47E;
+    (<-simplified@CN
+     ((=ucs		  . #x8ECD)	; 軍
+      (=gb12345		  . #x3E7C)	; 軍 [30-92]
+      ))
+    (->subsumptive
+     ((==ucs@unicode	  . #x519B)	; &g2-UU+519B;
+      (==gb2312		  . #x3E7C)	; &g2-UU+519B; [30-92]
+      (->subsumptive
+       ((===ucs@unicode	    . #x519B)	; &R-UU+519B;
+	)
+       ((=hanziku-1	    . #xE47E)	; &HZK01-E47E;
+	))
+      ))
     ))
 (define-char
   '((<-denotational@usage
