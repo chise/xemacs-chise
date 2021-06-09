@@ -1,5 +1,38 @@
 2021-06-08  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R031-Enclosure.el (GT-04091): Unify <CJK STROKE Q>
+	instead <IDEOGRAPHIC NUMBER ZERO>; separate J0-213B and BE-C6E2;
+	add `<-formed@component' for <HANGUL LETTER IEUNG>; add
+	`->mistakable' for <IDEOGRAPHIC NUMBER ZERO>, <LARGE CIRCLE> and
+	<WHITE CIRCLE>.
+	(CB05924): Use <CJK STROKE Q> instead of <IDEOGRAPHIC NUMBER
+	ZERO>.
+
+	* Ideograph-R018-Knife.el (U-00020730): Use `->denotational' and
+	`->subsumptive'.
+	(U-00020727): New character; use `<-denotational' for U-00020730.
+	(M-02023): Unify IU+20727; use `<-denotational' for U-00020727
+	instead of `=>ucs' for U-00020730.
+	(U+5250): Apply new conventions for glyph granularity; use
+	`<-denotational@usage' instead of `<-denotational' for BUCS+526E.
+	(U-0002073B): Add `ideographic-structure'.
+	(U-00020741): Add `ideographic-structure'; add `sound@ja/on'.
+	(U+34F0): New character.
+	(U-00020748): New character.
+	(U+526E): Use `<-denotational@usage' instead of `<-denotational'
+	for BUCS+526E.
+	(A-IWDSU+20766): New abstract node.
+	(U-00020766): Use `->denotational' and `->subsumptive'; add
+	`<-denotational' for A-IWDSU+20766.
+	(U-00020749): Likewise.
+	(U-000207B7): Apply new conventions for glyph granularity.
+	(U+5283): Likewise; use `<-denotational@usage' instead of
+	`<-denotational' for BUCS+5283.
+	(U-000207F1): Use `->denotational' and `->subsumptive'.
+	(U-000207F7): Add `<-ancient' for U+756B.
+	(U+5290): Add `sound@ja/on/{kan|go}'.
+	(CU+5290): Add some relations for other characters.
+
 	* ShuoWen-SR079.el (SW-JIGUGE-09205): Add U-00022EB6 as a
 	corresponding modern character; add `<-ancient@shuowen' for
 	SW-JIGUGE-09204.
