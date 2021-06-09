@@ -45,42 +45,47 @@
       ))
     ))
 (define-char
-  '((name		. "IDEOGRAPHIC NUMBER ZERO")
-    (general-category	number letter) ; Normative Category
-    (bidi-category	. "L")
+  '((name		. "CJK STROKE Q")
+    (general-category	symbol other) ; Informative Category
+    (bidi-category	. "ON")
     (mirrored		. nil)
-    (numeric-value	. 0)
     (ideographic-radical . 31)	; ⼞
     (ideographic-strokes . 0)
     (total-strokes	 . 1)
-    (=ucs		. #x3007)	; 〇
-    (=jis-x0208		. #x213B)	; &I-J90-213B; [01-27]
-    (=jis-x0213-1	. #x213B)	; &I-JX1-213B; [01-27]
-    (=big5-eten		. #xC6E2)	; &I-B-C6E2;
+    (=ucs		. #x31E3)	; ㇣
     (=gt		. 04091)	; &I-GT-04091;
     (=gt-pj-9		. #x4B22)	; &I-GT-04091; [43-02]
-    (=daikanwa/ho	.  0077)	; 〇
+    (=daikanwa/ho	.  0077)	; ㇣
     (<-formed@Zetian
      ((=ucs		  . #x661F)	; 星
       (=daikanwa	  . 13837)	; &I-M-13837;
       ))
     (<-formed@Zetian*sources
      jiyun daikanwa)
+    (<-formed@component
+     ((name		  . "HANGUL LETTER IEUNG")
+      (=ucs		  . #x3147)	; ㅇ
+      ))
+    (->mistakable
+     ((name		  . "IDEOGRAPHIC NUMBER ZERO")
+      (=ucs		  . #x3007)	; 〇
+      )
+     ((name		  . "LARGE CIRCLE")
+      (=ucs		  . #x25EF)	; ◯
+      )
+     ((name		  . "WHITE CIRCLE")
+      (=ucs		  . #x25CB)	; ○
+      ))
     (->subsumptive
-     ((==ucs@unicode	  . #x3007)	; &g2-GT-04091;
-      (==jis-x0208	  . #x213B)	; &g2-GT-04091; [01-27]
-      (==jis-x0213-1	  . #x213B)	; &g2-GT-04091; [01-27]
+     ((==ucs@unicode	  . #x31E3)	; &g2-GT-04091;
       (==gt		  . 04091)	; &g2-GT-04091;
       (==daikanwa/ho	  .  0077)	; &g2-GT-04091;
       (->subsumptive
        ((===daikanwa/ho	    .  0077)	; &R-M-H0077;
 	)
-       ((===jis-x0208	    . #x213B)	; &R-J0-213B; [01-27]
-	(===jis-x0213-1	    . #x213B)	; &R-J0-213B; [01-27]
-	)
        ((===gt		    . 04091)	; &R-GT-04091;
 	)
-       ((===ucs@unicode	    . #x3007)	; &R-UU+3007;
+       ((===ucs@unicode	    . #x31E3)	; &R-UU+31E3;
 	))
       ))
     ))
@@ -236,8 +241,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
       (=ucs		  . #x2FF4)	; ⿴
       )
-     ((name		  . "IDEOGRAPHIC NUMBER ZERO")
-      (=ucs		  . #x3007)	; 〇
+     ((name		  . "CJK STROKE Q")
+      (=ucs		  . #x31E3)	; ㇣
       )
      ((=ucs		  . #x4E59)	; 乙
       ))
