@@ -849,6 +849,21 @@
       ))
     ))
 (define-char
+  '((ideographic-radical . 19)	; ⼒
+    (ideographic-strokes . 4)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x52A0)	; 加
+      )
+     ((name		  . "CJK STROKE Q")
+      (=ucs		  . #x31E3)	; ㇣
+      ))
+    (=ucs		. #x3514)	; 㔔
+    ))
+(define-char
   '((<-denotational@usage
      ((==>ucs@bucs	  . #x52D5)	; &BUCS+52D5;
       ))
