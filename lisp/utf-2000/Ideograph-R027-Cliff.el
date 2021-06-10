@@ -4297,25 +4297,50 @@
   '((ideographic-radical . 27)	; ⼚
     (ideographic-strokes . 9)
     (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs		  . #x538C)	; 厌
+      )
+     ((=ucs		  . #x7532)	; 甲
+      ))
+    (=ucs		. #x53A3)	; 厣
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x53A3)	; 厣
+      ))
+    (ideographic-radical . 27)	; ⼚
+    (ideographic-strokes . 9)
+    (total-strokes	 . 11)
     (hanyu-dazidian	1 75 10)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
       (=ucs		  . #x2FF8)	; ⿸
       )
-     ((=ucs		  . #x5382)	; 厂
+     ((=ucs@unicode	  . #x538C)	; &G0-5161;
+      (=gb2312		  . #x5161)	; &G0-5161; [49-65]
       )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	(=ucs		    . #x2FF1)	; ⿱
+     ((=ucs		  . #x7532)	; 甲
+      ))
+    (=ucs@unicode	. #x53A3)	; &G0-5849;
+    (=gb2312		. #x5849)	; &G0-5849; [56-41]
+    (<-simplified@CN
+     ((=ucs@unicode	  . #x53B4)	; &AJ1-17336;
+      (=adobe-japan1-5	  . 17336)	; &I-AJ1-17336;
+      (=gb12345		  . #x5849)	; &AJ1-17336; [56-41]
+      ))
+    (->subsumptive
+     ((==ucs@unicode	  . #x53A3)	; &g2-UU+53A3;
+      (==ucs@JP/hanazono  . nil)
+      (==gb2312		  . #x5849)	; &g2-UU+53A3; [56-41]
+      (->subsumptive
+       ((===ucs@unicode	    . #x53A3)	; &R-UU+53A3;
 	)
-       ((=ucs		    . #x72AC)	; 犬
-	)
-       ((=ucs		    . #x7532)	; 甲
+       ((=hanziku-1	    . #xB376)	; &HZK01-B376;
 	))
       ))
-    (=ucs		. #x53A3)	; 厣
-    (=gb2312		. #x5849)	; &I-G0-5849; [56-41]
-    (=hanziku-1		. #xB376)	; &I-HZK01-B376;
     ))
 (define-char
   '((<-denotational
@@ -7389,7 +7414,7 @@
      ((=ucs		  . #x7532)	; 甲
       ))
     (=ucs@unicode	. #x53B4)	; &AJ1-17336;
-    (=adobe-japan1-5	. 17336)	; &AJ1-17336;
+    (=adobe-japan1-5	. 17336)	; &I-AJ1-17336;
     (=jis-x0212		. #x3451)	; &I-JSP-3451; [20-49]
     (=cns11643-2	. #x653B)	; &I-C2-653B; [69-27]
     (=jis-x0213-2	. #x2358)	; &I-JX2-2358; [03-56]
