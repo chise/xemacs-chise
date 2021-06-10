@@ -12,6 +12,10 @@
 
 2021-06-09  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* ShuoWen-SR104.el (SW-JIGUGE-11313): Add U+667A as a
+	corresponding modern character.
+	(SW-JIGUGE-11314): Add `<-ancient@shuowen' for SW-JIGUGE-11313.
+
 	* Ideograph-R030-Mouth.el: Add some MJ code points corresponding
 	to Hanyo-Denshi IVSes.
 	(U+569A): Apply new conventions for glyph granularity.
@@ -33,6 +37,9 @@
 	(U-00020999): Apply new conventions for glyph granularity.
 	(U-0002D167): New character.
 
+	* ShuoWen-SR089.el (SW-JIGUGE-09605): Add U+5C0B as a
+	corresponding modern character.
+
 	* Ideograph-R013-Down-Box.el (A-cgnU+5184): New abstract node.
 	(U+5184): Add `<-denotational' for A-cgnU+5184.
 	(A-U+5189-itaiji-005): Add `<-denotational' for A-cgnU+5184; add
@@ -42,6 +49,10 @@
 	`<-denotational@usage' for BUCS+5189.
 	(U+5189): Add `<-denotational@usage' for BUCS+5189.
 	(U-0002D060): Likewise.
+
+	* ShuoWen-SR022.el (SW-JIGUGE-03713): Add U+44A3 as a
+	corresponding modern character; add `<-Zhouwen@shuowen' for
+	SW-JIGUGE-03712.
 
 	* Ideograph-R009-Man.el (U+4ECA): Modify structure; use
 	`ideographic-structure@apparent' to preserve the previous
