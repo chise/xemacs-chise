@@ -1,3 +1,20 @@
+2021-06-10  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR087.el (SW-JIGUGE-09515): Add `<-ancient@shuowen' for
+	SW-JIGUGE-09514.
+	(SW-JIGUGE-09517): Add U-00022F58 and U-00022F46 as corresponding
+	modern characters; add `<-ancient@shuowen' for SW-JIGUGE-09514.
+	(SW-JIGUGE-09518): Add `<-ancient@shuowen' for SW-JIGUGE-09514.
+	(SW-JIGUGE-09519): Add `<-Zhouwen@shuowen' for SW-JIGUGE-09514.
+
+	* Ideograph-R009-Man.el (U-00020373): Add `<-Zhouwen' for U+55CC.
+
+	* ShuoWen-SR114.el (SW-JIGUGE-11911): Add A-IWDSU+7F8A as a
+	corresponding modern character.
+	(SW-JIGUGE-12004): Add U-00026352 as a corresponding modern
+	character.
+	(SW-JIGUGE-12005): Add `<-formed@shuowen' for SW-JIGUGE-12004.
+
 2021-06-09  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R029-Again.el (U-00020B46): Modify structure; use
