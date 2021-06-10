@@ -1,5 +1,17 @@
 2021-06-09  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R029-Again.el (U-00020B46): Modify structure; use
+	`ideographic-structure@apparent' to preserve the previous
+	structure; add `<-ancient' for U+4E8B.
+	(IU+20B46): Modify structure; use `ideographic-structure@apparent'
+	to preserve the previous structure.
+	(U-00020B4F): Apply new conventions for glyph granularity.
+
+	* Ideograph-R027-Cliff.el (U+53A3): Apply new conventions for
+	glyph granularity.
+
+2021-06-09  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R030-Mouth.el: Add some MJ code points corresponding
 	to Hanyo-Denshi IVSes.
 	(U+569A): Apply new conventions for glyph granularity.
