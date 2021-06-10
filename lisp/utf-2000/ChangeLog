@@ -1,5 +1,42 @@
 2021-06-09  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R030-Mouth.el: Add some MJ code points corresponding
+	to Hanyo-Denshi IVSes.
+	(U+569A): Apply new conventions for glyph granularity.
+	(U-000210A8): Likewise.
+
+	* Ideograph-R024-Ten.el (A-cgnU+5347): New abstract node.
+	(U+5347): Use `<-denotational@usage' instead of `<-denotational'
+	for BUCS+5347; add `<-denotational' for A-cgnU+5347; add
+	`ideographic-structure@apparent'.
+	(UU+5347): Use `ideographic-structure@apparent' instead of
+	`ideographic-structure'; delete `=>ucs@iwds-1'.
+	(HD-TK01011780): New character; use `<-denotational' for
+	A-cgnU+5347; use `<-denotational@usage' for BUCS+5347.
+	(A-MJ057261): Delete `<-denotational' for BUCS+5347; add
+	`<-denotational' for U+3688.
+	(A-U+652F-itaiji-006): New abstract node.
+	(U+652F-itaiji-006): New character; use `<-denotational' for
+	A-U+652F-itaiji-006.
+	(U-00020999): Apply new conventions for glyph granularity.
+	(U-0002D167): New character.
+
+	* Ideograph-R013-Down-Box.el (A-cgnU+5184): New abstract node.
+	(U+5184): Add `<-denotational' for A-cgnU+5184.
+	(A-U+5189-itaiji-005): Add `<-denotational' for A-cgnU+5184; add
+	`<-denotational@usage' for BUCS+5189.
+	(GT-K07710): Add `ideographic-structure'.
+	(A-compU+5189): Add `<-denotational' for A-cgnU+5184; delete
+	`<-denotational@usage' for BUCS+5189.
+	(U+5189): Add `<-denotational@usage' for BUCS+5189.
+	(U-0002D060): Likewise.
+
+	* Ideograph-R009-Man.el (U+4ECA): Modify structure; use
+	`ideographic-structure@apparent' to preserve the previous
+	structure.
+	(UU+4ECA): Likewise.
+	(U-0002B746): Likewise.
+
 	* ShuoWen-SR003.el (SW-JIGUGE-00416): Add `<-simplified@shuowen'
 	for SW-JIGUGE-00415.
 	(SW-JIGUGE-00417): Add `<-Zhouwen@shuowen' for SW-JIGUGE-00415.
