@@ -147,7 +147,14 @@
   '((shuowen-radical	. 22)	; 口
     (=shuowen-jiguge	. 03713)	; &SW-JIGUGE-03713;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x44A3)	; 䒣
+      )
      ((=ucs		  . #x20373)	; 𠍳
+      ))
+    (<-Zhouwen@shuowen
+     ((=shuowen-jiguge	  . 03712)	; &SW-JIGUGE-03712;
+      )
+     ((=ucs		  . #x55CC)	; 嗌
       ))
     (->subsumptive
      ((===shuowen-jiguge5 . 03713)	; &SW-JIGUGE5-03713;
