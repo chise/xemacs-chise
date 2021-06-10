@@ -64807,6 +64807,11 @@
 (define-char
   '((ideographic-radical . 9)	; ⼈
     (=ucs		. #x20373)	; 𠍳
+    (<-Zhouwen
+     ((=ucs		  . #x55CC)	; 嗌
+      ))
+    (<-Zhouwen*sources
+     shuowen)
     ))
 (define-char
   '((<-denotational
