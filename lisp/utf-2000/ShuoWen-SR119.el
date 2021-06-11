@@ -473,6 +473,10 @@
   '((shuowen-radical	. 119)	; 鳥
     (=shuowen-jiguge	. 12331)	; &SW-JIGUGE-12331;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x2A1E0)	; 𪇠
+      )
+     ((=ucs		  . #x2A140)	; 𪅀
+      )
      ((=ucs		  . #x2A1FC)	; 𪇼
       )
      ((=ucs		  . #x2A13F)	; 𪄿
@@ -487,7 +491,20 @@
   '((shuowen-radical	. 119)	; 鳥
     (=shuowen-jiguge	. 12332)	; &SW-JIGUGE-12332;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x29058)	; 𩁘
+      )
+     ((=ucs		  . #x29024)	; 𩀤
+      )
      ((=ucs		  . #x96E3)	; 難
+      ))
+    (<-formed@shuowen
+     ((=shuowen-jiguge	  . 12331)	; &SW-JIGUGE-12331;
+      )
+     ((=ucs		  . #x2A1E0)	; 𪇠
+      )
+     ((=ucs		  . #x2A140)	; 𪅀
+      )
+     ((=ucs		  . #x2A13F)	; 𪄿
       ))
     (->subsumptive
      ((===shuowen-jiguge5 . 12332)	; &SW-JIGUGE5-12332;
@@ -499,7 +516,24 @@
   '((shuowen-radical	. 119)	; 鳥
     (=shuowen-jiguge	. 12333)	; &SW-JIGUGE-12333;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x29063)	; 𩁣
+      )
      ((=ucs		  . #x2906A)	; 𩁪
+      )
+     ((=ucs		  . #x29064)	; 𩁤
+      )
+     ((=ucs		  . #x2905A)	; 𩁚
+      )
+     ((=ucs		  . #x2906C)	; 𩁬
+      ))
+    (<-ancient@shuowen
+     ((=shuowen-jiguge	  . 12331)	; &SW-JIGUGE-12331;
+      )
+     ((=ucs		  . #x2A1E0)	; 𪇠
+      )
+     ((=ucs		  . #x2A140)	; 𪅀
+      )
+     ((=ucs		  . #x96E3)	; 難
       ))
     (->subsumptive
      ((===shuowen-jiguge5 . 12333)	; &SW-JIGUGE5-12333;
@@ -512,6 +546,19 @@
     (=shuowen-jiguge	. 12334)	; &SW-JIGUGE-12334;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x29073)	; 𩁳
+      )
+     ((=ucs		  . #x29072)	; 𩁲
+      )
+     ((=ucs		  . #x2906E)	; 𩁮
+      ))
+    (<-ancient@shuowen
+     ((=shuowen-jiguge	  . 12331)	; &SW-JIGUGE-12331;
+      )
+     ((=ucs		  . #x2A1E0)	; 𪇠
+      )
+     ((=ucs		  . #x2A140)	; 𪅀
+      )
+     ((=ucs		  . #x96E3)	; 難
       ))
     (->subsumptive
      ((===shuowen-jiguge5 . 12334)	; &SW-JIGUGE5-12334;
@@ -524,6 +571,15 @@
     (=shuowen-jiguge	. 12400)	; &SW-JIGUGE-12400;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x29019)	; 𩀙
+      ))
+    (<-ancient@shuowen
+     ((=shuowen-jiguge	  . 12331)	; &SW-JIGUGE-12331;
+      )
+     ((=ucs		  . #x2A1E0)	; 𪇠
+      )
+     ((=ucs		  . #x2A140)	; 𪅀
+      )
+     ((=ucs		  . #x96E3)	; 難
       ))
     (->subsumptive
      ((===shuowen-jiguge5 . 12400)	; &SW-JIGUGE5-12400;
