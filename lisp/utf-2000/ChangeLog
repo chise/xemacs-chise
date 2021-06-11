@@ -1,5 +1,21 @@
 2021-06-10  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* ShuoWen-SR119.el (SW-JIGUGE-12331): Add U-0002A1E0 and
+	U-0002A140 as corresponding modern characters.
+	(SW-JIGUGE-12332): Add U-00029058 and U-00029024 as corresponding
+	modern characters; add `<-formed@shuowen' for SW-JIGUGE-12331.
+	(SW-JIGUGE-12333): Add U-00029063, U-00029064, U-0002905A and
+	U-0002906C as corresponding modern characters; add
+	`<-ancient@shuowen' for SW-JIGUGE-12331.
+	(SW-JIGUGE-12334): Add U-00029072 and U-0002906E as corresponding
+	modern characters; add `<-ancient@shuowen' for SW-JIGUGE-12331.
+	(SW-JIGUGE-12400): Add `<-ancient@shuowen' for SW-JIGUGE-12331.
+
+	* Oracle-Bones.el (ZOB-01314): Add `<-Small-Seal@component' for
+	U-00024C14.
+	(ZOB-01962): Add `<-Small-Seal@component' for U-00020AFC,
+	U-00020AF8 and U+9F4A.
+
 	* ShuoWen-SR087.el (SW-JIGUGE-09515): Add `<-ancient@shuowen' for
 	SW-JIGUGE-09514.
 	(SW-JIGUGE-09517): Add U-00022F58 and U-00022F46 as corresponding
