@@ -1,5 +1,10 @@
 2021-06-10  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R029-Again.el (U-00020B81): Add `<-Zhouwen' for
+	U+6BBA.
+
+2021-06-10  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* ShuoWen-SR119.el (SW-JIGUGE-12331): Add U-0002A1E0 and
 	U-0002A140 as corresponding modern characters.
 	(SW-JIGUGE-12332): Add U-00029058 and U-00029024 as corresponding
