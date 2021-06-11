@@ -15121,6 +15121,9 @@
     (<-Oracle-Bones
      ((=ucs		  . #x24C14)	; 𤰔
       ))
+    (<-Small-Seal@component
+     ((=ucs		  . #x24C14)	; 𤰔
+      ))
     ))
 (define-char
   '((shuowen-radical	. 125)	; 叀
@@ -21127,6 +21130,13 @@
     (zinbun-oracle-page . 94)
     (=zinbun-oracle	. 01962)	; &ZOB-1962;
     (<-Oracle-Bones
+     ((=ucs		  . #x9F4A)	; 齊
+      ))
+    (<-Small-Seal@component
+     ((=ucs		  . #x20AFC)	; 𠫼
+      )
+     ((=ucs		  . #x20AF8)	; 𠫸
+      )
      ((=ucs		  . #x9F4A)	; 齊
       ))
     ))
