@@ -4108,6 +4108,10 @@
     ))
 (define-char
   '((ideographic-radical . 24)	; ⼗
+    (=>big5-cdp		. #x856A)	; &A-CDP-856A;
+    ))
+(define-char
+  '((ideographic-radical . 24)	; ⼗
     (ideographic-strokes . 9)
     (total-strokes	 . 11)
     (ideographic-structure
@@ -4122,6 +4126,15 @@
     (<-ancient
      ((=ucs		  . #x76F4)	; 直
       ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>big5-cdp	  . #x856A)	; &A-CDP-856A;
+      ))
+    (ideographic-radical . 24)	; ⼗
+    (ideographic-strokes . 9)
+    (total-strokes	 . 11)
+    (=big5-cdp		. #x856A)	; &CDP-856A;
     ))
 (define-char
   '((ideographic-radical . 24)	; ⼗

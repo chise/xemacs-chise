@@ -1371,10 +1371,33 @@
       )
      ((=ucs-itaiji-002	  . #x5364)	; &U-i002+5364;
       )
-     ((=ucs		  . #x5315)	; 匕
+     ((=>ucs@iwds-1	  . #x5315)	; &J97-5238;
+      (=>jis-x0208	  . #x5238)	; &J97-5238; [50-24]
       ))
     (=ucs		. #x209E2)	; 𠧢
-    (=cns11643-6	. #x297D)	; &I-C6-297D; [09-93]
+    (<-ancient
+     ((=ucs		  . #x53C0)	; 叀
+      ))
+    (<-ancient*sources
+     shuowen)
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x209E2)	; 𠧢
+      ))
+    (ideographic-radical . 25)	; ⼘
+    (ideographic-strokes . 6)
+    (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs-itaiji-002	  . #x5364)	; &U-i002+5364;
+      )
+     ((=ucs		  . #x5315)	; 匕
+      ))
+    (=ucs@iso		. #x209E2)	; &C6-297D;
+    (=cns11643-6	. #x297D)	; &C6-297D; [09-93]
     (=daikanwa		. 02802)	; &I-M-02802;
     (<-ancient
      ((=ucs@unicode	  . #x53C0)	; &AJ1-17339;
