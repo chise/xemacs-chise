@@ -1,3 +1,14 @@
+2021-06-11  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R025-Divination.el (U-000209E2): Apply new conventions
+	for glyph granularity.
+
+	* Ideograph-R024-Ten.el (A-BC-856A): New abstract node.
+	(BC-856A): New character; use `<-denotational' for A-BC-856A.
+
+	* Ideograph-R055-Two-Hands.el (U+5F03): Add `<-ancient' for
+	U+68C4.
+
 2021-06-10  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R029-Again.el (U-00020B81): Add `<-Zhouwen' for
