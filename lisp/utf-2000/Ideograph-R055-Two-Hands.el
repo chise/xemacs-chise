@@ -806,6 +806,11 @@
      ((=ucs		  . #x5EFE)	; 廾
       ))
     (=ucs		. #x5F03)	; 弃
+    (<-ancient
+     ((=ucs		  . #x68C4)	; 棄
+      ))
+    (<-ancient*sources
+     shuowen)
     ))
 (define-char
   '((<-denotational
