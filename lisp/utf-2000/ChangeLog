@@ -1,5 +1,8 @@
 2021-06-11  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R036-Evening.el (U-000215C3): Apply new conventions
+	for glyph granularity.
+
 	* Ideograph-R025-Divination.el (U-000209E2): Apply new conventions
 	for glyph granularity.
 
@@ -8,6 +11,22 @@
 
 	* Ideograph-R055-Two-Hands.el (U+5F03): Add `<-ancient' for
 	U+68C4.
+
+	* ShuoWen-SR125.el (SW-JIGUGE-12912): Add U-00021D01 and
+	U-00021D17 as corresponding modern characters; add
+	`<-ancient@shuowen' for SW-JIGUGE-12911.
+	(SW-JIGUGE-12913): Add `<-ancient@shuowen' for SW-JIGUGE-12911.
+	(SW-JIGUGE-13000): Add U-00022941 as a corresponding modern
+	character; add `<-ancient@shuowen' for SW-JIGUGE-12914.
+
+	* ShuoWen-SR121.el (SW-JIGUGE-12900): Add `<-ancient@shuowen' for
+	SW-JIGUGE-12803.
+	(SW-JIGUGE-12901): Add `<-Zhouwen@shuowen' for SW-JIGUGE-12803.
+
+	* ShuoWen-SR120.el (SW-JIGUGE-12701): Add U-000246B6 as a
+	corresponding modern character; add `<-ancient@shuowen' for
+	SW-JIGUGE-12700.
+	(SW-JIGUGE-12702): Add <-ancient@shuowen' for SW-JIGUGE-12700.
 
 2021-06-10  MORIOKA Tomohiko  <tomo.git@chise.org>
 
