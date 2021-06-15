@@ -14497,7 +14497,9 @@
       )
      ((=ucs		  . #x5B80)	; 宀
       )
-     ((=ucs@jis		  . #x9B3C)	; &AJ1-01614;
+     ((=ucs@cns		  . #x9B3C)	; &AJ1-01614;
+      (=ucs@jis		  . #x9B3C)	; &AJ1-01614;
+      (=ucs@ks		  . #x9B3C)	; &AJ1-01614;
       (=adobe-japan1-0	  . 01614)	; &AJ1-01614;
       ))
     (=ucs@JP/hanazono	. #x2D509)	; &CB05019;
