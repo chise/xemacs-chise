@@ -4,6 +4,9 @@
     (=shuowen-jiguge	. 13502)	; &SW-JIGUGE-13502;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x8089)	; 肉
+      )
+     ((name		  . "CJK RADICAL MEAT")
+      (=ucs		  . #x2EBC)	; ⺼
       ))
     (->subsumptive
      ((===shuowen-jiguge5 . 13502)	; &SW-JIGUGE5-13502;
@@ -1786,6 +1789,13 @@
     (=shuowen-jiguge	. 13922)	; &SW-JIGUGE-13922;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x26778)	; 𦝸
+      )
+     ((=ucs		  . #x266E6)	; 𦛦
+      ))
+    (<-ancient@shuowen
+     ((=shuowen-jiguge	  . 13921)	; &SW-JIGUGE-13921;
+      )
+     ((=ucs		  . #x80B0)	; 肰
       ))
     (->subsumptive
      ((===shuowen-jiguge5 . 13922)	; &SW-JIGUGE5-13922;
@@ -1798,6 +1808,11 @@
     (=shuowen-jiguge	. 13923)	; &SW-JIGUGE-13923;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x266E1)	; 𦛡
+      ))
+    (<-ancient@shuowen
+     ((=shuowen-jiguge	  . 13921)	; &SW-JIGUGE-13921;
+      )
+     ((=ucs		  . #x80B0)	; 肰
       ))
     (->subsumptive
      ((===shuowen-jiguge5 . 13923)	; &SW-JIGUGE5-13923;
