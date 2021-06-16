@@ -1145,9 +1145,16 @@
     ))
 (define-char
   '((ideographic-radical . 2)	; ⼁
+    (=>big5-cdp@cognate . #x8CE7)	; &A-cgnCDP-8CE7;
+    ))
+(define-char
+  '((<-denotational
+     ((=>big5-cdp@cognate . #x8CE7)	; &A-cgnCDP-8CE7;
+      ))
+    (ideographic-radical . 2)	; ⼁
     (ideographic-strokes . 3)
     (total-strokes	 . 4)
-    (ideographic-structure
+    (ideographic-structure@apparent
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
@@ -1159,6 +1166,57 @@
     (->subsumptive
      ((==big5-cdp-itaiji-001 . #x8CE7)	; &g2-CDP-i001-8CE7;
       ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>big5-cdp@cognate . #x8CE7)	; &A-cgnCDP-8CE7;
+      ))
+    (ideographic-radical . 2)	; ⼁
+    (ideographic-strokes . 3)
+    (total-strokes	 . 4)
+    (ideographic-structure@apparent
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x4E00)	; 一
+      )
+     ((=ucs		  . #x4E30)	; 丰
+      ))
+    (=>big5-cdp		. #x8CE7)	; &A-CDP-8CE7;
+    ))
+(define-char
+  '((<-denotational
+     ((=>big5-cdp@cognate . #x8CE7)	; &A-cgnCDP-8CE7;
+      ))
+    (ideographic-radical . 2)	; ⼁
+    (ideographic-strokes . 3)
+    (total-strokes	 . 4)
+    (ideographic-structure@apparent
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=big5-cdp-itaiji-001 . #x8CE7)	; &CDP-i001-8CE7;
+      )
+     ((=ucs		  . #x4E36)	; 丶
+      ))
+    (=big5-cdp-itaiji-002 . #x8CE7)	; &CDP-i002-8CE7;
+    ))
+(define-char
+  '((<-denotational
+     ((=>big5-cdp	  . #x8CE7)	; &A-CDP-8CE7;
+      ))
+    (ideographic-radical . 2)	; ⼁
+    (ideographic-strokes . 3)
+    (total-strokes	 . 4)
+    (ideographic-structure@apparent
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x4E00)	; 一
+      )
+     ((=ucs@unicode	  . #x4E30)	; &MJ006350;
+      ))
+    (=big5-cdp		. #x8CE7)	; &CDP-8CE7;
     ))
 (define-char
   '((<-denotational@usage
