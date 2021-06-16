@@ -1,3 +1,32 @@
+2021-06-15  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R002-Line.el (A-cgnBC-8CE7): New abstract node.
+	(BC-8CE7-itaiji-001): Add `<-denotational' for A-cgnBC-8CE7; use
+	`ideographic-structure@apparent' instead of
+	`ideographic-structure'.
+	(A-BC-8CE7): New abstract node; use `<-denotational' for
+	A-cgnBC-8CE7.
+	(BC-8CE7-itaiji-002): New character; use `<-denotational' for
+	A-cgnBC-8CE7.
+	(BC-8CE7): New character; use `<-denotational' for A-BC-8CE7.
+
+	* Ideograph-R008-Lid.el (U-00020189): Apply new conventions for
+	glyph granularity.
+
+2021-06-14  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR135.el (SW-JIGUGE-13502): Add <CJK RADICAL MEAT> as a
+	corresponding modern character.
+	(SW-JIGUGE-13922): Add U-000266E6 as a corresponding modern
+	character; add `<-ancient@shuowen' for SW-JIGUGE-13921.
+	(SW-JIGUGE-13923): Add `<-ancient@shuowen' for SW-JIGUGE-13921.
+
+	* ShuoWen-SR129.el (SW-JIGUGE-13107): Add U-00024502 as a
+	corresponding modern character.
+	(SW-JIGUGE-13112): Add U-00023A8F as a corresponding modern
+	character; add `<-Zhouwen@shuowen' for SW-JIGUGE-13111.
+	(SW-JIGUGE-13113): Add `<-ancient@shuowen' for SW-JIGUGE-13111.
+
 2021-06-13  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* ShuoWen-SR128.el (SW-JIGUGE-13100): Add U-00022F8D and
