@@ -8139,6 +8139,44 @@
     ))
 (define-char
   '((ideographic-radical . 31)	; ⼞
+    (ideographic-strokes . 11)
+    (total-strokes	 . 14)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
+      (=ucs		  . #x2FF4)	; ⿴
+      )
+     ((=ucs		  . #x56D7)	; 囗
+      )
+     ((=ucs		  . #x57F7)	; 執
+      ))
+    (=>ucs-itaiji-001	. #x5709)	; &A-U-i001+5709;
+    (<-formed
+     ((=ucs		  . #x5709)	; 圉
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs-itaiji-001	  . #x5709)	; &A-U-i001+5709;
+      ))
+    (ideographic-radical . 31)	; ⼞
+    (ideographic-strokes . 11)
+    (total-strokes	 . 14)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
+      (=ucs		  . #x2FF4)	; ⿴
+      )
+     ((=ucs		  . #x56D7)	; 囗
+      )
+     ((=ucs@unicode	  . #x57F7)	; &AJ1-02277;
+      (=adobe-japan1-0	  . 02277)	; &AJ1-02277;
+      ))
+    (=ucs-itaiji-001	. #x5709)	; &U-i001+5709;
+    (->subsumptive
+     ((==ucs-itaiji-001	  . #x5709)	; &g2-U-i001+5709;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 31)	; ⼞
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
       (=ucs		  . #x2FF4)	; ⿴
