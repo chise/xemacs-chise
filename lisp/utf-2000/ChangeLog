@@ -1,4 +1,24 @@
+2021-06-16  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R031-Enclosure.el (A-U+5709-itaiji-001): New abstract
+	node.
+	(U+5709-itaiji-001): New character; use `<-denotational' for
+	A-U+5709-itaiji-001.
+
 2021-06-15  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R050-Turban.el (U-0002205B): Apply new conventions for
+	glyph granularity.
+	(U+5E51): Likewise.
+
+	* Ideograph-R045-Sprout.el (IWDS1-0096): Add
+	`<-denotational@component' for A-compU+37A2.
+	(U+37A2): Ditto.
+	(A-IWDSU+21D01): New abstract node.
+	(U-00021D01): Apply new conventions for glyph granularity; add
+	`<-denotational' for A-IWDSU+21D01.
+	(U-00021D17): Apply new conventions for glyph granularity.
+	(A-compU+37A2): New abstract node.
 
 	* Ideograph-R002-Line.el (A-cgnBC-8CE7): New abstract node.
 	(BC-8CE7-itaiji-001): Add `<-denotational' for A-cgnBC-8CE7; use
