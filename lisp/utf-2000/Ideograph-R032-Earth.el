@@ -21761,7 +21761,6 @@
     ))
 (define-char
   '((ideographic-radical . 32)	; ⼟
-    (hanyu-dazidian	1 464 17)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -21774,11 +21773,34 @@
     (sound@ja/on/go	"ke")
     (sound@ja/on/kan	"kWai")
     (=ucs		. #x584A)	; 塊
-    (=big5		. #xB6F4)	; &I-B-B6F4;
     ))
 (define-char
   '((<-denotational
      ((=ucs		  . #x584A)	; 塊
+      ))
+    (ideographic-radical . 32)	; ⼟
+    (hanyu-dazidian	1 464 17)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=>ucs@iwds-1	  . #x571F)	; &A-IWDSU+571F;
+      (=>iwds-1		  .  0312)	; &A-IWDSU+571F;
+      )
+     ((name		  . "CJK RADICAL GHOST")
+      (=ucs		  . #x2EE4)	; ⻤
+      ))
+    (=+>ucs@unicode	. #x584A)	; &o-J0-3274;
+    (=+>jis-x0208	. #x3274)	; &o-J0-3274; [18-84]
+    (=+>jis-x0213-1	. #x3274)	; &o-J0-3274; [18-84]
+    (=big5		. #xB6F4)	; &o-J0-3274;
+    (=+>adobe-japan1-0	. 01396)	; &o-J0-3274;
+    (=+>gt		. 06706)	; &o-J0-3274;
+    ))
+(define-char
+  '((<-denotational
+     ((=+>ucs@unicode	  . #x584A)	; &o-J0-3274;
+      (=+>jis-x0208	  . #x3274)	; &o-J0-3274; [18-84]
       ))
     (ideographic-radical . 32)	; ⼟
     (ideographic-strokes . 10)
@@ -21789,7 +21811,9 @@
       )
      ((=gt-k		  . 00199)	; &GT-K00199;
       )
-     ((=ucs@jis		  . #x9B3C)	; &AJ1-01614;
+     ((=ucs@cns		  . #x9B3C)	; &AJ1-01614;
+      (=ucs@jis		  . #x9B3C)	; &AJ1-01614;
+      (=ucs@ks		  . #x9B3C)	; &AJ1-01614;
       (=adobe-japan1-0	  . 01614)	; &AJ1-01614;
       ))
     (=ucs@cns		. #x584A)	; &AJ1-01396;
@@ -21893,7 +21917,8 @@
     ))
 (define-char
   '((<-denotational
-     ((=ucs		  . #x584A)	; 塊
+     ((=+>ucs@unicode	  . #x584A)	; &o-J0-3274;
+      (=+>jis-x0208	  . #x3274)	; &o-J0-3274; [18-84]
       ))
     (ideographic-radical . 32)	; ⼟
     (ideographic-strokes . 9)

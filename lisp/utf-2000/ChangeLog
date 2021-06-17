@@ -1,4 +1,13 @@
+2021-06-17  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R009-Man.el (U+48CF): Apply new conventions for glyph
+	granularity.
+	(U+5080): Likewise.
+
 2021-06-16  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R032-Earth.el (U+584A): Apply new conventions for
+	glyph granularity.
 
 	* Ideograph-R031-Enclosure.el (A-U+5709-itaiji-001): New abstract
 	node.
