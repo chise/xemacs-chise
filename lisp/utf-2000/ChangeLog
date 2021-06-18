@@ -1,5 +1,12 @@
 2021-06-17  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R030-Mouth.el (U-00020E8C): Apply new conventions for
+	glyph granularity.
+	(U+56A2): Modify structure.
+	(UU+56A2): Likewise.
+	(U+56CA): Modify structure.
+	(UU+56CA): Likewise.
+
 	* Ideograph-R009-Man.el (U+48CF): Apply new conventions for glyph
 	granularity.
 	(U+5080): Likewise.
@@ -13,6 +20,11 @@
 	node.
 	(U+5709-itaiji-001): New character; use `<-denotational' for
 	A-U+5709-itaiji-001.
+
+	* ShuoWen-SR137.el (SW-JIGUGE-14103): Add U-00020763 as a
+	corresponding modern character.
+	(SW-JIGUGE-14220): Add A-IWDSU+5211 as a corresponding modern
+	character.
 
 2021-06-15  MORIOKA Tomohiko  <tomo.git@chise.org>
 
