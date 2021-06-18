@@ -163,6 +163,8 @@
   '((shuowen-radical	. 137)	; 刀
     (=shuowen-jiguge	. 14103)	; &SW-JIGUGE-14103;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x20763)	; 𠝣
+      )
      ((=ucs		  . #x524D)	; 前
       ))
     (->subsumptive
@@ -835,6 +837,9 @@
     (=shuowen-jiguge	. 14220)	; &SW-JIGUGE-14220;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x5211)	; 刑
+      )
+     ((=>ucs@iwds-1	  . #x5211)	; &A-IWDSU+5211;
+      (=>ucs@iwds-1/normalized . #x5211)	; &A-IWDSU+5211;
       ))
     (->subsumptive
      ((===shuowen-jiguge5 . 14220)	; &SW-JIGUGE5-14220;
