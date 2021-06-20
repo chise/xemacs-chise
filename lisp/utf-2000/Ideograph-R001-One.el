@@ -5258,6 +5258,11 @@
     (=ucs		. #x20020)	; 𠀠
     (=cns11643-6	. #x2467)	; &I-C6-2467; [04-71]
     (=daikanwa		. 09592)	; &I-M-09592;
+    (<-ancient
+     ((=ucs		  . #x7B95)	; 箕
+      ))
+    (<-ancient*sources
+     shuowen)
     (->subsumptive
      ((==ucs@iso	  . #x20020)	; &g2-M-09592;
       (==cns11643-6	  . #x2467)	; &g2-M-09592; [04-71]
