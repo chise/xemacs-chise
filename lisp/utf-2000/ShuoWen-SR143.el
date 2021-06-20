@@ -1577,6 +1577,8 @@
   '((shuowen-radical	. 143)	; 竹
     (=shuowen-jiguge	. 15101)	; &SW-JIGUGE-15101;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x25D2B)	; 𥴫
+      )
      ((=ucs		  . #x25CE8)	; 𥳨
       ))
     (->subsumptive
