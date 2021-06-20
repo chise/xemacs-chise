@@ -3331,6 +3331,49 @@
       ))
     ))
 (define-char
+  '((<-denotational@component
+     ((=>ucs@iwds-1	  . #x2067B)	; &A-IWDSU+2067B;
+      (=>iwds-1		  .  0295)	; &A-IWDSU+2067B;
+      ))
+    (ideographic-radical@ucs . 4)	; ⼃
+    (ideographic-strokes@ucs . 4)
+    (ideographic-radical@ucs*sources
+     mj)
+    (ideographic-strokes@ucs*sources
+     mj)
+    (ideographic-radical@misc . 17)	; ⼐
+    (ideographic-strokes@misc . 3)
+    (total-strokes	 . 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5343)	; 千
+      )
+     ((=ucs		  . #x51F5)	; 凵
+      ))
+    (sound@ja/on	"huu")
+    (=ucs		. #x2CF08)	; 𬼈
+    (=mj		. 056860)	; &I-MJ056860;
+    (=koseki		. 001640)	; 𬼈
+    (<-formed
+     ((=ucs		  . #x7F36)	; 缶
+      ))
+    (->mistakable
+     ((=ucs		  . #x2067A)	; 𠙺
+      )
+     ((=ucs		  . #x2067B)	; 𠙻
+      ))
+    (->subsumptive
+     ((==ucs@JP/hanazono  . #x2CF08)	; &g2-MJ056860;
+      (==mj		  . 056860)	; &g2-MJ056860;
+      (==koseki		  . 001640)	; &g2-MJ056860;
+      (->subsumptive
+       ((===mj		    . 056860)	; &R-MJ056860;
+	))
+      ))
+    ))
+(define-char
   '((ideographic-radical@ucs . 69)	; ⽄
     (ideographic-strokes@ucs . 1)
     (ideographic-radical@gt . 4)	; ⼃

@@ -1,5 +1,21 @@
 2021-06-18  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R017-Open-Box.el (MJ056860): Unify U-0002CF08; add
+	`<-denotational@component' for A-IWDSU+2067B; use
+	`ideographic-{radical|strokes}@misc' instead of
+	`ideographic-{radical|strokes}'; add
+	`ideographic-{radical|strokes}@ucs'; add `ideographic-structure';
+	add `<-formed' for U+7F36; use `->mistakable' instead of
+	`<-unknown' for U-0002067A and U-0002067B.
+	(A-GT-K01274): New abstract node.
+	(GT-K01274): New character; use `<-denotational' for A-GT-K01274.
+
+	* Ideograph-R005-Second.el (U+4E61): Add `<-original@component'
+	for U-00028668.
+
+	* Ideograph-R004-Slash.el (U-0002CF08): New character [copied from
+	Ideograph-R017-Open-Box.el].
+
 	* ShuoWen-SR143.el (SW-JIGUGE-15101): Add U-00025D2B as a
 	corresponding modern character.
 
