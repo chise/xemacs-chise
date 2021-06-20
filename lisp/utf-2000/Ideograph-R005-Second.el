@@ -1062,8 +1062,20 @@
     (=ucs		. #x4E61)	; 乡
     (=gb2312		. #x4F67)	; &I-G0-4F67; [47-71]
     (=big5-cdp		. #x8C51)	; &I-CDP-8C51;
+    (<-original@component
+     ((=ucs		  . #x28668)	; 𨙨
+      ))
     (<-simplified@CN
-     ((=gb12345		  . #x4F67)	; 鄉 [47-71]
+     ((=ucs@unicode	  . #x9109)	; &C1-6254;
+      (=cns11643-1	  . #x6254)	; &C1-6254; [66-52]
+      (=gb12345		  . #x4F67)	; &C1-6254; [47-71]
+      ))
+    (->subsumptive
+     ((==big5-cdp	  . #x8C51)	; &g2-CDP-8C51;
+      )
+     ((==ucs@unicode	  . #x4E61)	; &g2-UU+4E61;
+      (==ucs@JP/hanazono  . nil)
+      (==gb2312		  . #x4F67)	; &g2-UU+4E61; [47-71]
       ))
     ))
 (define-char
