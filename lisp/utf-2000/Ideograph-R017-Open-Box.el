@@ -1032,20 +1032,85 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 17)	; ⼐
-    (ideographic-strokes . 3)
+  '((<-denotational@component
+     ((=>ucs@iwds-1	  . #x2067B)	; &A-IWDSU+2067B;
+      (=>iwds-1		  .  0295)	; &A-IWDSU+2067B;
+      ))
+    (ideographic-radical@ucs . 4)	; ⼃
+    (ideographic-strokes@ucs . 4)
+    (ideographic-radical@ucs*sources
+     mj)
+    (ideographic-strokes@ucs*sources
+     mj)
+    (ideographic-radical@misc . 17)	; ⼐
+    (ideographic-strokes@misc . 3)
     (total-strokes	 . 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5343)	; 千
+      )
+     ((=ucs		  . #x51F5)	; 凵
+      ))
     (sound@ja/on	"huu")
-    (=mj		. 056860)	; &MJ056860;
-    (=koseki		. 001640)	; &MJ056860;
-    (<-unknown
+    (=ucs		. #x2CF08)	; 𬼈
+    (=mj		. 056860)	; &I-MJ056860;
+    (=koseki		. 001640)	; 𬼈
+    (<-formed
+     ((=ucs		  . #x7F36)	; 缶
+      ))
+    (->mistakable
      ((=ucs		  . #x2067A)	; 𠙺
       )
      ((=ucs		  . #x2067B)	; 𠙻
       ))
     (->subsumptive
-     ((==mj		  . 056860)	; &g2-MJ056860;
+     ((==ucs@JP/hanazono  . #x2CF08)	; &g2-MJ056860;
+      (==mj		  . 056860)	; &g2-MJ056860;
       (==koseki		  . 001640)	; &g2-MJ056860;
+      (->subsumptive
+       ((===mj		    . 056860)	; &R-MJ056860;
+	))
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 17)	; ⼐
+    (ideographic-strokes . 3)
+    (total-strokes	 . 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM BELOW")
+      (=ucs		  . #x2FF6)	; ⿶
+      )
+     ((=ucs		  . #x51F5)	; 凵
+      )
+     ((=>ucs@iwds-1	  . #x5C0F)	; &A-IWDSU+5C0F;
+      (=>iwds-1		  .  0028)	; &A-IWDSU+5C0F;
+      ))
+    (=>gt-k		. 01274)	; &A-GT-K01274;
+    ))
+(define-char
+  '((<-denotational
+     ((=>gt-k		  . 01274)	; &A-GT-K01274;
+      ))
+    (ideographic-radical . 17)	; ⼐
+    (ideographic-strokes . 3)
+    (total-strokes	 . 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM BELOW")
+      (=ucs		  . #x2FF6)	; ⿶
+      )
+     ((=ucs@unicode	  . #x51F5)	; &AJ1-04248;
+      (=adobe-japan1-0	  . 04248)	; &AJ1-04248;
+      )
+     ((name		  . "CJK RADICAL SMALL ONE")
+      (=ucs		  . #x2E8C)	; ⺌
+      ))
+    (=gt-k		. 01274)	; &GT-K01274;
+    (=gt-pj-k1		. #x403D)	; &GT-K01274; [32-29]
+    (->subsumptive
+     ((==gt-k		  . 01274)	; &g2-GT-K01274;
+      (==gt-pj-k1	  . #x403D)	; &g2-GT-K01274; [32-29]
       ))
     ))
 (define-char
