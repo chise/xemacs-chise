@@ -1,3 +1,44 @@
+2021-06-18  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR143.el (SW-JIGUGE-15101): Add U-00025D2B as a
+	corresponding modern character.
+
+	* ShuoWen-SR109.el (SW-JIGUGE-11719): Add U+96DD as a
+	corresponding modern character.
+
+	* Ideograph-R070-Square.el (U+65BC): Apply new conventions for
+	glyph granularity.
+	(U-000230DF): Add `<-ancient' for U+65C1.
+	(U+3AC8): New character.
+	(U-000230F5): Apply new conventions for glyph granularity.
+	(U+65D0): Add `ideographic-structure'.
+	(U-000230FF): Apply new conventions for glyph granularity.
+	(U-00023100): Likewise.
+	(U+65D3): Likewise.
+	(U-0002310A): Likewise.
+	(U+65D5): Likewise.
+	(U-0002310B): New character.
+	(U-00023113): Apply new conventions for glyph granularity.
+	(U+3ACF): Likewise.
+	(A-RUI6-E145): New abstract node.
+	(RUI6-E145): New character [copied from ruimoku6.el]; add
+	`<-denotational' for A-RUI6-E145.
+	(U-00023120): Apply new conventions for glyph granularity.
+	(U-0002C01A): New character.
+	(U+65DE): Add ideographic-structure.
+	(U-00023126): Apply new conventions for glyph granularity.
+
+	* Ideograph-R060-Step.el (U-0002D6EE): Add
+	`ideographic-structure'.
+	(IWDS1-0261): New abstract node; unify A-IWDSU+5FAE-itaiji-003.
+	(U+5FAE-itaiji-004): Modify structure.
+	(A-IWDSU+5FB5): Add `ideographic-structure'.
+	(U+5FB4): Add `ideographic-structure'.
+	(U+5FBD): Add `ideographic-structure'.
+	(UU+5FBD): Add `ideographic-structure'; add some relations for
+	other characters.
+	(J2000U+5FBD): Add `ideographic-structure'.
+
 2021-06-17  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R030-Mouth.el (U-00020E8C): Apply new conventions for
