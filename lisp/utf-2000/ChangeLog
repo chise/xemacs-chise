@@ -1,3 +1,16 @@
+2021-06-20  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR067.el (SW-JIGUGE-08308): Add U-0002697C, U-0002156F
+	and U+8981 as corresponding modern characters.
+	(SW-JIGUGE-08309): Add `<-ancient@shuowen' for SW-JIGUGE-08308.
+
+2021-06-19  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR145.el (SW-JIGUGE-15307): Add `<-ancient@shuowen' for
+	SW-JIGUGE-15306.
+	(SW-JIGUGE-15308): Add `<-simplified@Small-Seal/shuowen' for
+	SW-JIGUGE-15306.
+
 2021-06-18  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R017-Open-Box.el (MJ056860): Unify U-0002CF08; add
