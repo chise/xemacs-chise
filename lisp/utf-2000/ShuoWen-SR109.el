@@ -341,6 +341,8 @@
   '((shuowen-radical	. 109)	; 隹
     (=shuowen-jiguge	. 11719)	; &SW-JIGUGE-11719;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x96DD)	; 雝
+      )
      ((=ucs		  . #x96CD)	; 雍
       ))
     (->subsumptive
