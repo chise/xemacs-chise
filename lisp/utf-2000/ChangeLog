@@ -1,5 +1,13 @@
 2021-06-21  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R012-Eight.el (U-0002050B): Add `<-ancient' for
+	U+7B95.
+	(U+5176): Add `<-Zhouwen' for U+7B95.
+	(U-0002051D): Add `<-Zhouwen' for U+7B95.
+
+	* Ideograph-R008-Lid.el (U+7AD2): Add `<-denotational' for
+	A-IWDSU+5947.
+
 	* ShuoWen-SR144.el (SW-JIGUGE-15213): Add `<-ancient@shuowen' for
 	SW-JIGUGE-15212.
 	(SW-JIGUGE-15214): Add U-00020DDB as a corresponding modern
