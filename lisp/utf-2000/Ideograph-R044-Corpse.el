@@ -3977,6 +3977,10 @@
      ((=ucs@unicode	  . #x37A1)	; &MJ000813;
       (=mj		  . 000813)	; &MJ000813;
       (=daikanwa	  . 07816)	; &I-M-07816;
+      )
+     ((=ucs@unicode	  . #x382D)	; &MJ000942;
+      (=mj		  . 000942)	; &MJ000942;
+      (=daikanwa	  . 08735)	; &I-M-08735;
       ))
     (->original*sources
      zhengzitong daikanwa)

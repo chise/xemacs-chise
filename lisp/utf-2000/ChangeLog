@@ -1,5 +1,20 @@
 2021-06-20  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R001-One.el (U-00020020): Add `<-ancient' for U+7B95.
+
+2021-06-20  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R048-Work.el (U+382D): Apply new conventions for glyph
+	granularity.
+
+	* Ideograph-R044-Corpse.el (UU+5C55): Add UU+382D as a value of
+	`->original'.
+
+	* Ideograph-R040-Roof.el (A-U+21ADF-itaiji-002): New abstract
+	node.
+	(U+21ADF-itaiji-002): New character; use `<-denotational' for
+	A-U+21ADF-itaiji-002.
+
 	* ShuoWen-SR067.el (SW-JIGUGE-08308): Add U-0002697C, U-0002156F
 	and U+8981 as corresponding modern characters.
 	(SW-JIGUGE-08309): Add `<-ancient@shuowen' for SW-JIGUGE-08308.
