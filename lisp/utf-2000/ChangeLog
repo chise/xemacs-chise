@@ -2,6 +2,19 @@
 
 	* Ideograph-R001-One.el (U-00020020): Add `<-ancient' for U+7B95.
 
+	* ShuoWen-SR017.el (SW-JIGUGE-03400): Add U-000200A0 as a
+	corresponding modern character; add `<-ancient@shuowen' for
+	SW-JIGUGE-03315.
+
+	* ShuoWen-SR012.el (SW-JIGUGE-02101): Add U+4545 as a
+	corresponding modern character.
+	(SW-JIGUGE-02117): Add `<-simplified@shuowen' for SW-JIGUGE-02116.
+	(SW-JIGUGE-02826): Change order of the value of
+	`<-Small-Seal@shuowen'; add `<-Zhouwen@shuowen' for
+	SW-JIGUGE-02825.
+	(SW-JIGUGE-02827): Add `<-simplified@Small-Seal/shuowen' for
+	SW-JIGUGE-02825.
+
 2021-06-20  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R048-Work.el (U+382D): Apply new conventions for glyph
@@ -49,6 +62,29 @@
 
 	* ShuoWen-SR109.el (SW-JIGUGE-11719): Add U+96DD as a
 	corresponding modern character.
+
+	* ruimoku6.el (RUI6-E08C): Unify U-000302F6.
+	(RUI6-E0D4): Add `<-denotational' for A-RUI6-E0D4.
+	(RUI6-E0D5): Add `<-denotational' for A-RUI6-E0D5; add
+	`ideographic-radical', `ideographic-strokes' and `total-strokes';
+	add `ideographic-structure'.
+	(RUI6-E0D6): Add `<-denotational' for A-RUI6-E0D6; add
+	`ideographic-radical', `ideographic-strokes' and `total-strokes';
+	add `ideographic-structure'.
+	(RUI6-E0D7): Add `ideographic-radical', `ideographic-strokes' and
+	`total-strokes'; add `ideographic-structure'.
+	(RUI6-E0D8): Add `<-denotational' for A-RUI6-E0D8; add
+	`ideographic-radical', `ideographic-strokes' and `total-strokes';
+	add `ideographic-structure'.
+	(RUI6-E0D9): Add `<-denotational' for A-RUI6-E0D9; add
+	`ideographic-radical', `ideographic-strokes' and `total-strokes';
+	add `ideographic-structure'.
+	(RUI6-E143): Add `<-denotational' for A-RUI6-E143.
+	(RUI6-E145): Add `<-denotational' for A-RUI6-E145; add
+	`ideographic-radical', `ideographic-strokes' and `total-strokes';
+	add `ideographic-structure'.
+	(RUI6-E153): Add `ideographic-radical', `ideographic-strokes' and
+	`total-strokes'; add `ideographic-structure'.
 
 	* Ideograph-R070-Square.el (U+65BC): Apply new conventions for
 	glyph granularity.
