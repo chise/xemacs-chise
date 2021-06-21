@@ -1525,16 +1525,69 @@
   '((ideographic-radical . 48)	; ⼯
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
+    (sound@ja/on	"teN")
     (=ucs		. #x382D)	; 㠭
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x382D)	; 㠭
+      ))
+    (ideographic-radical . 48)	; ⼯
+    (ideographic-strokes . 9)
+    (total-strokes	 . 12)
+    (=ucs@unicode	. #x382D)	; &MJ000942;
+    (=mj		. 000942)	; &MJ000942;
+    (=cns11643-3	. #x3B38)	; &I-C3-3B38; [27-24]
+    (=koseki		. 098930)	; &MJ000942;
+    (=gt		. 11013)	; &I-GT-11013;
+    (=gt-pj-3		. #x3E51)	; &I-GT-11013; [30-49]
+    (=daikanwa		. 08735)	; &I-M-08735;
+    (=cbeta		. 11442)	; &I-CB11442;
+    (<-formed
+     ((=ucs@unicode	  . #x5C55)	; &AJ1-03122;
+      (=adobe-japan1-0	  . 03122)	; &AJ1-03122;
+      ))
+    (<-formed$_1*sources
+     koseki mj)
+    (<-formed*sources
+     koseki mj)
+    (<-original
+     ((=ucs@unicode	  . #x5C55)	; &AJ1-03122;
+      (=adobe-japan1-0	  . 03122)	; &AJ1-03122;
+      ))
+    (<-original$_1*sources
+     yupian)
+    (<-same
+     ((=ucs@unicode	  . #x5C55)	; &AJ1-03122;
+      (=adobe-japan1-0	  . 03122)	; &AJ1-03122;
+      (=daikanwa	  . 07715)	; &I-M-07715;
+      ))
+    (<-same$_1*sources
+     yupian daikanwa)
+    (<-same*sources
+     yupian daikanwa)
     (->subsumptive
-     ((=gt		  . 11013)	; &GT-11013;
-      (=gt-pj-3		  . #x3E51)	; &GT-11013; [30-49]
-      (=daikanwa	  . 08735)	; &I-M-08735;
+     ((==mj		  . 000942)	; &g2-MJ000942;
+      (==koseki		  . 098930)	; &g2-MJ000942;
+      (==gt		  . 11013)	; &g2-MJ000942;
+      (==daikanwa	  . 08735)	; &g2-MJ000942;
+      (->subsumptive
+       ((===daikanwa	    . 08735)	; &R-M-08735;
+	)
+       ((===mj		    . 000942)	; &R-MJ000942;
+	)
+       ((===gt		    . 11013)	; &R-GT-11013;
+	))
       )
-     ((=ucs@unicode	  . #x382D)	; &C3-3B38;
-      (=cns11643-3	  . #x3B38)	; &C3-3B38; [27-24]
+     ((==ucs@unicode	  . #x382D)	; &g2-UU+382D;
+      (==cns11643-3	  . #x3B38)	; &g2-UU+382D; [27-24]
+      (->subsumptive
+       ((===cns11643-3	    . #x3B38)	; &R-C3-3B38; [27-24]
+	)
+       ((===ucs@unicode	    . #x382D)	; &R-UU+382D;
+	))
       )
-     ((=cbeta		  . 11442)	; &CB11442;
+     ((==cbeta		  . 11442)	; &g2-CB11442;
       ))
     ))
 (define-char
