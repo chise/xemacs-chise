@@ -3075,7 +3075,11 @@
       ))
     ))
 (define-char
-  '((<-denotational@usage
+  '((<-denotational
+     ((=>ucs@iwds-1	  . #x5947)	; &A-IWDSU+5947;
+      (=>iwds-1		  .  0424)	; &A-IWDSU+5947;
+      ))
+    (<-denotational@usage
      ((==>ucs@bucs	  . #x5947)	; &BUCS+5947;
       ))
     (ideographic-radical@ucs . 117)	; ⽴
