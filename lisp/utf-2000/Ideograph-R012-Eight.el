@@ -2335,6 +2335,11 @@
      ((=ucs		  . #x9FB1)	; 龱
       ))
     (=ucs		. #x2050B)	; 𠔋
+    (<-ancient
+     ((=ucs		  . #x7B95)	; 箕
+      ))
+    (<-ancient*sources
+     shuowen)
     ))
 (define-char
   '((<-denotational
@@ -3001,6 +3006,11 @@
     (sound@ja/on/go	"gi")
     (sound@ja/on/kan	"ki")
     (=ucs		. #x5176)	; 其
+    (<-Zhouwen
+     ((=ucs		  . #x7B95)	; 箕
+      ))
+    (<-Zhouwen*sources
+     shuowen)
     ))
 (define-char
   '((<-denotational
@@ -5318,6 +5328,11 @@
 (define-char
   '((ideographic-radical . 12)	; ⼋
     (=ucs		. #x2051D)	; 𠔝
+    (<-Zhouwen
+     ((=ucs		  . #x7B95)	; 箕
+      ))
+    (<-Zhouwen*sources
+     shuowen)
     ))
 (define-char
   '((<-denotational
