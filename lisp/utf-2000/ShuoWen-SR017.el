@@ -15,7 +15,14 @@
   '((shuowen-radical	. 17)	; 釆
     (=shuowen-jiguge	. 03400)	; &SW-JIGUGE-03400;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x200A0)	; 𠂠
+      )
      ((=ucs		  . #x2009F)	; 𠂟
+      ))
+    (<-ancient@shuowen
+     ((=shuowen-jiguge	  . 03315)	; &SW-JIGUGE-03315;
+      )
+     ((=ucs		  . #x91C6)	; 釆
       ))
     (->subsumptive
      ((===shuowen-jiguge5 . 03400)	; &SW-JIGUGE5-03400;
