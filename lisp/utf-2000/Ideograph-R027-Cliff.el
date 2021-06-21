@@ -7159,6 +7159,37 @@
     ))
 (define-char
   '((ideographic-radical . 27)	; ⼚
+    (ideographic-strokes . 14)
+    (total-strokes	 . 16)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x90A3)	; 那
+      )
+     ((=ucs		  . #x539A)	; 厚
+      ))
+    (=ucs		. #x2D197)	; 𭆗
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2D197)	; 𭆗
+      ))
+    (ideographic-radical . 27)	; ⼚
+    (ideographic-strokes . 14)
+    (total-strokes	 . 16)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=mj		  . 026238)	; &MJ026238;
+      )
+     ((=ucs		  . #x539A)	; 厚
+      ))
+    (=ucs@JP/hanazono	. #x2D197)	; &hanaJU+2D197;
+    ))
+(define-char
+  '((ideographic-radical . 27)	; ⼚
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
       (=ucs		  . #x2FF8)	; ⿸
