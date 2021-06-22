@@ -8136,6 +8136,38 @@
      ((=>ucs@iwds-1	  . #x571F)	; &A-IWDSU+571F;
       (=>iwds-1		  .  0312)	; &A-IWDSU+571F;
       )
+     ((=big5-cdp	  . #x8DDF)	; &CDP-8DDF;
+      ))
+    (=ucs		. #x21290)	; 𡊐
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x21290)	; 𡊐
+      ))
+    (ideographic-radical . 32)	; ⼟
+    (ideographic-strokes . 5)
+    (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=gt-k		  . 00199)	; &GT-K00199;
+      )
+     ((=big5-cdp	  . #x8DDF)	; &CDP-8DDF;
+      ))
+    (=ucs@iso		. #x21290)	; &U-00021290;
+    ))
+(define-char
+  '((ideographic-radical . 32)	; ⼟
+    (ideographic-strokes . 5)
+    (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=>ucs@iwds-1	  . #x571F)	; &A-IWDSU+571F;
+      (=>iwds-1		  .  0312)	; &A-IWDSU+571F;
+      )
      ((=>iwds-1		  .  0232)	; &J97-5575;
       ))
     (=ucs		. #x21291)	; 𡊑
