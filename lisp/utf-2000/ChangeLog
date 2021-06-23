@@ -1,5 +1,16 @@
 2021-06-21  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R068-Dipper.el (U+3AB3): New character.
+	(U+3ABB): Use `->denotational' and `->subsumptive'.
+
+	* Ideograph-R004-Slash.el (U-0002008B): Add
+	`ideographic-structure'.
+	(U+2008B-itaiji-002): New character; use `<-subsumptive' for
+	U-0002008B.
+	(U-000200A0): Apply new conventions for glyph granularity.
+
+2021-06-21  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R012-Eight.el (U-0002050B): Add `<-ancient' for
 	U+7B95.
 	(U+5176): Add `<-Zhouwen' for U+7B95.
@@ -20,6 +31,10 @@
 
 	* ShuoWen-SR076.el (SW-JIGUGE-09108): Add `<-ancient@shuowen' for
 	SW-JIGUGE-09107.
+
+	* Ideograph-R049-Oneself.el (U+5DFD): Add
+	`<-simplified@Small-Seal' for U+5DFA.
+	(U-00022045): Add `<-ancient' for U+5DFA and U+5DFD.
 
 2021-06-20  MORIOKA Tomohiko  <tomo.git@chise.org>
 
