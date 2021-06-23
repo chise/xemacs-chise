@@ -1,3 +1,8 @@
+2021-06-22  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R006-Hook.el (U-00020115): Unify GT-00314; apply new
+	conventions for glyph granularity.
+
 2021-06-21  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R068-Dipper.el (U+3AB3): New character.
@@ -10,6 +15,13 @@
 	(U-000200A0): Apply new conventions for glyph granularity.
 
 2021-06-21  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR152.el (SW-JIGUGE-15514): Add U-0002010E as a
+	corresponding modern character.
+	(SW-JIGUGE-15515): Use U-000223A7 instead of U-0002010E as the
+	corresponding modern character; add `<-ancient@shuowen' for
+	SW-JIGUGE-15514.
+	(SW-JIGUGE-15516): Add `<-Zhouwen@shuowen' for SW-JIGUGE-15514.
 
 	* Ideograph-R012-Eight.el (U-0002050B): Add `<-ancient' for
 	U+7B95.
