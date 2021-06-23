@@ -686,6 +686,11 @@
     (=gt		. 00314)	; &I-GT-00314;
     (=gt-pj-2		. #x3222)	; &I-GT-00314; [18-02]
     (=daikanwa		. 00235)	; &I-M-00235;
+    (<-Zhouwen
+     ((=ucs		  . #x4E43)	; 乃
+      ))
+    (<-Zhouwen*sources
+     shuowen)
     (->subsumptive
      ((==ucs@iso	  . #x20115)	; &g2-GT-00314;
       (==cns11643-6	  . #x2347)	; &g2-GT-00314; [03-39]
