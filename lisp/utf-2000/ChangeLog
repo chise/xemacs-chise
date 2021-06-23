@@ -1,3 +1,7 @@
+2021-06-23  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R006-Hook.el (U-00020115): Add `<-Zhouwen' for U+4E43.
+
 2021-06-22  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R006-Hook.el (U-00020115): Unify GT-00314; apply new
