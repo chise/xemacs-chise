@@ -1718,6 +1718,11 @@
     (=ucs		. #x5DFD)	; 巽
     (=>jis-x0208	. #x4327)	; 巽 [35-07]
     (=>jis-x0213-1	. #x4327)	; 巽 [35-07]
+    (<-simplified@Small-Seal
+     ((=ucs		  . #x5DFA)	; 巺
+      ))
+    (<-simplified@Small-Seal*sources
+     shuowen)
     ))
 (define-char
   '((<-denotational
@@ -1918,6 +1923,13 @@
       ))
     (sound@ja/on	"soN")
     (=ucs		. #x22045)	; 𢁅
+    (<-ancient
+     ((=ucs		  . #x5DFA)	; 巺
+      )
+     ((=ucs		  . #x5DFD)	; 巽
+      ))
+    (<-ancient*sources
+     shuowen)
     ))
 (define-char
   '((<-denotational
