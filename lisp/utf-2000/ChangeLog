@@ -4,6 +4,8 @@
 
 2021-06-22  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R032-Earth.el (U-00021290): New character.
+
 	* Ideograph-R006-Hook.el (U-00020115): Unify GT-00314; apply new
 	conventions for glyph granularity.
 
