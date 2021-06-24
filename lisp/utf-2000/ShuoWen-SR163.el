@@ -19,6 +19,11 @@
       )
      ((=ucs		  . #x24F4B)	; 𤽋
       ))
+    (<-ancient@shuowen
+     ((=shuowen-jiguge	  . 15915)	; &SW-JIGUGE-15915;
+      )
+     ((=ucs		  . #x8C46)	; 豆
+      ))
     (->subsumptive
      ((===shuowen-jiguge5 . 16000)	; &SW-JIGUGE5-16000;
       )
