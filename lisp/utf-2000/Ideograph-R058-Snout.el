@@ -142,6 +142,9 @@
     (<-formed@flipped-horizontally
      ((=ucs		  . #x30004)	; 𰀄
       ))
+    (<-formed@sideways
+     ((=ucs		  . #x722A)	; 爪
+      ))
     (->subsumptive
      ((==ucs@unicode	  . #x5F50)	; &g2-UU+5F50;
       (==ucs@JP/hanazono  . nil)
