@@ -1,10 +1,115 @@
 2021-06-23  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Oracle-Bones.el (ZOB-00097): Use ZOB-02437 instead of "兄" in
+	`ideographic-structure'.
+	(A-ZOB-00288): Add U-0002B889 as a corresponding modern character.
+	(A-ZOB-00353): Unify ZOB-00353.
+	(ZOB-00353): Unify A-ZOB-00353; use `<-Oracle-Bones@zinbun'
+	instead of `<-Oracle-Bones' for U+5404.
+	(ZOB-00589): Use ZOB-02516 instead of "卩" in
+	`ideographic-structure'.
+	(ZOB-00644): Add U+8FFA as a corresponding modern character.
+	(A-ZOB-00909): Unify ZOB-00909.
+	(ZOB-00909): Unify A-ZOB-00909; use `<-Oracle-Bones@zinbun'
+	instead of `<-Oracle-Bones' for U+53C8.
+	(A-ZOB-01019): Unify ZOB-01019.
+	(ZOB-01019): Unify A-ZOB-01019; use `<-Oracle-Bones@zinbun'
+	instead of `<-Oracle-Bones' for U-00020087.
+	(ZOB-01397): Use `<-subsumptive' for ZOB-01019 instead of
+	`<-denotational' for A-ZOB-01019; use `<-Oracle-Bones@zinbun'
+	instead of `<-Oracle-Bones' for U+5DE6.
+	(ZOB-01416): Use A-ZOB-01951 instead of A-ZOB-00644 as its mother;
+	use U-000209F4 instead of U-000209EA as the corresponding modern
+	character.
+	(A-ZOB-01418): Unify ZOB-01418.
+	(ZOB-01418): Unify A-ZOB-01418; use `<-Oracle-Bones@zinbun'
+	instead of `<-Oracle-Bones' for U+5BE7.
+	(A-ZOB-01439): Use `<-Oracle-Bones@zinbun' instead of
+	`<-Oracle-Bones' for U-00027BE6 and U+70DD.
+	(ZOB-01439): Use `<-Oracle-Bones@zinbun' instead of
+	`<-Oracle-Bones' for U-00027BE6; add `<-Oracle-Bones' for U+767B.
+	(A-ZOB-01511): Unify ZOB-01511.
+	(ZOB-01511): Unify A-ZOB-01511; use `<-Oracle-Bones@zinbun'
+	instead of `<-Oracle-Bones' for U+4E95.
+	(ZOB-01530): Use `<-Oracle-Bones@zinbun' instead of
+	`<-Oracle-Bones' for U+994E.
+	(A-ZOB-01532): Add U+9115 as a corresponding modern character.
+	(ZOB-01532): Use `<-subsumptive' instead of `<-denotational' for
+	A-ZOB-01532; use `<-Oracle-Bones@zinbun' instead of
+	`<-Oracle-Bones' for U+9957.
+	(ZOB-01667): Use `<-subsumptive' instead of `<-denotational' for
+	A-ZOB-00353; use `<-Oracle-Bones@zinbun' instead of
+	`<-Oracle-Bones' for U+683C.
+	(ZOB-01733): Use `<-Oracle-Bones@zinbun' instead of
+	`<-Oracle-Bones' for U+7121.
+	(ZOB-01848): Use `<-Oracle-Bones@zinbun' instead of
+	`<-Oracle-Bones' for U+9119.
+	(ZOB-01849): Use `<-Oracle-Bones@zinbun' instead of
+	`<-Oracle-Bones' for U+9146.
+	(ZOB-01850): Use `<-Oracle-Bones@zinbun' instead of
+	`<-Oracle-Bones' for U+912D.
+	(ZOB-01851): Use `<-subsumptive' instead of `<-denotational' for
+	ZOB-01511; use `<-Oracle-Bones@zinbun' instead of `<-Oracle-Bones'
+	for U-00028677.
+	(ZOB-01854): Use `<-Oracle-Bones@zinbun' instead of
+	`<-Oracle-Bones' for U+48C4.
+	(ZOB-01856): Use `<-subsumptive' instead of `<-denotational' for
+	A-ZOB-01532; use `<-Oracle-Bones@zinbun' for U+9115 and U+90F7
+	instead of `<-Oracle-Bones' for U+90F7.
+	(ZOB-01908): Use `<-subsumptive' instead of `<-denotational' for
+	A-ZOB-00909; use `<-Oracle-Bones@zinbun' instead of
+	`<-Oracle-Bones' for U+6709.
+	(A-ZOB-01951): New abstract node; use `<-denotational' for
+	A-ZOB-00644.
+	(ZOB-01951): Use A-ZOB-01951 instead of ZOB-00644 as its mother.
+	(ZOB-02041): Use `<-subsumptive' instead of `<-denotational' for
+	A-ZOB-01418; use `<-Oracle-Bones@zinbun' instead of
+	`<-Oracle-Bones' for U+5BCD.
+	(A-ZOB-02258): Unify ZOB-02258.
+	(ZOB-02258): Unify A-ZOB-02258; use `<-Oracle-Bones@zinbun'
+	instead of `<-Oracle-Bones' for U+767D.
+	(ZOB-02284): Use `<-subsumptive' instead of `<-denotational' for
+	ZOB-02258; use `<-Oracle-Bones@zinbun' instead of `<-Oracle-Bones'
+	for U+4F2F.
+	(ZOB-02288): Use `<-Oracle-Bones@zinbun' instead of
+	`<-Oracle-Bones' for U+50DA; add `<-Oracle-Bones' for U+5BEE.
+	(ZOB-02476): Use `<-Oracle-Bones@zinbun' instead of
+	`<-Oracle-Bones' for U+89C0.
+	(ZOB-02542): Use `<-Oracle-Bones@zinbun' instead of
+	`<-Oracle-Bones' for U+5370.
+	(ZOB-02747): Unify A-ZOB-02747; use `<-Oracle-Bones@zinbun'
+	instead of `<-Oracle-Bones' for U+89C0; add `<-Oracle-Bones' for
+	U+5C1E.
+	(ZOB-02756): Use `<-subsumptive' instead of `<-denotational' for
+	ZOB-02747; use `<-Oracle-Bones@zinbun' instead of `<-Oracle-Bones'
+	for U+71CE.
+	(ZOB-02767): Use `<-Oracle-Bones@zinbun' instead of
+	`<-Oracle-Bones' for U+7086; add `<-Oracle-Bones@unknown' for
+	U-00021D61.
+	(ZOB-02768): Use "⿰嬰" instead of "火嬰" as the corresponding
+	modern form.
+	(ZOB-02792): Use ZOB-01019 instead of "𠂇" in
+	`ideographic-structure'.
+	(ZOB-02871...02926): New characters.
+
+2021-06-23  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R006-Hook.el (U-00020115): Add `<-Zhouwen' for U+4E43.
 
 2021-06-22  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R034-Go.el (U+5902): Add
+	`ideographic-structure@apparent'.
+
 	* Ideograph-R032-Earth.el (U-00021290): New character.
+
+	* Ideograph-R030-Mouth.el (U+20020-itaiji-004): New character.
+	(A-cgnU+20D76): New abstract node.
+	(U-00020DDB): Add `<-denotational' for A-cgnU+20D76.
+	(U-00020D76): Ditto; apply new conventions for glyph granularity.
+	(U-0002D252): New character.
+	(U-0002D254): New character.
+	(UU+55C7): Add MJ059003 ad a value of `->formed'.
 
 	* Ideograph-R006-Hook.el (U-00020115): Unify GT-00314; apply new
 	conventions for glyph granularity.
