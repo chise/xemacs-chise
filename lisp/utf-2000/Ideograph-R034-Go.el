@@ -11,6 +11,14 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 3)
     (hanyu-dazidian	2 867 15)
+    (ideographic-structure@apparent
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x4E3F)	; 丿
+      )
+     ((=ucs		  . #x53C8)	; 又
+      ))
     (=ucs		. #x5902)	; 夂
     (=adobe-japan1-0	. 04538)	; &I-AJ1-04538;
     (=jis-x0208		. #x5469)	; &I-J90-5469; [52-73]
