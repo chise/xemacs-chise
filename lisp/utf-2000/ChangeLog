@@ -92,6 +92,20 @@
 	`ideographic-structure'.
 	(ZOB-02871...02926): New characters.
 
+	* ShuoWen-SR167.el (SW-JIGUGE-16107): Add `<-ancient@shuowen' for
+	SW-JIGUGE-16106.
+	(SW-JIGUGE-16110): Add `<-formed@shuowen' for SW-JIGUGE-16109.
+	(SW-JIGUGE-16111): Add U+8661 as a corresponding modern character;
+	add `<-simplified@Small-Seal/shuowen' for SW-JIGUGE-16109.
+
+	* ShuoWen-SR163.el (SW-JIGUGE-16000): Add `<-ancient@shuowen' for
+	SW-JIGUGE-15915.
+
+	* ShuoWen-SR155.el (SW-JIGUGE-15700): Add U-000208EC as a
+	corresponding modern character.
+	(SW-JIGUGE-15703): Add U-0002009E as a corresponding modern
+	character.
+
 2021-06-23  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R006-Hook.el (U-00020115): Add `<-Zhouwen' for U+4E43.
