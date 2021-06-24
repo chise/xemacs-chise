@@ -1141,7 +1141,7 @@
     (<-formed*sources
      koseki)
     (<-formed@koseki
-     ((=ucs@iso		  . #x2CF16)	; &MJ056865;
+     ((=ucs@JP/hanazono	  . #x2CF16)	; &MJ056865;
       (=mj		  . 056865)	; &MJ056865;
       ))
     (->subsumptive
@@ -1172,7 +1172,7 @@
     (ideographic-radical . 5)	; ⼄
     (ideographic-strokes . 2)
     (total-strokes	 . 3)
-    (=ucs@iso		. #x2CF16)	; &MJ056865;
+    (=ucs@JP/hanazono	. #x2CF16)	; &MJ056865;
     (=mj		. 056865)	; &MJ056865;
     (<-formed
      ((=mj		  . 006462)	; &MJ006462;
@@ -1182,13 +1182,14 @@
     (<-formed@component
      ((=ucs		  . #x722A)	; 爪
       ))
+    (<-formed@sideways
+     ((=ucs		  . #x722A)	; 爪
+      ))
     (->subsumptive
-     ((==ucs@iso	  . #x2CF16)	; &g2-MJ056865;
+     ((==ucs@JP/hanazono  . #x2CF16)	; &g2-MJ056865;
       (==mj		  . 056865)	; &g2-MJ056865;
       (->subsumptive
        ((===mj		    . 056865)	; &R-MJ056865;
-	)
-       ((===ucs@iso	    . #x2CF16)	; &R-U-0002CF16;
 	)
        ((===hng-nkk	    . 03300)	; &HNG039-03300;
 	))
