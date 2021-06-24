@@ -194,6 +194,19 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 5)
     (=big5-cdp		. #x8DDF)	; &CDP-8DDF;
+    (=cbeta		. 12158)	; &I-CB12158;
+    (<-formed@sideways
+     ((=ucs		  . #x5F13)	; 弓
+      ))
+    (->subsumptive
+     ((==big5-cdp	  . #x8DDF)	; &g2-CDP-8DDF;
+      (==cbeta		  . 12158)	; &g2-CDP-8DDF;
+      (->subsumptive
+       ((===big5-cdp	    . #x8DDF)	; &R-CDP-8DDF;
+	)
+       ((===cbeta	    . 12158)	; &R-CB12158;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 57)	; ⼸
