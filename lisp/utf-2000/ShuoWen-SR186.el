@@ -29,6 +29,11 @@
     (<-Small-Seal@shuowen
      ((=ucs		  . #x5C04)	; 射
       ))
+    (<-simplified@Small-Seal/shuowen
+     ((=shuowen-jiguge	  . 17400)	; &SW-JIGUGE-17400;
+      )
+     ((=ucs		  . #x4836)	; 䠶
+      ))
     (->subsumptive
      ((===shuowen-jiguge5 . 17401)	; &SW-JIGUGE5-17401;
       )
@@ -87,6 +92,8 @@
   '((shuowen-radical	. 186)	; 矢
     (=shuowen-jiguge	. 17406)	; &SW-JIGUGE-17406;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x253EB)	; 𥏫
+      )
      ((=ucs		  . #x253FB)	; 𥏻
       ))
     (->subsumptive

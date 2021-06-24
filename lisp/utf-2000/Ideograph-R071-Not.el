@@ -133,6 +133,13 @@
     (=daikanwa		. 13717)	; &I-M-13717;
     (=daijiten		. 04440)	; &I-DJT-04440;
     (=shinjigen		.  3258)	; 旡
+    (<-Liwen
+     ((=shuowen-jiguge	  . 29607)	; &SW-JIGUGE-29607;
+      )
+     ((=ucs		  . #x34AB)	; 㒫
+      ))
+    (<-Liwen*sources
+     shuowen-xuxuan-zhu)
     (->subsumptive
      ((total-strokes	   . 4)
       (=decomposition@hanyo-denshi

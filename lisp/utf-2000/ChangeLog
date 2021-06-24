@@ -1,4 +1,32 @@
+2021-06-24  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR186.el (SW-JIGUGE-04219): Add
+	`<-simplified@Small-Seal/shuowen' for SW-JIGUGE-17400.
+	(SW-JIGUGE-17406): Add U-000253EB as a corresponding modern
+	character.
+
+	* ShuoWen-SR180.el (SW-JIGUGE-16808): Add A-IWDSU+98DF as a
+	corresponding modern character.
+	(SW-JIGUGE-17020): Add `<-formed@shuowen' for SW-JIGUGE-17019.
+	(SW-JIGUGE-17021): Add U-00029782 as a corresponding modern
+	character; add `<-Zhouwen@shuowen' for SW-JIGUGE-17019.
+	(SW-JIGUGE-17029): Add U+9927 as a corresponding modern character.
+
+	* ShuoWen-SR179.el (SW-JIGUGE-16803): Add U-0002EAD7 and U+7235 as
+	corresponding modern characters.
+
+	* ShuoWen-SR022.el (SW-JIGUGE-04219): Add `<-ancient@shuowen' for
+	SW-JIGUGE-04218.
+
 2021-06-23  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R071-Not.el (U+65E1): Add `<-Liwen' for
+	SW-JIGUGE-29607 and U+34AB.
+
+	* Ideograph-R019-Power.el (A-U+6740-itaiji-003): New abstract
+	node.
+	(U+6740-itaiji-003): New character; use `<-denotational' for
+	A-U+6740-itaiji-003.
 
 	* Oracle-Bones.el (ZOB-00097): Use ZOB-02437 instead of "兄" in
 	`ideographic-structure'.

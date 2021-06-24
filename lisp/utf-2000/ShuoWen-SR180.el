@@ -8,6 +8,8 @@
      ((=ucs		  . #x29681)	; 𩚁
       )
      ((=ucs		  . #x98DF)	; 食
+      )
+     ((=>ucs@iwds-1	  . #x98DF)	; &A-IWDSU+98DF;
       ))
     (->subsumptive
      ((===shuowen-jiguge5 . 16808)	; &SW-JIGUGE5-16808;
@@ -769,6 +771,11 @@
     (<-Small-Seal@shuowen
      ((=ucs		  . #x53E8)	; 叨
       ))
+    (<-formed@shuowen
+     ((=shuowen-jiguge	  . 17019)	; &SW-JIGUGE-17019;
+      )
+     ((=ucs		  . #x9955)	; 饕
+      ))
     (->subsumptive
      ((===shuowen-jiguge5 . 17020)	; &SW-JIGUGE5-17020;
       )
@@ -780,6 +787,13 @@
     (=shuowen-jiguge	. 17021)	; &SW-JIGUGE-17021;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x27210)	; 𧈐
+      )
+     ((=ucs		  . #x29782)	; 𩞂
+      ))
+    (<-Zhouwen@shuowen
+     ((=shuowen-jiguge	  . 17019)	; &SW-JIGUGE-17019;
+      )
+     ((=ucs		  . #x9955)	; 饕
       ))
     (->subsumptive
      ((===shuowen-jiguge5 . 17021)	; &SW-JIGUGE5-17021;
@@ -875,6 +889,8 @@
   '((shuowen-radical	. 180)	; 食
     (=shuowen-jiguge	. 17029)	; &SW-JIGUGE-17029;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x9927)	; 餧
+      )
      ((=ucs		  . #x9912)	; 餒
       ))
     (->subsumptive
