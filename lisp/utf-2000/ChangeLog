@@ -1,5 +1,17 @@
 2021-06-24  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R031-Enclosure.el (U-000211A8): Add `<-ancient' for
+	U+826F.
+
+	* Ideograph-R058-Snout.el (UU+5F50): Add `<-formed@sideways' for
+	U+722A.
+
+	* Ideograph-R057-Bow.el (BC-8DDF): Unify CB12158; add
+	`<-formed@sideways' for U+5F13.
+
+	* Ideograph-R005-Second.el (MJ056865): Unify hanaJU+2CF16 instead
+	of IU+2CF16; add `<-formed@sideways' for U+722A.
+
 	* ShuoWen-SR186.el (SW-JIGUGE-04219): Add
 	`<-simplified@Small-Seal/shuowen' for SW-JIGUGE-17400.
 	(SW-JIGUGE-17406): Add U-000253EB as a corresponding modern
