@@ -1197,6 +1197,11 @@
       ))
     (sound@ja/on	"rIyAu")
     (=ucs		. #x211A8)	; 𡆨
+    (<-ancient
+     ((=ucs		  . #x826F)	; 良
+      ))
+    (<-ancient*sources
+     shuowen)
     ))
 (define-char
   '((<-denotational
