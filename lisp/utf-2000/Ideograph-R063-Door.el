@@ -23,6 +23,14 @@
     (ideographic-radical . 63)	; ⼾
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
+    (ideographic-structure@apparent
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x4E3F)	; 丿
+      )
+     ((=ucs		  . #x5C38)	; 尸
+      ))
     (=ucs		. #x6236)	; 戶
     (=ks-x1001		. #x7B42)	; &I-K0-7B42; [91-34]
     (=cns11643-1	. #x4542)	; &I-C1-4542; [37-34]
