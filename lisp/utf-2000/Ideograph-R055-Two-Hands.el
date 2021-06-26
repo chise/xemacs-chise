@@ -718,6 +718,19 @@
     (=ucs		. #x20020)	; 𠀠
     (=cns11643-6	. #x2467)	; &I-C6-2467; [04-71]
     (=daikanwa		. 09592)	; &I-M-09592;
+    (<-ancient
+     ((=ucs		  . #x7B95)	; 箕
+      )
+     ((=ucs@unicode	  . #x7B95)	; &AJ1-03763;
+      (=adobe-japan1-0	  . 03763)	; &AJ1-03763;
+      (=daikanwa	  . 26143)	; &I-M-26143;
+      ))
+    (<-ancient$_1*sources
+     shuowen)
+    (<-ancient$_2*sources
+     shuowen daikanwa)
+    (<-ancient*sources
+     shuowen daikanwa)
     (->subsumptive
      ((==ucs@iso	  . #x20020)	; &g2-M-09592;
       (==cns11643-6	  . #x2467)	; &g2-M-09592; [04-71]
@@ -1766,6 +1779,8 @@
       )
      ((=ucs		  . #x5EFE)	; 廾
       ))
+    (sound@ja/on/go	"yaku")
+    (sound@ja/on/kan	"eki")
     (=ucs		. #x5F08)	; 弈
     ))
 (define-char
@@ -1794,6 +1809,21 @@
     (=daikanwa		. 09611)	; &I-M-09611;
     (=daijiten		. 03020)	; &I-DJT-03020;
     (=jef-china3	. #x4CDD)	; &I-JC3-4CDD;
+    (->interchangeable
+     ((=ucs@unicode	  . #x5955)	; &AJ1-04550;
+      (=adobe-japan1-0	  . 04550)	; &AJ1-04550;
+      ))
+    (->interchangeable$_1*sources
+     zhengzitong)
+    (->interchangeable*sources
+     zhengzitong)
+    (->mistakable
+     ((=ucs@unicode	  . #x5955)	; &AJ1-04550;
+      (=adobe-japan1-0	  . 04550)	; &AJ1-04550;
+      (=daikanwa	  . 05922)	; &I-M-05922;
+      ))
+    (->mistakable*sources
+     zihui-xingwu daikanwa)
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x5F08)	; 弈
