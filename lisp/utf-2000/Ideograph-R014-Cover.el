@@ -2073,6 +2073,24 @@
   '((ideographic-radical . 14)	; ⼍
     (ideographic-strokes . 8)
     (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5196)	; 冖
+      )
+     ((=>ucs@component	  . #x6797)	; &A-compU+6797;
+      (=>iwds-1		  .  0229)	; &A-compU+6797;
+      ))
+    (=ucs		. #x51A7)	; 冧
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x51A7)	; 冧
+      ))
+    (ideographic-radical . 14)	; ⼍
+    (ideographic-strokes . 8)
+    (total-strokes	 . 10)
     (hanyu-dazidian	8 10 7)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -2082,9 +2100,50 @@
       )
      ((=ucs		  . #x6797)	; 林
       ))
-    (=ucs		. #x51A7)	; 冧
-    (=gb12345		. #x7C23)	; 冧 [92-03]
-    (=hanziku-12	. #xEBB1)	; &I-HZK12-EBB1;
+    (=ucs@unicode	. #x51A7)	; &UU+51A7;
+    (=gb12345		. #x7C23)	; &UU+51A7; [92-03]
+    (->subsumptive
+     ((==ucs@unicode	  . #x51A7)	; &g2-UU+51A7;
+      (==gb12345	  . #x7C23)	; &g2-UU+51A7; [92-03]
+      (->subsumptive
+       ((===ucs@unicode	    . #x51A7)	; &R-UU+51A7;
+	)
+       ((=hanziku-12	    . #xEBB1)	; &HZK12-EBB1;
+	))
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 14)	; ⼍
+    (ideographic-strokes . 8)
+    (total-strokes	 . 10)
+    (=ucs		. #x2058D)	; 𠖍
+    (<-unknown
+     ((=ucs		  . #x4EAE)	; 亮
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2058D)	; 𠖍
+      ))
+    (ideographic-radical . 14)	; ⼍
+    (ideographic-strokes . 8)
+    (total-strokes	 . 10)
+    (=ucs@iso		. #x2058D)	; &U-0002058D;
+    ))
+(define-char
+  '((ideographic-radical . 14)	; ⼍
+    (ideographic-strokes . 8)
+    (total-strokes	 . 10)
+    (=ucs		. #x20590)	; 𠖐
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x20590)	; 𠖐
+      ))
+    (ideographic-radical . 14)	; ⼍
+    (ideographic-strokes . 8)
+    (total-strokes	 . 10)
+    (=ucs@iso		. #x20590)	; &U-00020590;
     ))
 (define-char
   '((ideographic-radical . 14)	; ⼍
