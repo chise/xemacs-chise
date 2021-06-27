@@ -1,5 +1,15 @@
 2021-06-26  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R016-Table.el (U-0002063D): Apply new conventions for
+	glyph granularity.
+	(A-GT-K02815): New abstract node.
+	(GT-K02815): New character; use `<-denotational' for A-GT-K02815.
+
+	* Ideograph-R014-Cover.el (U+51A7): Apply new conventions for
+	glyph granularity.
+	(U-0002058D): New character.
+	(U-00020590): New character.
+
 	* Ideograph-R059-Bristle.el (A-cgnU+5F63): New abstract node.
 	(U+5F63): Add `<-denotational' for A-cgnU+5F63; apply new
 	conventions for glyph granularity.
