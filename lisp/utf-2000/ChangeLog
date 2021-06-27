@@ -1,3 +1,15 @@
+2021-06-26  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R059-Bristle.el (A-cgnU+5F63): New abstract node.
+	(U+5F63): Add `<-denotational' for A-cgnU+5F63; apply new
+	conventions for glyph granularity.
+	(GT-K03048): New character; use `<-denotational' for A-cgnU+5F63.
+
+	* Ideograph-R040-Roof.el (U-00021A10): New character.
+
+	* Ideograph-R008-Lid.el (U-0002019F): Apply new conventions for
+	glyph granularity.
+
 2021-06-25  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R034-Go.el (U-00021559): New character.
