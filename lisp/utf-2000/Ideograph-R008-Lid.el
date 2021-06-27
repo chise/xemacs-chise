@@ -6608,13 +6608,37 @@
   '((ideographic-radical . 8)	; ⼇
     (ideographic-strokes . 22)
     (total-strokes	 . 24)
+    (sound@ja/on	"bi")
     (=ucs		. #x2019F)	; 𠆟
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2019F)	; 𠆟
+      ))
+    (ideographic-radical . 8)	; ⼇
+    (ideographic-strokes . 22)
+    (total-strokes	 . 24)
+    (hanyu-dazidian	1 294 17)
+    (=ucs@iso		. #x2019F)	; &MJ030531;
+    (=mj		. 030531)	; &MJ030531;
+    (=koseki		. 004250)	; &MJ030531;
+    (=daikanwa		. 00343)	; &I-M-00343;
     (->subsumptive
-     ((=daikanwa	  . 00343)	; &M-00343;
+     ((==mj		  . 030531)	; &g2-MJ030531;
+      (==koseki		  . 004250)	; &g2-MJ030531;
+      (==daikanwa	  . 00343)	; &g2-MJ030531;
+      (->subsumptive
+       ((===daikanwa	    . 00343)	; &R-M-00343;
+	)
+       ((===mj		    . 030531)	; &R-MJ030531;
+	))
       )
-     ((hanyu-dazidian	  1 294 17)
-      (=ucs@iso		  . #x2019F)	; &HZK01-E2C4;
-      (=hanziku-1	  . #xE2C4)	; &HZK01-E2C4;
+     ((==ucs@iso	  . #x2019F)	; &g2-IU-0002019F;
+      (->subsumptive
+       ((===ucs@iso	    . #x2019F)	; &R-U-0002019F;
+	)
+       ((=hanziku-1	    . #xE2C4)	; &HZK01-E2C4;
+	))
       ))
     ))
 (define-char
