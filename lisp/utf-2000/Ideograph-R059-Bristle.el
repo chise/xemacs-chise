@@ -341,16 +341,58 @@
     ))
 (define-char
   '((ideographic-radical . 59)	; ⼺
+    (=>ucs@cognate	. #x5F63)	; &A-cgnU+5F63;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@cognate	  . #x5F63)	; &A-cgnU+5F63;
+      ))
+    (ideographic-radical . 59)	; ⼺
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
+    (ideographic-structure
+     ((=>ucs@iwds-1	  . #x2FFA)	; &A-IWDSU+2FFA;
+      (=>iwds-1		  .  0307)	; &A-IWDSU+2FFA;
+      )
+     ((=ucs		  . #x6587)	; 文
+      )
+     ((=ucs		  . #x5F61)	; 彡
+      ))
+    (sound@ja/on/go	"moN")
+    (sound@ja/on/kan	"buN")
     (=ucs		. #x5F63)	; 彣
-    (=adobe-japan1-5	. 17611)	; &I-AJ1-17611;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5F63)	; 彣
+      ))
+    (ideographic-radical . 59)	; ⼺
+    (ideographic-strokes . 4)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
+      (=ucs		  . #x2FFA)	; ⿺
+      )
+     ((=ucs		  . #x6587)	; 文
+      )
+     ((=ucs		  . #x5F61)	; 彡
+      ))
+    (=ucs@unicode	. #x5F63)	; &AJ1-17611;
+    (=adobe-japan1-5	. 17611)	; &AJ1-17611;
     (=jis-x0212		. #x3C7C)	; &I-JSP-3C7C; [28-92]
     (=cns11643-3	. #x2572)	; &I-C3-2572; [05-82]
     (=jis-x0213-2	. #x2C33)	; &I-JX2-2C33; [12-19]
     (=big5-cdp		. #x894E)	; &I-CDP-894E;
     (=daikanwa		. 09971)	; &I-M-09971;
     (=jef-china3	. #x4DA4)	; &I-JC3-4DA4;
+    (->interchangeable
+     ((=ucs		  . #x6587)	; 文
+      (=daikanwa	  . 13450)	; &I-M-13450;
+      ))
+    (->interchangeable$_1*sources
+     jiyun daikanwa)
+    (->interchangeable*sources
+     jiyun daikanwa)
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x5F63)	; 彣
@@ -384,6 +426,45 @@
 	)
        ((===ucs@unicode	    . #x5F63)	; &R-UU+5F63;
 	))
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5F63)	; 彣
+      ))
+    (ideographic-radical . 59)	; ⼺
+    (ideographic-strokes . 4)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x6587)	; 文
+      )
+     ((=ucs		  . #x5F61)	; 彡
+      ))
+    (=cbeta		. 11152)	; &CB11152;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@cognate	  . #x5F63)	; &A-cgnU+5F63;
+      ))
+    (ideographic-radical . 59)	; ⼺
+    (ideographic-strokes . 4)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((name		  . "IDEOGRAPHIC DESCRIPTION CHARACTER OVERLAID")
+      (=ucs		  . #x2FFB)	; ⿻
+      )
+     ((=ucs		  . #x6587)	; 文
+      )
+     ((=ucs		  . #x5F61)	; 彡
+      ))
+    (=gt-k		. 03048)	; &GT-K03048;
+    (=gt-pj-k2		. #x406E)	; &GT-K03048; [32-78]
+    (->subsumptive
+     ((==gt-k		  . 03048)	; &g2-GT-K03048;
+      (==gt-pj-k2	  . #x406E)	; &g2-GT-K03048; [32-78]
       ))
     ))
 (define-char
