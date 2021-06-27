@@ -4789,7 +4789,8 @@
      ((=ucs		  . #x4E00)	; 一
       ))
     (sound@ja/kun	"suke")
-    (sound@ja/on/go	"zyAu")
+    (sound@ja/on/go	"zyou")
+    (sound@ja/on/kan	"syou")
     (=ucs		. #x4E1E)	; 丞
     (=adobe-japan1-0	. 02511)	; &I-AJ1-02511;
     (=jis-x0208		. #x3E67)	; &I-J90-3E67; [30-71]
@@ -4804,6 +4805,52 @@
     (=daikanwa		. 00040)	; &I-M-00040;
     (=daijiten		. 00029)	; &I-DJT-00029;
     (=shinjigen		.  0029)	; 丞
+    (<-ancient
+     ((=ucs@unicode	  . #x628D)	; &JSP-3F45;
+      (=jis-x0212	  . #x3F45)	; &JSP-3F45; [31-37]
+      (=cns11643-3	  . #x2636)	; &I-C3-2636; [06-22]
+      (=daikanwa	  . 11879)	; &I-M-11879;
+      ))
+    (<-ancient$_1*sources
+     jiyun)
+    (<-formed
+     ((=ucs@unicode	  . #x628D)	; &JSP-3F45;
+      (=jis-x0212	  . #x3F45)	; &JSP-3F45; [31-37]
+      (=cns11643-3	  . #x2636)	; &I-C3-2636; [06-22]
+      (=daikanwa	  . 11879)	; &I-M-11879;
+      ))
+    (<-interchangeable
+     ((=ucs		  . #x627F)	; 承
+      (=daikanwa	  . 11852)	; &I-M-11852;
+      )
+     ((=ucs@cns		  . #x84B8)	; &C1-6A65;
+      (=ucs@ks		  . #x84B8)	; &C1-6A65;
+      (=ks-x1001	  . #x717A)	; &C1-6A65; [81-90]
+      (=cns11643-1	  . #x6A65)	; &I-C1-6A65; [74-69]
+      (=daikanwa	  . 31618)	; &I-M-31618;
+      )
+     ((=ucs@unicode	  . #x628D)	; &JSP-3F45;
+      (=jis-x0212	  . #x3F45)	; &JSP-3F45; [31-37]
+      (=cns11643-3	  . #x2636)	; &I-C3-2636; [06-22]
+      (=daikanwa	  . 11879)	; &I-M-11879;
+      ))
+    (<-interchangeable$_1*sources
+     shuowen-tongxun-dingsheng daikanwa)
+    (<-interchangeable$_2*sources
+     shiwen daikanwa)
+    (<-interchangeable$_3*sources
+     jiyun daikanwa)
+    (<-interchangeable*sources
+     daikanwa)
+    (->original
+     ((=ucs@unicode	  . #x37BC)	; &C4-2632;
+      (=cns11643-4	  . #x2632)	; &C4-2632; [06-18]
+      (=daikanwa	  . 07978)	; &I-M-07978;
+      ))
+    (->original$_1*sources
+     zhengzitong daikanwa)
+    (->original*sources
+     zhengzitong daikanwa)
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x4E1E)	; 丞
@@ -5260,9 +5307,17 @@
     (=daikanwa		. 09592)	; &I-M-09592;
     (<-ancient
      ((=ucs		  . #x7B95)	; 箕
+      )
+     ((=ucs@unicode	  . #x7B95)	; &AJ1-03763;
+      (=adobe-japan1-0	  . 03763)	; &AJ1-03763;
+      (=daikanwa	  . 26143)	; &I-M-26143;
       ))
-    (<-ancient*sources
+    (<-ancient$_1*sources
      shuowen)
+    (<-ancient$_2*sources
+     shuowen daikanwa)
+    (<-ancient*sources
+     shuowen daikanwa)
     (->subsumptive
      ((==ucs@iso	  . #x20020)	; &g2-M-09592;
       (==cns11643-6	  . #x2467)	; &g2-M-09592; [04-71]
