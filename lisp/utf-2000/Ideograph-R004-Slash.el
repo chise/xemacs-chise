@@ -945,6 +945,25 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=>big5-cdp	  . #x86AA)	; &A-CDP-86AA;
+      ))
+    (ideographic-radical . 4)	; ⼃
+    (ideographic-strokes . 1)
+    (total-strokes	 . 2)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
+      (=ucs		  . #x2FF9)	; ⿹
+      )
+     ((=ucs@iso		  . #x2010E)	; &GT-00303;
+      (=cns11643-4	  . #x2128)	; &GT-00303; [01-08]
+      (=daikanwa	  . 00228)	; &I-M-00228;
+      )
+     ((=ucs		  . #x3405)	; 㐅
+      ))
+    (=big5-cdp-var-002	. #x86AA)	; &CDP-v002-86AA;
+    ))
+(define-char
   '((<-denotational@usage
      ((==>daijiten	  . 00109)	; &A2-DJT-00109;
       ))
