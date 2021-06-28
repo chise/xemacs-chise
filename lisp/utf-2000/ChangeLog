@@ -1,5 +1,21 @@
 2021-06-27  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R037-Big.el (A-IWDSU+5947): New abstract node.
+	(U+5947): Add `<-denotational' for A-IWDSU+5947; add
+	`<-denotational@usage' for BUCS+5947; add `sound@ja/on/{kan|go}';
+	unify DJT-01972; add some relations for other characters.
+	(U+7AD2): Copied from Ideograph-R117-Stand.el; add
+	`<-denotational' for A-IWDSU+5947; add `<-denotational@usage' for
+	BUCS+5947.
+	(U+5955): Apply new conventions for glyph granularity.
+
+	* Ideograph-R026-Seal.el (A-GT-K10476): New abstract node.
+	(GT-K10476): New character; use `<-denotational' for A-GT-K10476.
+
+	* Ideograph-R022-Right-Open-Box.el (U-0002094A): Apply new
+	conventions for glyph granularity.
+	(U-00020969): Likewise.
+
 	* Ideograph-R001-One.el (U+4E1E): Add `sound@ja/on/kan'; modify
 	`sound@ja/on/go'; add some relations for other characters.
 	(U-00020020): Add UU+7B95 as an item of `<-ancient'.
