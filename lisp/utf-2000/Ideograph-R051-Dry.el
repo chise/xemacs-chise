@@ -915,8 +915,77 @@
   '((ideographic-radical . 51)	; ⼲
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
+    (sound@ja/on	"kiN")
     (=ucs		. #x2218C)	; 𢆌
     (=daikanwa		. 09174)	; &I-M-09174;
+    (->subsumptive
+     ((==ucs@iso	  . #x2218C)	; &g2-M-09174;
+      (==daikanwa	  . 09174)	; &g2-M-09174;
+      (->subsumptive
+       ((===daikanwa	    . 09174)	; &R-M-09174;
+	)
+       ((===ucs@iso	    . #x2218C)	; &R-U-0002218C;
+	))
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 51)	; ⼲
+    (ideographic-strokes . 4)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5E72)	; 干
+      )
+     ((=>ucs@component	  . #x53CE)	; &A-compU+53CE;
+      ))
+    (=ucs		. #x2BDD5)	; 𫷕
+    (=>gt-k		. 02861)	; 𫷕
+    (=>ucs-itaiji-001	. #x20B3F)	; 𫷕
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2BDD5)	; 𫷕
+      ))
+    (ideographic-radical . 51)	; ⼲
+    (ideographic-strokes . 4)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5E72)	; 干
+      )
+     ((=ucs		  . #x53CE)	; 収
+      ))
+    (=ucs@JP/hanazono	. #x2BDD5)	; &hanaJU+2BDD5;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2BDD5)	; 𫷕
+      ))
+    (ideographic-radical . 51)	; ⼲
+    (ideographic-strokes . 4)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5E72)	; 干
+      )
+     ((=ucs@iso		  . #x20B1E)	; &GT-03950;
+      (=cns11643-6	  . #x2162)	; &GT-03950; [01-66]
+      (=daikanwa	  . 03126)	; &I-M-03126;
+      ))
+    (=gt-k		. 02861)	; &U-i001+20B3F;
+    (=gt-pj-k1		. #x3E62)	; &U-i001+20B3F; [30-66]
+    (=ucs-itaiji-001	. #x20B3F)	; &U-i001+20B3F;
+    (->subsumptive
+     ((==gt-k		  . 02861)	; &g2-U-i001+20B3F;
+      (==gt-pj-k1	  . #x3E62)	; &g2-U-i001+20B3F; [30-66]
+      (==ucs-itaiji-001	  . #x20B3F)	; &g2-U-i001+20B3F;
+      ))
     ))
 (define-char
   '((<-denotational
