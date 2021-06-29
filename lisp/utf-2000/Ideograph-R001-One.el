@@ -4805,6 +4805,11 @@
     (=daikanwa		. 00040)	; &I-M-00040;
     (=daijiten		. 00029)	; &I-DJT-00029;
     (=shinjigen		.  0029)	; 丞
+    (<-Liwen
+     ((=ucs@unicode	  . #x37BC)	; &C4-2632;
+      (=cns11643-4	  . #x2632)	; &C4-2632; [06-18]
+      (=daikanwa	  . 07978)	; &I-M-07978;
+      ))
     (<-ancient
      ((=ucs@unicode	  . #x628D)	; &JSP-3F45;
       (=jis-x0212	  . #x3F45)	; &JSP-3F45; [31-37]
