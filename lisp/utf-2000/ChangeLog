@@ -1,3 +1,30 @@
+2021-06-29  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR211.el (SW-JIGUGE-20200): Add U+37A2 as a
+	corresponding modern character.
+
+	* ShuoWen-SR206.el (SW-JIGUGE-19721): Add `<-formed@shuowen' for
+	SW-JIGUGE-19720.
+	(SW-JIGUGE-19722): Add `<-ancient@shuowen' for SW-JIGUGE-19720.
+
+	* ShuoWen-SR193.el (SW-JIGUGE-17701): Add `<-ancient@shuowen' for
+	SW-JIGUGE-17700.
+	(SW-JIGUGE-17702): Add `<-ancient@shuowen' for SW-JIGUGE-17700.
+	(SW-JIGUGE-17703): Add U-00025B77 as a corresponding modern
+	character; add `<-ancient@shuowen' for SW-JIGUGE-17700.
+
+	* ShuoWen-SR144.el (SW-JIGUGE-15217): Add U-0002094A as a
+	corresponding modern character.
+
+	* ShuoWen-SR062.el (SW-JIGUGE-08201): Add U-0002022F as a
+	corresponding modern character; add `<-ancient@shuowen' for
+	SW-JIGUGE-08200.
+	(SW-JIGUGE-08202): Add U-00020B3F as a corresponding modern
+	character; add `<-Zhouwen@shuowen' for SW-JIGUGE-08200.
+
+	* ShuoWen-SR056.el (SW-JIGUGE-07226): Add U+8AAA and A-IWDSU+8AAA
+	as corresponding modern characters.
+
 2021-06-28  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R050-Turban.el (U-0002D611): New character.
