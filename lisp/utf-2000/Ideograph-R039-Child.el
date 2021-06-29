@@ -4559,7 +4559,10 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 39)	; ⼦
+  '((<-denotational@usage
+     ((==>ucs@bucs	  . #x5B30)	; &BUCS+5B30;
+      ))
+    (ideographic-radical . 39)	; ⼦
     (ideographic-strokes . 17)
     (total-strokes	 . 20)
     (ideographic-structure
@@ -4570,11 +4573,31 @@
       )
      ((=ucs		  . #x5B30)	; 嬰
       ))
+    (sound@ja/on	"ei")
     (=ucs		. #x5B7E)	; 孾
-    (=adobe-japan1-4	. 14473)	; &I-AJ1-14473;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5B7E)	; 孾
+      ))
+    (ideographic-radical . 39)	; ⼦
+    (ideographic-strokes . 17)
+    (total-strokes	 . 20)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5B50)	; 子
+      )
+     ((=ucs@unicode	  . #x5B30)	; &MJ010015;
+      (=mj		  . 010015)	; &MJ010015;
+      ))
+    (=ucs@unicode	. #x5B7E)	; &AJ1-14473;
+    (=adobe-japan1-4	. 14473)	; &AJ1-14473;
     (=jis-x0212		. #x3A45)	; &I-JSP-3A45; [26-37]
     (=cns11643-3	. #x5C3B)	; &I-C3-5C3B; [60-27]
     (=daikanwa		. 07048)	; &I-M-07048;
+    (=daijiten		. 02298)	; &I-DJT-02298;
     (=cbeta		. 00110)	; &I-CB00110;
     (->subsumptive
      ((=decomposition@cid
@@ -4582,22 +4605,16 @@
 	)
        ((=ucs		    . #xE0100)	; 󠄀
 	))
-      (ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	(=ucs		    . #x2FF0)	; ⿰
-	)
-       ((=ucs		    . #x5B51)	; 孑
-	)
-       ((==ucs@unicode	    . #x5B30)	; &g2-AJ1-01255;
-	(==adobe-japan1-0   . 01255)	; &g2-AJ1-01255;
-	))
       (==ucs@unicode	  . #x5B7E)	; &g2-AJ1-14473;
       (==adobe-japan1-4	  . 14473)	; &g2-AJ1-14473;
       (==jis-x0212	  . #x3A45)	; &g2-AJ1-14473; [26-37]
       (==daikanwa	  . 07048)	; &g2-AJ1-14473;
+      (==daijiten	  . 02298)	; &g2-AJ1-14473;
       (==cbeta		  . 00110)	; &g2-AJ1-14473;
       (->subsumptive
        ((===daikanwa	    . 07048)	; &R-M-07048;
+	)
+       ((===daijiten	    . 02298)	; &R-DJT-02298;
 	)
        ((===jis-x0212	    . #x3A45)	; &R-JSP-3A45; [26-37]
 	)
@@ -4608,16 +4625,7 @@
        ((===cbeta	    . 00110)	; &R-CB00110;
 	))
       )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	(=ucs		    . #x2FF0)	; ⿰
-	)
-       ((=ucs		    . #x5B51)	; 孑
-	)
-       ((==ucs@cns	    . #x5B30)	; &g2-CU+5B30;
-	(==cns11643-1	    . #x734F)	; &g2-CU+5B30; [83-47]
-	))
-      (==ucs@cns	  . #x5B7E)	; &g2-CU+5B7E;
+     ((==ucs@cns	  . #x5B7E)	; &g2-CU+5B7E;
       (==cns11643-3	  . #x5C3B)	; &g2-CU+5B7E; [60-27]
       ))
     ))

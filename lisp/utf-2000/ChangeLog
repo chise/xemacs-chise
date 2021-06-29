@@ -1,3 +1,12 @@
+2021-06-28  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R050-Turban.el (U-0002D611): New character.
+	(U-000220C4): New character.
+	(U+5E5D): Apply new conventions for glyph granularity.
+
+	* Ideograph-R039-Child.el (U+5B7E): Add `<-denotational@usage' for
+	BUCS+5B30; apply new conventions for glyph granularity.
+
 2021-06-27  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R051-Dry.el (U-0002218C): Add `sound@ja/on'.
