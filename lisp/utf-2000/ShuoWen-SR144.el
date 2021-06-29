@@ -92,6 +92,8 @@
     (=shuowen-jiguge	. 15217)	; &SW-JIGUGE-15217;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x20969)	; 𠥩
+      )
+     ((=ucs		  . #x2094A)	; 𠥊
       ))
     (<-Zhouwen@shuowen
      ((=shuowen-jiguge	  . 15212)	; &SW-JIGUGE-15212;
