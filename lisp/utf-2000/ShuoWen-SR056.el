@@ -976,6 +976,11 @@
   '((shuowen-radical	. 56)	; 言
     (=shuowen-jiguge	. 07226)	; &SW-JIGUGE-07226;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x8AAA)	; 說
+      )
+     ((=>ucs@iwds-1	  . #x8AAA)	; &J97-4062;
+      (=>jis-x0208	  . #x4062)	; &J97-4062; [32-66]
+      )
      ((=ucs		  . #x8AAC)	; 説
       ))
     (->subsumptive
