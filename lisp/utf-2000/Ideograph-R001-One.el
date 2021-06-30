@@ -1127,6 +1127,8 @@
 (define-char
   '((<-denotational@component
      ((=>ucs@component	  . #x4E0A)	; &A-compU+4E0A;
+      )
+     ((=>ucs@component	  . #x4E03)	; &A-compU+4E03;
       ))
     (<-denotational@usage
      ((==>daijiten	  . 00008)	; &A2-DJT-00008;
