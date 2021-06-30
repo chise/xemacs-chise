@@ -1,5 +1,8 @@
 2021-06-29  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* ShuoWen-SR007.el (SW-JIGUGE-01216): Use "⿵&SW-JIGUGE-09412;x" instead of
+	"⿹&SW-JIGUGE-09412;x".
+
 	* ShuoWen-SR211.el (SW-JIGUGE-20200): Add U+37A2 as a
 	corresponding modern character.
 

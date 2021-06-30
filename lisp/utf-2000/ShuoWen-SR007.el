@@ -24,8 +24,8 @@
 (define-char
   '((shuowen-radical	. 7)	; 玨
     (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
-      (=ucs		  . #x2FF9)	; ⿹
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
+      (=ucs		  . #x2FF5)	; ⿵
       )
      ((=shuowen-jiguge	  . 09412)	; &SW-JIGUGE-09412;
       )
