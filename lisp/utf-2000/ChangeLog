@@ -1,3 +1,8 @@
+2021-06-30  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R001-One.el (U+4E0A): Add A-compU+4E03 as an item of
+	`<-denotational@component'.
+
 2021-06-29  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* ShuoWen-SR007.el (SW-JIGUGE-01216): Use "⿵&SW-JIGUGE-09412;x" instead of
