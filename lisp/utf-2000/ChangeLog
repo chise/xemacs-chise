@@ -25,6 +25,17 @@
 	* ShuoWen-SR056.el (SW-JIGUGE-07226): Add U+8AAA and A-IWDSU+8AAA
 	as corresponding modern characters.
 
+	* Ideograph-R044-Corpse.el (U-00021C29): Apply new conventions for
+	glyph granularity.
+	(U-00021C2A): Likewise.
+	(U+378E): New character.
+	(U+5C42): Apply new conventions for glyph granularity.
+	(U+5C43): Likewise.
+	(U+5C53): Likewise.
+	(U-0002D55E): New character.
+	(U+5C64): Apply new conventions for glyph granularity.
+	(U+5C6D): Likewise.
+
 2021-06-28  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R050-Turban.el (U-0002D611): New character.
