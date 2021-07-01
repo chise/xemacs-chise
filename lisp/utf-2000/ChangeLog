@@ -1,5 +1,30 @@
 2021-06-30  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R010-Legs.el (U+5149): Add `<-denotational@component'
+	for A-IWDSU+5149 [change unifiable range; use A-IWDSU+5149 to
+	preserve the previous range]; modify `ideographic-structure' to
+	narrow unifiable range.
+	(A-U+5149-itaiji-001): Use A-IWDSU+5149 instead of U+5149 as the
+	mother.
+	(A-cgnU+514C): Delete `<-denotational' for BUCS+514C.
+	(U+514A): Add `<-denotational@usage' for BUCS+514C.
+	(UU+514A): Unify DJT-00601.
+	(A-IWDSU+514C): Modify structure.
+	(U+514C): Add `<-denotational@usage' for BUCS+514C; apply new
+	conventions for glyph granularity.
+	(U+5151): Likewise.
+	(U-0002047D): Apply new conventions for glyph granularity.
+	(A-IWDSU+5149): New abstract node.
+	(BUCS+514C): Unify A2-DJT-00569.
+
+	* ShuoWen-SR028.el (SW-JIGUGE-04913): Add U-00024F3C as a
+	corresponding modern character; use `<-Zhouwen@shuowen' for
+	SW-JIGUGE-04912.
+
+	* char-db-util.el (insert-char-attributes): Format
+	`ideographic-structure@apparent/leftmost' with the same format as
+	`ideographic-structure'.
+
 	* Ideograph-R001-One.el (U+4E0A): Add A-compU+4E03 as an item of
 	`<-denotational@component'.
 
