@@ -2048,6 +2048,99 @@
     ))
 (define-char
   '((<-denotational
+     ((=>ucs@iwds-1	  . #x2CF1A)	; &A-IWDSU+2CF1A;
+      ))
+    (ideographic-radical . 5)	; ⼄
+    (ideographic-strokes . 4)
+    (total-strokes	 . 5)
+    (=ucs		. #x2CF19)	; 𬼙
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2CF19)	; 𬼙
+      ))
+    (ideographic-radical . 5)	; ⼄
+    (ideographic-strokes . 4)
+    (total-strokes	 . 5)
+    (=ucs@JP/hanazono	. #x2CF19)	; &hanaJU+2CF19;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@iwds-1	  . #x2CF1A)	; &A-IWDSU+2CF1A;
+      ))
+    (ideographic-radical . 5)	; ⼄
+    (ideographic-strokes . 4)
+    (total-strokes	 . 5)
+    (ideographic-structure
+     ((name		  . "IDEOGRAPHIC DESCRIPTION CHARACTER OVERLAID")
+      (=ucs		  . #x2FFB)	; ⿻
+      )
+     ((=ucs		  . #x6BD4)	; 比
+      )
+     ((=ucs		  . #x4E5A)	; 乚
+      ))
+    (ideographic-structure@apparent
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=>ucs@iwds-1	  . #x5315)	; &J97-5238;
+      (=>iwds-1		  .  0140)	; &J97-5238;
+      )
+     ((=ucs		  . #x2A7E8)	; 𪟨
+      ))
+    (=ucs		. #x2CF1A)	; 𬼚
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2CF1A)	; 𬼚
+      ))
+    (ideographic-radical . 5)	; ⼄
+    (ideographic-strokes . 4)
+    (total-strokes	 . 5)
+    (ideographic-structure
+     ((name		  . "IDEOGRAPHIC DESCRIPTION CHARACTER OVERLAID")
+      (=ucs		  . #x2FFB)	; ⿻
+      )
+     ((=ucs-var-001	  . #x6BD4)	; &U-v001+6BD4;
+      )
+     ((=ucs		  . #x4E5A)	; 乚
+      ))
+    (ideographic-structure@apparent
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5315)	; 匕
+      )
+     ((=ucs@JP/hanazono	  . #x2A7E8)	; &hanaJU+2A7E8;
+      ))
+    (=ucs@JP/hanazono	. #x2CF1A)	; &hanaJU+2CF1A;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@cognate	  . #x21275)	; &A-cgnU+21275;
+      ))
+    (ideographic-radical . 5)	; ⼄
+    (ideographic-structure
+     ((name		  . "IDEOGRAPHIC DESCRIPTION CHARACTER OVERLAID")
+      (=ucs		  . #x2FFB)	; ⿻
+      )
+     ((=>ucs@iwds-1	  . #x6BD4)	; &A-IWDSU+6BD4;
+      )
+     ((=ucs		  . #x4E5A)	; 乚
+      ))
+    (ideographic-structure@apparent
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=>ucs@iwds-1	  . #x4E03)	; &A-IWDSU+4E03;
+      (=>iwds-1		  .  0141)	; &A-IWDSU+4E03;
+      )
+     ((=>ucs@component	  . #x2A7E8)	; &A-compU+2A7E8;
+      ))
+    (=>ucs@iwds-1	. #x2CF1A)	; &A-IWDSU+2CF1A;
+    ))
+(define-char
+  '((<-denotational
      ((=>big5-cdp	  . #x86C9)	; &A-CDP-86C9;
       ))
     (ideographic-radical . 5)	; ⼄
