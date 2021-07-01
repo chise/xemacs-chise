@@ -1,5 +1,14 @@
 2021-07-01  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R017-Open-Box.el (U-00020678): Apply new conventions
+	for glyph granularity.
+
+	* Ideograph-R005-Second.el (U-0002CF19): New character; use
+	`<-denotational' for A-IWDSU+2CF1A.
+	(U-0002CF1A): Likewise.
+	(A-IWDSU+2CF1A): New abstract node; use `<-denotational' for
+	A-cgnU+21275.
+
 	* Ideograph-R021-Spoon.el (U+5315): Apply new conventions for
 	glyph granularity.
 	(BC-895F): Use `<-subsumptive' instead of `<-denotational' for
