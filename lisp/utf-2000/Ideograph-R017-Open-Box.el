@@ -402,17 +402,47 @@
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
     (hanyu-dazidian	1 307 2)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM BELOW")
+      (=ucs		  . #x2FF6)	; ⿶
+      )
+     ((=ucs		  . #x51F5)	; 凵
+      )
+     ((=ucs		  . #x53B6)	; 厶
+      ))
+    (sound@ja/on	"katu")
     (=ucs		. #x20678)	; 𠙸
+    (=mj		. 031203)	; &I-MJ031203;
+    (=cns11643-6	. #x2154)	; &I-C6-2154; [01-52]
+    (=koseki		. 021310)	; 𠙸
     (=daikanwa		. 01806)	; &I-M-01806;
-    (=hanziku-1		. #xE55C)	; &I-HZK01-E55C;
-    ))
-(define-char
-  '((=>ucs		. #x20678)	; 𠙸
-    (morohashi-daikanwa	1806 0 0)
-    (ideographic-radical . 17)	; ⼐
-    (ideographic-strokes . 2)
-    (total-strokes	 . 4)
-    (=cns11643-6	. #x2154)	; &C6-2154; [01-52]
+    (<-ancient
+     ((=ucs		  . #x7518)	; 甘
+      (=daikanwa	  . 21643)	; &I-M-21643;
+      ))
+    (<-ancient*sources
+     jiyun daikanwa)
+    (->subsumptive
+     ((==ucs@iso	  . #x20678)	; &g2-M-01806;
+      (==daikanwa	  . 01806)	; &g2-M-01806;
+      (->subsumptive
+       ((===daikanwa	    . 01806)	; &R-M-01806;
+	)
+       ((===ucs@iso	    . #x20678)	; &R-U-00020678;
+	)
+       ((=hanziku-1	    . #xE55C)	; &HZK01-E55C;
+	))
+      )
+     ((==ucs@cns	  . #x20678)	; &g2-MJ031203;
+      (==mj		  . 031203)	; &g2-MJ031203;
+      (==cns11643-6	  . #x2154)	; &g2-MJ031203; [01-52]
+      (==koseki		  . 021310)	; &g2-MJ031203;
+      (->subsumptive
+       ((===mj		    . 031203)	; &R-MJ031203;
+	)
+       ((===cns11643-6	    . #x2154)	; &R-C6-2154; [01-52]
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 17)	; ⼐
