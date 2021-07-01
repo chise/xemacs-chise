@@ -1,3 +1,15 @@
+2021-07-01  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R021-Spoon.el (U+5315): Apply new conventions for
+	glyph granularity.
+	(BC-895F): Use `<-subsumptive' instead of `<-denotational' for
+	U+5315.
+	(A-compBC-8BC5): New abstract node.
+	(o-BC-8BC5): Add `<-denotational@component' for A-compBC-8BC5.
+	(U-0002A7E8): Add `<-denotational@component' for A-compU+2A7E8;
+	add `ideographic-structure'.
+	(A-compU+2A7E8): New abstract node.
+
 2021-06-30  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R010-Legs.el (U+5149): Add `<-denotational@component'
