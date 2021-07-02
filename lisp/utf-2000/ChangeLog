@@ -1,5 +1,30 @@
 2021-07-01  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R038-Woman.el (U+36B9): Apply new conventions for
+	glyph granularity.
+	(U+5A74): Add `<-denotational@usage' for BUCS+5B30; apply new
+	conventions for glyph granularity.
+	(U+5A84): Apply new conventions for glyph granularity.
+	(U+5A8C): Add `sound@ja/on/{kan|go}'.
+	(CU+5A8C): Add `->formed' for UU+36B9 and CU+3464.
+	(U+5ABA): Add `sound@ja/on/{kan|go}'.
+	(JU+5ABA): Add `<-same' for UU+5A84; add `->interchangeable' for
+	UU+7F8E.
+	(A-cgnU+5ABF): Abolished; unified with U+5ABA.
+	(U+5ABF): Delete `<-denotational' for A-cgnU+5ABF; apply new
+	conventions for glyph granularity.
+	(MJ057310): Use U+5ABF instead of A-cgnU+5ABF as its mother.
+	(U+5B0D): Add `sound@ja/on'.
+	(U-00021897): Apply new conventions for glyph granularity.
+	(U+5B30): Add `<-denotational@usage' for BUCS+5B30; apply new
+	conventions for glyph granularity.
+	(U+5B3C): Add `sound@ja/on/{kan|go}'.
+	(MJ010030): Add `<-interchangeable' for UU+61F0.
+	(U+5B46): Apply new conventions for glyph granularity.
+	(BUCS+5B30): New abstract node; unify A2-DJT-02248.
+
+2021-07-01  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R017-Open-Box.el (U-00020678): Apply new conventions
 	for glyph granularity.
 
@@ -20,6 +45,11 @@
 	(A-compU+2A7E8): New abstract node.
 
 2021-06-30  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R050-Turban.el (JU+5E28): Use UU+514C instead of
+	U+514C in `ideographic-structure'.
+	(U+2F885): Use UU+5151 instead of U+5151 in
+	`ideographic-structure'.
 
 	* Ideograph-R010-Legs.el (U+5149): Add `<-denotational@component'
 	for A-IWDSU+5149 [change unifiable range; use A-IWDSU+5149 to
