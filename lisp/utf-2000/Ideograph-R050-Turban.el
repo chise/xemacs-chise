@@ -4119,7 +4119,8 @@
       )
      ((=ucs		  . #x5DFE)	; 巾
       )
-     ((=ucs		  . #x514C)	; 兌
+     ((=ucs@unicode	  . #x514C)	; &MJ007227;
+      (=mj		  . 007227)	; &MJ007227;
       ))
     (=ucs@cns		. #x5E28)	; &AJ1-19340;
     (=ucs@jis		. #x5E28)	; &AJ1-19340;
@@ -4133,17 +4134,6 @@
        ((=ucs		    . #x5E28)	; 帨
 	)
        ((=ucs		    . #xE0100)	; 󠄀
-	))
-      (ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	(=ucs		    . #x2FF0)	; ⿰
-	)
-       ((==ucs@unicode	    . #x5DFE)	; &g2-AJ1-01738;
-	(==adobe-japan1-0   . 01738)	; &g2-AJ1-01738;
-	)
-       ((==ucs@jis	    . #x514C)	; &g2-MJ007227;
-	(==ucs@ks	    . #x514C)	; &g2-MJ007227;
-	(==mj		    . 007227)	; &g2-MJ007227;
 	))
       (==ucs@jis	  . #x5E28)	; &g2-AJ1-19340;
       (==adobe-japan1-5	  . 19340)	; &g2-AJ1-19340;
@@ -4160,17 +4150,7 @@
        ((===jef-china3	    . #x4CA5)	; &R-JC3-4CA5;
 	))
       )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	(=ucs		    . #x2FF0)	; ⿰
-	)
-       ((==ucs@unicode	    . #x5DFE)	; &g2-AJ1-01738;
-	(==adobe-japan1-0   . 01738)	; &g2-AJ1-01738;
-	)
-       ((==ucs@cns	    . #x514C)	; &g2-CU+514C;
-	(==cns11643-1	    . #x492B)	; &g2-CU+514C; [41-11]
-	))
-      (==ucs@cns	  . #x5E28)	; &g2-CU+5E28;
+     ((==ucs@cns	  . #x5E28)	; &g2-CU+5E28;
       (==cns11643-2	  . #x2E76)	; &g2-CU+5E28; [14-86]
       ))
     ))
@@ -4188,13 +4168,28 @@
       )
      ((=ucs		  . #x5DFE)	; 巾
       )
-     ((=ucs		  . #x5151)	; 兑
+     ((=ucs@unicode	  . #x5151)	; &C3-2451;
+      (=gb2312		  . #x3652)	; &C3-2451; [22-50]
+      (=cns11643-3	  . #x2451)	; &I-C3-2451; [04-49]
       ))
     (=ucs		. #x2F885)	; 帨
     (=ucs@unicode	. #x5E28)	; 帨
     (=ucs@cns		. #x2F885)	; 帨
+    (=ucs@JP/hanazono	. nil)
     (=iso-ir165		. #x7A6C)	; &I-EGB-7A6C; [90-76]
     (=cns11643-6	. #x372C)	; &I-C6-372C; [23-12]
+    (->subsumptive
+     ((==ucs@unicode	  . #x5E28)	; &g2-UU+5E28;
+      (==ucs@cns	  . #x2F885)	; &g2-UU+5E28;
+      (==ucs@JP/hanazono  . #x2F885)	; &g2-UU+5E28;
+      (==iso-ir165	  . #x7A6C)	; &g2-UU+5E28; [90-76]
+      (==cns11643-6	  . #x372C)	; &g2-UU+5E28; [23-12]
+      (->subsumptive
+       ((===cns11643-6	    . #x372C)	; &R-C6-372C; [23-12]
+	)
+       ((===ucs@unicode	    . #x5E28)	; &R-UU+5E28;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 50)	; ⼱
