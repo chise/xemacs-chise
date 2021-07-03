@@ -1,3 +1,8 @@
+2021-07-02  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R045-Sprout.el (A-GT-K02096): New abstract node.
+	(GT-K02096): New character; use `<-denotational' for A-GT-K02096.
+
 2021-07-01  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R038-Woman.el (U+36B9): Apply new conventions for
