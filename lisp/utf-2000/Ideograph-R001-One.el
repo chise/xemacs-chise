@@ -4780,8 +4780,6 @@
     (ideographic-radical . 1)	; ⼀
     (ideographic-strokes . 5)
     (total-strokes	 . 6)
-    (daijiten-pages	35)
-    (hanyu-dazidian	1 19 8)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
@@ -4794,7 +4792,27 @@
     (sound@ja/on/go	"zyou")
     (sound@ja/on/kan	"syou")
     (=ucs		. #x4E1E)	; 丞
-    (=adobe-japan1-0	. 02511)	; &I-AJ1-02511;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x4E1E)	; 丞
+      ))
+    (ideographic-radical . 1)	; ⼀
+    (ideographic-strokes . 5)
+    (total-strokes	 . 6)
+    (daijiten-pages	35)
+    (hanyu-dazidian	1 19 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs@unicode	  . #x6C36)	; &AJ1-17909;
+      (=adobe-japan1-5	  . 17909)	; &AJ1-17909;
+      )
+     ((=ucs		  . #x4E00)	; 一
+      ))
+    (=ucs@unicode	. #x4E1E)	; &AJ1-02511;
+    (=adobe-japan1-0	. 02511)	; &AJ1-02511;
     (=jis-x0208		. #x3E67)	; &I-J90-3E67; [30-71]
     (=gb2312		. #x5829)	; &I-G0-5829; [56-09]
     (=ks-x1001		. #x632A)	; &I-K0-632A; [67-10]
@@ -4806,7 +4824,7 @@
     (=gt-pj-1		. #x3E67)	; &I-GT-00059; [30-71]
     (=daikanwa		. 00040)	; &I-M-00040;
     (=daijiten		. 00029)	; &I-DJT-00029;
-    (=shinjigen		.  0029)	; 丞
+    (=shinjigen		.  0029)	; &AJ1-02511;
     (<-Liwen
      ((=ucs@unicode	  . #x37BC)	; &C4-2632;
       (=cns11643-4	  . #x2632)	; &C4-2632; [06-18]
@@ -5862,10 +5880,19 @@
     (ideographic-radical . 1)	; ⼀
     (ideographic-strokes . 6)
     (total-strokes	 . 7)
+    (=ucs		. #x4E23)	; 丣
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x4E23)	; 丣
+      ))
+    (ideographic-radical . 1)	; ⼀
+    (ideographic-strokes . 6)
+    (total-strokes	 . 7)
     (daijiten-pages	35)
     (hanyu-dazidian	1 21 6)
-    (=ucs		. #x4E23)	; 丣
-    (=adobe-japan1-5	. 19141)	; &I-AJ1-19141;
+    (=ucs@unicode	. #x4E23)	; &AJ1-19141;
+    (=adobe-japan1-5	. 19141)	; &AJ1-19141;
     (=jis-x0212		. #x3027)	; &I-JSP-3027; [16-07]
     (=cns11643-4	. #x2335)	; &I-C4-2335; [03-21]
     (=big5-cdp		. #x8DF0)	; &I-CDP-8DF0;
