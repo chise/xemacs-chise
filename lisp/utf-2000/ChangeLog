@@ -1,3 +1,19 @@
+2021-07-04  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R018-Knife.el (U-00020729): New character.
+	(U+5289): Add `sound@ja/on/{kan|go}'.
+	(MJ007601): Add some relations for other characters.
+	(U+2D118-var-003): New character; use `<-denotational' for
+	U-0002D118.
+
+2021-07-04  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R010-Legs.el (A-U+7ADE-itaiji-003): New abstract node.
+	(U+7ADE-itaiji-003): New character; use `<-denotational' for
+	A-U+7ADE-itaiji-003.
+	(U-00020481): Apply new conventions for glyph granularity.
+	(U-00020494): New character.
+
 2021-07-02  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R045-Sprout.el (A-GT-K02096): New abstract node.
