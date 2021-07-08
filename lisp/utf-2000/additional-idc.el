@@ -20,6 +20,12 @@
   '((=ucs-var-003	. #x2FF1)	; &U-v003+2FF1;
     ))
 (define-char
+  '((=ucs-itaiji-001	. #x2FF1)	; &U-i001+2FF1;
+    ))
+(define-char
+  '((=ucs-itaiji-002	. #x2FF1)	; &U-i002+2FF1;
+    ))
+(define-char
   '((=ucs-itaiji-001	. #x2FF6)	; &U-i001+2FF6;
     (<-denotational@arg-reversed
      ((=>ucs@component	  . #x2FF0)	; &U-v001+2FF0;
@@ -32,4 +38,7 @@
       (=ucs		  . #x2FF9)	; ⿹
       ))
     (=ucs-itaiji-001	. #x2FF9)	; &U-i001+2FF9;
+    ))
+(define-char
+  '((=ucs-itaiji-001	. #x2FFB)	; &U-i001+2FFB;
     ))
