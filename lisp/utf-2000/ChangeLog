@@ -1,5 +1,7 @@
 2021-07-08  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* ruimoku6.el (RUI6-E130): Add `<-denotational' for A-RUI6-E130.
+
 	* ShuoWen-SR026.el (SW-JIGUGE-04707): Add U-00028456 as a
 	corresponding modern character; add `<-ancient@shuowen' for
 	SW-JIGUGE-04706.
