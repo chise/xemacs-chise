@@ -5605,6 +5605,8 @@
   '((shuowen-radical	. 12)	; 艸
     (=shuowen-jiguge	. 03003)	; &SW-JIGUGE-03003;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x26BC4)	; 𦯄
+      )
      ((=ucs		  . #x8306)	; 茆
       ))
     (->subsumptive
