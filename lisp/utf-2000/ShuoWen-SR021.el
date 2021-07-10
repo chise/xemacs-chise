@@ -4,6 +4,9 @@
     (=shuowen-jiguge	. 03616)	; &SW-JIGUGE-03616;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x544A)	; 告
+      )
+     ((=>ucs@iwds-1	  . #x543F)	; &J97-3970;
+      (=>jis-x0208	  . #x3970)	; &J97-3970; [25-80]
       ))
     (->subsumptive
      ((===shuowen-jiguge5 . 03616)	; &SW-JIGUGE5-03616;
