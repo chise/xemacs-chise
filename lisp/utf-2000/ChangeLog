@@ -1,3 +1,43 @@
+2021-07-08  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ruimoku6.el (RUI6-E130): Add `<-denotational' for A-RUI6-E130.
+
+	* ShuoWen-SR026.el (SW-JIGUGE-04707): Add U-00028456 as a
+	corresponding modern character; add `<-ancient@shuowen' for
+	SW-JIGUGE-04706.
+
+	* ShuoWen-SR021.el (SW-JIGUGE-03616): Add A-IWDSU+543F as a
+	corresponding modern character.
+
+	* ShuoWen-SR012.el (SW-JIGUGE-03003): Add U-00026BC4 as a
+	corresponding modern character.
+
+	* Ideograph-R009-Man.el (U-0002022F): Fix `ideographic-structure';
+	add `<-ancient' for U+5175.
+	(IU+2022F): Fix `ideographic-structure'.
+	(A-IWDSU+4FFE): New abstract node.
+	(U-00020237): Add `<-denotational' for A-IWDSU+4FFE; apply new
+	conventions for glyph granularity.
+	(U+4FFE): Likewise.
+	(A-IWDSU+501A): New abstract node.
+	(U+501A): Add `<-denotational' for A-IWDSU+501A; add
+	`<-denotational@usage' for BUCS+501A; add `sound@ja/on'.
+	(UU+501A): Unify DJT-00378; add some relations for other
+	characters.
+	(U-000202E3): Add `<-denotational' for A-IWDSU+501A; add
+	`<-vulgar' for UU+501A.
+	(U+3464): Add `sound@ja/on'; delete `=>daikanwa'.
+	(CU+3464): Add `<-formed' and `<-same' for CU+5A8C.
+	(U-000203E3): Apply new conventions for glyph granularity.
+	(U-00020423): Add `sound@ja/on'.
+	(IU+20423): Add `<-formed' and `<-vulgar' for JU+61A8.
+	(BUCS+501A): New abstract node; unify A2-DJT-00378.
+
+2021-07-07  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R060-Step.el (U-000224DE): Apply new conventions for
+	glyph granularity.
+
 2021-07-06  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* additional-idc.el (U+2FF1-itaiji-001): New IDC.

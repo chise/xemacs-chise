@@ -477,7 +477,14 @@
     (<-Small-Seal@shuowen
      ((=ucs		  . #x28454)	; 𨑔
       )
+     ((=ucs		  . #x28456)	; 𨑖
+      )
      ((=ucs		  . #x28453)	; 𨑓
+      ))
+    (<-ancient@shuowen
+     ((=shuowen-jiguge	  . 04706)	; &SW-JIGUGE-04706;
+      )
+     ((=ucs		  . #x8D77)	; 起
       ))
     (->subsumptive
      ((===shuowen-jiguge5 . 04707)	; &SW-JIGUGE5-04707;
