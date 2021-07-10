@@ -3963,9 +3963,27 @@
       ))
     (sound@ja/on	"syou")
     (=ucs		. #x224DE)	; 𢓞
-    (=mj		. 035820)	; &I-MJ035820;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x224DE)	; 𢓞
+      ))
+    (ideographic-radical . 60)	; ⼻
+    (ideographic-strokes . 6)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5F73)	; 彳
+      )
+     ((=ucs@unicode	  . #x4E1E)	; &AJ1-02511;
+      (=adobe-japan1-0	  . 02511)	; &AJ1-02511;
+      ))
+    (=ucs@iso		. #x224DE)	; &MJ035820;
+    (=mj		. 035820)	; &MJ035820;
     (=cns11643-5	. #x2930)	; &I-C5-2930; [09-16]
-    (=koseki		. 114020)	; 𢓞
+    (=koseki		. 114020)	; &MJ035820;
     (=daikanwa		. 10087)	; &I-M-10087;
     (->subsumptive
      ((==daikanwa	  . 10087)	; &g2-M-10087;
