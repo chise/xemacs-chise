@@ -4126,7 +4126,10 @@
   '((=ruimoku-v6	. #xE12F)	; &RUI6-E12F;
     ))
 (define-char
-  '((ideographic-radical . 128)	; ⽿
+  '((<-denotational
+     ((=>ruimoku-v6	  . #xE130)	; &A-RUI6-E130;
+      ))
+    (ideographic-radical . 128)	; ⽿
     (ideographic-strokes . 5)
     (total-strokes	 . 11)
     (=ruimoku-v6	. #xE130)	; &RUI6-E130;
