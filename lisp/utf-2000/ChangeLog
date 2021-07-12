@@ -1,3 +1,22 @@
+2021-07-09  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR033.el (SW-JIGUGE-05112): Add `<-formed@shuowen' for
+	SW-JIGUGE-05111.
+	(SW-JIGUGE-05114): Add U-000285CB as a corresponding modern
+	character.
+	(SW-JIGUGE-05202): Add `<-formed@shuowen' for SW-JIGUGE-05201.
+	(SW-JIGUGE-05203): Add `<-Zhouwen@shuowen' for SW-JIGUGE-05201.
+	(SW-JIGUGE-05300): Add `<-formed@shuowen' for SW-JIGUGE-05236.
+	(SW-JIGUGE-05301): Add `<-ancient@shuowen' for SW-JIGUGE-05236.
+
+2021-07-08  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R010-Legs.el (U+514C): Use `sound@ja/on/conventional'
+	instead of `sound@ja/on' for "da"; add `sound@ja/on/{kan|go}'.
+	(UU+514C): Add some relations for other characters.
+	(GT-K03381): New character; use `<-denotational' for U-00020481.
+	(U-00020495): New character.
+
 2021-07-08  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* ruimoku6.el (RUI6-E130): Add `<-denotational' for A-RUI6-E130.
