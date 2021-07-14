@@ -1,3 +1,8 @@
+2021-07-11  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR038.el (SW-JIGUGE-05909): Add U-0002A678 and
+	U-0002A649 as corresponding modern characters.
+
 2021-07-09  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* ShuoWen-SR033.el (SW-JIGUGE-05112): Add `<-formed@shuowen' for
@@ -59,6 +64,21 @@
 
 2021-07-06  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R069-Axe.el (UU+65A5): Unify MJ013075.
+	(U-00023091): Add `ideographic-structure'; add `sound@ja/on';
+	unify G-T17106 and GT-K00786; add `<-ancient' for U+6597; add
+	`->mistakable' for U+65A4.
+	(U+65AB): Add `<-denotational@usage' for BUCS+65AB; apply new
+	conventions for glyph granularity.
+	(U+65AE): Add `<-denotational@usage' for A2-DJT-04372; apply new
+	conventions for glyph granularity.
+	(U+65B0): Apply new conventions for glyph granularity.
+	(U-000230B2): Add `<-Zhouwen' for U+3ABF and U+6298.
+	(BUCS+65AB): New abstract node; unify A2-DJT-04368.
+	(A2-DJT-04372): New abstract node.
+
+2021-07-06  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* additional-idc.el (U+2FF1-itaiji-001): New IDC.
 	(U+2FF1-itaiji-002): New IDC.
 	(U+2FFB-itaiji-001): New IDC.
@@ -84,6 +104,8 @@
 	(U-00020494): New character.
 
 2021-07-02  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R070-Square.el (U-00023123): New character.
 
 	* Ideograph-R045-Sprout.el (A-GT-K02096): New abstract node.
 	(GT-K02096): New character; use `<-denotational' for A-GT-K02096.

@@ -163,6 +163,10 @@
   '((shuowen-radical	. 38)	; 齒
     (=shuowen-jiguge	. 05909)	; &SW-JIGUGE-05909;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x2A678)	; 𪙸
+      )
+     ((=ucs		  . #x2A649)	; 𪙉
+      )
      ((=ucs		  . #x9F79)	; 齹
       ))
     (->subsumptive
