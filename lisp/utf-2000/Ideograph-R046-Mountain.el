@@ -3983,16 +3983,19 @@
     (=daikanwa		. 07978)	; &I-M-07978;
     (=jef-china3	. #x4BB3)	; &I-JC3-4BB3;
     (<-original
-     ((=ucs		  . #x4E1E)	; 丞
+     ((=ucs@unicode	  . #x4E1E)	; &AJ1-02511;
+      (=adobe-japan1-0	  . 02511)	; &AJ1-02511;
       ))
     (<-same
-     ((=ucs		  . #x4E1E)	; 丞
+     ((=ucs@unicode	  . #x4E1E)	; &AJ1-02511;
+      (=adobe-japan1-0	  . 02511)	; &AJ1-02511;
       (=daikanwa	  . 00040)	; &I-M-00040;
       ))
     (<-same*sources
      jiyun daikanwa)
     (->Liwen
-     ((=ucs		  . #x4E1E)	; 丞
+     ((=ucs@unicode	  . #x4E1E)	; &AJ1-02511;
+      (=adobe-japan1-0	  . 02511)	; &AJ1-02511;
       ))
     (->Liwen*sources
      jiyun)
@@ -27553,7 +27556,33 @@
   '((ideographic-radical . 46)	; ⼭
     (ideographic-strokes . 24)
     (total-strokes	 . 27)
-    (=daikanwa		. 08665)	; &M-08665;
+    (sound@ja/on	"kaN")
+    (=ucs		. #x21FE4)	; 𡿤
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x21FE4)	; 𡿤
+      ))
+    (ideographic-radical . 46)	; ⼭
+    (ideographic-strokes . 24)
+    (total-strokes	 . 27)
+    (=ucs@iso		. #x21FE4)	; &MJ034897;
+    (=mj		. 034897)	; &MJ034897;
+    (=koseki		. 097930)	; &MJ034897;
+    (=daikanwa		. 08665)	; &I-M-08665;
+    (->subsumptive
+     ((==ucs@iso	  . #x21FE4)	; &g2-MJ034897;
+      (==mj		  . 034897)	; &g2-MJ034897;
+      (==koseki		  . 097930)	; &g2-MJ034897;
+      (==daikanwa	  . 08665)	; &g2-MJ034897;
+      (->subsumptive
+       ((===daikanwa	    . 08665)	; &R-M-08665;
+	)
+       ((===mj		    . 034897)	; &R-MJ034897;
+	)
+       ((===ucs@iso	    . #x21FE4)	; &R-U-00021FE4;
+	))
+      ))
     ))
 (define-char
   '((=>ucs		. #x21FE3)	; 𡿣
