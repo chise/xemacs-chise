@@ -1,3 +1,9 @@
+2021-07-12  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R046-Mountain.el (U-00021FE4): New character.
+	(M-08665): Add `<-denotational' for U-00021FE4; unify IU+21FE4,
+	MJ034897 and KOSEKI-097930.
+
 2021-07-11  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* ShuoWen-SR038.el (SW-JIGUGE-05909): Add U-0002A678 and
