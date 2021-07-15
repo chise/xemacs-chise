@@ -67,6 +67,11 @@
       )
      ((=ucs		  . #x5BFE)	; 対
       ))
+    (<-formed@shuowen
+     ((=shuowen-jiguge	  . 08010)	; &SW-JIGUGE-08010;
+      )
+     ((=ucs		  . #x21B4A)	; 𡭊
+      ))
     (->subsumptive
      ((===shuowen-jiguge5 . 08011)	; &SW-JIGUGE5-08011;
       )
