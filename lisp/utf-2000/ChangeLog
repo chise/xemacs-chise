@@ -1,4 +1,12 @@
+2021-07-15  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR060.el (SW-JIGUGE-08011): Add `<-formed@shuowen' for
+	SW-JIGUGE-08010.
+
 2021-07-14  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R002-Line.el (U+4E31): Add
+	`ideographic-structure@apparent'; add G-UU+4E31.
 
 	* Ideograph-R044-Corpse.el (U-00021CB4): Apply new conventions for
 	glyph granularity.
