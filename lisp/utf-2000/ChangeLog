@@ -1,3 +1,33 @@
+2021-07-14  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R044-Corpse.el (U-00021CB4): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R029-Again.el (A-cgnU+20B1B): Delete
+	`<-denotational@usage' for A2-DJT-01113.
+	(U-00020B1B): Add `<-denotational@usage' for A2-DJT-01113.
+	(IU+20B1B): Unify CB08096.
+	(U-00020B21): Apply new conventions for glyph granularity.
+	(A-U+20B2A-itaiji-004): New abstract node.
+	(U+20B2A-itaiji-004): New character; use `<-denotational' for
+	A-U+20B2A-itaiji-004.
+	(U-00020B37): New character.
+	(A-GT-K02861): Unify U-0002BDD5; moved to Ideograph-R051-Dry.el.
+	(GT-K02861): Moved to Ideograph-R051-Dry.el.
+	(U-00020B3F): Apply new conventions for glyph granularity.
+	(A-U+20B56-itaiji-001): Modify structure.
+	(U+20B56-itaiji-001): Likewise.
+	(U-00020B71): Apply new conventions for glyph granularity.
+
+2021-07-13  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR040.el (SW-JIGUGE-06101): Add U-0002805E as a
+	corresponding modern character.
+	(SW-JIGUGE-06102): Add `<-formed@shuowen' for SW-JIGUGE-06101.
+
+	* Ideograph-R055-Two-Hands.el (U-0002233C): Apply new conventions
+	for glyph granularity.
+
 2021-07-12  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R046-Mountain.el (U-00021FE4): New character.
