@@ -29,6 +29,8 @@
   '((shuowen-radical	. 40)	; 足
     (=shuowen-jiguge	. 06101)	; &SW-JIGUGE-06101;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x2805E)	; 𨁞
+      )
      ((=ucs		  . #x8DDF)	; 跟
       ))
     (->subsumptive
@@ -42,6 +44,13 @@
     (=shuowen-jiguge	. 06102)	; &SW-JIGUGE-06102;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x23966)	; 𣥦
+      ))
+    (<-formed@shuowen
+     ((=shuowen-jiguge	  . 06101)	; &SW-JIGUGE-06101;
+      )
+     ((=ucs		  . #x2805E)	; 𨁞
+      )
+     ((=ucs		  . #x8DDF)	; 跟
       ))
     (->subsumptive
      ((===shuowen-jiguge5 . 06102)	; &SW-JIGUGE5-06102;

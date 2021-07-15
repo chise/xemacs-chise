@@ -5882,13 +5882,52 @@
   '((ideographic-radical . 44)	; ⼫
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
+    (sound@ja/on	"si")
     (=ucs		. #x21CB4)	; 𡲴
+    (=mj		. 034403)	; &I-MJ034403;
+    (=cns11643-6	. #x517E)	; &I-C6-517E; [49-94]
+    (=koseki		. 088320)	; 𡲴
+    (=daikanwa		. 07779)	; &I-M-07779;
+    (<-ancient
+     ((=ucs		  . #x2846D)	; 𨑭
+      )
+     ((=ucs		  . #x5F99)	; 徙
+      )
+     ((=ucs@unicode	  . #x5F99)	; &MJ011317;
+      (=mj		  . 011317)	; &MJ011317;
+      (=daikanwa	  . 10142)	; &I-M-10142;
+      ))
+    (<-ancient$_1*sources
+     shuowen)
+    (<-ancient$_2*sources
+     shuowen)
+    (<-ancient$_3*sources
+     shuowen zihui-bu daikanwa)
+    (<-ancient*sources
+     shuowen daikanwa)
+    (<-formed
+     ((=ucs@unicode	  . #x5F99)	; &MJ011317;
+      (=mj		  . 011317)	; &MJ011317;
+      (=koseki		  . 114610)	; &MJ011317;
+      ))
+    (<-formed$_1*sources
+     koseki mj)
+    (<-formed*sources
+     koseki mj)
     (->subsumptive
-     ((=daikanwa	  . 07779)	; &M-07779;
+     ((==mj		  . 034403)	; &g2-MJ034403;
+      (==koseki		  . 088320)	; &g2-MJ034403;
+      (==daikanwa	  . 07779)	; &g2-MJ034403;
+      (->subsumptive
+       ((===daikanwa	    . 07779)	; &R-M-07779;
+	)
+       ((===mj		    . 034403)	; &R-MJ034403;
+	))
       )
-     ((=ucs@iso		  . #x21CB4)	; &U-00021CB4;
+     ((==ucs@iso	  . #x21CB4)	; &g2-IU-00021CB4;
       )
-     ((=cns11643-6	  . #x517E)	; &C6-517E; [49-94]
+     ((==ucs@cns	  . #x21CB4)	; &g2-CU+21CB4;
+      (==cns11643-6	  . #x517E)	; &g2-CU+21CB4; [49-94]
       ))
     ))
 (define-char
