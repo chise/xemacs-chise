@@ -1297,12 +1297,81 @@
   '((ideographic-radical . 55)	; ⼶
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
-    (=ucs		. #x2233C)	; 𢌼
-    (->subsumptive
-     ((=ucs@iso		  . #x2233C)	; &M-09604;
-      (=daikanwa	  . 09604)	; &M-09604;
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=cns11643-6	  . #x2B30)	; &C6-2B30; [11-16]
+     ((=ucs		  . #x6C36)	; 氶
+      )
+     ((=ucs		  . #x5EFE)	; 廾
+      ))
+    (sound@ja/on	"syou")
+    (=ucs		. #x2233C)	; 𢌼
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2233C)	; 𢌼
+      ))
+    (ideographic-radical . 55)	; ⼶
+    (ideographic-strokes . 5)
+    (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs@unicode	  . #x6C36)	; &AJ1-17909;
+      (=adobe-japan1-5	  . 17909)	; &AJ1-17909;
+      )
+     ((=ucs@unicode	  . #x5EFE)	; &MJ011120;
+      (=mj		  . 011120)	; &MJ011120;
+      ))
+    (=ucs@iso		. #x2233C)	; &MJ035493;
+    (=mj		. 035493)	; &MJ035493;
+    (=koseki		. 108640)	; &MJ035493;
+    (=daikanwa		. 09604)	; &I-M-09604;
+    (<-formed
+     ((=ucs		  . #x627F)	; 承
+      (=daikanwa	  . 11852)	; &I-M-11852;
+      ))
+    (<-formed$_1*sources
+     jiyun daikanwa)
+    (<-formed*sources
+     jiyun daikanwa)
+    (->subsumptive
+     ((==ucs@iso	  . #x2233C)	; &g2-MJ035493;
+      (==mj		  . 035493)	; &g2-MJ035493;
+      (==koseki		  . 108640)	; &g2-MJ035493;
+      (==daikanwa	  . 09604)	; &g2-MJ035493;
+      (->subsumptive
+       ((===daikanwa	    . 09604)	; &R-M-09604;
+	)
+       ((===mj		    . 035493)	; &R-MJ035493;
+	)
+       ((===ucs@iso	    . #x2233C)	; &R-U-0002233C;
+	))
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2233C)	; 𢌼
+      ))
+    (ideographic-radical . 55)	; ⼶
+    (ideographic-strokes . 5)
+    (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=gt-k		  . 02033)	; &GT-K02033;
+      )
+     ((=ucs@unicode	  . #x5EFE)	; &MJ011120;
+      (=mj		  . 011120)	; &MJ011120;
+      ))
+    (=ucs@cns		. #x2233C)	; &C6-2B30;
+    (=cns11643-6	. #x2B30)	; &C6-2B30; [11-16]
+    (->subsumptive
+     ((==ucs@cns	  . #x2233C)	; &g2-CU+2233C;
+      (==cns11643-6	  . #x2B30)	; &g2-CU+2233C; [11-16]
       ))
     ))
 (define-char
