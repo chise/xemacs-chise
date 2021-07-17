@@ -1117,6 +1117,13 @@
      ((=ucs		  . #x5C38)	; 尸
       ))
     (=ucs		. #x21C2E)	; 𡰮
+    (<-ancient
+     ((=ucs		  . #x239B5)	; 𣦵
+      )
+     ((=ucs		  . #x6B7A)	; 歺
+      ))
+    (<-ancient*sources
+     shuowen)
     ))
 (define-char
   '((<-denotational
