@@ -1,5 +1,12 @@
 2021-07-15  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R044-Corpse.el (U-00021C2E): Add `<-ancient' for
+	U-000239B5 and U+6B7A.
+
+	* ShuoWen-SR131.el (SW-JIGUGE-13200): Add U-000239B5 as a
+	corresponding modern character.
+	(SW-JIGUGE-13201): Add `<-ancient@shuowen' for SW-JIGUGE-13200.
+
 	* ShuoWen-SR060.el (SW-JIGUGE-08011): Add `<-formed@shuowen' for
 	SW-JIGUGE-08010.
 
@@ -7,6 +14,10 @@
 
 	* Ideograph-R002-Line.el (U+4E31): Add
 	`ideographic-structure@apparent'; add G-UU+4E31.
+
+	* Ideograph-R038-Woman.el (U-000218AB): New character.
+	(U-000218BD): Apply new conventions for glyph granularity.
+	(U-000218CA): New character.
 
 	* Ideograph-R044-Corpse.el (U-00021CB4): Apply new conventions for
 	glyph granularity.
