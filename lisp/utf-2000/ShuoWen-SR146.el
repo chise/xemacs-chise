@@ -15,6 +15,8 @@
   '((shuowen-radical	. 146)	; 左
     (=shuowen-jiguge	. 15311)	; &SW-JIGUGE-15311;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x22029)	; 𢀩
+      )
      ((=ucs		  . #x5DEE)	; 差
       ))
     (->subsumptive
