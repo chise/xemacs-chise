@@ -1,4 +1,25 @@
+2021-07-16  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR146.el (SW-JIGUGE-15311): Add U-00022029 as a
+	corresponding modern character.
+
+2021-07-16  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R028-Private.el (IU+20ADE): Add `<-ancient' for
+	UU+514C.
+
 2021-07-15  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R041-Inch.el (U+5C0D): Add `ideographic-structure';
+	add `<-formed' for U-00021B4A.
+	(A2-DJT-02435): Unify BUCS+5C0D.
+
+	* Ideograph-R004-Slash.el (A-U+2008B-itaiji-002): New character;
+	use `<-subsumptive' for U-0002008B; unify A-U+2008B-itaiji-003.
+	(U+2008B-itaiji-002): Use A-U+2008B-itaiji-002 instead of
+	U-0002008B as its mother.
+	(U+2008B-itaiji-003): New character; use `<-subsumptive' for
+	A-U+2008B-itaiji-002.
 
 	* Ideograph-R044-Corpse.el (U-00021C2E): Add `<-ancient' for
 	U-000239B5 and U+6B7A.
