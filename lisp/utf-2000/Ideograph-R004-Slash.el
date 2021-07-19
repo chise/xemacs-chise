@@ -1873,9 +1873,18 @@
 	)
        ((=ucs		    . #x4E00)	; 一
 	))
-      (=ucs-itaiji-002	  . #x2008B)	; &U-i002+2008B;
+      (=>ucs-itaiji-002	  . #x2008B)	; &A-U-i002+2008B;
+      (=>ucs-itaiji-003	  . #x2008B)	; &A-U-i002+2008B;
       (->subsumptive
-       ((==ucs-itaiji-002   . #x2008B)	; &g2-U-i002+2008B;
+       ((=ucs-itaiji-002    . #x2008B)	; &U-i002+2008B;
+	(->subsumptive
+	 ((==ucs-itaiji-002   . #x2008B)	; &g2-U-i002+2008B;
+	  ))
+	)
+       ((=ucs-itaiji-003    . #x2008B)	; &U-i003+2008B;
+	(->subsumptive
+	 ((==ucs-itaiji-003   . #x2008B)	; &g2-U-i003+2008B;
+	  ))
 	))
       ))
     ))
