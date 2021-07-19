@@ -102,7 +102,7 @@
     ))
 (define-char
   '((<-denotational@usage
-     ((==>daijiten	  . 02435)	; &A2-DJT-02435;
+     ((==>ucs@bucs	  . #x5C0D)	; &BUCS+5C0D;
       ))
     (ideographic-radical . 41)	; ⼨
     (ideographic-strokes . 2)
@@ -567,7 +567,7 @@
     ))
 (define-char
   '((<-denotational@usage
-     ((==>daijiten	  . 02435)	; &A2-DJT-02435;
+     ((==>ucs@bucs	  . #x5C0D)	; &BUCS+5C0D;
       ))
     (ideographic-radical . 41)	; ⼨
     (ideographic-strokes . 4)
@@ -3480,10 +3480,23 @@
     ))
 (define-char
   '((<-denotational@usage
-     ((==>daijiten	  . 02435)	; &A2-DJT-02435;
+     ((==>ucs@bucs	  . #x5C0D)	; &BUCS+5C0D;
       ))
     (ideographic-radical . 41)	; ⼨
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=>big5-cdp	  . #x8BBD)	; &A-CDP-8BBD;
+      )
+     ((=ucs		  . #x5BF8)	; 寸
+      ))
     (=ucs		. #x5C0D)	; 對
+    (<-formed
+     ((=ucs		  . #x21B4A)	; 𡭊
+      ))
+    (<-formed*sources
+     shuowen)
     ))
 (define-char
   '((<-denotational
@@ -4311,7 +4324,8 @@
     ))
 (define-char
   '((ideographic-radical . 41)	; ⼨
-    (==>daijiten	. 02435)	; &A2-DJT-02435;
+    (==>ucs@bucs	. #x5C0D)	; &BUCS+5C0D;
+    (==>daijiten	. 02435)	; &BUCS+5C0D;
     ))
 (define-char
   '((ideographic-radical . 41)	; ⼨
