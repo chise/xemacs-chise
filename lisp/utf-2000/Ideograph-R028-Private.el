@@ -1001,6 +1001,12 @@
     (=ucs@iso		. #x20ADE)	; &C4-224A;
     (=cns11643-4	. #x224A)	; &C4-224A; [02-42]
     (=daikanwa		. 03074)	; &I-M-03074;
+    (<-ancient
+     ((=ucs@unicode	  . #x514C)	; &MJ007227;
+      (=mj		  . 007227)	; &MJ007227;
+      ))
+    (<-ancient$_1*sources
+     jiyun)
     (<-same
      ((=ucs@unicode	  . #x514C)	; &MJ007227;
       (=mj		  . 007227)	; &MJ007227;
