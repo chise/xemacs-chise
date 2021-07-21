@@ -1,3 +1,8 @@
+2021-07-18  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR178.el (SW-JIGUGE-16712): Add U+65E3 and A-IWDSU+65E3
+	as corresponding modern characters.
+
 2021-07-16  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* ShuoWen-SR146.el (SW-JIGUGE-15311): Add U-00022029 as a
@@ -32,6 +37,32 @@
 	SW-JIGUGE-08010.
 
 2021-07-14  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R073-Say.el (BC-89E7): Use A-IWDSU+81FE instead of
+	A-cgnU+81FE as its mother.
+	(U+3AD7): Unify BC-8DC6.
+	(U-00023322): New character.
+	(U-00023327): Add `<-denotational' for A-IWDSU+23191; apply new
+	conventions for glyph granularity.
+	(U-0002DA1A): New character.
+	(U-0002332D): Apply new conventions for glyph granularity.
+	(U-000231A9): Likewise.
+	(U-00023330): New character; use `<-denotational@component' for
+	A-IWDSU+23330.
+	(U-00023332): New character.
+	(U+66F9): Add `ideographic-structure'.
+	(U-0002F8D3): Unify HD-FT1944.
+	(U+6701): Apply new conventions for glyph granularity.
+	(U-0002DA1D): New character.
+	(MJ059330): Add `ideographic-structure'.
+	(DJT-04666): Add A-IWDSU+5195 as a target of
+	`<-denotational@component'.
+	(U-0002C069): New character.
+	(U-00023348): Apply new conventions for glyph granularity.
+	(U-0002DA20): New character.
+	(U-0002DA21): New character.
+	(IU+23358): Unify CB11270.
+	(U+6707): Apply new conventions for glyph granularity.
 
 	* Ideograph-R002-Line.el (U+4E31): Add
 	`ideographic-structure@apparent'; add G-UU+4E31.
