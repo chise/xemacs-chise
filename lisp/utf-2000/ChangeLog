@@ -1,3 +1,19 @@
+2021-07-21  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR215.el (SW-JIGUGE-20308): Add A-IWDSU+7522 as a
+	corresponding modern character.
+
+2021-07-20  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R067-Script.el (U+6587): Add `sound@ja/on/{kan|go}';
+	add `<-interchangeable' for U+5FDE, UU+7D0A and UU+5F63.
+
+	* Ideograph-R060-Step.el (U-000224CA): Add `<-formed' for
+	U-0002846D and U+5F99.
+	(U+5F82): Add `<-formed' for U+4890.
+	(U+5F99): Add `sound@ja/on'.
+	(UU+5F99): Add some relations for other characters.
+
 2021-07-18  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* ShuoWen-SR178.el (SW-JIGUGE-16712): Add U+65E3 and A-IWDSU+65E3
