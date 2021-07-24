@@ -12,6 +12,8 @@
     (ideographic-radical . 67)	; ⽂
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
+    (sound@ja/on/go	"moN" "miN")
+    (sound@ja/on/kan	"buN" "biN")
     (=ucs		. #x6587)	; 文
     (=adobe-japan1-0	. 03592)	; &I-AJ1-03592;
     (=jis-x0208		. #x4A38)	; &I-J90-4A38; [42-24]
@@ -25,6 +27,26 @@
     (=gt-pj-1		. #x4A38)	; &I-GT-17008; [42-24]
     (=daikanwa		. 13450)	; &I-M-13450;
     (=shinjigen		.  3203)	; 文
+    (<-interchangeable
+     ((=ucs		  . #x5FDE)	; 忞
+      (=daikanwa	  . 10350)	; &I-M-10350;
+      )
+     ((=ucs@unicode	  . #x7D0A)	; &AJ1-06067;
+      (=adobe-japan1-0	  . 06067)	; &AJ1-06067;
+      (=daikanwa	  . 27261)	; &I-M-27261;
+      )
+     ((=ucs@unicode	  . #x5F63)	; &AJ1-17611;
+      (=adobe-japan1-5	  . 17611)	; &AJ1-17611;
+      (=daikanwa	  . 09971)	; &I-M-09971;
+      ))
+    (<-interchangeable$_1*sources
+     shuowen-tongxun-dingsheng daikanwa)
+    (<-interchangeable$_2*sources
+     shuowen-tongxun-dingsheng daikanwa)
+    (<-interchangeable$_3*sources
+     shuowen-tongxun-dingsheng daikanwa)
+    (<-interchangeable*sources
+     shuowen-tongxun-dingsheng daikanwa)
     (->subsumptive
      ((==ucs@ks		  . #x6587)	; &g2-M-13450;
       (==ks-x1001	  . #x597E)	; &g2-M-13450; [57-94]
