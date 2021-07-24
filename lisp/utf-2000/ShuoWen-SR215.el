@@ -29,6 +29,9 @@
     (<-Small-Seal@shuowen
      ((=ucs		  . #x7522)	; 產
       )
+     ((=>ucs@iwds-1	  . #x7522)	; &J97-3B3A;
+      (=>jis-x0208	  . #x3B3A)	; &J97-3B3A; [27-26]
+      )
      ((=ucs		  . #x7523)	; 産
       ))
     (->subsumptive
