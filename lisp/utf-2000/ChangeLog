@@ -1,3 +1,9 @@
+2021-07-22  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR226.el (SW-JIGUGE-20610): Add A-IWDSU+56DE as a
+	corresponding modern character.
+	(SW-JIGUGE-20619): Add `<-Zhouwen@shuowen' for SW-JIGUGE-20618.
+
 2021-07-21  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* ShuoWen-SR215.el (SW-JIGUGE-20308): Add A-IWDSU+7522 as a
