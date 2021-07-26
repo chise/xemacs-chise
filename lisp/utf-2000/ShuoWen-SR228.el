@@ -728,6 +728,8 @@
      ((=ucs		  . #x27E07)	; 𧸇
       )
      ((=ucs		  . #x27DD7)	; 𧷗
+      )
+     ((=ucs		  . #x27DA0)	; 𧶠
       ))
     (->subsumptive
      ((===shuowen-jiguge5 . 20927)	; &SW-JIGUGE5-20927;
