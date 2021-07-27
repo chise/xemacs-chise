@@ -371,6 +371,26 @@
     (=ucs-var-002	. #x37A2)	; &U-v002+37A2;
     ))
 (define-char
+  '((<-denotational
+     ((=ucs		  . #x37A2)	; 㞢
+      ))
+    (ideographic-radical . 45)	; ⼬
+    (ideographic-strokes . 2)
+    (total-strokes	 . 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5C71)	; 山
+      )
+     ((=ucs		  . #x4EA0)	; 亠
+      ))
+    (=ucs-itaiji-001	. #x37A2)	; &U-i001+37A2;
+    (->subsumptive
+     ((==ucs-itaiji-001	  . #x37A2)	; &g2-U-i001+37A2;
+      ))
+    ))
+(define-char
   '((ideographic-radical . 45)	; ⼬
     (ideographic-strokes . 1)
     (total-strokes	 . 4)
