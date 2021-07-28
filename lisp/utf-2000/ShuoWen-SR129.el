@@ -79,6 +79,9 @@
     (<-Small-Seal@shuowen
      ((=ucs		  . #x722D)	; 爭
       )
+     ((=>ucs@component	  . #x722D)	; &A-compU+722D;
+      (=>iwds-1		  .  0314)	; &A-compU+722D;
+      )
      ((=ucs		  . #x4E89)	; 争
       ))
     (->subsumptive
