@@ -1,5 +1,11 @@
 2021-07-27  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* ShuoWen-SR230.el (SW-JIGUGE-21704): Add A-IWDSU+9115 as a
+	corresponding modern character.
+
+	* ShuoWen-SR129.el (SW-JIGUGE-13108): Add A-compU+722D as a
+	corresponding modern character.
+
 	* ShuoWen-SR229.el (SW-JIGUGE-21009): Add U+2ECF [CJK RADICAL
 	CITY] as a corresponding modern character.
 

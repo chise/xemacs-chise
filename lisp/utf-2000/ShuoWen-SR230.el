@@ -17,6 +17,9 @@
     (<-Small-Seal@shuowen
      ((=ucs		  . #x9109)	; 鄉
       )
+     ((=>ucs@iwds-1	  . #x9115)	; &J97-363F;
+      (=>jis-x0208@1997	  . #x363F)	; &J97-363F; [22-31]
+      )
      ((=ucs		  . #x90F7)	; 郷
       ))
     (->subsumptive
