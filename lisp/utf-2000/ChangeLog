@@ -1,4 +1,12 @@
+2021-07-27  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR229.el (SW-JIGUGE-21009): Add U+2ECF [CJK RADICAL
+	CITY] as a corresponding modern character.
+
 2021-07-26  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R045-Sprout.el (U+37A2-itaiji-001): New character; use
+	`<-denotational' for U+37A2.
 
 	* ShuoWen-SR228.el (SW-JIGUGE-20927): Add U-00027DA0 as a
 	corresponding modern character.
