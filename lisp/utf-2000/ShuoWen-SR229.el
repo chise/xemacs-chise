@@ -4,6 +4,9 @@
     (=shuowen-jiguge	. 21009)	; &SW-JIGUGE-21009;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x9091)	; 邑
+      )
+     ((name		  . "CJK RADICAL CITY")
+      (=ucs		  . #x2ECF)	; ⻏
       ))
     (->subsumptive
      ((===shuowen-jiguge5 . 21009)	; &SW-JIGUGE5-21009;
