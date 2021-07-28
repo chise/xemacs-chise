@@ -6241,9 +6241,21 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 46)	; ⼭
+  '((<-denotational
+     ((=>ucs@iwds-1	  . #x65F9)	; &A-IWDSU+65F9;
+      ))
+    (ideographic-radical . 46)	; ⼭
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs-itaiji-001	  . #x37A2)	; &U-i001+37A2;
+      )
+     ((=ucs		  . #x65E5)	; 日
+      ))
+    (sound@ja/on	"si")
     (=ucs		. #x5CD5)	; 峕
     (=cns11643-4	. #x287D)	; &I-C4-287D; [08-93]
     (=daikanwa		. 08045)	; &I-M-08045;
@@ -6256,6 +6268,13 @@
       ))
     (<-ancient*sources
      shinjigen)
+    (<-wrong
+     ((=ucs@unicode	  . #x65F9)	; &AJ1-17732;
+      (=adobe-japan1-5	  . 17732)	; &AJ1-17732;
+      (=daikanwa	  . 13773)	; &I-M-13773;
+      ))
+    (<-wrong*sources
+     zhengzitong daikanwa)
     (->subsumptive
      ((==ucs@unicode	  . #x5CD5)	; &g2-M-08045;
       (==cns11643-4	  . #x287D)	; &g2-M-08045; [08-93]
