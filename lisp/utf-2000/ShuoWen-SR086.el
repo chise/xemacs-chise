@@ -55,6 +55,9 @@
     (<-Small-Seal@shuowen
      ((=ucs		  . #x3C7F)	; 㱿
       )
+     ((=>ucs@iwds-1	  . #x3C7F)	; &A-IWDSU+3C7F;
+      (=>iwds-1		  .  0381)	; &A-IWDSU+3C7F;
+      )
      ((=ucs		  . #x23A8A)	; 𣪊
       ))
     (->subsumptive
