@@ -18,6 +18,8 @@
   '((shuowen-radical	. 114)	; 羊
     (=shuowen-jiguge	. 12000)	; &SW-JIGUGE-12000;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x7F8B)	; 羋
+      )
      ((=ucs		  . #x8288)	; 芈
       ))
     (->subsumptive
