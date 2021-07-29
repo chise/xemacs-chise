@@ -2732,6 +2732,8 @@
       ))
     (=shuowen-jiguge	. 01124)	; &SW-JIGUGE-01124;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x24957)	; 𤥗
+      )
      ((=ucs		  . #x73CB)	; 珋
       ))
     (->subsumptive

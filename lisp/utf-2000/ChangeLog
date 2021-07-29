@@ -1,3 +1,29 @@
+2021-07-28  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R046-Mountain.el (U+5CD5): Add `<-denotational' for
+	A-IWDSU+65F9; add `ideographic-structure'; add `sound@ja/on'; add
+	`<-wrong' for UU+65F9.
+
+	* ShuoWen-SR137.el (SW-JIGUGE-14010): Add A-compU+5200 as a
+	corresponding modern character.
+
+	* ShuoWen-SR114.el (SW-JIGUGE-12000): Add U+7F8B as a
+	corresponding modern character.
+
+	* ShuoWen-SR086.el (SW-JIGUGE-09412): Add A-IWDSU+3C7F as a
+	corresponding modern character.
+
+	* ShuoWen-SR056.el (SW-JIGUGE-07713): Add U-000279A1 as a
+	corresponding modern character.
+	(SW-JIGUGE-07714): Add `<-formed@shuowen' for SW-JIGUGE-07713.
+	(SW-JIGUGE-07715): Ditto.
+
+	* ShuoWen-SR022.el (SW-JIGUGE-04019): Add U+5547 as a
+	corresponding modern character.
+
+	* ShuoWen-SR006.el (SW-JIGUGE-01124): Add U-00024957 as a
+	corresponding modern character.
+
 2021-07-27  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* ShuoWen-SR230.el (SW-JIGUGE-21704): Add A-IWDSU+9115 as a

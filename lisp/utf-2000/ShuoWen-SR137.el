@@ -5,6 +5,9 @@
     (<-Small-Seal@shuowen
      ((=ucs		  . #x5200)	; 刀
       )
+     ((=>ucs@component	  . #x5200)	; &A-compU+5200;
+      (=>iwds-1		  .  0149)	; &A-compU+5200;
+      )
      ((=ucs		  . #x5202)	; 刂
       )
      ((=big5-cdp	  . #x8968)	; &CDP-8968;
