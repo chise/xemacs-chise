@@ -458,6 +458,15 @@
     (ideographic-radical . 3)	; ⼂
     (ideographic-strokes . 2)
     (total-strokes	 . 3)
+    (ideographic-structure@apparent
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((name		  . "CJK RADICAL KNIFE ONE")
+      (=ucs		  . #x2E88)	; ⺈
+      )
+     ((=ucs		  . #x4E36)	; 丶
+      ))
     (=ucs		. #x206A4)	; 𠚤
     (=gt		. 00135)	; &I-GT-00135;
     (=gt-k		. 00282)	; &I-GT-K00282;
