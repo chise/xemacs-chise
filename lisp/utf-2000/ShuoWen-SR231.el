@@ -53,6 +53,11 @@
     (<-Small-Seal@shuowen
      ((=ucs		  . #x65F9)	; 旹
       ))
+    (<-ancient@shuowen
+     ((=shuowen-jiguge	  . 22402)	; &SW-JIGUGE-22402;
+      )
+     ((=ucs		  . #x6642)	; 時
+      ))
     (->subsumptive
      ((===shuowen-jiguge5 . 22403)	; &SW-JIGUGE5-22403;
       )
@@ -199,6 +204,8 @@
   '((shuowen-radical	. 231)	; 日
     (=shuowen-jiguge	. 22415)	; &SW-JIGUGE-22415;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x3B1C)	; 㬜
+      )
      ((=ucs		  . #x6649)	; 晉
       )
      ((=ucs		  . #x664B)	; 晋
@@ -397,6 +404,8 @@
   '((shuowen-radical	. 231)	; 日
     (=shuowen-jiguge	. 22502)	; &SW-JIGUGE-22502;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x23166)	; 𣅦
+      )
      ((=ucs		  . #x6603)	; 昃
       ))
     (->subsumptive
@@ -409,6 +418,11 @@
   '((shuowen-radical	. 231)	; 日
     (=shuowen-jiguge	. 22503)	; &SW-JIGUGE-22503;
     (<-Small-Seal@shuowen
+     ((=>ucs@iwds-1	  . #x665A)	; &J97-4855;
+      (=>jis-x0208@1997	  . #x4855)	; &J97-4855; [40-53]
+      )
+     ((=ucs		  . #x665A)	; 晚
+      )
      ((=ucs		  . #x6669)	; 晩
       ))
     (->subsumptive
