@@ -1,4 +1,17 @@
+2021-07-29  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR231.el (SW-JIGUGE-22403): Add `<-ancient@shuowen' for
+	SW-JIGUGE-22402.
+	(SW-JIGUGE-22415): Add U+3B1C as a corresponding modern character.
+	(SW-JIGUGE-22502): Add U-00023166 as a corresponding modern
+	character.
+	(SW-JIGUGE-22503): Add A-IWDSU+665A and U+665A as corresponding
+	modern characters.
+
 2021-07-28  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R003-Dot.el (U-000206A4): Add
+	`ideographic-structure@apparent'.
 
 	* Ideograph-R046-Mountain.el (U+5CD5): Add `<-denotational' for
 	A-IWDSU+65F9; add `ideographic-structure'; add `sound@ja/on'; add
