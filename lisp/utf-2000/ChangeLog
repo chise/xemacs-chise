@@ -1,3 +1,80 @@
+2021-08-01  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R032-Earth.el (A-IWDSU+571F): Add A-compBC-8BC5 as a
+	target of `<-denotational@component'.
+	(U+572A): Add `<-denotational@usage' for BUCS+572A; apply new
+	conventions for glyph granularity.
+	(U+5735): Apply new conventions for glyph granularity.
+	(U+2A8B4-var-002): New character; use `<-denotational' for
+	U-0002A8B4.
+	(hanaJU+2A8B4): Unify GT-K02372.
+	(A-U+8D64-itaiji-002): New abstract node.
+	(U+8D64-itaiji-002): New character; use `<-denotational' for
+	A-U+8D64-itaiji-002.
+	(U+574E): Add `<-denotational@usage' for BUCS+574E and
+	A2-DJT-01680.
+	(UU+574E): Unify DJT-01680; add `<-formed' for JU+61A8.
+	(U-0002125B): Use `->denotational' and `->subsumptive'.
+	(U-00021275): Use `ideographic-structure@apparent' instead of
+	`ideographic-structure'; unify IWDS1-0444.
+	(MJ032961): Use `ideographic-structure@apparent/leftmost' instead
+	of `ideographic-structure'.
+	(IU+21275): Use `ideographic-structure@apparent' instead of
+	`ideographic-structure'.
+	(A-MJ057209): Use U-00021275 instead of A-cgnU+21275; use
+	`ideographic-structure@apparent' instead of
+	`ideographic-structure'.
+	(U+21275-itaiji-001): Use `ideographic-structure@apparent' instead
+	of `ideographic-structure'.
+	(MJ057209): Likewise.
+	(A-U+21275-itaiji-002): New abstract node; use `<-denotational'
+	for A-cgnU+21275.
+	(U+21275-itaiji-002): New character; use `<-denotational' for
+	A-U+21275-itaiji-002.
+	(U-00021278): New character.
+	(U-0002127C): New character.
+	(U+5779): Add `<-denotational@component' for A-IWDSU+5779; apply
+	new conventions for glyph granularity.
+	(U-000212AB): New character; use `<-denotational@component' for
+	A-IWDSU+5779.
+	(A-cgnU+212A5): Abolished [unify U-000212A5].
+	(U-000212A5): Delete `<-denotational' for A-cgnU+212A5; use
+	`ideographic-structure@apparent' instead of
+	`ideographic-structure'.
+	(MJ032991): Use `ideographic-structure@apparent' instead of
+	`ideographic-structure'.
+	(IU+212A5): Likewise.
+	(CU+212A5): Likewise.
+	(MJ057212): Use U-000212A5 instead of A-cgnU+212A5 as the mother;
+	use `ideographic-structure@apparent' instead of
+	`ideographic-structure'.
+	(U+57E4): Add `sound@ja/on/{kan|go}'.
+	(UU+57E4): Add some relations for other characters.
+	(U+57F3): Add `<-denotational@usage' for BUCS+574E and
+	A2-DJT-01752.
+	(UU+57F3): Unify DJT-01752.
+	(A-BC-8BBD): New abstract node.
+	(BC-8BBD): New character; use `<-denotational' for A-BC-8BBD.
+	(U-00021393): New character.
+	(U-0002146B): New character.
+	(U-00021481): New character.
+	(U-00021484): New character.
+	(U-0002149B): New character.
+	(U-0002149D): New character.
+	(U-0002149E): New character.
+	(U-000214A2): New character.
+	(U-000214BE): New character.
+	(U-000214CF): New character.
+	(U-000214EA): New character.
+	(U-000214EB): New character.
+	(U-000214EE): New character.
+	(A-IWDSU+5779): New abstract node.
+	(BUCS+572A): New abstract node; unify A2-DJT-01661.
+	(BUCS+574E): New abstract node.
+	(A2-DJT-01680): New abstract node; use `<-denotational' for
+	BUCS+574E.
+	(A2-DJT-01752): Ditto.
+
 2021-07-29  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* ShuoWen-SR231.el (SW-JIGUGE-22403): Add `<-ancient@shuowen' for
