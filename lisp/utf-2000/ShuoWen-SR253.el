@@ -280,6 +280,9 @@
     (=shuowen-jiguge	. 23619)	; &SW-JIGUGE-23619;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x672E)	; 朮
+      )
+     ((=>ucs@iwds-1	  . #x672F)	; &A-IWDSU+672F;
+      (=>iwds-1		  .  0228)	; &A-IWDSU+672F;
       ))
     (->subsumptive
      ((===shuowen-jiguge5 . 23619)	; &SW-JIGUGE5-23619;
