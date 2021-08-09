@@ -7170,13 +7170,57 @@
     ))
 (define-char
   '((ideographic-radical . 29)	; ⼜
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x53D5)	; 叕
+      )
+     ((=>ucs@iwds-1	  . #x51FA)	; &A-IWDSU+51FA;
+      ))
+    (sound@ja/on/go	"teti" "syuti")
+    (sound@ja/on/kan	"tetu" "syutu")
+    (=ucs		. #x20B74)	; 𠭴
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x20B74)	; 𠭴
+      ))
+    (ideographic-radical . 29)	; ⼜
     (ideographic-strokes . 11)
     (total-strokes	 . 13)
     (hanyu-dazidian	1 401 8)
-    (=ucs		. #x20B74)	; 𠭴
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x53D5)	; 叕
+      )
+     ((=ucs		  . #x51FA)	; 出
+      ))
+    (=ucs@iso		. #x20B74)	; &MJ032075;
+    (=mj		. 032075)	; &MJ032075;
     (=cns11643-4	. #x3C41)	; &I-C4-3C41; [28-33]
+    (=koseki		. 037160)	; &MJ032075;
     (=daikanwa		. 03200)	; &I-M-03200;
-    (=hanziku-1		. #xF87B)	; &I-HZK01-F87B;
+    (->subsumptive
+     ((==ucs@iso	  . #x20B74)	; &g2-MJ032075;
+      (==mj		  . 032075)	; &g2-MJ032075;
+      (==koseki		  . 037160)	; &g2-MJ032075;
+      (==daikanwa	  . 03200)	; &g2-MJ032075;
+      (->subsumptive
+       ((===daikanwa	    . 03200)	; &R-M-03200;
+	)
+       ((===mj		    . 032075)	; &R-MJ032075;
+	)
+       ((===ucs@iso	    . #x20B74)	; &R-U-00020B74;
+	)
+       ((=hanziku-1	    . #xF87B)	; &HZK01-F87B;
+	))
+      )
+     ((==ucs@cns	  . #x20B74)	; &g2-CU+20B74;
+      (==cns11643-4	  . #x3C41)	; &g2-CU+20B74; [28-33]
+      ))
     ))
 (define-char
   '((ideographic-radical . 29)	; ⼜
