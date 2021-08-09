@@ -1,3 +1,17 @@
+2021-08-02  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR253.el (SW-JIGUGE-23619): Add A-IWDSU+672F as a
+	corresponding modern character.
+
+	* ShuoWen-SR163.el (SW-JIGUGE-16003): Add U-00027C0C as a
+	corresponding modern character.
+
+	* ShuoWen-SR062.el (SW-JIGUGE-08115): Add U-00028911, A-cgnU+28911
+	and A-IWDSU+20509 as corresponding modern characters.
+
+	* ShuoWen-SR034.el (SW-JIGUGE-05709): Add `<-ancient@shuowen' for
+	SW-JIGUGE-05708.
+
 2021-08-01  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R032-Earth.el (A-IWDSU+571F): Add A-compBC-8BC5 as a

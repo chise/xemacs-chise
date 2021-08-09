@@ -58,6 +58,8 @@
   '((shuowen-radical	. 163)	; 豆
     (=shuowen-jiguge	. 16003)	; &SW-JIGUGE-16003;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x27C0C)	; 𧰌
+      )
      ((=ucs		  . #x27BE6)	; 𧯦
       ))
     (->subsumptive

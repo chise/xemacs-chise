@@ -153,9 +153,16 @@
   '((shuowen-radical	. 62)	; 𠬞
     (=shuowen-jiguge	. 08115)	; &SW-JIGUGE-08115;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x28911)	; 𨤑
+      )
+     ((=>ucs@cognate	  . #x28911)	; &A-cgnU+28911;
+      )
      ((=ucs		  . #x2234F)	; 𢍏
       )
      ((=ucs		  . #x20509)	; 𠔉
+      )
+     ((=>ucs@iwds-1	  . #x20509)	; &A-IWDSU+20509;
+      (=>iwds-1		  .  0026)	; &A-IWDSU+20509;
       ))
     (->subsumptive
      ((===shuowen-jiguge5 . 08115)	; &SW-JIGUGE5-08115;
