@@ -101,6 +101,8 @@
   '((shuowen-radical	. 255)	; 黍
     (=shuowen-jiguge	. 24007)	; &SW-JIGUGE-24007;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x2A3EF)	; 𪏯
+      )
      ((=ucs		  . #x9ECE)	; 黎
       ))
     (->subsumptive
