@@ -1,3 +1,13 @@
+2021-08-08  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R029-Again.el (U-00020B74): Apply new conventions for
+	glyph granularity.
+
+2021-08-06  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR255.el (SW-JIGUGE-24007): Add U-0002A3EF as a
+	corresponding modern character.
+
 2021-08-02  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* ShuoWen-SR253.el (SW-JIGUGE-23619): Add A-IWDSU+672F as a
