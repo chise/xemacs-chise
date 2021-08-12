@@ -3577,11 +3577,6 @@
     (ideographic-radical . 1)	; ⼀
     (ideographic-strokes . 4)
     (total-strokes	 . 5)
-    (=decomposition@cid
-     ((=ucs		  . #x4E17)	; 丗
-      )
-     ((=ucs		  . #xE0100)	; 󠄀
-      ))
     (daijiten-pages	33)
     (hanyu-dazidian	1 14 5)
     (=ucs@unicode	. #x4E17)	; &AJ1-04311;
