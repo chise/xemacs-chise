@@ -12621,6 +12621,15 @@
       ))
     (sound@ja/on	"siN")
     (=ucs		. #x21A60)	; 𡩠
+    (<-Zhouwen
+     ((=ucs		  . #x5BD1)	; 寑
+      )
+     ((=ucs		  . #x5BE2)	; 寢
+      )
+     ((=ucs		  . #x5BDD)	; 寝
+      ))
+    (<-Zhouwen*sources
+     shuowen)
     ))
 (define-char
   '((<-denotational
