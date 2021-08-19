@@ -13866,6 +13866,11 @@
       ))
     (sound@ja/on	"bu")
     (=ucs		. #x3444)	; 㑄
+    (<-ancient
+     ((=ucs		  . #x4FAE)	; 侮
+      ))
+    (<-ancient*sources
+     shuowen)
     ))
 (define-char
   '((<-denotational
