@@ -1,3 +1,11 @@
+2021-08-12  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR269.el (SW-JIGUGE-24803): Add U+5BE2 and U+5BDD as
+	corresponding modern characters.
+	(SW-JIGUGE-24804): Add U-00020597 as a corresponding modern
+	character; add `<-Zhouwen@shuowen' for SW-JIGUGE-24803.
+	(SW-JIGUGE-24820): Add `<-formed@shuowen' for SW-JIGUGE-24819.
+
 2021-08-10  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* ShuoWen-SR262.el (SW-JIGUGE-24402): Add U-00022F73 as a
