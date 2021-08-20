@@ -1,3 +1,20 @@
+2021-08-19  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R009-Man.el (U+3444): Add `<-ancient' for U+4FAE.
+
+2021-08-18  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R040-Roof.el (U-00021A60): Add `<-Zhouwen' for U+5BD1,
+	U+5BE2 and U+5BDD.
+
+2021-08-16  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR287.el (SW-JIGUGE-26919): Add U+3474 as a
+	corresponding modern character.
+	(SW-JIGUGE-27019): Add U+345E-itaiji-001 as a corresponding modern
+	character.
+	(SW-JIGUGE-27203): Add `<-ancient@shuowen' for SW-JIGUGE-27202.
+
 2021-08-12  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* ShuoWen-SR269.el (SW-JIGUGE-24803): Add U+5BE2 and U+5BDD as
