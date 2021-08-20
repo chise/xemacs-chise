@@ -1699,6 +1699,8 @@
   '((shuowen-radical	. 287)	; 人
     (=shuowen-jiguge	. 26919)	; &SW-JIGUGE-26919;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x3474)	; 㑴
+      )
      ((=ucs		  . #x4FB5)	; 侵
       ))
     (->subsumptive
@@ -2064,6 +2066,8 @@
     (=shuowen-jiguge	. 27019)	; &SW-JIGUGE-27019;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x345E)	; 㑞
+      )
+     ((=ucs-itaiji-001	  . #x345E)	; &U-i001+345E;
       )
      ((=ucs		  . #x2022A)	; 𠈪
       ))
@@ -2572,6 +2576,11 @@
     (=shuowen-jiguge	. 27203)	; &SW-JIGUGE-27203;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x3444)	; 㑄
+      ))
+    (<-ancient@shuowen
+     ((=shuowen-jiguge	  . 27202)	; &SW-JIGUGE-27202;
+      )
+     ((=ucs		  . #x4FAE)	; 侮
       ))
     (->subsumptive
      ((===shuowen-jiguge5 . 27203)	; &SW-JIGUGE5-27203;
