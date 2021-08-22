@@ -4393,7 +4393,8 @@
       (=adobe-japan1-0	  . 04521)	; &AJ1-04521;
       (=daikanwa	  . 05481)	; &I-M-05481;
       )
-     ((=daikanwa	  . 13210)	; &M-13210;
+     ((=mj		  . 037278)	; &MJ037278;
+      (=daikanwa	  . 13210)	; &I-M-13210;
       ))
     (<-interchangeable$_1*sources
      zhouli-zhu zhouli-shu daikanwa)
