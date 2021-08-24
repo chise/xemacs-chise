@@ -5,6 +5,9 @@
     (<-Small-Seal@shuowen
      ((=ucs		  . #x5315)	; 匕
       ))
+    (<-formed@flipped-horizontally
+     ((=shuowen-jiguge	  . 26405)	; &SW-JIGUGE-26405;
+      ))
     (->subsumptive
      ((===shuowen-jiguge5 . 27413)	; &SW-JIGUGE5-27413;
       )
@@ -105,7 +108,14 @@
   '((shuowen-radical	. 289)	; 匕
     (=shuowen-jiguge	. 27503)	; &SW-JIGUGE-27503;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x220A6)	; 𢂦
+      )
      ((=ucs		  . #x5353)	; 卓
+      ))
+    (<-ancient@shuowen
+     ((=shuowen-jiguge	  . 27502)	; &SW-JIGUGE-27502;
+      )
+     ((=ucs		  . #x2091F)	; 𠤟
       ))
     (->subsumptive
      ((===shuowen-jiguge5 . 27503)	; &SW-JIGUGE5-27503;
@@ -117,7 +127,12 @@
   '((shuowen-radical	. 289)	; 匕
     (=shuowen-jiguge	. 27504)	; &SW-JIGUGE-27504;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x250E9)	; 𥃩
+      )
      ((=ucs		  . #x826E)	; 艮
+      )
+     ((=>ucs@iwds-1	  . #x826E)	; &A-IWDSU+826E;
+      (=>iwds-1		  .  0199)	; &A-IWDSU+826E;
       ))
     (->subsumptive
      ((===shuowen-jiguge5 . 27504)	; &SW-JIGUGE5-27504;
