@@ -1,3 +1,12 @@
+2021-08-20  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR289.el (SW-JIGUGE-27413): Add
+	`<-formed@flipped-horizontally' for SW-JIGUGE-26405.
+	(SW-JIGUGE-27503): Add U-000220A6 as a corresponding modern
+	character; add `<-ancient@shuowen' for SW-JIGUGE-27502.
+	(SW-JIGUGE-27504): Add U-000250E9 and A-IWDSU+826E as
+	corresponding modern characters.
+
 2021-08-19  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R009-Man.el (U+3444): Add `<-ancient' for U+4FAE.
