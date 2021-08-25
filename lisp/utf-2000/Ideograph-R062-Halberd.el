@@ -2888,15 +2888,13 @@
     (=koseki		. 130840)	; &MJ036587;
     (=daikanwa		. 11610)	; &I-M-11610;
     (<-ancient
-     ((=ucs@unicode	  . #x570B)	; &AJ1-04467;
-      (=adobe-japan1-0	  . 04467)	; &AJ1-04467;
+     ((=ucs		  . #x570B)	; 國
       (=daikanwa	  . 04798)	; &I-M-04798;
       ))
     (<-ancient*sources
      jiyun daikanwa)
     (<-formed
-     ((=ucs@unicode	  . #x570B)	; &AJ1-04467;
-      (=adobe-japan1-0	  . 04467)	; &AJ1-04467;
+     ((=ucs		  . #x570B)	; 國
       )
      ((=ucs		  . #x56FD)	; 国
       ))

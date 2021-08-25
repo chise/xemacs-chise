@@ -19,6 +19,8 @@
     (<-Small-Seal@shuowen
      ((=ucs		  . #x275C4)	; 𧗄
       )
+     ((=>ucs-itaiji-004	  . #x76E3)	; &A-U-i004+76E3;
+      )
      ((=ucs		  . #x76E3)	; 監
       ))
     (->subsumptive
