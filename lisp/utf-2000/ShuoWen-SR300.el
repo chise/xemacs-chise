@@ -91,6 +91,8 @@
   '((shuowen-radical	. 300)	; 衣
     (=shuowen-jiguge	. 27811)	; &SW-JIGUGE-27811;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x2761D)	; 𧘝
+      )
      ((=ucs		  . #x8868)	; 表
       ))
     (->subsumptive
@@ -104,6 +106,13 @@
     (=shuowen-jiguge	. 27812)	; &SW-JIGUGE-27812;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x277A7)	; 𧞧
+      ))
+    (<-ancient@shuowen
+     ((=shuowen-jiguge	  . 27811)	; &SW-JIGUGE-27811;
+      )
+     ((=ucs		  . #x2761D)	; 𧘝
+      )
+     ((=ucs		  . #x8868)	; 表
       ))
     (->subsumptive
      ((===shuowen-jiguge5 . 27812)	; &SW-JIGUGE5-27812;

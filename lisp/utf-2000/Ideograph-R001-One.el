@@ -1460,8 +1460,15 @@
       ))
     (sound@ja/kun	"taka")
     (=mj		. 059294)	; &MJ059294;
+    (=cbeta		. 09630)	; &I-CB09630;
     (->subsumptive
      ((==mj		  . 059294)	; &g2-MJ059294;
+      (==cbeta		  . 09630)	; &g2-MJ059294;
+      (->subsumptive
+       ((===mj		    . 059294)	; &R-MJ059294;
+	)
+       ((===cbeta	    . 09630)	; &R-CB09630;
+	))
       ))
     ))
 (define-char

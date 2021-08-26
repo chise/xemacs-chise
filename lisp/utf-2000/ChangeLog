@@ -1,3 +1,41 @@
+2021-08-26  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R050-Turban.el (GT-K01449): New character.
+	(U-000220A6): Add U-0002091F as a target of `<-ancient'.
+	(A-cgnU+220B8): New abstract node.
+	(U-000220B8): Add `<-denotational' for A-cgnU+220B8; add
+	`<-denotational@usage' for BUCS+5E36; apply new conventions for
+	glyph granularity.
+	(DJT-02830): New character; use `<-denotational' for A-cgnU+220B8;
+	use `<-denotational@usage' for BUCS+5E36.
+	(A-IWDSU+5E36): New abstract node.
+	(IWDS1-0392): Delete `<-denotational' for BUCS+5E36; add
+	`<-denotational' for A-IWDSU+5E36.
+	(U+5E2F): Add `<-denotational@component' for A-compU+5E36; add
+	`<-denotational@usage' for BUCS+5E36; use
+	`ideographic-structure@apparent' instead of
+	`ideographic-structure'; add `sound@ja/on'.
+	(UU+5E2F): Use `ideographic-structure@apparent' instead of
+	`ideographic-structure'; add `<-interchangeable' for U+5E36; add
+	`<-vulgar' for U+5E36.
+	(U+5E26): Add `<-denotational@usage' for BUCS+5E36.
+	(A-compU+5E36): New abstract node; use `<-denotational' for
+	A-IWDSU+5E36.
+	(U+5E36): Use `<-denotational@usage' instead of `<-denotational'
+	for BUCS+5E36; add `<-denotational' for A-compU+5E36; use
+	`ideographic-structure@apparent' instead of
+	`ideographic-structure'; add `sound@ja/on'; unify DJT-02846; add
+	some relations for other characters.
+	(BUCS+5E36): Unify A2-DJT-02846.
+
+	* Ideograph-R001-One.el (MJ059294): Unify CB09630.
+
+2021-08-25  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR300.el (SW-JIGUGE-27811): Add U-2761D as a
+	corresponding modern character.
+	(SW-JIGUGE-27812): Add `<-ancient@shuowen' for SW-JIGUGE-27811.
+
 2021-08-23  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* ShuoWen-SR297.el (SW-JIGUGE-27710): Add A-U+76E3-itaiji-004 as a
