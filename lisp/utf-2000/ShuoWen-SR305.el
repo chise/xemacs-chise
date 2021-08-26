@@ -199,6 +199,8 @@
   '((shuowen-radical	. 305)	; 尸
     (=shuowen-jiguge	. 28513)	; &SW-JIGUGE-28513;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x21C2B)	; 𡰫
+      )
      ((=ucs		  . #x378B)	; 㞋
       ))
     (->subsumptive
