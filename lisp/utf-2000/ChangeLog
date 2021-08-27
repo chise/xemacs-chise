@@ -1,5 +1,8 @@
 2021-08-26  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R063-Door.el (A-U+3406-itaiji-001): New abstract node.
+	(U+3406-itaiji-001): New character.
+
 	* Ideograph-R050-Turban.el (GT-K01449): New character.
 	(U-000220A6): Add U-0002091F as a target of `<-ancient'.
 	(A-cgnU+220B8): New abstract node.
