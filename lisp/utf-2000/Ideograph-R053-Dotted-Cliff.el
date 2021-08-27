@@ -6992,18 +6992,18 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
       (=ucs		  . #x2FF8)	; ⿸
       )
-     ((=big5-cdp	  . #x8D56)	; &CDP-8D56;
-      )
      ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	(=ucs		    . #x2FF1)	; ⿱
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+	(=ucs		    . #x2FF8)	; ⿸
+	)
+       ((=big5-cdp	    . #x8D56)	; &CDP-8D56;
 	)
        ((name		    . "CJK RADICAL SECOND ONE")
 	(=ucs		    . #x2E82)	; ⺂
-	)
-       ((=>ucs@component    . #x590A)	; &A-compU+590A;
-	(=>iwds-1	    .  0092)	; &A-compU+590A;
 	))
+      )
+     ((=>ucs@component	  . #x590A)	; &A-compU+590A;
+      (=>iwds-1		  .  0092)	; &A-compU+590A;
       ))
     (=>ucs-itaiji-002	. #x22281)	; &A-U-i002+22281;
     (=>ucs-itaiji-003	. #x22281)	; &A-U-i002+22281;
@@ -7019,17 +7019,17 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
       (=ucs		  . #x2FF8)	; ⿸
       )
-     ((=big5-cdp	  . #x8D56)	; &CDP-8D56;
-      )
      ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	(=ucs		    . #x2FF1)	; ⿱
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+	(=ucs		    . #x2FF8)	; ⿸
+	)
+       ((=big5-cdp	    . #x8D56)	; &CDP-8D56;
 	)
        ((name		    . "CJK RADICAL SECOND ONE")
 	(=ucs		    . #x2E82)	; ⺂
-	)
-       ((=ucs		    . #x590A)	; 夊
 	))
+      )
+     ((=ucs		  . #x590A)	; 夊
       ))
     (=ucs-itaiji-002	. #x22281)	; &U-i002+22281;
     (->subsumptive
@@ -7047,17 +7047,17 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
       (=ucs		  . #x2FF8)	; ⿸
       )
-     ((=big5-cdp	  . #x8D56)	; &CDP-8D56;
-      )
      ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	(=ucs		    . #x2FF1)	; ⿱
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+	(=ucs		    . #x2FF8)	; ⿸
+	)
+       ((=big5-cdp	    . #x8D56)	; &CDP-8D56;
 	)
        ((name		    . "CJK RADICAL SECOND ONE")
 	(=ucs		    . #x2E82)	; ⺂
-	)
-       ((=ucs		    . #x5902)	; 夂
 	))
+      )
+     ((=ucs		  . #x5902)	; 夂
       ))
     (=ucs-itaiji-003	. #x22281)	; &U-i003+22281;
     (->subsumptive
@@ -13016,6 +13016,8 @@
       )
      ((=ucs		  . #x6B48)	; 歈
       ))
+    (sound@ja/on/go	"yu" "yu")
+    (sound@ja/on/kan	"yu" "Iu")
     (=ucs		. #x222C5)	; 𢋅
     ))
 (define-char
@@ -13033,9 +13035,35 @@
       )
      ((=daikanwa	  . 16143)	; &M-16143;
       ))
-    (=daikanwa		. 09511)	; &M-09511;
+    (=mj		. 035423)	; &MJ035423;
+    (=koseki		. 107560)	; &MJ035423;
+    (=daikanwa		. 09511)	; &I-M-09511;
+    (<-formed
+     ((=daikanwa	  . 16143)	; &M-16143;
+      ))
+    (<-formed$_1*sources
+     koseki)
+    (<-vulgar
+     ((=daikanwa	  . 16143)	; &M-16143;
+      )
+     ((=ucs@jis		  . #x63C4)	; &AJ1-05008;
+      (=ucs@ks		  . #x63C4)	; &AJ1-05008;
+      (=adobe-japan1-0	  . 05008)	; &AJ1-05008;
+      (=daikanwa	  . 12320)	; &I-M-12320;
+      ))
+    (<-vulgar$_1*sources
+     zhengzitong daikanwa)
+    (<-vulgar*sources
+     zhengzitong daikanwa)
     (->subsumptive
-     ((==daikanwa	  . 09511)	; &g2-M-09511;
+     ((==mj		  . 035423)	; &g2-MJ035423;
+      (==koseki		  . 107560)	; &g2-MJ035423;
+      (==daikanwa	  . 09511)	; &g2-MJ035423;
+      (->subsumptive
+       ((===daikanwa	    . 09511)	; &R-M-09511;
+	)
+       ((===mj		    . 035423)	; &R-MJ035423;
+	))
       ))
     ))
 (define-char
@@ -13051,7 +13079,8 @@
       )
      ((=ucs		  . #x5E7F)	; 广
       )
-     ((=ucs@unicode	  . #x6B48)	; &UU+6B48;
+     ((=ucs@unicode	  . #x6B48)	; &C2-4421;
+      (=cns11643-2	  . #x4421)	; &C2-4421; [36-01]
       ))
     (=ucs@iso		. #x222C5)	; &C5-5443;
     (=cns11643-5	. #x5443)	; &C5-5443; [52-35]
@@ -15111,7 +15140,8 @@
       (=daikanwa	  . 12781)	; &I-M-12781;
       )
      ((=ucs@unicode	  . #x9954)	; &JSP-686F;
-      (=daikanwa	  . 44416)	; &M-44416;
+      (=gb2312		  . #x7753)	; &G0-7753; [87-51]
+      (=daikanwa	  . 44416)	; &I-M-44416;
       )
      ((=ucs		  . #x96CD)	; 雍
       (=daikanwa	  . 42000)	; &I-M-42000;
