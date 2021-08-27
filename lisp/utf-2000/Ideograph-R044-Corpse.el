@@ -5720,6 +5720,38 @@
   '((ideographic-radical . 44)	; ⼫
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
+    (ideographic-structure
+     ((=>ucs@iwds-1	  . #x2FFA)	; &A-IWDSU+2FFA;
+      (=>iwds-1		  .  0307)	; &A-IWDSU+2FFA;
+      )
+     ((=ucs		  . #x5C3E)	; 尾
+      )
+     ((=>ucs@component	  . #x4E14)	; &A-compU+4E14;
+      (=>iwds-1		  .  0114)	; &A-compU+4E14;
+      ))
+    (=ucs		. #x21CA4)	; 𡲤
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x21CA4)	; 𡲤
+      ))
+    (ideographic-radical . 44)	; ⼫
+    (ideographic-strokes . 9)
+    (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
+      (=ucs		  . #x2FFA)	; ⿺
+      )
+     ((=ucs		  . #x5C3E)	; 尾
+      )
+     ((=ucs		  . #x4E14)	; 且
+      ))
+    (=ucs@iso		. #x21CA4)	; &U-00021CA4;
+    ))
+(define-char
+  '((ideographic-radical . 44)	; ⼫
+    (ideographic-strokes . 9)
+    (total-strokes	 . 12)
     (=ucs		. #x21CAA)	; 𡲪
     (=cns11643-4	. #x372E)	; &I-C4-372E; [23-14]
     (<-same
@@ -6275,7 +6307,9 @@
     (=daijiten		. 02505)	; &I-DJT-02505;
     (=jef-china3	. #x4ADF)	; &I-JC3-4ADF;
     (<-interchangeable
-     ((=ucs		  . #x8EA7)	; 躧
+     ((=ucs@unicode	  . #x8EA7)	; &JSP-604C;
+      (=jis-x0212	  . #x604C)	; &JSP-604C; [64-44]
+      (=cns11643-3	  . #x616C)	; &I-C3-616C; [65-76]
       (=daikanwa	  . 38023)	; &I-M-38023;
       )
      ((=ucs@iso		  . #x29389)	; &M-43099;
