@@ -53,6 +53,9 @@
 	some relations for other characters.
 	(BUCS+5E36): Unify A2-DJT-02846.
 
+	* ShuoWen-SR305.el (SW-JIGUGE-28513): Add U-00021C2B as a
+	corresponding modern character.
+
 	* Ideograph-R001-One.el (MJ059294): Unify CB09630.
 
 2021-08-25  MORIOKA Tomohiko  <tomo.git@chise.org>
