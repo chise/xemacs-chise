@@ -36370,16 +36370,6 @@
 	)
        ((=ucs		    . #xE0100)	; 󠄀
 	))
-      (ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	(=ucs		    . #x2FF0)	; ⿰
-	)
-       ((name		    . "CJK RADICAL PERSON")
-	(=ucs		    . #x2E85)	; ⺅
-	)
-       ((=ucs@unicode	    . #x5C19)	; &AJ1-13835;
-	(=adobe-japan1-4    . 13835)	; &AJ1-13835;
-	))
       (==ucs@jis	  . #x5018)	; &g2-AJ1-16784;
       (==adobe-japan1-5	  . 16784)	; &g2-AJ1-16784;
       (==jis-x0212	  . #x3153)	; &g2-AJ1-16784; [17-51]
