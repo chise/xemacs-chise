@@ -516,6 +516,19 @@
     ))
 (define-char
   '((ideographic-radical . 50)	; ⼱
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>ucs@iwds-1	  . #x58EB)	; &A-IWDSU+58EB;
+      (=>iwds-1		  .  31272)	; &A-IWDSU+58EB;
+      )
+     ((=ucs		  . #x5DFE)	; 巾
+      ))
+    (=>big5-cdp		. #x89ED)	; &A-CDP-89ED;
+    ))
+(define-char
+  '((ideographic-radical . 50)	; ⼱
     (ideographic-strokes . 2)
     (total-strokes	 . 5)
     (ideographic-structure
@@ -549,6 +562,15 @@
      ((==gt-k		  . 01449)	; &g2-GT-K01449;
       (==gt-pj-k1	  . #x717C)	; &g2-GT-K01449; [81-92]
       ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>big5-cdp	  . #x89ED)	; &A-CDP-89ED;
+      ))
+    (ideographic-radical . 50)	; ⼱
+    (ideographic-strokes . 2)
+    (total-strokes	 . 5)
+    (=big5-cdp		. #x89ED)	; &CDP-89ED;
     ))
 (define-char
   '((=>ucs		. #x3834)	; 㠴
@@ -1197,6 +1219,23 @@
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
     (=ucs		. #x2D611)	; 𭘑
+    ))
+(define-char
+  '((<-denotational
+     ((=>big5-cdp	  . #x89ED)	; &A-CDP-89ED;
+      ))
+    (ideographic-radical . 50)	; ⼱
+    (ideographic-strokes . 3)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x571F)	; 土
+      )
+     ((=ucs		  . #x5DFE)	; 巾
+      ))
+    (=big5-cdp-var-001	. #x89ED)	; &CDP-v001-89ED;
     ))
 (define-char
   '((ideographic-radical . 50)	; ⼱
