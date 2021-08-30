@@ -408,6 +408,7 @@
     =>ucs@iwds-1/normalized
     =>ucs-itaiji-001@iwds-1
     =>ucs-itaiji-002@iwds-1
+    =>ucs-itaiji-003@iwds-1
     =>ucs-itaiji-006@iwds-1
     =>big5-cdp@component
     =>big5-cdp@cognate
