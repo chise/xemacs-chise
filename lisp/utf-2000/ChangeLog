@@ -1,3 +1,34 @@
+2021-08-28  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR314.el (SW-JIGUGE-29004): Add U-00022359 and
+	U-00022358 as corresponding modern characters; add
+	`<-Zhouwen@shuowen' for SW-JIGUGE-29003.
+	(SW-JIGUGE-29005): Add U+5F01 as a corresponding modern character;
+	add `<-formed@shuowen' for SW-JIGUGE-29003.
+
+2021-08-28  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R009-Man.el (g2-JU+5018): Omit
+	`ideographic-structure'.
+
+2021-08-27  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R067-Script.el (U-00023041): New character.
+
+	* Ideograph-R050-Turban.el (A-BC-89ED): New abstract node.
+	(BC-89ED): New character; use `<-denotational' for A-BC-89ED.
+	(BC-89ED-var-001): Ditto.
+
+	* Ideograph-R004-Slash.el (A-compU+4E55): New abstract node; use
+	`<-denotational' for A-cgnU+4E55.
+	(U-000200B0): Add `<-denotational' for A-compU+4E55.
+	(U+4E55): Use A-compU+4E55 instead of A-cgnU+4E55 as its mother;
+	apply new conventions for glyph granularity.
+	(HD-TK01026870): New character; use `<-denotational' for
+	A-cgnU+4E55; use `<-denotational@usage' for BUCS+864E.
+	(GT-00219): Add `<-denotational' for U-0002D239; add
+	`ideographic-structure'.
+
 2021-08-27  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R028-Private.el (A-U+53C0-itaiji-003): New abstract
