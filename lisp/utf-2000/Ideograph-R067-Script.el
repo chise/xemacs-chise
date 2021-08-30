@@ -186,6 +186,38 @@
     ))
 (define-char
   '((ideographic-radical . 67)	; ⽂
+    (ideographic-strokes . 2)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>ucs@iwds-1	  . #x4EBA)	; &A-IWDSU+4EBA;
+      (=>iwds-1		  .  14623)	; &A-IWDSU+4EBA;
+      )
+     ((=ucs		  . #x6587)	; 文
+      ))
+    (=ucs		. #x23041)	; 𣁁
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x23041)	; 𣁁
+      ))
+    (ideographic-radical . 67)	; ⽂
+    (ideographic-strokes . 2)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x201A2)	; 𠆢
+      )
+     ((=ucs		  . #x6587)	; 文
+      ))
+    (=ucs@iso		. #x23041)	; &U-00023041;
+    ))
+(define-char
+  '((ideographic-radical . 67)	; ⽂
     (ideographic-strokes . 3)
     (total-strokes	 . 7)
     (=ucs		. #x3AAF)	; 㪯
