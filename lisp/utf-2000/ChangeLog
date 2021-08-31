@@ -1,3 +1,17 @@
+2021-08-30  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R046-Mountain.el (U-0003038B): New character.
+
+	* Ideograph-R044-Corpse.el (U+21C42-itaiji-001): New character;
+	use `<-denotational' for U-00021C42.
+
+	* Ideograph-R001-One.el (U+20018-itaiji-002): New character; use
+	`<-denotational@component' for A-IWDSU+20018.
+	(U-0002CEB9): New character.
+
+	* ShuoWen-SR323.el (SW-JIGUGE-29608): Add `<-ancient@shuowen' for
+	SW-JIGUGE-29607.
+
 2021-08-29  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* char-db-util.el (char-db-coded-charset-priority-list): Add
