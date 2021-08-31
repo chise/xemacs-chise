@@ -1,3 +1,8 @@
+2021-08-29  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* char-db-util.el (char-db-coded-charset-priority-list): Add
+	`=>ucs-itaiji-003@iwds-1'.
+
 2021-08-28  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* ShuoWen-SR314.el (SW-JIGUGE-29004): Add U-00022359 and
