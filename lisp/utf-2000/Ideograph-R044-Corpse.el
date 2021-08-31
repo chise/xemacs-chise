@@ -2570,6 +2570,23 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=ucs		  . #x21C42)	; 𡱂
+      ))
+    (ideographic-radical . 44)	; ⼫
+    (ideographic-strokes . 5)
+    (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs		  . #x5C38)	; 尸
+      )
+     ((=ucs-itaiji-002	  . #x20018)	; &U-i002+20018;
+      ))
+    (=ucs-itaiji-001	. #x21C42)	; &U-i001+21C42;
+    ))
+(define-char
   '((ideographic-radical . 44)	; ⼫
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
