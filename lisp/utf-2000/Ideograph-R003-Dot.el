@@ -750,6 +750,26 @@
     (===hng-kae		. 00010)	; &HNG019-00010;
     ))
 (define-char
+  '((<-denotational
+     ((=>ucs@cognate	  . #x4E39)	; &A-cgnU+4E39;
+      ))
+    (ideographic-radical . 3)	; ⼂
+    (ideographic-strokes . 3)
+    (total-strokes	 . 4)
+    (ideographic-structure@apparent
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
+      (=ucs		  . #x2FF4)	; ⿴
+      )
+     ((=big5-cdp	  . #x88AF)	; &CDP-88AF;
+      )
+     ((=ucs		  . #x4E36)	; 丶
+      ))
+    (=big5-cdp		. #x86FB)	; &CDP-86FB;
+    (->subsumptive
+     ((==big5-cdp	  . #x86FB)	; &g2-CDP-86FB;
+      ))
+    ))
+(define-char
   '((<-denotational@usage
      ((==>ucs@bucs	  . #x7232)	; &BUCS+7232;
       ))
@@ -1321,27 +1341,38 @@
   '((ideographic-radical . 3)	; ⼂
     (ideographic-strokes . 7)
     (total-strokes	 . 8)
-    (=ucs		. #x2592C)	; 𥤬
-    (->subsumptive
-     ((hanyu-dazidian	  1 47 2)
-      (ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
-	(=ucs		    . #x2FF5)	; ⿵
-	)
-       ((ideographic-structure
-	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	  (=ucs		      . #x2FF1)	; ⿱
-	  )
-	 ((=ucs		      . #x4E36)	; 丶
-	  )
-	 ((=big5-cdp	      . #x8C58)	; &CDP-8C58;
-	  ))
-	)
-       ((=ucs		    . #x5EFE)	; 廾
-	))
-      (=hanziku-1	  . #xADBE)	; &HZK01-ADBE;
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
+      (=ucs		  . #x2FF5)	; ⿵
       )
-     ((=ucs@iso		  . #x2592C)	; &U-0002592C;
+     ((=>ucs@iwds-1	  . #x25922)	; &A-IWDSU+25922;
+      )
+     ((=ucs		  . #x5EFE)	; 廾
+      ))
+    (=ucs		. #x2592C)	; 𥤬
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2592C)	; 𥤬
+      ))
+    (ideographic-radical . 3)	; ⼂
+    (ideographic-strokes . 7)
+    (total-strokes	 . 8)
+    (hanyu-dazidian	1 47 2)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
+      (=ucs		  . #x2FF5)	; ⿵
+      )
+     ((=ucs@iso		  . #x20549)	; &U-00020549;
+      )
+     ((=ucs@unicode	  . #x5EFE)	; &MJ011120;
+      (=mj		  . 011120)	; &MJ011120;
+      ))
+    (=ucs@iso		. #x2592C)	; &U-0002592C;
+    (->subsumptive
+     ((=hanziku-1	  . #xADBE)	; &HZK01-ADBE;
+      )
+     ((==ucs@iso	  . #x2592C)	; &g2-IU-0002592C;
       ))
     ))
 (define-char
