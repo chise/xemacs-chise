@@ -797,7 +797,8 @@
      ((name*		  . "ideographic component person for top")
       (=ucs		  . #x20089)	; 𠂉
       )
-     ((=ucs		  . #x4E59)	; 乙
+     ((=>ucs@component	  . #x4E59)	; &A-compU+4E59;
+      (=>iwds-1		  .  0340)	; &A-compU+4E59;
       ))
     (=ucs		. #x4E5E)	; 乞
     ))
@@ -809,6 +810,15 @@
     (ideographic-strokes . 2)
     (total-strokes	 . 3)
     (hanyu-dazidian	1 50 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((name*		  . "ideographic component person for top")
+      (=ucs		  . #x20089)	; 𠂉
+      )
+     ((=ucs		  . #x4E59)	; 乙
+      ))
     (sound@ja/kun	"ko+H5")
     (sound@ja/on	"kotu")
     (sound@ja/on/go	"koti")
@@ -2719,6 +2729,39 @@
      ((==ucs@JP/hanazono  . #x2B864)	; &g2-GT-00241;
       (==gt		  . 00241)	; &g2-GT-00241;
       ))
+    ))
+(define-char
+  '((ideographic-radical . 5)	; ⼄
+    (ideographic-strokes . 5)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x4E5E)	; 乞
+      )
+     ((=ucs		  . #x4E5E)	; 乞
+      ))
+    (=ucs		. #x2CF20)	; 𬼠
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2CF20)	; 𬼠
+      ))
+    (ideographic-radical . 5)	; ⼄
+    (ideographic-strokes . 5)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs@unicode	  . #x4E5E)	; &AJ1-01956;
+      (=adobe-japan1-0	  . 01956)	; &AJ1-01956;
+      )
+     ((=ucs@unicode	  . #x4E5E)	; &AJ1-01956;
+      (=adobe-japan1-0	  . 01956)	; &AJ1-01956;
+      ))
+    (=ucs@JP/hanazono	. #x2CF20)	; &hanaJU+2CF20;
     ))
 (define-char
   '((ideographic-radical . 5)	; ⼄
