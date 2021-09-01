@@ -1,3 +1,17 @@
+2021-08-31  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR324.el (SW-JIGUGE-30023): Add U+9861 as a
+	corresponding modern character.
+
+	* Ideograph-R056-Shoot.el (U-0002D6A4): New character.
+
+	* Ideograph-R004-Slash.el (U-0002CF0A): New character.
+	(U-0002CF0B): New character.
+
+	* Ideograph-R003-Dot.el (BC-86FB): New character; use
+	`<-denotational' for A-cgnU+4E39.
+	(U-0002592C): Apply new conventions for glyph granularity.
+
 2021-08-30  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R046-Mountain.el (U-0003038B): New character.
