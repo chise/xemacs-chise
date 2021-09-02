@@ -1,3 +1,8 @@
+2021-09-01  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR328.el (SW-JIGUGE-30113): Add U-00029810 as a
+	corresponding modern character.
+
 2021-08-31  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* ShuoWen-SR324.el (SW-JIGUGE-30023): Add U+9861 as a
