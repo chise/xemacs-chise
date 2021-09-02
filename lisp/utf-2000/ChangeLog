@@ -1,7 +1,24 @@
+2021-09-02  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR357.el (SW-JIGUGE-32023): Add `<-Zhouwen@shuowen' for
+	SW-JIGUGE-32022.
+	(SW-JIGUGE-32024): Add `<-ancient@shuowen' for SW-JIGUGE-32022.
+
 2021-09-01  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R005-Second.el (U+4E5E): Use IWDS1-0340 instead of
+	U+4E59 as a component.
+	(UU+4E5E): Add `ideographic-structure'.
+	(U-0002CF20): New character.
 
 	* ShuoWen-SR328.el (SW-JIGUGE-30113): Add U-00029810 as a
 	corresponding modern character.
+
+2021-08-31  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R071-Not.el (U+65E1): Add `<-ancient' for U+34AB.
+
+	* Ideograph-R032-Earth.el (U-00021455): New character.
 
 2021-08-31  MORIOKA Tomohiko  <tomo.git@chise.org>
 
