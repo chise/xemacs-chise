@@ -140,6 +140,11 @@
       ))
     (<-Liwen*sources
      shuowen-xuxuan-zhu)
+    (<-ancient
+     ((=ucs		  . #x34AB)	; 㒫
+      ))
+    (<-ancient*sources
+     shuowen)
     (->subsumptive
      ((total-strokes	   . 4)
       (=decomposition@hanyo-denshi
