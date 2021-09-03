@@ -5901,15 +5901,81 @@
   '((ideographic-radical . 29)	; ⼜
     (ideographic-strokes . 9)
     (total-strokes	 . 11)
-    (=ucs		. #x20B5B)	; 𠭛
-    (->subsumptive
-     ((=ucs@iso		  . #x20B5B)	; &C6-3D6B;
-      (=cns11643-6	  . #x3D6B)	; &C6-3D6B; [29-75]
-      (=daikanwa	  . 03188)	; &I-M-03188;
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
       )
-     ((hanyu-dazidian	  1 400 1)
-      (=hanziku-1	  . #xF854)	; &HZK01-F854;
+     ((=>ucs@iwds-1	  . #x56F1)	; &A-IWDSU+56F1;
+      (=>iwds-1		  .  0361)	; &A-IWDSU+56F1;
+      )
+     ((=ucs		  . #x20B1E)	; 𠬞
       ))
+    (sound@ja/on	"beN")
+    (=ucs		. #x20B5B)	; 𠭛
+    (<-Zhouwen
+     ((=ucs		  . #x3778)	; 㝸
+      )
+     ((=ucs		  . #x5F01)	; 弁
+      ))
+    (<-Zhouwen*sources
+     shuowen)
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x20B5B)	; 𠭛
+      ))
+    (ideographic-radical . 29)	; ⼜
+    (ideographic-strokes . 9)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x56EA)	; 囪
+      )
+     ((=ucs-var-002	  . #x20B1E)	; &U-v002+20B1E;
+      ))
+    (=ucs@iso		. #x20B5B)	; &C6-3D6B;
+    (=cns11643-6	. #x3D6B)	; &C6-3D6B; [29-75]
+    (=daikanwa		. 03188)	; &I-M-03188;
+    (<-original
+     ((=ucs@unicode	  . #x5F01)	; &AJ1-03627;
+      (=adobe-japan1-0	  . 03627)	; &AJ1-03627;
+      (=daikanwa	  . 09588)	; &I-M-09588;
+      ))
+    (<-original*sources
+     shuowen-changjian daikanwa)
+    (->subsumptive
+     ((==ucs@iso	  . #x20B5B)	; &g2-M-03188;
+      (==cns11643-6	  . #x3D6B)	; &g2-M-03188; [29-75]
+      (==daikanwa	  . 03188)	; &g2-M-03188;
+      (->subsumptive
+       ((===daikanwa	    . 03188)	; &R-M-03188;
+	)
+       ((===cns11643-6	    . #x3D6B)	; &R-C6-3D6B; [29-75]
+	)
+       ((===ucs@iso	    . #x20B5B)	; &R-U-00020B5B;
+	))
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x20B5B)	; 𠭛
+      ))
+    (ideographic-radical . 29)	; ⼜
+    (ideographic-strokes . 9)
+    (total-strokes	 . 11)
+    (hanyu-dazidian	1 400 1)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs@unicode	  . #x56F1)	; &G0-3451;
+      (=gb2312		  . #x3451)	; &G0-3451; [20-49]
+      )
+     ((=ucs-var-003	  . #x20B1E)	; &U-v003+20B1E;
+      ))
+    (=hanziku-1		. #xF854)	; &HZK01-F854;
     ))
 (define-char
   '((ideographic-radical . 29)	; ⼜
