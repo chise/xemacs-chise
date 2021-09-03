@@ -1,5 +1,54 @@
 2021-09-02  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R031-Enclosure.el (A-IWDSU+56DB): New abstract node;
+	use `<-denotational@component' for A-compU+7F52 and A-IWDSU+211A6.
+	(U+56DB): Use A-IWDSU+56DB instead of A-compU+7F52 as the target
+	of `<-denotational@component'.
+	(UU+56DB): Add `ideographic-structure'.
+	(U-000211A6): Add `<-denotational@component' for A-IWDSU+56DB;
+	apply new conventions for glyph granularity.
+	(A-IWDSU+56FD): New abstract node.
+	(U+56EF): Add `<-denotational' for A-IWDSU+56FD; add
+	`<-denotational@usage' for BUCS+570B; apply new conventions for
+	glyph granularity.
+	(U+56FB): Add `<-denotational@usage' for BUCS+570B; apply new
+	conventions for glyph granularity.
+	(U+56FD): Add `<-denotational' for A-IWDSU+56FD; add
+	`<-denotational@usage' for BUCS+570B; unify DJT-01628.
+	(U+56FF): Add `<-denotational@usage' for BUCS+570B; apply new
+	conventions for glyph granularity.
+	(U-000211D5): Apply new conventions for glyph granularity.
+	(U+5700): Add `<-denotational@usage' for BUCS+570B; apply new
+	conventions for glyph granularity.
+	(A-cgnU+570B): Changed from U+570B.
+	(AJ1-04467): Unify U+570B instead of A-IWDSU+570B and UU+570B; use
+	A-cgnU+570B instead of U+570B as its mother; add
+	`<-denotational@usage' for BUCS+570B; add `sound@ja/on'.
+	(HNG-KHM0254-0): Use A-cgnU+570B instead of U+570B as its mother;
+	add `<-denotational@usage' for BUCS+570B.
+	(HNG-KHI0308-0): Ditto.
+	(U-00021239): Apply new conventions for glyph granularity.
+	(A-compU+211A6): New abstract node.
+	(A-IWDSU+211A6): New abstract node; use `<-denotational@component'
+	for A-compU+211A6.
+	(BUCS+570B): New abstract node; unify A2-DJT-01639.
+	(BUCS+56FF): New abstract node; unify A2-DJT-01630.
+
+	* Ideograph-R029-Again.el (U-00020B5B): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R025-Divination.el (A-IWDSU+209EA-itaiji-003): New
+	abstract node.
+	(U+209EA-itaiji-003): New character; use `<-denotational' for
+	A-IWDSU+209EA-itaiji-003; unify A-U+209EA-itaiji-004.
+	(U-000209E9): Apply new conventions for glyph granularity.
+	(U-000209EA): Likewise.
+	(U-000209F4): Likewise.
+	(U-00020A0B): Likewise.
+
+	* Ideograph-R014-Cover.el (U-00020597): Apply new conventions for
+	glyph granularity.
+
 	* ShuoWen-SR357.el (SW-JIGUGE-32023): Add `<-Zhouwen@shuowen' for
 	SW-JIGUGE-32022.
 	(SW-JIGUGE-32024): Add `<-ancient@shuowen' for SW-JIGUGE-32022.
