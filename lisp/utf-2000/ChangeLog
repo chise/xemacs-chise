@@ -1,5 +1,12 @@
 2021-09-02  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R063-Door.el (U-0002D805): New character.
+
+2021-09-02  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR358.el (SW-JIGUGE-32120): Add U+9578 as a
+	corresponding modern character.
+
 	* Ideograph-R031-Enclosure.el (A-IWDSU+56DB): New abstract node;
 	use `<-denotational@component' for A-compU+7F52 and A-IWDSU+211A6.
 	(U+56DB): Use A-IWDSU+56DB instead of A-compU+7F52 as the target
