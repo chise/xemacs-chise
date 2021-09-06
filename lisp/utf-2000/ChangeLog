@@ -1,3 +1,8 @@
+2021-09-04  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR360.el (SW-JIGUGE-32209): Add A-U+5189-itaiji-005 as a
+	corresponding modern character.
+
 2021-09-02  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R063-Door.el (U-0002D805): New character.
