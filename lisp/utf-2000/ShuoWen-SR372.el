@@ -304,6 +304,8 @@
     (=shuowen-jiguge	. 33825)	; &SW-JIGUGE-33825;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x2A2E7)	; 𪋧
+      )
+     ((=ucs		  . #x9E9D)	; 麝
       ))
     (->subsumptive
      ((===shuowen-jiguge5 . 33825)	; &SW-JIGUGE5-33825;
