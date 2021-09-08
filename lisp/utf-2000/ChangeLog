@@ -1,3 +1,8 @@
+2021-09-06  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR362.el (SW-JIGUGE-32406): Add U+8C59 as a
+	corresponding modern character.
+
 2021-09-04  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* ShuoWen-SR360.el (SW-JIGUGE-32209): Add A-U+5189-itaiji-005 as a
