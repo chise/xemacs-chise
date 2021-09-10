@@ -99,6 +99,8 @@
   '((shuowen-radical	. 383)	; 炎
     (=shuowen-jiguge	. 35014)	; &SW-JIGUGE-35014;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x3DE0)	; 㷠
+      )
      ((=ucs		  . #x7CA6)	; 粦
       ))
     (->subsumptive
