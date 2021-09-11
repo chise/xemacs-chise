@@ -891,6 +891,10 @@
   '((shuowen-radical	. 382)	; 火
     (=shuowen-jiguge	. 34812)	; &SW-JIGUGE-34812;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x2442B)	; 𤐫
+      )
+     ((=ucs		  . #x3DBE)	; 㶾
+      )
      ((=ucs		  . #x7968)	; 票
       ))
     (->subsumptive
@@ -1336,6 +1340,11 @@
     (=shuowen-jiguge	. 34916)	; &SW-JIGUGE-34916;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x229FE)	; 𢧾
+      ))
+    (<-ancient@shuowen
+     ((=shuowen-jiguge	  . 34915)	; &SW-JIGUGE-34915;
+      )
+     ((=ucs		  . #x71BE)	; 熾
       ))
     (->subsumptive
      ((===shuowen-jiguge5 . 34916)	; &SW-JIGUGE5-34916;
