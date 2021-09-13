@@ -1,3 +1,8 @@
+2021-09-10  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR383.el (SW-JIGUGE-35014): Add U+3DE0 as a
+	corresponding modern character.
+
 2021-09-09  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* ShuoWen-SR382.el (SW-JIGUGE-34812): Add U-0002442B and U+3DBE as
