@@ -181,6 +181,7 @@
     (=koseki		. 103680)	; &MJ035213;
     (=daikanwa		. 09166)	; &I-M-09166;
     (=daijiten		. 02898)	; &I-DJT-02898;
+    (=cbeta		. 08862)	; &I-CB08862;
     (=ruimoku-v6	. #xE00E)	; &I-RUI6-E00E;
     (<-simplified@component
      ((=ucs		  . #x5C70)	; 屰
@@ -194,6 +195,7 @@
       (==koseki		  . 103680)	; &g2-MJ035213;
       (==daikanwa	  . 09166)	; &g2-MJ035213;
       (==daijiten	  . 02898)	; &g2-MJ035213;
+      (==cbeta		  . 08862)	; &g2-MJ035213;
       (==ruimoku-v6	  . #xE00E)	; &g2-MJ035213;
       (->subsumptive
        ((===daikanwa	    . 09166)	; &R-M-09166;
@@ -209,6 +211,8 @@
        ((===ucs@iso	    . #x22189)	; &R-U-00022189;
 	)
        ((===ruimoku-v6	    . #xE00E)	; &R-RUI6-E00E;
+	)
+       ((===cbeta	    . 08862)	; &R-CB08862;
 	))
       ))
     ))
