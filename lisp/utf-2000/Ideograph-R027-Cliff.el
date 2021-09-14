@@ -5806,13 +5806,73 @@
     ))
 (define-char
   '((ideographic-radical . 27)	; ⼚
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=>ucs@iwds-1	  . #x4E06)	; &A-IWDSU+4E06;
+      (=>iwds-1		  .  0150)	; &A-IWDSU+4E06;
+      )
+     ((=ucs		  . #x83F3)	; 菳
+      ))
+    (sound@ja/on	"syo")
+    (=ucs		. #x20A9C)	; 𠪜
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x20A9C)	; 𠪜
+      ))
+    (ideographic-radical . 27)	; ⼚
     (ideographic-strokes . 12)
     (total-strokes	 . 14)
     (hanyu-dazidian	1 77 11)
-    (=ucs		. #x20A9C)	; 𠪜
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs		  . #x5382)	; 厂
+      )
+     ((=cns11643-2	  . #x3F63)	; &C2-3F63; [31-67]
+      (=daikanwa	  . 31226)	; &I-M-31226;
+      ))
+    (=ucs@iso		. #x20A9C)	; &MJ031928;
+    (=mj		. 031928)	; &MJ031928;
     (=cns11643-6	. #x5B37)	; &I-C6-5B37; [59-23]
+    (=koseki		. 034940)	; &MJ031928;
     (=daikanwa		. 03022)	; &I-M-03022;
-    (=hanziku-1		. #xB3D9)	; &I-HZK01-B3D9;
+    (<-ancient
+     ((=ucs@unicode	  . #x5EB6)	; &MJ011015;
+      (=mj		  . 011015)	; &MJ011015;
+      (=daikanwa	  . 09373)	; &I-M-09373;
+      ))
+    (<-ancient*sources
+     pianhai daikanwa)
+    (<-formed
+     ((=ucs@unicode	  . #x5EB6)	; &MJ011015;
+      (=mj		  . 011015)	; &MJ011015;
+      ))
+    (<-formed$_1*sources
+     koseki mj)
+    (<-formed*sources
+     koseki mj)
+    (->subsumptive
+     ((==ucs@iso	  . #x20A9C)	; &g2-MJ031928;
+      (==mj		  . 031928)	; &g2-MJ031928;
+      (==cns11643-6	  . #x5B37)	; &g2-MJ031928; [59-23]
+      (==koseki		  . 034940)	; &g2-MJ031928;
+      (==daikanwa	  . 03022)	; &g2-MJ031928;
+      (->subsumptive
+       ((===daikanwa	    . 03022)	; &R-M-03022;
+	)
+       ((===mj		    . 031928)	; &R-MJ031928;
+	)
+       ((===cns11643-6	    . #x5B37)	; &R-C6-5B37; [59-23]
+	)
+       ((===ucs@iso	    . #x20A9C)	; &R-U-00020A9C;
+	)
+       ((=hanziku-1	    . #xB3D9)	; &HZK01-B3D9;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 27)	; ⼚

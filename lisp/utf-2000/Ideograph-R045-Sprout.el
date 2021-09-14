@@ -553,6 +553,12 @@
     (=daikanwa		. 07833)	; &I-M-07833;
     (=daijiten		. 02521)	; &I-DJT-02521;
     (=jef-china3	. #x99E5)	; &I-JC3-99E5;
+    (<-ancient
+     ((=ucs@unicode	  . #x9738)	; &AJ1-05140;
+      (=adobe-japan1-0	  . 05140)	; &AJ1-05140;
+      ))
+    (<-ancient$_1*sources
+     jiyun)
     (<-interchangeable
      ((=ucs@ks		  . #x9006)	; &AJ1-13709;
       (=adobe-japan1-4	  . 13709)	; &AJ1-13709;
