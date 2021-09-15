@@ -2075,9 +2075,68 @@
   '((ideographic-radical . 49)	; ⼰
     (ideographic-strokes . 15)
     (total-strokes	 . 18)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x757E)	; 畾
+      )
+     ((=>ucs@component	  . #x5DF1)	; &A-compU+5DF1;
+      (=>iwds-1		  .  0120)	; &A-compU+5DF1;
+      ))
+    (sound@ja/on	"iN")
     (=ucs		. #x22050)	; 𢁐
-    (=cns11643-7	. #x3F4B)	; &I-C7-3F4B; [31-43]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x22050)	; 𢁐
+      ))
+    (ideographic-radical . 49)	; ⼰
+    (ideographic-strokes . 15)
+    (total-strokes	 . 18)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs@unicode	  . #x757E)	; &AJ1-18135;
+      (=adobe-japan1-5	  . 18135)	; &AJ1-18135;
+      )
+     ((=ucs		  . #x5DF3)	; 巳
+      ))
+    (=ucs@iso		. #x22050)	; &C7-3F4B;
+    (=cns11643-7	. #x3F4B)	; &C7-3F4B; [31-43]
     (=daikanwa		. 08770)	; &I-M-08770;
+    (<-ancient
+     ((=ucs		  . #x5BC5)	; 寅
+      (=daikanwa	  . 07204)	; &I-M-07204;
+      ))
+    (<-ancient*sources
+     jiyun daikanwa)
+    (->subsumptive
+     ((==ucs@iso	  . #x22050)	; &g2-M-08770;
+      (==cns11643-7	  . #x3F4B)	; &g2-M-08770; [31-43]
+      (==daikanwa	  . 08770)	; &g2-M-08770;
+      (->subsumptive
+       ((===daikanwa	    . 08770)	; &R-M-08770;
+	)
+       ((===cns11643-7	    . #x3F4B)	; &R-C7-3F4B; [31-43]
+	)
+       ((===ucs@iso	    . #x22050)	; &R-U-00022050;
+	))
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 49)	; ⼰
+    (=ucs		. #x2D610)	; 𭘐
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2D610)	; 𭘐
+      ))
+    (ideographic-radical . 49)	; ⼰
+    (ideographic-strokes . 15)
+    (total-strokes	 . 18)
+    (=ucs@JP/hanazono	. #x2D610)	; &hanaJU+2D610;
     ))
 (define-char
   '((<-denotational

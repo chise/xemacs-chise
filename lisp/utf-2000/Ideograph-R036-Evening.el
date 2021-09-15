@@ -1740,6 +1740,40 @@
     ))
 (define-char
   '((ideographic-radical . 36)	; ⼣
+    (ideographic-strokes . 8)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5915)	; 夕
+      )
+     ((=ucs-itaiji-006	  . #x98DB)	; &U-i006+98DB;
+      ))
+    (sound@ja/on	"hi")
+    (=ucs		. #x2D438)	; 𭐸
+    (=mj		. 057268)	; &I-MJ057268;
+    (=koseki		. 066360)	; 𭐸
+    (<-formed
+     ((=ucs		  . #x98DB)	; 飛
+      ))
+    (<-formed$_1*sources
+     koseki mj)
+    (<-formed*sources
+     koseki mj)
+    (->subsumptive
+     ((==ucs@iso	  . #x2D438)	; &g2-MJ057268;
+      (==mj		  . 057268)	; &g2-MJ057268;
+      (==koseki		  . 066360)	; &g2-MJ057268;
+      (->subsumptive
+       ((===mj		    . 057268)	; &R-MJ057268;
+	)
+       ((===ucs@iso	    . #x2D438)	; &R-U-0002D438;
+	))
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 36)	; ⼣
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
     (hanyu-dazidian	2 864 9)

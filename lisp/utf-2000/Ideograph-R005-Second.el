@@ -2502,7 +2502,6 @@
     (ideographic-radical . 5)	; ⼄
     (ideographic-strokes . 5)
     (total-strokes	 . 6)
-    (hanyu-dazidian	1 53 9)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
@@ -2512,7 +2511,27 @@
      ((=ucs		  . #x98DE)	; 飞
       ))
     (=ucs		. #x200E7)	; 𠃧
-    (=cns11643-6	. #x2345)	; &I-C6-2345; [03-37]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x200E7)	; 𠃧
+      ))
+    (ideographic-radical . 5)	; ⼄
+    (ideographic-strokes . 5)
+    (total-strokes	 . 6)
+    (hanyu-dazidian	1 53 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((name		  . "CJK RADICAL C-SIMPLIFIED FLY")
+      (=ucs		  . #x2EDC)	; ⻜
+      )
+     ((name		  . "CJK RADICAL C-SIMPLIFIED FLY")
+      (=ucs		  . #x2EDC)	; ⻜
+      ))
+    (=ucs@iso		. #x200E7)	; &GT-00247;
+    (=cns11643-6	. #x2345)	; &GT-00247; [03-37]
     (=gt		. 00247)	; &I-GT-00247;
     (=gt-k		. 02464)	; &I-GT-K02464;
     (=gt-pj-2		. #x3156)	; &I-GT-00247; [17-54]
