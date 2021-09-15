@@ -1,5 +1,18 @@
 2021-09-14  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R046-Mountain.el (U-00021D56): Apply new conventions
+	for glyph granularity.
+	(A-cgnU+5D14): New abstract node.
+	(U+5D14): Add `<-denotational' for A-cgnU+5D14.
+
+	* Ideograph-R060-Step.el (U-0002D6E7): Add `ideographic-strokes'
+	and `total-strokes'.
+	(hanaJU+2D6E7): Add `total-strokes'.
+	(U-0002D6E8): Add `ideographic-strokes' and `total-strokes'.
+	(hanaJU+2D6E8): Add `total-strokes'.
+	(U+2D6E8-var-001): New character; use `<-denotational' for
+	U-0002D6E8.
+
 	* Ideograph-R042-Small.el (U+5C10): Apply new conventions for
 	glyph granularity.
 	(A-U+6740-itaiji-001): New abstract node.

@@ -2103,12 +2103,53 @@
   '((ideographic-radical . 46)	; ⼭
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
-    (=ucs		. #x21D56)	; 𡵖
-    (->subsumptive
-     ((=ucs@iso		  . #x21D56)	; &M-07913;
-      (=daikanwa	  . 07913)	; &M-07913;
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=cns11643-5	  . #x2379)	; &C5-2379; [03-89]
+     ((=>ucs@component	  . #x5C6E)	; &A-compU+5C6E;
+      (=>iwds-1		  .  0096)	; &A-compU+5C6E;
+      )
+     ((=ucs		  . #x706B)	; 火
+      ))
+    (sound@ja/on	"WoN")
+    (=ucs		. #x21D56)	; 𡵖
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x21D56)	; 𡵖
+      ))
+    (ideographic-radical . 46)	; ⼭
+    (ideographic-strokes . 4)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5C71)	; 山
+      )
+     ((=ucs		  . #x706B)	; 火
+      ))
+    (=ucs@iso		. #x21D56)	; &MJ034496;
+    (=mj		. 034496)	; &MJ034496;
+    (=cns11643-5	. #x2379)	; &I-C5-2379; [03-89]
+    (=koseki		. 089820)	; &MJ034496;
+    (=daikanwa		. 07913)	; &I-M-07913;
+    (->subsumptive
+     ((==ucs@iso	  . #x21D56)	; &g2-MJ034496;
+      (==mj		  . 034496)	; &g2-MJ034496;
+      (==koseki		  . 089820)	; &g2-MJ034496;
+      (==daikanwa	  . 07913)	; &g2-MJ034496;
+      (->subsumptive
+       ((===daikanwa	    . 07913)	; &R-M-07913;
+	)
+       ((===mj		    . 034496)	; &R-MJ034496;
+	)
+       ((===ucs@iso	    . #x21D56)	; &R-U-00021D56;
+	))
+      )
+     ((==ucs@cns	  . #x21D56)	; &g2-CU+21D56;
+      (==cns11643-5	  . #x2379)	; &g2-CU+21D56; [03-89]
       ))
     ))
 (define-char
@@ -10289,6 +10330,13 @@
     ))
 (define-char
   '((ideographic-radical . 46)	; ⼭
+    (=>ucs@cognate	. #x5D14)	; &A-cgnU+5D14;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@cognate	  . #x5D14)	; &A-cgnU+5D14;
+      ))
+    (ideographic-radical . 46)	; ⼭
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
     (ideographic-structure
