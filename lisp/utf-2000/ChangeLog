@@ -1,3 +1,14 @@
+2021-09-15  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R053-Dotted-Cliff.el (U-000222D5): New character.
+
+	* Ideograph-R048-Work.el (BC-8C78): Add `<-formed@component' for
+	BC-8BC5.
+
+	* ShuoWen-SR397.el (SW-JIGUGE-35700): Add U+5E78 as a
+	corresponding modern character.
+	(SW-JIGUGE-35707): Add `<-simplified@shuowen' for SW-JIGUGE-35706.
+
 2021-09-14  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R061-Heart.el (GT-K00655): New character.
