@@ -4,6 +4,8 @@
     (=shuowen-jiguge	. 35700)	; &SW-JIGUGE-35700;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x3694)	; 㚔
+      )
+     ((=ucs		  . #x5E78)	; 幸
       ))
     (->subsumptive
      ((===shuowen-jiguge5 . 35700)	; &SW-JIGUGE5-35700;
@@ -88,6 +90,11 @@
     (=shuowen-jiguge	. 35707)	; &SW-JIGUGE-35707;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x25C69)	; 𥱩
+      ))
+    (<-simplified@shuowen
+     ((=shuowen-jiguge	  . 35706)	; &SW-JIGUGE-35706;
+      )
+     ((=ucs		  . #x25DDA)	; 𥷚
       ))
     (->subsumptive
      ((===shuowen-jiguge5 . 35707)	; &SW-JIGUGE5-35707;

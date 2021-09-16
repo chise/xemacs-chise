@@ -144,6 +144,9 @@
     (=big5-cdp		. #x8C78)	; &CDP-8C78;
     (=gt-k		. 00137)	; &I-GT-K00137;
     (=gt-pj-k1		. #x3629)	; &CDP-8C78; [22-09]
+    (<-formed@component
+     ((=big5-cdp	  . #x8BC5)	; &CDP-8BC5;
+      ))
     (<-unknown
      ((=big5-cdp	  . #x8BC8)	; &CDP-8BC8;
       ))
