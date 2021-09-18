@@ -684,6 +684,7 @@ DESCRIPTION (string) is the description string of the charset."
 	  =>>cbeta
 	  =>>gt
 	  =>cns11643-1
+	  =>cns11643-5
 	  =>cns11643-7
 	  ==>daijiten
 	  =>cbeta
