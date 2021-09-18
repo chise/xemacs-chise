@@ -1,3 +1,13 @@
+2021-09-17  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R045-Sprout.el (BC-8DB6-var-001): New character; use
+	`<-denotational' for U-00021D0D.
+
+2021-09-16  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR400.el (SW-JIGUGE-35803): Add U-00021D28 and
+	U-00026C67 as corresponding modern characters.
+
 2021-09-15  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R053-Dotted-Cliff.el (U-000222D5): New character.
