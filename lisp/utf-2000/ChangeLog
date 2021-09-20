@@ -1,4 +1,22 @@
+2021-09-18  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR408.el (SW-JIGUGE-36413): Add U-00022970 as a
+	corresponding modern character.
+
 2021-09-17  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R052-Short-Thread.el (U-000303EF): Add
+	`<-denotational@component' for A-IWDSU+303EF.
+	(A-IWDSU+303EF): New abstract node; unify A-IWDSU+7CF8-itaiji-002.
+	(A-U+7CF8-itaiji-002): New abstract node; use
+	`<-denotational@component' for A-IWDSU+303EF.
+	(U+7CF8-itaiji-002): New character; use `<-denotational' for
+	A-U+7CF8-itaiji-002.
+	(IU+221B6): Unify CB07313.
+	(U-000221C1): New character; use `<-denotational' for
+	A-IWDSU+221C3.
+	(U-000221C3): Likewise.
+	(A-IWDSU+221C3): New abstract node.
 
 	* Ideograph-R045-Sprout.el (BC-8DB6-var-001): New character; use
 	`<-denotational' for U-00021D0D.
