@@ -1,5 +1,15 @@
 2021-09-22  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R015-Ice.el (U+51AD): Add `<-ancient' for U+6CF0.
+	(U+51DE): Add BUCS+51DE as a target of `<-denotational@usage'.
+	(BUCS+51DE): New abstract node; use `<-denotational' for
+	A2-DJT-06898.
+
+	* Ideograph-R010-Legs.el (U-0002D016): New character.
+	(U-0002D01F): New character.
+	(U-0002D02F): New character.
+	(U-0002D038): New character.
+
 	* Ideograph-R005-Second.el (U-000200D5): Add `<-ancient' for
 	U+5DDE.
 
