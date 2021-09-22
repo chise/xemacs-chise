@@ -1314,6 +1314,11 @@
      ((=ucs		  . #x4E5A)	; 乚
       ))
     (=ucs		. #x200D5)	; 𠃕
+    (<-ancient
+     ((=ucs		  . #x5DDE)	; 州
+      ))
+    (<-ancient*sources
+     shuowen)
     ))
 (define-char
   '((<-denotational
