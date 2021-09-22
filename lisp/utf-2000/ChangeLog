@@ -1,3 +1,18 @@
+2021-09-22  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R005-Second.el (U-000200D5): Add `<-ancient' for
+	U+5DDE.
+
+2021-09-20  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R061-Heart.el (A-RUI6-E0B0): New abstract node.
+	(RUI6-E0B0): New character; use `<-denotational' for A-RUI6-E0B0.
+
+	* Ideograph-R037-Big.el (U+592A): Add `<-ancient' for U+6CF0.
+	(U+592E): Apply new conventions for glyph granularity.
+	(GT-K02488): New character; use `<-denotational' for U+592E.
+	(U-0002D45E): New character.
+
 2021-09-19  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* ShuoWen-SR410.el (SW-JIGUGE-37911): Add A-compU+6EA5 as a
