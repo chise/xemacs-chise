@@ -351,6 +351,11 @@
     (sound@ja/on/go	"tai" "tati")
     (sound@ja/on/kan	"tai" "tatu")
     (=ucs		. #x51AD)	; 冭
+    (<-ancient
+     ((=ucs		  . #x6CF0)	; 泰
+      ))
+    (<-ancient*sources
+     shuowen)
     (->subsumptive
      ((hanyu-dazidian	  1 295 5)
       (ideographic-structure
@@ -5895,6 +5900,8 @@
      ((=>ucs@iwds-1	  . #x20611)	; &A-IWDSU+20611;
       ))
     (<-denotational@usage
+     ((==>ucs@bucs	  . #x51DE)	; &BUCS+51DE;
+      )
      ((==>daijiten	  . 06898)	; &A2-DJT-06898;
       ))
     (ideographic-radical . 15)	; ⼎
@@ -6924,4 +6931,11 @@
 (define-char
   '((ideographic-radical . 15)	; ⼎
     (==>daijiten	. 00696)	; &A2-DJT-00696;
+    ))
+(define-char
+  '((<-denotational
+     ((==>daijiten	  . 06898)	; &A2-DJT-06898;
+      ))
+    (ideographic-radical . 15)	; ⼎
+    (==>ucs@bucs	. #x51DE)	; &BUCS+51DE;
     ))
