@@ -1,3 +1,14 @@
+2021-09-19  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR410.el (SW-JIGUGE-37911): Add A-compU+6EA5 as a
+	corresponding modern character.
+	(SW-JIGUGE-38703): Add A-IWDSU+6E34 as a corresponding modern
+	character.
+	(SW-JIGUGE-39000): Add U-0002164C and U-00021665 as corresponding
+	modern characters.
+	(SW-JIGUGE-39001): Add U+5933 and U+51AD as corresponding modern
+	characters; add `<-ancient@shuowen' for SW-JIGUGE-39000.
+
 2021-09-18  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* ShuoWen-SR408.el (SW-JIGUGE-36413): Add U-00022970 as a

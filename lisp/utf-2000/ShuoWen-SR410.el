@@ -1861,6 +1861,8 @@
     (=shuowen-jiguge	. 37911)	; &SW-JIGUGE-37911;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x6EA5)	; 溥
+      )
+     ((=>ucs@component	  . #x6EA5)	; &A-compU+6EA5;
       ))
     (->subsumptive
      ((===shuowen-jiguge5 . 37911)	; &SW-JIGUGE5-37911;
@@ -4551,6 +4553,8 @@
     (=shuowen-jiguge	. 38703)	; &SW-JIGUGE-38703;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x6E34)	; 渴
+      )
+     ((=>ucs@iwds-1	  . #x6E34)	; &A-IWDSU+6E34;
       ))
     (->subsumptive
      ((===shuowen-jiguge5 . 38703)	; &SW-JIGUGE5-38703;
@@ -5620,6 +5624,10 @@
   '((shuowen-radical	. 410)	; 水
     (=shuowen-jiguge	. 39000)	; &SW-JIGUGE-39000;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x2164C)	; 𡙌
+      )
+     ((=ucs		  . #x21665)	; 𡙥
+      )
      ((=ucs		  . #x6CF0)	; 泰
       ))
     (->subsumptive
@@ -5632,7 +5640,16 @@
   '((shuowen-radical	. 410)	; 水
     (=shuowen-jiguge	. 39001)	; &SW-JIGUGE-39001;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x5933)	; 夳
+      )
+     ((=ucs		  . #x51AD)	; 冭
+      )
      ((=ucs		  . #x592A)	; 太
+      ))
+    (<-ancient@shuowen
+     ((=shuowen-jiguge	  . 39000)	; &SW-JIGUGE-39000;
+      )
+     ((=ucs		  . #x6CF0)	; 泰
       ))
     (->subsumptive
      ((===shuowen-jiguge5 . 39001)	; &SW-JIGUGE5-39001;
