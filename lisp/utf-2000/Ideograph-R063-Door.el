@@ -1079,12 +1079,13 @@
     (<-ancient*sources
      shuowen daikanwa)
     (<-formed
-     ((=daikanwa	  . 15321)	; &M-15321;
+     ((=mj		  . 014344)	; &MJ014344;
       ))
     (<-formed$_1*sources
      jiyun)
     (<-same
-     ((=daikanwa	  . 15321)	; &M-15321;
+     ((=mj		  . 014344)	; &MJ014344;
+      (=daikanwa	  . 15321)	; &I-M-15321;
       ))
     (<-same$_1*sources
      jiyun daikanwa)
