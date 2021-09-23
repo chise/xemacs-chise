@@ -565,6 +565,26 @@
     (=cns11643-6	. #x2148)	; &I-C6-2148; [01-40]
     (=big5-cdp		. #x87E0)	; &I-CDP-87E0;
     (=daikanwa		. 00233)	; &I-M-00233;
+    (<-ancient
+     ((=ucs		  . #x5DDE)	; 州
+      ))
+    (<-ancient*sources
+     shuowen)
+    (->subsumptive
+     ((==ucs@iso	  . #x20113)	; &g2-CDP-87E0;
+      (==cns11643-6	  . #x2148)	; &g2-CDP-87E0; [01-40]
+      (==big5-cdp	  . #x87E0)	; &g2-CDP-87E0;
+      (==daikanwa	  . 00233)	; &g2-CDP-87E0;
+      (->subsumptive
+       ((===daikanwa	    . 00233)	; &R-M-00233;
+	)
+       ((===big5-cdp	    . #x87E0)	; &R-CDP-87E0;
+	)
+       ((===cns11643-6	    . #x2148)	; &R-C6-2148; [01-40]
+	)
+       ((===ucs@iso	    . #x20113)	; &R-U-00020113;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 6)	; ⼅
