@@ -1,5 +1,9 @@
 2021-09-22  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R060-Step.el (U-00022555): Add `sound@ja/on'.
+	(IU+22555): Add `<-formed' and `<-same' for UU+50AA; use UU+53C3
+	instead of U+53C3 as a component.
+
 	* Ideograph-R015-Ice.el (U+51AD): Add `<-ancient' for U+6CF0.
 	(U+51DE): Add BUCS+51DE as a target of `<-denotational@usage'.
 	(BUCS+51DE): New abstract node; use `<-denotational' for
@@ -10,8 +14,17 @@
 	(U-0002D02F): New character.
 	(U-0002D038): New character.
 
+	* Ideograph-R006-Hook.el (U-00020113): Add `<-ancient' for U+5DDE.
+
 	* Ideograph-R005-Second.el (U-000200D5): Add `<-ancient' for
 	U+5DDE.
+
+2021-09-21  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR415.el (SW-JIGUGE-39400): Add A-compU+5DE0 as a
+	corresponding modern character.
+	(SW-JIGUGE-39411): Add U-00020113 as a corresponding modern
+	character; add `<-ancient@shuowen' for SW-JIGUGE-39410.
 
 2021-09-20  MORIOKA Tomohiko  <tomo.git@chise.org>
 
@@ -22,6 +35,10 @@
 	(U+592E): Apply new conventions for glyph granularity.
 	(GT-K02488): New character; use `<-denotational' for U+592E.
 	(U-0002D45E): New character.
+
+	* Ideograph-R032-Earth.el (U+21275-itaiji-001): Unify GT-K02371.
+	(U-00023467): New character.
+	(U-00021422): Apply new conventions for glyph granularity.
 
 2021-09-19  MORIOKA Tomohiko  <tomo.git@chise.org>
 
