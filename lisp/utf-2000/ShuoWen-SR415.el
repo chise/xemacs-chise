@@ -16,6 +16,9 @@
     (=shuowen-jiguge	. 39400)	; &SW-JIGUGE-39400;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x5DE0)	; 巠
+      )
+     ((=>ucs@component	  . #x5DE0)	; &A-compU+5DE0;
+      (=>iwds-1		  .  0085)	; &A-compU+5DE0;
       ))
     (->subsumptive
      ((===shuowen-jiguge5 . 39400)	; &SW-JIGUGE5-39400;
@@ -148,6 +151,13 @@
     (=shuowen-jiguge	. 39411)	; &SW-JIGUGE-39411;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x200D5)	; 𠃕
+      )
+     ((=ucs		  . #x20113)	; 𠄓
+      ))
+    (<-ancient@shuowen
+     ((=shuowen-jiguge	  . 39410)	; &SW-JIGUGE-39410;
+      )
+     ((=ucs		  . #x5DDE)	; 州
       ))
     (->subsumptive
      ((===shuowen-jiguge5 . 39411)	; &SW-JIGUGE5-39411;
