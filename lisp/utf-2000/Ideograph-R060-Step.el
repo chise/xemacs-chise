@@ -14583,6 +14583,7 @@
      ((=>ucs@component	  . #x53C4)	; &A-compU+53C4;
       (=>iwds-1		  .  0017)	; &A-compU+53C4;
       ))
+    (sound@ja/on	"saN")
     (=ucs		. #x22555)	; 𢕕
     ))
 (define-char
@@ -14598,13 +14599,29 @@
       )
      ((=ucs		  . #x5F73)	; 彳
       )
-     ((=ucs		  . #x53C3)	; 參
+     ((=ucs@unicode	  . #x53C3)	; &AJ1-04329;
+      (=adobe-japan1-0	  . 04329)	; &AJ1-04329;
       ))
     (=ucs@iso		. #x22555)	; &MJ035905;
     (=mj		. 035905)	; &MJ035905;
     (=cns11643-4	. #x4341)	; &I-C4-4341; [35-33]
     (=koseki		. 115470)	; &MJ035905;
     (=daikanwa		. 10223)	; &I-M-10223;
+    (<-formed
+     ((=ucs@unicode	  . #x50AA)	; &AJ1-17281;
+      (=adobe-japan1-5	  . 17281)	; &AJ1-17281;
+      ))
+    (<-formed$_1*sources
+     jiyun)
+    (<-same
+     ((=ucs@unicode	  . #x50AA)	; &AJ1-17281;
+      (=adobe-japan1-5	  . 17281)	; &AJ1-17281;
+      (=daikanwa	  . 01002)	; &I-M-01002;
+      ))
+    (<-same$_1*sources
+     jiyun daikanwa)
+    (<-same*sources
+     jiyun daikanwa)
     (->subsumptive
      ((==ucs@iso	  . #x22555)	; &g2-MJ035905;
       (==mj		  . 035905)	; &g2-MJ035905;
