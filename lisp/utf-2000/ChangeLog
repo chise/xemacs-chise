@@ -1,3 +1,13 @@
+2021-09-24  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR417.el (SW-JIGUGE-39501): Add U+539F as a
+	corresponding modern character.
+
+2021-09-23  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR236.el (SW-JIGUGE-22910): Add U+3B2A, U+7589,
+	U-00024D01 and U+758A as corresponding modern characters.
+
 2021-09-22  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R060-Step.el (U-00022555): Add `sound@ja/on'.
