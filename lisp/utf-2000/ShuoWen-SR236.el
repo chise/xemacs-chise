@@ -103,7 +103,15 @@
   '((shuowen-radical	. 236)	; 晶
     (=shuowen-jiguge	. 22910)	; &SW-JIGUGE-22910;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x3B2A)	; 㬪
+      )
      ((=ucs		  . #x66E1)	; 曡
+      )
+     ((=ucs		  . #x7589)	; 疉
+      )
+     ((=ucs		  . #x24D01)	; 𤴁
+      )
+     ((=ucs		  . #x758A)	; 疊
       ))
     (->subsumptive
      ((===shuowen-jiguge5 . 22910)	; &SW-JIGUGE5-22910;
