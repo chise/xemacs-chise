@@ -135,7 +135,16 @@
   '((shuowen-radical	. 421)	; 仌
     (=shuowen-jiguge	. 39615)	; &SW-JIGUGE-39615;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x20519)	; 𠔙
+      )
      ((=ucs		  . #x231BC)	; 𣆼
+      )
+     ((=ucs		  . #x23148)	; 𣅈
+      ))
+    (<-ancient@shuowen
+     ((=shuowen-jiguge	  . 39614)	; &SW-JIGUGE-39614;
+      )
+     ((=ucs		  . #x51AC)	; 冬
       ))
     (->subsumptive
      ((===shuowen-jiguge5 . 39615)	; &SW-JIGUGE5-39615;
