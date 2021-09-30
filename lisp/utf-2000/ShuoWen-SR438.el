@@ -338,58 +338,20 @@
 (define-char
   '((shuowen-radical	. 438)	; 門
     (=shuowen-jiguge	. 41422)	; &SW-JIGUGE-41422;
+    (<-Small-Seal@shuowen
+     ((=ucs		  . #x28D09)	; 𨴉
+      )
+     ((=ucs		  . #x28D51)	; 𨵑
+      ))
+    (<-ancient@shuowen
+     ((=shuowen-jiguge	  . 41421)	; &SW-JIGUGE-41421;
+      )
+     ((=ucs		  . #x958B)	; 開
+      ))
     (->subsumptive
      ((===shuowen-jiguge5 . 41422)	; &SW-JIGUGE5-41422;
-      (<-Small-Seal@shuowen
-       ((ideographic-structure
-	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
-	  (=ucs		      . #x2FF5)	; ⿵
-	  )
-	 ((=ucs		      . #x9580)	; 門
-	  )
-	 ((ideographic-structure
-	   ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	    (=ucs		. #x2FF0)	; ⿰
-	    )
-	   ((ideographic-structure
-	     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	      (=ucs		  . #x2FF1)	; ⿱
-	      )
-	     ((=ucs		  . #x4E00)	; 一
-	      )
-	     ((=ucs		  . #x4E29)	; 丩
-	      ))
-	    )
-	   ((=ucs		. #x53C8)	; 又
-	    ))
-	  ))
-	))
       )
      ((===shuowen-jiguge4 . 40122)	; &SW-JIGUGE4-40122;
-      (<-Small-Seal@shuowen
-       ((ideographic-structure
-	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
-	  (=ucs		      . #x2FF5)	; ⿵
-	  )
-	 ((=ucs		      . #x9580)	; 門
-	  )
-	 ((ideographic-structure
-	   ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	    (=ucs		. #x2FF0)	; ⿰
-	    )
-	   ((ideographic-structure
-	     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	      (=ucs		  . #x2FF1)	; ⿱
-	      )
-	     ((=ucs		  . #x4E00)	; 一
-	      )
-	     ((=ucs		  . #x4E29)	; 丩
-	      ))
-	    )
-	   ((=ucs		. #x53C8)	; 又
-	    ))
-	  ))
-	))
       ))
     ))
 (define-char
