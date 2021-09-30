@@ -1,3 +1,31 @@
+2021-09-28  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR438.el (SW-JIGUGE-41422): Add U-00028D09 and
+	U-00028D51 as corresponding modern characters; add
+	`<-ancient@shuowen' for U+958B.
+	(SW-JIGUGE5-41422): Omit `<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-40122): Ditto.
+
+2021-09-27  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R038-Woman.el (U-0002D491): New character.
+	(U+3717): Apply new conventions for glyph granularity.
+	(U-00021856): Add `sound@ja/on'.
+	(MJ033742): Add `<-formed' and `<-same' for UU+3717.
+
+2021-09-27  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R011-Enter.el (U-0002B92A): New character.
+	(U-000204FE): New character.
+
+	* Ideograph-R009-Man.el (A-BC-884A-itaiji-001): New abstract node.
+	(BC-884A-itaiji-001): New character; use `<-denotational' for
+	A-BC-884A-itaiji-001; unify BC-884A-var-003.
+	(U-000202DE): Apply new conventions for glyph granularity.
+	(U-000202C0): Likewise.
+	(U-000202C7): New character.
+	(U+50AA): Apply new conventions for glyph granularity.
+
 2021-09-26  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* ShuoWen-SR421.el (SW-JIGUGE-39615): Add U-00020519 and
