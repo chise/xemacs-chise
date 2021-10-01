@@ -1,3 +1,18 @@
+2021-09-29  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R032-Earth.el (A-U+5C0C-itaiji-002): New abstract
+	node.
+	(U+5C0C-itaiji-002): New character; use `<-denotational' for
+	A-U+5C0C-itaiji-002.
+	(U-00021383): New character.
+
+	* Ideograph-R012-Eight.el (A-U+51AC-itaiji-002): New abstract
+	node.
+	(U+51AC-itaiji-002): New character; use `<-denotational' for
+	A-U+51AC-itaiji-002.
+	(U-00020519): Add `ideographic-structure'; add `<-ancient' for
+	U+51AC.
+
 2021-09-28  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* ShuoWen-SR438.el (SW-JIGUGE-41422): Add U-00028D09 and
