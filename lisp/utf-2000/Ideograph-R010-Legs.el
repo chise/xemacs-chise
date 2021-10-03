@@ -7201,6 +7201,63 @@
     ))
 (define-char
   '((ideographic-radical . 10)	; ⼉
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((=>ucs@component    . #x5200)	; &A-compU+5200;
+	(=>iwds-1	    .  0149)	; &A-compU+5200;
+	)
+       ((=ucs		    . #x53EA)	; 只
+	))
+      )
+     ((=>ucs@component	  . #x514D)	; &A-compU+514D;
+      (=>iwds-1		  .  10243)	; &A-compU+514D;
+      ))
+    (=>ucs-itaiji-001	. #x2D030)	; &A-U-i001+2D030;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs-itaiji-001	  . #x2D030)	; &A-U-i001+2D030;
+      ))
+    (ideographic-radical . 10)	; ⼉
+    (ideographic-strokes . 12)
+    (total-strokes	 . 14)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((name		    . "CJK RADICAL KNIFE ONE")
+	(=ucs		    . #x2E88)	; ⺈
+	)
+       ((=ucs		    . #x53EA)	; 只
+	))
+      )
+     ((=ucs@unicode	  . #x514D)	; &MJ007229;
+      (=mj		  . 007229)	; &MJ007229;
+      ))
+    (=ucs-itaiji-001	. #x2D030)	; &U-i001+2D030;
+    (<-formed@component
+     ((=ucs@JP/hanazono	  . #x2D030)	; &MJ056977;
+      (=mj		  . 056977)	; &MJ056977;
+      )
+     ((=ucs@unicode	  . #x6BDA)	; &MJ014951;
+      (=mj		  . 014951)	; &MJ014951;
+      ))
+    (->subsumptive
+     ((==ucs-itaiji-001	  . #x2D030)	; &g2-U-i001+2D030;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 10)	; ⼉
     (ideographic-strokes . 13)
     (total-strokes	 . 15)
     (hanyu-dazidian	1 275 6)
