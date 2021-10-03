@@ -1,3 +1,21 @@
+2021-09-30  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R039-Child.el (U-0002D4DB): New character.
+
+	* Ideograph-R031-Enclosure.el (U-0002BB44): New character.
+	(A-U+2BB44-itaiji-001): New abstract node.
+	(U+2BB44-itaiji-001): New character; use `<-denotational' for
+	A-U+2BB44-itaiji-001.
+	(U-000211DE): Apply new conventions for glyph granularity.
+	(M-04764): Add `<-denotational' for U-000211DE; unify IU+211DE,
+	MJ032855 and KOSEKI-054390.
+	(U-000211F6): Apply new conventions for glyph granularity.
+
+	* Ideograph-R010-Legs.el (A-U+2D030-itaiji-001): New abstract
+	node.
+	(U+2D030-itaiji-001): New character; use `<-denotational' for
+	A-U+2D030-itaiji-001.
+
 2021-09-29  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R032-Earth.el (A-U+5C0C-itaiji-002): New abstract
