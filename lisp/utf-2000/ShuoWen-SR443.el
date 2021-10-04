@@ -242,92 +242,31 @@
 (define-char
   '((shuowen-radical	. 443)	; 女
     (=shuowen-jiguge	. 42916)	; &SW-JIGUGE-42916;
+    (<-Small-Seal@shuowen
+     ((=ucs		  . #x2157D)	; 𡕽
+      )
+     ((=ucs		  . #x2453F)	; 𤔿
+      )
+     ((=ucs		  . #x21580)	; 𡖀
+      )
+     ((=ucs		  . #x2157C)	; 𡕼
+      ))
+    (<-Zhouwen@shuowen
+     ((=shuowen-jiguge	  . 42915)	; &SW-JIGUGE-42915;
+      )
+     ((=ucs		  . #x5A5A)	; 婚
+      ))
+    (<-ancient
+     ((=shuowen-jiguge	  . 22504)	; &SW-JIGUGE-22504;
+      )
+     ((=ucs		  . #x660F)	; 昏
+      ))
+    (<-ancient*sources
+     shuowen-jiguge=49912)
     (->subsumptive
      ((===shuowen-jiguge5 . 42916)	; &SW-JIGUGE5-42916;
-      (<-Small-Seal@shuowen
-       ((ideographic-structure
-	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	  (=ucs		      . #x2FF1)	; ⿱
-	  )
-	 ((name		      . "CJK RADICAL PAW ONE")
-	  (=ucs		      . #x2EA4)	; ⺤
-	  )
-	 ((ideographic-structure
-	   ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
-	    (=ucs		. #x2FF8)	; ⿸
-	    )
-	   ((=ucs		. #x5C38)	; 尸
-	    )
-	   ((ideographic-structure
-	     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	      (=ucs		  . #x2FF1)	; ⿱
-	      )
-	     ((ideographic-structure
-	       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO MIDDLE AND RIGHT")
-		(=ucs		    . #x2FF2)	; ⿲
-		)
-	       ((=ucs		    . #x6B62)	; 止
-		)
-	       ((ideographic-structure
-		 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-		  (=ucs		      . #x2FF0)	; ⿰
-		  )
-		 ((=ucs		      . #x4E28)	; 丨
-		  )
-		 ((=ucs		      . #x4E28)	; 丨
-		  ))
-		)
-	       ((=ucs		    . #x5DF3)	; 巳
-		))
-	      )
-	     ((=ucs		  . #x5902)	; 夂
-	      ))
-	    ))
-	  ))
-	))
       )
      ((===shuowen-jiguge4 . 41616)	; &SW-JIGUGE4-41616;
-      (<-Small-Seal@shuowen
-       ((ideographic-structure
-	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	  (=ucs		      . #x2FF1)	; ⿱
-	  )
-	 ((name		      . "CJK RADICAL PAW ONE")
-	  (=ucs		      . #x2EA4)	; ⺤
-	  )
-	 ((ideographic-structure
-	   ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
-	    (=ucs		. #x2FF8)	; ⿸
-	    )
-	   ((=ucs		. #x5C38)	; 尸
-	    )
-	   ((ideographic-structure
-	     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	      (=ucs		  . #x2FF1)	; ⿱
-	      )
-	     ((ideographic-structure
-	       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO MIDDLE AND RIGHT")
-		(=ucs		    . #x2FF2)	; ⿲
-		)
-	       ((=ucs		    . #x6B62)	; 止
-		)
-	       ((ideographic-structure
-		 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-		  (=ucs		      . #x2FF0)	; ⿰
-		  )
-		 ((=ucs		      . #x4E28)	; 丨
-		  )
-		 ((=ucs		      . #x4E28)	; 丨
-		  ))
-		)
-	       ((=ucs		    . #x5DF3)	; 巳
-		))
-	      )
-	     ((=ucs		  . #x5902)	; 夂
-	      ))
-	    ))
-	  ))
-	))
       ))
     ))
 (define-char
@@ -646,6 +585,8 @@
   '((shuowen-radical	. 443)	; 女
     (=shuowen-jiguge	. 43015)	; &SW-JIGUGE-43015;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x36EE)	; 㛮
+      )
      ((=ucs		  . #x5AC2)	; 嫂
       ))
     (->subsumptive
