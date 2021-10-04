@@ -1,3 +1,21 @@
+2021-10-02  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR441.el (SW-JIGUGE-41720): Add U-000200BF as a
+	corresponding modern character; add `<-ancient@shuowen' for
+	SW-JIGUGE-41719.
+	(SW-JIGUGE-41812): Add U-00022CCE and U-00022C6D as corresponding
+	modern characters.
+	(SW-JIGUGE5-41813): Use `<-denotational' instead of
+	`<-subsumptive' for SW-JIGUGE-41813; add `<-formed@shuowen' for
+	SW-JIGUGE-41812.
+	(SW-JIGUGE4-40513): Likewise.
+	(SW-JIGUGE4-41814): Add U-00022A92 as a corresponding modern
+	character; add `<-ancient@shuowen' for SW-JIGUGE4-41812.
+	(SW-JIGUGE4-42017): Add `<-formed@shuowen' for SW-JIGUGE4-42016.
+	(SW-JIGUGE4-42213): Add `<-formed@shuowen' for SW-JIGUGE4-42212.
+	(SW-JIGUGE4-42501): Add `<-ancient@shuowen' for SW-JIGUGE4-42500.
+	(SW-JIGUGE4-42610): Add `<-formed@shuowen' for SW-JIGUGE4-42609.
+
 2021-09-30  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R039-Child.el (U-0002D4DB): New character.
