@@ -1,3 +1,13 @@
+2021-10-03  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R057-Bow.el (U-0002242F): Apply new conventions for
+	glyph granularity.
+	(U-0002242E): New character.
+	(U-00022435): New character.
+	(U-0002D6CC): New character.
+
+	* Ideograph-R022-Right-Open-Box.el (U-0002D15E): New character.
+
 2021-10-02  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* ShuoWen-SR441.el (SW-JIGUGE-41720): Add U-000200BF as a
