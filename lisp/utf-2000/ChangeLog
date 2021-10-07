@@ -1,3 +1,33 @@
+2021-10-04  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R028-Private.el (U-00020AEF): Apply new conventions
+	for glyph granularity.
+	(U+53C2): Likewise.
+	(U-0002D19E): Likewise.
+	(U+53C3): Likewise.
+	(U+53C4): Likewise.
+	(U+3558): Likewise.
+	(U+53C5): Likewise.
+
+	* Ideograph-R009-Man.el (A-cgnU+512A): Changed from U+512A; omit
+	`<-denotational@usage' for BUCS+512A.
+	(A-J0-4D25): Use A-cgnU+512A instead of U+512A as its mother;
+	unify U+512A instead of A-IWDSU+512A and A-UU+512A; add
+	`<-denotational@usage' for BUCS+512A.
+	(HNG-KHM0005-0): Use A-cgnU+512A instead of U+512A as its mother;
+	add `<-denotational@usage' for BUCS+512A.
+	(MJ007180): Ditto.
+
+2021-10-04  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR443.el (SW-JIGUGE-42916): Add `<-Small-Seal@shuowen'
+	for U-0002157D, U-0002453F, U-00021580 and U-0002157C; add
+	`<-Zhouwen@shuowen' for SW-JIGUGE-42915; add `<-ancient' for
+	SW-JIGUGE-22504.
+	(SW-JIGUGE5-42916): Omit `<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-41616): Ditto.
+	(SW-JIGUGE-43015): Add U+36EE as a corresponding modern character.
+
 2021-10-03  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R057-Bow.el (U-0002242F): Apply new conventions for
