@@ -1,3 +1,13 @@
+2021-10-06  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR460.el (SW-JIGUGE-44406): Add A-U+20696-itaiji-003 as
+	a corresponding modern character.
+
+2021-10-06  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR062.el (SW-JIGUGE-08104): Add `<-formed@shuowen' for
+	SW-JIGUGE-08103.
+
 2021-10-04  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R028-Private.el (U-00020AEF): Apply new conventions
