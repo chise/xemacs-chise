@@ -29,6 +29,8 @@
   '((shuowen-radical	. 460)	; 曲
     (=shuowen-jiguge	. 44406)	; &SW-JIGUGE-44406;
     (<-Small-Seal@shuowen
+     ((=>ucs-itaiji-003	  . #x20696)	; &A-U-i003+20696;
+      )
      ((=ucs		  . #x20696)	; 𠚖
       ))
     (->subsumptive
