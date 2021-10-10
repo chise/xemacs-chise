@@ -5421,6 +5421,21 @@
     ))
 (define-char
   '((ideographic-radical . 9)	; ⼈
+    (ideographic-strokes . 3)
+    (total-strokes	 . 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>ucs@iwds-1	  . #x4EBA)	; &A-IWDSU+4EBA;
+      (=>iwds-1		  .  14623)	; &A-IWDSU+4EBA;
+      )
+     ((=ucs		  . #x5F50)	; 彐
+      ))
+    (=>gt-k		. 01539)	; &A-GT-K01539;
+    ))
+(define-char
+  '((ideographic-radical . 9)	; ⼈
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
@@ -5601,6 +5616,29 @@
      ((=ucs		  . #x6C0F)	; 氏
       ))
     (=cbeta		. 02981)	; &CB02981;
+    ))
+(define-char
+  '((<-denotational
+     ((=>gt-k		  . 01539)	; &A-GT-K01539;
+      ))
+    (ideographic-radical . 9)	; ⼈
+    (ideographic-strokes . 3)
+    (total-strokes	 . 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x4EBA)	; 人
+      )
+     ((=ucs@unicode	  . #x5F50)	; &G0-6566;
+      (=gb2312		  . #x6566)	; &G0-6566; [69-70]
+      ))
+    (=gt-k		. 01539)	; &GT-K01539;
+    (=gt-pj-k1		. #x4E34)	; &GT-K01539; [46-20]
+    (->subsumptive
+     ((==gt-k		  . 01539)	; &g2-GT-K01539;
+      (==gt-pj-k1	  . #x4E34)	; &g2-GT-K01539; [46-20]
+      ))
     ))
 (define-char
   '((<-denotational
@@ -22646,6 +22684,16 @@
   '((ideographic-radical . 9)	; ⼈
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>ucs@iwds-1	  . #x4ECE)	; &A-IWDSU+4ECE;
+      (=>ucs@iwds-1/normalized . #x4ECE)	; &A-IWDSU+4ECE;
+      )
+     ((=>ucs@iwds-1	  . #x4ECE)	; &A-IWDSU+4ECE;
+      (=>ucs@iwds-1/normalized . #x4ECE)	; &A-IWDSU+4ECE;
+      ))
     (sound@ja/on	"gu")
     (=ucs		. #x2020C)	; 𠈌
     ))
@@ -22657,6 +22705,14 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
     (hanyu-dazidian	1 143 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x4ECE)	; 从
+      )
+     ((=ucs		  . #x4ECE)	; 从
+      ))
     (=ucs@iso		. #x2020C)	; &C4-2535;
     (=cns11643-4	. #x2535)	; &C4-2535; [05-21]
     (=daikanwa		. 00611)	; &I-M-00611;
