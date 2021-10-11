@@ -1133,6 +1133,11 @@
     (total-strokes	 . 6)
     (sound@ja/on	"syuu")
     (=ucs		. #x20082)	; 𠂂
+    (<-ancient
+     ((=ucs		  . #x7D42)	; 終
+      ))
+    (<-ancient*sources
+     shuowen)
     ))
 (define-char
   '((<-denotational
