@@ -1,5 +1,10 @@
 2021-10-10  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R017-Open-Box.el (A-BC-88C6): New abstract node; use
+	`<-denotational@component' for A-IWDSU+51FA; unify A-GT-K02096.
+	(BC-88C6): Use `<-denotational' for A-BC-88C6 instead of
+	`<-denotational@component' for A-IWDSU+51FA.
+
 	* Ideograph-R003-Dot.el (U-00020082): Add `<-ancient' for U+7D42.
 
 2021-10-09  MORIOKA Tomohiko  <tomo.git@chise.org>
