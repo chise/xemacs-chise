@@ -1,3 +1,16 @@
+2021-10-10  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R003-Dot.el (U-00020082): Add `<-ancient' for U+7D42.
+
+2021-10-09  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR467.el (SW-JIGUGE-45001): Add A-IWDSU+7D55 as a
+	corresponding modern character.
+	(SW-JIGUGE-45114): Add `<-ancient@shuowen' for SW-JIGUGE-45113.
+
+	* ShuoWen-SR438.el (SW-JIGUGE-41521): Add U-00028D9E as a
+	corresponding modern character.
+
 2021-10-06  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* ShuoWen-SR460.el (SW-JIGUGE-44406): Add A-U+20696-itaiji-003 as
