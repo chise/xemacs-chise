@@ -706,6 +706,8 @@
   '((shuowen-radical	. 438)	; 門
     (=shuowen-jiguge	. 41521)	; &SW-JIGUGE-41521;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x28D9E)	; 𨶞
+      )
      ((=ucs		  . #x95DE)	; 闞
       ))
     (->subsumptive
