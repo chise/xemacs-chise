@@ -5,6 +5,11 @@
 	(BC-88C6): Use `<-denotational' for A-BC-88C6 instead of
 	`<-denotational@component' for A-IWDSU+51FA.
 
+	* Ideograph-R009-Man.el (A-GT-K01539): New abstract node.
+	(GT-K01539): New character; use `<-denotational' for A-GT-K01539.
+	(U-0002020C): Add `ideographic-structure'.
+	(IU+2020C): Add `ideographic-structure'.
+
 	* Ideograph-R003-Dot.el (U-00020082): Add `<-ancient' for U+7D42.
 
 2021-10-09  MORIOKA Tomohiko  <tomo.git@chise.org>
