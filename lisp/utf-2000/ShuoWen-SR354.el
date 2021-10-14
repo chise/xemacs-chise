@@ -135,7 +135,14 @@
   '((shuowen-radical	. 354)	; 厂
     (=shuowen-jiguge	. 31810)	; &SW-JIGUGE-31810;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x274FD)	; 𧓽
+      )
      ((=ucs		  . #x20ABF)	; 𠪿
+      ))
+    (<-formed@shuowen
+     ((=shuowen-jiguge	  . 31809)	; &SW-JIGUGE-31809;
+      )
+     ((=ucs		  . #x53B2)	; 厲
       ))
     (->subsumptive
      ((===shuowen-jiguge5 . 31810)	; &SW-JIGUGE5-31810;
