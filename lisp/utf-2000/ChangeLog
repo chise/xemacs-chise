@@ -1,3 +1,28 @@
+2021-10-13  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R050-Turban.el (U+5DFF): Add
+	`ideographic-structure@apparent'; add `->subsumptive'.
+	(U-00022076): New character.
+	(U+3851): Apply new conventions for glyph granularity.
+	(U-000220F8): Likewise.
+	(U+3855): Add `sound@ja/on'.
+	(CU+3855): Add `<-formed' and `<-same' for UU+592E.
+	(U+5E53): Apply new conventions for glyph granularity.
+	(U+5E67): Likewise.
+	(U+3868): Likewise.
+
+	* ShuoWen-SR266.el (SW-JIGUGE-24502): Use `->denotational' instead
+	of `->subsumptive'; add some corresponding modern characters.
+	(SW-JIGUGE-24503): Add U-00020B18 as a corresponding modern
+	character; add `<-formed@shuowen' for SW-JIGUGE5-24502 and
+	SW-JIGUGE4-24002.
+
+	* char-db-util.el (char-db-coded-charset-priority-list): Add
+	`===shuowen-jiguge5' and `===shuowen-jiguge4'.
+
+	* ShuoWen-SR214.el (SW-JIGUGE-20303): Add U-0002AA72 as a
+	corresponding modern character.
+
 2021-10-10  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R017-Open-Box.el (A-BC-88C6): New abstract node; use
