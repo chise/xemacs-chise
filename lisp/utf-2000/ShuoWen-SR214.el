@@ -55,6 +55,8 @@
       )
      ((=big5-cdp	  . #x89E4)	; &CDP-89E4;
       )
+     ((=ucs		  . #x2AA72)	; 𪩲
+      )
      ((=ucs		  . #x20094)	; 𠂔
       ))
     (->subsumptive
