@@ -871,10 +871,35 @@
   '((ideographic-radical . 69)	; ⽄
     (ideographic-strokes . 6)
     (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=>big5-cdp	  . #x88C6)	; &A-GT-K02096;
+      )
+     ((=ucs		  . #x65A4)	; 斤
+      ))
     (=ucs		. #x3ABF)	; 㪿
-    (=cns11643-6	. #x3830)	; &I-C6-3830; [24-16]
-    (=daikanwa/+p	. 13553)	; 㪿
-    (=shinjigen		.  3222)	; 㪿
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x3ABF)	; 㪿
+      ))
+    (ideographic-radical . 69)	; ⽄
+    (ideographic-strokes . 6)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=gt-k		  . 02096)	; &GT-K02096;
+      )
+     ((=ucs		  . #x65A4)	; 斤
+      ))
+    (=ucs@unicode	. #x3ABF)	; &C6-3830;
+    (=cns11643-6	. #x3830)	; &C6-3830; [24-16]
+    (=daikanwa/+p	. 13553)	; &C6-3830;
+    (=shinjigen		.  3222)	; &C6-3830;
     (<-original
      ((=ucs		  . #x6298)	; 折
       (=jis-x0208	  . #x405E)	; &I-J90-405E; [32-62]

@@ -23,6 +23,11 @@
 	* ShuoWen-SR214.el (SW-JIGUGE-20303): Add U-0002AA72 as a
 	corresponding modern character.
 
+2021-10-12  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R069-Axe.el (U+3ABF): Apply new conventions for glyph
+	granularity.
+
 2021-10-10  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R017-Open-Box.el (A-BC-88C6): New abstract node; use
