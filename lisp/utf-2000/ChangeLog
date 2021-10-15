@@ -1,3 +1,17 @@
+2021-10-14  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R036-Evening.el (A-U+5915-itaiji-003): New abstract
+	node; use `<-denotational@component' for A-compU+5915; unify
+	A-U+5915-itaiji-004.
+	(U+5915-itaiji-003): New character; use `<-denotational' for
+	A-U+5915-itaiji-003.
+	(U+5915-itaiji-004): Ditto.
+
+	* Ideograph-R014-Cover.el (A-U+5BC5-itaiji-001): New abstract
+	node.
+	(U+5BC5-itaiji-001): New character; use `<-denotational' for
+	A-U+5BC5-itaiji-001.
+
 2021-10-13  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R050-Turban.el (U+5DFF): Add
