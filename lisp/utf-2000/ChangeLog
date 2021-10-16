@@ -12,6 +12,8 @@
 	(U+5BC5-itaiji-001): New character; use `<-denotational' for
 	A-U+5BC5-itaiji-001.
 
+	* Ideograph-R005-Second.el (U-0002CF1E): New character.
+
 2021-10-13  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R050-Turban.el (U+5DFF): Add
