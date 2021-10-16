@@ -1488,7 +1488,7 @@
   '((<-denotational@usage
      ((==>daijiten	  . 03366)	; &A2-DJT-03366;
       )
-     ((==>daijiten	  . 03462)	; &A2-DJT-03462;
+     ((==>ucs@bucs	  . #x6167)	; &BUCS+6167;
       )
      ((==>daijiten	  . 10630)	; &A2-DJT-10630;
       ))
