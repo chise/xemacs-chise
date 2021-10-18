@@ -32,12 +32,36 @@
     (=daikanwa		. 03115)	; &I-M-03115;
     (=daijiten		. 01108)	; &I-DJT-01108;
     (=shinjigen		.  0897)	; 又
+    (<-interchangeable
+     ((=ucs@unicode	  . #x6709)	; &MJ013521;
+      (=mj		  . 013521)	; &MJ013521;
+      (=daikanwa	  . 14332)	; &I-M-14332;
+      )
+     ((=ucs@unicode	  . #x5BA5)	; &AJ1-03858;
+      (=adobe-japan1-0	  . 03858)	; &AJ1-03858;
+      (=daikanwa	  . 07137)	; &I-M-07137;
+      ))
+    (<-interchangeable$_1*sources
+     shiwen daikanwa)
+    (<-interchangeable$_2*sources
+     shuowen-tongxun-dingsheng liji-zhu shiwen daikanwa)
+    (<-interchangeable*sources
+     shiwen daikanwa)
     (<-same
      ((=ucs		  . #x53F3)	; 右
       (=daikanwa	  . 03250)	; &I-M-03250;
       ))
     (<-same*sources
      shuowen-zhu daikanwa)
+    (<-vulgar
+     ((=ucs		  . #x4DB9)	; 䶹
+      ))
+    (->Bopomofo
+     ((name		  . "BOPOMOFO LETTER OU")
+      (=ucs		  . #x3121)	; ㄡ
+      ))
+    (->Bopomofo*sources
+     daikanwa)
     (->subsumptive
      ((=>>ucs@ks	  . #x53C8)	; &GT-K00065;
       (=gt-k		  . 00065)	; &GT-K00065;
