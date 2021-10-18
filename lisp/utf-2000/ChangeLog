@@ -1,3 +1,23 @@
+2021-10-15  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R045-Sprout.el (U+FA3C): Add `<-denotational@usage'
+	for A2-DJT-02517; apply new conventions for glyph granularity.
+	(U+4DB9): Add `sound@ja/on'; use `<-interchangeable' instead of
+	`->synonyms' for UU+5DE6; add some corresponding modern
+	characters.
+	(A-GT-K02096): Moved to Ideograph-R017-Open-Box.el; unify
+	A-BC-88C6.
+	(U-00021D09): New character.
+	(A-cgnU+21D12): New abstract node; unify A-C5-2876.
+	(U-00021D14): New character; use `<-denotational' for
+	A-cgnU+21D12.
+	(M-07849): Add `<-denotational' for U-00021D14; delete `=>ucs' for
+	U-00021D12; unify IU+21D14.
+	(U-00021D12): Add `<-denotational' for U-00021D12; apply new
+	conventions for glyph granularity.
+	(U-00021D24): Apply new conventions for glyph granularity.
+	(A2-DJT-02517): New abstract node.
+
 2021-10-14  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R036-Evening.el (A-U+5915-itaiji-003): New abstract
@@ -13,6 +33,14 @@
 	A-U+5BC5-itaiji-001.
 
 	* Ideograph-R005-Second.el (U-0002CF1E): New character.
+
+	* ShuoWen-SR354.el (SW-JIGUGE-31810): Add U-000274FD as a
+	corresponding modern character; add `<-formed@shuowen' for
+	SW-JIGUGE-31809.
+
+	* ShuoWen-SR206.el (SW-JIGUGE-19019): Add U-00023533 as a
+	corresponding modern character.
+	(SW-JIGUGE-19126): Add U+6ACB as a corresponding modern character.
 
 2021-10-13  MORIOKA Tomohiko  <tomo.git@chise.org>
 
