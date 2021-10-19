@@ -17,6 +17,10 @@
     (<-Small-Seal@shuowen
      ((=ucs		  . #x237A4)	; 𣞤
       )
+     ((=ucs		  . #x237D2)	; 𣟒
+      )
+     ((=ucs		  . #x6A46)	; 橆
+      )
      ((=ucs		  . #x7121)	; 無
       ))
     (->subsumptive

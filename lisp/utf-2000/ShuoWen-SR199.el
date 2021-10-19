@@ -27,6 +27,8 @@
   '((shuowen-radical	. 199)	; 舛
     (=shuowen-jiguge	. 18002)	; &SW-JIGUGE-18002;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x26A05)	; 𦨅
+      )
      ((=ucs		  . #x821E)	; 舞
       ))
     (->subsumptive
@@ -40,6 +42,15 @@
     (=shuowen-jiguge	. 18003)	; &SW-JIGUGE-18003;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x263F6)	; 𦏶
+      )
+     ((=ucs		  . #x26400)	; 𦐀
+      ))
+    (<-ancient@shuowen
+     ((=shuowen-jiguge	  . 18002)	; &SW-JIGUGE-18002;
+      )
+     ((=ucs		  . #x26A05)	; 𦨅
+      )
+     ((=ucs		  . #x821E)	; 舞
       ))
     (->subsumptive
      ((===shuowen-jiguge5 . 18003)	; &SW-JIGUGE5-18003;

@@ -416,6 +416,8 @@
   '((shuowen-radical	. 76)	; 又
     (=shuowen-jiguge	. 09116)	; &SW-JIGUGE-09116;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x30424)	; 𰐤
+      )
      ((=ucs		  . #x5F57)	; 彗
       ))
     (->subsumptive
@@ -430,6 +432,13 @@
     (<-Small-Seal@shuowen
      ((=ucs		  . #x7BF2)	; 篲
       ))
+    (<-formed@shuowen
+     ((=shuowen-jiguge	  . 09116)	; &SW-JIGUGE-09116;
+      )
+     ((=ucs		  . #x30424)	; 𰐤
+      )
+     ((=ucs		  . #x5F57)	; 彗
+      ))
     (->subsumptive
      ((===shuowen-jiguge5 . 09117)	; &SW-JIGUGE5-09117;
       )
@@ -441,6 +450,13 @@
     (=shuowen-jiguge	. 09118)	; &SW-JIGUGE-09118;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x25C75)	; 𥱵
+      ))
+    (<-ancient@shuowen
+     ((=shuowen-jiguge	  . 09116)	; &SW-JIGUGE-09116;
+      )
+     ((=ucs		  . #x30424)	; 𰐤
+      )
+     ((=ucs		  . #x5F57)	; 彗
       ))
     (->subsumptive
      ((===shuowen-jiguge5 . 09118)	; &SW-JIGUGE5-09118;
