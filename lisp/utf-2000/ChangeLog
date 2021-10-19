@@ -1,3 +1,30 @@
+2021-10-17  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR208.el (SW-JIGUGE-19914): Add U-000237D2 and U+6A46 as
+	corresponding modern characters.
+
+	* ShuoWen-SR199.el (SW-JIGUGE-18002): Add U-00026A05 as a
+	corresponding modern character.
+	(SW-JIGUGE-18003): Add U-00026400 as a corresponding modern
+	character; add `<-ancient@shuowen' for SW-JIGUGE-18002.
+
+	* ShuoWen-SR147.el (SW-JIGUGE-15404): Add `<-formed@shuowen' for
+	SW-JIGUGE-15403.
+	(SW-JIGUGE-15405): Add `<-ancient@shuowen' for SW-JIGUGE-15403.
+
+	* ShuoWen-SR076.el (SW-JIGUGE-09116): Add U-00030424 as a
+	corresponding modern character.
+	(SW-JIGUGE-09117): Add `<-formed@shuowen' for SW-JIGUGE-09116.
+	(SW-JIGUGE-09118): Add `<-ancient@shuowen' for SW-JIGUGE-09116.
+
+	* ShuoWen-SR016.el (SW-JIGUGE-03306): Add U-0002BA60 as a
+	corresponding modern character.
+
+2021-10-16  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R029-Again.el (U+53C8): Add some relations for other
+	characters.
+
 2021-10-15  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R045-Sprout.el (U+FA3C): Add `<-denotational@usage'
