@@ -20,6 +20,9 @@
 	* ShuoWen-SR016.el (SW-JIGUGE-03306): Add U-0002BA60 as a
 	corresponding modern character.
 
+	* char-db-util.el (char-db-coded-charset-priority-list): Add
+	`=ucs-itaiji-016'.
+
 2021-10-16  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R029-Again.el (U+53C8): Add some relations for other
