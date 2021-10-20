@@ -736,6 +736,8 @@
     (=shuowen-jiguge	. 22600)	; &SW-JIGUGE-22600;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x3B0E)	; 㬎
+      )
+     ((=ucs		  . #x232A1)	; 𣊡
       ))
     (->subsumptive
      ((===shuowen-jiguge5 . 22600)	; &SW-JIGUGE5-22600;
@@ -747,6 +749,8 @@
   '((shuowen-radical	. 231)	; 日
     (=shuowen-jiguge	. 22601)	; &SW-JIGUGE-22601;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x3B25)	; 㬥
+      )
      ((=ucs		  . #x66B4)	; 暴
       ))
     (->subsumptive
@@ -762,6 +766,13 @@
      ((=ucs		  . #x232F4)	; 𣋴
       )
      ((=ucs		  . #x232F3)	; 𣋳
+      ))
+    (<-ancient@shuowen
+     ((=shuowen-jiguge	  . 22601)	; &SW-JIGUGE-22601;
+      )
+     ((=ucs		  . #x3B25)	; 㬥
+      )
+     ((=ucs		  . #x66B4)	; 暴
       ))
     (->subsumptive
      ((===shuowen-jiguge5 . 22602)	; &SW-JIGUGE5-22602;
