@@ -19115,6 +19115,8 @@
       )
      ((=ucs		  . #x6182)	; 憂
       ))
+    (sound@ja/on/go	"u")
+    (sound@ja/on/kan	"Iu")
     (=ucs		. #x22592)	; 𢖒
     ))
 (define-char
@@ -19138,6 +19140,32 @@
     (=cns11643-7	. #x3F58)	; &I-C7-3F58; [31-56]
     (=koseki		. 116050)	; &MJ035944;
     (=daikanwa		. 10277)	; &I-M-10277;
+    (<-formed
+     ((=ucs@cns		  . #x6182)	; &MJ011890;
+      (=mj		  . 011890)	; &MJ011890;
+      )
+     ((=ucs@cns		  . #x512A)	; &MJ007178;
+      (=mj		  . 007178)	; &MJ007178;
+      ))
+    (<-formed$_1*sources
+     jiyun)
+    (<-formed$_2*sources
+     guangyun)
+    (<-same
+     ((=ucs@cns		  . #x6182)	; &MJ011890;
+      (=mj		  . 011890)	; &MJ011890;
+      (=daikanwa	  . 11170)	; &I-M-11170;
+      )
+     ((=ucs@cns		  . #x512A)	; &MJ007178;
+      (=mj		  . 007178)	; &MJ007178;
+      (=daikanwa	  . 01261)	; &I-M-01261;
+      ))
+    (<-same$_1*sources
+     jiyun daikanwa)
+    (<-same$_2*sources
+     guangyun daikanwa)
+    (<-same*sources
+     daikanwa)
     (->subsumptive
      ((==koseki		  . 116050)	; &g2-M-10277;
       (==daikanwa	  . 10277)	; &g2-M-10277;
