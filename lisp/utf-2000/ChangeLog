@@ -1,7 +1,64 @@
+2021-10-20  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R037-Big.el (U-00021631): Apply new conventions for
+	glyph granularity.
+
 2021-10-19  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R020-Wrap.el (U+52F9): Add `<-denotational@component'
+	for U-0002008A.
+
+	* Ideograph-R018-Knife.el (A-U+34DE-itaiji-004): New abstract
+	node.
+	(U+34DE-itaiji-004): New character; use `<-denotational' for
+	A-U+34DE-itaiji-004.
 
 	* ShuoWen-SR112.el (SW-JIGUGE-11905): Add U-00026B45 and U+4E56 as
 	corresponding modern characters.
+
+2021-10-18  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R061-Heart.el (A-cgnU+3951): Changed from U+3951.
+	(C3-3B53): Use A-cgnU+3951 instead of U+3951 as its mother; unify
+	U+3951 instead of A-IWDSU+3951 and UU+3951; add
+	`sound@ja/on/{kan|go}'; add `<-same' for IU+2274A.
+	(U+3951-itaiji-001): Use A-cgnU+3951 instead of U+3951 as its
+	mother.
+	(U-0002274A): Add `<-denotational@usage' for A2-DJT-03406; apply
+	new conventions for glyph granularity.
+	(A-cgnU+6167): New abstract node.
+	(U+6167): Add `<-denotational' for A-cgnU+6167; add
+	`<-denotational@usage' for BUCS+6167.
+	(A-U+6167-itaiji-002): New abstract node; use `<-denotational' for
+	A-cgnU+6167.
+	(U+6167-itaiji-002): New character; use `<-denotational' for
+	A-U+6167-itaiji-002; subsume HNG-KAR0132-0.
+	(U+6167-var-001): Use A-U+6167-itaiji-002 instead of U+6167 as its
+	mother; ass `ideographic-structure'.
+	(A-cgnU+6182): Changed from U+6182.
+	(B-BC7E): Use A-cgnU+6182 instead of U+6182 as its mother; unify
+	U+6182 instead of A-IWDSU+6182 and A-UU+6182; apply new
+	conventions for glyph granularity.
+	(HNG-KHI0372-0): Use A-cgnU+6182 instead of U+6182 as its mother.
+	(U+6182-itaiji-003): Ditto.
+	(U+6182-itaiji-004): Ditto.
+	(U+61EE): Add `ideographic-structure'; add `sound@ja/on/{kan|go}'.
+	(CU+61EE): Add `ideographic-structure'.
+	(A2-DJT-03462): Unify BUCS+6167.
+	(A2-DJT-03406): New abstract node.
+
+	* Ideograph-R060-Step.el (U-00022592): Add `sound@ja/on/{kan|go}'.
+	(CU+22592): Add some relations for other characters.
+
+	* Ideograph-R058-Snout.el (A-cgnU+5F57): New abstract node.
+	(U+5F57): Add `<-denotational' for A-cgnU+5F57.
+	(U-00030424): New character; use `<-denotational' for A-cgnU+5F57.
+	(A-MJ057478): New abstract node; `<-denotational' for A-cgnU+5F57;
+	unify A-U+5F57-itaiji-002.
+	(U+5F57-itaiji-002): New character; use `<-denotational' for
+	A-MJ057478.
+	(MJ057478): Ditto.
+	(U-0002BE46): New character.
 
 2021-10-17  MORIOKA Tomohiko  <tomo.git@chise.org>
 
