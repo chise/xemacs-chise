@@ -687,11 +687,8 @@
      ((name		  . "CJK RADICAL EYE")
       (=ucs		  . #x2EAB)	; ⺫
       )
-     ((=ucs@unicode	  . #x7F52)	; &JX2-746A;
-      (=jis-x0212	  . #x5474)	; &JX2-746A; [52-84]
-      (=cns11643-4	  . #x2221)	; &I-C4-2221; [02-01]
-      (=jis-x0213-2	  . #x746A)	; &I-JX2-746A; [84-74]
-      (=daikanwa	  . 28200)	; &I-M-28200;
+     ((name		  . "CJK RADICAL NET TWO")
+      (=ucs		  . #x2EB2)	; ⺲
       ))
     (->subsumptive
      ((=decomposition@hanyo-denshi
