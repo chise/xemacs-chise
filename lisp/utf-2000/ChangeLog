@@ -1,7 +1,25 @@
 2021-10-20  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R046-Mountain.el (A-BC-88C6-itaiji-001): New abstract
+	node; use `<-denotational' for A-BC-88C6.
+	(BC-88C6-itaiji-001): New character; use `<-denotational' for
+	A-BC-88C6-itaiji-001.
+	(U-00021E10): New character.
+	(A-U+4E9F-itaiji-001): New abstract.
+	(U+4E9F-itaiji-001): New character; use `<-denotational' for
+	A-U+4E9F-itaiji-001.
+	(U-0002D5F9): New character.
+
 	* Ideograph-R037-Big.el (U-00021631): Apply new conventions for
 	glyph granularity.
+
+	* ShuoWen-SR231.el (SW-JIGUGE-22600): Add U-000232A1 as a
+	corresponding modern character.
+	(SW-JIGUGE-22601): Add U+3B25 as a corresponding modern character.
+	(SW-JIGUGE-22602): Add `<-ancient@shuowen' for SW-JIGUGE-22601.
+
+	* Ideograph-R010-Legs.el (U+204D7-itaiji-001): New character; use
+	`<-denotational' for U-000204D7.
 
 2021-10-19  MORIOKA Tomohiko  <tomo.git@chise.org>
 
