@@ -164,25 +164,158 @@
   '((ideographic-radical . 48)	; ⼯
     (ideographic-strokes . 1)
     (total-strokes	 . 4)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
+      (=ucs		  . #x2FF7)	; ⿷
+      )
+     ((=ucs		  . #x5DE5)	; 工
+      )
+     ((=ucs		  . #x200CD)	; 𠃍
+      ))
+    (sound@ja/on	"kyo")
     (=ucs		. #x22011)	; 𢀑
-    (=cns11643-6	. #x216F)	; &I-C6-216F; [01-79]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x22011)	; 𢀑
+      ))
+    (ideographic-radical . 48)	; ⼯
+    (ideographic-strokes . 1)
+    (total-strokes	 . 4)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
+      (=ucs		  . #x2FF7)	; ⿷
+      )
+     ((=ucs@unicode	  . #x5DE5)	; &AJ1-01979;
+      (=adobe-japan1-0	  . 01979)	; &AJ1-01979;
+      )
+     ((=ucs		  . #x200CD)	; 𠃍
+      ))
+    (=ucs@iso		. #x22011)	; &C6-216F;
+    (=cns11643-6	. #x216F)	; &C6-216F; [01-79]
     (=daikanwa		. 08715)	; &I-M-08715;
+    (<-ancient
+     ((=ucs@cns		  . #x5DE8)	; &MJ010776;
+      (=mj		  . 010776)	; &MJ010776;
+      (=daikanwa	  . 08722)	; &I-M-08722;
+      ))
+    (<-ancient*sources
+     yupian daikanwa)
+    (->subsumptive
+     ((==ucs@iso	  . #x22011)	; &g2-M-08715;
+      (==cns11643-6	  . #x216F)	; &g2-M-08715; [01-79]
+      (==daikanwa	  . 08715)	; &g2-M-08715;
+      (->subsumptive
+       ((===daikanwa	    . 08715)	; &R-M-08715;
+	)
+       ((===cns11643-6	    . #x216F)	; &R-C6-216F; [01-79]
+	)
+       ((===ucs@iso	    . #x22011)	; &R-U-00022011;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 48)	; ⼯
     (ideographic-strokes . 1)
     (total-strokes	 . 4)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
+      (=ucs		  . #x2FF7)	; ⿷
+      )
+     ((=ucs		  . #x5DE5)	; 工
+      )
+     ((=ucs		  . #x4E00)	; 一
+      ))
+    (sound@ja/on	"kyo")
     (=ucs		. #x382A)	; 㠪
-    (=cns11643-6	. #x216E)	; &I-C6-216E; [01-78]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x382A)	; 㠪
+      ))
+    (ideographic-radical . 48)	; ⼯
+    (ideographic-strokes . 1)
+    (total-strokes	 . 4)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
+      (=ucs		  . #x2FF7)	; ⿷
+      )
+     ((=ucs@unicode	  . #x5DE5)	; &AJ1-01979;
+      (=adobe-japan1-0	  . 01979)	; &AJ1-01979;
+      )
+     ((=ucs		  . #x4E00)	; 一
+      ))
+    (ideographic-structure@apparent
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x4E00)	; 一
+      )
+     ((=ucs		  . #x4E0A)	; 上
+      ))
+    (=ucs@unicode	. #x382A)	; &C6-216E;
+    (=cns11643-6	. #x216E)	; &C6-216E; [01-78]
     (=daikanwa		. 08716)	; &I-M-08716;
+    (<-ancient
+     ((=ucs@cns		  . #x5DE8)	; &MJ010776;
+      (=mj		  . 010776)	; &MJ010776;
+      (=daikanwa	  . 08722)	; &I-M-08722;
+      ))
+    (<-ancient*sources
+     kangxi daikanwa)
+    (->subsumptive
+     ((==ucs@unicode	  . #x382A)	; &g2-M-08716;
+      (==cns11643-6	  . #x216E)	; &g2-M-08716; [01-78]
+      (==daikanwa	  . 08716)	; &g2-M-08716;
+      (->subsumptive
+       ((===daikanwa	    . 08716)	; &R-M-08716;
+	)
+       ((===cns11643-6	    . #x216E)	; &R-C6-216E; [01-78]
+	)
+       ((===ucs@unicode	    . #x382A)	; &R-UU+382A;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 48)	; ⼯
     (ideographic-strokes . 1)
     (total-strokes	 . 4)
     (=ucs		. #x22013)	; 𢀓
-    (=cns11643-6	. #x2170)	; &I-C6-2170; [01-80]
+    (<-ancient
+     ((=ucs		  . #x5DE8)	; 巨
+      ))
+    (<-ancient*sources
+     shuowen)
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x22013)	; 𢀓
+      ))
+    (ideographic-radical . 48)	; ⼯
+    (ideographic-strokes . 1)
+    (total-strokes	 . 4)
+    (=ucs@iso		. #x22013)	; &C6-2170;
+    (=cns11643-6	. #x2170)	; &C6-2170; [01-80]
     (=daikanwa		. 08717)	; &I-M-08717;
+    (<-ancient
+     ((=ucs@cns		  . #x5DE8)	; &MJ010776;
+      (=mj		  . 010776)	; &MJ010776;
+      (=daikanwa	  . 08722)	; &I-M-08722;
+      ))
+    (<-ancient*sources
+     shuowen daikanwa)
+    (->subsumptive
+     ((==ucs@iso	  . #x22013)	; &g2-M-08717;
+      (==cns11643-6	  . #x2170)	; &g2-M-08717; [01-80]
+      (==daikanwa	  . 08717)	; &g2-M-08717;
+      (->subsumptive
+       ((===daikanwa	    . 08717)	; &R-M-08717;
+	)
+       ((===cns11643-6	    . #x2170)	; &R-C6-2170; [01-80]
+	)
+       ((===ucs@iso	    . #x22013)	; &R-U-00022013;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 48)	; ⼯
