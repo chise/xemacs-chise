@@ -1848,7 +1848,13 @@
      ((=ucs@unicode	  . #x53C3)	; &AJ1-04329;
       (=adobe-japan1-0	  . 04329)	; &AJ1-04329;
       (=daikanwa	  . 03098)	; &I-M-03098;
+      )
+     ((=ucs@unicode	  . #x66D1)	; &C3-5470;
+      (=cns11643-3	  . #x5470)	; &C3-5470; [52-80]
+      (=daikanwa	  . 14197)	; &I-M-14197;
       ))
+    (<-ancient$_1*sources
+     jiyun daikanwa)
     (<-ancient*sources
      jiyun daikanwa)
     (->subsumptive
@@ -2007,6 +2013,10 @@
     (ideographic-strokes@ucs . 8)
     (ideographic-radical@cns . 7)	; ⼆
     (ideographic-strokes@cns . 8)
+    (ideographic-radical@cns*sources
+     daikanwa)
+    (ideographic-strokes@cns*sources
+     daikanwa)
     (total-strokes	 . 10)
     (hanyu-dazidian	1 387 18)
     (ideographic-structure
@@ -2023,6 +2033,13 @@
     (=gt-k		. 06658)	; &I-GT-K06658;
     (=gt-pj-2		. #x3244)	; &I-GT-00368; [18-36]
     (=daikanwa		. 00283)	; &I-M-00283;
+    (<-original
+     ((=ucs@unicode	  . #x4E9D)	; &AJ1-17245;
+      (=adobe-japan1-5	  . 17245)	; &AJ1-17245;
+      (=daikanwa	  . 00273)	; &I-M-00273;
+      ))
+    (<-original*sources
+     zhengzitong daikanwa)
     (->subsumptive
      ((==ucs@iso	  . #x20AFC)	; &g2-GT-00368;
       (==cns11643-6	  . #x352E)	; &g2-GT-00368; [21-14]
@@ -2061,6 +2078,28 @@
      ((=ucs		  . #x4E8C)	; 二
       ))
     (=ucs-var-001	. #x20AFC)	; &U-v001+20AFC;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x20AFC)	; 𠫼
+      ))
+    (ideographic-radical@ucs . 28)	; ⼛
+    (ideographic-strokes@ucs . 7)
+    (ideographic-radical@cns . 7)	; ⼆
+    (ideographic-strokes@cns . 7)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x53BD)	; 厽
+      )
+     ((=ucs-var-003	  . #x2053C)	; &U-v003+2053C;
+      ))
+    (=ucs-itaiji-002	. #x20AF8)	; &U-i002+20AF8;
+    (->subsumptive
+     ((==ucs-itaiji-002	  . #x20AF8)	; &g2-U-i002+20AF8;
+      ))
     ))
 (define-char
   '((ideographic-radical . 28)	; ⼛
@@ -2455,6 +2494,11 @@
     (=gt-pj-1		. #x5254)	; &I-GT-03922; [50-52]
     (=daikanwa		. 03098)	; &I-M-03098;
     (=shinjigen		.  0893)	; &AJ1-04329;
+    (<-formed
+     ((=ucs@unicode	  . #x66D1)	; &C3-5470;
+      (=cns11643-3	  . #x5470)	; &C3-5470; [52-80]
+      (=daikanwa	  . 14197)	; &I-M-14197;
+      ))
     (<-interchangeable
      ((=ucs		  . #x4E09)	; 三
       (=daikanwa	  . 00012)	; &I-M-00012;
@@ -3611,16 +3655,55 @@
     (ideographic-strokes@cns*sources
      daikanwa)
     (total-strokes	 . 19)
-    (=ucs		. #x20B18)	; 𠬘
-    (->subsumptive
-     ((ideographic-radical . 179)	; ⾲
-      (ideographic-strokes . 10)
-      (=daikanwa	  . 43254)	; &M-43254;
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
+      (=ucs		  . #x2FF5)	; ⿵
       )
-     ((hanyu-dazidian	  1 389 20)
-      (=ucs@iso		  . #x20B18)	; &C7-4B6A;
-      (=cns11643-7	  . #x4B6A)	; &C7-4B6A; [43-74]
-      (=hanziku-1	  . #xF641)	; &I-HZK01-F641;
+     ((=ucs		  . #x20AFC)	; 𠫼
+      )
+     ((=ucs		  . #x97ED)	; 韭
+      ))
+    (=ucs		. #x20B18)	; 𠬘
+    (<-formed
+     ((=ucs		  . #x4AA2)	; 䪢
+      )
+     ((=ucs		  . #x4AA3)	; 䪣
+      ))
+    (<-formed$_1*sources
+     shuowen)
+    (<-formed$_2*sources
+     shuowen)
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x20B18)	; 𠬘
+      ))
+    (ideographic-radical@ucs . 28)	; ⼛
+    (ideographic-strokes@ucs . 17)
+    (ideographic-radical@cns . 179)	; ⾲
+    (ideographic-strokes@cns . 10)
+    (total-strokes	 . 19)
+    (hanyu-dazidian	1 389 20)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
+      (=ucs		  . #x2FF5)	; ⿵
+      )
+     ((=ucs-var-001	  . #x20AFC)	; &U-v001+20AFC;
+      )
+     ((=ucs		  . #x97ED)	; 韭
+      ))
+    (=ucs@iso		. #x20B18)	; &C7-4B6A;
+    (=cns11643-7	. #x4B6A)	; &C7-4B6A; [43-74]
+    (->subsumptive
+     ((==ucs@iso	  . #x20B18)	; &g2-IU-00020B18;
+      (==cns11643-7	  . #x4B6A)	; &g2-IU-00020B18; [43-74]
+      (->subsumptive
+       ((===cns11643-7	    . #x4B6A)	; &R-C7-4B6A; [43-74]
+	)
+       ((===ucs@iso	    . #x20B18)	; &R-U-00020B18;
+	)
+       ((=hanziku-1	    . #xF641)	; &HZK01-F641;
+	))
       ))
     ))
 (define-char
