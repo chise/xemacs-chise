@@ -1,3 +1,61 @@
+2021-10-22  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR259.el (SW-JIGUGE-24215): Add `<-formed@shuowen' for
+	SW-JIGUGE-24214.
+	(SW-JIGUGE-24216): Add `<-formed@shuowen' for SW-JIGUGE-24214.
+
+2021-10-21  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R065-Branch.el (A-cgnU+652F): New abstract node.
+	(U+652F): Add `<-denotational' for A-cgnU+652F; add
+	`<-denotational@usage' for BUCS+652F; add `ideographic-structure'.
+	(UU+652F): Add `ideographic-structure'; unify DJT-04216.
+	(A-U+652F-itaiji-007): New abstract node; use `<-denotational' for
+	A-cgnU+652F; add `<-denotational@usage' for BUCS+652F.
+	(U+652F-itaiji-007): New character; use `<-denotational' for
+	A-U+652F-itaiji-007.
+	(U-0002D8D4): Add `<-denotational' for A-cgnU+652F; add
+	`<-denotational@usage' for BUCS+652F.
+	(U-00022EB6): Add `<-denotational@usage' for BUCS+652F; apply new
+	conventions for glyph granularity.
+	(U-00022EC0): New character.
+	(M-13070): Unify IU+22EC0, MJ037188 and KOSEKI-147140; use
+	`<-denotational' for U-00022EC0.
+	(U-0002D8D7): New character.
+	(U-0002D8D8): New character.
+	(U+3A7B): Use `->denotational' and `->subsumptive'.
+	(U+6532): Apply new conventions for glyph granularity.
+	(U-00022ED9): New character.
+	(M-13091): Unify IU+22ED9, MJ037204 and KOSEKI-148870; add
+	`<-denotational' for U-00022ED9.
+	(U-00022ED8): New character.
+	(M-13092): Unify IU+22ED8, MJ037203 and KOSEKI-148880; add
+	`<-denotational' for U-00022ED8.
+	(U-0002D8D9): New character.
+	(U-0002D8DF): New character.
+	(U-00022EDF): New character.
+	(M-13098): Unify IU+22EDF, MJ037210 and KOSEKI-149620; add
+	`<-denotational' for U-00022EDF.
+	(U-0002D8DB): New character.
+	(U-00022EE4): New character.
+	(M-13101): Unify IU+22EE4, MJ037214 and KOSEKI-149990; add
+	`<-denotational' for U-00022EE4.
+	(U-00022EE3): New character.
+	(M-13102): Unify IU+22EE3, MJ037213 and KOSEKI-150000; and
+	`<-denotational' for U-00022EE3.
+	(U-0002D8DC): New character.
+	(U-0002D8DD): New character.
+	(U-00022EE8): New character.
+	(U-0002D8DE): New character.
+	(U-0002D8E0): New character.
+	(U-00022EEA): Use `->denotational' and `->subsumptive'.
+	(BUCS+652F): New abstract node; unify A2-DJT-04216.
+
+	* Ideograph-R048-Work.el (U-00022011): Apply new conventions for
+	glyph granularity.
+	(U+382A): Likewise.
+	(U-00022013): Likewise.
+
 2021-10-20  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R046-Mountain.el (A-BC-88C6-itaiji-001): New abstract
