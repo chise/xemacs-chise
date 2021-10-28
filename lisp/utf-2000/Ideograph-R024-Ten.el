@@ -3011,13 +3011,49 @@
     ))
 (define-char
   '((ideographic-radical . 24)	; ⼗
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x65A4)	; 斤
+      )
+     ((=ucs		  . #x5344)	; 卄
+      ))
+    (=ucs		. #x2099B)	; 𠦛
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2099B)	; 𠦛
+      ))
+    (ideographic-radical . 24)	; ⼗
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
     (hanyu-dazidian	3 2023 5)
-    (=ucs		. #x2099B)	; 𠦛
-    (=cns11643-6	. #x2978)	; &I-C6-2978; [09-88]
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x65A4)	; 斤
+      )
+     ((=mj		  . 057090)	; &MJ057090;
+      ))
+    (=ucs@iso		. #x2099B)	; &C6-2978;
+    (=cns11643-6	. #x2978)	; &C6-2978; [09-88]
     (=daikanwa		. 02746)	; &I-M-02746;
-    (=hanziku-5		. #xF67E)	; &I-HZK05-F67E;
+    (->subsumptive
+     ((==ucs@iso	  . #x2099B)	; &g2-M-02746;
+      (==cns11643-6	  . #x2978)	; &g2-M-02746; [09-88]
+      (==daikanwa	  . 02746)	; &g2-M-02746;
+      (->subsumptive
+       ((===daikanwa	    . 02746)	; &R-M-02746;
+	)
+       ((===cns11643-6	    . #x2978)	; &R-C6-2978; [09-88]
+	)
+       ((===ucs@iso	    . #x2099B)	; &R-U-0002099B;
+	)
+       ((=hanziku-5	    . #xF67E)	; &HZK05-F67E;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 24)	; ⼗
@@ -4026,14 +4062,89 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 24)	; ⼗
+  '((<-denotational@component
+     ((=>ucs@iwds-1	  . #x200BF)	; &A-IWDSU+200BF;
+      ))
+    (ideographic-radical . 24)	; ⼗
+    (ideographic-strokes . 9)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((=ucs-itaiji-001	  . #x2FFB)	; &U-i001+2FFB;
+      )
+     ((=ucs		  . #x5343)	; 千
+      )
+     ((=ucs		  . #x2020C)	; 𠈌
+      ))
+    (sound@ja/on/go	"ke")
+    (sound@ja/on/kan	"kWai")
+    (=ucs		. #x209AC)	; 𠦬
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x209AC)	; 𠦬
+      ))
+    (ideographic-radical . 24)	; ⼗
     (ideographic-strokes . 9)
     (total-strokes	 . 11)
     (hanyu-dazidian	1 41 9)
-    (=ucs		. #x209AC)	; 𠦬
+    (ideographic-structure
+     ((=ucs-itaiji-001	  . #x2FFB)	; &U-i001+2FFB;
+      )
+     ((=ucs		  . #x5343)	; 千
+      )
+     ((=ucs@iso		  . #x2020C)	; &C4-2535;
+      (=cns11643-4	  . #x2535)	; &C4-2535; [05-21]
+      (=daikanwa	  . 00611)	; &I-M-00611;
+      ))
+    (=ucs@iso		. #x209AC)	; &MJ031761;
+    (=mj		. 031761)	; &MJ031761;
     (=cns11643-4	. #x3062)	; &I-C4-3062; [16-66]
     (=big5-cdp		. #x8AAA)	; &I-CDP-8AAA;
+    (=koseki		. 032040)	; &MJ031761;
     (=daikanwa		. 02760)	; &I-M-02760;
+    (<-original
+     ((=ucs@unicode	  . #x4E56)	; &AJ1-04099;
+      (=adobe-japan1-0	  . 04099)	; &AJ1-04099;
+      (=daikanwa	  . 00149)	; &I-M-00149;
+      ))
+    (<-original$_1*sources
+     yupian daikanwa)
+    (<-original*sources
+     yupian daikanwa)
+    (->mistakable
+     ((=ucs@iso		  . #x200BF)	; &GT-00214;
+      (=cns11643-6	  . #x3C7B)	; &GT-00214; [28-91]
+      (=daikanwa	  . 00158)	; &I-M-00158;
+      ))
+    (->mistakable*sources
+     kangxi-biansi-2char daikanwa)
+    (->vulgar
+     ((=ucs@unicode	  . #x4E56)	; &AJ1-04099;
+      (=adobe-japan1-0	  . 04099)	; &AJ1-04099;
+      ))
+    (->vulgar$_1*sources
+     yupian)
+    (->vulgar*sources
+     yupian)
+    (->subsumptive
+     ((==ucs@iso	  . #x209AC)	; &g2-MJ031761;
+      (==mj		  . 031761)	; &g2-MJ031761;
+      (==big5-cdp	  . #x8AAA)	; &g2-MJ031761;
+      (==koseki		  . 032040)	; &g2-MJ031761;
+      (==daikanwa	  . 02760)	; &g2-MJ031761;
+      (->subsumptive
+       ((===daikanwa	    . 02760)	; &R-M-02760;
+	)
+       ((===mj		    . 031761)	; &R-MJ031761;
+	)
+       ((===big5-cdp	    . #x8AAA)	; &R-CDP-8AAA;
+	)
+       ((===ucs@iso	    . #x209AC)	; &R-U-000209AC;
+	))
+      )
+     ((==ucs@cns	  . #x209AC)	; &g2-CU+209AC;
+      (==cns11643-4	  . #x3062)	; &g2-CU+209AC; [16-66]
+      ))
     ))
 (define-char
   '((ideographic-radical . 24)	; ⼗
