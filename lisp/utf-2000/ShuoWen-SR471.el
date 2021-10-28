@@ -471,6 +471,10 @@
   '((shuowen-radical	. 471)	; 虫
     (=shuowen-jiguge	. 46014)	; &SW-JIGUGE-46014;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x27531)	; 𧔱
+      )
+     ((=ucs		  . #x8806)	; 蠆
+      )
      ((=ucs		  . #x27363)	; 𧍣
       ))
     (->subsumptive
@@ -483,7 +487,20 @@
   '((shuowen-radical	. 471)	; 虫
     (=shuowen-jiguge	. 46015)	; &SW-JIGUGE-46015;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x27567)	; 𧕧
+      )
+     ((=ucs		  . #x460D)	; 䘍
+      )
      ((=ucs		  . #x274F5)	; 𧓵
+      ))
+    (<-formed@shuowen
+     ((=shuowen-jiguge	  . 46014)	; &SW-JIGUGE-46014;
+      )
+     ((=ucs		  . #x27531)	; 𧔱
+      )
+     ((=ucs		  . #x8806)	; 蠆
+      )
+     ((=ucs		  . #x27363)	; 𧍣
       ))
     (->subsumptive
      ((===shuowen-jiguge5 . 46015)	; &SW-JIGUGE5-46015;
