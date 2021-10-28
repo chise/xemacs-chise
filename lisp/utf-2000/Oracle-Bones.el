@@ -20120,6 +20120,9 @@
     (<-Oracle-Bones
      ((=ucs		  . #x65E5)	; 日
       ))
+    (<-Small-Seal@component
+     ((=ucs		  . #x65E5)	; 日
+      ))
     ))
 (define-char
   '((shuowen-radical	. 231)	; 日

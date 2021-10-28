@@ -1,4 +1,20 @@
+2021-10-23  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR418.el (SW-JIGUGE-39502): Add A-BC-85EF as a
+	corresponding modern character.
+	(SW-JIGUGE-39503): Add U-0002635B and U-00023D0E as corresponding
+	modern characters.
+
+	* Oracle-Bones.el (ZOB-01857): Add `<-Small-Seal@component' for
+	U+65E5.
+
 2021-10-22  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R069-Axe.el (A-IWDSU+3ABF): New abstract node.
+	(C6-3830): Unify U+3ABF instead of UU+3ABF; use A-IWDSU+3ABF
+	instead of U+3ABF as its mother.
+	(U-0002309A): Add `<-denotational' for A-IWDSU+3ABF; apply new
+	conventions for glyph granularity.
 
 	* ShuoWen-SR259.el (SW-JIGUGE-24215): Add `<-formed@shuowen' for
 	SW-JIGUGE-24214.
@@ -138,6 +154,13 @@
 
 2021-10-17  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* ShuoWen-SR471.el (SW-JIGUGE-46014): Add U-00027531 and U+8806 as
+	corresponding modern characters.
+	(SW-JIGUGE-46015): Add U-00027567 and U+460D as corresponding
+	modern characters; add `<-formed@shuowen' for SW-JIGUGE-46014.
+
+2021-10-17  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* ShuoWen-SR208.el (SW-JIGUGE-19914): Add U-000237D2 and U+6A46 as
 	corresponding modern characters.
 
@@ -222,6 +245,11 @@
 	(U+5E53): Apply new conventions for glyph granularity.
 	(U+5E67): Likewise.
 	(U+3868): Likewise.
+
+	* ShuoWen-SR477.el (SW-JIGUGE-46915): Use `->denotational' instead
+	of `->subsumptive'.
+	(SW-JIGUGE-46916): Add `<-formed@shuowen' for SW-JIGUGE5-46915 and
+	SW-JIGUGE5-45915.
 
 	* ShuoWen-SR266.el (SW-JIGUGE-24502): Use `->denotational' instead
 	of `->subsumptive'; add some corresponding modern characters.
