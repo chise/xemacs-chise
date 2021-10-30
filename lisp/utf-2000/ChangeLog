@@ -1,3 +1,40 @@
+2021-10-28  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR480.el (SW-JIGUGE-47129): Add U-0002125B as a
+	corresponding modern character.
+	(SW-JIGUGE-47222): Add U-0002128E and U-00020C6F as corresponding
+	modern characters.
+	(SW-JIGUGE-47223): Add `<-ancient@shuowen' for SW-JIGUGE-47222.
+
+2021-10-24  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R053-Dotted-Cliff.el (U-000222E4): New character.
+	(U-000222E5): New character.
+	(U-000222EF): Use `->denotational' and `->subsumptive'.
+
+	* Ideograph-R043-Lame.el (U-0002D550): New character.
+
+	* Ideograph-R035-Go-Slowly.el (U-0002157C): Use `->denotational'
+	and `->subsumptive'.
+	(U-0002157D): Likewise.
+	(U-00021580): Add `<-Zhouwen' for U+5A5A; add `<-ancient' for
+	U+660F.
+
+	* Ideograph-R028-Private.el (U-00020AF0): Add UU+66D1 as a target
+	of `<-ancient'.
+	(IU+20AFC): Add `ideographic-radical@cns*sources' and
+	`ideographic-strokes@cns*sources'; add `<-original' for UU+4E9D.
+	(U+20AF8-itaiji-002): New character; use `<-denotational' for
+	U-00020AFC.
+	(UU+53C3): Add `<-formed' for UU+66D1.
+	(U-00020B18): Apply new conventions for glyph granularity.
+
+	* Ideograph-R007-Two.el (IU+20AFC): Add
+	`ideographic-radical@cns*sources' and
+	`ideographic-strokes@cns*sources'; add `<-original' for UU+4E9D.
+	(U+20AF8-itaiji-002): New character; use `<-denotational' for
+	U-00020AFC.
+
 2021-10-23  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* ShuoWen-SR418.el (SW-JIGUGE-39502): Add A-BC-85EF as a
@@ -15,6 +52,9 @@
 	instead of U+3ABF as its mother.
 	(U-0002309A): Add `<-denotational' for A-IWDSU+3ABF; apply new
 	conventions for glyph granularity.
+
+	* Ideograph-R047-River.el (U-0002200F): Apply new conventions for
+	glyph granularity.
 
 	* ShuoWen-SR259.el (SW-JIGUGE-24215): Add `<-formed@shuowen' for
 	SW-JIGUGE-24214.

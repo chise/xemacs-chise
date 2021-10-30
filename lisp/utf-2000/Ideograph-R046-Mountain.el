@@ -1946,7 +1946,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=>big5-cdp	  . #x88C6)	; &A-GT-K02096;
+     ((=>big5-cdp	  . #x88C6)	; &A-CDP-88C6;
       ))
     (ideographic-radical . 46)	; ⼭
     (ideographic-strokes . 3)

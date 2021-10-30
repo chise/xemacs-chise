@@ -3730,6 +3730,21 @@
       ))
     ))
 (define-char
+  '((ideographic-radical . 43)	; ⼪
+    (ideographic-strokes . 8)
+    (total-strokes	 . 12)
+    (=ucs		. #x2D550)	; 𭕐
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2D550)	; 𭕐
+      ))
+    (ideographic-radical . 43)	; ⼪
+    (ideographic-strokes . 8)
+    (total-strokes	 . 12)
+    (=ucs@JP/hanazono	. #x2D550)	; &hanaJU+2D550;
+    ))
+(define-char
   '((=>ucs		. #x21BF7)	; 𡯷
     (ideographic-radical . 43)	; ⼪
     (ideographic-strokes . 9)
