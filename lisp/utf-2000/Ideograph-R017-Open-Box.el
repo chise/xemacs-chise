@@ -922,12 +922,19 @@
      ((=>ucs@component	  . #x5C6E)	; &A-compU+5C6E;
       (=>iwds-1		  .  0096)	; &A-compU+5C6E;
       ))
-    (=>big5-cdp		. #x88C6)	; &A-GT-K02096;
+    (=>big5-cdp@component . #x88C6)	; &A-GT-K02096;
     (=>gt-k		. 02096)	; &A-GT-K02096;
     ))
 (define-char
   '((<-denotational
-     ((=>big5-cdp	  . #x88C6)	; &A-GT-K02096;
+     ((=>gt-k		  . 02096)	; &A-GT-K02096;
+      ))
+    (ideographic-radical . 17)	; ⼐
+    (=>big5-cdp		. #x88C6)	; &A-CDP-88C6;
+    ))
+(define-char
+  '((<-denotational
+     ((=>big5-cdp	  . #x88C6)	; &A-CDP-88C6;
       ))
     (ideographic-radical . 17)	; ⼐
     (ideographic-strokes . 3)

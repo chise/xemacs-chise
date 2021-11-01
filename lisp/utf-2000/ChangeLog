@@ -1,4 +1,49 @@
+2021-10-29  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR481.el (SW-JIGUGE-47612): Add `<-ancient@shuowen' for
+	SW-JIGUGE-47611.
+
 2021-10-28  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R002-Line.el (U-00020070): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R024-Ten.el (U-0002099B): Apply new conventions for
+	glyph granularity.
+	(U-000209AC): Likewise; add `<-denotational@component' for
+	A-IWDSU+200BF.
+
+	* Ideograph-R017-Open-Box.el (A-GT-K02096): Unify A-compBC-88C6
+	instead of A-BC-88C6.
+	(A-BC-88C6): Separate A-GT-K02096; use A-GT-K02096 instead of
+	A-IWDSU+51FA as its mother.
+
+	* Ideograph-R015-Ice.el (A-U+4E2C-itaiji-001): New abstract node;
+	use `<-denotational' for A-IWDSU+723F.
+	(U+4E2C-itaiji-001): New character; use `<-denotational' for
+	A-U+4E2C-itaiji-001.
+	(U-000205CE): Use `->denotational' and `->subsumptive'.
+
+	* Ideograph-R008-Lid.el (U-0002CF46): New character.
+	(A-IWDSU+4EAD): Omit `<-denotational@usage' for A2-DJT-00160.
+	(U+4EAD): Add `<-denotational@usage' for A2-DJT-00160.
+	(U-0002CF4C): New character.
+	(U-0002015A): Apply new conventions for glyph granularity.
+	(U-00020158): Add `<-denotational@usage' for A2-DJT-00160.
+	(U-0002CF4D): New character.
+	(A-U+4EAD-itaiji-003): New abstract node.
+	(U+4EAD-itaiji-003): New character; use `<-denotational' for
+	A-U+4EAD-itaiji-003.
+	(U-0002CF4E): New character.
+	(U-0002CF4F): New character.
+	(U-0002CF50): New character.
+	(U-0002CF51): New character.
+	(U-0002CF55): New character.
+	(A-U+5D14-itaiji-002): New abstract node; use `<-denotational' for
+	A-cgnU+5D14.
+	(U+5D14-itaiji-002): New character; use `<-denotational' for
+	A-U+5D14-itaiji-002.
+	(U-0002CF58): New character.
 
 	* ShuoWen-SR480.el (SW-JIGUGE-47129): Add U-0002125B as a
 	corresponding modern character.
@@ -7,6 +52,18 @@
 	(SW-JIGUGE-47223): Add `<-ancient@shuowen' for SW-JIGUGE-47222.
 
 2021-10-24  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R070-Square.el (U-0002D92A): New character.
+	(U-0002D930): New character.
+	(U-0002D93A): New character.
+	(U-0002D93B): New character.
+	(A-IWDSU+65D6): New abstract node.
+	(U+65D6): Apply new conventions for glyph granularity; add
+	`<-denotational' for A-IWDSU+65D6; add `<-denotational@usage' for
+	BUCS+65D6.
+	(U-0002D943): New character; add `<-denotational' for
+	A-IWDSU+65D6; add `<-denotational@usage' for BUCS+65D6.
+	(BUCS+65D6): New abstract node; unify A2-DJT-04421.
 
 	* Ideograph-R053-Dotted-Cliff.el (U-000222E4): New character.
 	(U-000222E5): New character.
