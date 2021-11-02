@@ -1,3 +1,26 @@
+2021-10-31  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR490.el (SW-JIGUGE-48920): Add U+9276 as a
+	corresponding modern character.
+
+	* Ideograph-R011-Enter.el (A-IWDSU+204F5): New abstract node.
+	(U-000204F5): New character; use `<-denotational' for
+	A-IWDSU+204F5.
+	(M-01445): Unify IU+204F5, MJ030971 and KOSEKI-016860 instead of
+	U-000204F7, C4-3C31 and HZK01-D0E3; add `<-denotational' for
+	U-000204F5.
+	(U-000204F7): Apply new conventions for glyph granularity; add
+	`<-denotational' for A-IWDSU+204F5.
+
+2021-10-30  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R062-Halberd.el (U+39B0): Add `<-denotational@usage'
+	for A2-DJT-03613; apply new conventions for glyph granularity.
+	(U+6220): Add ideographic-structure.
+	(U-000229FE): Apply new conventions for glyph granularity.
+	(U-00022A00): New character.
+	(A2-DJT-03613): New abstract node.
+
 2021-10-29  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* ShuoWen-SR481.el (SW-JIGUGE-47612): Add `<-ancient@shuowen' for
