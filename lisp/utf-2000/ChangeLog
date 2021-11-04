@@ -1,4 +1,25 @@
+2021-11-01  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R032-Earth.el (IWDS1-0088): Unify A-compU+573C instead
+	of U+573C; use `<-denotational@component' for A-IWDSU+573C instead
+	of `<-denotational' for IWDS1-0089.
+	(U+573C): Separate IWDS1-0088; use `<-denotational@component' for
+	IWDS1-0088 and IWDS1-0089 instead of `<-denotational' for
+	IWDS1-0089; add `ideographic-structure'.
+	(U+363F): Add `<-denotational@component' for A-IWDSU+363F; apply
+	new conventions for glyph granularity for a component of
+	ideographic-structure.
+	(CB03166): New character; use `<-denotational' for U+363F.
+	(U-00021364): Add `<-denotational@component' for A-IWDSU+363F;
+	apply new conventions for glyph granularity.
+	(A-IWDSU+573C): New abstract node.
+	(A-IWDSU+363F): New abstract node.
+
 2021-10-31  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR496.el (SW-JIGUGE-49703): Add U-0002CEB5, U-000248EB,
+	U-0002298D, U-0002306C and U-00020981 as corresponding modern
+	characters.
 
 	* ShuoWen-SR490.el (SW-JIGUGE-48920): Add U+9276 as a
 	corresponding modern character.
