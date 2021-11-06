@@ -17,6 +17,11 @@
     (<-Small-Seal@shuowen
      ((=ucs		  . #x283D6)	; 𨏖
       ))
+    (<-Zhouwen@shuowen
+     ((=shuowen-jiguge	  . 49806)	; &SW-JIGUGE-49806;
+      )
+     ((=ucs		  . #x8ECA)	; 車
+      ))
     (->subsumptive
      ((===shuowen-jiguge5 . 49807)	; &SW-JIGUGE5-49807;
       )
@@ -616,6 +621,11 @@
     (=shuowen-jiguge	. 50001)	; &SW-JIGUGE-50001;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x283FA)	; 𨏺
+      ))
+    (<-Zhouwen@shuowen
+     ((=shuowen-jiguge	  . 50000)	; &SW-JIGUGE-50000;
+      )
+     ((=ucs		  . #x8F08)	; 輈
       ))
     (->subsumptive
      ((===shuowen-jiguge5 . 50001)	; &SW-JIGUGE5-50001;
