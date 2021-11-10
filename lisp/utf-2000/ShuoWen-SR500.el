@@ -4,6 +4,11 @@
     (=shuowen-jiguge	. 50203)	; &SW-JIGUGE-50203;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x28E0F)	; 𨸏
+      )
+     ((=ucs		  . #x961C)	; 阜
+      )
+     ((name		  . "CJK RADICAL MOUND TWO")
+      (=ucs		  . #x2ED6)	; ⻖
       ))
     (->subsumptive
      ((===shuowen-jiguge5 . 50203)	; &SW-JIGUGE5-50203;
@@ -16,6 +21,13 @@
     (=shuowen-jiguge	. 50204)	; &SW-JIGUGE-50204;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x20F1B)	; 𠼛
+      )
+     ((=ucs		  . #x20EF0)	; 𠻰
+      ))
+    (<-ancient@shuowen
+     ((=shuowen-jiguge	  . 50203)	; &SW-JIGUGE-50203;
+      )
+     ((=ucs		  . #x28E0F)	; 𨸏
       ))
     (->subsumptive
      ((===shuowen-jiguge5 . 50204)	; &SW-JIGUGE5-50204;
@@ -724,6 +736,8 @@
     (=shuowen-jiguge	. 50422)	; &SW-JIGUGE-50422;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x28EAB)	; 𨺫
+      )
+     ((=ucs		  . #x20CCB)	; 𠳋
       ))
     (->subsumptive
      ((===shuowen-jiguge5 . 50422)	; &SW-JIGUGE5-50422;
