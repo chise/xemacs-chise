@@ -1,3 +1,7 @@
+2021-11-10  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R009-Man.el (U-000202DB): Omit `ideographic-radical'.
+
 2021-11-06  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R066-Rap.el (A-compU+6534): New abstract node; unify

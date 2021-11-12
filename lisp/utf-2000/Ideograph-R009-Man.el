@@ -49600,8 +49600,7 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 9)	; ⼈
-    (ideographic-radical@ucs . 9)	; ⼈
+  '((ideographic-radical@ucs . 9)	; ⼈
     (ideographic-strokes@ucs . 9)
     (ideographic-radical@cns . 130)	; ⾁
     (ideographic-strokes@cns . 7)
