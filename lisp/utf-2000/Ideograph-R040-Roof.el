@@ -17028,6 +17028,11 @@
       ))
     (sound@ja/on	"siN" "haN")
     (=ucs		. #x5BE9)	; 審
+    (<-formed
+     ((=ucs		  . #x5BB7)	; 宷
+      ))
+    (<-formed$_1*sources
+     shuowen)
     ))
 (define-char
   '((<-denotational

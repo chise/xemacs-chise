@@ -1,4 +1,11 @@
+2021-11-12  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R040-Roof.el (U+5BE9): Add `<-formed' for U+5BB7.
+
 2021-11-10  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R045-Sprout.el (U-00021D2C): Use `->denotational' and
+	`->subsumptive'.
 
 	* Ideograph-R009-Man.el (U-000202DB): Omit `ideographic-radical'.
 
