@@ -6087,6 +6087,19 @@
     (=cns11643-6	. #x5228)	; &C6-5228; [50-08]
     ))
 (define-char
+  '((ideographic-radical . 44)	; ⼫
+    (=ucs		. #x21CB7)	; 𡲷
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x21CB7)	; 𡲷
+      ))
+    (ideographic-radical . 44)	; ⼫
+    (ideographic-strokes . 10)
+    (total-strokes	 . 13)
+    (=ucs@iso		. #x21CB7)	; &U-00021CB7;
+    ))
+(define-char
   '((<-denotational@usage
      ((==>ucs@bucs	  . #x5C6C)	; &BUCS+5C6C;
       ))

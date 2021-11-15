@@ -1,6 +1,11 @@
 2021-11-12  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R044-Corpse.el (U-00021CB7): New character.
+
 	* Ideograph-R040-Roof.el (U+5BE9): Add `<-formed' for U+5BB7.
+
+	* ShuoWen-SR017.el (SW-JIGUGE-03405): Add `<-formed@shuowen' for
+	SW-JIGUGE-03404.
 
 2021-11-10  MORIOKA Tomohiko  <tomo.git@chise.org>
 
