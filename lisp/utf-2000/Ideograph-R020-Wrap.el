@@ -2803,6 +2803,30 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
     (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
+      (=ucs		  . #x2FF9)	; ⿹
+      )
+     ((=ucs		  . #x52F9)	; 勹
+      )
+     ((=ucs		  . #x866B)	; 虫
+      ))
+    (=ucs		. #x208DC)	; 𠣜
+    (=big5-cdp		. #x8C4A)	; &I-CDP-8C4A;
+    (->subsumptive
+     ((==ucs@iso	  . #x208DC)	; &g2-CDP-8C4A;
+      (==big5-cdp	  . #x8C4A)	; &g2-CDP-8C4A;
+      (->subsumptive
+       ((===big5-cdp	    . #x8C4A)	; &R-CDP-8C4A;
+	)
+       ((===ucs@iso	    . #x208DC)	; &R-U-000208DC;
+	))
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 20)	; ⼓
+    (ideographic-strokes . 6)
+    (total-strokes	 . 8)
+    (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
