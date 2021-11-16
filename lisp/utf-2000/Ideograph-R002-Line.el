@@ -227,6 +227,37 @@
     (ideographic-strokes . 1)
     (total-strokes	 . 2)
     (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x4E00)	; 一
+      )
+     ((=ucs		  . #x4E05)	; 丅
+      ))
+    (=ucs		. #x2CF3D)	; 𬼽
+    (=mj		. 056881)	; &I-MJ056881;
+    (=koseki		. 003070)	; 𬼽
+    (<-formed
+     ((=ucs		  . #x5E72)	; 干
+      ))
+    (<-formed$_1*sources
+     koseki mj)
+    (<-formed*sources
+     koseki mj)
+    (->subsumptive
+     ((==ucs@JP/hanazono  . #x2CF3D)	; &g2-MJ056881;
+      (==mj		  . 056881)	; &g2-MJ056881;
+      (==koseki		  . 003070)	; &g2-MJ056881;
+      (->subsumptive
+       ((===mj		    . 056881)	; &R-MJ056881;
+	))
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 2)	; ⼁
+    (ideographic-strokes . 1)
+    (total-strokes	 . 2)
+    (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
