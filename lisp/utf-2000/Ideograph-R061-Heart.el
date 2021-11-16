@@ -41688,15 +41688,35 @@
      daikanwa cns11643)
     (ideographic-strokes . 13)
     (total-strokes	 . 17)
+    (hanyu-dazidian	3 2116 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=>ucs@component	  . #x6708)	; &A-compU+6708;
+      (=>iwds-1		  .  0053)	; &A-compU+6708;
+      )
+     ((=ucs		  . #x6101)	; 愁
+      ))
     (=ucs		. #x26857)	; 𦡗
+    (=cns11643-7	. #x377E)	; &I-C7-377E; [23-94]
+    (=daikanwa		. 11349)	; &I-M-11349;
     (->subsumptive
      ((ideographic-radical . 61)	; ⼼
-      (hanyu-dazidian	  3 2116 13)
-      (=daikanwa	  . 11349)	; &M-11349;
-      (=hanziku-6	  . #xB3CA)	; &I-HZK06-B3CA;
+      (==daikanwa	  . 11349)	; &g2-M-11349;
+      (->subsumptive
+       ((===daikanwa	    . 11349)	; &R-M-11349;
+	)
+       ((=hanziku-6	    . #xB3CA)	; &HZK06-B3CA;
+	))
       )
-     ((=ucs@iso		  . #x26857)	; &C7-377E;
-      (=cns11643-7	  . #x377E)	; &C7-377E; [23-94]
+     ((==ucs@iso	  . #x26857)	; &g2-IU-00026857;
+      (==cns11643-7	  . #x377E)	; &g2-IU-00026857; [23-94]
+      (->subsumptive
+       ((===cns11643-7	    . #x377E)	; &R-C7-377E; [23-94]
+	)
+       ((===ucs@iso	    . #x26857)	; &R-U-00026857;
+	))
       ))
     ))
 (define-char
