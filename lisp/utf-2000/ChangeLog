@@ -1,3 +1,11 @@
+2021-11-15  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R020-Wrap.el (U-000208DC): New character.
+
+2021-11-13  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R050-Turban.el (U-000303D2): New character.
+
 2021-11-12  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R044-Corpse.el (U-00021CB7): New character.
