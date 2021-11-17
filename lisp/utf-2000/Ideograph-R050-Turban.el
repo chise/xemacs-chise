@@ -1244,6 +1244,28 @@
     (=ucs		. #x2D611)	; 𭘑
     ))
 (define-char
+  '((ideographic-radical . 50)	; ⼱
+    (ideographic-strokes . 3)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5DFE)	; 巾
+      )
+     ((=ucs		  . #x5DFE)	; 巾
+      ))
+    (=ucs		. #x303D2)	; 𰏒
+    (=cbeta		. 10481)	; &I-CB10481;
+    (->subsumptive
+     ((==ucs@JP/hanazono  . #x303D2)	; &g2-CB10481;
+      (==cbeta		  . 10481)	; &g2-CB10481;
+      (->subsumptive
+       ((===cbeta	    . 10481)	; &R-CB10481;
+	))
+      ))
+    ))
+(define-char
   '((<-denotational
      ((=>big5-cdp	  . #x89ED)	; &A-CDP-89ED;
       ))
