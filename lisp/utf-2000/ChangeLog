@@ -1,3 +1,16 @@
+2021-11-16  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R016-Table.el (U-00020672): Add
+	`<-denotational@component' for IWDS1-0119.
+	(U-0002065B): New character.
+
+	* Ideograph-R011-Enter.el (U+34B1): New character.
+
+	* Ideograph-R009-Man.el (U-000202DB): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R002-Line.el (U-0002CF3D): New character.
+
 2021-11-15  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R020-Wrap.el (U-000208DC): New character.
