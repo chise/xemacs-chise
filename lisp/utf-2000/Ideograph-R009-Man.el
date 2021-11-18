@@ -49604,12 +49604,41 @@
     (ideographic-strokes@ucs . 9)
     (ideographic-radical@cns . 130)	; ⾁
     (ideographic-strokes@cns . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs		  . #x2D8E2)	; 𭣢
+      )
+     ((=>ucs@component	  . #x6708)	; &A-compU+6708;
+      (=>iwds-1		  .  0053)	; &A-compU+6708;
+      ))
+    (=ucs		. #x202DB)	; 𠋛
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x202DB)	; 𠋛
+      ))
+    (ideographic-radical@ucs . 9)	; ⼈
+    (ideographic-strokes@ucs . 9)
+    (ideographic-radical@cns . 130)	; ⾁
+    (ideographic-strokes@cns . 7)
     (ideographic-radical@cns*sources
      daikanwa cns11643)
     (total-strokes	 . 11)
     (hanyu-dazidian	1 189 2)
-    (=ucs		. #x202DB)	; 𠋛
-    (=cns11643-6	. #x4363)	; &I-C6-4363; [35-67]
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs@JP/hanazono	  . #x2D8E2)	; &MJ057582;
+      (=mj		  . 057582)	; &MJ057582;
+      )
+     ((=>ucs@component	  . #x6708)	; &A-compU+6708;
+      (=>iwds-1		  .  0053)	; &A-compU+6708;
+      ))
+    (=ucs@iso		. #x202DB)	; &C6-4363;
+    (=cns11643-6	. #x4363)	; &C6-4363; [35-67]
     (=daikanwa		. 49536)	; &I-M-49536;
     (->subsumptive
      ((==ucs@iso	  . #x202DB)	; &g2-M-49536;
