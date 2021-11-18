@@ -159,9 +159,30 @@
     (=ucs		. #x20AD4)	; 𠫔
     (=cns11643-6	. #x213C)	; &I-C6-213C; [01-28]
     (=big5-cdp		. #x89AC)	; &I-CDP-89AC;
+    (=gt		. 03877)	; &I-GT-03877;
     (=gt-k		. 00345)	; &I-GT-K00345;
-    (=gt-pj-2		. #x4B5D)	; 𠫔 [43-61]
+    (=gt-pj-2		. #x4B5D)	; &I-GT-03877; [43-61]
     (=daikanwa		. 03059)	; &I-M-03059;
+    (->subsumptive
+     ((==ucs@iso	  . #x20AD4)	; &g2-GT-03877;
+      (==cns11643-6	  . #x213C)	; &g2-GT-03877; [01-28]
+      (==big5-cdp	  . #x89AC)	; &g2-GT-03877;
+      (==gt		  . 03877)	; &g2-GT-03877;
+      (==gt-k		  . 00345)	; &g2-GT-03877;
+      (==daikanwa	  . 03059)	; &g2-GT-03877;
+      (->subsumptive
+       ((===daikanwa	    . 03059)	; &R-M-03059;
+	)
+       ((===big5-cdp	    . #x89AC)	; &R-CDP-89AC;
+	)
+       ((===cns11643-6	    . #x213C)	; &R-C6-213C; [01-28]
+	)
+       ((===gt		    . 03877)	; &R-GT-03877;
+	(===gt-k	    . 00345)	; &R-GT-03877;
+	)
+       ((===ucs@iso	    . #x20AD4)	; &R-U-00020AD4;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 28)	; ⼛
