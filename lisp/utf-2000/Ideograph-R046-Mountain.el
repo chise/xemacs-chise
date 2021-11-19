@@ -24480,6 +24480,21 @@
     ))
 (define-char
   '((ideographic-radical . 46)	; ⼭
+    (ideographic-strokes . 15)
+    (total-strokes	 . 18)
+    (=ucs		. #x2D5E9)	; 𭗩
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2D5E9)	; 𭗩
+      ))
+    (ideographic-radical . 46)	; ⼭
+    (ideographic-strokes . 15)
+    (total-strokes	 . 18)
+    (=ucs@JP/hanazono	. #x2D5E9)	; &hanaJU+2D5E9;
+    ))
+(define-char
+  '((ideographic-radical . 46)	; ⼭
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰

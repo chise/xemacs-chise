@@ -1,4 +1,15 @@
+2021-11-18  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R028-Private.el (U-00020AD4): Unify GT-03877.
+
 2021-11-16  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R061-Heart.el (U-00026857): Apply new conventions for
+	glyph granularity.
+
+2021-11-16  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R046-Mountain.el (U-0002D5E9): New character.
 
 	* Ideograph-R016-Table.el (U-00020672): Add
 	`<-denotational@component' for IWDS1-0119.
@@ -29,6 +40,27 @@
 	SW-JIGUGE-03404.
 
 2021-11-10  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R080-Do-Not.el (U-00023AEC): Apply new conventions for
+	glyph granularity.
+	(BC-86CA): New character; use `<-denotational' for U-00023AEC.
+	(U-00023AED): Add `<-denotational@component' for A-IWDSU+23AED.
+	(U+6BD0): Apply new conventions for glyph granularity.
+	(U+6BD0-var-001): New character; use `<-denotational' for U+6BD0.
+	(U+6BD0-var-002): Ditto.
+	(CB10474): New character; use `<-denotational' for U-00021D0B.
+	(U-00023AEF): Add `<-denotational@component' for A-IWDSU+23AEF;
+	apply new conventions for glyph granularity.
+	(U-0002DBC8): New character; use `<-denotational' for
+	A-IWDSU+24C3A.
+	(U-00021E46): Add `<-denotational' for A-IWDSU+21D1B; apply new
+	conventions for glyph granularity.
+	(CB08675): New character; use `<-denotational' for U-00021E46.
+	(U-00023AF9): Apply new conventions for glyph granularity.
+	(CB10600): New character; use `<-denotational' for U-00023AF9.
+	(U+6BD3): Add ideographic-structure.
+	(A-IWDSU+23AED): New abstract node.
+	(A-IWDSU+23AEF): New abstract node.
 
 	* Ideograph-R045-Sprout.el (U-00021D2C): Use `->denotational' and
 	`->subsumptive'.
