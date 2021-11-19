@@ -507,6 +507,14 @@
     ))
 (define-char
   '((<-denotational@component
+     ((=>ucs@iwds-1	  . #x21D05)	; &A-IWDSU+21D05;
+      ))
+    (ideographic-radical . 45)	; ⼬
+    (=>big5-cdp		. #x8875)	; &A-GT-K01900;
+    (=>gt-k		. 01900)	; &A-GT-K01900;
+    ))
+(define-char
+  '((<-denotational
      ((=>big5-cdp	  . #x8875)	; &A-GT-K01900;
       ))
     (ideographic-radical . 45)	; ⼬
@@ -514,6 +522,8 @@
     (total-strokes	 . 5)
     (=big5-cdp		. #x8875)	; &CDP-8875;
     (<-unknown
+     ((=ucs		  . #x5DFF)	; 巿
+      )
      ((=ucs		  . #x6728)	; 木
       ))
     (->subsumptive
@@ -768,13 +778,15 @@
     (=daikanwa		. 07835)	; &I-M-07835;
     ))
 (define-char
-  '((ideographic-radical . 45)	; ⼬
+  '((<-denotational@component
+     ((=>ucs@iwds-1	  . #x21D05)	; &A-IWDSU+21D05;
+      ))
+    (ideographic-radical . 45)	; ⼬
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=>ucs@component	  . #x5C6E)	; &A-compU+5C6E;
-      (=>iwds-1		  .  0096)	; &A-compU+5C6E;
+     ((=ucs		  . #x5C6E)	; 屮
       )
      ((=ucs		  . #x5DFE)	; 巾
       ))
@@ -815,10 +827,10 @@
     ))
 (define-char
   '((<-denotational
-     ((=ucs		  . #x21D05)	; 𡴅
+     ((=>big5-cdp	  . #x8875)	; &A-GT-K01900;
       ))
     (<-denotational@component
-     ((=>big5-cdp	  . #x8875)	; &A-GT-K01900;
+     ((=ucs		  . #x21D05)	; 𡴅
       ))
     (ideographic-radical . 45)	; ⼬
     (ideographic-strokes . 3)
@@ -833,9 +845,16 @@
       ))
     (=gt-k		. 01900)	; &GT-K01900;
     (=gt-pj-k1		. #x4A68)	; &GT-K01900; [42-72]
+    (=cbeta		. 07138)	; &I-CB07138;
     (->subsumptive
      ((==gt-k		  . 01900)	; &g2-GT-K01900;
       (==gt-pj-k1	  . #x4A68)	; &g2-GT-K01900; [42-72]
+      (==cbeta		  . 07138)	; &g2-GT-K01900;
+      (->subsumptive
+       ((===gt-k	    . 01900)	; &R-GT-K01900;
+	)
+       ((===cbeta	    . 07138)	; &R-CB07138;
+	))
       ))
     ))
 (define-char
@@ -2852,8 +2871,16 @@
     ))
 (define-char
   '((ideographic-radical . 45)	; ⼬
-    (=>big5-cdp		. #x8875)	; &A-GT-K01900;
-    (=>gt-k		. 01900)	; &A-GT-K01900;
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>ucs@component	  . #x5C6E)	; &A-compU+5C6E;
+      (=>iwds-1		  .  0096)	; &A-compU+5C6E;
+      )
+     ((=ucs		  . #x5DFE)	; 巾
+      ))
+    (=>ucs@iwds-1	. #x21D05)	; &A-IWDSU+21D05;
     ))
 (define-char
   '((ideographic-radical . 45)	; ⼬
