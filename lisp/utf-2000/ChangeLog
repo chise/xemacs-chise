@@ -1,5 +1,9 @@
 2021-11-18  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R047-River.el (U-0002AA61): New character.
+
+	* Ideograph-R027-Cliff.el (U-00020A8E): New character.
+
 	* Ideograph-R028-Private.el (U-00020AD4): Unify GT-03877.
 
 2021-11-16  MORIOKA Tomohiko  <tomo.git@chise.org>
