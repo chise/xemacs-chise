@@ -78707,7 +78707,10 @@
       )
      ((=ucs		  . #x4EBB)	; 亻
       )
-     ((=ucs		  . #x27DA0)	; 𧶠
+     ((=ucs@iso		  . #x27DA0)	; &GT-49295;
+      (=cns11643-5	  . #x513A)	; &GT-49295; [49-26]
+      (=jis-x0213-2	  . #x792F)	; &I-JX2-792F; [89-15]
+      (=daikanwa	  . 36824)	; &I-M-36824;
       ))
     (=mj		. 007171)	; &MJ007171;
     (=koseki		. 014550)	; &MJ007171;
@@ -78746,7 +78749,8 @@
       )
      ((=ucs		  . #x4EBB)	; 亻
       )
-     ((=ucs		  . #x8CE3)	; 賣
+     ((=ucs@unicode	  . #x8CE3)	; &AJ1-06767;
+      (=adobe-japan1-0	  . 06767)	; &AJ1-06767;
       ))
     (=ucs@unicode	. #x5125)	; &C2-5C46;
     (=ucs@JP/hanazono	. nil)
