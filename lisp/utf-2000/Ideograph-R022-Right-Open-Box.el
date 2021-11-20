@@ -3229,6 +3229,16 @@
   '((ideographic-radical . 22)	; ⼕
     (ideographic-strokes . 15)
     (total-strokes	 . 17)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
+      (=ucs		  . #x2FF7)	; ⿷
+      )
+     ((=>ucs@component	  . #x531A)	; &A-compU+531A;
+      (=>iwds-1		  .  0209)	; &A-compU+531A;
+      )
+     ((=>ucs@iwds-1	  . #x8CE3)	; &A-IWDSU+8CE3;
+      (=>iwds-1		  .  0227)	; &A-IWDSU+8CE3;
+      ))
     (=ucs		. #x5335)	; 匵
     ))
 (define-char
@@ -3252,22 +3262,12 @@
     (=jis-x0212		. #x3432)	; &I-JSP-3432; [20-18]
     (=jis-x0213-2	. #x234F)	; &I-JX2-234F; [03-47]
     (=daikanwa		. 02662)	; &I-M-02662;
-    (=hanziku-1		. #xB6A4)	; &I-HZK01-B6A4;
     (=cbeta		. 05235)	; &I-CB05235;
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x5335)	; 匵
 	)
        ((=ucs		    . #xE0100)	; 󠄀
-	))
-      (ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
-	(=ucs		    . #x2FF7)	; ⿷
-	)
-       ((=ucs		    . #x531A)	; 匚
-	)
-       ((==ucs@jis	    . #x27DA0)	; &g2-GT-49295;
-	(==jis-x0213-2	    . #x792F)	; &g2-GT-49295; [89-15]
 	))
       (==ucs@jis	  . #x5335)	; &g2-AJ1-17329;
       (==adobe-japan1-5	  . 17329)	; &g2-AJ1-17329;
@@ -3286,6 +3286,8 @@
        ((===cbeta	    . 05235)	; &R-CB05235;
 	))
       )
+     ((=hanziku-1	  . #xB6A4)	; &HZK01-B6A4;
+      )
      ((===hng-kar	  . 00490)	; &HNG018-00490;
       ))
     ))
@@ -3302,12 +3304,26 @@
       )
      ((=ucs		  . #x531A)	; 匚
       )
-     ((=ucs		  . #x8CE3)	; 賣
+     ((=ucs@unicode	  . #x8CE3)	; &AJ1-06767;
+      (=adobe-japan1-0	  . 06767)	; &AJ1-06767;
       ))
     (=ucs@unicode	. #x5335)	; &C3-5444;
     (=ucs@JP/hanazono	. nil)
     (=cns11643-3	. #x5444)	; &C3-5444; [52-36]
     (=jef-china3	. #x45BD)	; &I-JC3-45BD;
+    (->subsumptive
+     ((==ucs@unicode	  . #x5335)	; &g2-UU+5335;
+      (==ucs@JP/hanazono  . nil)
+      (==cns11643-3	  . #x5444)	; &g2-UU+5335; [52-36]
+      (==jef-china3	  . #x45BD)	; &g2-UU+5335;
+      (->subsumptive
+       ((===cns11643-3	    . #x5444)	; &R-C3-5444; [52-36]
+	)
+       ((===ucs@unicode	    . #x5335)	; &R-UU+5335;
+	)
+       ((===jef-china3	    . #x45BD)	; &R-JC3-45BD;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 22)	; ⼕
