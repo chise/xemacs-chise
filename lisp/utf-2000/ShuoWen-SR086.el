@@ -210,6 +210,8 @@
   '((shuowen-radical	. 86)	; 殳
     (=shuowen-jiguge	. 09509)	; &SW-JIGUGE-09509;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x23AD6)	; 𣫖
+      )
      ((=ucs		  . #x6BC5)	; 毅
       ))
     (->subsumptive
