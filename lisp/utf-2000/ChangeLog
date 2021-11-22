@@ -1,4 +1,34 @@
+2021-11-19  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R045-Sprout.el (A-BC-8875): Add
+	`<-denotational@component' for A-IWDSU+21D05.
+	(BC-8875): Add U+5DFF as a target of `<-unknown'.
+	(U-00021D05): Add `<-denotational@component' for A-IWDSU+21D05;
+	apply new conventions for glyph granularity for components of
+	ideographic-structure.
+	(GT-K01900): Use `<-denotational' instead of
+	`<-denotational@component' for A-BC-8875; use
+	`<-denotational@component' instead of `<-denotational' for
+	U-00021D05; unify CB07138.
+	(A-IWDSU+21D05): New abstract node.
+
+	* Ideograph-R024-Ten.el (A-cgnU+20992): New abstract node.
+	(U-00020992): Add `<-denotational' for A-cgnU+20992.
+	(A-BC-8BF8): Ditto; unify A-U+20992-itaiji-001 and
+	A-U+20992-itaiji-005.
+	(U+20992-itaiji-005): New character; use `<-denotational' for
+	A-BC-8BF8.
+	(U+5356): Apply new conventions for glyph granularity.
+
+	* Ideograph-R011-Enter.el (U+5168): Add `<-formed' for U+34B0.
+	(U-00020306): Add U+34B0 as a target of `<-ancient'.
+	(U-000204F3): Apply new conventions for glyph granularity.
+
+	* Ideograph-R004-Slash.el (U-00020097): New character.
+
 2021-11-18  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R065-Branch.el (U-00022EB8): New character.
 
 	* Ideograph-R047-River.el (U-0002AA61): New character.
 
@@ -29,6 +59,12 @@
 2021-11-15  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R020-Wrap.el (U-000208DC): New character.
+
+2021-11-14  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR135.el (SW-JIGUGE-13918): Add U-00021335 and
+	U-00026698 as corresponding modern characters.
+	(SW-JIGUGE-13919): Add `<-formed@shuowen' for SW-JIGUGE-13918.
 
 2021-11-13  MORIOKA Tomohiko  <tomo.git@chise.org>
 

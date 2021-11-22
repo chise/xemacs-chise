@@ -6578,13 +6578,16 @@
       )
      ((=ucs		  . #x51AB)	; 冫
       )
-     ((=ucs		  . #x8CE3)	; 賣
+     ((=ucs@unicode	  . #x8CE3)	; &AJ1-06767;
+      (=adobe-japan1-0	  . 06767)	; &AJ1-06767;
       ))
     (=ucs@unicode	. #x51DF)	; &C3-5442;
+    (=ucs@JP/hanazono	. nil)
     (=cns11643-3	. #x5442)	; &C3-5442; [52-34]
     (=cbeta		. 06080)	; &I-CB06080;
     (->subsumptive
      ((==ucs@unicode	  . #x51DF)	; &g2-CB06080;
+      (==ucs@JP/hanazono  . nil)
       (==cns11643-3	  . #x5442)	; &g2-CB06080; [52-34]
       (==cbeta		  . 06080)	; &g2-CB06080;
       (->subsumptive

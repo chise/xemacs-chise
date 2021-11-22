@@ -3296,6 +3296,38 @@
     (=big5-cdp		. #x87DE)	; &I-CDP-87DE;
     ))
 (define-char
+  '((ideographic-radical . 4)	; ⼃
+    (ideographic-strokes . 4)
+    (total-strokes	 . 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
+      (=ucs		  . #x2FF4)	; ⿴
+      )
+     ((=>ucs@component	  . #x513F)	; &A-compU+513F;
+      (=>iwds-1		  .  0222)	; &A-compU+513F;
+      )
+     ((=ucs		  . #x5915)	; 夕
+      ))
+    (=ucs		. #x20097)	; 𠂗
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x20097)	; 𠂗
+      ))
+    (ideographic-radical . 4)	; ⼃
+    (ideographic-strokes . 4)
+    (total-strokes	 . 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
+      (=ucs		  . #x2FF4)	; ⿴
+      )
+     ((=ucs		  . #x513F)	; 儿
+      )
+     ((=ucs		  . #x5915)	; 夕
+      ))
+    (=ucs@iso		. #x20097)	; &U-00020097;
+    ))
+(define-char
   '((<-denotational
      ((=ucs		  . #x2009B)	; 𠂛
       ))
@@ -6264,7 +6296,8 @@
       )
      ((=gt-k		  . 03222)	; &GT-K03222;
       )
-     ((=ucs		  . #x8CE3)	; 賣
+     ((=ucs@unicode	  . #x8CE3)	; &AJ1-06767;
+      (=adobe-japan1-0	  . 06767)	; &AJ1-06767;
       ))
     (=ucs@JP/hanazono	. #x2CF15)	; &hanaJU+2CF15;
     ))

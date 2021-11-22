@@ -1005,7 +1005,8 @@
     (=daikanwa/+p	. 05647)	; &AJ1-03354;
     (=shinjigen		.  7905)	; &AJ1-03354;
     (<-simplified@JP/Jouyou
-     ((=ucs		  . #x8CE3)	; 賣
+     ((=ucs@unicode	  . #x8CE3)	; &AJ1-06767;
+      (=adobe-japan1-0	  . 06767)	; &AJ1-06767;
       (=jis-x0208	  . #x6C4E)	; &I-J90-6C4E; [76-46]
       ))
     (->subsumptive
