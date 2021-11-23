@@ -5010,7 +5010,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=gt		  . 02444)	; &GT-02444;
+     ((=ucs@cns		  . #x34DE)	; &HD-IA-2A3A;
+      (=cns11643-5	  . #x2230)	; &HD-IA-2A3A; [02-16]
       (=daikanwa	  . 01889)	; &I-M-01889;
       )
      ((=ucs		  . #x5927)	; 大
@@ -5141,8 +5142,9 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=ucs@cns		  . #x34DE)	; &C5-2230;
-      (=cns11643-5	  . #x2230)	; &C5-2230; [02-16]
+     ((=ucs@cns		  . #x34DE)	; &HD-IA-2A3A;
+      (=cns11643-5	  . #x2230)	; &HD-IA-2A3A; [02-16]
+      (=daikanwa	  . 01889)	; &I-M-01889;
       )
      ((=ucs		  . #x5927)	; 大
       ))
