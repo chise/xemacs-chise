@@ -14,6 +14,11 @@
 (define-char
   '((shuowen-radical	. 183)	; 倉
     (=shuowen-jiguge	. 17204)	; &SW-JIGUGE-17204;
+    (<-Qizi@shuowen
+     ((=shuowen-jiguge	  . 17203)	; &SW-JIGUGE-17203;
+      )
+     ((=ucs		  . #x5009)	; 倉
+      ))
     (<-Small-Seal@shuowen
      ((=ucs		  . #x4EFA)	; 仺
       ))
