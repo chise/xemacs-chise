@@ -48290,14 +48290,76 @@
       )
      ((=ucs		  . #x5973)	; 女
       )
-     ((=ucs		  . #x8CE3)	; 賣
+     ((=>ucs@iwds-1	  . #x8CE3)	; &A-IWDSU+8CE3;
+      (=>iwds-1		  .  0227)	; &A-IWDSU+8CE3;
       ))
     (=ucs		. #x5B3B)	; 嬻
-    (=mj		. 010029)	; &I-MJ010029;
-    (=cns11643-3	. #x575E)	; &I-C3-575E; [55-62]
-    (=koseki		. 078060)	; 嬻
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5B3B)	; 嬻
+      ))
+    (ideographic-radical . 38)	; ⼥
+    (ideographic-strokes . 15)
+    (total-strokes	 . 18)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5973)	; 女
+      )
+     ((=ucs@iso		  . #x27DA0)	; &GT-49295;
+      (=cns11643-5	  . #x513A)	; &GT-49295; [49-26]
+      (=jis-x0213-2	  . #x792F)	; &I-JX2-792F; [89-15]
+      (=daikanwa	  . 36824)	; &I-M-36824;
+      ))
+    (=mj		. 010029)	; &MJ010029;
+    (=koseki		. 078060)	; &MJ010029;
     (=daikanwa		. 06860)	; &I-M-06860;
+    (->subsumptive
+     ((==mj		  . 010029)	; &g2-MJ010029;
+      (==koseki		  . 078060)	; &g2-MJ010029;
+      (==daikanwa	  . 06860)	; &g2-MJ010029;
+      (->subsumptive
+       ((===daikanwa	    . 06860)	; &R-M-06860;
+	)
+       ((===mj		    . 010029)	; &R-MJ010029;
+	))
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5B3B)	; 嬻
+      ))
+    (ideographic-radical . 38)	; ⼥
+    (ideographic-strokes . 15)
+    (total-strokes	 . 18)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5973)	; 女
+      )
+     ((=ucs@unicode	  . #x8CE3)	; &AJ1-06767;
+      (=adobe-japan1-0	  . 06767)	; &AJ1-06767;
+      ))
+    (=ucs@unicode	. #x5B3B)	; &C3-575E;
+    (=ucs@JP/hanazono	. nil)
+    (=cns11643-3	. #x575E)	; &C3-575E; [55-62]
     (=cbeta		. 01660)	; &I-CB01660;
+    (->subsumptive
+     ((==ucs@unicode	  . #x5B3B)	; &g2-CB01660;
+      (==ucs@JP/hanazono  . nil)
+      (==cbeta		  . 01660)	; &g2-CB01660;
+      (->subsumptive
+       ((===cbeta	    . 01660)	; &R-CB01660;
+	)
+       ((===ucs@unicode	    . #x5B3B)	; &R-UU+5B3B;
+	))
+      )
+     ((==ucs@cns	  . #x5B3B)	; &g2-CU+5B3B;
+      (==cns11643-3	  . #x575E)	; &g2-CU+5B3B; [55-62]
+      ))
     ))
 (define-char
   '((ideographic-radical . 38)	; ⼥

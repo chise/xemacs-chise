@@ -1,3 +1,28 @@
+2021-11-22  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR086.el (SW-JIGUGE-09509): Add U-00023AD6 as a
+	corresponding modern character.
+
+2021-11-20  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R042-Small.el (U-0002D546): New character.
+	(U-00021B6C): New character.
+	(U-00021BA3): New character.
+
+	* Ideograph-R038-Woman.el (U+5B3B): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R022-Right-Open-Box.el (U+5335): Apply new conventions
+	for glyph granularity.
+
+	* Ideograph-R010-Legs.el (U+513F): Use `<-denotational@usage'
+	instead of `<-denotational' for BUCS+5152.
+	(A-U+5152-itaiji-002): Ditto.
+	(U+5150): Ditto; apply new conventions for glyph granularity.
+	(UU+5152): Unify DJT-00574.
+	(U-000204C5): New character.
+	(BUCS+5152): Unify A2-DJT-00574.
+
 2021-11-19  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R045-Sprout.el (A-BC-8875): Add
