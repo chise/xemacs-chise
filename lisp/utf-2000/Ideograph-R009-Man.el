@@ -6791,6 +6791,11 @@
      ((=>ucs@component	  . #x2CF16)	; &A-compU+2CF16;
       ))
     (=ucs		. #x4EFA)	; 仺
+    (<-Qizi
+     ((=ucs		  . #x5009)	; 倉
+      ))
+    (<-Qizi*sources
+     shuowen)
     ))
 (define-char
   '((<-denotational
