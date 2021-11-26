@@ -874,24 +874,37 @@
      ((=ucs		  . #x6534)	; 攴
       ))
     (=ucs		. #x2D8E2)	; 𭣢
-    (=mj		. 057582)	; &I-MJ057582;
-    (=koseki		. 146800)	; 𭣢
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2D8E2)	; 𭣢
+      ))
+    (ideographic-radical . 66)	; ⽁
+    (ideographic-strokes . 3)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=big5-cdp	  . #x8B7A)	; &CDP-8B7A;
+      )
+     ((=ucs@unicode	  . #x6534)	; &AJ1-05058;
+      (=adobe-japan1-0	  . 05058)	; &AJ1-05058;
+      ))
+    (=ucs@JP/hanazono	. #x2D8E2)	; &MJ057582;
+    (=mj		. 057582)	; &MJ057582;
+    (=koseki		. 146800)	; &MJ057582;
     (<-formed
-     ((=ucs		  . #x6538)	; 攸
+     ((=ucs@unicode	  . #x6538)	; &MJ012953;
+      (=mj		  . 012953)	; &MJ012953;
       ))
     (->subsumptive
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	(=ucs		    . #x2FF0)	; ⿰
-	)
-       ((=big5-cdp	    . #x8B7A)	; &CDP-8B7A;
-	)
-       ((==ucs@unicode	    . #x6534)	; &g2-AJ1-05058;
-	(==adobe-japan1-0   . 05058)	; &g2-AJ1-05058;
-	))
-      (==ucs@JP/hanazono  . #x2D8E2)	; &g2-MJ057582;
+     ((==ucs@JP/hanazono  . #x2D8E2)	; &g2-MJ057582;
       (==mj		  . 057582)	; &g2-MJ057582;
       (==koseki		  . 146800)	; &g2-MJ057582;
+      (->subsumptive
+       ((===mj		    . 057582)	; &R-MJ057582;
+	))
       ))
     ))
 (define-char
@@ -3286,13 +3299,7 @@
     (=gt-pj-1		. #x4952)	; &I-GT-16681; [41-50]
     (=daikanwa/+p	. 13202)	; 敏
     (<-simplified@JP/Jouyou
-     ((=ucs@unicode	  . #x654F)	; &JX1-7528;
-      (=ucs@jis		  . #xFA41)	; &JX1-7528;
-      (=gb2312		  . #x4374)	; &JX1-7528; [35-84]
-      (=ks-x1001	  . #x5A42)	; &I-K0-5A42; [58-34]
-      (=cns11643-1	  . #x5A77)	; &I-C1-5A77; [58-87]
-      (=jis-x0213-1	  . #x7528)	; &I-JX1-7528; [85-08]
-      (=daikanwa	  . 13217)	; &I-M-13217;
+     ((=ucs		  . #xFA41)	; 敏
       ))
     (->subsumptive
      ((==ucs@iso	  . #x2F8C8)	; &g2-AJ1-03524;
@@ -4431,6 +4438,7 @@
   '((<-denotational
      ((=ucs		  . #x654F)	; 敏
       ))
+    (=>ucs*		. #x654F)	; 敏
     (ideographic-radical . 66)	; ⽁
     (ideographic-strokes . 7)
     (total-strokes	 . 11)
@@ -4442,10 +4450,11 @@
       )
      ((=ucs		  . #x6535)	; 攵
       ))
-    (=ucs@unicode	. #x654F)	; &JX1-7528;
-    (=ucs@jis		. #xFA41)	; &JX1-7528;
+    (=ucs		. #xFA41)	; 敏
+    (=ucs@unicode	. #x654F)	; 敏
+    (=ucs@jis		. #xFA41)	; 敏
     (=ucs@JP/hanazono	. nil)
-    (=gb2312		. #x4374)	; &JX1-7528; [35-84]
+    (=gb2312		. #x4374)	; &I-G0-4374; [35-84]
     (=ks-x1001		. #x5A42)	; &I-K0-5A42; [58-34]
     (=cns11643-1	. #x5A77)	; &I-C1-5A77; [58-87]
     (=jis-x0213-1	. #x7528)	; &I-JX1-7528; [85-08]
@@ -4453,25 +4462,21 @@
     (=daikanwa		. 13217)	; &I-M-13217;
     (=jef-china3	. #x50CA)	; &I-JC3-50CA;
     (->subsumptive
-     ((=>ucs*		  . #x654F)	; 敏
-      (=ucs		  . #xFA41)	; 敏
-      (==ucs@unicode	  . #x654F)	; 敏
-      (==ucs@jis	  . #xFA41)	; 敏
+     ((==ucs@unicode	  . #x654F)	; &g2-JX1-7528;
+      (==ucs@jis	  . #xFA41)	; &g2-JX1-7528;
       (==ucs@JP/hanazono  . nil)
-      (==gb2312		  . #x4374)	; 敏 [35-84]
-      (==ks-x1001	  . #x5A42)	; 敏 [58-34]
-      (==cns11643-1	  . #x5A77)	; 敏 [58-87]
-      (==jis-x0213-1	  . #x7528)	; 敏 [85-08]
-      (==daikanwa	  . 13217)	; 敏
-      (==jef-china3	  . #x50CA)	; 敏
+      (==gb2312		  . #x4374)	; &g2-JX1-7528; [35-84]
+      (==ks-x1001	  . #x5A42)	; &g2-JX1-7528; [58-34]
+      (==cns11643-1	  . #x5A77)	; &g2-JX1-7528; [58-87]
+      (==jis-x0213-1	  . #x7528)	; &g2-JX1-7528; [85-08]
+      (==daikanwa	  . 13217)	; &g2-JX1-7528;
+      (==jef-china3	  . #x50CA)	; &g2-JX1-7528;
       (->subsumptive
        ((===daikanwa	    . 13217)	; &R-M-13217;
 	)
        ((===jis-x0213-1	    . #x7528)	; &R-JX1-7528; [85-08]
 	)
        ((===jef-china3	    . #x50CA)	; &R-JC3-50CA;
-	)
-       ((===ucs@unicode	    . #xFA41)	; &R-UU+FA41;
 	)
        ((===ucs@ks	    . #x654F)	; &R-K0-5A42;
 	(===ks-x1001	    . #x5A42)	; &R-K0-5A42; [58-34]
