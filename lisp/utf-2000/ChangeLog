@@ -1,3 +1,13 @@
+2021-11-25  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R009-Man.el (U+4EFA): Add `<-Qizi' for U+5009.
+
+2021-11-24  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R018-Knife.el (GT-02444): Unify HD-IA1026, CU+34DE and
+	C5-2230; use o-UU+34DE instead of U+34DE as its mother.
+	(HD-KS022460): New character; use `<-denotational' for o-UU+34DE.
+
 2021-11-22  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* ShuoWen-SR086.el (SW-JIGUGE-09509): Add U-00023AD6 as a
@@ -52,6 +62,9 @@
 	* Ideograph-R004-Slash.el (U-00020097): New character.
 
 2021-11-18  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* char-db-util.el (char-db-coded-charset-priority-list): Add
+	`=>ucs-itaiji-014'.
 
 	* Ideograph-R065-Branch.el (U-00022EB8): New character.
 
