@@ -1,3 +1,10 @@
+2021-11-26  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R027-Cliff.el (A-U+20A7A-itaiji-004): New abstract
+	node; use `<-denotational' for A-cgnU+20A7A.
+	(U+20A7A-itaiji-004): New character; use `<-denotational' for
+	A-U+20A7A-itaiji-004.
+
 2021-11-25  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R009-Man.el (U+4EFA): Add `<-Qizi' for U+5009.
