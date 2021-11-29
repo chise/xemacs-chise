@@ -1,4 +1,16 @@
+2021-11-27  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* char-db-util.el (char-db-coded-charset-priority-list): Add
+	`=ucs-itaiji-014'.
+
 2021-11-26  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R066-Rap.el (U-0002D8E2): Apply new conventions for
+	glyph granularity.
+	(UU+654F): Unify U+FA41.
+	(g2-UU+654F): Move U+FA41 to UU+654F.
+
+	* Ideograph-R016-Table.el (U-00020653): New character.
 
 	* Ideograph-R027-Cliff.el (A-U+20A7A-itaiji-004): New abstract
 	node; use `<-denotational' for A-cgnU+20A7A.
@@ -10,6 +22,9 @@
 	* Ideograph-R009-Man.el (U+4EFA): Add `<-Qizi' for U+5009.
 
 2021-11-24  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR183.el (SW-JIGUGE-17204): Add `<-Qizi@shuowen' for
+	SW-JIGUGE-17203.
 
 	* Ideograph-R018-Knife.el (GT-02444): Unify HD-IA1026, CU+34DE and
 	C5-2230; use o-UU+34DE instead of U+34DE as its mother.
@@ -3810,6 +3825,19 @@
 
 	* ShuoWen-SR003.el (SW-JIGUGE-00320): Add U+256AA-var-001 as a
 	corresponding modern character.
+
+2021-05-23  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* u02FF0-Ideographic-Description-Characters.el (U+2FF0): Add
+	`<-denotational' for IWDS1-0307; add `<-denotational@component'
+	for A-compU+2FF0.
+	(U+2FF1): Add `<-denotational' for IWDS1-0305; add
+	`<-denotational@component' for A-compU+2FF5.
+	(U+2FF5): Add `<-denotational@component' for A-compU+2FF5.
+	(U+2FF8): Add `<-denotational' for IWDS1-0305.
+	(U+2FF9-itaiji-001): New character; use `<-denotational' for
+	U+2FF9.
+	(U+2FFA): Add `<-denotational' for IWDS1-0307.
 
 2021-05-20  MORIOKA Tomohiko  <tomo.git@chise.org>
 
