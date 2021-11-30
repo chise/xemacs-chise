@@ -4201,7 +4201,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=big5-cdp	  . #x8DC9)	; &CDP-8DC9;
+     ((=big5-cdp	  . #x8DC9)	; &HD-KS-021820;
       )
      ((=ucs		  . #x5FC3)	; 心
       ))
@@ -27659,18 +27659,44 @@
   '((ideographic-radical . 61)	; ⼼
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5FC4)	; 忄
+      )
+     ((=ucs		  . #x6C23)	; 氣
+      ))
     (=ucs		. #x613E)	; 愾
-    (=adobe-japan1-0	. 04874)	; &I-AJ1-04874;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x613E)	; 愾
+      ))
+    (ideographic-radical . 61)	; ⼼
+    (ideographic-strokes . 10)
+    (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5FC4)	; 忄
+      )
+     ((=ucs@unicode	  . #x6C23)	; &AJ1-05381;
+      (=adobe-japan1-0	  . 05381)	; &AJ1-05381;
+      ))
+    (=ucs@unicode	. #x613E)	; &AJ1-04874;
+    (=adobe-japan1-0	. 04874)	; &AJ1-04874;
     (=jis-x0208		. #x5841)	; &I-J90-5841; [56-33]
     (=ks-x1001		. #x4B45)	; &I-K0-4B45; [43-37]
     (=cns11643-1	. #x6422)	; &I-C1-6422; [68-02]
     (=jis-x0213-1	. #x5841)	; &I-JX1-5841; [56-33]
-    (=gb12345		. #x6269)	; 愾 [66-73]
+    (=gb12345		. #x6269)	; &AJ1-04874; [66-73]
     (=big5		. #xB75A)	; &I-B-B75A;
     (=gt		. 13799)	; &I-GT-13799;
     (=gt-pj-1		. #x5841)	; &I-GT-13799; [56-33]
     (=daikanwa		. 11029)	; &I-M-11029;
-    (=shinjigen		.  2626)	; 愾
+    (=shinjigen		.  2626)	; &AJ1-04874;
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x613E)	; 愾
