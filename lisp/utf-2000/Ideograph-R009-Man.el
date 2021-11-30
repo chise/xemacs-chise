@@ -52482,7 +52482,6 @@
   '((ideographic-radical . 9)	; ⼈
     (ideographic-strokes . 10)
     (total-strokes	 . 12)
-    (hanyu-dazidian	1 203 8)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -52494,10 +52493,30 @@
     (sound@ja/on/go	"ke")
     (sound@ja/on/kan	"ki")
     (=ucs		. #x3476)	; 㑶
-    (=cns11643-4	. #x3637)	; &I-C4-3637; [22-23]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x3476)	; 㑶
+      ))
+    (ideographic-radical . 9)	; ⼈
+    (ideographic-strokes . 10)
+    (total-strokes	 . 12)
+    (hanyu-dazidian	1 203 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x4EBB)	; 亻
+      )
+     ((=ucs@unicode	  . #x6C23)	; &AJ1-05381;
+      (=adobe-japan1-0	  . 05381)	; &AJ1-05381;
+      ))
+    (=ucs@unicode	. #x3476)	; &C4-3637;
+    (=cns11643-4	. #x3637)	; &C4-3637; [22-23]
     (=daikanwa		. 00950)	; &I-M-00950;
     (<-vulgar
-     ((=ucs		  . #x613E)	; 愾
+     ((=ucs@unicode	  . #x613E)	; &AJ1-04874;
+      (=adobe-japan1-0	  . 04874)	; &AJ1-04874;
       (=daikanwa	  . 11029)	; &I-M-11029;
       ))
     (<-vulgar$_1*sources
