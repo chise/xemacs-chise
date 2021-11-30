@@ -1,5 +1,18 @@
 2021-11-27  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R030-Mouth.el (U-00020BCD): Apply new conventions for
+	glyph granularity.
+	(U-000301EB): New character [copied from Ideograph-R163-City.el].
+	(U-00020DED): New character.
+	(U-00020DF2): New character.
+	(U-00020E28): New character.
+	(A-cgnU+20EF0): New abstract node.
+	(U-00020EF0): Add `<-denotational' for A-cgnU+20EF0; apply new
+	conventions for glyph granularity.
+	(U-00020F1B): Likewise.
+	(U+FA6D): New character [copied from Ideograph-R135-Tongue.el].
+	(U-000210E6): Use `->subsumptive'.
+
 	* char-db-util.el (char-db-coded-charset-priority-list): Add
 	`=ucs-itaiji-014'.
 
