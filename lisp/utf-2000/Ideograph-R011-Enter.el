@@ -611,7 +611,6 @@
     (ideographic-radical . 11)	; ⼊
     (ideographic-strokes . 3)
     (total-strokes	 . 5)
-    (hanyu-dazidian	1 111 3)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
@@ -621,10 +620,29 @@
      ((=ucs		  . #x5DE5)	; 工
       ))
     (=ucs		. #x34B0)	; 㒰
-    (=cns11643-3	. #x2176)	; &I-C3-2176; [01-86]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x34B0)	; 㒰
+      ))
+    (ideographic-radical . 11)	; ⼊
+    (ideographic-strokes . 3)
+    (total-strokes	 . 5)
+    (hanyu-dazidian	1 111 3)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5165)	; 入
+      )
+     ((=ucs@unicode	  . #x5DE5)	; &AJ1-01979;
+      (=adobe-japan1-0	  . 01979)	; &AJ1-01979;
+      ))
+    (=ucs@unicode	. #x34B0)	; &C3-2176;
+    (=cns11643-3	. #x2176)	; &C3-2176; [01-86]
     (=daikanwa		. 01422)	; &I-M-01422;
     (=daijiten		. 00586)	; &I-DJT-00586;
-    (=shinjigen		.  4877)	; 㒰
+    (=shinjigen		.  4877)	; &C3-2176;
     (<-ancient
      ((=ucs@cns		  . #x5168)	; &MJ007267;
       (=ucs@ks		  . #x5168)	; &MJ007267;
@@ -2280,11 +2298,21 @@
     (=cns11643-6	. #x465A)	; &I-C6-465A; [38-58]
     (=daikanwa		. 01443)	; &I-M-01443;
     (<-ancient
+     ((=ucs		  . #x34B0)	; 㒰
+      )
+     ((=ucs		  . #x5168)	; 全
+      )
      ((=ucs@cns		  . #x5168)	; &MJ007267;
       (=ucs@ks		  . #x5168)	; &MJ007267;
       (=mj		  . 007267)	; &MJ007267;
       (=daikanwa	  . 01424)	; &I-M-01424;
       ))
+    (<-ancient$_1*sources
+     shuowen)
+    (<-ancient$_2*sources
+     shuowen)
+    (<-ancient$_3*sources
+     shuowen daikanwa)
     (<-ancient*sources
      shuowen daikanwa)
     (->subsumptive
