@@ -1,5 +1,15 @@
 2021-11-30  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R061-Heart.el (U+613E): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R011-Enter.el (U+34B0): Apply new conventions for
+	glyph granularity.
+	(U-000204F3): Add U+34B0 and U+5168 as targets of `<-ancient'.
+
+	* Ideograph-R009-Man.el (U+3476): Apply new conventions for glyph
+	granularity.
+
 	* Ideograph-R018-Knife.el:
 	- Add some missing Hanyo-Denshi/KS code points.
 	- Add `=decomposition@hanyo-denshi' for some abstract glyph-forms
