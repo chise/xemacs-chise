@@ -1,3 +1,9 @@
+2021-12-01  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R008-Lid.el (G-UU+4EA6): New glyph node; use
+	`<-subsumptive' for U+4EA6.
+	(g2-UU+4EA6): Use G-UU+4EA6 instead of U+4EA6 as its mother.
+
 2021-11-30  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R061-Heart.el (U+613E): Apply new conventions for
