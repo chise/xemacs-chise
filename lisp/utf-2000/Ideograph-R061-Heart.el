@@ -4201,7 +4201,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=big5-cdp	  . #x8DC9)	; &HD-KS-021820;
+     ((=mj		  . 031236)	; &MJ031236;
       )
      ((=ucs		  . #x5FC3)	; 心
       ))

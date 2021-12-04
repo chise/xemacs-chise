@@ -8557,6 +8557,20 @@
     ))
 (define-char
   '((ideographic-radical . 40)	; ⼧
+    (ideographic-strokes . 7)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5B80)	; 宀
+      )
+     ((=ucs		  . #x4F2F)	; 伯
+      ))
+    (=ucs		. #x2A9D0)	; 𪧐
+    ))
+(define-char
+  '((ideographic-radical . 40)	; ⼧
     (=>ucs@cognate	. #x21A0B)	; &A-cgnU+21A0B;
     ))
 (define-char

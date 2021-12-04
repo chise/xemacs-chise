@@ -4400,12 +4400,10 @@
     (total-strokes	 . 9)
     (=>iwds-1*note	"27a")
     (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
-      (=ucs		  . #x2FF3)	; ⿳
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=ucs		  . #x5B80)	; 宀
-      )
-     ((=>ucs@component	  . #x706B)	; &A-compU+706B;
+     ((=>ucs@component	  . #x707E)	; &A-compU+707E;
       )
      ((=ucs		  . #x53C8)	; 又
       ))
@@ -4575,12 +4573,10 @@
     (ideographic-strokes . 7)
     (total-strokes	 . 9)
     (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
-      (=ucs		  . #x2FF3)	; ⿳
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=ucs		  . #x5B80)	; 宀
-      )
-     ((=gt-k		  . 00859)	; &GT-K00859;
+     ((=ucs-itaiji-001	  . #x707E)	; &U-i001+707E;
       )
      ((=ucs		  . #x53C8)	; 又
       ))

@@ -5177,8 +5177,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=ucs@unicode	  . #x34DE)	; &HD-KS-022450;
-      (=big5-cdp	  . #x8CE9)	; &HD-KS-022450;
+     ((=ucs@unicode	  . #x34DE)	; &MJ000184;
+      (=mj		  . 000184)	; &MJ000184;
       )
      ((=ucs		  . #x5927)	; 大
       ))

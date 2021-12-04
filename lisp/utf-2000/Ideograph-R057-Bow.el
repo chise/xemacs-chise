@@ -6530,9 +6530,8 @@
       )
      ((=ucs		  . #x5F13)	; 弓
       )
-     ((=ucs@unicode	  . #x526A)	; &HD-FT-3474;
-      (=gb2312		  . #x3C74)	; &HD-FT-3474; [28-84]
-      (=cns11643-1	  . #x592A)	; &I-C1-592A; [57-10]
+     ((=ucs@unicode	  . #x526A)	; &MJ007561;
+      (=mj		  . 007561)	; &MJ007561;
       ))
     (=ucs@unicode	. #x5F45)	; &AJ1-14286;
     (=ucs@JP/hanazono	. nil)
