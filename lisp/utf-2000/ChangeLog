@@ -1,3 +1,12 @@
+2021-12-02  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R041-Inch.el (U-0002A9FA): New character.
+
+	* Ideograph-R040-Roof.el (U-0002A9D0): New character.
+
+	* Ideograph-R029-Again.el (U+53DC): Modify structure.
+	(MJ057139): Likewise.
+
 2021-12-01  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R008-Lid.el (G-UU+4EA6): New glyph node; use
