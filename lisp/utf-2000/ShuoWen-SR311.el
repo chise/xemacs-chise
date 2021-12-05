@@ -2,8 +2,18 @@
 (define-char
   '((shuowen-radical	. 311)	; 儿
     (=shuowen-jiguge	. 28900)	; &SW-JIGUGE-28900;
+    (<-Qizi@shuowen
+     ((=shuowen-jiguge	  . 26405)	; &SW-JIGUGE-26405;
+      )
+     ((=ucs		  . #x4EBA)	; 人
+      ))
     (<-Small-Seal@shuowen
      ((=ucs		  . #x513F)	; 儿
+      ))
+    (<-ancient@shuowen
+     ((=shuowen-jiguge	  . 26405)	; &SW-JIGUGE-26405;
+      )
+     ((=ucs		  . #x4EBA)	; 人
       ))
     (->subsumptive
      ((===shuowen-jiguge5 . 28900)	; &SW-JIGUGE5-28900;
