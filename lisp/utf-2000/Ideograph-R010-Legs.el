@@ -52,6 +52,16 @@
     (=gt-pj-1		. #x5139)	; &I-GT-01731; [49-25]
     (=daikanwa		. 01336)	; &I-M-01336;
     (=jef-china3	. #x81C2)	; &I-JC3-81C2;
+    (<-Qizi
+     ((=ucs		  . #x4EBA)	; 人
+      ))
+    (<-Qizi*sources
+     shuowen)
+    (<-ancient
+     ((=ucs		  . #x4EBA)	; 人
+      ))
+    (<-ancient*sources
+     shuowen)
     (<-simplified@CN
      ((=ucs@unicode	  . #x5152)	; &MJ007236;
       (=mj		  . 007236)	; &MJ007236;
