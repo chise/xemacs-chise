@@ -1,5 +1,8 @@
 2021-12-06  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R010-Legs.el (U+513F): Add `<-Qizi' and `<-ancient'
+	for U+4EBA.
+
 	* u02E00-CJK-Radical-Supplement.el (U+2E81 <CJK RADICAL CLIFF>):
 	Add `<-denotational' for U+5382.
 	(U+2E88 <CJK RADICAL KNIFE ONE>): Unify AJ1-14108.
@@ -73,6 +76,11 @@
 	(U+2EE9 <CJK RADICAL SIMPLIFIED YELLOW>): Unify UU+9EC4,
 	AJ1-01323, J0-322B, G0-3B46, GT-65323, GT-K07722, M-47926' and
 	DJT-14694.
+
+2021-12-05  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR311.el (SW-JIGUGE-28900): Add `<-Qizi@shuowen' for
+	SW-JIGUGE-26405; add `<-ancient@shuowen' for SW-JIGUGE-26405.
 
 2021-12-03  MORIOKA Tomohiko  <tomo.git@chise.org>
 
@@ -310,6 +318,18 @@
 	(MJ057139): Likewise.
 
 2021-12-01  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R083-Clan.el (U+6C0F): Add `<-denotational@usage' for
+	BUCS+6C0F; unify DJT-05932.
+	(JU+6C10): Add `ideographic-structure'; add `<-formed' and
+	`<-same' for JU+4F4E.
+	(U-0002B795): Add `<-denotational@usage' for BUCS+6C0F; unify
+	DJT-05933.
+	(A-BC-8851): New abstract node.
+	(BC-8851-var-001): New character; use `<-denotational' for
+	A-BC-8851.
+	(BC-8851): Ditto.
+	(BUCS+6C0F): New abstract node; unify A2-DJT-05932.
 
 	* Ideograph-R008-Lid.el (G-UU+4EA6): New glyph node; use
 	`<-subsumptive' for U+4EA6.
