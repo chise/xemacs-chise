@@ -16,6 +16,13 @@
     (=shuowen-jiguge	. 32409)	; &SW-JIGUGE-32409;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x2245E)	; 𢑞
+      )
+     ((=ucs		  . #x27C48)	; 𧱈
+      ))
+    (<-Zhouwen@shuowen
+     ((=shuowen-jiguge	  . 32408)	; &SW-JIGUGE-32408;
+      )
+     ((=ucs		  . #x38C7)	; 㣇
       ))
     (->subsumptive
      ((===shuowen-jiguge5 . 32409)	; &SW-JIGUGE5-32409;
@@ -27,6 +34,13 @@
   '((shuowen-radical	. 363)	; 㣇
     (=shuowen-jiguge	. 32410)	; &SW-JIGUGE-32410;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x2F896)	; 㣇
+      )
+     ((=ucs-itaiji-006	  . #x38C7)	; &U-i006+38C7;
+      ))
+    (<-ancient@shuowen
+     ((=shuowen-jiguge	  . 32408)	; &SW-JIGUGE-32408;
+      )
      ((=ucs		  . #x38C7)	; 㣇
       ))
     (->subsumptive
@@ -112,6 +126,11 @@
     (=shuowen-jiguge	. 32417)	; &SW-JIGUGE-32417;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x20B7E)	; 𠭾
+      ))
+    (<-ancient@shuowen
+     ((=shuowen-jiguge	  . 32416)	; &SW-JIGUGE-32416;
+      )
+     ((=ucs		  . #x38C8)	; 㣈
       ))
     (->subsumptive
      ((===shuowen-jiguge5 . 32417)	; &SW-JIGUGE5-32417;
