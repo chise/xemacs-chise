@@ -223,7 +223,8 @@
      ((=ucs		  . #x5369)	; 卩
       (=daikanwa	  . 02836)	; &I-M-02836;
       )
-     ((=ucs		  . #x2D172)	; 𭅲
+     ((=ucs@JP/hanazono	  . #x2D172)	; &MJ057105;
+      (=mj		  . 057105)	; &MJ057105;
       ))
     (->formed$_1*sources
      zhengzitong daikanwa)
@@ -439,13 +440,31 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
       (=ucs		  . #x2FF4)	; ⿴
       )
-     ((=ucs		  . #x353E)	; 㔾
+     ((=>ucs@component	  . #x5DF1)	; &A-compU+5DF1;
+      (=>iwds-1		  .  0120)	; &A-compU+5DF1;
       )
      ((=ucs		  . #x4E36)	; 丶
       ))
     (=ucs		. #x2D172)	; 𭅲
-    (=mj		. 057105)	; &I-MJ057105;
-    (=koseki		. 032870)	; 𭅲
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2D172)	; 𭅲
+      ))
+    (ideographic-radical . 26)	; ⼙
+    (ideographic-strokes . 1)
+    (total-strokes	 . 3)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
+      (=ucs		  . #x2FF4)	; ⿴
+      )
+     ((=ucs		  . #x353E)	; 㔾
+      )
+     ((=ucs		  . #x4E36)	; 丶
+      ))
+    (=ucs@JP/hanazono	. #x2D172)	; &MJ057105;
+    (=mj		. 057105)	; &MJ057105;
+    (=koseki		. 032870)	; &MJ057105;
     (<-formed
      ((=ucs		  . #x5369)	; 卩
       )
@@ -460,6 +479,9 @@
      ((==ucs@JP/hanazono  . #x2D172)	; &g2-MJ057105;
       (==mj		  . 057105)	; &g2-MJ057105;
       (==koseki		  . 032870)	; &g2-MJ057105;
+      (->subsumptive
+       ((===mj		    . 057105)	; &R-MJ057105;
+	))
       ))
     ))
 (define-char
