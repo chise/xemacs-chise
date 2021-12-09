@@ -1,5 +1,14 @@
 2021-12-06  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R018-Knife.el: Add some MJ code points corresponding
+	to Hanyo-Denshi IVSes.
+	(U-000207B3): New character.
+
+	* Ideograph-R004-Slash.el (A-U+209AA-itaiji-001): New abstract
+	node.
+	(U+209AA-itaiji-001): New character; use `<-denotational' for
+	A-U+209AA-itaiji-001.
+
 	* Ideograph-R010-Legs.el (U+513F): Add `<-Qizi' and `<-ancient'
 	for U+4EBA.
 
