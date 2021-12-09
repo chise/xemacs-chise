@@ -16550,6 +16550,10 @@
 	)
        ((=ucs		    . #x6387)	; 掇
 	(=daikanwa	    . 12241)	; &I-M-12241;
+	)
+       ((=ucs@unicode	    . #x64A4)	; &AJ1-03115;
+	(=adobe-japan1-0    . 03115)	; &AJ1-03115;
+	(=daikanwa	    . 12726)	; &I-M-12726;
 	))
       (<-interchangeable$_1*sources
        shuowen-tongxun-dingsheng daikanwa)
