@@ -8778,6 +8778,21 @@
     (=ucs		. #x212A9)	; 𡊩
     ))
 (define-char
+  '((ideographic-radical . 32)	; ⼟
+    (ideographic-strokes . 5)
+    (total-strokes	 . 8)
+    (=ucs		. #x212AA)	; 𡊪
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x212AA)	; 𡊪
+      ))
+    (ideographic-radical . 32)	; ⼟
+    (ideographic-strokes . 5)
+    (total-strokes	 . 8)
+    (=ucs@iso		. #x212AA)	; &U-000212AA;
+    ))
+(define-char
   '((<-denotational
      ((=>ucs@iwds-1	  . #x212E1)	; &A-IWDSU+212E1;
       ))
