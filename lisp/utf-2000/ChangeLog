@@ -1,5 +1,31 @@
 2021-12-06  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R082-Fur.el (U-00023B1B): Use `->subsumptive'.
+	(U-00023B57): New character.
+	(U+6BFA): Use `->denotational' and `->subsumptive'; add
+	`<-denotational@usage' for A2-DJT-05887.
+	(U-0002DBDF): New character.
+	(U-00023BE0): New character.
+	(U-00023C10): Apply new conventions for glyph granularity.
+	(A-IWDSU+23C22): New abstract node.
+	(M-16997): Use A-IWDSU+23C22 instead of U-00023C22 as its mother;
+	unify U-00023C1D.
+	(U-00023C22): Add `<-denotational' for A-IWDSU+23C22.
+	(U-00023C42): Apply new conventions for glyph granularity.
+
+2021-12-07  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R059-Bristle.el (U-000224A3): Apply new conventions
+	for glyph granularity.
+	(M-10007): Add `<-denotational' for U-000224A3; unify IU+224A3.
+	(U-000224A2): New character.
+
+	* Ideograph-R058-Snout.el (U-0002F896): Add U+38C7 as a target of
+	`<-ancient'.
+	(U-0002245E): Add `<-Zhouwen' for U+38C7.
+
+2021-12-06  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R018-Knife.el: Add some MJ code points corresponding
 	to Hanyo-Denshi IVSes.
 	(U-000207B3): New character.
