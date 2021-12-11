@@ -4155,6 +4155,11 @@
 (define-char
   '((shuowen-radical	. 410)	; 水
     (=shuowen-jiguge	. 38530)	; &SW-JIGUGE-38530;
+    (<-Qizi@shuowen
+     ((=shuowen-jiguge	  . 38529)	; &SW-JIGUGE-38529;
+      )
+     ((=ucs		  . #x6DBF)	; 涿
+      ))
     (<-Small-Seal@shuowen
      ((=ucs		  . #x2313B)	; 𣄻
       ))
