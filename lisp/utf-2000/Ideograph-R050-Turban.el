@@ -1241,7 +1241,53 @@
   '((ideographic-radical . 50)	; ⼱
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5DFE)	; 巾
+      )
+     ((=ucs		  . #x2D172)	; 𭅲
+      ))
+    (=ucs		. #x22061)	; 𢁡
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x22061)	; 𢁡
+      ))
+    (ideographic-radical . 50)	; ⼱
+    (ideographic-strokes . 3)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5DFE)	; 巾
+      )
+     ((=ucs@JP/hanazono	  . #x2D172)	; &MJ057105;
+      (=mj		  . 057105)	; &MJ057105;
+      ))
+    (=ucs@iso		. #x22061)	; &U-00022061;
+    (->subsumptive
+     ((==ucs@iso	  . #x22061)	; &g2-IU-00022061;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 50)	; ⼱
+    (ideographic-strokes . 3)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs		  . #x2008B)	; 𠂋
+      )
+     ((=ucs		  . #x5DFE)	; 巾
+      ))
     (=ucs		. #x2D611)	; 𭘑
+    (->subsumptive
+     ((==ucs@JP/hanazono  . #x2D611)	; &g2-hanaJU+2D611;
+      ))
     ))
 (define-char
   '((ideographic-radical . 50)	; ⼱
@@ -3940,6 +3986,27 @@
     (=ucs		. #x220AB)	; 𢂫
     (=cns11643-6	. #x305D)	; &I-C6-305D; [16-61]
     (=daikanwa		. 08895)	; &I-M-08895;
+    ))
+(define-char
+  '((ideographic-radical . 50)	; ⼱
+    (ideographic-strokes . 6)
+    (total-strokes	 . 9)
+    (=ucs		. #x220A8)	; 𢂨
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x220A8)	; 𢂨
+      ))
+    (ideographic-radical . 50)	; ⼱
+    (ideographic-strokes . 6)
+    (total-strokes	 . 9)
+    (=ucs@iso		. #x220A8)	; &M-08896;
+    (=daikanwa		. 08896)	; &M-08896;
+    (->subsumptive
+     ((==daikanwa	  . 08896)	; &g2-M-08896;
+      )
+     ((==ucs@iso	  . #x220A8)	; &g2-IU-000220A8;
+      ))
     ))
 (define-char
   '((=>ucs		. #x220AC)	; 𢂬
