@@ -1927,8 +1927,11 @@
      ((=ucs		  . #x5DF1)	; 己
       ))
     (=ucs-itaiji-001	. #x56D8)	; &U-i001+56D8;
+    (=ucs-itaiji-002	. #x56D8)	; &U-i001+56D8;
     (->subsumptive
      ((==ucs-itaiji-001	  . #x56D8)	; &g2-U-i001+56D8;
+      )
+     ((==ucs-itaiji-002	  . #x56D8)	; &g2-U-i002+56D8;
       ))
     ))
 (define-char

@@ -2633,6 +2633,23 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=ucs		  . #x20B38)	; 𠬸
+      ))
+    (ideographic-radical . 29)	; ⼜
+    (ideographic-strokes . 5)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs-itaiji-001	  . #x56D8)	; &U-i001+56D8;
+      )
+     ((=ucs		  . #x53C8)	; 又
+      ))
+    (=ucs-var-002	. #x20B38)	; &U-v002+20B38;
+    ))
+(define-char
   '((<-denotational@usage
      ((==>daijiten	  . 01135)	; &A2-DJT-01135;
       ))
@@ -2963,6 +2980,11 @@
      ((=ucs		  . #x5DFE)	; 巾
       ))
     (=ucs-itaiji-006	. #x38C7)	; &U-i006+38C7;
+    (<-ancient
+     ((=ucs		  . #x38C7)	; 㣇
+      ))
+    (<-ancient*sources
+     shuowen)
     (<-formed
      ((=ucs		  . #x38C7)	; 㣇
       ))
@@ -7683,10 +7705,16 @@
     (=cns11643-6	. #x5B3D)	; &I-C6-5B3D; [59-29]
     (=daikanwa		. 03209)	; &I-M-03209;
     (<-ancient
+     ((=ucs		  . #x38C8)	; 㣈
+      )
      ((=ucs@unicode	  . #x38C8)	; &GT-12554;
       (=cns11643-4	  . #x5031)	; &GT-12554; [48-17]
       (=daikanwa	  . 09946)	; &I-M-09946;
       ))
+    (<-ancient$_1*sources
+     shuowen)
+    (<-ancient$_2*sources
+     shuowen daikanwa)
     (<-ancient*sources
      shuowen daikanwa)
     (<-ancient@jiyun

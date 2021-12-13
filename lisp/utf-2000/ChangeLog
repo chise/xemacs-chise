@@ -1,3 +1,167 @@
+2021-12-09  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R084-Steam.el (U+6C14): Add `<-denotational@usage' for
+	BUCS+6C23.
+	(UU+6C14): Unify MJ015011.
+	(U+6C17): Add `<-denotational@usage' for BUCS+6C23; apply new
+	conventions for glyph granularity.
+	(U+6C1B): Add `<-denotational@usage' for BUCS+6C1B; apply new
+	conventions for glyph granularity.
+	(U+6C23): Add `<-denotational@usage' for BUCS+6C23; apply new
+	conventions for glyph granularity.
+	(U-00023C64): Apply new conventions for glyph granularity.
+	(U-00023C66): Likewise.
+	(U+9FEB): New character.
+	(BUCS+6C23): New abstract node; unify A2-DJT-05947.
+	(BUCS+6C1B): New abstract node; unify A2-DJT-05941.
+
+	* Ideograph-R078-Death.el (IWDS1-92a[1092]): Unify U+6B79 instead
+	of A-IWDSU+6B79.
+	(AJ1-05349): Unify UU+6B79 instead of U+6B79.
+	(U+239B5-var-001): New character; use `<-subsumptive' for
+	U-000239B5.
+	(A-U+239B5-itaiji-001): New abstract node; unify
+	A-U+239B5-itaiji-002; use `<-denotational' for A-cgnU+239B5.
+	(U+239B5-itaiji-001): Use A-U+239B5-itaiji-001 instead of
+	A-cgnU+239B5 as its mother.
+	(U+239B5-itaiji-002): New character; use `<-denotational' for
+	A-U+239B5-itaiji-001.
+	(U+6B7A): Add `ideographic-structure'.
+	(A-cgnU+6B7B): New abstract node.
+	(U+6B7B): Add `<-denotational' for A-cgnU+6B7B; apply new
+	conventions for glyph granularity.
+	(U-0002DB7D): New character; use `<-denotational' for A-cgnU+6B7B.
+	(U-0002DB80): Ditto.
+	(U-000239B8): Apply new conventions for glyph granularity.
+	(U-000239BA): Likewise.
+	(CB09967): Unify GT-K02119.
+	(U-000239BD): Apply new conventions for glyph granularity.
+	(U-000239C3): Likewise.
+	(U-000239C4): Likewise; add `<-denotational@usage' for
+	A2-DJT-05689.
+	(U-000239C7): Add ideographic-structure.
+	(U+6B7C): Apply new conventions for glyph granularity; add
+	`<-denotational@usage' for BUCS+6BB2.
+	(U-0002DB81): New character.
+	(A-IWDSU+6B7F): New abstract node.
+	(U+6B7F): Add `<-denotational' for A-IWDSU+6B7F; add
+	ideographic-structure.
+	(U-0002DB88): New character; use `<-denotational' for
+	A-IWDSU+6B7F.
+	(U+6B81): Add `<-denotational' for A-IWDSU+6B7F; add
+	ideographic-structure.
+	(U+6B80): Apply new conventions for glyph granularity.
+	(U-000239D1): Likewise.
+	(U+3C5B): Likewise.
+	(U-000239D4): Likewise.
+	(U-000239D5): Likewise.
+	(U-0002DB82): New character.
+	(U+25220-itaiji-003): New character; use `<-denotational' for
+	A-U+25220-itaiji-003.
+	(A-U+25220-itaiji-003): New abstract node.
+	(CB09837): New character; unify U+239BB-itaiji-003.
+	(U+6B83): Apply new conventions for glyph granularity.
+	(U+6B84): Likewise.
+	(U-000239E0): Likewise.
+	(U-000239E2): Likewise.
+	(M-16415): Add `<-denotational' for U-000239E2.
+	(U+6B86): Apply new conventions for glyph granularity.
+	(U+25220-itaiji-001): Fix strokes.
+	(A-GT-K06369): Fix strokes.
+	(U+25220-itaiji-004): New character; use `<-denotational' for
+	A-GT-K06369.
+	(U-000239FC): Apply new conventions for glyph granularity.
+	(U+6B89): Likewise.
+	(U-000239FD): Likewise.
+	(U+6B8A): Likewise.
+	(U+6B8B): Likewise.
+	(U-0003067D): New character.
+	(U-00023A0F): Apply new conventions for glyph granularity.
+	(U-00023A11): Likewise.
+	(U+6B93): Likewise.
+	(U-0002DB96): New character.
+	(U-00023A19): Apply new conventions for glyph granularity.
+	(U-00023A1B): Likewise.
+	(U+6B95): Likewise.
+	(A-cgnU+6B96): New abstract node.
+	(B-B4DE): Unify U+6B96 instead of A-UU+6B96; use A-cgnU+6B96
+	instead of U+6B96 as its mother.
+	(JU+6B96): Use U+6B96 instead of A-UU+6B96 as its mother.
+	(UU+6B96): Likewise.
+	(HNG-KAR0202-0): Use A-cgnU+6B96 instead of U+6B96 as its mother.
+	(U+6B98): Apply new conventions for glyph granularity.
+	(U+3C68): Likewise.
+	(U-00023A26): Likewise.
+	(U-00023A38): Likewise.
+	(U+6B9E): Likewise.
+	(U+6B9F): Likewise.
+	(U-00023A46): Likewise.
+	(U-00023A49): Likewise.
+	(U+3C73): Likewise.
+	(U+6BA4): Likewise.
+	(U+6BA8): Likewise.
+	(U-00023A60): Likewise.
+	(U+6BA9): Add `ideographic-structure'.
+	(U+6BAA): Apply new conventions for glyph granularity.
+	(U-00023A63): Likewise.
+	(U+6BAB): Likewise.
+	(U+6BAC): Likewise.
+	(U+6BAD): Likewise.
+	(U+6BAE): Likewise; use `<-interchangeable' instead of
+	`<-synonyms'.
+	(U-00023A74): Apply new conventions for glyph granularity.
+	(U+6BB1): Likewise.
+	(U+3C7A): Likewise.
+	(U+9FDE): New character.
+	(U+6BB2): Add `<-denotational@usage' for BUCS+6BB2; apply new
+	conventions for glyph granularity.
+	(A-CB11859): New abstract node.
+	(CB11859): New character; use `<-denotational' for A-CB11859.
+	(BUCS+6B79): New abstract node; unify A2-DJT-05678.
+	(A2-DJT-05689): New abstract node.
+	(BUCS+6BB2): New abstract node; unify A2-DJT-05784.
+	(A2-DJT-05771): New abstract node.
+
+	* Ideograph-R060-Step.el (UU+5FB9): Add UU+64A4 as a target of
+	`<-interchangeable'.
+
+	* Ideograph-R050-Turban.el (U-00022061): New character.
+	(U-0002D611): Add `ideographic-structure'.
+	(U-000220A8): New character.
+
+	* Ideograph-R032-Earth.el (U-000212AA): New character.
+
+	* Ideograph-R029-Again.el (U+20B38-var-002): New character; add
+	`<-denotational' for U-00020B38.
+	(U+38C7-itaiji-006): Add `<-ancient' for U+38C7.
+	(U-00020B7E): Add U+38C8 as a target of `<-ancient'.
+
+	* Ideograph-R026-Seal.el (U-0002D172): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R013-Down-Box.el (U+56D8-itaiji-001): Unify
+	U+56D8-itaiji-002.
+
+2021-12-08  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR363.el (SW-JIGUGE-32409): Add U-00027C48 as a
+	corresponding modern character; add `<-Zhouwen@shuowen' for
+	SW-JIGUGE-32408.
+	(SW-JIGUGE-32410): Add `<-Small-Seal@shuowen' for U-0002F896 and
+	U+38C7-itaiji-006; add `<-ancient@shuowen' for SW-JIGUGE-32408.
+	(SW-JIGUGE-32417): Add `<-ancient@shuowen' for SW-JIGUGE-32416.
+
+2021-12-07  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R059-Bristle.el (U-000224A3): Apply new conventions
+	for glyph granularity.
+	(M-10007): Add `<-denotational' for U-000224A3; unify IU+224A3.
+	(U-000224A2): New character.
+
+	* Ideograph-R058-Snout.el (U-0002F896): Add U+38C7 as a target of
+	`<-ancient'.
+	(U-0002245E): Add `<-Zhouwen' for U+38C7.
+
 2021-12-06  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R082-Fur.el (U-00023B1B): Use `->subsumptive'.
@@ -12,19 +176,6 @@
 	unify U-00023C1D.
 	(U-00023C22): Add `<-denotational' for A-IWDSU+23C22.
 	(U-00023C42): Apply new conventions for glyph granularity.
-
-2021-12-07  MORIOKA Tomohiko  <tomo.git@chise.org>
-
-	* Ideograph-R059-Bristle.el (U-000224A3): Apply new conventions
-	for glyph granularity.
-	(M-10007): Add `<-denotational' for U-000224A3; unify IU+224A3.
-	(U-000224A2): New character.
-
-	* Ideograph-R058-Snout.el (U-0002F896): Add U+38C7 as a target of
-	`<-ancient'.
-	(U-0002245E): Add `<-Zhouwen' for U+38C7.
-
-2021-12-06  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R018-Knife.el: Add some MJ code points corresponding
 	to Hanyo-Denshi IVSes.
