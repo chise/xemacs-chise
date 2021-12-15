@@ -1,3 +1,67 @@
+2021-12-13  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R081-Compare.el (A-IWDSU+6BD4): New abstract node.
+	(U+6BD4): Add `<-denotational@component' for A-IWDSU+6BD4; apply
+	new conventions for glyph granularity.
+	(U-00023B05): Use `->denotational' and `->subsumptive'.
+	(A-U+23B09-itaiji-001): New abstract node.
+	(U+23B09-itaiji-001): New character; add `<-denotational' for
+	A-U+23B09-itaiji-001.
+	(U+6BD6): Apply new conventions for glyph granularity.
+	(U+3C8B): Likewise.
+	(U+6BD7): Likewise.
+	(A-U+23B09-itaiji-002): New abstract node.
+	(U+23B09-itaiji-002): Add `<-denotational' for
+	A-U+23B09-itaiji-002.
+	(A-U+3C8B-itaiji-004): New abstract node.
+	(U+3C8B-itaiji-004): New character; use `<-denotational' for
+	A-U+3C8B-itaiji-004.
+	(U-00023B08): Apply new conventions for glyph granularity.
+	(U-00023B09): Likewise.
+	(A-U+23B09-itaiji-003): New abstract node; use `<-denotational'
+	for A-cgnU+23B09.
+	(U+23B09-itaiji-003): Use A-U+23B09-itaiji-003 instead of
+	A-cgnU+23B09 as its mother.
+	(U-00023B0A): Use `->denotational' and `->subsumptive'.
+	(U-00023B0B): Apply new conventions for glyph granularity.
+	(U-00023B0E): Likewise.
+	(M-49201): Unify U+23B0E-itaiji-001.
+	(A-U+8A79-itaiji-003): New abstract node; unify
+	A-U+8A79-itaiji-005.
+	(U+8A79-itaiji-003): New character; use `<-denotational' for
+	A-U+8A79-itaiji-003.
+	(U+8A79-itaiji-005): Ditto.
+	(U-00023B13): Apply new conventions for glyph granularity.
+	(A-cgnU+6BDA): New abstract node.
+	(U+6BDA): Add `<-denotational' for A-cgnU+6BDA; add
+	ideographic-structure.
+	(UU+6BDA): Unify MJ014951 and KOSEKI-189980.
+	(A-IWDSU+6BDA-itaiji-002): New abstract node; use `<-denotational'
+	for A-cgnU+6BDA.
+	(A-U+6BDA-itaiji-010): New abstract node; use `<-denotational' for
+	A-cgnU+6BDA.
+	(U+6BDA-itaiji-012): New character; use `<-denotational' for
+	A-U+6BDA-itaiji-010.
+	(U+6BDA-itaiji-010): New character; use `<-denotational' for
+	A-U+6BDA-itaiji-010.
+	(A-U+6BDA-itaiji-011): New abstract node; use `<-denotational' for
+	A-IWDSU+6BDA-itaiji-002.
+	(A-U+6BDA-itaiji-002): New abstract node; use `<-denotational' for
+	A-IWDSU+6BDA-itaiji-002.
+	(U+6BDA-itaiji-011): New character; use `<-denotational' for
+	A-U+6BDA-itaiji-011.
+	(U+6BDA-itaiji-002): New character; use `<-denotational' for
+	A-U+6BDA-itaiji-002.
+
+2021-12-11  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR410.el (SW-JIGUGE-38530): Add `<-Qizi@shuowen' for
+	SW-JIGUGE-38529.
+
+2021-12-10  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R037-Big.el (U-000302E5): New character.
+
 2021-12-09  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R084-Steam.el (U+6C14): Add `<-denotational@usage' for
