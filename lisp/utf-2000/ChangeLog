@@ -1,3 +1,10 @@
+2021-12-15  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R029-Again.el (A-U+21B4A-itaiji-001): New abstract
+	node.
+	(U+21B4A-itaiji-001): New character; use `<-denotational' for
+	A-U+21B4A-itaiji-001.
+
 2021-12-13  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R081-Compare.el (A-IWDSU+6BD4): New abstract node.
