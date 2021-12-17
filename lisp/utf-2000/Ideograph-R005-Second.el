@@ -2670,7 +2670,10 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 5)	; ⼄
+  '((<-denotational
+     ((=>ucs@cognate	  . #x4E2E)	; &A-cgnU+4E2E;
+      ))
+    (ideographic-radical . 5)	; ⼄
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
       (=ucs		  . #x2FF9)	; ⿹
@@ -2700,6 +2703,11 @@
      ((=big5-cdp	  . #x88C6)	; &CDP-88C6;
       ))
     (=ucs@iso		. #x200E8)	; &U-000200E8;
+    (<-formed@flipped-horizontally
+     ((=ucs@iso		  . #x20A40)	; &C6-263E;
+      (=cns11643-6	  . #x263E)	; &C6-263E; [06-30]
+      (=daikanwa	  . 02916)	; &I-M-02916;
+      ))
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
