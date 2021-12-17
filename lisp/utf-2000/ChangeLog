@@ -1,3 +1,9 @@
+2021-12-16  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R024-Ten.el (CB09706): Unify U-0003016D.
+	(U+20991-itaiji-001): New character; use `<-denotational' for
+	A-cgnU+20991.
+
 2021-12-15  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R029-Again.el (A-U+21B4A-itaiji-001): New abstract
