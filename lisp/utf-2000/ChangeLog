@@ -1,5 +1,21 @@
 2021-12-17  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R002-Line.el (A-cgnU+4E2E): New abstract node.
+	(U+4E2E): Add `<-denotational' for A-cgnU+4E2E; add
+	`sound@ja/on/{kan|go}'.
+	(UU+4E2E): Add `<-formed' for U-00029C0A; add
+	`<-formed@flipped-horizontally' for IU+20A2D.
+	(A-U+4E2E-itaiji-008): New abstract node; use `<-denotational' for
+	A-cgnU+4E2E.
+	(U+4E2E-itaiji-008): New character; use `<-denotational' for
+	A-U+4E2E-itaiji-008.
+	(A-cgnU+4E35): New abstract node.
+	(U+4E35): Add `<-denotational' for A-cgnU+4E35.
+	(A-U+4E35-itaiji-001): New abstract node; use `<-denotational' for
+	A-cgnU+4E35.
+	(U+4E35-itaiji-001): New character; use `<-denotational' for
+	A-U+4E35-itaiji-001.
+
 	* Ideograph-R027-Cliff.el (A-cgnU+20A2D): New abstract node.
 	(U-00020A2D): Add `<-denotational' for A-cgnU+20A2D; apply new
 	conventions for glyph granularity.
