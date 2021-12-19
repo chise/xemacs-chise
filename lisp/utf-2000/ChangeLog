@@ -1,3 +1,21 @@
+2021-12-17  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R027-Cliff.el (A-cgnU+20A2D): New abstract node.
+	(U-00020A2D): Add `<-denotational' for A-cgnU+20A2D; apply new
+	conventions for glyph granularity.
+	(A-U+20A2D-itaiji-001): New abstract node; add `<-denotational'
+	for U-00020A2D.
+	(U+20A2D-itaiji-001): New character; use `<-denotational' for
+	A-U+20A2D-itaiji-001.
+	(U-00020A40): Add `<-denotational' for A-cgnU+20A2D; apply new
+	conventions for glyph granularity.
+
+	* Ideograph-R005-Second.el (U-000200E8): Add `<-denotational' for
+	A-cgnU+4E2E.
+	(IU+200E8): Add `<-formed@flipped-horizontally' for IU+20A40.
+
+	* Ideograph-R004-Slash.el (U-0002CF0D): New character.
+
 2021-12-16  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R024-Ten.el (CB09706): Unify U-0003016D.
@@ -10,6 +28,237 @@
 	node.
 	(U+21B4A-itaiji-001): New character; use `<-denotational' for
 	A-U+21B4A-itaiji-001.
+
+2021-12-14  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR457.el (SW-JIGUGE-44212): Add `<-Qizi@shuowen' for
+	SW-JIGUGE-44211.
+
+2021-12-14  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R130-Meat.el (U+8089): Use `<-denotational@usage'
+	instead of `<-denotational' for BUCS+8089.
+	(U-0002054E): Apply new conventions for glyph granularity.
+	(U-0002E307): Likewise.
+	(A-BC-8A73): Add `=>iwds-1*note' [20+21+53].
+	(A-cgnU+2E307): Use `<-denotational@usage' instead of
+	`<-denotational' for BUCS+8089.
+	(U-00026629): Use `->subsumptive'; add `<-denotational@component'
+	for A-IWDSU+8092.
+	(U+808C): Add `<-denotational@component' for A-IWDSU+8092; add
+	`ideographic-structure'.
+	(U+808D): Use `->subsumptive'; add `<-denotational@component' for
+	A-IWDSU+8092.
+	(U-00026631): New character.
+	(BC-8C4F): Fix `total-strokes'.
+	(U+43CE): Add `<-denotational@component' for A-compU+43CE.
+	(U+8092): Add `<-denotational@component' for A-IWDSU+8092; apply
+	new conventions for glyph granularity.
+	(U-0002F980): Use `<-same@ucs*note' instead of `<-same@ucs*notes'.
+	(U-0002663A): Apply new conventions for glyph granularity.
+	(U+7676-itaiji-009): New character; use `<-denotational' for
+	A-BC-8C4F.
+	(U+80A3): Apply new conventions for glyph granularity.
+	(U+80AC): Add `<-denotational@component' for A-IWDSU+8092; add
+	`ideographic-structure'.
+	(U-00026643): Add intermediate glyph node to integrate
+	U+26643-itaiji-001.
+	(U+80AF): Apply new conventions for glyph granularity.
+	(U+80B0): Use `->denotational' and `->subsumptive'.
+	(UU+80B2): Unify U-0002F982; add `ideographic-structure'.
+	(g2-C6-2D69): Unify g2-CU+2F982 instead of U-0002F982.
+	(A-IWDSU+43D9): New abstract node.
+	(U+43D9): Add `<-denotational@component' for A-IWDSU+43D9; apply
+	new conventions for glyph granularity.
+	(U+80B8): Add `<-denotational@component' for A-IWDSU+26648.
+	(U-00026648): Add `<-denotational@component' for A-IWDSU+26648;
+	use `->denotational' and `->subsumptive'.
+	(A-compU+2664A): New abstract node.
+	(U-0002664A): Add `<-denotational' for A-compU+2664A; apply new
+	conventions for glyph granularity.
+	(GT-K04935): New character; use `<-denotational' for
+	A-compU+2664A.
+	(U-00026650): Apply new conventions for glyph granularity.
+	(U-0002C6B0): New character; use `<-denotational' for
+	A-cgnU+2C6B0.
+	(A-U+2C6B0-itaiji-001): New abstract node; use `<-denotational'
+	for A-cgnU+2C6B0.
+	(U+2C6B0-itaiji-001): New character; use `<-denotational' for
+	A-U+2C6B0-itaiji-001.
+	(A-cgnU+2C6B0): New abstract node.
+	(U+80C3): Apply new conventions for glyph granularity.
+	(U+80CC): Likewise.
+	(A-IWDSU+2666E): New abstract node.
+	(U-0002666E): Add `<-denotational' for A-IWDSU+2666E; use
+	`->subsumptive'.
+	(U+80CF): Apply new conventions for glyph granularity.
+	(U+80D7): Likewise.
+	(A-IWDSU+26673): New abstract node.
+	(U-00026673): Add `<-denotational' for A-IWDSU+26673; apply new
+	conventions for glyph granularity.
+	(U-00023368): New character; use `<-denotational' for
+	A-IWDSU+26673.
+	(U+43E4): Use `->subsumptive'.
+	(U+80DD): Add ideographic-structure.
+	(JU+80DD): Add `<-formed' for UU+80F5.
+	(U+80E5): Apply new conventions for glyph granularity.
+	(U-00026699): Likewise; add `<-denotational@component' for
+	A-IWDSU+26699.
+	(U-000266CE): Apply new conventions for glyph granularity.
+	(U-0002E30D): New character.
+	(A-BC-8CA9): New abstract node; unify A-GT-K05506.
+	(BC-8CA9): Add `<-denotational' for A-BC-8CA9.
+	(U+80F1): Apply new conventions for glyph granularity.
+	(U+80F2): Likewise.
+	(U+80F5): Likewise.
+	(U+80FD): Likewise.
+	(U+8103): Add ideographic-structure.
+	(JU+8103): Add some relations for other characters.
+	(U-0002F983): Add `ideographic-structure'.
+	(U+8106): Apply new conventions for glyph granularity.
+	(U+810A): Likewise.
+	(U-0002E310): New character.
+	(U-0002E312): New character.
+	(U-0002E313): New character.
+	(U-0002E4E2): New character.
+	(U-00030BA4): New character.
+	(U-000266F6): Apply new conventions for glyph granularity.
+	(U+812B): Likewise.
+	(U-000266E1): Likewise.
+	(U-000266E6): Likewise.
+	(U-000202DB): Likewise.
+	(U+8138): Likewise.
+	(U-0002E314): New character.
+	(U+813A): Apply new conventions for glyph granularity.
+	(U-00026708): Likewise.
+	(U-0002670C): Likewise.
+	(U+4401): Likewise; add `<-denotational' for A-IWDSU+8C5A.
+	(U+4404): Apply new conventions for glyph granularity.
+	(U+440A): Likewise.
+	(U+440B): Moved from Ideograph-R074-Moon.el; add
+	`<-denotational@component' for A-IWDSU+440B.
+	(U-0002F984): Add `<-denotational' for U+440B; apply new
+	conventions for glyph granularity.
+	(U-00026755): Apply new conventions for glyph granularity.
+	(U-0002673B): Likewise.
+	(U-0002672A): Likewise.
+	(U-00026727): New character.
+	(U-0002672E): Apply new conventions for glyph granularity; add
+	`<-denotational' for A-cgnU+2672E.
+	(U-00026759): Apply new conventions for glyph granularity.
+	(U-00030BAB): New character.
+	(A-cgnU+2672E): New abstract node.
+	(CB03437): New character; use `<-denotational' for A-cgnU+2672E.
+	(U+815F): Add `<-denotational@usage' for BUCS+81A3; apply new
+	conventions for glyph granularity.
+	(A-M-29675): Unify A-cgnU+267C0.
+	(CU+26760): Unify CB07363.
+	(A-U+26760-itaiji-004): New abstract node; use `<-denotational'
+	for A-cgnU+267C0.
+	(A-U+23386-itaiji-004): New abstract node; use `<-denotational'
+	for A-cgnU+267C0.
+	(A-U+26760-itaiji-001): New abstract node; use `<-denotational'
+	for A-cgnU+267C0.
+	(U+26760-itaiji-004): New character; use `<-denotational' for
+	A-U+26760-itaiji-004.
+	(U+23386-itaiji-004): New character; use `<-denotational' for
+	A-U+23386-itaiji-004.
+	(U+26760-itaiji-001): New character; use `<-denotational' for
+	A-U+26760-itaiji-001.
+	(A-U+267C0-itaiji-001): New abstract node; use `<-denotational'
+	for A-cgnU+267C0; unify A-U+267C0-itaiji-002.
+	(A-U+23386-itaiji-003): New abstract node; use `<-denotational'
+	for A-cgnU+267C0.
+	(A-U+26760-itaiji-008): New abstract node; use `<-denotational'
+	for A-cgnU+267C0; unify A-U+26760-itaiji-009.
+	(U+26760-itaiji-008): New character; use `<-denotational' for
+	A-U+26760-itaiji-008.
+	(U+26760-itaiji-009): Ditto.
+	(U+267C0-itaiji-002): New character; use `<-denotational' for
+	A-U+267C0-itaiji-001.
+	(U+267C0-itaiji-001): Ditto.
+	(U+23386-itaiji-003): New character; use `<-denotational' for
+	A-U+23386-itaiji-003.
+	(U+26760-itaiji-003): New character; use `<-denotational' for
+	A-U+23386-itaiji-003.
+	(U-0002E329): New character; use `<-denotational' for
+	A-cgnU+267C0.
+	(A-U+26760-itaiji-005): New abstract node; use `<-denotational'
+	for A-cgnU+267C0; unify A-U+26760-itaiji-006 and
+	A-U+26760-itaiji-007.
+	(U+26760-itaiji-006): New character; use `<-denotational' for
+	A-U+26760-itaiji-005.
+	(U+26760-itaiji-007): Ditto.
+	(U+26760-itaiji-005): Ditto.
+	(A-compU+8166): New abstract node; use `<-denotational' for
+	A-cgnU+8166.
+	(U+8166): Use A-compU+8166 instead of A-cgnU+8166 as its mother;
+	apply new conventions for glyph granularity.
+	(A-U+8166-itaiji-001): New abstract node; use `<-denotational' for
+	A-compU+8166.
+	(U+8166-itaiji-001): New character; use `<-denotational' for
+	A-U+8166-itaiji-001.
+	(U+4418): Use `->denotational' and `->subsumptive'.
+	(U-0002676E): Apply new conventions for glyph granularity.
+	(U-00026778): Add `<-ancient' for U+80B0.
+	(U-000267D4): Use `->denotational' and `->subsumptive'.
+	(U+6721): Apply new conventions for glyph granularity.
+	(CB07752): New character; use `<-denotational' for U-000267BC.
+	(U+8182): Apply new conventions for glyph granularity.
+	(U+8190): Likewise.
+	(A-IWDSU+8183): Use `<-denotational@usage' instead of
+	`<-denotational' for BUCS+8183.
+	(U-0002679E): Apply new conventions for glyph granularity.
+	(U-000267A0): Use `->subsumptive'.
+	(U-000267A4): Likewise.
+	(U-000267A9): Apply new conventions for glyph granularity.
+	(U-000267AC): Likewise.
+	(A-IWDSU+267B2): New abstract node.
+	(U-000267B2): Add `<-denotational' for A-IWDSU+267B2; use
+	`->denotational' and `->subsumptive'.
+	(U-000267C1): Apply new conventions for glyph granularity.
+	(U-000267B6): Likewise.
+	(U-000267B4): New character.
+	(U-000267B5): Apply new conventions for glyph granularity.
+	(U-000267BC): New character.
+	(U-0002B7CA): New character.
+	(UU+8193): Delete `=>ucs@iwds-1'.
+	(U+819A): Apply new conventions for glyph granularity.
+	(U+819D): Likewise.
+	(U+81A3): Likewise; add `<-denotational@usage' for BUCS+81A3.
+	(U-000267ED): New character.
+	(U-0002E336): New character.
+	(U-00026803): Apply new conventions for glyph granularity.
+	(U+81AC): Apply new conventions for glyph granularity.
+	(U-0002680A): Likewise.
+	(U-00026813): Likewise.
+	(U-00026829): Likewise.
+	(U-00026857): Likewise.
+	(U+443E): Likewise.
+	(U-00026847): Likewise.
+	(U+81BA): Likewise.
+	(U+81C4): Likewise.
+	(U+81C9): Likewise.
+	(U-0002E341): New character.
+	(A-CB09210): New abstract node; unify A-U+81BA-itaiji-002.
+	(U+81BA-itaiji-002): New character; use `<-denotational' for
+	A-CB09210.
+	(CB09210): Ditto.
+	(U+81CD): Apply new conventions for glyph granularity.
+	(U-0002C6DC): New character.
+	(U-00026898): New character.
+	(U-00030BE4): New character.
+	(U-000268BB): Apply new conventions for glyph granularity.
+	(U-0002B1C2): New character.
+	(U+81E0): Apply new conventions for glyph granularity.
+	(U-000268C6): Likewise.
+	(A-IWDSU+8092): New abstract node.
+	(A-compU+43CE): New abstract node; use `<-denotational@component'
+	for A-IWDSU+8092.
+	(A-IWDSU+26648): New abstract node.
+	(A-IWDSU+26699): New abstract node.
+	(A-IWDSU+440B): New abstract node.
+	(BUCS+81A3): New abstract node; unify A2-DJT-09496.
 
 2021-12-13  MORIOKA Tomohiko  <tomo.git@chise.org>
 
