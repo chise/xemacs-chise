@@ -58,6 +58,13 @@
 (define-char
   '((shuowen-radical	. 457)	; 亡
     (=shuowen-jiguge	. 44212)	; &SW-JIGUGE-44212;
+    (<-Qizi@shuowen
+     ((=shuowen-jiguge	  . 44211)	; &SW-JIGUGE-44211;
+      )
+     ((=ucs		  . #x2382E)	; 𣠮
+      )
+     ((=ucs		  . #x7121)	; 無
+      ))
     (<-Small-Seal@shuowen
      ((=ucs		  . #x65E0)	; 无
       ))
