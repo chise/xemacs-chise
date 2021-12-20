@@ -48,6 +48,35 @@
     ))
 (define-char
   '((ideographic-radical . 20)	; ⼓
+    (ideographic-strokes . 0)
+    (total-strokes	 . 2)
+    (=>big5-cdp		. #x875E)	; &A-CDP-875E;
+    ))
+(define-char
+  '((<-denotational
+     ((=>big5-cdp	  . #x875E)	; &A-CDP-875E;
+      ))
+    (ideographic-radical . 20)	; ⼓
+    (ideographic-strokes . 0)
+    (total-strokes	 . 2)
+    (=+>big5-cdp	. #x875E)	; &o-CDP-875E;
+    (->subsumptive
+     ((=big5-cdp	  . #x875E)	; &CDP-875E;
+      )
+     ((=big5-cdp-var-003  . #x875E)	; &CDP-v003-875E;
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>big5-cdp	  . #x875E)	; &A-CDP-875E;
+      ))
+    (ideographic-radical . 20)	; ⼓
+    (ideographic-strokes . 0)
+    (total-strokes	 . 2)
+    (=big5-cdp-var-001	. #x875E)	; &CDP-v001-875E;
+    ))
+(define-char
+  '((ideographic-radical . 20)	; ⼓
     (ideographic-strokes . 1)
     (total-strokes	 . 3)
     (=ucs		. #x52FA)	; 勺
