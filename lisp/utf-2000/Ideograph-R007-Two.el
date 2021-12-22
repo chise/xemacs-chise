@@ -948,6 +948,11 @@
     (=daikanwa		. 00259)	; &I-M-00259;
     (=daijiten		. 00138)	; &I-DJT-00138;
     (=jef-china3	. #x41CE)	; &I-JC3-41CE;
+    (<-Zhouwen
+     ((=ucs		  . #x56DB)	; 四
+      ))
+    (<-Zhouwen*sources
+     shuowen)
     (->subsumptive
      ((==ucs@unicode	  . #x4E96)	; &g2-AJ1-14308;
       (==adobe-japan1-4	  . 14308)	; &g2-AJ1-14308;
