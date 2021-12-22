@@ -1,3 +1,42 @@
+2021-12-19  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R046-Mountain.el (U-00021E05): New character.
+	(U-0002D5BC): New character.
+
+	* Ideograph-R044-Corpse.el (U-0002D559): New character.
+
+	* Ideograph-R020-Wrap.el (A-BC-875E): New abstract node.
+	(o-BC-875E): New abstract node; use `<-denotational' for
+	A-BC-875E.
+	(BC-875E): New character; use `<-subsumptive' for o-BC-875E.
+	(BC-875E-var-003): Ditto.
+	(BC-875E-var-001): New character; use `<-denotational' for
+	A-BC-875E.
+
+2021-12-18  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR441.el (SW-JIGUGE-41719): Add BC-88C6 as a
+	corresponding modern character.
+
+	* ShuoWen-SR086.el (SW-JIGUGE-09511): Add U-0002D6E0 as a
+	corresponding modern character; don't treat U+4F07 as a
+	corresponding modern character.
+	(SW-JIGUGE-09512): Add U-0002023F, U+4F07 and U-0002CF79 as
+	corresponding modern characters; add `<-ancient@shuowen' for
+	SW-JIGUGE-09511.
+
+	* ShuoWen-SR076.el (SW-JIGUGE-09007): Add U+53B6 as a
+	corresponding modern character.
+
+	* ShuoWen-SR074.el (SW-JIGUGE-08902): Add U-00022A66 and
+	U-00029C0A as corresponding modern characters.
+	(SW-JIGUGE-08910): Add U-00021D08, U-00020A2D and U-00029C0B as
+	corresponding modern characters; add
+	`<-formed@flipped-horizontally' for SW-JIGUGE-08902.
+
+	* Oracle-Bones.el (ZOB-00914): Add U+53C9 as a corresponding
+	modern character.
+
 2021-12-17  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R002-Line.el (A-cgnU+4E2E): New abstract node.
@@ -1176,6 +1215,15 @@
 	`->subsumptive'.
 
 	* Ideograph-R009-Man.el (U-000202DB): Omit `ideographic-radical'.
+
+2021-11-09  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR501.el (SW-JIGUGE-50608): Add U-00028F5D as a
+	corresponding modern character.
+	(SW-JIGUGE-50609): Add `<-Zhouwen@shuowen' for SW-JIGUGE-50608.
+	(SW-JIGUGE-50611): Add U-00028F3E as a corresponding modern
+	character; add `<-simplified@Small-Seal/shuowen' for
+	SW-JIGUGE-50610.
 
 2021-11-06  MORIOKA Tomohiko  <tomo.git@chise.org>
 
