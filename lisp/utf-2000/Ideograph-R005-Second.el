@@ -2046,12 +2046,29 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 5)	; ⼄
+  '((<-denotational
+     ((=>ucs@iwds-1	  . #x2626D)	; &A-IWDSU+2626D;
+      ))
+    (ideographic-radical . 5)	; ⼄
     (ideographic-strokes . 4)
     (total-strokes	 . 5)
     (hanyu-dazidian	1 53 2)
     (=ucs		. #x200E2)	; 𠃢
     (=big5-cdp		. #x87CE)	; &I-CDP-87CE;
+    (<-ancient
+     ((=ucs		  . #x56DB)	; 四
+      ))
+    (<-ancient*sources
+     shuowen)
+    (->subsumptive
+     ((==ucs@iso	  . #x200E2)	; &g2-CDP-87CE;
+      (==big5-cdp	  . #x87CE)	; &g2-CDP-87CE;
+      (->subsumptive
+       ((===big5-cdp	    . #x87CE)	; &R-CDP-87CE;
+	)
+       ((===ucs@iso	    . #x200E2)	; &R-U-000200E2;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 5)	; ⼄
