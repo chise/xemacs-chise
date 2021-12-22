@@ -5700,7 +5700,7 @@
      ((=>ucs@cognate	  . #x200B9)	; &A-cgnU+200B9;
       ))
     (<-denotational@usage
-     ((==>daijiten	  . 01710)	; &A2-DJT-01710;
+     ((==>ucs@bucs	  . #x5782)	; &BUCS+5782;
       ))
     (ideographic-radical . 4)	; ⼃
     (ideographic-strokes . 9)
