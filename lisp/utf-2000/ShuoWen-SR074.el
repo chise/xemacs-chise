@@ -6,6 +6,10 @@
      ((=ucs		  . #x200E8)	; 𠃨
       )
      ((=ucs		  . #x4E2E)	; 丮
+      )
+     ((=ucs		  . #x22A66)	; 𢩦
+      )
+     ((=ucs		  . #x29C0A)	; 𩰊
       ))
     (->subsumptive
      ((===shuowen-jiguge5 . 08902)	; &SW-JIGUGE5-08902;
@@ -103,7 +107,16 @@
   '((shuowen-radical	. 74)	; 𠃨
     (=shuowen-jiguge	. 08910)	; &SW-JIGUGE-08910;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x21D08)	; 𡴈
+      )
      ((=ucs		  . #x20A40)	; 𠩀
+      )
+     ((=ucs		  . #x20A2D)	; 𠨭
+      )
+     ((=ucs		  . #x29C0B)	; 𩰋
+      ))
+    (<-formed@flipped-horizontally
+     ((=shuowen-jiguge	  . 08902)	; &SW-JIGUGE-08902;
       ))
     (->subsumptive
      ((===shuowen-jiguge5 . 08910)	; &SW-JIGUGE5-08910;

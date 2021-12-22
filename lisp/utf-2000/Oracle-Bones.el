@@ -11571,6 +11571,8 @@
     (=zinbun-oracle	. 00914)	; &ZOB-0914;
     (<-Oracle-Bones
      ((=ucs		  . #x355A)	; 㕚
+      )
+     ((=ucs		  . #x53C9)	; 叉
       ))
     ))
 (define-char
