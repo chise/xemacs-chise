@@ -1,5 +1,11 @@
 2021-12-22  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R045-Sprout.el (U-00021D08): Add `<-denotational' for
+	A-cgnU+20A2D; use `->denotational' and `->subsumptive'.
+
+	* Ideograph-R005-Second.el (U-000200E2): Add `<-denotational' for
+	A-IWDSU+2626D; add `<-ancient' for U+56DB.
+
 	* Ideograph-R007-Two.el (U+4E96): Add `<-Zhouwen' for U+56DB.
 
 2021-12-20  MORIOKA Tomohiko  <tomo.git@chise.org>
