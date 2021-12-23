@@ -13,11 +13,15 @@
       (=>ucs@iwds-1/normalized . #x65E0)	; &A-IWDSU+65E0;
       ))
     (<-denotational@usage
+     ((==>daijiten	  . 04439)	; &A2-DJT-04439;
+      )
      ((==>ucs@bucs	  . #x7121)	; &BUCS+7121;
       ))
     (ideographic-radical . 71)	; ⽆
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
+    (sound@ja/on/go	"mu" "mo")
+    (sound@ja/on/kan	"bu" "bo")
     (=ucs		. #x65E0)	; 无
     (=adobe-japan1-0	. 05088)	; &I-AJ1-05088;
     (=jis-x0208		. #x5A5B)	; &I-J90-5A5B; [58-59]
@@ -30,9 +34,32 @@
     (=gt-k		. 00532)	; &I-GT-K00532;
     (=gt-pj-1		. #x5A5B)	; &I-GT-17330; [58-59]
     (=daikanwa		. 13716)	; &I-M-13716;
+    (=daijiten		. 04439)	; &I-DJT-04439;
     (=shinjigen		.  3259)	; 无
     (=cbeta		. 07099)	; &I-CB07099;
     (=jef-china3	. #x82A3)	; &I-JC3-82A3;
+    (<-Qizi
+     ((=ucs		  . #x2382E)	; 𣠮
+      )
+     ((=ucs		  . #x7121)	; 無
+      ))
+    (<-Qizi*sources
+     shuowen)
+    (<-same
+     ((=ucs		  . #x7121)	; 無
+      (=daikanwa	  . 19113)	; &I-M-19113;
+      ))
+    (<-same*sources
+     shuowen daikanwa)
+    (->mistakable
+     ((=ucs		  . #x65E1)	; 旡
+      (=daikanwa	  . 13717)	; &I-M-13717;
+      )
+     ((=ucs		  . #x5142)	; 兂
+      (=daikanwa	  . 01339)	; &I-M-01339;
+      ))
+    (->mistakable*sources
+     kangxi-biansi-3char daikanwa)
     (->subsumptive
      ((==ucs@jis	  . #x65E0)	; &g2-AJ1-05088;
       (==ucs@ks		  . #x65E0)	; &g2-AJ1-05088;
@@ -44,10 +71,13 @@
       (==gt		  . 17330)	; &g2-AJ1-05088;
       (==gt-k		  . 00532)	; &g2-AJ1-05088;
       (==daikanwa	  . 13716)	; &g2-AJ1-05088;
+      (==daijiten	  . 04439)	; &g2-AJ1-05088;
       (==shinjigen	  .  3259)	; &g2-AJ1-05088;
       (==cbeta		  . 07099)	; &g2-AJ1-05088;
       (->subsumptive
        ((===daikanwa	    . 13716)	; &R-M-13716;
+	)
+       ((===daijiten	    . 04439)	; &R-DJT-04439;
 	)
        ((===jis-x0208	    . #x5A5B)	; &R-J0-5A5B; [58-59]
 	(===jis-x0213-1	    . #x5A5B)	; &R-J0-5A5B; [58-59]
