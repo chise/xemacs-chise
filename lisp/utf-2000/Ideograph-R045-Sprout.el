@@ -1158,19 +1158,89 @@
       ))
     ))
 (define-char
-  '((=>ucs		. #x21D08)	; 𡴈
+  '((<-denotational
+     ((=>ucs@cognate	  . #x20A2D)	; &A-cgnU+20A2D;
+      ))
     (ideographic-radical . 45)	; ⼬
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
-    (=cns11643-6	. #x272A)	; &C6-272A; [07-10]
-    (=daikanwa		. 07841)	; &I-M-07841;
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
+      (=ucs		  . #x2FF7)	; ⿷
+      )
+     ((=>big5-cdp	  . #x875E)	; &A-CDP-875E;
+      )
+     ((=>ucs@iwds-1	  . #x51FA)	; &A-IWDSU+51FA;
+      ))
+    (sound@ja/on	"kyoku")
+    (=ucs		. #x21D08)	; 𡴈
+    (<-formed@flipped-horizontally
+     ((=ucs		  . #x200E8)	; 𠃨
+      ))
     ))
 (define-char
-  '((morohashi-daikanwa	7841 0 1)
+  '((<-denotational
+     ((=ucs		  . #x21D08)	; 𡴈
+      ))
     (ideographic-radical . 45)	; ⼬
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
-    (=ucs		. #x21D08)	; 𡴈
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
+      (=ucs		  . #x2FF7)	; ⿷
+      )
+     ((=big5-cdp-var-001  . #x875E)	; &CDP-v001-875E;
+      )
+     ((=ucs		  . #x51FA)	; 出
+      ))
+    (=ucs@cns		. #x21D08)	; &C6-272A;
+    (=cns11643-6	. #x272A)	; &C6-272A; [07-10]
+    (=daikanwa		. 07841)	; &I-M-07841;
+    (<-same
+     ((=ucs@iso		  . #x20A49)	; &MJ031864;
+      (=mj		  . 031864)	; &MJ031864;
+      (=daikanwa	  . 02927)	; &I-M-02927;
+      ))
+    (<-same*sources
+     kangxi daikanwa)
+    (->original
+     ((=ucs@iso		  . #x20A49)	; &MJ031864;
+      (=mj		  . 031864)	; &MJ031864;
+      ))
+    (->original$_1*sources
+     kangxi)
+    (->original*sources
+     kangxi)
+    (->subsumptive
+     ((==ucs@cns	  . #x21D08)	; &g2-M-07841;
+      (==cns11643-6	  . #x272A)	; &g2-M-07841; [07-10]
+      (==daikanwa	  . 07841)	; &g2-M-07841;
+      (->subsumptive
+       ((===daikanwa	    . 07841)	; &R-M-07841;
+	)
+       ((===cns11643-6	    . #x272A)	; &R-C6-272A; [07-10]
+	))
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x21D08)	; 𡴈
+      ))
+    (ideographic-radical . 45)	; ⼬
+    (ideographic-strokes . 4)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
+      (=ucs		  . #x2FF7)	; ⿷
+      )
+     ((=big5-cdp-var-003  . #x875E)	; &CDP-v003-875E;
+      )
+     ((=ucs		  . #x51FA)	; 出
+      ))
+    (=ucs@iso		. #x21D08)	; &U-00021D08;
+    (->subsumptive
+     ((==ucs@iso	  . #x21D08)	; &g2-IU-00021D08;
+      ))
     ))
 (define-char
   '((ideographic-radical . 45)	; ⼬
