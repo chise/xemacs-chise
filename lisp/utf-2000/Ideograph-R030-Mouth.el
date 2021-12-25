@@ -31526,9 +31526,15 @@
       )
      ((=ucs		  . #x53E3)	; 口
       )
-     ((=cns11643-1	  . #x504D)	; &C1-504D; [48-45]
+     ((=ucs@cns		  . #x5782)	; &C1-504D;
+      (=cns11643-1	  . #x504D)	; &C1-504D; [48-45]
       ))
+    (=ucs@cns		. #x553E)	; &C1-5E4E;
     (=cns11643-1	. #x5E4E)	; &C1-5E4E; [62-46]
+    (->subsumptive
+     ((==ucs@cns	  . #x553E)	; &g2-CU+553E;
+      (==cns11643-1	  . #x5E4E)	; &g2-CU+553E; [62-46]
+      ))
     ))
 (define-char
   '((ideographic-radical . 30)	; ⼝
