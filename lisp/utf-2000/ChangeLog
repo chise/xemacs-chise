@@ -1,3 +1,13 @@
+2021-12-23  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R029-Again.el (U-00020B22): Use U+5C6E instead of
+	U+FA3C as the upper component to clarify the inclusion of U+4DB9
+	and U+FA3C; unify GT-03965 and GT-K01532.
+	(U+20B22-var-003): New character; use `<-subsumptive' for
+	IU+20B22.
+
+	* Ideograph-R024-Ten.el (U+20992-itaiji-001): Fix strokes.
+
 2021-12-22  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R045-Sprout.el (U-00021D08): Add `<-denotational' for

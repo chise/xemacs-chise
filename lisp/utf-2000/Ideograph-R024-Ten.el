@@ -2333,8 +2333,8 @@
      ((=>big5-cdp	  . #x8BF8)	; &A-CDP-8BF8;
       ))
     (ideographic-radical . 24)	; ⼗
-    (ideographic-strokes . 6)
-    (total-strokes	 . 8)
+    (ideographic-strokes . 5)
+    (total-strokes	 . 7)
     (ideographic-structure@apparent
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
