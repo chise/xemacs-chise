@@ -1,5 +1,14 @@
 2021-12-23  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R039-Child.el (U-00021944): New character.
+
+2021-12-23  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R071-Not.el (U+65E0): Add A2-DJT-04439 as a target of
+	`<-denotational@usage'; add `sound@ja/on/{kan|go}'; unify
+	DJT-04439; add `<-Qizi' for U-0002382E and U+7121; add `<-same'
+	for U+7121; add `->mistakable' for U+65E1 and U+5142.
+
 	* Ideograph-R029-Again.el (U-00020B22): Use U+5C6E instead of
 	U+FA3C as the upper component to clarify the inclusion of U+4DB9
 	and U+FA3C; unify GT-03965 and GT-K01532.
