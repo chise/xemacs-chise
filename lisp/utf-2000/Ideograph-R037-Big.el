@@ -8479,11 +8479,11 @@
     ))
 (define-char
   '((ideographic-radical . 37)	; ⼤
-    (=ucs		. #x21647)	; 𡙇
+    (=>ucs@cognate	. #x21647)	; &A-cgnU+21647;
     ))
 (define-char
   '((<-denotational
-     ((=ucs		  . #x21647)	; 𡙇
+     ((=>ucs@cognate	  . #x21647)	; &A-cgnU+21647;
       ))
     (ideographic-radical . 37)	; ⼤
     (ideographic-structure
@@ -8494,13 +8494,11 @@
       )
      ((=ucs		  . #x592C)	; 夬
       ))
-    (=>ucs@iwds-1	. #x21647)	; &A-IWDSU+21647;
-    (=>ucs@iso		. #x21647)	; &A-IWDSU+21647;
+    (=ucs		. #x21647)	; 𡙇
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@iwds-1	  . #x21647)	; &A-IWDSU+21647;
-      (=>ucs@iso	  . #x21647)	; &A-IWDSU+21647;
+     ((=ucs		  . #x21647)	; 𡙇
       ))
     (ideographic-radical . 37)	; ⼤
     (ideographic-strokes . 9)
@@ -8555,8 +8553,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@iwds-1	  . #x21647)	; &A-IWDSU+21647;
-      (=>ucs@iso	  . #x21647)	; &A-IWDSU+21647;
+     ((=ucs		  . #x21647)	; 𡙇
       ))
     (ideographic-radical . 37)	; ⼤
     (ideographic-strokes . 10)
@@ -8565,7 +8562,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=cns11643-1	  . #x504D)	; &C1-504D; [48-45]
+     ((=ucs@cns		  . #x5782)	; &C1-504D;
+      (=cns11643-1	  . #x504D)	; &C1-504D; [48-45]
       )
      ((=ucs		  . #x592C)	; 夬
       ))
@@ -8578,7 +8576,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=ucs		  . #x21647)	; 𡙇
+     ((=>ucs@cognate	  . #x21647)	; &A-cgnU+21647;
       ))
     (ideographic-radical . 37)	; ⼤
     (ideographic-strokes . 11)
