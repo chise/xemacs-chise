@@ -819,7 +819,11 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 17)	; ⼐
+  '((<-denotational@component
+     ((=>ucs@iwds-1	  . #x51FA)	; &A-IWDSU+51FA;
+      (=>big5-cdp@iwds-1  . #x88C6)	; &A-IWDSU+51FA;
+      ))
+    (ideographic-radical . 17)	; ⼐
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
@@ -830,11 +834,13 @@
      ((=>ucs@component	  . #x5C6E)	; &A-compU+5C6E;
       (=>iwds-1		  .  0096)	; &A-compU+5C6E;
       ))
-    (=>ucs@iwds-1	. #x51FA)	; &A-IWDSU+51FA;
+    (=>ucs@iwds-1	. #x5C80)	; &A-IWDSU+5C80;
+    (=>ucs@component	. #x51FA)	; &A-IWDSU+5C80;
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@iwds-1	  . #x51FA)	; &A-IWDSU+51FA;
+     ((=>ucs@iwds-1	  . #x5C80)	; &A-IWDSU+5C80;
+      (=>ucs@component	  . #x51FA)	; &A-IWDSU+5C80;
       ))
     (ideographic-radical . 17)	; ⼐
     (ideographic-strokes . 3)
@@ -910,6 +916,7 @@
 (define-char
   '((<-denotational@component
      ((=>ucs@iwds-1	  . #x51FA)	; &A-IWDSU+51FA;
+      (=>big5-cdp@iwds-1  . #x88C6)	; &A-IWDSU+51FA;
       ))
     (ideographic-radical . 17)	; ⼐
     (ideographic-structure
@@ -2652,6 +2659,11 @@
       )
      ((==ucs@iso	  . #x206A1)	; &g2-IU-000206A1;
       ))
+    ))
+(define-char
+  '((ideographic-radical . 17)	; ⼐
+    (=>ucs@iwds-1	. #x51FA)	; &A-IWDSU+51FA;
+    (=>big5-cdp@iwds-1	. #x88C6)	; &A-IWDSU+51FA;
     ))
 (define-char
   '((ideographic-radical . 17)	; ⼐

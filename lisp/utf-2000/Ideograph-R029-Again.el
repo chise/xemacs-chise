@@ -7319,6 +7319,7 @@
      ((=ucs		  . #x53D5)	; 叕
       )
      ((=>ucs@iwds-1	  . #x51FA)	; &A-IWDSU+51FA;
+      (=>big5-cdp@iwds-1  . #x88C6)	; &A-IWDSU+51FA;
       ))
     (sound@ja/on/go	"teti" "syuti")
     (sound@ja/on/kan	"tetu" "syutu")

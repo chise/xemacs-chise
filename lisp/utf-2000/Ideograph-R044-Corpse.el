@@ -2363,6 +2363,7 @@
      ((=ucs		  . #x5C38)	; 尸
       )
      ((=>ucs@iwds-1	  . #x51FA)	; &A-IWDSU+51FA;
+      (=>big5-cdp@iwds-1  . #x88C6)	; &A-IWDSU+51FA;
       ))
     (=ucs		. #x5C48)	; 屈
     ))
@@ -6050,6 +6051,7 @@
      ((=ucs		  . #x3791)	; 㞑
       )
      ((=>ucs@iwds-1	  . #x51FA)	; &A-IWDSU+51FA;
+      (=>big5-cdp@iwds-1  . #x88C6)	; &A-IWDSU+51FA;
       ))
     (sound@ja/on	"kutu")
     (=ucs		. #x21CB6)	; 𡲶
