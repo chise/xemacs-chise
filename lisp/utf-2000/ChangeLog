@@ -1,3 +1,28 @@
+2021-12-25  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R061-Heart.el (U-0002D733): New character; use
+	`<-denotational' for A-cgnU+2D733.
+	(A-cgnU+2D733): New abstract node.
+	(A-MJ057512): New abstract node; use `<-denotational' for
+	A-cgnU+2D733.
+	(MJ057512): New character; unify KOSEKI-123230; use
+	`<-denotational' for A-MJ057512.
+	(U+396F): Add `sound@ja/on/{kan|go}'.
+	(JU+396F): Unify KOSEKI-124510; add `->formed' for MJ011997.
+	(U+61DA): Apply new conventions for glyph granularity.
+
+	* Ideograph-R042-Small.el (U+5C16): Add `<-denotational@usage' for
+	BUCS+5C16; apply new conventions for glyph granularity.
+	(BUCS+5C16): New abstract node; unify A2-DJT-02443.
+
+	* Ideograph-R030-Mouth.el (C1-5E4E): Unify CU+553E.
+
+	* Ideograph-R017-Open-Box.el (A-compU+51FA): Changed from
+	A-IWDSU+51FA; unify A-IWDSU+5C80; add `<-denotational@component'
+	for A-IWDSU+51FA.
+	(U+51FA): Use A-IWDSU+5C80 instead of A-IWDSU+51FA as its mother.
+	(A-IWDSU+51FA): Unify A-IWDSBC-88C6.
+
 2021-12-23  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R039-Child.el (U-00021944): New character.
@@ -26,6 +51,13 @@
 	A-IWDSU+2626D; add `<-ancient' for U+56DB.
 
 	* Ideograph-R007-Two.el (U+4E96): Add `<-Zhouwen' for U+56DB.
+
+2021-12-21  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR503.el (SW-JIGUGE-50701): Add U-000200E2 as a
+	corresponding modern character; add `<-ancient@shuowen' for
+	SW-JIGUGE-50700.
+	(SW-JIGUGE-50702): Add `<-Zhouwen@shuowen' for SW-JIGUGE-50700.
 
 2021-12-20  MORIOKA Tomohiko  <tomo.git@chise.org>
 
