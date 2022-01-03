@@ -1031,6 +1031,23 @@
      ((=ucs		  . #x5DF8)	; 巸
       ))
     (ideographic-radical . 49)	; ⼰
+    (ideographic-strokes . 6)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x81E3)	; 臣
+      )
+     ((=ucs		  . #x5DF3)	; 巳
+      ))
+    (=ucs-var-001	. #x5DF8)	; &U-v001+5DF8;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5DF8)	; 巸
+      ))
+    (ideographic-radical . 49)	; ⼰
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
     (ideographic-structure
