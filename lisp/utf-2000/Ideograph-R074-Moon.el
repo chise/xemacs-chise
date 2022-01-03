@@ -158,6 +158,16 @@
       ))
     ))
 (define-char
+  '((<-denotational@component
+     ((=>ucs@component	  . #x6708)	; &A-compU+6708;
+      (=>iwds-1		  .  0053)	; &A-compU+6708;
+      ))
+    (ideographic-radical . 74)	; ⽉
+    (ideographic-strokes . 0)
+    (total-strokes	 . 4)
+    (=big5-cdp		. #x865E)	; &CDP-865E;
+    ))
+(define-char
   '((<-denotational
      ((=>big5-cdp	  . #x8B5E)	; &A-GT-K00758;
       ))
