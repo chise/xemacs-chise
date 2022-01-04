@@ -1412,6 +1412,22 @@
     ))
 (define-char
   '((ideographic-radical . 22)	; ⼕
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
+      (=ucs		  . #x2FF7)	; ⿷
+      )
+     ((=>ucs@component	  . #x531A)	; &A-compU+531A;
+      (=>iwds-1		  .  0209)	; &A-compU+531A;
+      )
+     ((=>ucs@iwds-1	  . #x58EF)	; &A-IWDSU+58EF;
+      ))
+    (=ucs		. #x5328)	; 匨
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5328)	; 匨
+      ))
+    (ideographic-radical . 22)	; ⼕
     (ideographic-strokes . 7)
     (total-strokes	 . 9)
     (hanyu-dazidian	1 86 10)
@@ -1423,27 +1439,17 @@
       )
      ((=ucs		  . #x58EF)	; 壯
       ))
-    (=ucs		. #x5328)	; 匨
-    (=adobe-japan1-6	. 21227)	; &I-AJ1-21227;
+    (=ucs@unicode	. #x5328)	; &AJ1-21227;
+    (=adobe-japan1-6	. 21227)	; &AJ1-21227;
     (=jis-x0212		. #x342B)	; &I-JSP-342B; [20-11]
     (=cns11643-4	. #x284E)	; &I-C4-284E; [08-46]
     (=daikanwa		. 02624)	; &I-M-02624;
-    (=hanziku-1		. #xB5BE)	; &I-HZK01-B5BE;
     (=jef-china3	. #x45B8)	; &I-JC3-45B8;
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x5328)	; 匨
 	)
        ((=ucs		    . #xE0100)	; 󠄀
-	))
-      (ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
-	(=ucs		    . #x2FF7)	; ⿷
-	)
-       ((=ucs		    . #x531A)	; 匚
-	)
-       ((==ucs@unicode	    . #x58EF)	; &g2-AJ1-04532;
-	(==adobe-japan1-0   . 04532)	; &g2-AJ1-04532;
 	))
       (==ucs@unicode	  . #x5328)	; &g2-AJ1-21227;
       (==adobe-japan1-6	  . 21227)	; &g2-AJ1-21227;
@@ -1460,18 +1466,11 @@
        ((===ucs@unicode	    . #x5328)	; &R-UU+5328;
 	)
        ((===jef-china3	    . #x45B8)	; &R-JC3-45B8;
+	)
+       ((=hanziku-1	    . #xB5BE)	; &HZK01-B5BE;
 	))
       )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
-	(=ucs		    . #x2FF7)	; ⿷
-	)
-       ((=ucs		    . #x531A)	; 匚
-	)
-       ((==ucs@cns	    . #x58EF)	; &g2-CU+58EF;
-	(==cns11643-1	    . #x4967)	; &g2-CU+58EF; [41-71]
-	))
-      (==ucs@cns	  . #x5328)	; &g2-CU+5328;
+     ((==ucs@cns	  . #x5328)	; &g2-CU+5328;
       (==cns11643-4	  . #x284E)	; &g2-CU+5328; [08-46]
       ))
     ))
