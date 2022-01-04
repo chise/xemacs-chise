@@ -333,6 +333,9 @@
       ))
     (sound@ja/on	"kiku")
     (=ucs		. #x20A2D)	; 𠨭
+    (<-formed@flipped-horizontally
+     ((=ucs		  . #x4E2E)	; 丮
+      ))
     ))
 (define-char
   '((<-denotational
@@ -1160,6 +1163,22 @@
      ((=>ucs@cognate	  . #x20A2D)	; &A-cgnU+20A2D;
       ))
     (ideographic-radical . 27)	; ⼚
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=>ucs@component	  . #x4E06)	; &A-compU+4E06;
+      )
+     ((=>ucs@iwds-1	  . #x51FA)	; &A-IWDSU+51FA;
+      (=>big5-cdp@iwds-1  . #x88C6)	; &A-IWDSU+51FA;
+      ))
+    (=>ucs@iwds-1	. #x20A40)	; &A-IWDSU+20A40;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@iwds-1	  . #x20A40)	; &A-IWDSU+20A40;
+      ))
+    (ideographic-radical . 27)	; ⼚
     (ideographic-strokes . 5)
     (total-strokes	 . 7)
     (ideographic-structure
@@ -1168,10 +1187,13 @@
       )
      ((=>ucs@component	  . #x5382)	; &A-compU+5382;
       )
-     ((=>ucs@iwds-1	  . #x51FA)	; &A-IWDSU+51FA;
+     ((=>gt-k		  . 02096)	; &A-GT-K02096;
       ))
     (sound@ja/on	"kiku")
     (=ucs		. #x20A40)	; 𠩀
+    (<-formed@flipped-horizontally
+     ((=ucs		  . #x200E8)	; 𠃨
+      ))
     ))
 (define-char
   '((<-denotational
@@ -1192,6 +1214,9 @@
     (=ucs@iso		. #x20A40)	; &C6-263E;
     (=cns11643-6	. #x263E)	; &C6-263E; [06-30]
     (=daikanwa		. 02916)	; &I-M-02916;
+    (<-formed@flipped-horizontally
+     ((=ucs@iso		  . #x200E8)	; &U-000200E8;
+      ))
     (<-original
      ((=ucs@iso		  . #x20A2D)	; &C5-215C;
       (=cns11643-5	  . #x215C)	; &C5-215C; [01-60]
@@ -1533,11 +1558,67 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 27)	; ⼚
+  '((<-denotational
+     ((=>ucs@iwds-1	  . #x20A40)	; &A-IWDSU+20A40;
+      ))
+    (ideographic-radical . 27)	; ⼚
     (ideographic-strokes . 5)
     (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=>ucs@component	  . #x4E06)	; &A-compU+4E06;
+      )
+     ((=>ucs@iwds-1	  . #x5C80)	; &A-IWDSU+5C80;
+      (=>ucs@component	  . #x51FA)	; &A-IWDSU+5C80;
+      ))
+    (sound@ja/on	"kiku")
     (=ucs		. #x20A49)	; 𠩉
+    (<-formed@flipped-horizontally
+     ((=ucs		  . #x200E8)	; 𠃨
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x20A49)	; 𠩉
+      ))
+    (ideographic-radical . 27)	; ⼚
+    (ideographic-strokes . 5)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs		  . #x5382)	; 厂
+      )
+     ((=ucs		  . #x51FA)	; 出
+      ))
+    (=ucs@iso		. #x20A49)	; &MJ031864;
+    (=mj		. 031864)	; &MJ031864;
+    (=koseki		. 033870)	; &MJ031864;
     (=daikanwa		. 02927)	; &I-M-02927;
+    (<-formed@flipped-horizontally
+     ((=ucs-itaiji-001	  . #x200E8)	; &U-i001+200E8;
+      ))
+    (<-original
+     ((=ucs@cns		  . #x21D08)	; &C6-272A;
+      (=cns11643-6	  . #x272A)	; &C6-272A; [07-10]
+      (=daikanwa	  . 07841)	; &I-M-07841;
+      ))
+    (->subsumptive
+     ((==ucs@iso	  . #x20A49)	; &g2-MJ031864;
+      (==mj		  . 031864)	; &g2-MJ031864;
+      (==koseki		  . 033870)	; &g2-MJ031864;
+      (==daikanwa	  . 02927)	; &g2-MJ031864;
+      (->subsumptive
+       ((===daikanwa	    . 02927)	; &R-M-02927;
+	)
+       ((===mj		    . 031864)	; &R-MJ031864;
+	)
+       ((===ucs@iso	    . #x20A49)	; &R-U-00020A49;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 27)	; ⼚
@@ -3151,16 +3232,21 @@
     (=ruimoku-v6	. #xE022)	; &RUI6-E022;
     ))
 (define-char
-  '((ideographic-radical . 27)	; ⼚
+  '((<-denotational@usage
+     ((==>daijiten	  . 01071)	; &A2-DJT-01071;
+      ))
+    (ideographic-radical . 27)	; ⼚
     (hanyu-dazidian	1 74 6)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
       (=ucs		  . #x2FF8)	; ⿸
       )
-     ((=ucs		  . #x5382)	; 厂
+     ((=>ucs@component	  . #x4E06)	; &A-compU+4E06;
       )
      ((=ucs		  . #x5782)	; 垂
       ))
+    (sound@ja/on/go	"zui")
+    (sound@ja/on/kan	"sui")
     (=ucs		. #x539C)	; 厜
     (=big5		. #xD470)	; &I-B-D470;
     ))
@@ -3180,8 +3266,45 @@
      ((=ucs@unicode	  . #x5782)	; &AJ1-02600;
       (=adobe-japan1-0	  . 02600)	; &AJ1-02600;
       ))
-    (=ucs@unicode	. #x539C)	; &M-02960;
-    (=daikanwa		. 02960)	; &M-02960;
+    (=ucs@unicode	. #x539C)	; &MJ007937;
+    (=mj		. 007937)	; &MJ007937;
+    (=koseki		. 034220)	; &MJ007937;
+    (=daikanwa		. 02960)	; &I-M-02960;
+    (=daijiten		. 01071)	; &I-DJT-01071;
+    (->formed
+     ((=ucs@unicode	  . #x5D12)	; &AJ1-21470;
+      (=adobe-japan1-6	  . 21470)	; &AJ1-21470;
+      (=daikanwa	  . 08175)	; &I-M-08175;
+      ))
+    (->formed$_1*sources
+     jiyun daikanwa)
+    (->formed*sources
+     jiyun daikanwa)
+    (->original
+     ((=ucs@iso		  . #x20AAA)	; &C6-5B3A;
+      (=cns11643-6	  . #x5B3A)	; &C6-5B3A; [59-26]
+      (=daikanwa	  . 03035)	; &I-M-03035;
+      ))
+    (->original$_1*sources
+     zhengzitong daikanwa)
+    (->original*sources
+     zhengzitong daikanwa)
+    (->subsumptive
+     ((==ucs@unicode	  . #x539C)	; &g2-MJ007937;
+      (==mj		  . 007937)	; &g2-MJ007937;
+      (==koseki		  . 034220)	; &g2-MJ007937;
+      (==daikanwa	  . 02960)	; &g2-MJ007937;
+      (==daijiten	  . 01071)	; &g2-MJ007937;
+      (->subsumptive
+       ((===daikanwa	    . 02960)	; &R-M-02960;
+	)
+       ((===daijiten	    . 01071)	; &R-DJT-01071;
+	)
+       ((===mj		    . 007937)	; &R-MJ007937;
+	)
+       ((===ucs@unicode	    . #x539C)	; &R-UU+539C;
+	))
+      ))
     ))
 (define-char
   '((<-denotational
@@ -3196,10 +3319,15 @@
       )
      ((=ucs		  . #x5382)	; 厂
       )
-     ((=cns11643-1	  . #x504D)	; &C1-504D; [48-45]
+     ((=ucs@cns		  . #x5782)	; &C1-504D;
+      (=cns11643-1	  . #x504D)	; &C1-504D; [48-45]
       ))
     (=ucs@cns		. #x539C)	; &C2-3373;
     (=cns11643-2	. #x3373)	; &C2-3373; [19-83]
+    (->subsumptive
+     ((==ucs@cns	  . #x539C)	; &g2-CU+539C;
+      (==cns11643-2	  . #x3373)	; &g2-CU+539C; [19-83]
+      ))
     ))
 (define-char
   '((ideographic-radical . 27)	; ⼚
@@ -6584,11 +6712,54 @@
   '((ideographic-radical . 27)	; ⼚
     (ideographic-strokes . 12)
     (total-strokes	 . 14)
-    (hanyu-dazidian	8 7 23)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=>ucs@component	  . #x4E06)	; &A-compU+4E06;
+      )
+     ((=ucs		  . #x2136E)	; 𡍮
+      ))
     (=ucs		. #x20AAA)	; 𠪪
-    (=cns11643-6	. #x5B3A)	; &I-C6-5B3A; [59-26]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x20AAA)	; 𠪪
+      ))
+    (ideographic-radical . 27)	; ⼚
+    (ideographic-strokes . 12)
+    (total-strokes	 . 14)
+    (hanyu-dazidian	8 7 23)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs		  . #x5382)	; 厂
+      )
+     ((=ucs@cns		  . #x2136E)	; &C4-3675;
+      (=cns11643-4	  . #x3675)	; &C4-3675; [22-85]
+      ))
+    (=ucs@iso		. #x20AAA)	; &C6-5B3A;
+    (=cns11643-6	. #x5B3A)	; &C6-5B3A; [59-26]
     (=daikanwa		. 03035)	; &I-M-03035;
-    (=hanziku-12	. #xEB56)	; &I-HZK12-EB56;
+    (<-original
+     ((=ucs@unicode	  . #x539C)	; &MJ007937;
+      (=mj		  . 007937)	; &MJ007937;
+      ))
+    (->subsumptive
+     ((==ucs@iso	  . #x20AAA)	; &g2-M-03035;
+      (==cns11643-6	  . #x5B3A)	; &g2-M-03035; [59-26]
+      (==daikanwa	  . 03035)	; &g2-M-03035;
+      (->subsumptive
+       ((===daikanwa	    . 03035)	; &R-M-03035;
+	)
+       ((===cns11643-6	    . #x5B3A)	; &R-C6-5B3A; [59-26]
+	)
+       ((===ucs@iso	    . #x20AAA)	; &R-U-00020AAA;
+	)
+       ((=hanziku-12	    . #xEB56)	; &HZK12-EB56;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 27)	; ⼚
@@ -8021,6 +8192,10 @@
 (define-char
   '((ideographic-radical . 27)	; ⼚
     (==>ucs@bucs	. #x5384)	; &BUCS+5384;
+    ))
+(define-char
+  '((ideographic-radical . 27)	; ⼚
+    (==>daijiten	. 01071)	; &A2-DJT-01071;
     ))
 (define-char
   '((<-denotational
