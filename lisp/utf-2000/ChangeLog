@@ -1,3 +1,36 @@
+2022-01-03  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R074-Moon.el (BC-865E): New character; use
+	`<-denotational@component' for IWDS1-0053.
+
+	* Ideograph-R057-Bow.el (A-IWDSU+38AD): New abstract node.
+	(U+38AD): New character; use `<-denotational' for A-IWDSU+38AD.
+	(U-000223BF): Add `<-denotational' for A-IWDSU+38AD; apply new
+	conventions for glyph granularity.
+	(U+5F20): Apply new conventions for glyph granularity.
+	(U+5F22): Likewise.
+
+	* Ideograph-R049-Oneself.el (U+5DF8-var-001): New character; use
+	`<-denotational' for U+5DF8.
+
+	* Ideograph-R027-Cliff.el (U-00020A2D): Add
+	`<-formed@flipped-horizontally' for U+4E2E.
+	(A-IWDSU+20A40): New abstract node; use `<-denotational' for
+	A-cgnU+20A2D.
+	(U-00020A40): Use A-IWDSU+20A40 instead of A-cgnU+20A2D; add
+	`<-formed@flipped-horizontally' for U-000200E8.
+	(IU+20A40): Add `<-formed@flipped-horizontally' for IU+200E8.
+	(U-00020A49): Add `<-denotational' for A-IWDSU+20A40; apply new
+	conventions for glyph granularity.
+	(U+539C): Add `<-denotational@usage' for A2-DJT-01071; apply new
+	conventions for glyph granularity.
+	(U-00020AAA): Apply new conventions for glyph granularity.
+	(A2-DJT-01071): New abstract node.
+
+	* Ideograph-R022-Right-Open-Box.el (U+5328): Apply new conventions
+	for glyph granularity.
+	(U+5335): Likewise.
+
 2021-12-30  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R009-Man.el (U+4F07): Add `<-ancient' for U+5F79.
