@@ -348,6 +348,30 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=>big5-cdp	  . #x88BB)	; &A-CDP-88BB;
+      ))
+    (ideographic-radical . 58)	; ⼹
+    (ideographic-strokes . 2)
+    (total-strokes	 . 5)
+    (=big5-cdp-itaiji-001 . #x88BB)	; &CDP-i001-88BB;
+    ))
+(define-char
+  '((ideographic-radical . 58)	; ⼹
+    (ideographic-strokes . 2)
+    (total-strokes	 . 5)
+    (=>big5-cdp		. #x88BB)	; &A-CDP-88BB;
+    ))
+(define-char
+  '((<-denotational
+     ((=>big5-cdp	  . #x88BB)	; &A-CDP-88BB;
+      ))
+    (ideographic-radical . 58)	; ⼹
+    (ideographic-strokes . 2)
+    (total-strokes	 . 5)
+    (=big5-cdp		. #x88BB)	; &CDP-88BB;
+    ))
+(define-char
   '((ideographic-radical . 58)	; ⼹
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
