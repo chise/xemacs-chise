@@ -1,3 +1,28 @@
+2021-12-30  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R009-Man.el (U+4F07): Add `<-ancient' for U+5F79.
+	(U-0002CF79): Ditto.
+	(U-00020227): Apply new conventions for glyph granularity.
+	(U-0002023F): Likewise.
+	(U+5015): Likewise.
+	(M-01081): Add `<-formed' for UU+5015.
+
+	* Ideograph-R001-One.el (A-U+4E9F-itaiji-005): New abstract node;
+	unify A-U+4E9F-itaiji-006.
+	(U+4E9F-itaiji-005): New character; use `<-denotational' for
+	A-U+4E9F-itaiji-005.
+	(U+4E9F-itaiji-006): Ditto.
+
+2021-12-28  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R037-Big.el (A-cgnU+21647): Changed from U-00021647.
+	(U-00021647): Changed from A-IWDSU+21647; use A-cgnU+21647 instead
+	of U-00021647.
+	(IU+21647): Use U-00021647 instead of A-IWDSU+21647 as its mother.
+	(CU+21647): Likewise.
+	(HNG-KHI0143-0): Use A-cgnU+21647 instead of U-00021647 as its
+	mother.
+
 2021-12-25  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R061-Heart.el (U-0002D733): New character; use
