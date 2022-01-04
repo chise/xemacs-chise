@@ -27,6 +27,10 @@
   '((shuowen-radical	. 276)	; 𠔼
     (=shuowen-jiguge	. 25606)	; &SW-JIGUGE-25606;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x20553)	; 𠕓
+      )
+     ((=ucs		  . #x21D0A)	; 𡴊
+      )
      ((=ucs		  . #x21249)	; 𡉉
       ))
     (->subsumptive
