@@ -1,5 +1,11 @@
 2022-01-04  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R061-Heart.el (U-000228F9): New character.
+
+	* Ideograph-R030-Mouth.el (U-0002105D): New character.
+
+2022-01-04  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R058-Snout.el (BC-88BB-itaiji-001): New character; use
 	`<-denotational' for A-BC-88BB.
 	(A-BC-88BB): New abstract node.
