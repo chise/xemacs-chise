@@ -3873,10 +3873,7 @@
       ))
     ))
 (define-char
-  '((<-denotational@usage
-     ((==>daijiten	  . 00114)	; &A2-DJT-00114;
-      ))
-    (ideographic-radical . 5)	; ⼄
+  '((ideographic-radical . 5)	; ⼄
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -3892,10 +3889,12 @@
   '((<-denotational
      ((=>ucs@iwds-1	  . #x341C)	; &A-IWDSU+341C;
       ))
+    (<-denotational@usage
+     ((==>daijiten	  . 00114)	; &A2-DJT-00114;
+      ))
     (ideographic-radical . 5)	; ⼄
     (ideographic-strokes . 8)
     (total-strokes	 . 9)
-    (hanyu-dazidian	1 56 2)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -3905,7 +3904,26 @@
      ((=ucs		  . #x4E5D)	; 九
       ))
     (=ucs		. #x341C)	; 㐜
-    (=cns11643-4	. #x2835)	; &I-C4-2835; [08-21]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x341C)	; 㐜
+      ))
+    (ideographic-radical . 5)	; ⼄
+    (ideographic-strokes . 8)
+    (total-strokes	 . 9)
+    (hanyu-dazidian	1 56 2)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs@unicode	  . #x6C42)	; &MJ015049;
+      (=mj		  . 015049)	; &MJ015049;
+      )
+     ((=ucs		  . #x4E5D)	; 九
+      ))
+    (=ucs@unicode	. #x341C)	; &GT-00260;
+    (=cns11643-4	. #x2835)	; &GT-00260; [08-21]
     (=gt		. 00260)	; &I-GT-00260;
     (=gt-pj-2		. #x315E)	; &I-GT-00260; [17-62]
     (=daikanwa		. 00195)	; &I-M-00195;
@@ -3922,15 +3940,7 @@
     (<-same*sources
      jiyun daikanwa)
     (->subsumptive
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	(=ucs		    . #x2FF0)	; ⿰
-	)
-       ((=gt-k		    . 02519)	; &GT-K02519;
-	)
-       ((=ucs		    . #x4E5D)	; 九
-	))
-      (==ucs@cns	  . #x341C)	; &g2-GT-00260;
+     ((==ucs@cns	  . #x341C)	; &g2-GT-00260;
       (==cns11643-4	  . #x2835)	; &g2-GT-00260; [08-21]
       (==gt		  . 00260)	; &g2-GT-00260;
       (==daikanwa	  . 00195)	; &g2-GT-00260;
