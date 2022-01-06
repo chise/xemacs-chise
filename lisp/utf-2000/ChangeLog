@@ -1,3 +1,10 @@
+2022-01-05  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R005-Second.el (A-IWDSU+341C): Delete
+	`<-denotational@usage' for A2-DJT-00114.
+	(U+341C): Add `<-denotational@usage' for A2-DJT-00114; apply new
+	conventions for glyph granularity.
+
 2022-01-04  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R061-Heart.el (U-000228F9): New character.
