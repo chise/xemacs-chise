@@ -1,4 +1,29 @@
+2022-01-06  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R015-Ice.el (U-000205C0): New character.
+
+	* Ideograph-R082-Fur.el (U+6BEC): Apply new conventions for glyph
+	granularity.
+
+	* Ideograph-R079-Weapon.el (U+3C7D): Apply new conventions for
+	glyph granularity.
+
 2022-01-05  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R066-Rap.el (A-IWDSU+22EFC): New abstract node.
+	(U-00022EFC): New character; use `<-denotational' for
+	A-IWDSU+22EFC.
+	(M-13138): Unify IU+22EFC instead of U-00022F08 and C4-265C; add
+	`<-denotational' for U-00022EFC.
+	(U-00022F08): Add `<-denotational' for A-IWDSU+22EFC; apply new
+	conventions for glyph granularity.
+	(U-0002D8E6): New character.
+	(A-IWDSU+3A9B): New abstract node.
+	(U+3A9B): New character; use `<-denotational' for A-IWDSU+3A9B.
+	(M-13289): Use `<-denotational' for U+3A9B instead of `=>ucs' for
+	U-00022FA4; unify UU+3A9B, MJ001527 and KOSEKI-148930.
+	(U-00022FA4): Add `<-denotational' for A-IWDSU+3A9B; use
+	`->denotational' and `->subsumptive'.
 
 	* Ideograph-R005-Second.el (A-IWDSU+341C): Delete
 	`<-denotational@usage' for A2-DJT-00114.
