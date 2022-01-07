@@ -1399,7 +1399,25 @@
      ((=ucs		  . #x6C42)	; 求
       ))
     (=ucs		. #x6BEC)	; 毬
-    (=adobe-japan1-0	. 05371)	; &I-AJ1-05371;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x6BEC)	; 毬
+      ))
+    (ideographic-radical . 82)	; ⽑
+    (ideographic-strokes . 7)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
+      (=ucs		  . #x2FFA)	; ⿺
+      )
+     ((=ucs		  . #x6BDB)	; 毛
+      )
+     ((=ucs@unicode	  . #x6C42)	; &MJ015049;
+      (=mj		  . 015049)	; &MJ015049;
+      ))
+    (=ucs@unicode	. #x6BEC)	; &AJ1-05371;
+    (=adobe-japan1-0	. 05371)	; &AJ1-05371;
     (=jis-x0208		. #x5D5C)	; &I-J90-5D5C; [61-60]
     (=ks-x1001		. #x4F33)	; &I-K0-4F33; [47-19]
     (=cns11643-1	. #x5B46)	; &I-C1-5B46; [59-38]
@@ -1408,7 +1426,7 @@
     (=gt		. 21562)	; &I-GT-21562;
     (=gt-pj-1		. #x5D5C)	; &I-GT-21562; [61-60]
     (=daikanwa		. 16837)	; &I-M-16837;
-    (=shinjigen		.  4022)	; 毬
+    (=shinjigen		.  4022)	; &AJ1-05371;
     (->subsumptive
      ((==ucs@unicode	  . #x6BEC)	; &g2-AJ1-05371;
       (==adobe-japan1-0	  . 05371)	; &g2-AJ1-05371;
