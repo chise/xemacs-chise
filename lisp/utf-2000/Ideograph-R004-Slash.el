@@ -3225,7 +3225,7 @@
     ))
 (define-char
   '((<-denotational@usage
-     ((==>daijiten	  . 05279)	; &A2-DJT-05279;
+     ((==>ucs@bucs	  . #x6A02)	; &BUCS+6A02;
       ))
     (ideographic-radical . 4)	; ⼃
     (ideographic-strokes . 4)
@@ -5706,6 +5706,8 @@
     (ideographic-radical . 4)	; ⼃
     (ideographic-strokes . 9)
     (total-strokes	 . 10)
+    (sound@ja/on/go	"zui")
+    (sound@ja/on/kan	"sui")
     (=ucs		. #x200B9)	; 𠂹
     ))
 (define-char
@@ -5734,6 +5736,28 @@
     (=gt-pj-2		. #x313A)	; &I-GT-00211; [17-26]
     (=daikanwa		. 00155)	; &I-M-00155;
     (=daijiten		. 00103)	; &I-DJT-00103;
+    (<-ancient
+     ((=ucs@unicode	  . #x5782)	; &AJ1-02600;
+      (=adobe-japan1-0	  . 02600)	; &AJ1-02600;
+      (=daikanwa	  . 05012)	; &I-M-05012;
+      ))
+    (<-ancient$_1*sources
+     yupian daikanwa)
+    (<-ancient*sources
+     yupian daikanwa)
+    (<-original
+     ((=ucs@unicode	  . #x5782)	; &AJ1-02600;
+      (=adobe-japan1-0	  . 02600)	; &AJ1-02600;
+      ))
+    (<-original$_1*sources
+     yupian)
+    (->ancient
+     ((=daikanwa	  . 09761)	; &M-09761;
+      ))
+    (->ancient$_1*sources
+     shuowen daikanwa)
+    (->ancient*sources
+     shuowen daikanwa)
     (->subsumptive
      ((==gt		  . 00211)	; &g2-GT-00211;
       (==gt-k		  . 07529)	; &g2-GT-00211;

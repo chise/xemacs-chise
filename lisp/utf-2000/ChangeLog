@@ -1,3 +1,16 @@
+2022-01-07  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R009-Man.el (U+4FC5): Apply new conventions for glyph
+	granularity.
+
+	* Ideograph-R006-Hook.el (U-00020112): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R004-Slash.el (U-000200B9): Add
+	`sound@ja/on/{kan|go}'.
+	(IU+200B9): Add `<-ancient' and `<-original' for UU+5782; add
+	`->ancient' for M-09761.
+
 2022-01-06  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R015-Ice.el (U-000205C0): New character.
@@ -57,6 +70,9 @@
 	`<-denotational' for U-00020525.
 	(MJ031010): Add `ideographic-structure'.
 	(MJ031011): Add `ideographic-structure'.
+
+	* ShuoWen-SR276.el (SW-JIGUGE-25606): Add U-00020553 and
+	U-00021D0A as corresponding modern characters.
 
 2022-01-03  MORIOKA Tomohiko  <tomo.git@chise.org>
 
@@ -233,6 +249,11 @@
 	(U+4E9F-itaiji-005): New character; use `<-denotational' for
 	A-U+4E9F-itaiji-005.
 	(U+4E9F-itaiji-006): Ditto.
+
+2021-12-29  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR507.el (SW-JIGUGE-50710): Add `<-ancient@shuowen' for
+	SW-JIGUGE-50709.
 
 2021-12-28  MORIOKA Tomohiko  <tomo.git@chise.org>
 
