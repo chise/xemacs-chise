@@ -2855,6 +2855,9 @@
       )
      ((=ucs		  . #x5341)	; 十
       ))
+    (sound@ja/on/conventional "sotu")
+    (sound@ja/on/go	"soti" "syuti" "sui")
+    (sound@ja/on/kan	"sotu" "syutu" "sai")
     (=ucs		. #x5352)	; 卒
     ))
 (define-char
@@ -2888,6 +2891,77 @@
     (=gt-pj-1		. #x4234)	; &I-GT-03504; [34-20]
     (=daikanwa		. 02740)	; &I-M-02740;
     (=shinjigen		.  0823)	; &AJ1-02836;
+    (<-formed
+     ((=ucs@unicode	  . #x5D12)	; &AJ1-21470;
+      (=adobe-japan1-6	  . 21470)	; &AJ1-21470;
+      ))
+    (<-interchangeable
+     ((=ucs@cns		  . #x8403)	; &C1-6157;
+      (=cns11643-1	  . #x6157)	; &C1-6157; [65-55]
+      (=daikanwa	  . 31251)	; &I-M-31251;
+      )
+     ((=ucs@unicode	  . #x731D)	; &AJ1-05637;
+      (=adobe-japan1-0	  . 05637)	; &AJ1-05637;
+      (=daikanwa	  . 20500)	; &I-M-20500;
+      )
+     ((=ucs@unicode	  . #x6C54)	; &JSP-465D;
+      (=gb2312		  . #x6360)	; &JSP-465D; [67-64]
+      (=jis-x0212	  . #x465D)	; &I-JSP-465D; [38-61]
+      (=cns11643-2	  . #x225E)	; &I-C2-225E; [02-62]
+      (=daikanwa	  . 17127)	; &I-M-17127;
+      )
+     ((=ucs@unicode	  . #x8A16)	; &AJ1-06658;
+      (=adobe-japan1-0	  . 06658)	; &AJ1-06658;
+      (=daikanwa	  . 35242)	; &I-M-35242;
+      )
+     ((=ucs@iso		  . #x23A1B)	; &C4-3843;
+      (=cns11643-4	  . #x3843)	; &C4-3843; [24-35]
+      (=daikanwa	  . 16490)	; &I-M-16490;
+      )
+     ((=ucs@unicode	  . #x6089)	; &AJ1-02281;
+      (=adobe-japan1-0	  . 02281)	; &AJ1-02281;
+      (=daikanwa	  . 10635)	; &I-M-10635;
+      )
+     ((=mj		  . 017115)	; &MJ017115;
+      (=daikanwa	  . 20817)	; &I-M-20817;
+      )
+     ((=ucs@unicode	  . #x5D12)	; &AJ1-21470;
+      (=adobe-japan1-6	  . 21470)	; &AJ1-21470;
+      (=daikanwa	  . 08175)	; &I-M-08175;
+      )
+     ((=ucs@unicode	  . #x5005)	; &AJ1-04159;
+      (=adobe-japan1-0	  . 04159)	; &AJ1-04159;
+      (=daikanwa	  . 00750)	; &I-M-00750;
+      ))
+    (<-interchangeable$_1*sources
+     shuowen-tongxun-dingsheng daikanwa)
+    (<-interchangeable$_2*sources
+     shuowen-tongxun-dingsheng daikanwa)
+    (<-interchangeable$_3*sources
+     shuowen-tongxun-dingsheng daikanwa)
+    (<-interchangeable$_4*sources
+     shuowen-tongxun-dingsheng daikanwa)
+    (<-interchangeable$_5*sources
+     shuowen-tongxun-dingsheng daikanwa)
+    (<-interchangeable$_6*sources
+     shuowen-tongxun-dingsheng daikanwa)
+    (<-interchangeable$_7*sources
+     shiwen daikanwa)
+    (<-interchangeable$_8*sources
+     shuowen-tongxun-dingsheng daikanwa)
+    (<-interchangeable$_9*sources
+     liji-zhu daikanwa)
+    (<-interchangeable*sources
+     daikanwa)
+    (<-vulgar
+     ((=ucs@unicode	  . #x461A)	; &C3-2A6E;
+      (=cns11643-3	  . #x2A6E)	; &C3-2A6E; [10-78]
+      (=daikanwa	  . 34094)	; &I-M-34094;
+      ))
+    (<-vulgar$_1*sources
+     zhengzitong daikanwa)
+    (<-vulgar*sources
+     zhengzitong daikanwa)
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x5352)	; 卒
