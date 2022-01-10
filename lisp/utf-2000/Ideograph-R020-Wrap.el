@@ -2288,6 +2288,11 @@
      ((=ucs		  . #x52FF)	; 勿
       ))
     (=ucs		. #x208D4)	; 𠣔
+    (<-ancient
+     ((=ucs		  . #x200B9)	; 𠂹
+      ))
+    (<-ancient*sources
+     shuowen)
     ))
 (define-char
   '((<-denotational
