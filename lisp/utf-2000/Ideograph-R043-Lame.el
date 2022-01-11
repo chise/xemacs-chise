@@ -827,6 +827,24 @@
      ((=>ucs@iwds-1	  . #x21BC4)	; &A-IWDSU+21BC4;
       ))
     (ideographic-radical . 43)	; ⼪
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
+      (=ucs		  . #x2FFA)	; ⿺
+      )
+     ((=>ucs@component	  . #x5C24)	; &A-compU+5C24;
+      (=>iwds-1		  .  0250)	; &A-compU+5C24;
+      )
+     ((=ucs		  . #x529B)	; 力
+      ))
+    (sound@ja/on/go	"riki")
+    (sound@ja/on/kan	"ryoku")
+    (=ucs		. #x21BC4)	; 𡯄
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x21BC4)	; 𡯄
+      ))
+    (ideographic-radical . 43)	; ⼪
     (ideographic-strokes . 2)
     (total-strokes	 . 5)
     (ideographic-structure
@@ -837,10 +855,8 @@
       )
      ((=ucs		  . #x529B)	; 力
       ))
-    (sound@ja/on/go	"riki")
-    (sound@ja/on/kan	"ryoku")
-    (=ucs		. #x21BC4)	; 𡯄
-    (=cns11643-5	. #x2165)	; &I-C5-2165; [01-69]
+    (=ucs@iso		. #x21BC4)	; &C5-2165;
+    (=cns11643-5	. #x2165)	; &C5-2165; [01-69]
     (=big5-cdp		. #x8DC2)	; &I-CDP-8DC2;
     (=daikanwa		. 07544)	; &I-M-07544;
     (->subsumptive
