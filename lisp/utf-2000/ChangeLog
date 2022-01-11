@@ -1,3 +1,37 @@
+2022-01-10  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R004-Slash.el (U+3405): Add `shuowen' as a source of
+	[`<-ancient' for U+4E94].
+
+	* Ideograph-R020-Wrap.el (U-000208D4): Add `<-ancient' for
+	U-000200B9.
+
+	* Ideograph-R057-Bow.el (U+223A5-var-005): New character; use
+	`<-denotational' for U-000223A5.
+	(A-cgnU+223D2): New abstract node.
+	(U-000223D2): Add `<-denotational' for A-cgnU+223D2; use
+	`->denotational' and `->subsumptive'.
+	(MJ035610): New character; use `<-denotational' for A-cgnU+223D2.
+
+2022-01-08  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R032-Earth.el (U+5782): Add `<-denotational@usage' for
+	BUCS+5782; apply new conventions for glyph granularity.
+	(U-0002D38A): New character.
+	(A-cgnU+57C0): New abstract node.
+	(U+57C0): Add `<-denotational' for A-cgnU+57C0; add
+	`<-denotational@usage' for BUCS+5782; apply new conventions for
+	glyph granularity.
+	(A-U+57C0-itaiji-002): New abstract node; use `<-denotational' for
+	A-cgnU+57C0; use `<-denotational@usage' for BUCS+5782.
+	(U+57C0-itaiji-002): New character; use `<-denotational' for
+	A-U+57C0-itaiji-002.
+	(IU+2136E): Add `<-formed' for UU+5782.
+	(U-000213E3): New character.
+	(U-000213E5): New character.
+	(U-000213E8): New character.
+	(BUCS+5782): New abstract node; unify A2-DJT-01710.
+
 2022-01-07  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R009-Man.el (U+4FC5): Apply new conventions for glyph
