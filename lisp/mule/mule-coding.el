@@ -6,7 +6,7 @@
 ;; Copyright (C) 1995 Sun Microsystems.
 ;; Copyright (C) 1997, 1999, 2002, 2003, 2004, 2005, 2006, 2008, 2009,
 ;;   2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020,
-;;   2021 MORIOKA Tomohiko
+;;   2021, 2022 MORIOKA Tomohiko
 
 ;; This file is part of XEmacs.
 
@@ -281,6 +281,7 @@
 	  ( =hanyo-denshi/jt		       "HD-JT-" 4 X)
 	  ( =hanyo-denshi/ks		       "HD-KS-" 6 d)
 	  ( =hanyo-denshi/tk		       "HD-TK-" 8 d)
+	  (=>hanyo-denshi/tk		     "A-HD-TK-" 8 d)
 	  (==hanyo-denshi/ja		    "g2-HD-JA-" 4 X)
 	  (==hanyo-denshi/jb		    "g2-HD-JB-" 4 X)
 	  (==hanyo-denshi/jc		    "g2-HD-JC-" 4 X)
