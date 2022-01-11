@@ -334,6 +334,7 @@
     =>big5-cdp
     =>big5-cdp@iwds-1
     =>mj
+    =>hanyo-denshi/tk
     =>iwds-1
     =big5
     =big5-eten
@@ -807,7 +808,7 @@
 		     =mj ==mj ===mj =>>mj =>mj
 		     =zihai mojikyo))
 	"(%-18s . %06d)\t; %c")
-       ((memq name '(=hanyo-denshi/tk ==hanyo-denshi/tk))
+       ((memq name '(=hanyo-denshi/tk =>hanyo-denshi/tk ==hanyo-denshi/tk))
 	"(%-18s . %08d)\t; %c")
        ((>= (charset-dimension name) 2)
 	"(%-18s . #x%04X)\t; %c")
