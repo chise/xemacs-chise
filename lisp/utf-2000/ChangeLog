@@ -1,3 +1,8 @@
+2022-01-11  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R019-Power.el (U-00020835): Apply new conventions for
+	glyph granularity.
+
 2022-01-10  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R024-Ten.el (U+5352): Add `sound@ja/on/{kan|go}' and
