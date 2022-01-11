@@ -196,6 +196,22 @@
      ((=>ucs@iwds-1	  . #x21BC4)	; &A-IWDSU+21BC4;
       ))
     (ideographic-radical . 19)	; ⼒
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
+      (=ucs		  . #x2FFA)	; ⿺
+      )
+     ((=>ucs@component	  . #x4E38)	; &A-compU+4E38;
+      (=>iwds-1		  .  0249)	; &A-compU+4E38;
+      )
+     ((=ucs		  . #x529B)	; 力
+      ))
+    (=ucs		. #x20835)	; 𠠵
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x20835)	; 𠠵
+      ))
+    (ideographic-radical . 19)	; ⼒
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
     (ideographic-structure
@@ -206,7 +222,7 @@
       )
      ((=ucs		  . #x529B)	; 力
       ))
-    (=ucs		. #x20835)	; 𠠵
+    (=ucs@iso		. #x20835)	; &U-00020835;
     ))
 (define-char
   '((ideographic-radical . 19)	; ⼒

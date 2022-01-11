@@ -5,7 +5,7 @@
 ;; Copyright (C) 1996 Sun Microsystems.
 ;; Copyright (C) 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2007, 2008,
 ;;   2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019,
-;;   2020, 2021 MORIOKA Tomohiko
+;;   2020, 2021, 2022 MORIOKA Tomohiko
 
 ;; Author: Unknown
 ;; Keywords: i18n, mule, internal
@@ -615,6 +615,7 @@ DESCRIPTION (string) is the description string of the charset."
 	  =>jis-x0213-1
 	  =>jis-x0213-2
 	  =>mj-0
+	  =>hanyo-denshi/tk/mf-01
 	  =>big5-cdp
 	  =>ruimoku-v6
 	  =>big5-cdp@iwds-1
