@@ -1,5 +1,11 @@
 2022-01-10  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R024-Ten.el (U+5352): Add `sound@ja/on/{kan|go}' and
+	`sound@ja/on/conventional'.
+	(UU+5352): Add some relations for other characters.
+
+2022-01-10  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R004-Slash.el (U+3405): Add `shuowen' as a source of
 	[`<-ancient' for U+4E94].
 
