@@ -4,7 +4,7 @@
 ;; Licensed to the Free Software Foundation.
 ;; Copyright (C) 1997, 1999, 2000, 2002, 2003, 2004, 2005, 2006, 2008,
 ;;   2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019,
-;;   2020, 2021 MORIOKA Tomohiko
+;;   2020, 2021, 2022 MORIOKA Tomohiko
 
 ;; Keywords: mule, multilingual, character set, coding system
 
@@ -1940,6 +1940,17 @@
 	       direction l2r))
 
   (make-charset
+   '=>hanyo-denshi/tk
+   "TK (TouKi) part of Han'you-Denshi abstract characters"
+   `(long-name "Han'you-Denshi/TK"
+	       chars 256
+	       dimension 3
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       mother =hanyo-denshi/tk))
+
+  (make-charset
    '==mj
    "Moji-Jouhou-Kiban detailed glyph-images."
    '(long-name "MJ glyph-images"
@@ -2283,8 +2294,19 @@
 	       direction l2r
 	       registry "HanyoDenshi\\.TKMF-1$"))
   (make-charset
+   '=>hanyo-denshi/tk/mf-01
+   "font encoding for TK (TouKi) abstract characters"
+   `(long-name "Han'you-Denshi/TK font encoding"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       mother =hanyo-denshi/tk/mf-01
+	       registry "HanyoDenshi\\.TKMF-1$"))
+  (make-charset
    '==hanyo-denshi/tk/mf-01
-   "font encoding for TK (TouKi) characters"
+   "font encoding for TK (TouKi) glyphs"
    `(long-name "Han'you-Denshi/TK font encoding"
 	       chars 256
 	       dimension 2
