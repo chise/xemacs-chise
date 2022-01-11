@@ -659,7 +659,7 @@
       (=daikanwa	  . 00257)	; &I-M-00257;
       ))
     (<-ancient*sources
-     daikanwa)
+     shuowen daikanwa)
     (->Bopomofo
      ((name		  . "BOPOMOFO LETTER U")
       (=ucs		  . #x3128)	; ㄨ
