@@ -760,7 +760,7 @@
       )
      ((=gt-k		  . 00304)	; &GT-K00304;
       )
-     ((=gt-k		  . 00145)	; &GT-K00145;
+     ((=big5-cdp	  . #x8DEA)	; &CDP-8DEA;
       ))
     (=ucs-itaiji-001	. #x378B)	; &U-i001+378B;
     (<-formed@component
