@@ -5715,16 +5715,53 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((name		  . "KATAKANA LETTER SA")
-      (=ucs		  . #x30B5)	; サ
+     ((=ucs		  . #x8279)	; 艹
       )
      ((name		  . "KATAKANA LETTER SA")
       (=ucs		  . #x30B5)	; サ
       ))
     (sound@ja/kun	"bosatu")
     (=ucs		. #x2CEC0)	; 𬻀
-    (=mj		. 046311)	; &I-MJ046311;
-    (=koseki		. 000680)	; 𬻀
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2CEC0)	; 𬻀
+      ))
+    (ideographic-radical . 1)	; ⼀
+    (ideographic-strokes . 5)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((name		  . "CJK RADICAL GRASS ONE")
+      (=ucs		  . #x2EBE)	; ⺾
+      )
+     ((name		  . "KATAKANA LETTER SA")
+      (=ucs		  . #x30B5)	; サ
+      ))
+    (=cbeta		. 07087)	; &CB07087;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2CEC0)	; 𬻀
+      ))
+    (ideographic-radical . 1)	; ⼀
+    (ideographic-strokes . 5)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((name		  . "KATAKANA LETTER SA")
+      (=ucs		  . #x30B5)	; サ
+      )
+     ((name		  . "KATAKANA LETTER SA")
+      (=ucs		  . #x30B5)	; サ
+      ))
+    (=ucs@JP/hanazono	. #x2CEC0)	; &MJ046311;
+    (=mj		. 046311)	; &MJ046311;
+    (=koseki		. 000680)	; &MJ046311;
     (<-same
      ((=ucs@iso		  . #x26B20)	; &C6-274C;
       (=cns11643-6	  . #x274C)	; &C6-274C; [07-44]
@@ -5741,6 +5778,9 @@
      ((==ucs@JP/hanazono  . #x2CEC0)	; &g2-MJ046311;
       (==mj		  . 046311)	; &g2-MJ046311;
       (==koseki		  . 000680)	; &g2-MJ046311;
+      (->subsumptive
+       ((===mj		    . 046311)	; &R-MJ046311;
+	))
       ))
     ))
 (define-char
