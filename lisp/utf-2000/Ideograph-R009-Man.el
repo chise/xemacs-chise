@@ -26983,6 +26983,24 @@
     ))
 (define-char
   '((ideographic-radical . 9)	; ⼈
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x4EBB)	; 亻
+      )
+     ((=>ucs@cognate	  . #x514C)	; &A-cgnU+514C;
+      ))
+    (=>ucs@cognate	. #x4FBB)	; &A-cgnU+4FBB;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@cognate	  . #x4FBB)	; &A-cgnU+4FBB;
+      ))
+    (<-denotational@usage
+     ((==>daijiten	  . 00320)	; &A2-DJT-00320;
+      ))
+    (ideographic-radical . 9)	; ⼈
     (ideographic-strokes . 7)
     (total-strokes	 . 9)
     (hanyu-dazidian	1 166 2)
@@ -27079,6 +27097,50 @@
 	)
        ((===ucs@unicode	    . #x4FBB)	; &R-UU+4FBB;
 	))
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@cognate	  . #x4FBB)	; &A-cgnU+4FBB;
+      ))
+    (<-denotational@usage
+     ((==>daijiten	  . 00320)	; &A2-DJT-00320;
+      ))
+    (ideographic-radical . 9)	; ⼈
+    (ideographic-strokes . 6)
+    (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x4EBB)	; 亻
+      )
+     ((=ucs		  . #x514A)	; 兊
+      ))
+    (=>hanyo-denshi/tk	. 01003430)	; &A-HD-TK-01003430;
+    (=>hanyo-denshi/tk/mf-01 . #x0157)	; &A-HD-TK-01003430;
+    ))
+(define-char
+  '((<-denotational
+     ((=>hanyo-denshi/tk  . 01003430)	; &A-HD-TK-01003430;
+      ))
+    (ideographic-radical . 9)	; ⼈
+    (ideographic-strokes . 6)
+    (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x4EBB)	; 亻
+      )
+     ((=ucs@unicode	  . #x514A)	; &MJ007222;
+      (=mj		  . 007222)	; &MJ007222;
+      ))
+    (=hanyo-denshi/tk	. 01003430)	; &HD-TK-01003430;
+    (=hanyo-denshi/tk/mf-01 . #x0157)	; &HD-TK-01003430;
+    (->subsumptive
+     ((==hanyo-denshi/tk  . 01003430)	; &g2-HD-TK-01003430;
+      (==hanyo-denshi/tk/mf-01 . #x0157)	; &g2-HD-TK-01003430;
       ))
     ))
 (define-char
@@ -87733,6 +87795,10 @@
 (define-char
   '((ideographic-radical . 9)	; ⼈
     (==>ucs@bucs	. #x4FB6)	; &BUCS+4FB6;
+    ))
+(define-char
+  '((ideographic-radical . 9)	; ⼈
+    (==>daijiten	. 00320)	; &A2-DJT-00320;
     ))
 (define-char
   '((ideographic-radical . 9)	; ⼈

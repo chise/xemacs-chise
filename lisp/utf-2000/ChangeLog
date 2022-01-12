@@ -1,5 +1,22 @@
 2022-01-11  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R043-Lame.el (U-00021BC4): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R038-Woman.el (U-000302FF): New character.
+	(U+36CF): Apply new conventions for glyph granularity.
+
+2022-01-11  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R009-Man.el (A-cgnU+4FBB): New abstract node.
+	(U+4FBB): Add `<-denotational' for A-cgnU+4FBB; add
+	`<-denotational@usage' for A2-DJT-00320.
+	(A-HD-TK01003430): New abstract node; use `<-denotational' for
+	A-cgnU+4FBB; use `<-denotational@usage' for A2-DJT-00320.
+	(HD-TK01003430): New character; use `<-denotational' for
+	A-HD-TK01003430.
+	(A2-DJT-00320): New abstract node.
+
 	* char-db-util.el (char-db-coded-charset-priority-list): Add
 	`=>hanyo-denshi/tk'.
 	(char-db-insert-ccs-feature): Format `=>hanyo-denshi/tk' as the
