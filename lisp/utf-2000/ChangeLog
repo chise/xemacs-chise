@@ -1,9 +1,74 @@
 2022-01-11  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* char-db-util.el (char-db-coded-charset-priority-list): Add
+	`=>hanyo-denshi/tk'.
+	(char-db-insert-ccs-feature): Format `=>hanyo-denshi/tk' as the
+	same as `=hanyo-denshi/tk'.
+
 	* Ideograph-R019-Power.el (U-00020835): Apply new conventions for
 	glyph granularity.
 
 2022-01-10  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R085-Water.el:
+	- Add abstract node based on IWDS-1 and relations between the
+	  abstract node and abstract characters.
+	- Add `=decomposition@hanyo-denshi' for some abstract glyph-forms
+	of Hanyo-Denshi/KS.
+	(A-cgnU+6C34): Use A-compU+6C3A instead of A-compU+6C34 as its
+	mother.
+	(U-000306C4): New character.
+	(A-BC-8CF0): New abstract node.
+	(BC-8CF0-itaiji-001): New character; use `<-denotational' for
+	A-BC-8CF0.
+	(BC-8864): New character; unify GT-K01366.
+	(BC-8CF0): New character; use `<-denotational' for A-BC-8CF0.
+	(A-compU+6C3A): Separate A-cgnU+6C3A.
+	(U+6C3A-itaiji-002): New character; use `<-denotational@component'
+	for A-compU+6C3A.
+	(A-cgnU+6C3A): Separate A-compU+6C3A; use A-compU+6C34 instead of
+	A-compU+6C3A as the target of `<-denotational@component'.
+	(GT-K01524): Unify BC-85F8.
+	(U+6C36): Apply new conventions for glyph granularity.
+	(GT-K02033): Add `<-denotational' for U+6C36.
+	(A-IWDSU+6C38): Modify `=>iwds-1*note'.
+	(A-IWDSU+6C3F): New abstract node.
+	(U+3CB9): Add `<-denotational@component' for A-IWDSU+6C3F; apply
+	new conventions for glyph granularity.
+	(A-IWDSU+6C3D): New abstract node.
+	(U+6C3D): Add `<-denotational@component' for A-IWDSU+6C3D; apply
+	new conventions for glyph granularity.
+	(U+6C46): Add `<-denotational@component' for A-IWDSU+6C3D; use
+	`->subsumptive'.
+	(U+6C3F): Add `<-denotational@component' for A-IWDSU+6C3F; apply
+	new conventions for glyph granularity.
+	(A-cgnU+6C42): New abstract node.
+	(U+6C42): Add `<-denotational' for A-cgnU+6C42.
+	(UU+6C42): Delete `=>ucs@iwds-1'.
+	(GT-K02519): Use `<-subsumptive' instead of `<-denotational' for
+	UU+6C42 .
+	(HD-KS193900): New character; use `<-denotational' for U+6C42.
+	(MJ059770): Use A-cgnU+6C42 instead of U+6C42 as its mother.
+	(U+6C43): Add `<-denotational@component' for A-IWDSU+6C3F; apply
+	new conventions for glyph granularity.
+	(A-BC-8D71): New abstract node.
+	(BC-8D71): New character; use `<-denotational' for A-BC-8D71.
+	(U+6C4D): Add `<-denotational@component' for A-IWDSU+6C3F; apply
+	new conventions for glyph granularity.
+	(U+6C4E): Add `<-denotational@component' for A-IWDSU+6C3F.
+	(U+6C54): Apply new conventions for glyph granularity.
+	(U+6C59): Likewise.
+	(A-IWDSU+6C61): New abstract node.
+	(U+6C5A): Add `<-denotational' for A-IWDSU+6C61; apply new
+	conventions for glyph granularity.
+	(U+6C61): Likewise.
+	(U+6C5B): Add `<-denotational@component' for A-IWDSU+6C3F; apply
+	new conventions for glyph granularity.
+	(U+3CBD): Use `->denotational' and `->subsumptive'.
+	(U-00023C87): New character.
+	(U+6C70): Apply new conventions for glyph granularity.
+	(U+6C7D): Likewise.
+	etc.
 
 	* Ideograph-R024-Ten.el (U+5352): Add `sound@ja/on/{kan|go}' and
 	`sound@ja/on/conventional'.
@@ -6166,7 +6231,8 @@
 	for BUCS+4F47.
 	(U+3444): Apply new conventions for glyph granularity.
 	(U+4F49): Apply new conventions for glyph granularity.
-	(U+4F4B): Likewise.  etc.
+	(U+4F4B): Likewise.
+	etc.
 
 2021-03-10  MORIOKA Tomohiko  <tomo.git@chise.org>
 
