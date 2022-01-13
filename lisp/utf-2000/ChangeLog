@@ -1,4 +1,4 @@
-2022-01-13  MORIOKA Tomohiko  <tomo.git@chise.org>
+2022-01-12  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R072-Sun.el: Add some abstract nodes based on IWDS-1
 	and relations between each abstract node and the corresponding
