@@ -1,5 +1,17 @@
 2022-01-12  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R015-Ice.el (A-IWDSU+51AB): Add
+	`<-denotational@component' for A-compU+21FE8.
+
+	* Ideograph-R007-Two.el (A-BC-89AE): Add `ideographic-structure'.
+	(BC-89AE): Add `ideographic-structure'.
+
+	* Ideograph-R001-One.el (U-0002CEC0): Apply new conventions for
+	glyph granularity.
+	(CB07087): New character; use `<-denotational' for U-0002CEC0.
+
+2022-01-12  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R072-Sun.el: Add some abstract nodes based on IWDS-1
 	and relations between each abstract node and the corresponding
 	abstract characters.
