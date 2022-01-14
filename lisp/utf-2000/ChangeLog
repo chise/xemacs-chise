@@ -1,4 +1,14 @@
+2022-01-13  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R001-One.el (U-0002CEC3): New character.
+
 2022-01-12  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R040-Roof.el (U-00021A03): Apply new conventions for
+	glyph granularity.
+	(U-0002D505): New character.
+	(U-0002D50C): New character.
+	(U-0002D50F): New character.
 
 	* Ideograph-R015-Ice.el (A-IWDSU+51AB): Add
 	`<-denotational@component' for A-compU+21FE8.
