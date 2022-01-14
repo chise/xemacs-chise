@@ -1,5 +1,10 @@
 2022-01-13  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
+	settings for `=chise-hdic-tsj' and `===chise-hdic-tsj'.
+
+2022-01-13  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* mule/mule-charset.el (default-coded-charset-priority-list): Add
 	`=chise-hdic-tsj' and `===chise-hdic-tsj'.
 
