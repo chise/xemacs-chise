@@ -1,5 +1,7 @@
 2022-01-13  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R038-Woman.el (U-0002D4A4): New character.
+
 	* Ideograph-R001-One.el (U-0002CEC3): New character.
 
 2022-01-12  MORIOKA Tomohiko  <tomo.git@chise.org>
