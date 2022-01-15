@@ -1,3 +1,25 @@
+2022-01-14  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R037-Big.el (U+5929): Add CHISE-HDIC-TSJ.
+	(o-IU+26C29): Add `ideographic-structure'.
+	(IU+26C29): Add `ideographic-structure'.
+	(BC-88BA-itaiji-001): New character; use `<-denotational' for
+	A-BC-88BA-itaiji-001.
+	(A-BC-88BA-itaiji-001): New abstract node; unify
+	A-BC-88BA-itaiji-002.
+	(BC-88BA-itaiji-002): New character; use `<-denotational' for
+	A-BC-88BA-itaiji-001.
+	(CB09651): Add `ideographic-structure'.
+	(MJ057282): Add `ideographic-structure'.
+
+	* Ideograph-R030-Mouth.el (U+54BC-itaiji-002): New character.
+	(U+55AC): Modify structure; preserve the previous
+	`ideographic-structure' as an apparent structure.
+	(UU+55AC): Likewise.
+	(A-U+55AC-itaiji-004): New abstract node.
+	(U+55AC-itaiji-004): New character; use `<-denotational' for
+	A-U+55AC-itaiji-004.
+
 2022-01-13  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R038-Woman.el (U-0002D4A4): New character.
