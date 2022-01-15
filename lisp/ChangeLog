@@ -1,3 +1,12 @@
+2022-01-15  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`===chise-hdic-syp' and `=chise-hdic-syp'.
+
+	* mule/mule-conf.el (===chise-hdic-syp): New coded-charset for
+	XEmacs CHISE.
+	(=chise-hdic-syp): New coded-charset for XEmacs CHISE.
+
 2022-01-14  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* mule/mule-coding.el (coded-charset-entity-reference-alist):

@@ -3551,6 +3551,24 @@
 		  direction	l2r
 		  mother	===chise-hdic-tsj))
 
+  (make-charset '===chise-hdic-syp "HDIC-SYP (宋本玉篇)"
+		'(long-name "CHISE-HDIC/SYP"
+		  chars		256
+		  dimension	2
+		  registry	"chisesyp-0$"
+		  graphic	2
+		  columns	2
+		  direction	l2r))
+  (make-charset '=chise-hdic-syp "HDIC-SYP (宋本玉篇) abstract glyph"
+		'(long-name "CHISE-HDIC/SYP"
+		  chars		256
+		  dimension	2
+		  registry	"chisesyp-0$"
+		  graphic	2
+		  columns	2
+		  direction	l2r
+		  mother	===chise-hdic-syp))
+
   (make-charset '=cbeta "CBETA private characters"
 		'(long-name	"CBETA PUA"
 		  chars		256
