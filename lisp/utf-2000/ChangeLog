@@ -1,5 +1,9 @@
 2022-01-14  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R068-Dipper.el (U-0002D91D): New character.
+
+2022-01-14  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R037-Big.el (U+5929): Add CHISE-HDIC-TSJ.
 	(o-IU+26C29): Add `ideographic-structure'.
 	(IU+26C29): Add `ideographic-structure'.
