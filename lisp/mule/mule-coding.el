@@ -417,6 +417,8 @@
 	  (===cbeta				 "R-CB" 5 d)
 	  (===chise-hdic-tsj	     "R-CHISE-HDIC-TSJ" 4 X)
 	  (  =chise-hdic-tsj	       "CHISE-HDIC-TSJ" 4 X)
+	  (===chise-hdic-syp	     "R-CHISE-HDIC-SYP" 4 X)
+	  (  =chise-hdic-syp	       "CHISE-HDIC-SYP" 4 X)
 	  (===hng-jou			      "HNG001-" 5 d)
 	  (===hng-keg			      "HNG002-" 5 d)
 	  (===hng-dng			      "HNG003-" 5 d)
