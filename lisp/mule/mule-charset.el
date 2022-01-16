@@ -446,6 +446,8 @@ DESCRIPTION (string) is the description string of the charset."
 	  =chise-hdic-tsj
 	  ===chise-hdic-syp
 	  =chise-hdic-syp
+	  ===chise-hdic-ktb
+	  =chise-hdic-ktb
 	  ==jis-x0208@1990
 	  ==ucs-radicals@unicode
 	  ==ucs-bmp-cjk@JP/hanazono

@@ -66236,7 +66236,6 @@
     (ideographic-radical . 9)	; ⼈
     (ideographic-strokes . 12)
     (total-strokes	 . 14)
-    (hanyu-dazidian	1 216 9)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -66246,7 +66245,26 @@
      ((=ucs		  . #x66FF)	; 替
       ))
     (=ucs		. #x50E3)	; 僣
-    (=adobe-japan1-0	. 04192)	; &I-AJ1-04192;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x50E3)	; 僣
+      ))
+    (ideographic-radical . 9)	; ⼈
+    (ideographic-strokes . 12)
+    (total-strokes	 . 14)
+    (hanyu-dazidian	1 216 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x4EBB)	; 亻
+      )
+     ((=ucs@unicode	  . #x66FF)	; &AJ1-02872;
+      (=adobe-japan1-0	  . 02872)	; &AJ1-02872;
+      ))
+    (=ucs@unicode	. #x50E3)	; &AJ1-04192;
+    (=adobe-japan1-0	. 04192)	; &AJ1-04192;
     (=jis-x0208		. #x5129)	; &I-J90-5129; [49-09]
     (=cns11643-2	. #x4925)	; &I-C2-4925; [41-05]
     (=jis-x0213-1	. #x5129)	; &I-JX1-5129; [49-09]
@@ -66254,22 +66272,12 @@
     (=gt		. 01472)	; &I-GT-01472;
     (=gt-pj-1		. #x5129)	; &I-GT-01472; [49-09]
     (=daikanwa		. 01111)	; &I-M-01111;
-    (=shinjigen		.  0396)	; 僣
+    (=shinjigen		.  0396)	; &AJ1-04192;
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x50E3)	; 僣
 	)
        ((=ucs		    . #xE0100)	; 󠄀
-	))
-      (ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	(=ucs		    . #x2FF0)	; ⿰
-	)
-       ((name		    . "CJK RADICAL PERSON")
-	(=ucs		    . #x2E85)	; ⺅
-	)
-       ((==ucs@unicode	    . #x66FF)	; &g2-AJ1-02872;
-	(==adobe-japan1-0   . 02872)	; &g2-AJ1-02872;
 	))
       (==ucs@unicode	  . #x50E3)	; &g2-AJ1-04192;
       (==adobe-japan1-0	  . 04192)	; &g2-AJ1-04192;
@@ -66291,17 +66299,7 @@
        ((===ucs@unicode	    . #x50E3)	; &R-UU+50E3;
 	))
       )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	(=ucs		    . #x2FF0)	; ⿰
-	)
-       ((name		    . "CJK RADICAL PERSON")
-	(=ucs		    . #x2E85)	; ⺅
-	)
-       ((==ucs@cns	    . #x66FF)	; &g2-CU+66FF;
-	(==cns11643-1	    . #x5F65)	; &g2-CU+66FF; [63-69]
-	))
-      (==ucs@cns	  . #x50E3)	; &g2-CU+50E3;
+     ((==ucs@cns	  . #x50E3)	; &g2-CU+50E3;
       (==cns11643-2	  . #x4925)	; &g2-CU+50E3; [41-05]
       ))
     ))

@@ -3533,7 +3533,7 @@
 		  columns	2
 		  direction	l2r))
 
-  (make-charset '===chise-hdic-tsj "HDIC-TSJ (新撰字鏡)"
+  (make-charset '===chise-hdic-tsj "HDIC-TSJ (新撰字鏡 天治本)"
 		'(long-name "CHISE-HDIC/TSJ"
 		  chars		256
 		  dimension	2
@@ -3541,7 +3541,7 @@
 		  graphic	2
 		  columns	2
 		  direction	l2r))
-  (make-charset '=chise-hdic-tsj "HDIC-TSJ (新撰字鏡) abstract glyph"
+  (make-charset '=chise-hdic-tsj "HDIC-TSJ (新撰字鏡 天治本) abstract glyph"
 		'(long-name "CHISE-HDIC/TSJ"
 		  chars		256
 		  dimension	2
@@ -3568,6 +3568,24 @@
 		  columns	2
 		  direction	l2r
 		  mother	===chise-hdic-syp))
+
+  (make-charset '===chise-hdic-ktb "HDIC-KTB (篆隸萬象名義 高山寺本)"
+		'(long-name "CHISE-HDIC/KTB"
+		  chars		256
+		  dimension	2
+		  registry	"chisektb-0$"
+		  graphic	2
+		  columns	2
+		  direction	l2r))
+  (make-charset '=chise-hdic-ktb "HDIC-KTB (篆隸萬象名義 高山寺本) abstract glyph"
+		'(long-name "CHISE-HDIC/KTB"
+		  chars		256
+		  dimension	2
+		  registry	"chisektb-0$"
+		  graphic	2
+		  columns	2
+		  direction	l2r
+		  mother	===chise-hdic-ktb))
 
   (make-charset '=cbeta "CBETA private characters"
 		'(long-name	"CBETA PUA"
