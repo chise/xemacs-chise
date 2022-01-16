@@ -6323,10 +6323,12 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 10)	; ⼉
+  '((<-denotational@usage
+     ((==>daijiten	  . 00580)	; &A2-DJT-00580;
+      ))
+    (ideographic-radical . 10)	; ⼉
     (ideographic-strokes . 10)
     (total-strokes	 . 12)
-    (hanyu-dazidian	1 274 2)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -6336,13 +6338,34 @@
      ((=ucs		  . #x5148)	; 先
       ))
     (=ucs		. #x515F)	; 兟
-    (=mj		. 007254)	; &I-MJ007254;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x515F)	; 兟
+      ))
+    (ideographic-radical . 10)	; ⼉
+    (ideographic-strokes . 10)
+    (total-strokes	 . 12)
+    (hanyu-dazidian	1 274 2)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs@unicode	  . #x5148)	; &MJ007220;
+      (=mj		  . 007220)	; &MJ007220;
+      )
+     ((=ucs@unicode	  . #x5148)	; &MJ007220;
+      (=mj		  . 007220)	; &MJ007220;
+      ))
+    (=ucs@unicode	. #x515F)	; &MJ007254;
+    (=mj		. 007254)	; &MJ007254;
     (=adobe-japan1-4	. 14349)	; &I-AJ1-14349;
     (=jis-x0212		. #x326C)	; &I-JSP-326C; [18-76]
     (=cns11643-2	. #x3A44)	; &I-C2-3A44; [26-36]
     (=big5		. #xD860)	; &I-B-D860;
-    (=koseki		. 016260)	; 兟
+    (=koseki		. 016260)	; &MJ007254;
     (=daikanwa		. 01391)	; &I-M-01391;
+    (=daijiten		. 00580)	; &I-DJT-00580;
     (=jef-china3	. #x43D2)	; &I-JC3-43D2;
     (->subsumptive
      ((=decomposition@cid
@@ -6357,9 +6380,12 @@
       (==cns11643-2	  . #x3A44)	; &g2-MJ007254; [26-36]
       (==koseki		  . 016260)	; &g2-MJ007254;
       (==daikanwa	  . 01391)	; &g2-MJ007254;
+      (==daijiten	  . 00580)	; &g2-MJ007254;
       (==jef-china3	  . #x43D2)	; &g2-MJ007254;
       (->subsumptive
        ((===daikanwa	    . 01391)	; &R-M-01391;
+	)
+       ((===daijiten	    . 00580)	; &R-DJT-00580;
 	)
        ((===jis-x0212	    . #x326C)	; &R-JSP-326C; [18-76]
 	)
@@ -8581,4 +8607,8 @@
   '((ideographic-radical . 10)	; ⼉
     (==>ucs@bucs	. #x514C)	; &BUCS+514C;
     (==>daijiten	. 00569)	; &BUCS+514C;
+    ))
+(define-char
+  '((ideographic-radical . 10)	; ⼉
+    (==>daijiten	. 00580)	; &A2-DJT-00580;
     ))
