@@ -1,3 +1,7 @@
+2022-01-15  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R001-One.el (U+4E00): Add CHISE-HDIC-SYP.
+
 2022-01-14  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R068-Dipper.el (U-0002D91D): New character.
