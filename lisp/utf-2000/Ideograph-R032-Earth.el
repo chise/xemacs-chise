@@ -7275,7 +7275,10 @@
       ))
     ))
 (define-char
-  '((<-denotational@component
+  '((<-denotational
+     ((=>ucs@cognate	  . #x212AB)	; &A-cgnU+212AB;
+      ))
+    (<-denotational@component
      ((=>ucs@iwds-1	  . #x5779)	; &A-IWDSU+5779;
       ))
     (ideographic-radical . 32)	; ⼟
@@ -7305,10 +7308,62 @@
       )
      ((=gt-k		  . 00199)	; &GT-K00199;
       )
+     ((=ucs@unicode	  . #x5B82)	; &CB00974;
+      (=cbeta		  . 00974)	; &CB00974;
+      ))
+    (=ucs@iso		. #x212AB)	; &U-000212AB;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x212AB)	; 𡊫
+      ))
+    (ideographic-radical . 32)	; ⼟
+    (ideographic-strokes . 5)
+    (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=gt-k		  . 00199)	; &GT-K00199;
+      )
      ((=ucs@cns		  . #x5B82)	; &AJ1-13840;
       (=adobe-japan1-4	  . 13840)	; &AJ1-13840;
       ))
-    (=ucs@iso		. #x212AB)	; &U-000212AB;
+    (=ucs@JP/hanazono	. #x212AB)	; &hanaJU+212AB;
+    (->subsumptive
+     ((==ucs@JP/hanazono  . #x212AB)	; &g2-hanaJU+212AB;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 32)	; ⼟
+    (=>ucs@cognate	. #x212AB)	; &A-cgnU+212AB;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@cognate	  . #x212AB)	; &A-cgnU+212AB;
+      ))
+    (ideographic-radical . 32)	; ⼟
+    (ideographic-strokes . 5)
+    (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=big5-cdp	  . #x8BC5)	; &CDP-8BC5;
+      )
+     ((=ucs@cns		  . #x5B82)	; &AJ1-13840;
+      (=adobe-japan1-4	  . 13840)	; &AJ1-13840;
+      ))
+    (=chise-hdic-syp	. #x031F)	; &CHISE-HDIC-SYP031F;
+    (<-formed
+     ((=ucs@JP/hanazono	  . #x212AB)	; &hanaJU+212AB;
+      ))
+    (->subsumptive
+     ((===chise-hdic-syp  . #x031F)	; &R-CHISE-HDIC-SYP031F;
+      (<-HDIC-SYP
+       ((=ucs		    . #x212AB)	; 𡊫
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 32)	; ⼟
