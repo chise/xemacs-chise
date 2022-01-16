@@ -38,6 +38,7 @@
     (=daikanwa		. 00001)	; &I-M-00001;
     (=daijiten		. 00001)	; &I-DJT-00001;
     (=shinjigen		.  0001)	; 一
+    (=chise-hdic-syp	. #x0001)	; 一
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x4E00)	; 一
@@ -129,6 +130,11 @@
        ((===hng-skk	    . 01330)	; &HNG046-01330;
 	)
        ((===hng-ksk	    . 01210)	; &HNG048-01210;
+	)
+       ((===chise-hdic-syp  . #x0001)	; &R-CHISE-HDIC-SYP0001;
+	(<-HDIC-SYP
+	 ((=ucs		      . #x4E00)	; 一
+	  ))
 	))
       ))
     ))
