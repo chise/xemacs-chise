@@ -1,5 +1,9 @@
 2022-01-16  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R001-One.el (U+4E00): Add CHISE-HDIC-KTB.
+
+2022-01-16  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R010-Legs.el (U+515F): Add `<-denotational@usage' for
 	A2-DJT-00580; apply new conventions for glyph granularity.
 	(A2-DJT-00580): New abstract node.

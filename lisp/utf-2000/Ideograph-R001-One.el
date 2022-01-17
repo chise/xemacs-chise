@@ -39,6 +39,7 @@
     (=daijiten		. 00001)	; &I-DJT-00001;
     (=shinjigen		.  0001)	; 一
     (=chise-hdic-syp	. #x0001)	; 一
+    (=chise-hdic-ktb	. #x0001)	; 一
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x4E00)	; 一
@@ -133,6 +134,11 @@
 	)
        ((===chise-hdic-syp  . #x0001)	; &R-CHISE-HDIC-SYP0001;
 	(<-HDIC-SYP
+	 ((=ucs		      . #x4E00)	; 一
+	  ))
+	)
+       ((===chise-hdic-ktb  . #x0001)	; &R-CHISE-HDIC-KTB0001;
+	(<-HDIC-KTB
 	 ((=ucs		      . #x4E00)	; 一
 	  ))
 	))
