@@ -1,5 +1,11 @@
 2022-01-16  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R010-Legs.el (U+515F): Add `<-denotational@usage' for
+	A2-DJT-00580; apply new conventions for glyph granularity.
+	(A2-DJT-00580): New abstract node.
+
+2022-01-16  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R075-Tree.el: Add some abstract nodes based on IWDS-1
 	and relations between each abstract node and the corresponding
 	abstract characters.
@@ -271,6 +277,9 @@
 	etc.
 
 2022-01-15  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R030-Mouth.el (U-00020FB1): Apply new conventions for
+	glyph granularity.
 
 	* Ideograph-R009-Man.el (U+50E3): Apply new conventions for glyph
 	granularity.
