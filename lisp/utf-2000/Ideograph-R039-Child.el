@@ -406,8 +406,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=>ucs@component	  . #x5DDB)	; &A-compU+5DDB;
-      (=>iwds-1		  .  0270)	; &A-compU+5DDB;
+     ((=>ucs@iwds-1	  . #x5DDB)	; &A-IWDSU+5DDB;
+      (=>iwds-1		  .  0270)	; &A-IWDSU+5DDB;
       )
      ((=ucs		  . #x5B50)	; 子
       ))
