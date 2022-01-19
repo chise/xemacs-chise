@@ -1,5 +1,9 @@
 2022-01-17  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R053-Dotted-Cliff.el (U-0002229F): New character.
+
+2022-01-17  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R073-Say.el (A-cgnU+66FF): New abstract node.
 	(U+66FF): Add `<-denotational' for A-cgnU+66FF; apply new
 	conventions for glyph granularity.
