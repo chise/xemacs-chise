@@ -9480,6 +9480,15 @@
      ((=>ucs@iwds-1	  . #x7CF8)	; &A-IWDSU+7CF8;
       (=>iwds-1		  .  0046)	; &A-IWDSU+7CF8;
       ))
+    (ideographic-structure@apparent
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>ucs@component	  . #x5C6E)	; &A-compU+5C6E;
+      (=>iwds-1		  .  0096)	; &A-compU+5C6E;
+      )
+     ((=ucs		  . #x7CFB)	; 系
+      ))
     (=>big5-cdp		. #x8DD1)	; &A-CDP-8DD1;
     ))
 (define-char
