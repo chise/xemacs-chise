@@ -19302,10 +19302,18 @@
       )
      ((=mj		  . 010161)	; &MJ010161;
       )
-     ((=ucs		  . #x5DE0)	; 巠
+     ((=ucs@unicode	  . #x5DE0)	; &AJ1-14495;
+      (=adobe-japan1-4	  . 14495)	; &AJ1-14495;
       ))
     (=ucs@JP/hanazono	. #x2D51B)	; &CB04461;
     (=cbeta		. 04461)	; &CB04461;
+    (->subsumptive
+     ((==ucs@JP/hanazono  . #x2D51B)	; &g2-CB04461;
+      (==cbeta		  . 04461)	; &g2-CB04461;
+      (->subsumptive
+       ((===cbeta	    . 04461)	; &R-CB04461;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 40)	; ⼧
