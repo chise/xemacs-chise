@@ -1,3 +1,15 @@
+2022-01-19  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R018-Knife.el (U+5244): Apply new conventions for
+	glyph granularity for components of ideographic-structure.
+
+	* Ideograph-R009-Man.el (U+4FD3): Add `ideographic-structure';
+	apply new conventions for glyph granularity for components of
+	ideographic-structure.
+	(U+50EE): Add `<-denotational@usage' for BUCS+50EE; unify
+	DJT-00506; apply new conventions for glyph granularity.
+	(BUCS+50EE): New abstract node; unify A2-DJT-00506.
+
 2022-01-17  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R053-Dotted-Cliff.el (U-0002229F): New character.
