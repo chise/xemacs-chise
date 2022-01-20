@@ -2768,13 +2768,40 @@
       )
      ((=ucs		  . #x26222)	; 𦈢
       ))
-    (=>mj		. 057082)	; &A-MJ057082;
+    (=>mj		. 057082)	; &A-CB09114;
+    (=>cbeta		. 09114)	; &A-CB09114;
     (->subsumptive
-     ((=mj		  . 057082)	; &MJ057082;
+     ((ideographic-strokes . 6)
+      (total-strokes	   . 8)
+      (ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
+	(=ucs		    . #x2FF9)	; ⿹
+	)
+       ((=ucs		    . #x52F9)	; 勹
+	)
+       ((=>>ucs@iso	    . #x26222)	; &G-CDP-8DD6;
+	(=>>daikanwa	    . 28109)	; &G-CDP-8DD6;
+	))
+      (=mj		  . 057082)	; &MJ057082;
       (=koseki		  . 029330)	; &MJ057082;
       (->subsumptive
        ((==mj		    . 057082)	; &g2-MJ057082;
 	(==koseki	    . 029330)	; &g2-MJ057082;
+	))
+      )
+     ((ideographic-strokes . 7)
+      (total-strokes	   . 9)
+      (ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
+	(=ucs		    . #x2FF9)	; ⿹
+	)
+       ((=ucs		    . #x52F9)	; 勹
+	)
+       ((=mj		    . 057891)	; &MJ057891;
+	))
+      (=cbeta		  . 09114)	; &CB09114;
+      (->subsumptive
+       ((==cbeta	    . 09114)	; &g2-CB09114;
 	))
       ))
     ))

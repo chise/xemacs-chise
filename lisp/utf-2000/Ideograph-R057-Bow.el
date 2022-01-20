@@ -4577,7 +4577,8 @@
       )
      ((=ucs		  . #x5F13)	; 弓
       )
-     ((=ucs		  . #x5DE0)	; 巠
+     ((=ucs@unicode	  . #x5DE0)	; &AJ1-14495;
+      (=adobe-japan1-4	  . 14495)	; &AJ1-14495;
       ))
     (=ucs@unicode	. #x5F33)	; &C2-2E7B;
     (=cns11643-2	. #x2E7B)	; &C2-2E7B; [14-91]

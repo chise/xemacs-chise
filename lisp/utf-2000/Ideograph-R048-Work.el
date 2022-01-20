@@ -751,8 +751,27 @@
      ((=ucs		  . #x5DE5)	; 工
       ))
     (=ucs		. #x22016)	; 𢀖
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x22016)	; 𢀖
+      ))
+    (ideographic-radical . 48)	; ⼯
+    (ideographic-strokes . 2)
+    (total-strokes	 . 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=big5-cdp	  . #x89E1)	; &CDP-89E1;
+      )
+     ((=ucs@unicode	  . #x5DE5)	; &AJ1-01979;
+      (=adobe-japan1-0	  . 01979)	; &AJ1-01979;
+      ))
+    (=ucs@iso		. #x22016)	; &U-00022016;
     (<-simplified@CN/component
-     ((=ucs		  . #x5DE0)	; 巠
+     ((=ucs@unicode	  . #x5DE0)	; &AJ1-14495;
+      (=adobe-japan1-4	  . 14495)	; &AJ1-14495;
       ))
     (->subsumptive
      ((==ucs@iso	  . #x22016)	; &g2-IU-00022016;
@@ -2085,7 +2104,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=ucs		  . #x5DE0)	; 巠
+     ((=>ucs@component	  . #x5DE0)	; &A-compU+5DE0;
+      (=>iwds-1		  .  0085)	; &A-compU+5DE0;
       )
      ((=ucs		  . #x51ED)	; 凭
       ))
@@ -2102,7 +2122,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=ucs		  . #x5DE0)	; 巠
+     ((=ucs@unicode	  . #x5DE0)	; &AJ1-14495;
+      (=adobe-japan1-4	  . 14495)	; &AJ1-14495;
       )
      ((=ucs@unicode	  . #x51ED)	; &AJ1-04246;
       (=adobe-japan1-0	  . 04246)	; &AJ1-04246;
