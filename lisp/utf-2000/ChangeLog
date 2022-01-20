@@ -1,5 +1,18 @@
 2022-01-19  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R020-Wrap.el (A-MJ057082): Unify A-CB09114.
+	(MJ057082): Add strokes; add `ideographic-structure'.
+	(CB09114): New character; use `<-subsumptive' for A-MJ057082.
+
+	* Ideograph-R057-Bow.el (U+5F33): Apply new conventions for glyph
+	granularity for components of ideographic-structure.
+
+	* Ideograph-R048-Work.el (U-00022016): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R040-Roof.el (hanaJU+2D51B): Apply new conventions for
+	glyph granularity.
+
 	* Ideograph-R018-Knife.el (U+5244): Apply new conventions for
 	glyph granularity for components of ideographic-structure.
 
