@@ -8160,6 +8160,14 @@
 	)
        ((=ucs		    . #x53E3)	; 口
 	))
+      (ideographic-structure@apparent
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((=ucs		    . #x4E36)	; 丶
+	)
+       ((=ucs		    . #x21C2A)	; 𡰪
+	))
       (=>>ucs@unicode	  . #x542F)	; &G-UU+542F;
       (->subsumptive
        ((==ucs@unicode	    . #x542F)	; &g2-UU+542F;
