@@ -1,5 +1,10 @@
 2022-01-19  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R046-Mountain.el (A-BC-8DD1): Add
+	`ideographic-structure@apparent'.
+
+2022-01-19  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R020-Wrap.el (A-MJ057082): Unify A-CB09114.
 	(MJ057082): Add strokes; add `ideographic-structure'.
 	(CB09114): New character; use `<-subsumptive' for A-MJ057082.
