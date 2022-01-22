@@ -1061,14 +1061,18 @@
     (=ucs@unicode	. #x5DF8)	; &C4-2C64;
     (=ucs@JP/hanazono	. nil)
     (=cns11643-4	. #x2C64)	; &C4-2C64; [12-68]
+    (=cbeta		. 07399)	; &I-CB07399;
     (->subsumptive
-     ((==ucs@unicode	  . #x5DF8)	; &g2-UU+5DF8;
+     ((==ucs@unicode	  . #x5DF8)	; &g2-CB07399;
       (==ucs@JP/hanazono  . nil)
-      (==cns11643-4	  . #x2C64)	; &g2-UU+5DF8; [12-68]
+      (==cns11643-4	  . #x2C64)	; &g2-CB07399; [12-68]
+      (==cbeta		  . 07399)	; &g2-CB07399;
       (->subsumptive
        ((===cns11643-4	    . #x2C64)	; &R-C4-2C64; [12-68]
 	)
        ((===ucs@unicode	    . #x5DF8)	; &R-UU+5DF8;
+	)
+       ((===cbeta	    . 07399)	; &R-CB07399;
 	))
       ))
     ))
