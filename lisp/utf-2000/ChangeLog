@@ -1,3 +1,8 @@
+2022-01-21  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R030-Mouth.el (G-UU+542F): Add
+	`ideographic-structure@apparent'.
+
 2022-01-19  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R046-Mountain.el (A-BC-8DD1): Add
