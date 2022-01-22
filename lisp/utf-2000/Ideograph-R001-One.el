@@ -7627,13 +7627,15 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=ucs@unicode	. #x4E11)	; &GT-00035;
+     ((=ucs@unicode	  . #x4E11)	; &GT-00035;
+      (=gb2312		  . #x3373)	; &GT-00035; [19-83]
       )
-     ((=ucs@unicode	. #x4E11)	; &GT-00035;
+     ((=ucs@unicode	  . #x4E11)	; &GT-00035;
+      (=gb2312		  . #x3373)	; &GT-00035; [19-83]
       ))
     (=ucs-itaiji-002	. #x82BB)	; &U-i002+82BB;
     (->subsumptive
-     ((==ucs-itaiji-002	. #x82BB)	; &U-i002+82BB;
+     ((==ucs-itaiji-002	  . #x82BB)	; &g2-U-i002+82BB;
       ))
     ))
 (define-char
