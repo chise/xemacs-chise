@@ -172,7 +172,7 @@
      ((=>big5-cdp	  . #x8B5E)	; &A-GT-K00758;
       ))
     (<-denotational@component
-     ((=>iwds-1		  .  0020)	; &IWDS1-020;
+     ((=>big5-cdp	  . #x88F0)	; &IWDS1-020;
       ))
     (ideographic-radical . 74)	; ⽉
     (ideographic-strokes . 0)
