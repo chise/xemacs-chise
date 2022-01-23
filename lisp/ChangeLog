@@ -1,3 +1,12 @@
+2022-01-22  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`=>ucs-bmp-itaiji-016'.
+
+	* mule/mule-conf.el (=>ucs-itaiji-016): New coded-charset for
+	XEmacs CHISE.
+	(=>ucs-bmp-itaiji-016): Ditto.
+
 2022-01-16  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
