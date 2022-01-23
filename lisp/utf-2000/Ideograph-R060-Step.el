@@ -5953,6 +5953,8 @@
      ((=>ucs@component	  . #x5DE0)	; &A-compU+5DE0;
       (=>iwds-1		  .  0085)	; &A-compU+5DE0;
       ))
+    (sound@ja/on/go	"kIyAu")
+    (sound@ja/on/kan	"kei")
     (=ucs		. #x5F91)	; 徑
     ))
 (define-char
@@ -5968,7 +5970,8 @@
       )
      ((=ucs		  . #x5F73)	; 彳
       )
-     ((=ucs		  . #x5DE0)	; 巠
+     ((=ucs@unicode	  . #x5DE0)	; &AJ1-14495;
+      (=adobe-japan1-4	  . 14495)	; &AJ1-14495;
       ))
     (=ucs@unicode	. #x5F91)	; &MJ011309;
     (=mj		. 011309)	; &MJ011309;
@@ -5985,6 +5988,55 @@
     (=daikanwa		. 10118)	; &I-M-10118;
     (=daijiten		. 03142)	; &I-DJT-03142;
     (=shinjigen		.  2336)	; &MJ011309;
+    (<-interchangeable
+     ((=ucs@cns		  . #x5F8E)	; &MJ011305;
+      (=mj		  . 011305)	; &MJ011305;
+      (=daikanwa	  . 10105)	; &I-M-10105;
+      )
+     ((=ucs@unicode	  . #x7D93)	; &AJ1-06083;
+      (=adobe-japan1-0	  . 06083)	; &AJ1-06083;
+      (=daikanwa	  . 27508)	; &I-M-27508;
+      )
+     ((=ucs@unicode	  . #x9838)	; &AJ1-07181;
+      (=adobe-japan1-0	  . 07181)	; &AJ1-07181;
+      (=daikanwa	  . 43515)	; &I-M-43515;
+      )
+     ((=ucs@unicode	  . #x6D87)	; &AJ1-08516;
+      (=adobe-japan1-2	  . 08516)	; &AJ1-08516;
+      (=daikanwa	  . 17526)	; &I-M-17526;
+      )
+     ((=ucs@cns		  . #x8396)	; &C1-5C79;
+      (=cns11643-1	  . #x5C79)	; &C1-5C79; [60-89]
+      (=daikanwa	  . 31052)	; &I-M-31052;
+      )
+     ((=ucs@unicode	  . #x9658)	; &AJ1-15264;
+      (=adobe-japan1-4	  . 15264)	; &AJ1-15264;
+      (=daikanwa	  . 41650)	; &I-M-41650;
+      ))
+    (<-interchangeable$_1*sources
+     shuowen-tongxun-dingsheng daikanwa)
+    (<-interchangeable$_2*sources
+     shuowen-tongxun-dingsheng daikanwa)
+    (<-interchangeable$_3*sources
+     shuowen-tongxun-dingsheng daikanwa)
+    (<-interchangeable$_4*sources
+     shiwen daikanwa)
+    (<-interchangeable$_5*sources
+     shiwen daikanwa)
+    (<-interchangeable$_6*sources
+     guangya-shuzheng daikanwa)
+    (<-interchangeable*sources
+     guangya-shuzheng daikanwa)
+    (->formed
+     ((=ucs@jis		  . #x9015)	; &MJ025922;
+      (=ucs@ks		  . #x9015)	; &MJ025922;
+      (=mj		  . 025922)	; &MJ025922;
+      (=daikanwa	  . 38883)	; &I-M-38883;
+      ))
+    (->formed$_1*sources
+     jiyun daikanwa)
+    (->formed*sources
+     jiyun daikanwa)
     (->subsumptive
      ((==ucs@unicode	  . #x5F91)	; &g2-MJ011309;
       (==mj		  . 011309)	; &g2-MJ011309;
