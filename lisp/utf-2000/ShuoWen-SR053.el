@@ -17,6 +17,11 @@
     (<-Small-Seal@shuowen
      ((=ucs		  . #x205A0)	; 𠖠
       ))
+    (<-ancient@shuowen
+     ((=shuowen-jiguge	  . 06906)	; &SW-JIGUGE-06906;
+      )
+     ((=ucs		  . #x53E4)	; 古
+      ))
     (->subsumptive
      ((===shuowen-jiguge5 . 06907)	; &SW-JIGUGE5-06907;
       )
