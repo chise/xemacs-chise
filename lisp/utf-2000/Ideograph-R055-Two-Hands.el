@@ -1011,7 +1011,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=>iwds-1		  .  0020)	; &IWDS1-020;
+     ((=>big5-cdp	  . #x8A73)	; &IWDS1-20021;
       )
      ((=ucs		  . #x5EFE)	; 廾
       ))
@@ -1030,7 +1030,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=big5-cdp	  . #x8B5E)	; &CDP-8B5E;
+     ((=>big5-cdp	  . #x88F0)	; &IWDS1-020;
       )
      ((=ucs@unicode	  . #x5EFE)	; &MJ011120;
       (=mj		  . 011120)	; &MJ011120;
@@ -1041,21 +1041,36 @@
     (=koseki		. 108540)	; &MJ035486;
     (=daikanwa		. 09595)	; &I-M-09595;
     (->subsumptive
-     ((==ucs@iso	  . #x22333)	; &g2-MJ035486;
-      (==mj		  . 035486)	; &g2-MJ035486;
-      (==cns11643-4	  . #x242A)	; &g2-MJ035486; [04-10]
-      (==koseki		  . 108540)	; &g2-MJ035486;
-      (==daikanwa	  . 09595)	; &g2-MJ035486;
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((=big5-cdp	    . #x8B5E)	; &CDP-8B5E;
+	)
+       ((=ucs@unicode	    . #x5EFE)	; &MJ011120;
+	(=mj		    . 011120)	; &MJ011120;
+	))
+      (=>>ucs@iso	  . #x22333)	; &G-MJ035486;
+      (=>>mj		  . 035486)	; &G-MJ035486;
+      (=>>cns11643-4	  . #x242A)	; &G-MJ035486; [04-10]
+      (=>>daikanwa	  . 09595)	; &G-MJ035486;
       (->subsumptive
-       ((===daikanwa	    . 09595)	; &R-M-09595;
-	)
-       ((===mj		    . 035486)	; &R-MJ035486;
-	)
-       ((===cns11643-4	    . #x242A)	; &R-C4-242A; [04-10]
-	)
-       ((===ucs@iso	    . #x22333)	; &R-U-00022333;
-	)
-       ((=hanziku-2	    . #xB9E9)	; &HZK02-B9E9;
+       ((==ucs@iso	    . #x22333)	; &g2-MJ035486;
+	(==mj		    . 035486)	; &g2-MJ035486;
+	(==cns11643-4	    . #x242A)	; &g2-MJ035486; [04-10]
+	(==koseki	    . 108540)	; &g2-MJ035486;
+	(==daikanwa	    . 09595)	; &g2-MJ035486;
+	(->subsumptive
+	 ((===daikanwa	      . 09595)	; &R-M-09595;
+	  )
+	 ((===mj	      . 035486)	; &R-MJ035486;
+	  )
+	 ((===cns11643-4      . #x242A)	; &R-C4-242A; [04-10]
+	  )
+	 ((===ucs@iso	      . #x22333)	; &R-U-00022333;
+	  )
+	 ((=hanziku-2	      . #xB9E9)	; &HZK02-B9E9;
+	  ))
 	))
       ))
     ))
