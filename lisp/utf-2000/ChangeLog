@@ -1,3 +1,16 @@
+2022-01-24  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R055-Two-Hands.el (IU+22333): Apply new conventions
+	for glyph granularity.
+
+2022-01-23  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R060-Step.el (U+5F91): Apply new conventions for glyph
+	granularity.
+
+	* char-db-util.el (char-db-coded-charset-priority-list): Add
+	`=>ucs-itaiji-016'.
+
 2022-01-22  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R049-Oneself.el (UU+5DF8): Unify CB07399.
