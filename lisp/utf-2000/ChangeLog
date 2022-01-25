@@ -1,5 +1,7 @@
 2022-01-22  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R049-Oneself.el (UU+5DF8): Unify CB07399.
+
 	* Ideograph-R001-One.el (U+82BB-itaiji-002): New character; use
 	`<-denotational' for U-0002CED8.
 
@@ -699,6 +701,12 @@
 	(U-000223D2): Add `<-denotational' for A-cgnU+223D2; use
 	`->denotational' and `->subsumptive'.
 	(MJ035610): New character; use `<-denotational' for A-cgnU+223D2.
+
+2022-01-09  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR217.el (SW-JIGUGE-20400): Add U-000223D2 as a
+	corresponding modern character; add `<-ancient@shuowen' for
+	SW-JIGUGE-20313.
 
 2022-01-08  MORIOKA Tomohiko  <tomo.git@chise.org>
 
