@@ -2,6 +2,10 @@
 
 	* Ideograph-R026-Seal.el (U-00020A17): New character.
 
+2022-01-25  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R030-Mouth.el (U-0002BA67): New character.
+
 2022-01-24  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R055-Two-Hands.el (IU+22333): Apply new conventions
