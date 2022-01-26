@@ -3434,13 +3434,60 @@
     ))
 (define-char
   '((ideographic-radical . 14)	; ⼍
+    (sound@ja/on	"ko")
+    (=ucs		. #x205A0)	; 𠖠
+    (<-ancient
+     ((=ucs		  . #x53E4)	; 古
+      ))
+    (<-ancient*sources
+     shuowen)
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x205A0)	; 𠖠
+      ))
+    (ideographic-radical . 14)	; ⼍
     (ideographic-strokes . 14)
     (total-strokes	 . 16)
     (hanyu-dazidian	1 306 8)
-    (=ucs		. #x205A0)	; 𠖠
+    (=ucs@iso		. #x205A0)	; &MJ031083;
+    (=mj		. 031083)	; &MJ031083;
     (=cns11643-7	. #x2C43)	; &I-C7-2C43; [12-35]
+    (=koseki		. 019160)	; &MJ031083;
     (=daikanwa		. 01602)	; &I-M-01602;
-    (=hanziku-1		. #xE542)	; &I-HZK01-E542;
+    (<-ancient
+     ((=ucs		  . #x53E4)	; 古
+      (=daikanwa	  . 03233)	; &I-M-03233;
+      ))
+    (<-ancient*sources
+     shuowen zhengzitong daikanwa)
+    (<-formed
+     ((=ucs		  . #x53E4)	; 古
+      ))
+    (<-formed$_1*sources
+     koseki mj)
+    (<-formed*sources
+     koseki mj)
+    (->subsumptive
+     ((==mj		  . 031083)	; &g2-MJ031083;
+      (==koseki		  . 019160)	; &g2-MJ031083;
+      (==daikanwa	  . 01602)	; &g2-MJ031083;
+      (->subsumptive
+       ((===daikanwa	    . 01602)	; &R-M-01602;
+	)
+       ((===mj		    . 031083)	; &R-MJ031083;
+	))
+      )
+     ((==ucs@iso	  . #x205A0)	; &g2-IU-000205A0;
+      (==cns11643-7	  . #x2C43)	; &g2-IU-000205A0; [12-35]
+      (->subsumptive
+       ((===cns11643-7	    . #x2C43)	; &R-C7-2C43; [12-35]
+	)
+       ((===ucs@iso	    . #x205A0)	; &R-U-000205A0;
+	)
+       ((=hanziku-1	    . #xE542)	; &HZK01-E542;
+	))
+      ))
     ))
 (define-char
   '((=>ucs		. #x205A3)	; 𠖣
