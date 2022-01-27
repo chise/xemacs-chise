@@ -1,5 +1,13 @@
 2022-01-26  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* char-db-util.el (char-db-coded-charset-priority-list): Add
+	`=big5-cdp-var-008'.
+
+2022-01-26  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R014-Cover.el (U-000205A0): Apply new conventions for
+	glyph granularity.
+
 	* Ideograph-R026-Seal.el (U-00020A17): New character.
 
 2022-01-25  MORIOKA Tomohiko  <tomo.git@chise.org>
@@ -12,6 +20,23 @@
 	for glyph granularity.
 
 2022-01-23  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R066-Rap.el (A-M-13250): Unify A-IWDSU+22F5E instead
+	of U-00022F5E.
+	(U-00022F5E): Separate A-M-13250; add `<-denotational' for
+	A-IWDSU+22F5E; unify A-C6-4955 and A-GT-16772.
+	(A-CB12039): Use A-IWDSU+22F5E instead of U-00022F5E as its
+	mother; unify U-0002ABCE.
+	(U-0002BFBC): New character.
+	(A-IWDSU+22FCF): New abstract node.
+	(U-00022FCF): New character; use `<-denotational' for
+	A-IWDSU+22FCF; use `<-denotational@usage' for A2-DJT-04029.
+	(M-13361): Unify IU+22FCF, MJ037376, KOSEKI-149750 and DJT-04297
+	instead of U-00022FD6 and C5-4D44; add `<-denotational' for
+	U-00022FCF; add `<-formed' and `->formed' for UU+647D; add
+	`<-formed' and `<-same' for UU+62CB.
+	(U-00022FD6): Separate M-13361; apply new conventions for glyph
+	granularity; add `<-denotational' for A-IWDSU+22FCF.
 
 	* Ideograph-R060-Step.el (U+5F91): Apply new conventions for glyph
 	granularity.
