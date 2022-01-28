@@ -11255,7 +11255,14 @@
       ))
     ))
 (define-char
-  '((<-denotational@usage
+  '((ideographic-radical . 53)	; ⼴
+    (=>ucs@component	. #x5EDB)	; &A-compU+5EDB;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@component	  . #x5EDB)	; &A-compU+5EDB;
+      ))
+    (<-denotational@usage
      ((==>ucs@bucs	  . #x5EDB)	; &BUCS+5EDB;
       ))
     (ideographic-radical . 53)	; ⼴

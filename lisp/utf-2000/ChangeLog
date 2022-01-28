@@ -1,5 +1,15 @@
 2022-01-26  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R053-Dotted-Cliff.el (A-compU+5EDB): New abstract
+	node.
+	(U+5EDB): Add `<-denotational' for A-compU+5EDB.
+
+	* Ideograph-R038-Woman.el (U-00021707): Apply new conventions for
+	glyph granularity.
+	(U+36F4-itaiji-001): Add `<-denotational' for A-U+36F4-itaiji-001.
+	(A-U+36F4-itaiji-001): New abstract node.
+	(U+5A19): Apply new conventions for glyph granularity.
+
 	* char-db-util.el (char-db-coded-charset-priority-list): Add
 	`=big5-cdp-var-008'.
 
