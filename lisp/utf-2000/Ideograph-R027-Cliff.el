@@ -6816,7 +6816,10 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 27)	; ⼚
+  '((<-denotational
+     ((=>ucs@component	  . #x5EDB)	; &A-compU+5EDB;
+      ))
+    (ideographic-radical . 27)	; ⼚
     (ideographic-strokes . 12)
     (total-strokes	 . 14)
     (ideographic-structure
@@ -6828,6 +6831,26 @@
      ((=>big5-cdp	  . #x8DC3)	; &A-CDP-8DC3;
       ))
     (=ucs		. #x20AA8)	; 𠪨
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x20AA8)	; 𠪨
+      ))
+    (ideographic-radical . 27)	; ⼚
+    (ideographic-strokes . 12)
+    (total-strokes	 . 14)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs		  . #x5382)	; 厂
+      )
+     ((=big5-cdp-var-008  . #x8DC3)	; &CDP-v008-8DC3;
+      ))
+    (=ucs-var-001	. #x20AA8)	; &U-v001+20AA8;
+    (->subsumptive
+     ((==ucs-var-001	  . #x20AA8)	; &g2-U-v001+20AA8;
+      ))
     ))
 (define-char
   '((<-denotational
