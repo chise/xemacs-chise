@@ -1,3 +1,17 @@
+2022-01-27  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R077-Stop.el (A-cgnU+23983): New abstract node.
+	(U-00023983): Add `<-denotational' for A-cgnU+23983; apply new
+	conventions for glyph granularity.
+	(A-CB09373): New abstract node; use `<-denotational' for
+	A-cgnU+23983.
+	(CB09373): New character; use `<-denotational' for A-CB09373.
+
+	* Ideograph-R027-Cliff.el (U-00020AA8): Add `<-denotational' for
+	A-compU+5EDB.
+	(U+20AA8-var-001): New character; use `<-denotational' for
+	U-00020AA8.
+
 2022-01-26  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R053-Dotted-Cliff.el (A-compU+5EDB): New abstract
