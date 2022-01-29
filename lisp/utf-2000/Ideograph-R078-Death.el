@@ -3038,7 +3038,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=>gt-k		  . 06369)	; &A-GT-K06369;
+     ((=>ucs-itaiji-001	  . #x25220)	; &A-U-i001+25220;
       ))
     (ideographic-radical . 78)	; ⽍
     (ideographic-strokes . 5)
@@ -3060,6 +3060,40 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=>ucs-itaiji-001@iwds-1 . #x25220)	; &A-IWDSU-i001+25220;
+      ))
+    (ideographic-radical . 78)	; ⽍
+    (ideographic-strokes . 5)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x239B5)	; 𣦵
+      )
+     ((=>gt-k		  . 00859)	; &A-GT-K00859;
+      ))
+    (=>gt-k		. 06369)	; &A-GT-K06369;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs-itaiji-001@iwds-1 . #x25220)	; &A-IWDSU-i001+25220;
+      ))
+    (ideographic-radical . 78)	; ⽍
+    (ideographic-strokes . 5)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs-itaiji-001	  . #x239B5)	; &U-i001+239B5;
+      )
+     ((=>gt-k		  . 00859)	; &A-GT-K00859;
+      ))
+    (=>ucs-itaiji-001	. #x25220)	; &A-U-i001+25220;
+    ))
+(define-char
   '((ideographic-radical . 78)	; ⽍
     (ideographic-strokes . 5)
     (total-strokes	 . 9)
@@ -3069,14 +3103,30 @@
       )
      ((=>ucs@cognate	  . #x239B5)	; &A-cgnU+239B5;
       )
-     ((=gt-k		  . 00859)	; &GT-K00859;
+     ((=>gt-k		  . 00859)	; &A-GT-K00859;
       ))
-    (=>gt-k		. 06369)	; &A-GT-K06369;
-    (=>ucs-itaiji-001	. #x25220)	; &A-GT-K06369;
+    (=>ucs-itaiji-001@iwds-1 . #x25220)	; &A-IWDSU-i001+25220;
     ))
 (define-char
   '((<-denotational
-     ((=>gt-k		  . 06369)	; &A-GT-K06369;
+     ((=>ucs-itaiji-001@iwds-1 . #x25220)	; &A-IWDSU-i001+25220;
+      ))
+    (ideographic-radical . 78)	; ⽍
+    (ideographic-strokes . 5)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs-itaiji-002	  . #x239B5)	; &U-i002+239B5;
+      )
+     ((=>gt-k		  . 00859)	; &A-GT-K00859;
+      ))
+    (=>ucs-itaiji-004	. #x25220)	; &A-U-i004+25220;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs-itaiji-004	  . #x25220)	; &A-U-i004+25220;
       ))
     (ideographic-radical . 78)	; ⽍
     (ideographic-strokes . 5)
