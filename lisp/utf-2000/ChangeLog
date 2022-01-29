@@ -1,3 +1,33 @@
+2022-01-29  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R019-Power.el (U+52EB): Apply new conventions for
+	glyph granularity.
+
+2022-01-28  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R047-River.el (A-compU+5DDB): Separate IWDS1-0270; add
+	`<-denotational@component' for IWDS1-0270.
+	(U+5DDB): Add `ideographic-structure'; add `sound@ja/on'; add some
+	relations for other characters.
+	(U-00021FE6): Add `<-denotational@component' for A-compU+5DDB; add
+	`ideographic-structure'.
+	(U-00021FE8): Add `<-denotational@component' for A-compU+21FE8;
+	apply new conventions for glyph granularity.
+	(BC-8DEA-itaiji-001): New character; use `<-denotational' for
+	U-00021FE8.
+	(BC-85BF): Ditto.
+	(U+5DDC): Apply new conventions for glyph granularity.
+	(U+244EF-itaiji-001): New character.
+	(GT-K00633): Add `<-formed@component' for U+244EF-itaiji-001.
+	(U-0002D5FA): Apply new conventions for glyph granularity.
+	(U-00021FED): Likewise.
+	(U-0002D5FB): Modify structure.
+	(U+5DE0): Apply new conventions for glyph granularity.
+	(IWDS1-0270): Unify A-IWDSU+5DDB instead of A-compU+5DDB.
+
+	* Ideograph-R012-Eight.el (A-GT-K00859): New abstract node.
+	(GT-K00859): Add `<-denotational' for A-GT-K00859.
+
 2022-01-28  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R036-Evening.el (A-cgnU+5924): New abstract node.
