@@ -1,3 +1,15 @@
+2022-01-28  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R036-Evening.el (A-cgnU+5924): New abstract node.
+	(U+5924): Add `<-denotational' for A-cgnU+5924.
+	(A-U+5924-itaiji-003): New abstract node; use `<-denotational' for
+	A-cgnU+5924.
+	(U+5924-itaiji-003): New character; use `<-denotational' for
+	A-U+5924-itaiji-003.
+
+	* char-db-util.el (char-db-coded-charset-priority-list): Add
+	`=>ucs-itaiji-012'.
+
 2022-01-27  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R077-Stop.el (A-cgnU+23983): New abstract node.
