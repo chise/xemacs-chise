@@ -916,6 +916,8 @@
 (define-char
   '((<-denotational@usage
      ((==>ucs@bucs	  . #x6BBA)	; &BUCS+6BBA;
+      )
+     ((==>daijiten	  . 05796)	; &A2-DJT-05796;
       ))
     (ideographic-radical . 79)	; ⽎
     (ideographic-strokes . 6)
@@ -7020,10 +7022,16 @@
     ))
 (define-char
   '((ideographic-radical . 79)	; ⽎
-    (==>ucs@bucs	. #x6BBA)	; &BUCS+6BBA;
-    (==>daijiten	. 05796)	; &BUCS+6BBA;
+    (==>daijiten	. 05796)	; &A2-DJT-05796;
     ))
 (define-char
   '((ideographic-radical . 79)	; ⽎
     (==>daijiten	. 05799)	; &A2-DJT-05799;
+    ))
+(define-char
+  '((<-denotational
+     ((==>daijiten	  . 05796)	; &A2-DJT-05796;
+      ))
+    (ideographic-radical . 79)	; ⽎
+    (==>ucs@bucs	. #x6BBA)	; &BUCS+6BBA;
     ))
