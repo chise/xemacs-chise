@@ -3893,7 +3893,10 @@
      ((=ucs@unicode	  . #x4F1A)	; &AJ1-01393;
       (=adobe-japan1-0	  . 01393)	; &AJ1-01393;
       ))
-    (=ucs@iso		. #x2B9C3)	; &U-0002B9C3;
+    (=ucs@JP/hanazono	. #x2B9C3)	; &hanaJU+2B9C3;
+    (<-simplified@CN
+     ((=ucs@iso		  . #x23350)	; &U-00023350;
+      ))
     ))
 (define-char
   '((ideographic-radical . 20)	; ⼓
