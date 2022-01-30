@@ -1,5 +1,17 @@
 2022-01-29  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R078-Death.el (U+25220-itaiji-001): Use
+	A-U+25220-itaiji-001 instead of A-GT-K06369 as its mother.
+	(A-GT-K06369): Separate A-U+25220-itaiji-001; add `<-denotational'
+	for A-IWDSU+25220-itaiji-001.
+	(A-U+25220-itaiji-001): Separate A-GT-K06369; add `<-denotational'
+	for A-IWDSU+25220-itaiji-001.
+	(A-IWDSU+25220-itaiji-001): New abstract node.
+	(A-U+25220-itaiji-004): New abstract node; use `<-denotational'
+	for A-IWDSU+25220-itaiji-001.
+	(U+25220-itaiji-004): Use A-U+25220-itaiji-004 instead of
+	A-GT-K06369 as its mother.
+
 	* Ideograph-R019-Power.el (U+52EB): Apply new conventions for
 	glyph granularity.
 
