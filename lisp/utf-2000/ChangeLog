@@ -1,3 +1,23 @@
+2022-01-30  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R053-Dotted-Cliff.el (U+5EAF): Apply new conventions
+	for glyph granularity.
+
+	* Ideograph-R037-Big.el (U-00021641): Add `<-denotational@usage'
+	for BUCS+723D.
+	(IU+21641): Unify DJT-07041.
+
+	* Ideograph-R032-Earth.el (U-0002D3BB): New character.
+	(U-0002D3BC): Apply new conventions for glyph granularity.
+	(U-0002D3BF): New character.
+	(U-0002D3D8): New character.
+	(BC-8DC3-var-008): New character; use `<-denotational' for
+	A-BC-8DC3.
+	(U-0002D3DD): New character.
+
+	* Ideograph-R030-Mouth.el (U+54CF): Apply new conventions for
+	glyph granularity.
+
 2022-01-29  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R078-Death.el (U+25220-itaiji-001): Use

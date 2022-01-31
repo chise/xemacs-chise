@@ -7904,6 +7904,9 @@
      ((=>ucs@component	  . #x723D)	; &A-compU+723D;
       (=>iwds-1		  .  0108)	; &A-compU+723D;
       ))
+    (<-denotational@usage
+     ((==>ucs@bucs	  . #x723D)	; &BUCS+723D;
+      ))
     (ideographic-radical . 37)	; ⼤
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
@@ -7921,6 +7924,7 @@
     (=big5-cdp		. #x856E)	; &I-CDP-856E;
     (=hanyo-denshi/ks	. 068330)	; &HD-KS-068330;
     (=daikanwa		. 05959)	; &I-M-05959;
+    (=daijiten		. 07041)	; &I-DJT-07041;
     (<-vulgar
      ((=ucs		  . #x723D)	; 爽
       (=daikanwa	  . 19746)	; &I-M-19746;
@@ -7938,8 +7942,11 @@
       (==big5-cdp	  . #x856E)	; &g2-HD-KS-068330;
       (==hanyo-denshi/ks  . 068330)	; &g2-HD-KS-068330;
       (==daikanwa	  . 05959)	; &g2-HD-KS-068330;
+      (==daijiten	  . 07041)	; &g2-HD-KS-068330;
       (->subsumptive
        ((===daikanwa	    . 05959)	; &R-M-05959;
+	)
+       ((===daijiten	    . 07041)	; &R-DJT-07041;
 	)
        ((===hanyo-denshi/ks . 068330)	; &R-HD-KS-068330;
 	(=hanyo-denshi/ks/mf . #x1AB1)	; &R-HD-KS-068330;
