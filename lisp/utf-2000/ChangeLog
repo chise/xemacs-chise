@@ -1,5 +1,25 @@
 2022-01-30  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R021-Spoon.el (A-cgnU+2091E): New abstract node.
+	(U-0002091E): Add `<-denotational' for A-cgnU+2091E.
+	(A-U+2091E-itaiji-001): New abstract node; use `<-denotational'
+	for A-cgnU+2091E.
+	(U+2091E-itaiji-001): New character; use `<-denotational' for
+	A-U+2091E-itaiji-001.
+
+2022-01-30  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R009-Man.el (U+343A-var-001): Modify structure.
+	(U+343A-itaiji-003): Modify structure.
+	(BC-8C76): Add `ideographic-structure'.
+	(U-0002036C): Add ideographic-structure.
+	(U-00020374): Use `ideographic-structure@apparent' instead of
+	`ideographic-structure'.
+	(IU+20374): Likewise.
+	(U-0002039D): Likewise; apply new conventions for glyph
+	granularity.
+	(U-00020442): Modify structure.
+
 	* Ideograph-R053-Dotted-Cliff.el (U+5EAF): Apply new conventions
 	for glyph granularity.
 
@@ -34799,7 +34819,7 @@
 	((ideographic-structure ?⿱ ?JU+5F50 ?\u706B)) in
 	`ideographic-structure'; apply new conventions for glyph
 	granularity; add `<-ancient' for U+8F9F.
-	(CU+20233): Use U+7075-var-001 instead of "⿱⺔火" in
+	(CU+20233): Use U+7075-var-001 instead of "⿱彑火" in
 	`ideographic-structure'.
 	(U-00020239): Use "⿰亻㳊" instead of "⿲⺅⺡攵" in
 	`ideographic-structure'; apply new conventions for glyph
