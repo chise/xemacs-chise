@@ -24565,9 +24565,11 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=ucs		  . #x5405)	; 吅
+     ((=>ucs@component	  . #x5405)	; &A-compU+5405;
+      (=>iwds-1		  .  0398)	; &A-compU+5405;
       )
-     ((=ucs		  . #x72AC)	; 犬
+     ((=>ucs@component	  . #x72AC)	; &A-compU+72AC;
+      (=>iwds-1		  .  0239)	; &A-compU+72AC;
       ))
     (=ucs		. #x54ED)	; 哭
     ))
@@ -24579,6 +24581,14 @@
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
     (hanyu-dazidian	1 629 2)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5405)	; 吅
+      )
+     ((=ucs		  . #x72AC)	; 犬
+      ))
     (=ucs@unicode	. #x54ED)	; &AJ1-04384;
     (=adobe-japan1-0	. 04384)	; &AJ1-04384;
     (=jis-x0208		. #x532D)	; &I-J90-532D; [51-13]
@@ -24639,6 +24649,23 @@
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
     (===hng-kar		. 06830)	; &HNG018-06830;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x54ED)	; 哭
+      ))
+    (ideographic-radical . 30)	; ⼝
+    (ideographic-strokes . 6)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5405)	; 吅
+      )
+     ((=ucs		  . #x5927)	; 大
+      ))
+    (=ucs-itaiji-003	. #x54ED)	; &U-i003+54ED;
     ))
 (define-char
   '((ideographic-radical . 30)	; ⼝
