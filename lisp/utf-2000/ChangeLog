@@ -1,3 +1,7 @@
+2022-02-01  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R001-One.el (U-0002CEE0): New character.
+
 2022-01-31  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R014-Cover.el (U-000205A1): New character.
