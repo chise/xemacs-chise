@@ -1,5 +1,7 @@
 2022-01-31  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R014-Cover.el (U-000205A1): New character.
+
 	* Ideograph-R089-Double-X.el (MJ056856): Unify U-0002CF06.
 	(UU+3E1A): Unify CB08236.
 	(U+723C): Use `<-denotational@usage' instead of `<-denotational'
