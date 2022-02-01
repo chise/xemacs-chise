@@ -2128,7 +2128,8 @@
     (=cns11643-7	. #x3F4B)	; &C7-3F4B; [31-43]
     (=daikanwa		. 08770)	; &I-M-08770;
     (<-ancient
-     ((=ucs		  . #x5BC5)	; 寅
+     ((=ucs@unicode	  . #x5BC5)	; &AJ1-03242;
+      (=adobe-japan1-0	  . 03242)	; &AJ1-03242;
       (=daikanwa	  . 07204)	; &I-M-07204;
       ))
     (<-ancient*sources
