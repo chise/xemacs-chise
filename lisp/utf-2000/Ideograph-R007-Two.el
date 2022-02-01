@@ -616,8 +616,8 @@
       )
      ((=ucs		  . #x4E00)	; 一
       )
-     ((=ucs@unicode	  . #x5F51)	; &AJ1-04779;
-      (=adobe-japan1-0	  . 04779)	; &AJ1-04779;
+     ((name		  . "CJK RADICAL SNOUT ONE")
+      (=ucs		  . #x2E94)	; ⺔
       ))
     (sound@ja/kun	"taga-Hi")
     (sound@ja/on	"go")
