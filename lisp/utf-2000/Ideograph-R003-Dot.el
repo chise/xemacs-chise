@@ -455,6 +455,9 @@
   '((<-denotational
      ((=>daikanwa	  . 00097)	; &A-M-00097;
       ))
+    (<-denotational@component
+     ((=>ucs@component	  . #x5915)	; &A-compU+5915;
+      ))
     (ideographic-radical . 3)	; ⼂
     (ideographic-strokes . 2)
     (total-strokes	 . 3)
