@@ -1,5 +1,21 @@
 2022-02-01  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R078-Death.el (A-U+2458A-itaiji-001): Add
+	`ideographic-structure'.
+	(U+2458A-itaiji-001): Modify structure; preserve the previous
+	structure as an apparent structure.
+	(GT-K05012): Likewise.
+
+	* Ideograph-R047-River.el (A-GT-K02100): New abstract node.
+	(GT-K02100): Add `<-denotational' for A-GT-K02100.
+
+2022-02-01  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R030-Mouth.el (U+54ED): Apply new conventions for
+	glyph granularity for components of ideographic-structure.
+	(U+54ED-itaiji-003): New character; use `<-denotational' for
+	U+54ED.
+
 	* Ideograph-R001-One.el (U-0002CEE0): New character.
 
 2022-01-31  MORIOKA Tomohiko  <tomo.git@chise.org>
