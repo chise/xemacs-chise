@@ -1,3 +1,40 @@
+2022-02-02  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R090-Half-Tree-Trunk.el (U+7240): Apply new
+	conventions for glyph granularity.
+	(U+7241): Likewise.
+	(U+7242): Likewise.
+	(U-0002457F): New character.
+	(M-19780): Add `<-denotational' for U-0002457F; add
+	`ideographic-structure'.
+	(U-00024580): New character.
+	(M-19781): Add `<-denotational' for U-00024580; unify IU+24580.
+	(U-0002AE9E): New character.
+	(A-IWDSU+24584): Changed from A-cgnU+24584.
+	(U-00024584): Use A-IWDSU+24584 instead of A-cgnU+24584 as its
+	mother; apply new conventions for glyph granularity.
+	(U-0002458A): Likewise.
+	(U-00024588): Likewise.
+	(U-00024591): New character.
+	(A-IU+24596): Changed from o-IU+24596.
+
+2022-02-02  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R042-Small.el (A-U+5C1E-itaiji-002): New abstract
+	node.
+	(U+5C1E-itaiji-002): New character; use `<-denotational' for
+	A-U+5C1E-itaiji-002.
+
+	* Ideograph-R003-Dot.el (U-000206A4): Add
+	`<-denotational@component' for A-compU+5915.
+
+	* Ideograph-R017-Open-Box.el (U-0002068D): Use `->subsumptive'.
+
+	* Ideograph-R014-Cover.el (A-U+3759-itaiji-002): New abstract
+	node; use `<-denotational' for A-cgnU+3759.
+	(U+3759-itaiji-002): New character; use `<-denotational' for
+	A-U+3759-itaiji-002.
+
 2022-02-01  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R078-Death.el (A-U+2458A-itaiji-001): Add
