@@ -995,6 +995,39 @@
       ))
     ))
 (define-char
+  '((ideographic-radical . 23)	; ⼖
+    (ideographic-strokes . 5)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
+      (=ucs		  . #x2FF7)	; ⿷
+      )
+     ((=>ucs@component	  . #x531A)	; &A-compU+531A;
+      (=>iwds-1		  .  0209)	; &A-compU+531A;
+      )
+     ((=big5-cdp	  . #x88AD)	; &CDP-88AD;
+      ))
+    (=ucs		. #x20972)	; 𠥲
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x20972)	; 𠥲
+      ))
+    (ideographic-radical . 23)	; ⼖
+    (ideographic-strokes . 5)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
+      (=ucs		  . #x2FF7)	; ⿷
+      )
+     ((=ucs@unicode	  . #x5338)	; &AJ1-04307;
+      (=adobe-japan1-0	  . 04307)	; &AJ1-04307;
+      )
+     ((=big5-cdp	  . #x88AD)	; &CDP-88AD;
+      ))
+    (=ucs@iso		. #x20972)	; &U-00020972;
+    ))
+(define-char
   '((ideographic-radical@daikanwa . 23)	; ⼖
     (ideographic-radical@cns . 22)	; ⼕
     (ideographic-strokes . 6)
