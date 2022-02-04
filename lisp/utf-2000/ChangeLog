@@ -1,3 +1,19 @@
+2022-02-04  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R024-Ten.el (U-0002097C): New character.
+	(A-U+30001-itaiji-001): New abstract node; use
+	`<-denotational@component' for U-00020006 and A-BC-8BF1.
+	(U+30001-itaiji-001): New character; use `<-denotational' for
+	A-U+30001-itaiji-001.
+	(U+534C): Apply new conventions for glyph granularity.
+	(U+9FBA): Modify structure.
+	(U-0002099D): Likewise.
+	(U-000209A0): New character.
+	(U-000209A1): New character.
+	(BC-8BBE): New character.
+
+	* Ideograph-R023-Hiding-Enclosure.el (U-00020972): New character.
+
 2022-02-03  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R038-Woman.el (U-000216DB): Apply new conventions for
