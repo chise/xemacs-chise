@@ -1,3 +1,15 @@
+2022-02-03  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R038-Woman.el (U-000216DB): Apply new conventions for
+	glyph granularity.
+	(U-0002172A): Likewise.
+	(U-00021723): Likewise.
+	(U+36F4): Likewise.
+	(U-00021886): Likewise.
+	(U-0002188B): Likewise.
+
+	* Ideograph-R010-Legs.el (BC-8BCB): Unify GT-K01176.
+
 2022-02-02  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R090-Half-Tree-Trunk.el (U+7240): Apply new

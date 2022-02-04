@@ -964,9 +964,14 @@
     (ideographic-strokes . 3)
     (total-strokes	 . 5)
     (=big5-cdp		. #x8BCB)	; &CDP-8BCB;
+    (=gt-k		. 01176)	; &I-GT-K01176;
+    (=gt-pj-k2		. #x4060)	; &CDP-8BCB; [32-64]
     (=big5-cdp-itaiji-001 . #x89B9)	; &CDP-8BCB;
     (->subsumptive
      ((==big5-cdp	  . #x8BCB)	; &g2-CDP-8BCB;
+      )
+     ((==gt-k		  . 01176)	; &g2-GT-K01176;
+      (==gt-pj-k2	  . #x4060)	; &g2-GT-K01176; [32-64]
       )
      ((==big5-cdp-itaiji-001 . #x89B9)	; &g2-CDP-i001-89B9;
       ))
