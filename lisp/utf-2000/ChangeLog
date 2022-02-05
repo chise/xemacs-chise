@@ -1,5 +1,23 @@
 2022-02-04  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R041-Inch.el (U-00021B36): Use
+	`ideographic-structure@apparent' instead of
+	`ideographic-structure'.
+	(IU+21B36): Ditto.
+	(MJ057349): Ditto.
+	(U-00021B38): New character.
+
+	* Ideograph-R037-Big.el (U+5935): Apply new conventions for glyph
+	granularity.
+
+	* Ideograph-R010-Legs.el (A-U+5147-itaiji-002): New abstract node.
+	(U+5147-itaiji-002): New character; use `<-denotational' for
+	A-U+5147-itaiji-002.
+
+	* Ideograph-R036-Evening.el (U+5924): Changed from A-cgnU+5924;
+	apply new conventions for glyph granularity.
+	(U-000215B8): Use `->denotational' and `->subsumptive'.
+
 	* Ideograph-R024-Ten.el (U-0002097C): New character.
 	(A-U+30001-itaiji-001): New abstract node; use
 	`<-denotational@component' for U-00020006 and A-BC-8BF1.
@@ -15,6 +33,37 @@
 	* Ideograph-R023-Hiding-Enclosure.el (U-00020972): New character.
 
 2022-02-03  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R085-Water.el (U+6C75): Use `->denotational' and
+	`->subsumptive'.
+	(U-00023C8E): Apply new conventions for glyph granularity.
+	(U-00023CBE): Likewise; add `<-denotational@component' for
+	A-IWDSU+23CBE.
+	(U+6CFE): Likewise.
+	(U+6D87): Add `<-denotational@usage' for BUCS+6D87; apply new
+	conventions for glyph granularity.
+	(U+6DAC): Add `<-denotational@usage' for A2-DJT-06216; apply new
+	conventions for glyph granularity.
+	(U-00023D96): Apply new conventions for glyph granularity.
+	(U-00023D97): New character.
+	(A-cgnU+6E93): New abstract node.
+	(U+6E93): Add `<-denotational' for A-cgnU+6E93.
+	(A-U+6E93-itaiji-001): New abstract node; use `<-denotational' for
+	A-cgnU+6E93.
+	(U+6E93-itaiji-001): New character; use `<-denotational' for
+	A-U+6E93-itaiji-001.
+	(A-IWDSU+6F14): Changed from A-cgnU+6F14.
+	(U+6F14): Use A-IWDSU+6F14 instead of A-cgnU+6F14 as its mother;
+	apply new conventions for glyph granularity.
+	(HNG-KHM0418-0): Use U+6F14 instead of A-cgnU+6F14 as its mother.
+	(U-00023F4A): Apply new conventions for glyph granularity.
+	(U-0002400B): Use `->denotational' and `->subsumptive'; add
+	`<-denotational' for A-IWDSU+6F14.
+	(U+6FEC): Apply new conventions for glyph granularity.
+	(U-0002DCDB): New character.
+	(A-IWDSU+23CBE): New abstract node.
+	(BUCS+6D87): New abstract node; unify A2-DJT-06191.
+	(A2-DJT-06216): New abstract node.
 
 	* Ideograph-R038-Woman.el (U-000216DB): Apply new conventions for
 	glyph granularity.
