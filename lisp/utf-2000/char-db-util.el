@@ -422,6 +422,7 @@
     ==ucs@gb
     =ucs@gb
     ==ucs-var-002
+    ==ucs-itaiji-002
     =ucs@JP/hanazono
     =koseki
     =shuowen-jiguge
