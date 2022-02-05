@@ -1531,11 +1531,38 @@
     ))
 (define-char
   '((ideographic-radical . 37)	; ⼤
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>ucs@component	  . #x72AC)	; &A-compU+72AC;
+      (=>iwds-1		  .  0239)	; &A-compU+72AC;
+      )
+     ((=>ucs@iwds-1	  . #x5C0F)	; &A-IWDSU+5C0F;
+      (=>iwds-1		  .  0028)	; &A-IWDSU+5C0F;
+      ))
+    (sound@ja/on/go	"eN" "tou")
+    (sound@ja/on/kan	"eN" "tAu")
+    (=ucs		. #x5935)	; 夵
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5935)	; 夵
+      ))
+    (ideographic-radical . 37)	; ⼤
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
     (hanyu-dazidian	1 528 2)
-    (=ucs		. #x5935)	; 夵
-    (=adobe-japan1-6	. 21379)	; &I-AJ1-21379;
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5927)	; 大
+      )
+     ((=ucs		  . #x5C0F)	; 小
+      ))
+    (=ucs@unicode	. #x5935)	; &AJ1-21379;
+    (=adobe-japan1-6	. 21379)	; &AJ1-21379;
     (=jis-x0212		. #x386F)	; &I-JSP-386F; [24-79]
     (=cns11643-4	. #x2253)	; &I-C4-2253; [02-51]
     (=daikanwa		. 05849)	; &I-M-05849;
