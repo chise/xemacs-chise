@@ -2847,6 +2847,25 @@
      ((=ucs		  . #x752B)	; 甫
       ))
     (=>gt-k		. 08951)	; &A-GT-K08951;
+    (=>ucs-itaiji-004	. #x5EB8)	; &A-GT-K08951;
+    ))
+(define-char
+  '((<-denotational
+     ((=>gt-k		  . 08951)	; &A-GT-K08951;
+      ))
+    (ideographic-radical . 63)	; ⼾
+    (ideographic-strokes . 7)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=+>ucs@jis	  . #x6238)	; &o-J0-384D;
+      (=+>jis-x0208	  . #x384D)	; &o-J0-384D; [24-45]
+      )
+     ((=ucs		  . #x752B)	; 甫
+      ))
+    (=ucs-itaiji-004	. #x5EB8)	; &U-i004+5EB8;
     ))
 (define-char
   '((<-denotational
