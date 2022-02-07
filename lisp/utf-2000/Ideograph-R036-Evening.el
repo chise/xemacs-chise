@@ -1002,6 +1002,20 @@
     ))
 (define-char
   '((ideographic-radical . 36)	; ⼣
+    (ideographic-strokes . 3)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5915)	; 夕
+      )
+     ((=ucs		  . #x5DFE)	; 巾
+      ))
+    (=ucs		. #x2A937)	; 𪤷
+    ))
+(define-char
+  '((ideographic-radical . 36)	; ⼣
     (=>ucs@cognate	. #x2B763)	; &A-cgnU+2B763;
     ))
 (define-char
