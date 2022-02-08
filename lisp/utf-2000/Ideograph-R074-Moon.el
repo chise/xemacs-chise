@@ -4936,6 +4936,81 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
+     ((=>ucs@component	  . #x6708)	; &A-compU+6708;
+      (=>iwds-1		  .  0053)	; &A-compU+6708;
+      )
+     ((=ucs		  . #x611B)	; 愛
+      ))
+    (=ucs		. #x2DA4A)	; 𭩊
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2DA4A)	; 𭩊
+      ))
+    (ideographic-radical . 74)	; ⽉
+    (ideographic-strokes . 13)
+    (total-strokes	 . 17)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs@unicode	  . #x6708)	; &MJ013520;
+      (=mj		  . 013520)	; &MJ013520;
+      )
+     ((=ucs@unicode	  . #x611B)	; &MJ011752;
+      (=mj		  . 011752)	; &MJ011752;
+      ))
+    (=ucs@JP/hanazono	. #x2DA4A)	; &hanaJU+2DA4A;
+    ))
+(define-char
+  '((ideographic-radical . 74)	; ⽉
+    (ideographic-strokes . 13)
+    (total-strokes	 . 17)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
+      (=ucs		  . #x2FF4)	; ⿴
+      )
+     ((=ucs		  . #x670B)	; 朋
+      )
+     ((=ucs		  . #x9996)	; 首
+      ))
+    (=ucs		. #x2DA4D)	; 𭩍
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2DA4D)	; 𭩍
+      ))
+    (ideographic-radical . 74)	; ⽉
+    (ideographic-strokes . 13)
+    (total-strokes	 . 17)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
+      (=ucs		  . #x2FF4)	; ⿴
+      )
+     ((=ucs@unicode	  . #x670B)	; &MJ013525;
+      (=mj		  . 013525)	; &MJ013525;
+      )
+     ((=ucs@unicode	  . #x9996)	; &AJ1-02335;
+      (=adobe-japan1-0	  . 02335)	; &AJ1-02335;
+      ))
+    (=ucs@JP/hanazono	. #x2DA4D)	; &CB04187;
+    (=cbeta		. 04187)	; &CB04187;
+    (->subsumptive
+     ((==ucs@JP/hanazono  . #x2DA4D)	; &g2-CB04187;
+      (==cbeta		  . 04187)	; &g2-CB04187;
+      (->subsumptive
+       ((===cbeta	    . 04187)	; &R-CB04187;
+	))
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 74)	; ⽉
+    (ideographic-strokes . 13)
+    (total-strokes	 . 17)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
      ((=ucs@unicode	  . #x6708)	; &MJ013520;
       (=mj		  . 013520)	; &MJ013520;
       )
