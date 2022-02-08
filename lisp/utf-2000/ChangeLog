@@ -1,5 +1,15 @@
 2022-02-05  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R061-Heart.el (U-00022649): Apply new conventions for
+	glyph granularity.
+	(A-U+60F1-itaiji-001): New abstract node.
+	(U+60F1-itaiji-001): Add `<-denotational' for A-U+60F1-itaiji-001.
+	(A-GT-K10080): New abstract node.
+	(GT-K10080): Add `<-denotational' for A-GT-K10080.
+	(U+60F1): Apply new conventions for glyph granularity.
+	(U-0002D779): New character.
+	(U-0002D785): New character.
+
 	* Ideograph-R063-Door.el (A-GT-K08951): Unify A-U+5EB8-itaiji-004.
 	(U+5EB8-itaiji-004): New character; use `<-denotational' for
 	A-GT-K08951.
