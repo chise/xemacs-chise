@@ -1,3 +1,21 @@
+2022-02-08  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R072-Sun.el (U+65E9): Apply new conventions for glyph
+	granularity.
+	(A-cgnU+2317C): New abstract node.
+	(U-0002317C): Add `<-denotational' for A-cgnU+2317C; apply new
+	conventions for glyph granularity.
+	(A-U+2317C-itaiji-001): New abstract node; use `<-denotational'
+	for A-cgnU+2317C; unify A-U+2317C-itaiji-002.
+	(U+2317C-itaiji-001): Add `<-denotational' for
+	A-U+2317C-itaiji-001.
+	(U-0002AC44): Apply new conventions for glyph granularity.
+	(U+3B1F): New character.
+
+2022-02-07  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R036-Evening.el (U-0002A937): New character.
+
 2022-02-05  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R061-Heart.el (U-00022649): Apply new conventions for
@@ -9,6 +27,8 @@
 	(U+60F1): Apply new conventions for glyph granularity.
 	(U-0002D779): New character.
 	(U-0002D785): New character.
+
+	* Ideograph-R035-Go-Slowly.el (U-00021570): Modify structure.
 
 	* Ideograph-R063-Door.el (A-GT-K08951): Unify A-U+5EB8-itaiji-004.
 	(U+5EB8-itaiji-004): New character; use `<-denotational' for
