@@ -1,3 +1,11 @@
+2022-02-09  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R004-Slash.el (U+4E51-itaiji-006): New character; use
+	`<-denotational' for U+4E51.
+	(A-M-00140): Delete `<-denotational@usage' for A2-DJT-00096.
+	(U-000200A3): Add `<-denotational@usage' for A2-DJT-00096.
+	(U+3406): Ditto.
+
 2022-02-08  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R028-Private.el (U+53B9): Add `<-denotational' for
