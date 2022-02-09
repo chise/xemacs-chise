@@ -1,5 +1,8 @@
 2022-02-08  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R028-Private.el (U+53B9): Add `<-denotational' for
+	A-cgnU+79B8.
+
 	* Ideograph-R072-Sun.el (U+65E9): Apply new conventions for glyph
 	granularity.
 	(A-cgnU+2317C): New abstract node.
