@@ -409,7 +409,10 @@
       ))
     ))
 (define-char
-  '((<-denotational@component
+  '((<-denotational
+     ((=>ucs@cognate	  . #x79B8)	; &A-cgnU+79B8;
+      ))
+    (<-denotational@component
      ((=>ucs@iwds-1	  . #x516C)	; &A-IWDSU+516C;
       (=>ucs@iwds-1/normalized . #x516C)	; &A-IWDSU+516C;
       ))

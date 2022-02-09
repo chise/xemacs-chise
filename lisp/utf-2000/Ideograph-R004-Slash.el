@@ -3840,6 +3840,23 @@
      ((=ucs		  . #x4E51)	; 乑
       ))
     (ideographic-radical . 4)	; ⼃
+    (ideographic-strokes . 4)
+    (total-strokes	 . 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=cbeta		  . 13223)	; &CB13223;
+      )
+     ((=ucs		  . #x30020)	; 𰀠
+      ))
+    (=ucs-itaiji-006	. #x4E51)	; &U-i006+4E51;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x4E51)	; 乑
+      ))
+    (ideographic-radical . 4)	; ⼃
     (ideographic-strokes . 5)
     (total-strokes	 . 6)
     (ideographic-structure
@@ -3877,10 +3894,7 @@
       ))
     ))
 (define-char
-  '((<-denotational@usage
-     ((==>daijiten	  . 00096)	; &A2-DJT-00096;
-      ))
-    (ideographic-radical . 4)	; ⼃
+  '((ideographic-radical . 4)	; ⼃
     (ideographic-strokes . 5)
     (total-strokes	 . 6)
     (=>daikanwa		. 00140)	; &A-M-00140;
@@ -3888,6 +3902,9 @@
 (define-char
   '((<-denotational
      ((=>daikanwa	  . 00140)	; &A-M-00140;
+      ))
+    (<-denotational@usage
+     ((==>daijiten	  . 00096)	; &A2-DJT-00096;
       ))
     (ideographic-radical . 4)	; ⼃
     (ideographic-strokes . 5)
@@ -3923,6 +3940,9 @@
 (define-char
   '((<-denotational
      ((=>daikanwa	  . 00140)	; &A-M-00140;
+      ))
+    (<-denotational@usage
+     ((==>daijiten	  . 00096)	; &A2-DJT-00096;
       ))
     (ideographic-radical . 4)	; ⼃
     (ideographic-strokes . 5)
