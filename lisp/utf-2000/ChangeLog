@@ -20,6 +20,11 @@
 	* Ideograph-R036-Evening.el (A-U+5924-itaiji-001): Add
 	`<-denotational' for U+5924.
 
+	* Ideograph-R030-Mouth.el (U+53EA): Add `<-denotational@component'
+	for A-IWDSU+53EA.
+	(U-0002D1B8): Ditto; add `ideographic-structure'.
+	(A-IWDSU+53EA): New abstract node.
+
 2022-02-08  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R074-Moon.el (U-0002DA4A): New character.
