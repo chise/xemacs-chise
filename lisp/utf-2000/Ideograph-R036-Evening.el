@@ -2437,6 +2437,24 @@
     ))
 (define-char
   '((<-denotational
+     ((=ucs		  . #x5924)	; 夤
+      ))
+    (ideographic-radical . 36)	; ⼣
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5915)	; 夕
+      )
+     ((=ucs		  . #x21A5F)	; 𡩟
+      ))
+    (=>ucs-itaiji-001	. #x5924)	; &A-U-i001+5924;
+    (<-formed@component
+     ((=ucs		  . #x5924)	; 夤
+      ))
+    ))
+(define-char
+  '((<-denotational
      ((=>ucs-itaiji-003	  . #x5924)	; &A-U-i003+5924;
       ))
     (ideographic-radical . 36)	; ⼣
@@ -2453,6 +2471,25 @@
       (=daikanwa	  . 07252)	; &I-M-07252;
       ))
     (=ucs-itaiji-003	. #x5924)	; &U-i003+5924;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs-itaiji-001	  . #x5924)	; &A-U-i001+5924;
+      ))
+    (ideographic-radical . 36)	; ⼣
+    (ideographic-strokes . 13)
+    (total-strokes	 . 16)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5915)	; 夕
+      )
+     ((=ucs@iso		  . #x21A5F)	; &C6-5174;
+      (=cns11643-6	  . #x5174)	; &C6-5174; [49-84]
+      (=daikanwa	  . 07252)	; &I-M-07252;
+      ))
+    (=ucs-itaiji-001	. #x5924)	; &U-i001+5924;
     ))
 (define-char
   '((=>ucs		. #x215B7)	; 𡖷
@@ -2959,40 +2996,6 @@
        ((=hanziku-1	    . #xE27C)	; &HZK01-E27C;
 	))
       ))
-    ))
-(define-char
-  '((ideographic-radical . 36)	; ⼣
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-      (=ucs		  . #x2FF1)	; ⿱
-      )
-     ((=ucs		  . #x5915)	; 夕
-      )
-     ((=ucs		  . #x21A5F)	; 𡩟
-      ))
-    (=>ucs-itaiji-001	. #x5924)	; &A-U-i001+5924;
-    (<-formed@component
-     ((=ucs		  . #x5924)	; 夤
-      ))
-    ))
-(define-char
-  '((<-denotational
-     ((=>ucs-itaiji-001	  . #x5924)	; &A-U-i001+5924;
-      ))
-    (ideographic-radical . 36)	; ⼣
-    (ideographic-strokes . 13)
-    (total-strokes	 . 16)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-      (=ucs		  . #x2FF1)	; ⿱
-      )
-     ((=ucs		  . #x5915)	; 夕
-      )
-     ((=ucs@iso		  . #x21A5F)	; &C6-5174;
-      (=cns11643-6	  . #x5174)	; &C6-5174; [49-84]
-      (=daikanwa	  . 07252)	; &I-M-07252;
-      ))
-    (=ucs-itaiji-001	. #x5924)	; &U-i001+5924;
     ))
 (define-char
   '((=>ucs		. #x215C6)	; 𡗆

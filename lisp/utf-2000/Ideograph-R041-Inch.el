@@ -3488,6 +3488,24 @@
       )
      ((=ucs		  . #x5BF8)	; 寸
       ))
+    (=>ucs-itaiji-001	. #x21B20)	; &A-U-i001+21B20;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs-itaiji-001	  . #x21B20)	; &A-U-i001+21B20;
+      ))
+    (ideographic-radical . 41)	; ⼨
+    (ideographic-strokes . 10)
+    (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs@unicode	  . #x9B2F)	; &AJ1-07299;
+      (=adobe-japan1-0	  . 07299)	; &AJ1-07299;
+      )
+     ((=ucs		  . #x5BF8)	; 寸
+      ))
     (=ucs-itaiji-001	. #x21B20)	; &U-i001+21B20;
     (<-formed
      ((=ucs		  . #x21B20)	; 𡬠
