@@ -2884,6 +2884,54 @@
 (define-char
   '((ideographic-radical . 73)	; ⽈
     (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=ucs		    . #x53CA)	; 及
+	)
+       ((=ucs		    . #x53CA)	; 及
+	))
+      )
+     ((=>ucs@component	  . #x65E5)	; &A-compU+65E5;
+      (=>iwds-1		  .  0118)	; &A-compU+65E5;
+      ))
+    (=>ucs-itaiji-007	. #x6701)	; &A-U-i007+6701;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs-itaiji-007	  . #x6701)	; &A-U-i007+6701;
+      ))
+    (ideographic-radical . 73)	; ⽈
+    (ideographic-strokes . 8)
+    (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=ucs@cns	    . #x53CA)	; &MJ007989;
+	(=ucs@ks	    . #x53CA)	; &MJ007989;
+	(=mj		    . 007989)	; &MJ007989;
+	)
+       ((=ucs@cns	    . #x53CA)	; &MJ007989;
+	(=ucs@ks	    . #x53CA)	; &MJ007989;
+	(=mj		    . 007989)	; &MJ007989;
+	))
+      )
+     ((=ucs		  . #x66F0)	; 曰
+      ))
+    (=ucs-itaiji-007	. #x6701)	; &U-i007+6701;
+    ))
+(define-char
+  '((ideographic-radical . 73)	; ⽈
+    (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
