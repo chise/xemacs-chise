@@ -1,5 +1,8 @@
 2022-02-09  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R073-Say.el (A-U+6701-itaiji-007): New abstract node.
+	(U+6701-itaiji-007): New character.
+
 	* Ideograph-R018-Knife.el (A-GT-K06148): Unify
 	A-U+206F1-itaiji-001.
 	(GT-K06148): Unify U+206F1-itaiji-001.
