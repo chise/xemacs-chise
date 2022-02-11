@@ -644,6 +644,33 @@
       ))
     ))
 (define-char
+  '((ideographic-radical . 2)	; ⼁
+    (=>ucs@component	. #x2B740)	; &A-compU+2B740;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@component	  . #x2B740)	; &A-compU+2B740;
+      ))
+    (ideographic-radical . 2)	; ⼁
+    (ideographic-strokes . 2)
+    (total-strokes	 . 3)
+    (ideographic-structure
+     ((name		  . "IDEOGRAPHIC DESCRIPTION CHARACTER OVERLAID")
+      (=ucs		  . #x2FFB)	; ⿻
+      )
+     ((=big5-cdp	  . #x8C78)	; &CDP-8C78;
+      )
+     ((=ucs		  . #x4E28)	; 丨
+      ))
+    (=ucs-itaiji-001	. #x2B740)	; &U-i001+2B740;
+    (<-formed@component
+     ((=ucs		  . #x6B62)	; 止
+      ))
+    (<-formed@flipped-horizontally
+     ((=ucs		  . #x3404)	; 㐄
+      ))
+    ))
+(define-char
   '((<-denotational@usage
      ((==>daijiten	  . 00051)	; &A2-DJT-00051;
       ))
