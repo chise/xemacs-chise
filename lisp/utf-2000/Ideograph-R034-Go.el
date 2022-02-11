@@ -75,6 +75,9 @@
     (sound@ja/on/go	"ke")
     (sound@ja/on/kan	"kWa")
     (=ucs		. #x21552)	; 𡕒
+    (<-formed@flipped-horizontally
+     ((=ucs		  . #x5902)	; 夂
+      ))
     (->subsumptive
      ((=mj		  . 033317)	; &MJ033317;
       (=hanyo-denshi/ks	  . 065140)	; &MJ033317;
