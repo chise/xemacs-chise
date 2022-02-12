@@ -5781,6 +5781,27 @@
 (define-char
   '((ideographic-radical@ucs . 178)	; ⾱
     (ideographic-strokes@ucs . 6)
+    (ideographic-radical@misc . 8)	; ⼇
+    (ideographic-strokes@misc . 13)
+    (total-strokes	 . 15)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
+      (=ucs		  . #x2FF3)	; ⿳
+      )
+     ((=>ucs@iwds-1	  . #x516D)	; &A-IWDSU+516D;
+      )
+     ((=ucs		  . #x97CB)	; 韋
+      )
+     ((=ucs		  . #x4E42)	; 乂
+      ))
+    (=ucs		. #x293AE)	; 𩎮
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x293AE)	; 𩎮
+      ))
+    (ideographic-radical@ucs . 178)	; ⾱
+    (ideographic-strokes@ucs . 6)
     (ideographic-radical@ucs*sources
      daikanwa cns11643 ucs)
     (ideographic-strokes@ucs*sources
@@ -5795,12 +5816,13 @@
       )
      ((=ucs		  . #x516D)	; 六
       )
-     ((=ucs		  . #x97CB)	; 韋
+     ((=ucs@unicode	  . #x97CB)	; &MJ028060;
+      (=mj		  . 028060)	; &MJ028060;
       )
      ((=ucs		  . #x4E42)	; 乂
       ))
-    (=ucs		. #x293AE)	; 𩎮
-    (=cns11643-5	. #x5251)	; &I-C5-5251; [50-49]
+    (=ucs@iso		. #x293AE)	; &C5-5251;
+    (=cns11643-5	. #x5251)	; &C5-5251; [50-49]
     (=daikanwa		. 43141)	; &I-M-43141;
     (->subsumptive
      ((ideographic-radical . 178)	; ⾱
