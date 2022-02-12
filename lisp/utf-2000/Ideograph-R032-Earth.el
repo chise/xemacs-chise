@@ -21898,7 +21898,7 @@
       )
      ((=gt-k		  . 00199)	; &GT-K00199;
       )
-     ((=gt-k		  . 06148)	; &GT-K06148;
+     ((=gt-k		  . 06148)	; &U-i001+206F1;
       ))
     (=ucs@iso		. #x21397)	; &C6-474C;
     (=cns11643-6	. #x474C)	; &C6-474C; [39-44]
@@ -40988,11 +40988,57 @@
     ))
 (define-char
   '((ideographic-radical . 32)	; ⼟
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x2699A)	; 𦦚
+      )
+     ((=>ucs@iwds-1	  . #x571F)	; &A-IWDSU+571F;
+      (=>iwds-1		  .  0312)	; &A-IWDSU+571F;
+      ))
+    (sound@ja/on	"iN")
+    (=ucs		. #x214F5)	; 𡓵
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x214F5)	; 𡓵
+      ))
+    (ideographic-radical . 32)	; ⼟
     (ideographic-strokes . 18)
     (total-strokes	 . 21)
-    (=ucs		. #x214F5)	; 𡓵
-    (=cns11643-7	. #x5327)	; &I-C7-5327; [51-07]
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs@iso		  . #x2699A)	; &C7-4228;
+      (=cns11643-7	  . #x4228)	; &C7-4228; [34-08]
+      (=daikanwa	  . 30242)	; &I-M-30242;
+      )
+     ((=ucs		  . #x571F)	; 土
+      ))
+    (=ucs@iso		. #x214F5)	; &C7-5327;
+    (=cns11643-7	. #x5327)	; &C7-5327; [51-07]
     (=daikanwa		. 05616)	; &I-M-05616;
+    (<-ancient
+     ((=ucs@unicode	  . #x5BC5)	; &AJ1-03242;
+      (=adobe-japan1-0	  . 03242)	; &AJ1-03242;
+      (=daikanwa	  . 07204)	; &I-M-07204;
+      ))
+    (<-ancient*sources
+     shuowen zhengzitong daikanwa)
+    (->subsumptive
+     ((==ucs@iso	  . #x214F5)	; &g2-M-05616;
+      (==cns11643-7	  . #x5327)	; &g2-M-05616; [51-07]
+      (==daikanwa	  . 05616)	; &g2-M-05616;
+      (->subsumptive
+       ((===daikanwa	    . 05616)	; &R-M-05616;
+	)
+       ((===cns11643-7	    . #x5327)	; &R-C7-5327; [51-07]
+	)
+       ((===ucs@iso	    . #x214F5)	; &R-U-000214F5;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 32)	; ⼟
