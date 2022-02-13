@@ -4,6 +4,8 @@
     (=shuowen-jiguge	. 09004)	; &SW-JIGUGE-09004;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x53C8)	; 又
+      )
+     ((=adobe-japan1-4	  . 15391)	; &AJ1-15391;
       ))
     (->subsumptive
      ((===shuowen-jiguge5 . 09004)	; &SW-JIGUGE5-09004;
