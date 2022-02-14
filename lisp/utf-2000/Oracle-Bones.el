@@ -13039,7 +13039,7 @@
     (zinbun-oracle-page . 50)
     (=zinbun-oracle	. 01084)	; &ZOB-1084;
     (<-Oracle-Bones
-     ((=cbeta		  . 12039)	; &CB12039;
+     ((=ucs		  . #x2ABCE)	; 𪯎
       ))
     ))
 (define-char
@@ -18492,9 +18492,19 @@
     ))
 (define-char
   '((shuowen-radical	. 206)	; 木
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=zinbun-oracle	  . 01303)	; &ZOB-1303;
+      )
+     ((=zinbun-oracle	  . 01656)	; &ZOB-1656;
+      ))
     (zinbun-oracle-page . 79)
     (=zinbun-oracle	. 01677)	; &ZOB-1677;
     (<-Oracle-Bones
+     ((=>ucs-itaiji-003	  . #x6A02)	; &A-U-i003+6A02;
+      )
      ((=ucs		  . #x6A02)	; 樂
       ))
     ))

@@ -57,6 +57,9 @@
     (<-Small-Seal@shuowen
      ((=ucs		  . #x5C08)	; 專
       )
+     ((=>ucs@iwds-1	  . #x5C08)	; &A-IWDSU+5C08;
+      (=>iwds-1		  .  0387)	; &A-IWDSU+5C08;
+      )
      ((=ucs		  . #x5C02)	; 専
       ))
     (->subsumptive

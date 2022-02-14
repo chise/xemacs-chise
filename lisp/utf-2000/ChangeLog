@@ -1,4 +1,25 @@
+2022-02-12  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R009-Man.el (U+5049): Apply new conventions for glyph
+	granularity.
+	(UU+5049): Unify DJT-00407.
+	(BUCS+5049): Unify A2-DJT-00407.
+
 2022-02-11  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R034-Go.el (U-00021552): Add
+	`<-formed@flipped-horizontally' for U+5902.
+
+	* Ideograph-R026-Seal.el (A-U+5373-itaiji-001): New abstract node;
+	use `<-denotational' for U+5373.
+	(U+5373-itaiji-001): New character; use `<-denotational' for
+	A-U+5373-itaiji-001.
+
+2022-02-11  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R002-Line.el (A-compU+2B740): New abstract node.
+	(U+2B740-itaiji-001): New character; use `<-denotational' for
+	A-compU+2B740.
 
 	* Ideograph-R008-Lid.el (U-000293AE): Apply new conventions for
 	glyph granularity.
@@ -62,6 +83,18 @@
 2022-02-07  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R036-Evening.el (U-0002A937): New character.
+
+2022-02-06  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR089.el (SW-JIGUGE-09606): Add A-IWDSU+5C08 as a
+	corresponding modern character.
+
+	* ShuoWen-SR003.el (SW-JIGUGE-00323): Add U-00021ADA as a
+	corresponding modern character; add `<-Zhouwen@shuowen' for
+	SW-JIGUGE-00322.
+
+	* Oracle-Bones.el (ZOB-01677): Add `ideographic-structure'; add
+	A-U+6A02-itaiji-003 as a corresponding modern character.
 
 2022-02-05  MORIOKA Tomohiko  <tomo.git@chise.org>
 
