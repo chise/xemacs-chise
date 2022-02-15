@@ -6035,13 +6035,30 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=ucs		  . #x2B740)	; 𫝀
+     ((=>ucs@component	  . #x2B740)	; &A-compU+2B740;
       )
      ((=ucs		  . #x53E3)	; 口
       ))
     (=ucs		. #x2D1C1)	; 𭇁
-    (=mj		. 057145)	; &I-MJ057145;
-    (=koseki		. 038460)	; 𭇁
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2D1C1)	; 𭇁
+      ))
+    (ideographic-radical . 30)	; ⼝
+    (ideographic-strokes . 3)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x2B740)	; 𫝀
+      )
+     ((=ucs		  . #x53E3)	; 口
+      ))
+    (=ucs@JP/hanazono	. #x2D1C1)	; &MJ057145;
+    (=mj		. 057145)	; &MJ057145;
+    (=koseki		. 038460)	; &MJ057145;
     (<-formed
      ((=ucs		  . #x543E)	; 吾
       ))
