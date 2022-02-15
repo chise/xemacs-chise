@@ -1,5 +1,25 @@
 2022-02-12  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R032-Earth.el (U-000214F5): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R031-Enclosure.el (A-cgnU+570D): New abstract node.
+	(U+570D): Add `<-denotational' for A-cgnU+570D; add
+	`ideographic-structure'.
+	(UU+570D): Delete `=>ucs@iwds-1'.
+	(A-U+570D-itaiji-002): New abstract node; use `<-denotational' for
+	A-cgnU+570D.
+	(U+570D-itaiji-002): New character; use `<-denotational' for
+	A-U+570D-itaiji-002; subsume HNG-KHM0252-0 and HNG-KHI0028-0.
+
+	* Ideograph-R030-Mouth.el (U-0002D1C1): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R001-One.el (U+20004-var-002): New character; use
+	`<-subsumptive' for U-00020004.
+	(U-0002B740): Use `<-denotational' for A-compU+2B740.
+	(U-00020017): Apply new conventions for glyph granularity.
+
 	* Ideograph-R009-Man.el (U+5049): Apply new conventions for glyph
 	granularity.
 	(UU+5049): Unify DJT-00407.
