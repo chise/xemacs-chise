@@ -1,3 +1,7 @@
+2022-02-15  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R010-Legs.el (U+5143): Use "gWan" instead of "gwan".
+
 2022-02-14  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R035-Go-Slowly.el (A-U+590F-itaiji-010): New abstract

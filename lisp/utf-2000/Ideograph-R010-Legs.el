@@ -495,7 +495,7 @@
       ))
     (sound@ja/kun	"moto")
     (sound@ja/kun/name	"hazime")
-    (sound@ja/on/go	"gwan")
+    (sound@ja/on/go	"gWan")
     (sound@ja/on/kan	"gen")
     (=ucs		. #x5143)	; 元
     (=mj		. 007213)	; &I-MJ007213;
