@@ -1,3 +1,25 @@
+2022-02-14  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R035-Go-Slowly.el (A-U+590F-itaiji-010): New abstract
+	node.
+	(U+590F-itaiji-010): New character; use `<-denotational' for
+	A-U+590F-itaiji-010.
+	(A-U+590F-itaiji-008): New abstract node; unify
+	A-U+590F-itaiji-009.
+	(U+590F-itaiji-008): New character; use `<-denotational' for
+	A-U+590F-itaiji-008.
+	(U+590F-itaiji-009): Ditto.
+	(A-compU+5913): New abstract node.
+	(U+5913): Add `<-denotational' for A-compU+5913; apply new
+	conventions for glyph granularity.
+	(A-U+5913-itaiji-001): New abstract node; use `<-denotational' for
+	A-compU+5913.
+	(A-U+5913-itaiji-002): Ditto.
+	(A-U+5913-itaiji-001): New character; use `<-denotational' for
+	A-U+5913-itaiji-001.
+	(A-U+5913-itaiji-002): New character; use `<-denotational' for
+	A-U+5913-itaiji-002.
+
 2022-02-12  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R032-Earth.el (U-000214F5): Apply new conventions for
