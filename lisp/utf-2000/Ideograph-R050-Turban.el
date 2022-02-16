@@ -7912,19 +7912,64 @@
       )
      ((=ucs		  . #x97CB)	; 韋
       ))
+    (sound@ja/on	"ki" "Wi")
     (=ucs		. #x5E43)	; 幃
-    (=adobe-japan1-0	. 04728)	; &I-AJ1-04728;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5E43)	; 幃
+      ))
+    (ideographic-radical . 50)	; ⼱
+    (ideographic-strokes . 9)
+    (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5DFE)	; 巾
+      )
+     ((=ucs@unicode	  . #x97CB)	; &MJ028060;
+      (=mj		  . 028060)	; &MJ028060;
+      ))
+    (=ucs@unicode	. #x5E43)	; &AJ1-20113;
+    (=adobe-japan1-0	. 04728)	; &AJ1-20113;
     (=adobe-japan1-5	. 20113)	; &I-AJ1-20113;
     (=jis-x0208		. #x566B)	; &I-J90-566B; [54-75]
     (=cns11643-1	. #x5E7C)	; &I-C1-5E7C; [62-92]
     (=jis-x0213-1	. #x566B)	; &I-JX1-566B; [54-75]
-    (=gb12345		. #x6078)	; 幃 [64-88]
+    (=gb12345		. #x6078)	; &AJ1-20113; [64-88]
     (=big5		. #xB457)	; &I-B-B457;
     (=hanyo-denshi/ft	. #x3562)	; &I-HD-FT-3562; [21-66]
     (=gt		. 11291)	; &I-GT-11291;
     (=gt-pj-1		. #x566B)	; &I-GT-11291; [54-75]
     (=daikanwa		. 08993)	; &I-M-08993;
-    (=shinjigen		.  2115)	; 幃
+    (=shinjigen		.  2115)	; &AJ1-20113;
+    (<-interchangeable
+     ((=ucs		  . #x5E37)	; 帷
+      (=daikanwa	  . 08954)	; &I-M-08954;
+      )
+     ((=ucs@unicode	  . #x8918)	; &HD-JB-5C5C;
+      (=ks-x1001	  . #x6A5C)	; &HD-JB-5C5C; [74-60]
+      (=jis-x0212	  . #x5C5C)	; &I-JSP-5C5C; [60-60]
+      (=cns11643-2	  . #x5430)	; &I-C2-5430; [52-16]
+      (=jis-x0213-1	  . #x7B70)	; &I-JX1-7B70; [91-80]
+      (=daikanwa	  . 34453)	; &I-M-34453;
+      ))
+    (<-interchangeable$_1*sources
+     shuowen-tongxun-dingsheng daikanwa)
+    (<-interchangeable$_2*sources
+     shuowen-tongxun-dingsheng daikanwa)
+    (<-interchangeable*sources
+     shuowen-tongxun-dingsheng daikanwa)
+    (->ancient
+     ((=ucs@iso		  . #x2094E)	; &C6-3D55;
+      (=cns11643-6	  . #x3D55)	; &C6-3D55; [29-53]
+      (=daikanwa	  . 02638)	; &I-M-02638;
+      ))
+    (->ancient$_1*sources
+     yupian daikanwa)
+    (->ancient*sources
+     yupian daikanwa)
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x5E43)	; 幃
