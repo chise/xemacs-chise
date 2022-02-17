@@ -142,7 +142,7 @@
     (ideographic-radical . 80)	; ⽏
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
-    (sound@ja/on	"kwan")
+    (sound@ja/on	"kWan")
     (=ucs		. #x6BCC)	; 毌
     (=adobe-japan1-4	. 14148)	; &I-AJ1-14148;
     (=jis-x0212		. #x4637)	; &I-JSP-4637; [38-23]
