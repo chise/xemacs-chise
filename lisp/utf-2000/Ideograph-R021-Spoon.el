@@ -1362,17 +1362,20 @@
     (=cns11643-6	. #x2972)	; &C6-2972; [09-82]
     (=daikanwa		. 02580)	; &I-M-02580;
     (<-Small-Seal
-     ((=ucs		  . #x5353)	; 卓
+     ((=ucs@unicode	  . #x5353)	; &AJ1-02894;
+      (=adobe-japan1-0	  . 02894)	; &I-AJ1-02894;
       ))
     (<-Small-Seal*sources
      shuowen-zhu)
     (<-ancient
-     ((=ucs		  . #x5353)	; 卓
+     ((=ucs@unicode	  . #x5353)	; &AJ1-02894;
+      (=adobe-japan1-0	  . 02894)	; &I-AJ1-02894;
       ))
     (<-ancient$_1*sources
      shuowen)
     (<-same
-     ((=ucs		  . #x5353)	; 卓
+     ((=ucs@unicode	  . #x5353)	; &AJ1-02894;
+      (=adobe-japan1-0	  . 02894)	; &I-AJ1-02894;
       (=daikanwa	  . 02741)	; &I-M-02741;
       ))
     (<-same*sources
@@ -1762,7 +1765,8 @@
     (=cns11643-6	. #x2F2D)	; &C6-2F2D; [15-13]
     (=daikanwa		. 02584)	; &I-M-02584;
     (<-ancient
-     ((=ucs		  . #x5353)	; 卓
+     ((=ucs@unicode	  . #x5353)	; &AJ1-02894;
+      (=adobe-japan1-0	  . 02894)	; &I-AJ1-02894;
       (=daikanwa	  . 02741)	; &I-M-02741;
       ))
     (<-ancient*sources
@@ -2068,7 +2072,8 @@
     (=cns11643-6	. #x3560)	; &C6-3560; [21-64]
     (=daikanwa		. 02588)	; &I-M-02588;
     (<-ancient
-     ((=ucs		  . #x5353)	; 卓
+     ((=ucs@unicode	  . #x5353)	; &AJ1-02894;
+      (=adobe-japan1-0	  . 02894)	; &I-AJ1-02894;
       (=daikanwa	  . 02741)	; &I-M-02741;
       ))
     (<-ancient*sources
@@ -2254,7 +2259,8 @@
     (=cns11643-6	. #x3D54)	; &C6-3D54; [29-52]
     (=daikanwa		. 02587)	; &I-M-02587;
     (<-ancient
-     ((=ucs		  . #x5353)	; 卓
+     ((=ucs@unicode	  . #x5353)	; &AJ1-02894;
+      (=adobe-japan1-0	  . 02894)	; &I-AJ1-02894;
       (=daikanwa	  . 02741)	; &I-M-02741;
       ))
     (<-ancient*sources
