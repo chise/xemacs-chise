@@ -138,6 +138,83 @@
 
 2022-02-16  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R066-Rap.el (U-0002BFA6): New character.
+	(U-00022F21): Apply new conventions for glyph granularity.
+
+	* Ideograph-R060-Step.el (MJ059589): Add `ideographic-structure'.
+	(U+5FAB): Apply new conventions for glyph granularity.
+
+	* Ideograph-R058-Snout.el (UU+5F51): Unify <CJK RADICAL SNOUT
+	ONE>.
+	(A-U+5F51-itaiji-004): New abstract node.
+	(U+5F51-itaiji-004): New character; use `<-denotational' for
+	A-U+5F51-itaiji-004.
+	(U+5F52): Apply new conventions for glyph granularity.
+	(A-cgnBC-89E5): New abstract node.
+	(A-BC-89E5): New abstract node; use `<-denotational' for
+	A-cgnBC-89E5.
+	(A-U+20B22-itaiji-003): New abstract node; use `<-denotational'
+	for A-cgnBC-89E5.
+	(U+20B22-itaiji-003): New character; use `<-denotational' for
+	A-U+20B22-itaiji-003.
+	(A-IWDSU+5F51-itaiji-003): New abstract node.
+	(A-U+5F51-itaiji-003): New abstract node; use `<-denotational' for
+	A-IWDSU+5F51-itaiji-003.
+	(U+5F51-itaiji-003): New character; use `<-denotational' for
+	A-U+5F51-itaiji-003.
+	(A-U+5F50-itaiji-003): New abstract node; use `<-denotational' for
+	A-IWDSU+5F51-itaiji-003; unify A-U+5F50-itaiji-004 and
+	A-U+5F50-itaiji-005.
+	(U+5F50-itaiji-003): New character; use `<-denotational' for
+	A-U+5F50-itaiji-003.
+	(U+5F50-itaiji-004): Ditto.
+	(U+5F50-itaiji-005): Ditto.
+	(BC-89E5): New character; use `<-denotational' for A-BC-89E5.
+	(A-U+2245E-itaiji-003): New abstract node.
+	(U+2245E-itaiji-003): New character; use `<-denotational' for
+	A-U+2245E-itaiji-003.
+	(A-U+38C7-itaiji-012): New abstract node; use `<-denotational' for
+	A-cgnU+38C7.
+	(A-CB12952): New abstract node; use `<-denotational' for
+	A-cgnU+38C7.
+	(U+38C7-itaiji-012): New character; use `<-denotational' for
+	A-U+38C7-itaiji-012.
+	(CB12952): New character; use `<-denotational' for A-CB12952.
+	(A-U+2245E-itaiji-002): New abstract node.
+	(U+2245E-itaiji-002): New character; use `<-denotational' for
+	A-U+2245E-itaiji-002.
+	(U+5F56): Add `sound@ja/on'.
+	(UU+5F56): Add `<-interchangeable' for UU+63BE.
+	(A-U+5F55-itaiji-001): New abstract node.
+	(U+5F55-itaiji-001): New character; use `<-denotational' for
+	A-U+5F55-itaiji-001.
+	(A-IWDSU+2245E-itaiji-001): New abstract node.
+	(A-U+2245E-itaiji-001): New abstract node; use `<-denotational'
+	for A-IWDSU+2245E-itaiji-001.
+	(U+2245E-itaiji-001): New character; use `<-denotational' for
+	A-U+2245E-itaiji-001.
+	(A-U+675F-itaiji-007): Add `<-denotational' for
+	A-IWDSU+2245E-itaiji-001; modify structure.
+	(U-00022464): Apply new conventions for glyph granularity.
+	(A-IWDSU+5F59): Modify structure; add an apparent field based on
+	the previous structure.
+	(U+5F59): Apply new conventions for glyph granularity.
+	(U+5F5A): Modify structure.
+	(U-00022465): New character.
+	(U-0002246D): New character.
+	(U-0002246F): Modify structure.
+	(U-00022473): Apply new conventions for glyph granularity.
+	(U-0002247B): New character.
+	(U-0002247D): Apply new conventions for glyph granularity.
+
+	* Ideograph-R050-Turban.el (U+5E43): Apply new conventions for
+	glyph granularity.
+
+2022-02-16  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R005-Second.el (U+4E7E): Apply new conventions for
+	glyph granularity.
+
 	* Ideograph-R034-Go.el (A-BC-89F3): New abstract node.
 	(BC-89F3): New character.
 

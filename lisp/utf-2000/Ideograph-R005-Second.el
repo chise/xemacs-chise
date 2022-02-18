@@ -3822,10 +3822,11 @@
     (<-formed*sources
      hng)
     (<-vulgar
-     ((=ucs		  . #x4E7E)	; 乾
+     ((=ucs@unicode	  . #x4E7E)	; &AJ1-01505;
+      (=adobe-japan1-0	  . 01505)	; &AJ1-01505;
       (=jis-x0208	  . #x3425)	; &I-J90-3425; [20-05]
       (=daikanwa	  . 00204)	; &I-M-00204;
-      (=shinjigen	  .  0064)	; 乾
+      (=shinjigen	  .  0064)	; &AJ1-01505;
       ))
     (<-vulgar*sources
      jiyun zhengzitong daikanwa shinjigen)
@@ -4387,12 +4388,38 @@
     (ideographic-radical . 5)	; ⼄
     (ideographic-strokes . 10)
     (total-strokes	 . 11)
-    (hanyu-dazidian	1 56 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=>ucs-itaiji-005	  . #x501D)	; &A-U-i005+501D;
+      )
+     ((=>ucs@component	  . #x4E59)	; &A-compU+4E59;
+      (=>iwds-1		  .  0340)	; &A-compU+4E59;
+      ))
     (sound@ja/kun	"kawa+k5" "ho+s5" "inui")
     (sound@ja/on	"kan")
     (sound@ja/on/kan	"ken")
     (=ucs		. #x4E7E)	; 乾
-    (=adobe-japan1-0	. 01505)	; &I-AJ1-01505;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x4E7E)	; 乾
+      ))
+    (ideographic-radical . 5)	; ⼄
+    (ideographic-strokes . 10)
+    (total-strokes	 . 11)
+    (hanyu-dazidian	1 56 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs-itaiji-005	  . #x501D)	; &U-i005+501D;
+      )
+     ((=ucs		  . #x4E59)	; 乙
+      ))
+    (=ucs@unicode	. #x4E7E)	; &AJ1-01505;
+    (=adobe-japan1-0	. 01505)	; &AJ1-01505;
     (=jis-x0208		. #x3425)	; &I-J90-3425; [20-05]
     (=gb2312		. #x472C)	; &I-G0-472C; [39-12]
     (=ks-x1001		. #x4B6B)	; &I-K0-4B6B; [43-75]
@@ -4404,7 +4431,7 @@
     (=gt-pj-1		. #x3425)	; &I-GT-00272; [20-05]
     (=daikanwa		. 00204)	; &I-M-00204;
     (=daijiten		. 00118)	; &I-DJT-00118;
-    (=shinjigen		.  0064)	; 乾
+    (=shinjigen		.  0064)	; &AJ1-01505;
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x4E7E)	; 乾
