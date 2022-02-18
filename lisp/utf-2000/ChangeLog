@@ -1,5 +1,12 @@
 2022-02-17  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R001-One.el (U-00030012): New character.
+	(hanaJU+30012): New character; use `<-denotational' for
+	U-00030012.
+	(RUI6-E0FF): Add `<-denotational' for U-00030012.
+	(A-GT-K07242): New abstract node.
+	(GT-K07242): New character; use `<-denotational' for A-GT-K07242.
+
 	* Ideograph-R086-Fire.el (A-GT-K00803): New abstract node.
 	(GT-K00803): New character.
 	(U+706E): Add `ideographic-structure'.
