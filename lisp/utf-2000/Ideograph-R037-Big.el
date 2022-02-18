@@ -965,8 +965,18 @@
   '((<-denotational@component
      ((=>ucs@iwds-1	  . #x215DC)	; &A-IWDSU+215DC;
       ))
+    (ideographic-radical . 37)	; ⼤
+    (=>ucs@iwds-1	. #x215D5)	; &A-IWDSU+215D5;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@iwds-1	  . #x215D5)	; &A-IWDSU+215D5;
+      ))
+    (<-denotational@component
+     ((=>ucs@iwds-1	  . #x215DC)	; &A-IWDSU+215DC;
+      ))
     (<-denotational@usage
-     ((==>daijiten	  . 00154)	; &A2-DJT-00154;
+     ((==>ucs@bucs	  . #x4EA6)	; &BUCS+4EA6;
       ))
     (ideographic-radical . 37)	; ⼤
     (ideographic-strokes . 2)
