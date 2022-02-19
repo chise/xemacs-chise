@@ -43,6 +43,11 @@
     (<-Small-Seal@shuowen
      ((=ucs		  . #x24564)	; 𤕤
       ))
+    (<-Zhouwen@shuowen
+     ((=shuowen-jiguge	  . 10109)	; &SW-JIGUGE-10109;
+      )
+     ((=ucs		  . #x723D)	; 爽
+      ))
     (->subsumptive
      ((===shuowen-jiguge5 . 10110)	; &SW-JIGUGE5-10110;
       )
