@@ -537,6 +537,11 @@
      ((=ucs		  . #x3E1A)	; 㸚
       ))
     (=ucs		. #x24564)	; 𤕤
+    (<-Zhouwen
+     ((=ucs		  . #x723D)	; 爽
+      ))
+    (<-Zhouwen*sources
+     shuowen)
     ))
 (define-char
   '((<-denotational
