@@ -4303,7 +4303,8 @@
       (=adobe-japan1-0	  . 02648)	; &AJ1-02648;
       (=daikanwa	  . 14693)	; &I-M-14693;
       )
-     ((=ucs		  . #x68F2)	; 棲
+     ((=ucs@unicode	  . #x68F2)	; &AJ1-02647;
+      (=adobe-japan1-0	  . 02647)	; &AJ1-02647;
       (=daikanwa	  . 14980)	; &I-M-14980;
       ))
     (<-interchangeable$_1*sources
