@@ -1151,7 +1151,8 @@
     (=cns11643-6	. #x266D)	; &I-C6-266D; [06-77]
     (=daikanwa		. 05761)	; &I-M-05761;
     (<-ancient
-     ((=ucs		  . #x4EA6)	; 亦
+     ((=ucs@unicode	  . #x4EA6)	; &AJ1-03744;
+      (=adobe-japan1-0	  . 03744)	; &AJ1-03744;
       (=daikanwa	  . 00293)	; &I-M-00293;
       ))
     (<-ancient*sources
