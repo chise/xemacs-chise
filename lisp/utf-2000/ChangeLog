@@ -1,3 +1,8 @@
+2022-02-20  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R005-Second.el (U-000200F5): Apply new conventions for
+	glyph granularity.
+
 2022-02-18  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R037-Big.el (A-IWDSU+215D5): New abstract node; use

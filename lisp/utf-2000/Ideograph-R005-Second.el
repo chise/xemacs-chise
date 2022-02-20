@@ -4238,7 +4238,6 @@
   '((ideographic-radical . 5)	; ⼄
     (ideographic-strokes . 8)
     (total-strokes	 . 9)
-    (hanyu-dazidian	1 56 3)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -4248,16 +4247,40 @@
      ((=ucs		  . #x4E5A)	; 乚
       ))
     (=ucs		. #x200F5)	; 𠃵
-    (=adobe-japan1-5	. 20057)	; &I-AJ1-20057;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x200F5)	; 𠃵
+      ))
+    (ideographic-radical . 5)	; ⼄
+    (ideographic-strokes . 8)
+    (total-strokes	 . 9)
+    (hanyu-dazidian	1 56 3)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs@unicode	  . #x5353)	; &AJ1-02894;
+      (=adobe-japan1-0	  . 02894)	; &AJ1-02894;
+      )
+     ((name		  . "CJK RADICAL SECOND TWO")
+      (=ucs		  . #x2E83)	; ⺃
+      ))
+    (=ucs@iso		. #x200F5)	; &AJ1-20057;
+    (=adobe-japan1-5	. 20057)	; &AJ1-20057;
+    (=cbeta		. 00371)	; &I-CB00371;
     (->subsumptive
      ((==ucs@iso	  . #x200F5)	; &g2-AJ1-20057;
       (==adobe-japan1-5	  . 20057)	; &g2-AJ1-20057;
+      (==cbeta		  . 00371)	; &g2-AJ1-20057;
       (->subsumptive
        ((===adobe-japan1-5  . 20057)	; &R-AJ1-20057;
 	)
        ((===ucs@iso	    . #x200F5)	; &R-U-000200F5;
 	)
        ((=hanziku-1	    . #xAFA5)	; &HZK01-AFA5;
+	)
+       ((===cbeta	    . 00371)	; &R-CB00371;
 	))
       ))
     ))
