@@ -1,3 +1,12 @@
+2022-02-18  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R037-Big.el (A-IWDSU+215D5): New abstract node; use
+	`<-denotational@component' for A-IWDSU+215DC.
+	(U-000215D5): Add `<-denotational' for A-IWDSU+215D5.
+
+	* Ideograph-R020-Wrap.el (IU+208F3): Use UU+5353 instead of
+	U+5353.
+
 2022-02-17  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R001-One.el (U-00030012): New character.
@@ -144,6 +153,8 @@
 	etc.
 
 2022-02-16  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R072-Sun.el (U-00023241): New character.
 
 	* Ideograph-R066-Rap.el (U-0002BFA6): New character.
 	(U-00022F21): Apply new conventions for glyph granularity.
@@ -292,6 +303,11 @@
 	A-U+5913-itaiji-001.
 	(A-U+5913-itaiji-002): New character; use `<-denotational' for
 	A-U+5913-itaiji-002.
+
+2022-02-13  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR076.el (SW-JIGUGE-09004): Add AJ1-15391 as a
+	corresponding modern character.
 
 2022-02-12  MORIOKA Tomohiko  <tomo.git@chise.org>
 
