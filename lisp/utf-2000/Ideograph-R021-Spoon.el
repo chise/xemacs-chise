@@ -1363,19 +1363,19 @@
     (=daikanwa		. 02580)	; &I-M-02580;
     (<-Small-Seal
      ((=ucs@unicode	  . #x5353)	; &AJ1-02894;
-      (=adobe-japan1-0	  . 02894)	; &I-AJ1-02894;
+      (=adobe-japan1-0	  . 02894)	; &AJ1-02894;
       ))
     (<-Small-Seal*sources
      shuowen-zhu)
     (<-ancient
      ((=ucs@unicode	  . #x5353)	; &AJ1-02894;
-      (=adobe-japan1-0	  . 02894)	; &I-AJ1-02894;
+      (=adobe-japan1-0	  . 02894)	; &AJ1-02894;
       ))
     (<-ancient$_1*sources
      shuowen)
     (<-same
      ((=ucs@unicode	  . #x5353)	; &AJ1-02894;
-      (=adobe-japan1-0	  . 02894)	; &I-AJ1-02894;
+      (=adobe-japan1-0	  . 02894)	; &AJ1-02894;
       (=daikanwa	  . 02741)	; &I-M-02741;
       ))
     (<-same*sources
@@ -1766,7 +1766,7 @@
     (=daikanwa		. 02584)	; &I-M-02584;
     (<-ancient
      ((=ucs@unicode	  . #x5353)	; &AJ1-02894;
-      (=adobe-japan1-0	  . 02894)	; &I-AJ1-02894;
+      (=adobe-japan1-0	  . 02894)	; &AJ1-02894;
       (=daikanwa	  . 02741)	; &I-M-02741;
       ))
     (<-ancient*sources
@@ -2073,7 +2073,7 @@
     (=daikanwa		. 02588)	; &I-M-02588;
     (<-ancient
      ((=ucs@unicode	  . #x5353)	; &AJ1-02894;
-      (=adobe-japan1-0	  . 02894)	; &I-AJ1-02894;
+      (=adobe-japan1-0	  . 02894)	; &AJ1-02894;
       (=daikanwa	  . 02741)	; &I-M-02741;
       ))
     (<-ancient*sources
@@ -2260,7 +2260,7 @@
     (=daikanwa		. 02587)	; &I-M-02587;
     (<-ancient
      ((=ucs@unicode	  . #x5353)	; &AJ1-02894;
-      (=adobe-japan1-0	  . 02894)	; &I-AJ1-02894;
+      (=adobe-japan1-0	  . 02894)	; &AJ1-02894;
       (=daikanwa	  . 02741)	; &I-M-02741;
       ))
     (<-ancient*sources
