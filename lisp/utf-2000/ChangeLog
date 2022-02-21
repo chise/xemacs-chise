@@ -1,5 +1,8 @@
 2022-02-20  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R030-Mouth.el (U+5545): Apply new conventions for
+	glyph granularity.
+
 	* Ideograph-R005-Second.el (U-000200F5): Apply new conventions for
 	glyph granularity.
 
