@@ -1,5 +1,16 @@
 2022-02-20  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R047-River.el (IU+21FE8): Fixed an empty node existing
+	[add G-IU+21FE8].
+
+	* Ideograph-R008-Lid.el (U+2CF44-itaiji-001): New character.
+	(U+4EA6): Apply new conventions for glyph granularity.
+	(U-0002CF44): New character; use `<-denotational' for
+	A-IWDSU+215D5; use `<-denotational@usage' for BUCS+4EA6.
+	(A2-DJT-00154): Unify BUCS+4EA6.
+
+2022-02-20  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R030-Mouth.el (U+5545): Apply new conventions for
 	glyph granularity.
 
