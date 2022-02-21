@@ -2813,7 +2813,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=ucs		  . #x5353)	; 卓
+     ((=ucs@unicode	  . #x5353)	; &AJ1-02894;
+      (=adobe-japan1-0	  . 02894)	; &AJ1-02894;
       )
      ((=ucs@unicode	  . #x6BB3)	; &MJ014908;
       (=mj		  . 014908)	; &MJ014908;
