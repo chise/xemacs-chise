@@ -5579,22 +5579,56 @@
     ))
 (define-char
   '((ideographic-radical . 77)	; ⽌
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5353)	; 卓
+      )
+     ((=>ucs@iwds-1	  . #x6B65)	; &A-IWDSU+6B65;
+      ))
+    (=ucs		. #x23996)	; 𣦖
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x23996)	; 𣦖
+      ))
+    (ideographic-radical . 77)	; ⽌
     (ideographic-strokes . 11)
     (total-strokes	 . 15)
-    (=ucs		. #x23996)	; 𣦖
-    (->subsumptive
-     ((=daikanwa	  . 16338)	; &M-16338;
-      (<-same
-       ((=ucs		    . #x4E7E)	; 乾
-	(=daikanwa	    . 00204)	; &I-M-00204;
-	))
-      (<-same*sources
-       zihui-bu daikanwa)
+    (hanyu-dazidian	2 1445 4)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
       )
-     ((hanyu-dazidian	  2 1445 4)
-      (=ucs@iso		  . #x23996)	; &C7-2423;
-      (=cns11643-7	  . #x2423)	; &C7-2423; [04-03]
-      (=hanziku-4	  . #xD3D3)	; &I-HZK04-D3D3;
+     ((=ucs@unicode	  . #x5353)	; &AJ1-02894;
+      (=adobe-japan1-0	  . 02894)	; &AJ1-02894;
+      )
+     ((=ucs@unicode	  . #x6B65)	; &AJ1-13386;
+      (=adobe-japan1-4	  . 13386)	; &AJ1-13386;
+      ))
+    (=ucs@iso		. #x23996)	; &C7-2423;
+    (=cns11643-7	. #x2423)	; &C7-2423; [04-03]
+    (=daikanwa		. 16338)	; &I-M-16338;
+    (<-same
+     ((=ucs@unicode	  . #x4E7E)	; &AJ1-01505;
+      (=adobe-japan1-0	  . 01505)	; &AJ1-01505;
+      (=daikanwa	  . 00204)	; &I-M-00204;
+      ))
+    (<-same*sources
+     zihui-bu daikanwa)
+    (->subsumptive
+     ((==daikanwa	  . 16338)	; &g2-M-16338;
+      )
+     ((==ucs@iso	  . #x23996)	; &g2-IU-00023996;
+      (==cns11643-7	  . #x2423)	; &g2-IU-00023996; [04-03]
+      (->subsumptive
+       ((===cns11643-7	    . #x2423)	; &R-C7-2423; [04-03]
+	)
+       ((===ucs@iso	    . #x23996)	; &R-U-00023996;
+	)
+       ((=hanziku-4	    . #xD3D3)	; &HZK04-D3D3;
+	))
       ))
     ))
 (define-char
