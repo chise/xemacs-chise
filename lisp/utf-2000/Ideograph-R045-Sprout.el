@@ -617,6 +617,9 @@
     (<-ancient
      ((=ucs@unicode	  . #x9738)	; &AJ1-05140;
       (=adobe-japan1-0	  . 05140)	; &AJ1-05140;
+      )
+     ((=ucs@unicode	  . #x621F)	; &AJ1-01847;
+      (=adobe-japan1-0	  . 01847)	; &AJ1-01847;
       ))
     (<-ancient$_1*sources
      jiyun)
@@ -625,7 +628,8 @@
       (=adobe-japan1-4	  . 13709)	; &AJ1-13709;
       (=daikanwa	  . 38849)	; &I-M-38849;
       )
-     ((=ucs		  . #x621F)	; 戟
+     ((=ucs@unicode	  . #x621F)	; &AJ1-01847;
+      (=adobe-japan1-0	  . 01847)	; &AJ1-01847;
       (=daikanwa	  . 11606)	; &I-M-11606;
       ))
     (<-interchangeable$_1*sources
