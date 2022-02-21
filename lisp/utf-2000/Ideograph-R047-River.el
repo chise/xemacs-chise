@@ -207,7 +207,11 @@
     (->ancient*sources
      shuowen daikanwa)
     (->subsumptive
-     ((->subsumptive
+     ((=>>ucs@iso	  . #x21FE8)	; &G-GT-10940;
+      (=>>cns11643-4	  . #x2125)	; &G-GT-10940; [01-05]
+      (=>>gt		  . 10940)	; &G-GT-10940;
+      (=>>daikanwa	  . 08671)	; &G-GT-10940;
+      (->subsumptive
        ((==ucs@iso	    . #x21FE8)	; &g2-GT-10940;
 	(==cns11643-4	    . #x2125)	; &g2-GT-10940; [01-05]
 	(==gt		    . 10940)	; &g2-GT-10940;
