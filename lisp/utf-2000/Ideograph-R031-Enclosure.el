@@ -8960,18 +8960,54 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 31)	; ⼞
+  '((<-denotational@usage
+     ((==>ucs@bucs	  . #x7344)	; &BUCS+7344;
+      ))
+    (ideographic-radical . 31)	; ⼞
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
+      (=ucs		  . #x2FF4)	; ⿴
+      )
+     ((=ucs		  . #x56D7)	; 囗
+      )
+     ((=ucs		  . #x7344)	; 獄
+      ))
+    (=ucs		. #x2122D)	; 𡈭
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2122D)	; 𡈭
+      ))
+    (ideographic-radical . 31)	; ⼞
     (ideographic-strokes . 14)
     (total-strokes	 . 17)
     (hanyu-dazidian	1 727 4)
-    (=ucs		. #x2122D)	; 𡈭
-    (=cns11643-7	. #x373C)	; &I-C7-373C; [23-28]
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
+      (=ucs		  . #x2FF4)	; ⿴
+      )
+     ((=ucs		  . #x56D7)	; 囗
+      )
+     ((=ucs@unicode	  . #x7344)	; &AJ1-02056;
+      (=adobe-japan1-0	  . 02056)	; &AJ1-02056;
+      ))
+    (=ucs@iso		. #x2122D)	; &C7-373C;
+    (=cns11643-7	. #x373C)	; &C7-373C; [23-28]
     (=daikanwa		. 04855)	; &I-M-04855;
-    (=shinjigen		.  7639)	; 𡈭
+    (=daijiten		. 01652)	; &I-DJT-01652;
+    (=shinjigen		.  7639)	; &C7-373C;
+    (<-ancient
+     ((=ucs@unicode	  . #x7344)	; &AJ1-02056;
+      (=adobe-japan1-0	  . 02056)	; &AJ1-02056;
+      (=daikanwa	  . 20603)	; &I-M-20603;
+      ))
+    (<-ancient*sources
+     yupian daikanwa)
     (<-vulgar
-     ((=ucs		  . #x7344)	; 獄
+     ((=ucs@unicode	  . #x7344)	; &AJ1-02056;
+      (=adobe-japan1-0	  . 02056)	; &AJ1-02056;
       (=jis-x0208	  . #x3976)	; &I-J90-3976; [25-86]
-      (=shinjigen	  .  7638)	; 獄
+      (=shinjigen	  .  7638)	; &AJ1-02056;
       ))
     (<-vulgar*sources
      shinjigen)
@@ -8979,7 +9015,13 @@
      ((==daikanwa	  . 04855)	; &g2-M-04855;
       (==shinjigen	  .  7639)	; &g2-M-04855;
       )
-     ((==ucs@iso	  . #x2122D)	; &g2-IU-0002122D;
+     ((==ucs@iso	  . #x2122D)	; &g2-DJT-01652;
+      (==daijiten	  . 01652)	; &g2-DJT-01652;
+      (->subsumptive
+       ((===daijiten	    . 01652)	; &R-DJT-01652;
+	)
+       ((===ucs@iso	    . #x2122D)	; &R-U-0002122D;
+	))
       )
      ((==ucs@cns	  . #x2122D)	; &g2-CU+2122D;
       (==cns11643-7	  . #x373C)	; &g2-CU+2122D; [23-28]
