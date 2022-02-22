@@ -1,3 +1,15 @@
+2022-02-21  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R077-Stop.el (U-00023996): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R050-Turban.el (U+5E1F): Add `<-denotational@usage'
+	for A2-DJT-02823; apply new conventions for glyph granularity.
+	(A2-DJT-02823): New abstract node.
+
+	* Ideograph-R045-Sprout.el (UU+5C70): Add UU+621F as a target of
+	`<-ancient'.
+
 2022-02-20  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R047-River.el (IU+21FE8): Fixed an empty node existing
@@ -16,6 +28,9 @@
 
 	* Ideograph-R005-Second.el (U-000200F5): Apply new conventions for
 	glyph granularity.
+
+	* Ideograph-R089-Double-X.el (U-00024564): Add `<-Zhouwen' for
+	U+723D.
 
 2022-02-18  MORIOKA Tomohiko  <tomo.git@chise.org>
 
