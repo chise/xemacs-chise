@@ -1,5 +1,13 @@
 2022-02-22  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R031-Enclosure.el (U-0002122D): Apply new conventions
+	for glyph granularity; add `<-denotational@usage' for BUCS+7344.
+
+2022-02-22  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R030-Mouth.el (U+5692): New character.
+	(U+56B8): New character.
+
 	* Ideograph-R037-Big.el (U+5932-itaiji-004): New character; use
 	`<-denotational' for U+5932.
 	(U+5955): Apply new conventions for glyph granularity for
@@ -7,6 +15,15 @@
 	(U-00021669): Apply new conventions for glyph granularity.
 
 2022-02-21  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R055-Two-Hands.el (A-IWDSU+5955-itaiji-001): New
+	abstract node; use `<-denotational' for A-cgnU+5F08.
+	(A-U+5955-itaiji-001): New abstract node; use `<-denotational' for
+	A-IWDSU+5955-itaiji-001.
+	(U+5955-itaiji-001): New character; use `<-denotational' for
+	A-U+5955-itaiji-001.
+	(HNG-KAR0114-0): Use `<-subsumptive' for g2-U+5955-itaiji-001
+	instead of `<-denotational' for A-cgnU+5F08.
 
 	* Ideograph-R034-Go.el (U+5909): Apply new conventions for glyph
 	granularity.

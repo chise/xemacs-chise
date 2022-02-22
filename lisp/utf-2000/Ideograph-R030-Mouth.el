@@ -75539,6 +75539,43 @@
     ))
 (define-char
   '((ideographic-radical . 30)	; ⼝
+    (ideographic-strokes . 14)
+    (total-strokes	 . 17)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x53E3)	; 口
+      )
+     ((=ucs		  . #x9EBC)	; 麼
+      ))
+    (=ucs		. #x5692)	; 嚒
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5692)	; 嚒
+      ))
+    (ideographic-radical . 30)	; ⼝
+    (ideographic-strokes . 14)
+    (total-strokes	 . 17)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x53E3)	; 口
+      )
+     ((=ucs@unicode	  . #x9EBC)	; &HD-FT-3564;
+      (=hanyo-denshi/ft	  . #x3564)	; &HD-FT-3564; [21-68]
+      ))
+    (=ucs@unicode	. #x5692)	; &UU+5692;
+    (=ucs@JP/hanazono	. nil)
+    (->subsumptive
+     ((==ucs@unicode	  . #x5692)	; &g2-UU+5692;
+      (==ucs@JP/hanazono  . nil)
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 30)	; ⼝
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -83012,6 +83049,44 @@
        ((===cns11643-3	    . #x5C35)	; &R-C3-5C35; [60-21]
 	)
        ((===ucs@unicode	    . #x3614)	; &R-UU+3614;
+	))
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 30)	; ⼝
+    (ideographic-strokes . 17)
+    (total-strokes	 . 20)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x53E3)	; 口
+      )
+     ((=>ucs@iwds-1	  . #x9EDE)	; &A-IWDSU+9EDE;
+      ))
+    (=ucs		. #x56B8)	; 嚸
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x56B8)	; 嚸
+      ))
+    (ideographic-radical . 30)	; ⼝
+    (ideographic-strokes . 17)
+    (total-strokes	 . 20)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x53E3)	; 口
+      )
+     ((=ucs@unicode	  . #x9EDE)	; &AJ1-07437;
+      (=adobe-japan1-0	  . 07437)	; &AJ1-07437;
+      ))
+    (=ucs@unicode	. #x56B8)	; &UU+56B8;
+    (->subsumptive
+     ((==ucs@unicode	  . #x56B8)	; &g2-UU+56B8;
+      (->subsumptive
+       ((===ucs@unicode	    . #x56B8)	; &R-UU+56B8;
 	))
       ))
     ))
