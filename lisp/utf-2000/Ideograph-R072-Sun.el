@@ -18553,6 +18553,8 @@
       )
      ((=ucs		  . #x768B)	; 皋
       ))
+    (sound@ja/on/go	"gou" "gAu")
+    (sound@ja/on/kan	"kAu" "kAu")
     (=ucs		. #x66A4)	; 暤
     ))
 (define-char
@@ -18562,7 +18564,41 @@
     (ideographic-radical . 72)	; ⽇
     (ideographic-strokes . 10)
     (total-strokes	 . 14)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x65E5)	; 日
+      )
+     ((=ucs-itaiji-001	  . #x768B)	; &U-i001+768B;
+      ))
     (=daikanwa		. 14101)	; &M-14101;
+    (<-interchangeable
+     ((=ucs@unicode	  . #x660A)	; &AJ1-05092;
+      (=adobe-japan1-0	  . 05092)	; &AJ1-05092;
+      (=daikanwa	  . 13799)	; &I-M-13799;
+      ))
+    (<-interchangeable$_1*sources
+     shuowen-tongxun-dingsheng zhengzitong daikanwa)
+    (<-interchangeable*sources
+     shuowen-tongxun-dingsheng zhengzitong daikanwa)
+    (->vulgar
+     ((=ucs		  . #x76A5)	; 皥
+      (=daikanwa	  . 22787)	; &I-M-22787;
+      )
+     ((=ucs@unicode	  . #x769E)	; &AJ1-08568;
+      (=adobe-japan1-2	  . 08568)	; &AJ1-08568;
+      (=daikanwa	  . 22771)	; &I-M-22771;
+      ))
+    (->vulgar$_1*sources
+     shuowen-tongxun-dingsheng daikanwa)
+    (->vulgar$_2*sources
+     shuowen-zhu daikanwa)
+    (->vulgar*sources
+     daikanwa)
+    (->subsumptive
+     ((==daikanwa	  . 14101)	; &g2-M-14101;
+      ))
     ))
 (define-char
   '((<-denotational
@@ -18586,8 +18622,9 @@
     (=cns11643-3	. #x4739)	; &I-C3-4739; [39-25]
     (=shinjigen		.  5217)	; &AJ1-14610;
     (<-formed
-     ((=ucs		  . #x769E)	; 皞
-      (=shinjigen	  .  5216)	; 皞
+     ((=ucs@unicode	  . #x769E)	; &AJ1-08568;
+      (=adobe-japan1-2	  . 08568)	; &AJ1-08568;
+      (=shinjigen	  .  5216)	; &AJ1-08568;
       ))
     (<-formed*sources
      shinjigen)
@@ -20551,8 +20588,9 @@
     (=cns11643-3	. #x5122)	; &I-C3-5122; [49-02]
     (=shinjigen		.  5218)	; 曍
     (<-vulgar
-     ((=ucs		  . #x769E)	; 皞
-      (=shinjigen	  .  5216)	; 皞
+     ((=ucs@unicode	  . #x769E)	; &AJ1-08568;
+      (=adobe-japan1-2	  . 08568)	; &AJ1-08568;
+      (=shinjigen	  .  5216)	; &AJ1-08568;
       ))
     (<-vulgar*sources
      shinjigen)
