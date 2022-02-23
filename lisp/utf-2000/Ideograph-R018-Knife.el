@@ -4326,6 +4326,40 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
+     ((=>ucs@component	  . #x5200)	; &A-compU+5200;
+      (=>iwds-1		  .  0149)	; &A-compU+5200;
+      )
+     ((=ucs		  . #x4E11)	; 丑
+      ))
+    (=>ucs-itaiji-001	. #x2CED1)	; &A-U-i001+2CED1;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs-itaiji-001	  . #x2CED1)	; &A-U-i001+2CED1;
+      ))
+    (ideographic-radical . 18)	; ⼑
+    (ideographic-strokes . 4)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((name		  . "CJK RADICAL KNIFE ONE")
+      (=ucs		  . #x2E88)	; ⺈
+      )
+     ((=ucs@unicode	  . #x4E11)	; &GT-00035;
+      (=gb2312		  . #x3373)	; &GT-00035; [19-83]
+      ))
+    (=ucs-itaiji-001	. #x2CED1)	; &U-i001+2CED1;
+    ))
+(define-char
+  '((ideographic-radical . 18)	; ⼑
+    (ideographic-strokes . 4)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
      ((=ucs		  . #x5200)	; 刀
       )
      ((=big5-cdp	  . #x89AE)	; &CDP-89AE;
@@ -4336,6 +4370,32 @@
       ))
     (->subsumptive
      ((==ruimoku-v6	  . #xE02E)	; &g2-RUI6-E02E;
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs-itaiji-001	  . #x2CED1)	; &A-U-i001+2CED1;
+      ))
+    (ideographic-radical . 18)	; ⼑
+    (ideographic-strokes . 4)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((name		  . "CJK RADICAL KNIFE ONE")
+      (=ucs		  . #x2E88)	; ⺈
+      )
+     ((=ucs@cns		  . #x4E11)	; &MJ006315;
+      (=ucs@jis		  . #x4E11)	; &MJ006315;
+      (=ucs@ks		  . #x4E11)	; &MJ006315;
+      (=mj		  . 006315)	; &MJ006315;
+      ))
+    (=gt-k		. 02228)	; &GT-K02228;
+    (=gt-pj-k1		. #x5B72)	; &GT-K02228; [59-82]
+    (->subsumptive
+     ((==gt-k		  . 02228)	; &g2-GT-K02228;
+      (==gt-pj-k1	  . #x5B72)	; &g2-GT-K02228; [59-82]
       ))
     ))
 (define-char
@@ -4352,7 +4412,9 @@
      ((name		  . "CJK RADICAL KNIFE ONE")
       (=ucs		  . #x2E88)	; ⺈
       )
-     ((=ucs		  . #x2626A)	; 𦉪
+     ((=ucs@iso		  . #x2626A)	; &GT-36324;
+      (=cns11643-6	  . #x2229)	; &GT-36324; [02-09]
+      (=daikanwa	  . 28202)	; &I-M-28202;
       ))
     (=gt-k		. 02232)	; &GT-K02232;
     (=gt-pj-k1		. #x3070)	; &GT-K02232; [16-80]
