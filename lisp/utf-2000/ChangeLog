@@ -1,9 +1,13 @@
 2022-02-22  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R062-Halberd.el (U+621F): Add `<-denotational@usage'
+	for BUCS+621F; apply new conventions for glyph granularity.
+	(U+39B8): Apply new conventions for glyph granularity.
+	(U-000229E2): Add `sound@ja/on'.
+	(BUCS+621F): New abstract node; unify A2-DJT-03622.
+
 	* Ideograph-R031-Enclosure.el (U-0002122D): Apply new conventions
 	for glyph granularity; add `<-denotational@usage' for BUCS+7344.
-
-2022-02-22  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R030-Mouth.el (U+5692): New character.
 	(U+56B8): New character.
@@ -15,6 +19,10 @@
 	(U-00021669): Apply new conventions for glyph granularity.
 
 2022-02-21  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R072-Sun.el (U+66A4): Add `sound@ja/on/{kan|go}'.
+	(M-14101): Add `ideographic-structure'; add some relations for
+	other characters.
 
 	* Ideograph-R055-Two-Hands.el (A-IWDSU+5955-itaiji-001): New
 	abstract node; use `<-denotational' for A-cgnU+5F08.
