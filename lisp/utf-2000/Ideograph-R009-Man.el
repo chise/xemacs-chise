@@ -18984,7 +18984,6 @@
   '((ideographic-radical . 9)	; ⼈
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
-    (hanyu-dazidian	1 152 3)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -18993,8 +18992,29 @@
       )
      ((=ucs		  . #x4EA6)	; 亦
       ))
+    (sound@ja/on/go	"yaku")
+    (sound@ja/on/kan	"eki")
     (=ucs		. #x344A)	; 㑊
-    (=cns11643-5	. #x2525)	; &I-C5-2525; [05-05]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x344A)	; 㑊
+      ))
+    (ideographic-radical . 9)	; ⼈
+    (ideographic-strokes . 6)
+    (total-strokes	 . 8)
+    (hanyu-dazidian	1 152 3)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x4EBB)	; 亻
+      )
+     ((=ucs@unicode	  . #x4EA6)	; &AJ1-03744;
+      (=adobe-japan1-0	  . 03744)	; &AJ1-03744;
+      ))
+    (=ucs@unicode	. #x344A)	; &C5-2525;
+    (=cns11643-5	. #x2525)	; &C5-2525; [05-05]
     (=daikanwa		. 00559)	; &I-M-00559;
     (->subsumptive
      ((==ucs@unicode	  . #x344A)	; &g2-M-00559;
@@ -38844,7 +38864,6 @@
   '((ideographic-radical . 9)	; ⼈
     (ideographic-strokes . 8)
     (total-strokes	 . 10)
-    (hanyu-dazidian	1 175 3)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -38854,7 +38873,26 @@
      ((=ucs		  . #x5353)	; 卓
       ))
     (=ucs		. #x502C)	; 倬
-    (=adobe-japan1-0	. 04164)	; &I-AJ1-04164;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x502C)	; 倬
+      ))
+    (ideographic-radical . 9)	; ⼈
+    (ideographic-strokes . 8)
+    (total-strokes	 . 10)
+    (hanyu-dazidian	1 175 3)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x4EBB)	; 亻
+      )
+     ((=ucs@unicode	  . #x5353)	; &AJ1-02894;
+      (=adobe-japan1-0	  . 02894)	; &AJ1-02894;
+      ))
+    (=ucs@unicode	. #x502C)	; &AJ1-04164;
+    (=adobe-japan1-0	. 04164)	; &AJ1-04164;
     (=jis-x0208		. #x506B)	; &I-J90-506B; [48-75]
     (=gb2312		. #x593E)	; &I-G0-593E; [57-30]
     (=ks-x1001		. #x7670)	; &I-K0-7670; [86-80]
@@ -38864,7 +38902,7 @@
     (=gt		. 01007)	; &I-GT-01007;
     (=gt-pj-1		. #x506B)	; &I-GT-01007; [48-75]
     (=daikanwa		. 00794)	; &I-M-00794;
-    (=shinjigen		.  0306)	; 倬
+    (=shinjigen		.  0306)	; &AJ1-04164;
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x502C)	; 倬
