@@ -10900,7 +10900,25 @@
      ((=ucs		  . #x5353)	; 卓
       ))
     (=ucs		. #x712F)	; 焯
-    (=adobe-japan1-5	. 18027)	; &I-AJ1-18027;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x712F)	; 焯
+      ))
+    (ideographic-radical . 86)	; ⽕
+    (ideographic-strokes . 8)
+    (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x706B)	; 火
+      )
+     ((=ucs@unicode	  . #x5353)	; &AJ1-02894;
+      (=adobe-japan1-0	  . 02894)	; &AJ1-02894;
+      ))
+    (=ucs@unicode	. #x712F)	; &AJ1-18027;
+    (=adobe-japan1-5	. 18027)	; &AJ1-18027;
     (=gb2312		. #x6C4C)	; &I-G0-6C4C; [76-44]
     (=jis-x0212		. #x496E)	; &I-JSP-496E; [41-78]
     (=cns11643-2	. #x3D5E)	; &I-C2-3D5E; [29-62]
@@ -12625,7 +12643,7 @@
      ((=ucs		  . #x8ECD)	; 軍
       ))
     (=ucs		. #x7147)	; 煇
-    (=adobe-japan1-2	. 08541)	; 煇
+    (=adobe-japan1-2	. 08541)	; &AJ1-08541;
     (=ks-x1001		. #x7D48)	; &I-K0-7D48; [93-40]
     (=jis-x0212		. #x4975)	; &I-JSP-4975; [41-85]
     (=cns11643-2	. #x4451)	; &I-C2-4451; [36-49]
@@ -22719,7 +22737,7 @@
      jiyun)
     (<-same
      ((=ucs@unicode	  . #x7CA6)	; 粦
-      (=adobe-japan1-5	  . 18321)	; 粦
+      (=adobe-japan1-5	  . 18321)	; &AJ1-18321;
       (=daikanwa	  . 26939)	; &I-M-26939;
       )
      ((=ucs		  . #x3DE0)	; 㷠
