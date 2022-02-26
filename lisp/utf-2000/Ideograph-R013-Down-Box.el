@@ -3452,20 +3452,60 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 13)	; ⼌
+  '((<-denotational@component
+     ((=>ucs@iwds-1	  . #x6772)	; &A-IWDSU+6772;
+      ))
+    (ideographic-radical . 13)	; ⼌
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
-    (=ucs		. #x20556)	; 𠕖
-    (->subsumptive
-     ((hanyu-dazidian	  2 1170 1)
-      (=ucs@iso		  . #x20556)	; &GT-02011;
-      (=gt		  . 02011)	; &GT-02011;
-      (=gt-pj-2		  . #x3D3D)	; &GT-02011; [29-29]
-      (=daikanwa	  . 01533)	; &I-M-01533;
-      (=hanziku-3	  . #xEEDE)	; &I-HZK03-EEDE;
+    (hanyu-dazidian	2 1170 1)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=ucs@cns		  . #x20556)	; &C5-252C;
-      (=cns11643-5	  . #x252C)	; &C5-252C; [05-12]
+     ((name		  . "CJK RADICAL SUN")
+      (=ucs		  . #x2E9C)	; ⺜
+      )
+     ((=ucs		  . #x6728)	; 木
+      ))
+    (sound@ja/on/go	"sEu" "da")
+    (sound@ja/on/kan	"sAu" "da")
+    (=ucs		. #x20556)	; 𠕖
+    (=cns11643-5	. #x252C)	; &I-C5-252C; [05-12]
+    (=gt		. 02011)	; &I-GT-02011;
+    (=gt-pj-2		. #x3D3D)	; &I-GT-02011; [29-29]
+    (=daikanwa		. 01533)	; &I-M-01533;
+    (<-wrong
+     ((=ucs@unicode	  . #x6735)	; &AJ1-19443;
+      (=adobe-japan1-5	  . 19443)	; &AJ1-19443;
+      (=daikanwa	  . 14429)	; &I-M-14429;
+      ))
+    (<-wrong$_1*sources
+     zhengzitong daikanwa)
+    (<-wrong*sources
+     zhengzitong daikanwa)
+    (->mistakable
+     ((=ucs		  . #x6772)	; 杲
+      (=daikanwa	  . 14500)	; &I-M-14500;
+      ))
+    (->mistakable*sources
+     daikanwa)
+    (->subsumptive
+     ((==ucs@iso	  . #x20556)	; &g2-GT-02011;
+      (==gt		  . 02011)	; &g2-GT-02011;
+      (==daikanwa	  . 01533)	; &g2-GT-02011;
+      (->subsumptive
+       ((===daikanwa	    . 01533)	; &R-M-01533;
+	)
+       ((===gt		    . 02011)	; &R-GT-02011;
+	)
+       ((===ucs@iso	    . #x20556)	; &R-U-00020556;
+	)
+       ((=hanziku-3	    . #xEEDE)	; &HZK03-EEDE;
+	))
+      )
+     ((==ucs@cns	  . #x20556)	; &g2-CU+20556;
+      (==cns11643-5	  . #x252C)	; &g2-CU+20556; [05-12]
       ))
     ))
 (define-char
