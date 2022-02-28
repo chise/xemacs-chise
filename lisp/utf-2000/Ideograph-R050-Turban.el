@@ -7983,8 +7983,8 @@
     (<-interchangeable*sources
      shuowen-tongxun-dingsheng daikanwa)
     (->ancient
-     ((=ucs@iso		  . #x2094E)	; &C6-3D55;
-      (=cns11643-6	  . #x3D55)	; &C6-3D55; [29-53]
+     ((=ucs@iso		  . #x2094E)	; &MJ031690;
+      (=mj		  . 031690)	; &MJ031690;
       (=daikanwa	  . 02638)	; &I-M-02638;
       ))
     (->ancient$_1*sources
