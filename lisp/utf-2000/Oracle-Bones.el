@@ -23943,14 +23943,7 @@
       )
      ((=zinbun-oracle	  . 02258)	; &ZOB-2258;
       )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	(=ucs		    . #x2FF1)	; ⿱
-	)
-       ((=ucs		    . #x4E19)	; 丙
-	)
-       ((=ucs		    . #x4E19)	; 丙
-	))
+     ((=ucs		  . #x30012)	; 𰀒
       ))
     (zinbun-oracle-page . 107)
     (=zinbun-oracle	. 02269)	; &ZOB-2269;
@@ -23958,14 +23951,7 @@
      ((ideographic-combination
        ((=ucs		    . #x767D)	; 白
 	)
-       ((ideographic-structure
-	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	  (=ucs		      . #x2FF1)	; ⿱
-	  )
-	 ((=ucs		      . #x4E19)	; 丙
-	  )
-	 ((=ucs		      . #x4E19)	; 丙
-	  ))
+       ((=ucs		    . #x30012)	; 𰀒
 	))
       ))
     ))
