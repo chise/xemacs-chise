@@ -1007,6 +1007,41 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=ucs		  . #x21B59)	; 𡭙
+      ))
+    (ideographic-radical . 42)	; ⼩
+    (ideographic-strokes . 3)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((name		  . "CJK RADICAL SMALL ONE")
+      (=ucs		  . #x2E8C)	; ⺌
+      )
+     ((=gt-k		  . 00393)	; &GT-K00393;
+      ))
+    (=ucs-itaiji-002	. #x21B59)	; &U-i002+21B59;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x21B59)	; 𡭙
+      ))
+    (ideographic-radical . 42)	; ⼩
+    (ideographic-strokes . 3)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5C0F)	; 小
+      )
+     ((=gt-k		  . 00393)	; &GT-K00393;
+      ))
+    (=ucs-itaiji-001	. #x21B59)	; &U-i001+21B59;
+    ))
+(define-char
   '((ideographic-radical . 42)	; ⼩
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
