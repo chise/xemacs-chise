@@ -1,3 +1,26 @@
+2022-02-28  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R061-Heart.el (U+604B): Apply new conventions for
+	glyph granularity; add `<-denotational@usage' for BUCS+6200.
+	(U+60BC): Apply new conventions for glyph granularity; add
+	`<-denotational@usage' for BUCS+60BC.
+	(U+6200): Add `<-denotational@usage' for BUCS+6200.
+	(UU+6200): Unify DJT-03595.
+
+	* Ideograph-R042-Small.el (U+21B59-itaiji-002): New character; use
+	`<-denotational' for U-00021B59.
+	(U+21B59-itaiji-001): Ditto.
+
+	* Ideograph-R037-Big.el (U-00021630): Apply new conventions for
+	glyph granularity.
+
+2022-02-28  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R024-Ten.el (A-U+21B59-itaiji-003): New abstract node.
+	(U+21B59-itaiji-003): New character; use `<-denotational' for
+	A-U+21B59-itaiji-003.
+	(U+5353): Apply new conventions for glyph granularity.
+
 2022-02-26  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R029-Again.el (U-00020B2A): Apply new conventions for
