@@ -1,5 +1,9 @@
 2022-02-26  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R029-Again.el (U-00020B2A): Apply new conventions for
+	glyph granularity.
+	(U+53D8): Likewise.
+
 	* Ideograph-R013-Down-Box.el (U-00020556): Add
 	`<-denotational@component' for A-IWDSU+6772; apply new conventions
 	for glyph granularity.
