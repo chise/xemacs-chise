@@ -2152,18 +2152,78 @@
   '((ideographic-radical . 22)	; ⼕
     (ideographic-strokes . 9)
     (total-strokes	 . 11)
-    (hanyu-dazidian	1 88 4)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
+      (=ucs		  . #x2FF7)	; ⿷
+      )
+     ((=ucs		  . #x531A)	; 匚
+      )
+     ((=ucs		  . #x97CB)	; 韋
+      ))
+    (sound@ja/on	"Wi" "ki")
     (=ucs		. #x2094E)	; 𠥎
-    (=daikanwa		. 02638)	; &I-M-02638;
-    (=hanziku-1		. #xB5F8)	; &I-HZK01-B5F8;
     ))
 (define-char
-  '((=>ucs		. #x2094E)	; 𠥎
-    (morohashi-daikanwa	2638 0 0)
+  '((<-denotational
+     ((=ucs		  . #x2094E)	; 𠥎
+      ))
     (ideographic-radical . 22)	; ⼕
     (ideographic-strokes . 9)
     (total-strokes	 . 11)
-    (=cns11643-6	. #x3D55)	; &C6-3D55; [29-53]
+    (hanyu-dazidian	1 88 4)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
+      (=ucs		  . #x2FF7)	; ⿷
+      )
+     ((=ucs		  . #x531A)	; 匚
+      )
+     ((=ucs@unicode	  . #x97CB)	; &MJ028060;
+      (=mj		  . 028060)	; &MJ028060;
+      ))
+    (=ucs@iso		. #x2094E)	; &MJ031690;
+    (=mj		. 031690)	; &MJ031690;
+    (=cns11643-6	. #x3D55)	; &I-C6-3D55; [29-53]
+    (=koseki		. 030820)	; &MJ031690;
+    (=daikanwa		. 02638)	; &I-M-02638;
+    (<-ancient
+     ((=ucs		  . #x5E37)	; 帷
+      (=daikanwa	  . 08954)	; &I-M-08954;
+      )
+     ((=ucs@unicode	  . #x5E43)	; &AJ1-20113;
+      (=adobe-japan1-0	  . 04728)	; &AJ1-20113;
+      (=adobe-japan1-5	  . 20113)	; &I-AJ1-20113;
+      (=daikanwa	  . 08993)	; &I-M-08993;
+      ))
+    (<-ancient$_1*sources
+     jiyun daikanwa)
+    (<-ancient$_2*sources
+     zhengzitong daikanwa)
+    (<-ancient*sources
+     zhengzitong daikanwa)
+    (<-formed
+     ((=ucs		  . #x5E37)	; 帷
+      ))
+    (<-formed$_1*sources
+     koseki mj)
+    (<-formed*sources
+     koseki mj)
+    (->subsumptive
+     ((==ucs@iso	  . #x2094E)	; &g2-M-02638;
+      (==daikanwa	  . 02638)	; &g2-M-02638;
+      (->subsumptive
+       ((===daikanwa	    . 02638)	; &R-M-02638;
+	)
+       ((===ucs@iso	    . #x2094E)	; &R-U-0002094E;
+	)
+       ((=hanziku-1	    . #xB5F8)	; &HZK01-B5F8;
+	))
+      )
+     ((==mj		  . 031690)	; &g2-MJ031690;
+      (==koseki		  . 030820)	; &g2-MJ031690;
+      )
+     ((==ucs@cns	  . #x2094E)	; &g2-CU+2094E;
+      (==cns11643-6	  . #x3D55)	; &g2-CU+2094E; [29-53]
+      ))
     ))
 (define-char
   '((ideographic-radical . 22)	; ⼕
