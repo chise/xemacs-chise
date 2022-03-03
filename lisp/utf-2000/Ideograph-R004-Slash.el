@@ -2654,8 +2654,8 @@
     (total-strokes	 . 5)
     (hanyu-dazidian	1 35 3)
     (sound@ja/kun	"naga-ra" "nagara" "sikasinaga-ra")
-    (sound@ja/on	"saku")
-    (sound@ja/on/kan	"sa")
+    (sound@ja/on/go	"zIya" "saku")
+    (sound@ja/on/kan	"sa" "saku")
     (=ucs		. #x4E4D)	; 乍
     (=adobe-japan1-0	. 03259)	; &I-AJ1-03259;
     (=jis-x0208		. #x4663)	; &I-J90-4663; [38-67]
@@ -2671,6 +2671,28 @@
     (=daijiten		. 00090)	; &I-DJT-00090;
     (=shinjigen@1ed	.  0051)	; 乍
     (=shinjigen@rev	.  0052)	; 乍
+    (<-formed
+     ((=ucs		  . #x4F5C)	; 作
+      ))
+    (<-formed$_1*sources
+     jiyun)
+    (<-same
+     ((=ucs		  . #x4F5C)	; 作
+      (=daikanwa	  . 00518)	; &I-M-00518;
+      ))
+    (<-same$_1*sources
+     jiyun daikanwa)
+    (<-same*sources
+     jiyun daikanwa)
+    (->original
+     ((=ucs@iso		  . #x201A6)	; &MJ030535;
+      (=mj		  . 030535)	; &MJ030535;
+      (=daikanwa	  . 00363)	; &I-M-00363;
+      ))
+    (->original$_1*sources
+     zhengzitong shuowen-zhu daikanwa)
+    (->original*sources
+     zhengzitong shuowen-zhu daikanwa)
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x4E4D)	; 乍
