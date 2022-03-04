@@ -1,3 +1,8 @@
+2022-03-03  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R004-Slash.el (U+4E4D): Modify `sound@ja/on/{kan|go}';
+	add some relations for other characters.
+
 2022-03-01  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R022-Right-Open-Box.el (U-0002094E): Use
