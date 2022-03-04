@@ -927,7 +927,8 @@
       ))
     (=daikanwa		. 02682)	; &M-02682;
     (<-ancient
-     ((=ucs		  . #x6046)	; 恆
+     ((=ucs@unicode	  . #x6046)	; &AJ1-04828;
+      (=adobe-japan1-0	  . 04828)	; &AJ1-04828;
       (=daikanwa	  . 10528)	; &I-M-10528;
       ))
     (<-ancient*sources
