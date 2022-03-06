@@ -114,6 +114,11 @@
 	A-U+21B59-itaiji-003.
 	(U+5353): Apply new conventions for glyph granularity.
 
+2022-02-27  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR129.el (SW-JIGUGE-13102): Add U-0002AE8D as a
+	corresponding modern character.
+
 2022-02-26  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R087-Claw.el (A-BC-884A): New abstract node; use
