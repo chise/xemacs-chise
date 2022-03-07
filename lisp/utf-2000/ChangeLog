@@ -1,3 +1,10 @@
+2022-03-05  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R024-Ten.el (U+4EDF): Add `<-denotational@component'
+	for A-compU+4EDF.
+	(U+501D-itaiji-002): Add `<-denotational' for A-U+501D-itaiji-002.
+	(A-U+501D-itaiji-002): New abstract node.
+
 2022-03-03  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R004-Slash.el (U+4E4D): Modify `sound@ja/on/{kan|go}';
