@@ -137,6 +137,8 @@
 (define-char
   '((<-denotational@component
      ((=>ucs@component	  . #x5DE5)	; &A-compU+5DE5;
+      )
+     ((=>ucs@component	  . #x9FB4)	; &A-compU+9FB4;
       ))
     (ideographic-radical . 48)	; ⼯
     (ideographic-strokes . 0)
@@ -332,6 +334,38 @@
     (=ucs		. #x22015)	; 𢀕
     (=daikanwa		. 08719)	; &I-M-08719;
     (=cbeta		. 03205)	; &I-CB03205;
+    ))
+(define-char
+  '((ideographic-radical . 48)	; ⼯
+    (ideographic-strokes . 1)
+    (total-strokes	 . 4)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5DE5)	; 工
+      )
+     ((=ucs		  . #x200D1)	; 𠃑
+      ))
+    (=ucs		. #x22014)	; 𢀔
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x22014)	; 𢀔
+      ))
+    (ideographic-radical . 48)	; ⼯
+    (ideographic-strokes . 1)
+    (total-strokes	 . 4)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs@unicode	  . #x5DE5)	; &AJ1-01979;
+      (=adobe-japan1-0	  . 01979)	; &AJ1-01979;
+      )
+     ((=big5-cdp	  . #x88CD)	; &CDP-88CD;
+      ))
+    (=ucs@iso		. #x22014)	; &U-00022014;
     ))
 (define-char
   '((ideographic-radical . 48)	; ⼯

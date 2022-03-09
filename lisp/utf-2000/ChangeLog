@@ -1,3 +1,31 @@
+2022-03-07  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R074-Moon.el (A-BC-8959): New abstract node.
+	(BC-8959): New character; use `<-denotational' for A-BC-8959.
+	(A-BC-87EC): New abstract node; use `<-denotational' for
+	A-BC-8B5E.
+	(BC-8B5E): Add `<-denotational' for A-BC-8B5E.
+	(BC-87EC-var-001): New character; use `<-denotational' for
+	A-BC-87EC.
+	(BC-87EC): Ditto.
+	(U-000266B9): Apply new conventions for glyph granularity.
+
+	* Ideograph-R048-Work.el (BC-8C78): Add A-compU+9FB4 as a target
+	of `<-denotational@component'.
+	(U-00022014): New character.
+
+2022-03-07  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R007-Two.el (U+4E8E): Add `<-denotational@component'
+	for A-compU+5343.
+	(U+4E98): Add `sound@ja/on/{kan|go}' and `sound@ja/kun'.
+	(UU+4E98): Omit `sound@ja/kun', `sound@ja/on' and
+	`sound@ja/on/kan'; add some relations for other characters.
+	(U-00020122): Add `ideographic-structure'.
+	(U-00020123): Apply new conventions for glyph granularity.
+	(U+4E99): Likewise.
+	(U-0002012D): Likewise.
+
 2022-03-06  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* ShuoWen-SR203.el (SW-JIGUGE-18205): Add
