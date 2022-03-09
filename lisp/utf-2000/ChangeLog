@@ -1,3 +1,8 @@
+2022-03-06  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR203.el (SW-JIGUGE-18205): Add
+	`<-formed@flipped-horizontally' for SW-JIGUGE-18200.
+
 2022-03-05  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R024-Ten.el (U+4EDF): Add `<-denotational@component'
