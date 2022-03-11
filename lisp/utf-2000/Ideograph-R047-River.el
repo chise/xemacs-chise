@@ -3272,7 +3272,10 @@
     (=hanziku-1		. #xDFAD)	; &HZK01-DFAD;
     ))
 (define-char
-  '((ideographic-radical . 47)	; ⼮
+  '((<-denotational@component
+     ((=>ucs@component	  . #x2D544)	; &A-compU+2D544;
+      ))
+    (ideographic-radical . 47)	; ⼮
     (=>ucs@iwds-1	. #x5DDB)	; &A-IWDSU+5DDB;
     (=>iwds-1		.  0270)	; &A-IWDSU+5DDB;
     ))
