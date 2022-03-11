@@ -1,3 +1,10 @@
+2022-03-08  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list):
+	Change priority of `==ucs-bmp-cjk@gb' to prefer
+	`==ucs-sip-ext-b@iso', `==cns11643-1', `==cns11643-2' or some
+	other abstract-form-CCSes.
+
 2022-01-30  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* mule/mule-charset.el (default-coded-charset-priority-list): Add
