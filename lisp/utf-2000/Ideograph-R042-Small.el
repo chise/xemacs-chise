@@ -1,6 +1,9 @@
 ;; -*- coding: utf-8-mcs-er -*-
 (define-char
-  '((ideographic-radical . 42)	; ⼩
+  '((<-denotational@component
+     ((=>ucs@component	  . #x2D544)	; &A-compU+2D544;
+      ))
+    (ideographic-radical . 42)	; ⼩
     (ideographic-strokes . 0)
     (total-strokes	 . 3)
     (=>ucs@component	. #x5C0F)	; &A-compU+5C0F;
@@ -192,6 +195,8 @@
 (define-char
   '((<-denotational@component
      ((=>ucs@component	  . #x5C0F)	; &A-compU+5C0F;
+      )
+     ((=>ucs@component	  . #x2D544)	; &A-compU+2D544;
       ))
     (ideographic-radical . 42)	; ⼩
     (ideographic-strokes . 0)
@@ -2918,6 +2923,10 @@
     (total-strokes	 . 21)
     (=ucs		. #x21BBF)	; 𡮿
     (=cns11643-5	. #x6F77)	; &I-C5-6F77; [79-87]
+    ))
+(define-char
+  '((ideographic-radical . 42)	; ⼩
+    (=>ucs@component	. #x2D544)	; &A-compU+2D544;
     ))
 (define-char
   '((ideographic-radical . 42)	; ⼩
