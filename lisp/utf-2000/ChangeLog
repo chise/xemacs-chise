@@ -1,3 +1,23 @@
+2022-03-09  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R005-Second.el (U+9FB4): Add A-compU+9FB4 as a target
+	of `<-denotational@component'.
+	(A-compU+9FB4): New abstract node; use `<-denotational@component'
+	for U-0003018A.
+	(U+4E5E): Add `sound@ja/on/{kan|go}', `sound@ja/on/conventional'
+	and `sound@ja/kun'.
+	(UU+4E5E): Move `sound@ja/kun' for U+4E5E; omit `sound@ja/on' and
+	`sound@ja/on/{kan|go}'; add `<-formed', `<-same' and
+	`->interchangeable' for UU+6C14.
+	(U+4E79): Apply new conventions for glyph granularity.
+	(U+4E7E): Modify `sound@ja/on/kan'; add `sound@ja/on/go'; omit
+	`sound@ja/on'.
+	(UU+4E7E): Add some relations for other characters.
+	(U-00020104): Apply new conventions for glyph granularity.
+	(U-0002010A): Likewise.
+	(U-0002010B): Likewise.
+	(A2-DJT-00108): Unify BUCS+4E5E.
+
 2022-03-07  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R074-Moon.el (A-BC-8959): New abstract node.
