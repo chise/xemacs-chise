@@ -738,6 +738,7 @@
     (=mj		. 031236)	; &MJ031236;
     (=big5-cdp		. #x8DC9)	; &I-CDP-8DC9;
     (=hanyo-denshi/ks	. 021820)	; &MJ031236;
+    (=cbeta		. 09221)	; &I-CB09221;
     (<-formed@component
      ((=ucs		  . #x206A3)	; 𠚣
       )
@@ -762,6 +763,8 @@
 	)
        ((===big5-cdp	    . #x8DC9)	; &R-CDP-8DC9;
 	))
+      )
+     ((==cbeta		  . 09221)	; &g2-CB09221;
       ))
     ))
 (define-char
