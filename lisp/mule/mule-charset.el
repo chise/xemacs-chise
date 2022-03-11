@@ -454,8 +454,7 @@ DESCRIPTION (string) is the description string of the charset."
 	  ==ucs-bmp-cjk@JP/hanazono
 	  ==mj-0
 	  ==mj-1
-	  ==ucs-bmp-cjk@gb
-          ==ucs-sip-ext-b@iso
+	  ==ucs-sip-ext-b@iso
 	  ==ucs-sip@JP/hanazono
 	  ==ucs-tip@JP/hanazono
 	  ==ucs-bmp-itaiji-001
@@ -485,7 +484,8 @@ DESCRIPTION (string) is the description string of the charset."
 	  ==big5-cdp-itaiji-001
 	  ==cns11643-1
 	  ==cns11643-2
-	  ==cns11643-3
+	  ==ucs-bmp-cjk@gb
+          ==cns11643-3
 	  ==cns11643-4
 	  ==cns11643-5
 	  ==cns11643-6
