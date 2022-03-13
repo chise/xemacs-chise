@@ -1,5 +1,8 @@
 2022-03-09  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R032-Earth.el (U+5829): Apply new conventions for
+	glyph granularity.
+
 	* Ideograph-R005-Second.el (U+9FB4): Add A-compU+9FB4 as a target
 	of `<-denotational@component'.
 	(A-compU+9FB4): New abstract node; use `<-denotational@component'
@@ -17,6 +20,11 @@
 	(U-0002010A): Likewise.
 	(U-0002010B): Likewise.
 	(A2-DJT-00108): Unify BUCS+4E5E.
+
+2022-03-08  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR206.el (SW-JIGUGE-18831): Add `<-Zhouwen@shuowen' for
+	SW-JIGUGE-18830.
 
 2022-03-07  MORIOKA Tomohiko  <tomo.git@chise.org>
 
