@@ -727,6 +727,8 @@
     (<-Small-Seal@shuowen
      ((=ucs		  . #x27E07)	; 𧸇
       )
+     ((=ucs		  . #x27DCF)	; 𧷏
+      )
      ((=ucs		  . #x27DD7)	; 𧷗
       )
      ((=ucs		  . #x27DA0)	; 𧶠
