@@ -1,3 +1,31 @@
+2022-03-11  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R062-Halberd.el (U-000229C0): Apply new conventions
+	for glyph granularity.
+
+	* Ideograph-R061-Heart.el (U+6052): Add `<-denotational@usage' for
+	BUCS+6046; add `sound@ja/on/{kan|go}'.
+	(UU+6052): Add some relations for other characters.
+	(U+6046): Add `<-denotational@usage' for BUCS+6046; apply new
+	conventions for glyph granularity.
+	(U-00022676): Apply new conventions for glyph granularity.
+	(U-000226E2): Likewise.
+	(U-000226F5): New character.
+	(U-000227C7): New character.
+	(U-00030483): Fix `total-strokes'.
+	(BUCS+6046): New abstract node; unify A2-DJT-03267.
+
+	* Ideograph-R047-River.el (A-IWDSU+5DDB): Add
+	`<-denotational@component' for A-compU+2D544.
+
+2022-03-11  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R042-Small.el (A-compU+5C0F): Add
+	`<-denotational@component' for A-compU+2D544.
+	(U-0002D544): Add A-compU+2D544 as a target of
+	`<-denotational@component'.
+	(A-compU+2D544): New abstract node.
+
 2022-03-09  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R032-Earth.el (U+5829): Apply new conventions for
