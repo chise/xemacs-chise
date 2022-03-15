@@ -1,5 +1,21 @@
 2022-03-11  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R072-Sun.el (U+660D): Apply new conventions for glyph
+	granularity.
+	(A-BC-857B): New abstract node.
+	(BC-857B): New character; use `<-denotational' for A-BC-857B.
+	(A-BC-855E): New abstract node.
+	(BC-855E): New character; use `<-denotational' for A-BC-855E.
+	(A-U+501D-itaiji-001): New abstract node.
+	(U+501D-itaiji-001): New character; use `<-denotational' for
+	A-U+501D-itaiji-001.
+
+	* Ideograph-R070-Square.el (A-cgnU+3AC3): New abstract node.
+	(U+3AC3): Add `<-denotational' for A-cgnU+3AC3; add
+	`sound@ja/on/{kan|go}'.
+	(UU+3AC3): Add `->interchangeable' for UU+5043.
+	(U-0002D928): Add `<-denotational' for A-cgnU+3AC3.
+
 	* Ideograph-R062-Halberd.el (U-000229C0): Apply new conventions
 	for glyph granularity.
 
@@ -25,6 +41,8 @@
 	(U-0002D544): Add A-compU+2D544 as a target of
 	`<-denotational@component'.
 	(A-compU+2D544): New abstract node.
+
+	* Ideograph-R018-Knife.el (MJ031236): Unify CB09221.
 
 2022-03-09  MORIOKA Tomohiko  <tomo.git@chise.org>
 
