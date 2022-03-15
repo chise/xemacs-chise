@@ -3599,7 +3599,17 @@
     (=cns11643-5	. #x2835)	; &C5-2835; [08-21]
     ))
 (define-char
-  '((ideographic-radical . 24)	; ⼗
+  '((<-denotational
+     ((=>ucs@cognate	  . #x55AE)	; &A-cgnU+55AE;
+      ))
+    (ideographic-radical . 24)	; ⼗
+    (=>ucs@cognate	. #x5358)	; &A-cgnU+5358;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@cognate	  . #x5358)	; &A-cgnU+5358;
+      ))
+    (ideographic-radical . 24)	; ⼗
     (=>ucs@component	. #x5358)	; &A-compU+5358;
     (=>iwds-1		.  0251)	; &A-compU+5358;
     ))
