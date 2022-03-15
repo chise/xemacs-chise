@@ -182,6 +182,13 @@
     ))
 (define-char
   '((ideographic-radical . 70)	; ⽅
+    (=>ucs@cognate	. #x3AC3)	; &A-cgnU+3AC3;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@cognate	  . #x3AC3)	; &A-cgnU+3AC3;
+      ))
+    (ideographic-radical . 70)	; ⽅
     (ideographic-strokes . 2)
     (total-strokes	 . 6)
     (ideographic-structure
@@ -193,6 +200,8 @@
      ((=>ucs@iwds-1	  . #x4EBA)	; &A-IWDSU+4EBA;
       (=>iwds-1		  .  14623)	; &A-IWDSU+4EBA;
       ))
+    (sound@ja/on/go	"oN" "eN")
+    (sound@ja/on/kan	"eN" "eN")
     (=ucs		. #x3AC3)	; 㫃
     ))
 (define-char
@@ -217,6 +226,15 @@
     (=koseki		. 152830)	; &MJ001565;
     (=daikanwa		. 13621)	; &I-M-13621;
     (=cbeta		. 08182)	; &I-CB08182;
+    (->interchangeable
+     ((=ucs@unicode	  . #x5043)	; &AJ1-04169;
+      (=adobe-japan1-0	  . 04169)	; &AJ1-04169;
+      (=daikanwa	  . 00830)	; &I-M-00830;
+      ))
+    (->interchangeable$_1*sources
+     shuowen-zhu daikanwa)
+    (->interchangeable*sources
+     shuowen-zhu daikanwa)
     (->subsumptive
      ((==ucs@unicode	  . #x3AC3)	; &g2-MJ001565;
       (==mj		  . 001565)	; &g2-MJ001565;
@@ -246,7 +264,10 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 70)	; ⽅
+  '((<-denotational
+     ((=>ucs@cognate	  . #x3AC3)	; &A-cgnU+3AC3;
+      ))
+    (ideographic-radical . 70)	; ⽅
     (ideographic-strokes . 2)
     (total-strokes	 . 6)
     (ideographic-structure
