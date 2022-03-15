@@ -1,3 +1,9 @@
+2022-03-14  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R024-Ten.el (A-cgnU+5358): New abstract node; use
+	`<-denotational' for A-cgnU+55AE.
+	(A-compU+5358): Add `<-denotational' for A-cgnU+5358.
+
 2022-03-11  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R072-Sun.el (U+660D): Apply new conventions for glyph
