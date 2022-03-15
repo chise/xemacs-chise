@@ -21609,10 +21609,13 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=ucs		  . #x5C71)	; 山
+     ((=>ucs@component	  . #x5C6E)	; &A-compU+5C6E;
+      (=>iwds-1		  .  0096)	; &A-compU+5C6E;
       )
      ((=>ucs@iwds-1	  . #x98EE)	; &A-IWDSU+98EE;
       ))
+    (sound@ja/on/go	"oN")
+    (sound@ja/on/kan	"iN")
     (=ucs		. #x21F3D)	; 𡼽
     ))
 (define-char
@@ -21628,11 +21631,21 @@
       )
      ((=ucs		  . #x5C71)	; 山
       )
-     ((=ucs		  . #x98EE)	; 飮
+     ((=ucs@unicode	  . #x98EE)	; &AJ1-05338;
+      (=adobe-japan1-0	  . 05338)	; &AJ1-05338;
       ))
-    (=daikanwa		. 08504)	; &M-08504;
+    (=mj		. 034786)	; &MJ034786;
+    (=koseki		. 096170)	; &MJ034786;
+    (=daikanwa		. 08504)	; &I-M-08504;
     (->subsumptive
-     ((==daikanwa	  . 08504)	; &g2-M-08504;
+     ((==mj		  . 034786)	; &g2-MJ034786;
+      (==koseki		  . 096170)	; &g2-MJ034786;
+      (==daikanwa	  . 08504)	; &g2-MJ034786;
+      (->subsumptive
+       ((===daikanwa	    . 08504)	; &R-M-08504;
+	)
+       ((===mj		    . 034786)	; &R-MJ034786;
+	))
       ))
     ))
 (define-char
