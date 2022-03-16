@@ -3258,6 +3258,14 @@
       )
      ((=ucs		  . #x220A6)	; 𢂦
       (=daikanwa	  . 08898)	; &I-M-08898;
+      )
+     ((=ucs@unicode	  . #x684C)	; &AJ1-17794;
+      (=adobe-japan1-5	  . 17794)	; &AJ1-17794;
+      (=daikanwa	  . 14766)	; &I-M-14766;
+      )
+     ((=ucs@unicode	  . #x69D5)	; &C3-474D;
+      (=cns11643-3	  . #x474D)	; &C3-474D; [39-45]
+      (=daikanwa	  . 15346)	; &I-M-15346;
       ))
     (->ancient$_1*sources
      jiyun daikanwa)
