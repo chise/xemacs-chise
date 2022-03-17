@@ -149,6 +149,9 @@
     (<-formed@component
      ((=big5-cdp	  . #x8BC5)	; &CDP-8BC5;
       ))
+    (<-formed@flipped-horizontally
+     ((=ucs		  . #x531A)	; 匚
+      ))
     (<-unknown
      ((=big5-cdp	  . #x8BC8)	; &CDP-8BC8;
       ))
