@@ -1,3 +1,38 @@
+2022-03-17  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R061-Heart.el (UU+6046): Apply new conventions for
+	glyph granularity.
+	(U+6046-var-002): New character; use `<-subsumptive' for UU+6046.
+
+2022-03-16  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R074-Moon.el (IU+2665A): Copied from
+	Ideograph-R130-Meat.el.
+	(U-000266B9): Add `sound@ja/on'.
+	(IU+266B9): Use UU+6708 instead of U+2EBC<CJK RADICAL MEAT> as a
+	component; add `<-same' for MJ037897.
+	(U-00023384): Apply new conventions for glyph granularity.
+
+2022-03-16  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R030-Mouth.el (U-00020D5B): New character.
+	(U-00020DCE): Apply new conventions for glyph granularity.
+	(A-BC-8DAE): New abstract node; use `<-denotational' for
+	A-cgnU+55AE; unify A-CB07641.
+	(BC-8DAE): New character; use `<-denotational' for A-BC-8DAE;
+	unify CB07641.
+	(A-cgnU+563C): New abstract node.
+	(U+563C): Add `<-denotational' for A-cgnU+563C; modify structure;
+	preserve the previous IDS as an apparent structure.
+	(A-GT-K09871): New abstract node; use `<-denotational' for
+	A-cgnU+563C; unify A-U+563C-itaiji-001.
+	(GT-K09871): New character; use `<-denotational' for A-GT-K09871;
+	unify U+563C-itaiji-001.
+	(g2-CB02743): Omit `ideographic-structure'.
+
+	* Ideograph-R024-Ten.el (UU+5353): Add UU+684C and UU+69D5 as
+	target of `->ancient'.
+
 2022-03-15  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R007-Two.el (UU+4E99): Apply new conventions for glyph
