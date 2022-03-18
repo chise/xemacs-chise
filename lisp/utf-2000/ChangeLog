@@ -1,5 +1,8 @@
 2022-03-17  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R048-Work.el (BC-8C78): Add
+	`<-formed@flipped-horizontally' for U+531A.
+
 	* Ideograph-R061-Heart.el (UU+6046): Apply new conventions for
 	glyph granularity.
 	(U+6046-var-002): New character; use `<-subsumptive' for UU+6046.
