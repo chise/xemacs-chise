@@ -414,6 +414,38 @@
     ))
 (define-char
   '((ideographic-radical . 67)	; ⽂
+    (ideographic-strokes . 5)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((=>ucs@iwds-1	  . #x2FFA)	; &A-IWDSU+2FFA;
+      (=>iwds-1		  .  0307)	; &A-IWDSU+2FFA;
+      )
+     ((=ucs		  . #x6587)	; 文
+      )
+     ((=ucs		  . #x5305)	; 包
+      ))
+    (=ucs		. #x23048)	; 𣁈
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x23048)	; 𣁈
+      ))
+    (ideographic-radical . 67)	; ⽂
+    (ideographic-strokes . 5)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x6587)	; 文
+      )
+     ((=ucs@unicode	  . #x5305)	; &MJ007757;
+      (=mj		  . 007757)	; &MJ007757;
+      ))
+    (=ucs@iso		. #x23048)	; &U-00023048;
+    ))
+(define-char
+  '((ideographic-radical . 67)	; ⽂
     (ideographic-strokes . 6)
     (total-strokes	 . 10)
     (=ucs		. #x2304A)	; 𣁊
