@@ -2277,15 +2277,17 @@
     (=daikanwa		. 02732)	; &I-M-02732;
     (=shinjigen		.  0911)	; &C6-2639;
     (<-formed
-     ((=ucs		  . #x53D4)	; 叔
+     ((=ucs@unicode	  . #x53D4)	; &AJ1-02385;
+      (=adobe-japan1-0	  . 02385)	; &AJ1-02385;
       ))
     (<-formed$_1*sources
      koseki)
     (<-vulgar
-     ((=ucs		  . #x53D4)	; 叔
+     ((=ucs@unicode	  . #x53D4)	; &AJ1-02385;
+      (=adobe-japan1-0	  . 02385)	; &AJ1-02385;
       (=jis-x0208	  . #x3D47)	; &I-J90-3D47; [29-39]
       (=daikanwa	  . 03154)	; &I-M-03154;
-      (=shinjigen	  .  0910)	; 叔
+      (=shinjigen	  .  0910)	; &AJ1-02385;
       ))
     (<-vulgar*sources
      yupian daikanwa shinjigen)
@@ -2334,7 +2336,8 @@
     (total-strokes	 . 7)
     (=mj		. 031741)	; &MJ031741;
     (<-formed
-     ((=ucs		  . #x53D4)	; 叔
+     ((=ucs@unicode	  . #x53D4)	; &AJ1-02385;
+      (=adobe-japan1-0	  . 02385)	; &AJ1-02385;
       ))
     (<-formed$_1*sources
      koseki@mj)
