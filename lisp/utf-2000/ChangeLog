@@ -1,4 +1,82 @@
+2022-03-18  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R009-Man.el (U+4EDF): Add `<-denotational@component'
+	for A-compU+4EDF.
+	(U+3435): Ditto; add `total-strokes'; add `ideographic-structure'.
+	(U+4EE0): Add `<-denotational@component' for A-compU+4EDF; apply
+	new conventions for glyph granularity.
+	(A-U+2D928-itaiji-001): New abstract node; use `<-denotational'
+	for A-cgnU+3AC3.
+	(U+2D928-itaiji-001): New character; use `<-denotational' for
+	A-U+2D928-itaiji-001.
+	(A-U+501D-itaiji-006): New abstract node; use `<-denotational' for
+	A-cgnU+501D.
+	(U+501D-itaiji-006): New character; use `<-denotational' for
+	A-U+501D-itaiji-006.
+	(U+5043): Add `sound@ja/on/{kan|go}'.
+	(UU+5043): Add some relations for other characters.
+	(A-U+2D928-itaiji-002): New abstract node; use `<-denotational'
+	for A-cgnU+3AC3.
+	(U+2D928-itaiji-002): New character; use `<-denotational' for
+	A-U+2D928-itaiji-002.
+	(A-cgnU+20431): New abstract node.
+	(U-00020431): Add `<-denotational' for A-cgnU+20431; add
+	`ideographic-structure@apparent'.
+	(A-U+20431-itaiji-001): New abstract node; use `<-denotational'
+	for A-cgnU+20431.
+	(A-U+20431-itaiji-002): New abstract node; use `<-denotational'
+	for A-cgnU+20431.
+	(U+20431-itaiji-001): New character; use `<-denotational' for
+	A-U+20431-itaiji-001.
+	(U+20431-itaiji-002): New character; use `<-denotational' for
+	A-U+20431-itaiji-002.
+	(A-compU+4EDF): New abstract node.
+
+	* Ideograph-R050-Turban.el (U+5E38): Apply new conventions for
+	glyph granularity.
+	(A-IWDSU+22142): New abstract node.
+	(U-0002211B): Add `<-denotational' for A-IWDSU+22142; add some
+	features base on new conventions.
+	(U-0002211D): New character.
+	(U-00022142): Add `<-denotational' for A-IWDSU+22142; apply new
+	conventions for glyph granularity for components of
+	ideographic-structure.
+
+	* Ideograph-R046-Mountain.el (U-00021F01): New character; use
+	`<-denotational' for A-IWDSU+21D25.
+
 2022-03-17  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R099-Sweet.el (A-cgnU+7518): New abstract node.
+	(U+7518): Add `<-denotational' for A-cgnU+7518.
+	(U-0002DEAA): New character; use `<-denotational' for A-cgnU+7518.
+	(U-0002DEAB): Ditto.
+	(BC-88C8): Add `<-denotational' for A-cgnU+7518.
+	(U-00024BBA): Use `->denotational' and `->subsumptive'; add
+	`<-denotational' for A-cgnU+7518.
+	(U+24BBA-itaiji-001): New character; use `<-denotational' for
+	U-00024BBA.
+	(BC-8B72): Use `ideographic-structure@apparent' instead of
+	`ideographic-structure'.
+	(U+751A-itaiji-004): Use UU+5339 instead of U+5339 as a component.
+	(A-U+751A-itaiji-001): New abstract node; use `<-denotational' for
+	A-cgnU+751A.
+	(U+751A-itaiji-001): New character; use `<-denotational' for
+	A-U+751A-itaiji-001.
+	(U+3F4D): Apply new conventions for glyph granularity.
+	(U+751B): Use `->denotational' and `->subsumptive'.
+	(U+751C): Apply new conventions for glyph granularity.
+	(U-0002DEAC): New character.
+	(U+751E): Apply new conventions for glyph granularity.
+	(U-00024BD2): New character; use `<-denotational' for
+	A-IWDSU+24BD2.
+
+2022-03-17  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R051-Dry.el (U+5E72): Add `sound@ja/on/{kan|go}'; add
+	some relations for other characters.
+	(U+5E79): Add `sound@ja/on'; add some relations for other
+	characters.
 
 	* Ideograph-R048-Work.el (BC-8C78): Add
 	`<-formed@flipped-horizontally' for U+531A.
