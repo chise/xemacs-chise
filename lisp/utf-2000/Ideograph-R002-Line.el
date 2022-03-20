@@ -1151,7 +1151,10 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 2)	; ⼁
+  '((<-denotational
+     ((=>ucs@cognate	  . #x6236)	; &A-cgnU+6236;
+      ))
+    (ideographic-radical . 2)	; ⼁
     (ideographic-strokes . 3)
     (total-strokes	 . 4)
     (hanyu-dazidian	1 28 9)
