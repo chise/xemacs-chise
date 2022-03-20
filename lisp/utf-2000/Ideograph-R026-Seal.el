@@ -876,8 +876,17 @@
       ))
     ))
 (define-char
-  '((<-denotational@usage
-     ((==>daijiten	  . 01033)	; &A2-DJT-01033;
+  '((ideographic-radical . 26)	; ⼙
+    (ideographic-strokes . 3)
+    (total-strokes	 . 5)
+    (=>ucs@cognate	. #x536F)	; &A-cgnU+536F;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@cognate	  . #x536F)	; &A-cgnU+536F;
+      ))
+    (<-denotational@usage
+     ((==>ucs@bucs	  . #x536F)	; &BUCS+536F;
       ))
     (ideographic-radical . 26)	; ⼙
     (ideographic-strokes . 3)
@@ -4719,7 +4728,8 @@
     ))
 (define-char
   '((ideographic-radical . 26)	; ⼙
-    (==>daijiten	. 01033)	; &A2-DJT-01033;
+    (==>ucs@bucs	. #x536F)	; &BUCS+536F;
+    (==>daijiten	. 01033)	; &BUCS+536F;
     ))
 (define-char
   '((ideographic-radical . 26)	; ⼙
