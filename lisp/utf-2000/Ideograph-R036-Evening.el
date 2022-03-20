@@ -395,7 +395,10 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 36)	; ⼣
+  '((<-denotational@usage
+     ((==>ucs@bucs	  . #x536F)	; &BUCS+536F;
+      ))
+    (ideographic-radical . 36)	; ⼣
     (ideographic-strokes . 2)
     (total-strokes	 . 5)
     (hanyu-dazidian	2 861 4)
