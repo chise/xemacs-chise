@@ -1651,7 +1651,10 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 5)	; ⼄
+  '((<-denotational
+     ((=>ucs@cognate	  . #x200DB)	; &A-cgnU+200DB;
+      ))
+    (ideographic-radical . 5)	; ⼄
     (ideographic-strokes . 3)
     (total-strokes	 . 4)
     (hanyu-dazidian	1 51 14)
@@ -1755,12 +1758,41 @@
     (=>ucs@iwds-1	. #x340A)	; &A-IWDSU+340A;
     ))
 (define-char
+  '((ideographic-radical . 5)	; ⼄
+    (=>ucs@cognate	. #x200DB)	; &A-cgnU+200DB;
+    ))
+(define-char
   '((<-denotational
      ((=>ucs@cognate	  . #x6B64)	; &A-cgnU+6B64;
       ))
     (ideographic-radical@ucs . 5)	; ⼄
     (ideographic-radical@mj . 77)	; ⽌
     (=>ucs@cognate	. #x2CF18)	; &A-cgnU+2CF18;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@cognate	  . #x200DB)	; &A-cgnU+200DB;
+      ))
+    (ideographic-radical . 5)	; ⼄
+    (ideographic-strokes . 3)
+    (total-strokes	 . 4)
+    (=>ucs-itaiji-001	. #x200DB)	; &A-U-i001+200DB;
+    (<-formed@flipped-horizontally
+     ((=>ucs@iwds-1	  . #x6236)	; &A-IWDSU+6236;
+      (=>iwds-1		  .  0007)	; &A-IWDSU+6236;
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs-itaiji-001	  . #x200DB)	; &A-U-i001+200DB;
+      ))
+    (ideographic-radical . 5)	; ⼄
+    (ideographic-strokes . 3)
+    (total-strokes	 . 4)
+    (=ucs-itaiji-001	. #x200DB)	; &U-i001+200DB;
+    (<-formed@flipped-horizontally
+     ((=ucs		  . #x6238)	; 戸
+      ))
     ))
 (define-char
   '((ideographic-radical . 5)	; ⼄
