@@ -1,3 +1,18 @@
+2022-03-20  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R026-Seal.el (A-cgnU+536F): New abstract node.
+	(U+536F): Add `<-denotational' for A-cgnU+536F.
+	(A2-DJT-01033): Unify BUCS+536F.
+
+	* Ideograph-R002-Line.el (U-00020063): Use `<-denotational' for
+	A-cgnU+6236.
+
+2022-03-19  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R045-Sprout.el (A-IWDSU+21D25): New abstract node.
+	(U-00021D25): Use `->denotational' and `->subsumptive'; add
+	`<-denotational' for A-IWDSU+21D25.
+
 2022-03-19  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R018-Knife.el (A-BC-8C69-itaiji-001): New abstract
@@ -6,6 +21,40 @@
 	A-BC-8C69-itaiji-001.
 
 2022-03-18  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R105-Dotted-Tent.el (BC-89F6-itaiji-001): New
+	character; use `<-denotational' for A-compU+7676.
+	(U+7676-itaiji-001): Unify U-0002DF3D, MJ058128 and KOSEKI-253710.
+	(U+7676-itaiji-003): Unify U+7676-itaiji-004; add
+	`<-denotational@component' for A-cgnU+5FC5.
+	(A-U+239BB-itaiji-001): New abstract node; use `<-denotational'
+	for A-BC-8C4F.
+	(U+239BB-itaiji-001): New character; use `<-denotational' for
+	A-U+239BB-itaiji-001.
+	(GT-K01253): Use A-U+239BB-itaiji-001 instead of A-BC-8C4F; add
+	U-000239BC as a target of `<-formed@component'.
+	(U+51F3-itaiji-002): New character.
+	(U+7678): Apply new conventions for glyph granularity.
+	(U+7679): Likewise.
+	(U-00024F27): Likewise.
+	(U-00024F2E): Likewise.
+	(U-00024F2D): New character; use `<-denotational' for
+	A-cgnU+24F2D.
+	(U-0002DF40): New character.
+	(A-cgnU+24F2D): New abstract node.
+	(CB10128): New character; use `<-denotational' for A-cgnU+24F2D.
+	(A-cgnU+767C): New abstract node.
+	(U+767C): Add `<-denotational' for A-cgnU+767C.
+	(A-U+767C-itaiji-004): New abstract node; use `<-denotational' for
+	A-cgnU+767C.
+	(U+767C-itaiji-004): New character; use `<-denotational' for
+	A-U+767C-itaiji-004.
+	(U-00024F31): Omit ideographic-structure.
+	(U-00024F32): Apply new conventions for glyph granularity; modify
+	structure.
+	(HNG-KHI0497-0): Add `<-HNG@chise' for U-00024F32.
+	(HNG-KHM0446-0): Ditto.
+	(U-00024F3C): Apply new conventions for glyph granularity.
 
 	* Ideograph-R078-Death.el (U-000239F6): Use `->denotational' and
 	`->subsumptive'.
