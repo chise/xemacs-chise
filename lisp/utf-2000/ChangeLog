@@ -1,5 +1,16 @@
 2022-03-20  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R036-Evening.el (U+5918): Add `<-denotational@usage'
+	for BUCS+536F.
+
+	* Ideograph-R005-Second.el (U-000200DB): Add `<-denotational' for
+	A-cgnU+200DB.
+	(A-cgnU+200DB): New abstract node.
+	(A-U+200DB-itaiji-001): New abstract node; use `<-denotational'
+	for A-cgnU+200DB.
+	(U+200DB-itaiji-001): New character; use `<-denotational' for
+	A-U+200DB-itaiji-001.
+
 	* Ideograph-R026-Seal.el (A-cgnU+536F): New abstract node.
 	(U+536F): Add `<-denotational' for A-cgnU+536F.
 	(A2-DJT-01033): Unify BUCS+536F.
