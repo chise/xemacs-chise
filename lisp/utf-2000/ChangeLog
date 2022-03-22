@@ -1,5 +1,9 @@
 2022-03-20  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R082-Fur.el (U-00023B5A): New character.
+
+2022-03-20  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R036-Evening.el (U+5918): Add `<-denotational@usage'
 	for BUCS+536F.
 
