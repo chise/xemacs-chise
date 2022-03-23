@@ -1,5 +1,10 @@
 ;; -*- coding: utf-8-mcs-er -*-
 (define-char
+  '((ideographic-radical . 63)	; ⼾
+    (ideographic-strokes . 0)
+    (=>ucs@cognate	. #x6236)	; &A-cgnU+6236;
+    ))
+(define-char
   '((<-denotational
      ((=>ucs@cognate	  . #x6236)	; &A-cgnU+6236;
       ))
@@ -9,11 +14,6 @@
     (=>ucs@iwds-1	. #x6236)	; &A-IWDSU+6236;
     (=>daikanwa		. 11696)	; &A-IWDSU+6236;
     (=>iwds-1		.  0007)	; &A-IWDSU+6236;
-    ))
-(define-char
-  '((ideographic-radical . 63)	; ⼾
-    (ideographic-strokes . 0)
-    (=>ucs@cognate	. #x6236)	; &A-cgnU+6236;
     ))
 (define-char
   '((<-denotational
@@ -972,7 +972,10 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 63)	; ⼾
+  '((<-denotational@usage
+     ((==>ucs@bucs	  . #x536F)	; &BUCS+536F;
+      ))
+    (ideographic-radical . 63)	; ⼾
     (ideographic-strokes . 3)
     (total-strokes	 . 7)
     (hanyu-dazidian	1 53 15)
@@ -980,6 +983,7 @@
     (=cns11643-3	. #x2629)	; &I-C3-2629; [06-09]
     (=big5-cdp		. #x89B5)	; &I-CDP-89B5;
     (=daikanwa		. 11708)	; &I-M-11708;
+    (=daijiten		. 03643)	; &I-DJT-03643;
     (=shinjigen		.  0849)	; 戼
     (<-original
      ((=ucs@unicode	  . #x536F)	; &AJ1-01230;
@@ -995,9 +999,12 @@
       (==cns11643-3	  . #x2629)	; &g2-CDP-89B5; [06-09]
       (==big5-cdp	  . #x89B5)	; &g2-CDP-89B5;
       (==daikanwa	  . 11708)	; &g2-CDP-89B5;
+      (==daijiten	  . 03643)	; &g2-CDP-89B5;
       (==shinjigen	  .  0849)	; &g2-CDP-89B5;
       (->subsumptive
        ((===daikanwa	    . 11708)	; &R-M-11708;
+	)
+       ((===daijiten	    . 03643)	; &R-DJT-03643;
 	)
        ((===big5-cdp	    . #x89B5)	; &R-CDP-89B5;
 	)
@@ -3565,6 +3572,28 @@
 	)
        ((===ucs@iso	    . #x22A60)	; &R-U-00022A60;
 	))
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x22A60)	; 𢩠
+      ))
+    (ideographic-radical . 63)	; ⼾
+    (ideographic-strokes . 13)
+    (total-strokes	 . 17)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=+>ucs@jis	  . #x6238)	; &o-J0-384D;
+      (=+>jis-x0208	  . #x384D)	; &o-J0-384D; [24-45]
+      )
+     ((=ucs@unicode	  . #x7758)	; &AJ1-18194;
+      (=adobe-japan1-5	  . 18194)	; &AJ1-18194;
+      ))
+    (=ucs-var-001	. #x22A60)	; &U-v001+22A60;
+    (->subsumptive
+     ((==ucs-var-001	  . #x22A60)	; &g2-U-v001+22A60;
       ))
     ))
 (define-char
