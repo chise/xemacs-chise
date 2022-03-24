@@ -1,3 +1,10 @@
+2022-03-23  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R063-Door.el (U+623C): Add `<-denotational@usage' for
+	BUCS+536F; unify DJT-03643.
+	(U+22A60-var-001): New character; use `<-denotational' for
+	U-00022A60.
+
 2022-03-22  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R030-Mouth.el (U-00020D2B): Add `<-denotational@usage'
