@@ -1,3 +1,14 @@
+2022-03-22  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R030-Mouth.el (U-00020D2B): Add `<-denotational@usage'
+	for A2-DJT-01381; apply new conventions for glyph granularity.
+	(U-00021009): New character.
+	(A2-DJT-01381): New abstract node.
+
+	* Ideograph-R029-Again.el (U+53D4): Apply new conventions for
+	glyph granularity.
+	(A2-DJT-01124): Unify BUCS+53D4.
+
 2022-03-20  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R082-Fur.el (U-00023B5A): New character.
