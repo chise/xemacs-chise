@@ -7895,10 +7895,12 @@
       (=adobe-japan1-5	  . 16959)	; &AJ1-16959;
       (=daikanwa	  . 19107)	; &I-M-19107;
       )
-     ((=ucs		  . #x7763)	; 督
+     ((=ucs@unicode	  . #x7763)	; &AJ1-03228;
+      (=adobe-japan1-0	  . 03228)	; &AJ1-03228;
       (=daikanwa	  . 23457)	; &I-M-23457;
       )
-     ((=ucs		  . #x41CF)	; 䇏
+     ((=ucs@unicode	  . #x41CF)	; &C4-3F54;
+      (=cns11643-4	  . #x3F54)	; &C4-3F54; [31-52]
       (=daikanwa	  . 25789)	; &I-M-25789;
       )
      ((=ucs@iso		  . #x25AF1)	; &JX2-7340;
