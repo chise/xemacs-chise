@@ -1,3 +1,8 @@
+2022-03-26  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R005-Second.el (BC-86C9-itaiji-001): Use A-compBC-86C9
+	instead of A-BC-86C9 as its mother.
+
 2022-03-24  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R072-Sun.el (U+664F): Add `<-denotational@usage' for

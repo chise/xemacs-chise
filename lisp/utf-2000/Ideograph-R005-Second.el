@@ -2239,7 +2239,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=>big5-cdp	  . #x86C9)	; &A-CDP-86C9;
+     ((=>big5-cdp@component . #x86C9)	; &A-compCDP-86C9;
       ))
     (ideographic-radical . 5)	; ⼄
     (ideographic-strokes . 4)
