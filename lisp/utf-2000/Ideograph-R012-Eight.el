@@ -7634,7 +7634,8 @@
      ((=ucs@unicode	  . #x5176)	; &AJ1-02838;
       (=adobe-japan1-0	  . 02838)	; &AJ1-02838;
       )
-     ((=ucs		  . #x7AE0)	; 章
+     ((=ucs@unicode	  . #x7AE0)	; &AJ1-02487;
+      (=adobe-japan1-0	  . 02487)	; &I-AJ1-02487;
       ))
     (=ucs@JP/hanazono	. #x2B934)	; &hanaJU+2B934;
     ))
