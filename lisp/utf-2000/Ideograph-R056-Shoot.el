@@ -155,7 +155,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
       (=ucs		  . #x2FF9)	; ⿹
       )
-     ((=ucs		  . #x5F0B)	; 弋
+     ((=gt-k		  . 00233)	; &GT-K00233;
       )
      ((=ucs		  . #x4E8C)	; 二
       ))
