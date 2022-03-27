@@ -2361,8 +2361,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=>ucs@iwds-1	  . #x24C14)	; &CDP-8DEE;
-      (=ucs@iso		  . #x24C14)	; &CDP-8DEE;
+     ((=ucs@iso		  . #x24C14)	; &CDP-8DEE;
       (=big5-cdp	  . #x8DEE)	; &CDP-8DEE;
       )
      ((=ucs		  . #x5BF8)	; 寸
