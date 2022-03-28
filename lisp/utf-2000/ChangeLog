@@ -1,3 +1,22 @@
+2022-03-27  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R004-Slash.el (U+4E58): Use "&U-i001+2FFB;" instead of "⿻".
+	(UU+4E58): Ditto.
+
+	* Ideograph-R056-Shoot.el (JU+5F0D): Use GT-K00233 instead of
+	U+5F0B as a component.
+
+2022-03-26  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R057-Bow.el (A-BC-8AC2-itaiji-001): New abstract node;
+	use `<-denotational' for A-cgnBC-86C9.
+	(BC-8AC2-itaiji-001): New character; use `<-denotational' for
+	A-BC-8AC2-itaiji-001.
+	(U-000223DA): Use `ideographic-structure@apparent' instead of
+	`ideographic-structure'.
+	(A-IU+223DA): Likewise.
+	(IU+223DA): Add `ideographic-structure@apparent'.
+
 2022-03-26  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R005-Second.el (BC-86C9-itaiji-001): Use A-compBC-86C9
