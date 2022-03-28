@@ -1066,16 +1066,56 @@
     (=ucs		. #x2201B)	; 𢀛
     ))
 (define-char
-  '((ideographic-radical . 48)	; ⼯
+  '((<-denotational
+     ((=>big5-cdp@component . #x86C9)	; &A-compCDP-86C9;
+      ))
+    (ideographic-radical . 48)	; ⼯
+    (ideographic-strokes . 3)
+    (total-strokes	 . 6)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
       (=ucs		  . #x2FF4)	; ⿴
       )
      ((=ucs		  . #x5DF1)	; 己
       )
-     ((=>ucs@component	  . #x5DE5)	; &A-compU+5DE5;
+     ((=ucs		  . #x5DE5)	; 工
       ))
     (=>big5-cdp		. #x86C9)	; &A-CDP-86C9;
+    ))
+(define-char
+  '((ideographic-radical . 48)	; ⼯
+    (=>big5-cdp@cognate . #x86C9)	; &A-cgnCDP-86C9;
+    ))
+(define-char
+  '((<-denotational
+     ((=>big5-cdp-itaiji-001 . #x8AC2)	; &A-CDP-i001-8AC2;
+      ))
+    (ideographic-radical . 48)	; ⼯
+    (ideographic-structure
+     ((=ucs-itaiji-001	  . #x2FF9)	; &U-i001+2FF9;
+      )
+     ((=ucs		  . #x5F13)	; 弓
+      )
+     ((=ucs		  . #x5DE5)	; 工
+      ))
+    (=>big5-cdp-itaiji-002 . #x86C9)	; &A-CDP-i002-86C9;
+    ))
+(define-char
+  '((<-denotational
+     ((=>big5-cdp-itaiji-002 . #x86C9)	; &A-CDP-i002-86C9;
+      ))
+    (ideographic-radical . 48)	; ⼯
+    (ideographic-strokes . 3)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((=ucs-itaiji-001	  . #x2FF9)	; &U-i001+2FF9;
+      )
+     ((=ucs		  . #x5F13)	; 弓
+      )
+     ((=ucs@unicode	  . #x5DE5)	; &AJ1-01979;
+      (=adobe-japan1-0	  . 01979)	; &AJ1-01979;
+      ))
+    (=big5-cdp-itaiji-002 . #x86C9)	; &CDP-i002-86C9;
     ))
 (define-char
   '((<-denotational
@@ -1097,6 +1137,21 @@
     (->subsumptive
      ((==big5-cdp	  . #x86C9)	; &g2-CDP-86C9;
       ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>big5-cdp@cognate . #x86C9)	; &A-cgnCDP-86C9;
+      ))
+    (ideographic-radical . 48)	; ⼯
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
+      (=ucs		  . #x2FF4)	; ⿴
+      )
+     ((=ucs		  . #x5DF1)	; 己
+      )
+     ((=>ucs@component	  . #x5DE5)	; &A-compU+5DE5;
+      ))
+    (=>big5-cdp@component . #x86C9)	; &A-compCDP-86C9;
     ))
 (define-char
   '((ideographic-radical . 48)	; ⼯
@@ -1422,6 +1477,23 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
       (=ucs		  . #x2FF7)	; ⿷
       )
+     ((=>big5-cdp	  . #x86C9)	; &A-CDP-86C9;
+      )
+     ((=ucs		  . #x5DE5)	; 工
+      ))
+    (=>big5-cdp		. #x88D7)	; &A-CDP-88D7;
+    ))
+(define-char
+  '((<-denotational
+     ((=>big5-cdp	  . #x88D7)	; &A-CDP-88D7;
+      ))
+    (ideographic-radical . 48)	; ⼯
+    (ideographic-strokes . 6)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
+      (=ucs		  . #x2FF7)	; ⿷
+      )
      ((=big5-cdp	  . #x86C9)	; &CDP-86C9;
       )
      ((=ucs@unicode	  . #x5DE5)	; &AJ1-01979;
@@ -1429,7 +1501,8 @@
       ))
     (=big5-cdp		. #x88D7)	; &CDP-88D7;
     (<-formed
-     ((=ucs		  . #x200EC)	; 𠃬
+     ((=ucs@iso		  . #x200EC)	; &CDP-88E3;
+      (=big5-cdp	  . #x88E3)	; &CDP-88E3;
       ))
     (->subsumptive
      ((==big5-cdp	  . #x88D7)	; &g2-CDP-88D7;
