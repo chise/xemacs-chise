@@ -1,3 +1,15 @@
+2022-03-28  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R011-Enter.el (IU+204F7): Use UU+723D instead of
+	U+723D as a component.
+
+	* Ideograph-R008-Lid.el (A-IWDSU+4EB3): Omit
+	`<-denotational@usage' for A2-DJT-00165.
+	(U+4EB3): Add `<-denotational@usage' for BUCS+4EB3; apply new
+	conventions for glyph granularity.
+	(U-00020162): Likewise.
+	(A2-DJT-00165): Unify BUCS+4EB3.
+
 2022-03-27  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R048-Work.el (A-BC-86C9): Add `<-denotational' for
