@@ -1099,6 +1099,8 @@
       )
      ((=ucs		  . #x599F)	; 妟
       ))
+    (sound@ja/on/go	"oN")
+    (sound@ja/on/kan	"eN")
     (=ucs		. #x533D)	; 匽
     (=big5		. #xCDF4)	; &I-B-CDF4;
     ))
@@ -1120,6 +1122,34 @@
     (=ucs@cns		. #x533D)	; &C2-2936;
     (=cns11643-2	. #x2936)	; &C2-2936; [09-22]
     (=daikanwa		. 02684)	; &I-M-02684;
+    (<-ancient
+     ((=ucs@unicode	  . #x5043)	; &AJ1-04169;
+      (=adobe-japan1-0	  . 04169)	; &AJ1-04169;
+      ))
+    (<-interchangeable
+     ((=ucs@unicode	  . #x5043)	; &AJ1-04169;
+      (=adobe-japan1-0	  . 04169)	; &AJ1-04169;
+      (=daikanwa	  . 00830)	; &I-M-00830;
+      )
+     ((=ucs@unicode	  . #x8758)	; &MJ023570;
+      (=mj		  . 023570)	; &MJ023570;
+      (=daikanwa	  . 33268)	; &I-M-33268;
+      ))
+    (<-interchangeable$_1*sources
+     shuowen-tongxun-dingsheng hanshu-zhu daikanwa)
+    (<-interchangeable$_2*sources
+     shuowen-tongxun-dingsheng daikanwa)
+    (<-interchangeable*sources
+     shuowen-tongxun-dingsheng daikanwa)
+    (->formed
+     ((=ucs@unicode	  . #x5830)	; &AJ1-01283;
+      (=adobe-japan1-0	  . 01283)	; &AJ1-01283;
+      (=daikanwa	  . 05274)	; &I-M-05274;
+      ))
+    (->formed$_1*sources
+     zhengzitong daikanwa)
+    (->formed*sources
+     zhengzitong daikanwa)
     (->subsumptive
      ((==daikanwa	  . 02684)	; &g2-M-02684;
       )
