@@ -9985,16 +9985,36 @@
       ))
     (sound@ja/on	"sIyAu")
     (=ucs		. #x3893)	; 㢓
-    (=cns11643-3	. #x465F)	; &I-C3-465F; [38-63]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x3893)	; 㢓
+      ))
+    (ideographic-radical . 53)	; ⼴
+    (ideographic-strokes . 11)
+    (total-strokes	 . 14)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs		  . #x5E7F)	; 广
+      )
+     ((=ucs@unicode	  . #x7AE0)	; &AJ1-02487;
+      (=adobe-japan1-0	  . 02487)	; &AJ1-02487;
+      ))
+    (=ucs@unicode	. #x3893)	; &C3-465F;
+    (=cns11643-3	. #x465F)	; &C3-465F; [38-63]
     (=daikanwa		. 09455)	; &I-M-09455;
     (=cbeta		. 07452)	; &I-CB07452;
     (<-formed
-     ((=ucs		  . #x5887)	; 墇
+     ((=ucs@unicode	  . #x5887)	; &AJ1-21357;
+      (=adobe-japan1-6	  . 21357)	; &AJ1-21357;
       ))
     (<-formed$_1*sources
      jiyun)
     (<-interchangeable
-     ((=ucs		  . #x5887)	; 墇
+     ((=ucs@unicode	  . #x5887)	; &AJ1-21357;
+      (=adobe-japan1-6	  . 21357)	; &AJ1-21357;
       (=daikanwa	  . 05416)	; &I-M-05416;
       ))
     (<-interchangeable$_1*sources
@@ -10002,7 +10022,8 @@
     (<-interchangeable*sources
      jiyun daikanwa)
     (<-same
-     ((=ucs		  . #x969C)	; 障
+     ((=ucs@unicode	  . #x969C)	; &AJ1-02507;
+      (=adobe-japan1-0	  . 02507)	; &AJ1-02507;
       (=daikanwa	  . 41821)	; &I-M-41821;
       ))
     (<-same$_1*sources
@@ -10010,7 +10031,8 @@
     (<-same*sources
      guangyun daikanwa)
     (->formed
-     ((=ucs		  . #x969C)	; 障
+     ((=ucs@unicode	  . #x969C)	; &AJ1-02507;
+      (=adobe-japan1-0	  . 02507)	; &AJ1-02507;
       (=daikanwa	  . 41821)	; &I-M-41821;
       ))
     (->formed$_1*sources
