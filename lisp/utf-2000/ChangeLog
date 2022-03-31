@@ -1,3 +1,22 @@
+2022-03-30  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R023-Hiding-Enclosure.el (U+533D): Add
+	`sound@ja/on/{kan|go}'.
+	(CU+533D): Add some relations for other characters.
+
+	* Ideograph-R015-Ice.el (U+51C4): Apply new conventions for glyph
+	granularity.
+	(A2-DJT-00676): Unify BUCS+51C4.
+
+	* Ideograph-R060-Step.el (U-00022554): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R053-Dotted-Cliff.el (U+3893): Apply new conventions
+	for glyph granularity.
+
+	* Ideograph-R042-Small.el (UU+5C20): Apply new conventions for
+	glyph granularity.
+
 2022-03-28  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R011-Enter.el (IU+204F7): Use UU+723D instead of
@@ -9,6 +28,14 @@
 	conventions for glyph granularity.
 	(U-00020162): Likewise.
 	(A2-DJT-00165): Unify BUCS+4EB3.
+
+2022-03-27  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R074-Moon.el (GT-K06828): Use o+U+30BA4-var-003
+	instead of U-00030BA4 as its mother.
+	(MJ013557): Use U+9FBA instead of U-0002099D as a glyph-component.
+	(UU+671D): Ditto.
+	(U-000233A6): New character.
 
 2022-03-27  MORIOKA Tomohiko  <tomo.git@chise.org>
 
