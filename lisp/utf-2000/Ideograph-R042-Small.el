@@ -2605,11 +2605,6 @@
     (ideographic-radical . 42)	; ⼩
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
-    (=decomposition@cid
-     ((=ucs		  . #x5C20)	; 尠
-      )
-     ((=ucs		  . #xE0100)	; 󠄀
-      ))
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -2617,7 +2612,8 @@
      ((=ucs@unicode	  . #x751A)	; &AJ1-02585;
       (=adobe-japan1-0	  . 02585)	; &AJ1-02585;
       )
-     ((=ucs		  . #x5C11)	; 少
+     ((=ucs@unicode	  . #x5C11)	; &AJ1-02455;
+      (=adobe-japan1-0	  . 02455)	; &AJ1-02455;
       ))
     (=ucs@unicode	. #x5C20)	; &AJ1-04645;
     (=adobe-japan1-0	. 04645)	; &AJ1-04645;
@@ -2630,17 +2626,10 @@
     (=shinjigen		.  1906)	; &AJ1-04645;
     (=cbeta		. 00458)	; &I-CB00458;
     (->subsumptive
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	(=ucs		    . #x2FF0)	; ⿰
+     ((=decomposition@cid
+       ((=ucs		    . #x5C20)	; 尠
 	)
-       ((==ucs@jis	    . #x751A)	; &g2-AJ1-02585;
-	(==ucs@ks	    . #x751A)	; &g2-AJ1-02585;
-	(==adobe-japan1-0   . 02585)	; &g2-AJ1-02585;
-	)
-       ((==ucs@jis	    . #x5C11)	; &g2-AJ1-02455;
-	(==ucs@ks	    . #x5C11)	; &g2-AJ1-02455;
-	(==adobe-japan1-0   . 02455)	; &g2-AJ1-02455;
+       ((=ucs		    . #xE0100)	; 󠄀
 	))
       (==ucs@jis	  . #x5C20)	; &g2-AJ1-04645;
       (==adobe-japan1-0	  . 04645)	; &g2-AJ1-04645;
@@ -2663,27 +2652,10 @@
        ((===cbeta	    . 00458)	; &R-CB00458;
 	))
       )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	(=ucs		    . #x2FF0)	; ⿰
-	)
-       ((==ucs@cns	    . #x751A)	; &g2-CU+751A;
-	(==cns11643-1	    . #x5249)	; &g2-CU+751A; [50-41]
-	)
-       ((==ucs@unicode	    . #x5C11)	; &g2-UU+5C11;
-	))
-      (==ucs@cns	  . #x5C20)	; &g2-CU+5C20;
+     ((==ucs@cns	  . #x5C20)	; &g2-CU+5C20;
       (==cns11643-3	  . #x4078)	; &g2-CU+5C20; [32-88]
       )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	(=ucs		    . #x2FF0)	; ⿰
-	)
-       ((==ucs@unicode	    . #x751A)	; &g2-UU+751A;
-	)
-       ((==ucs@unicode	    . #x5C11)	; &g2-UU+5C11;
-	))
-      (==ucs@unicode	  . #x5C20)	; &g2-UU+5C20;
+     ((==ucs@unicode	  . #x5C20)	; &g2-UU+5C20;
       (==ucs@JP/hanazono  . nil)
       ))
     ))

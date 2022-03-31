@@ -2738,7 +2738,26 @@
     ))
 (define-char
   '((<-denotational@usage
-     ((==>daijiten	  . 00676)	; &A2-DJT-00676;
+     ((==>ucs@bucs	  . #x51C4)	; &BUCS+51C4;
+      ))
+    (ideographic-radical . 15)	; ⼎
+    (ideographic-strokes . 8)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x51AB)	; 冫
+      )
+     ((=ucs		  . #x59BB)	; 妻
+      ))
+    (sound@ja/on/go	"sai")
+    (sound@ja/on/kan	"sei")
+    (=ucs		. #x51C4)	; 凄
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x51C4)	; 凄
       ))
     (ideographic-radical . 15)	; ⼎
     (ideographic-strokes . 8)
@@ -2750,10 +2769,11 @@
       )
      ((=ucs		  . #x51AB)	; 冫
       )
-     ((=ucs		  . #x59BB)	; 妻
+     ((=ucs@unicode	  . #x59BB)	; &MJ009618;
+      (=mj		  . 009618)	; &MJ009618;
       ))
-    (=ucs		. #x51C4)	; 凄
-    (=adobe-japan1-0	. 02636)	; &I-AJ1-02636;
+    (=ucs@unicode	. #x51C4)	; &AJ1-02636;
+    (=adobe-japan1-0	. 02636)	; &AJ1-02636;
     (=jis-x0208		. #x4028)	; &I-J90-4028; [32-08]
     (=gb2312		. #x4660)	; &I-G0-4660; [38-64]
     (=ks-x1001		. #x7422)	; &I-K0-7422; [84-02]
@@ -2764,7 +2784,16 @@
     (=gt-pj-1		. #x4028)	; &I-GT-02191; [32-08]
     (=daikanwa		. 01657)	; &I-M-01657;
     (=daijiten		. 00676)	; &I-DJT-00676;
-    (=shinjigen		.  0551)	; 凄
+    (=shinjigen		.  0551)	; &AJ1-02636;
+    (->interchangeable
+     ((=ucs@unicode	  . #x6DD2)	; &AJ1-05444;
+      (=adobe-japan1-0	  . 05444)	; &AJ1-05444;
+      (=daikanwa	  . 17635)	; &I-M-17635;
+      ))
+    (->interchangeable$_1*sources
+     yunhai daikanwa)
+    (->interchangeable*sources
+     yunhai daikanwa)
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x51C4)	; 凄
@@ -6999,7 +7028,8 @@
     ))
 (define-char
   '((ideographic-radical . 15)	; ⼎
-    (==>daijiten	. 00676)	; &A2-DJT-00676;
+    (==>ucs@bucs	. #x51C4)	; &BUCS+51C4;
+    (==>daijiten	. 00676)	; &BUCS+51C4;
     ))
 (define-char
   '((ideographic-radical . 15)	; ⼎

@@ -6858,7 +6858,7 @@
      ((=ucs		  . #x5F73)	; 彳
       )
      ((=ucs@iso		  . #x250E9)	; &C4-2466;
-      (=cns11643-4	  . #x2466)	; &C4-2466; [04-70]
+      (=cns11643-4	  . #x2466)	; &I-C4-2466; [04-70]
       (=daikanwa	  . 23113)	; &I-M-23113;
       ))
     (=ucs@iso		. #x224FC)	; &MJ035842;
@@ -14598,10 +14598,29 @@
       )
      ((=ucs		  . #x7AE0)	; 章
       ))
+    (sound@ja/on	"sIyAu")
     (=ucs		. #x22554)	; 𢕔
-    (=mj		. 035904)	; &I-MJ035904;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x22554)	; 𢕔
+      ))
+    (ideographic-radical . 60)	; ⼻
+    (ideographic-strokes . 11)
+    (total-strokes	 . 14)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5F73)	; 彳
+      )
+     ((=ucs@unicode	  . #x7AE0)	; &AJ1-02487;
+      (=adobe-japan1-0	  . 02487)	; &AJ1-02487;
+      ))
+    (=ucs@iso		. #x22554)	; &MJ035904;
+    (=mj		. 035904)	; &MJ035904;
     (=cns11643-5	. #x4565)	; &I-C5-4565; [37-69]
-    (=koseki		. 115450)	; 𢕔
+    (=koseki		. 115450)	; &MJ035904;
     (=daikanwa		. 10221)	; &I-M-10221;
     (->subsumptive
      ((==ucs@iso	  . #x22554)	; &g2-MJ035904;
