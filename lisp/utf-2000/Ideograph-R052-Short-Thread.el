@@ -1636,7 +1636,8 @@
        ((=ucs		    . #x980E)	; 頎
 	(=daikanwa	    . 43370)	; &I-M-43370;
 	)
-       ((=ucs		    . #x573B)	; 圻
+       ((=ucs@unicode	    . #x573B)	; &AJ1-04478;
+	(=adobe-japan1-0    . 04478)	; &AJ1-04478;
 	(=daikanwa	    . 04903)	; &I-M-04903;
 	)
        ((=ucs		    . #x8C48)	; 豈
