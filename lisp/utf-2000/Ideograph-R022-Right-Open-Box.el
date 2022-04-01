@@ -369,6 +369,23 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=ucs		  . #x531D)	; 匝
+      ))
+    (ideographic-radical . 22)	; ⼕
+    (ideographic-strokes . 3)
+    (total-strokes	 . 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
+      (=ucs		  . #x2FF7)	; ⿷
+      )
+     ((=ucs-var-002	  . #x5338)	; &U-v002+5338;
+      )
+     ((=ucs		  . #x5DFE)	; 巾
+      ))
+    (=ucs-var-002	. #x531D)	; &U-v002+531D;
+    ))
+(define-char
   '((ideographic-radical . 22)	; ⼕
     (ideographic-strokes . 3)
     (total-strokes	 . 5)
