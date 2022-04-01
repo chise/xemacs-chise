@@ -1,3 +1,13 @@
+2022-03-31  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R048-Work.el (U+5DEB): Add `<-denotational@usage' for
+	BUCS+5DEB.
+	(UU+5DEB): Unify DJT-02779.
+	(BUCS+5DEB): New abstract node; unify A2-DJT-02779.
+
+	* Ideograph-R022-Right-Open-Box.el (U+531D-var-002): New
+	character; use `<-denotational' for U+531D.
+
 2022-03-30  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R023-Hiding-Enclosure.el (U+533D): Add
