@@ -1,3 +1,7 @@
+2022-04-01  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R028-Private.el (U-00020AFB): Add `sound@ja/on'.
+
 2022-03-31  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R048-Work.el (U+5DEB): Add `<-denotational@usage' for
@@ -341,6 +345,11 @@
 	* Ideograph-R024-Ten.el (A-cgnU+5358): New abstract node; use
 	`<-denotational' for A-cgnU+55AE.
 	(A-compU+5358): Add `<-denotational' for A-cgnU+5358.
+
+2022-03-13  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR228.el (SW-JIGUGE-20927): Add U-00027DCF as a
+	corresponding modern character.
 
 2022-03-11  MORIOKA Tomohiko  <tomo.git@chise.org>
 
