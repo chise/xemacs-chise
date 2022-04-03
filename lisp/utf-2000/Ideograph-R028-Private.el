@@ -2242,6 +2242,7 @@
       )
      ((=>ucs@iwds-1	  . #x51F7)	; &A-IWDSU+51F7;
       ))
+    (sound@ja/on	"hoN")
     (=ucs		. #x20AFB)	; 𠫻
     ))
 (define-char
@@ -2268,12 +2269,14 @@
     (=daikanwa		. 05931)	; &I-M-05931;
     (=shinjigen		.  5049)	; &C6-3649;
     (<-original
-     ((=ucs		  . #x755A)	; 畚
+     ((=ucs@unicode	  . #x755A)	; &AJ1-05716;
+      (=adobe-japan1-0	  . 05716)	; &AJ1-05716;
       (=jis-x0208	  . #x613D)	; &I-J90-613D; [65-29]
-      (=shinjigen	  .  5048)	; 畚
+      (=daikanwa	  . 21809)	; &I-M-21809;
+      (=shinjigen	  .  5048)	; &AJ1-05716;
       ))
     (<-original*sources
-     shinjigen)
+     zhengzitong daikanwa shinjigen)
     (->subsumptive
      ((==ucs@iso	  . #x20AFB)	; &g2-M-05931;
       (==cns11643-6	  . #x3649)	; &g2-M-05931; [22-41]
