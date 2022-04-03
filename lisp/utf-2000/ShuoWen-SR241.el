@@ -15,6 +15,8 @@
   '((shuowen-radical	. 241)	; 夕
     (=shuowen-jiguge	. 23107)	; &SW-JIGUGE-23107;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x2158D)	; 𡖍
+      )
      ((=ucs		  . #x591C)	; 夜
       ))
     (->subsumptive
@@ -64,6 +66,13 @@
     (=shuowen-jiguge	. 23111)	; &SW-JIGUGE-23111;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x215B7)	; 𡖷
+      )
+     ((=ucs		  . #x215B8)	; 𡖸
+      ))
+    (<-Zhouwen@shuowen
+     ((=shuowen-jiguge	  . 23110)	; &SW-JIGUGE-23110;
+      )
+     ((=ucs		  . #x5924)	; 夤
       ))
     (->subsumptive
      ((===shuowen-jiguge5 . 23111)	; &SW-JIGUGE5-23111;
