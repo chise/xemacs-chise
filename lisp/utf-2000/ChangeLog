@@ -1,3 +1,15 @@
+2022-04-03  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR241.el (SW-JIGUGE-23107): Add U-0002158D as a
+	corresponding modern character.
+	(SW-JIGUGE-23111): Add U-000215B8 as a corresponding modern
+	character; add `<-Zhouwen@shuowen' for SW-JIGUGE-23110.
+
+2022-04-01  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R027-Cliff.el (U+5386): Add `<-denotational@usage' for
+	BUCS+6B77; apply new conventions for glyph granularity.
+
 2022-04-01  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R028-Private.el (U-00020AFB): Add `sound@ja/on'.

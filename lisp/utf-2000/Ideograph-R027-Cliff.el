@@ -294,7 +294,28 @@
     (=hanziku-1		. #xB1E9)	; &I-HZK01-B1E9;
     ))
 (define-char
-  '((ideographic-radical . 27)	; ⼚
+  '((<-denotational@usage
+     ((==>ucs@bucs	  . #x6B77)	; &BUCS+6B77;
+      ))
+    (ideographic-radical . 27)	; ⼚
+    (ideographic-strokes . 2)
+    (total-strokes	 . 4)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=>ucs@iwds-1	  . #x4E06)	; &A-IWDSU+4E06;
+      (=>iwds-1		  .  0150)	; &A-IWDSU+4E06;
+      )
+     ((=ucs		  . #x529B)	; 力
+      ))
+    (=ucs		. #x5386)	; 历
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5386)	; 历
+      ))
+    (ideographic-radical . 27)	; ⼚
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
     (hanyu-dazidian	1 68 4)
@@ -306,11 +327,34 @@
       )
      ((=ucs		  . #x529B)	; 力
       ))
-    (=ucs		. #x5386)	; 历
-    (=gb2312		. #x407A)	; &I-G0-407A; [32-90]
+    (=ucs@unicode	. #x5386)	; &C3-215B;
+    (=gb2312		. #x407A)	; &C3-215B; [32-90]
     (=cns11643-3	. #x215B)	; &I-C3-215B; [01-59]
-    (=hanziku-1		. #xB1EC)	; &I-HZK01-B1EC;
     (=jef-china3	. #x82B0)	; &I-JC3-82B0;
+    (<-simplified@CN
+     ((=ucs@unicode	  . #x6B77)	; &AJ1-13398;
+      (=adobe-japan1-4	  . 13398)	; &AJ1-13398;
+      (=gb12345		  . #x407A)	; &AJ1-13398; [32-90]
+      )
+     ((=ucs@unicode	  . #x66C6)	; &AJ1-13397;
+      (=adobe-japan1-4	  . 13397)	; &AJ1-13397;
+      (=gb12345		  . #x784F)	; &AJ1-13397; [88-47]
+      ))
+    (->subsumptive
+     ((==ucs@unicode	  . #x5386)	; &g2-UU+5386;
+      (==gb2312		  . #x407A)	; &g2-UU+5386; [32-90]
+      (==cns11643-3	  . #x215B)	; &g2-UU+5386; [01-59]
+      (==jef-china3	  . #x82B0)	; &g2-UU+5386;
+      (->subsumptive
+       ((===cns11643-3	    . #x215B)	; &R-C3-215B; [01-59]
+	)
+       ((===ucs@unicode	    . #x5386)	; &R-UU+5386;
+	)
+       ((=hanziku-1	    . #xB1EC)	; &HZK01-B1EC;
+	)
+       ((===jef-china3	    . #x82B0)	; &R-JC3-82B0;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 27)	; ⼚
