@@ -1,3 +1,8 @@
+2022-04-05  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R004-Slash.el (U+4E4C): Apply new conventions for
+	glyph granularity.
+
 2022-04-03  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* ShuoWen-SR241.el (SW-JIGUGE-23107): Add U-0002158D as a
