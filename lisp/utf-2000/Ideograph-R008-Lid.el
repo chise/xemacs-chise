@@ -642,7 +642,31 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((=big5-cdp	    . #x8BEA)	; &CDP-8BEA;
+       ((=>ucs@component    . #x5202)	; &A-compU+5202;
+	)
+       ((=big5-cdp	    . #x89C7)	; &CDP-89C7;
+	))
+      ))
+    (=>ucs-itaiji-001	. #x2CF44)	; &A-U-i001+2CF44;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs-itaiji-001	  . #x2CF44)	; &A-U-i001+2CF44;
+      ))
+    (ideographic-radical . 8)	; ⼇
+    (ideographic-strokes . 3)
+    (total-strokes	 . 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x4EA0)	; 亠
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=big5-cdp-var-001  . #x8BEA)	; &CDP-v001-8BEA;
 	)
        ((=big5-cdp	    . #x89C7)	; &CDP-89C7;
 	))
