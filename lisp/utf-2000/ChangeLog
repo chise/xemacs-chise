@@ -1,5 +1,12 @@
 2022-04-07  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R070-Square.el (U+65D9): Add `<-denotational@usage'
+	for BUCS+65DB; apply new conventions for glyph granularity.
+	(U+65DB): Likewise.
+	(BUCS+65DB): New abstract node; unify A2-DJT-04428.
+
+2022-04-07  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R051-Dry.el (U-00022191): Apply new conventions for
 	glyph granularity.
 
