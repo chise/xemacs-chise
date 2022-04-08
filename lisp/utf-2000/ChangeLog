@@ -1,3 +1,8 @@
+2022-04-07  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R051-Dry.el (U-00022191): Apply new conventions for
+	glyph granularity.
+
 2022-04-06  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R008-Lid.el (A-U+2CF44-itaiji-001): New abstract node.
@@ -9,6 +14,9 @@
 
 	* Ideograph-R004-Slash.el (U+4E4C): Apply new conventions for
 	glyph granularity.
+
+	* Ideograph-R055-Two-Hands.el (U+8201): Apply new conventions for
+	glyph granularity for components of ideographic-structure.
 
 2022-04-03  MORIOKA Tomohiko  <tomo.git@chise.org>
 
