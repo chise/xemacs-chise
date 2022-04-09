@@ -7,6 +7,19 @@
 
 2022-04-07  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R019-Power.el (U+529F): Add `<-denotational@usage' for
+	BUCS+529F; apply new conventions for glyph granularity.
+	(U+52B9): Add `<-denotational@usage' for A2-DJT-00872 and
+	BUCS+6548; apply new conventions for glyph granularity.
+	(U+52E3): Add `<-denotational@usage' for BUCS+52E3; apply new
+	conventions for glyph granularity.
+	(U+52E6): Use `<-denotational@usage' instead of `<-denotational'
+	for BUCS+527F; add ideographic-structure.
+	(UU+52E6): Unify DJT-00902.
+	(BUCS+529F): Unify A2-DJT-00857.
+	(BUCS+52E3): New abstract node; unify A2-DJT-00899.
+	(A2-DJT-00872): New abstract node; use `<-denotational' BUCS+6548.
+
 	* Ideograph-R051-Dry.el (U-00022191): Apply new conventions for
 	glyph granularity.
 
