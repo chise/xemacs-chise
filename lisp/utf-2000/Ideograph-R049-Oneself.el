@@ -1593,7 +1593,9 @@
     (<-same$_1*sources
      zihui)
     (->formed
-     ((=ucs		  . #x8E11)	; 踑
+     ((=ucs@unicode	  . #x8E11)	; &JSP-5F79;
+      (=jis-x0212	  . #x5F79)	; &JSP-5F79; [63-89]
+      (=cns11643-2	  . #x5464)	; &I-C2-5464; [52-68]
       (=daikanwa	  . 37609)	; &I-M-37609;
       )
      ((=ucs@iso		  . #x22042)	; &C5-322D;
