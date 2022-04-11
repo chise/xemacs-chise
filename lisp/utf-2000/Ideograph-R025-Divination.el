@@ -2838,6 +2838,9 @@
 (define-char
   '((<-denotational@component
      ((=>ucs@component	  . #x209E2)	; &A-compU+209E2;
+      )
+     ((=>ucs@iwds-1	  . #x7680)	; &A-IWDSU+7680;
+      (=>iwds-1		  .  35699)	; &A-IWDSU+7680;
       ))
     (ideographic-radical . 25)	; ⼘
     (=>ucs@iwds-1	. #x209E2)	; &A-IWDSU+209E2;
