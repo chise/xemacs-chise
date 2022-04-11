@@ -1,3 +1,26 @@
+2022-04-10  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R037-Big.el (A-compU+592C): New abstract node.
+	(U+592C): Add `<-denotational' for A-compU+592C; add
+	`<-denotational@usage' for A2-DJT-01950 and BUCS+592C.
+	(U-000215D2): Add `<-denotational' for A-compU+592C; add
+	`<-denotational@usage' for A2-DJT-01118 and A2-DJT-01950.
+	(A-IWDSU+5944): Move `<-denotational@usage' for BUCS+5944 to
+	U+5944 and U-00021639.
+	(U+5944): Add `<-denotational@usage' for BUCS+5944.
+	(UU+5944): Unify DJT-01968.
+	(U-00020AFB): Add `sound@ja/on'.
+	(U-00021624): Add `<-denotational@usage' for BUCS+5944.
+	(IU+21624): Unify DJT-01991.
+	(U-00021639): Add `<-denotational@usage' for BUCS+5944.
+	(U-00021641): Add ideographic-structure.
+	(BUCS+592C): New abstract node.
+	(BUCS+5944): Unify A2-DJT-01968.
+	(A2-DJT-01950): New abstract node; use `<-denotational' for
+	BUCS+592C.
+
+	* Ideograph-R025-Divination.el (U-000209E6): New character.
+
 2022-04-07  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R070-Square.el (U+65D9): Add `<-denotational@usage'
