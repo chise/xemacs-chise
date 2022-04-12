@@ -1502,6 +1502,38 @@
     ))
 (define-char
   '((ideographic-radical . 48)	; ⼯
+    (ideographic-strokes . 6)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((=ucs-itaiji-001	  . #x2FFB)	; &U-i001+2FFB;
+      )
+     ((=ucs		  . #x5DE5)	; 工
+      )
+     ((=ucs		  . #x221B6)	; 𢆶
+      ))
+    (=>big5-cdp		. #x8558)	; &A-CDP-8558;
+    ))
+(define-char
+  '((<-denotational
+     ((=>big5-cdp	  . #x8558)	; &A-CDP-8558;
+      ))
+    (ideographic-radical . 48)	; ⼯
+    (ideographic-strokes . 6)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((=ucs-itaiji-001	  . #x2FFB)	; &U-i001+2FFB;
+      )
+     ((=ucs@unicode	  . #x5DE5)	; &AJ1-01979;
+      (=adobe-japan1-0	  . 01979)	; &AJ1-01979;
+      )
+     ((=ucs@iso		  . #x221B6)	; &C4-2267;
+      (=cns11643-4	  . #x2267)	; &C4-2267; [02-71]
+      (=daikanwa	  . 09196)	; &I-M-09196;
+      ))
+    (=big5-cdp		. #x8558)	; &CDP-8558;
+    ))
+(define-char
+  '((ideographic-radical . 48)	; ⼯
     (=>ucs@cognate	. #x5DEE)	; &A-cgnU+5DEE;
     ))
 (define-char

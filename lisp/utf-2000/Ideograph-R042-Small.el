@@ -1056,6 +1056,16 @@
     ))
 (define-char
   '((ideographic-radical . 42)	; ⼩
+    (=>ucs@cognate	. #x5C17)	; &A-cgnU+5C17;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@cognate	  . #x5C17)	; &A-cgnU+5C17;
+      ))
+    (<-denotational@usage
+     ((==>daijiten	  . 02444)	; &A2-DJT-02444;
+      ))
+    (ideographic-radical . 42)	; ⼩
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
     (ideographic-structure
@@ -1091,6 +1101,7 @@
     (=cns11643-4	. #x225C)	; &I-C4-225C; [02-60]
     (=big5-cdp		. #x8CA7)	; &I-CDP-8CA7;
     (=daikanwa		. 07483)	; &I-M-07483;
+    (=daijiten		. 02444)	; &I-DJT-02444;
     (=cbeta		. 08100)	; &I-CB08100;
     (=jef-china3	. #x9CEE)	; &I-JC3-9CEE;
     (<-interchangeable
@@ -1124,10 +1135,13 @@
       (==cns11643-4	  . #x225C)	; &g2-AJ1-21451; [02-60]
       (==big5-cdp	  . #x8CA7)	; &g2-AJ1-21451;
       (==daikanwa	  . 07483)	; &g2-AJ1-21451;
+      (==daijiten	  . 02444)	; &g2-AJ1-21451;
       (==cbeta		  . 08100)	; &g2-AJ1-21451;
       (==jef-china3	  . #x9CEE)	; &g2-AJ1-21451;
       (->subsumptive
        ((===daikanwa	    . 07483)	; &R-M-07483;
+	)
+       ((===daijiten	    . 02444)	; &R-DJT-02444;
 	)
        ((===jis-x0212	    . #x3A6A)	; &R-JSP-3A6A; [26-74]
 	)
@@ -1144,6 +1158,41 @@
        ((===cbeta	    . 08100)	; &R-CB08100;
 	))
       ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@cognate	  . #x5C17)	; &A-cgnU+5C17;
+      ))
+    (ideographic-radical . 42)	; ⼩
+    (ideographic-strokes . 3)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5915)	; 夕
+      )
+     ((=>ucs@iwds-1	  . #x5C0F)	; &A-IWDSU+5C0F;
+      (=>iwds-1		  .  0028)	; &A-IWDSU+5C0F;
+      ))
+    (=>ucs-itaiji-002	. #x5C17)	; &A-U-i002+5C17;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs-itaiji-002	  . #x5C17)	; &A-U-i002+5C17;
+      ))
+    (ideographic-radical . 42)	; ⼩
+    (ideographic-strokes . 3)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5915)	; 夕
+      )
+     ((=ucs		  . #x5C0F)	; 小
+      ))
+    (=ucs-itaiji-002	. #x5C17)	; &U-i002+5C17;
     ))
 (define-char
   '((ideographic-radical . 42)	; ⼩
