@@ -1,3 +1,42 @@
+2022-04-11  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R042-Small.el (A-cgnU+5C17): New abstract node.
+	(U+5C17): Add `<-denotational' for A-cgnU+5C17; add
+	`<-denotational@usage' for A2-DJT-02444.
+	(UU+5C17): Unify DJT-02444.
+	(A-U+5C17-itaiji-002): New abstract node; use `<-denotational' for
+	A-cgnU+5C17.
+	(U+5C17-itaiji-002): New character; use `<-denotational' for
+	A-U+5C17-itaiji-002.
+
+2022-04-10  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R050-Turban.el (UU+5E38): Use GT-K05014 instead of
+	U+5C1A as a component.
+	(U+5E40): Apply new conventions for glyph granularity.
+	(U+5E5B): Likewise.
+	(U+3860): Likewise.
+	(U+3867): Likewise.
+
+	* Ideograph-R048-Work.el (A-BC-8558): New abstract node.
+	(BC-8558): New character; use `<-denotational' for A-BC-8558.
+
+	* Ideograph-R033-Scholar.el (U-0002151D): Add `sound@ja/on'.
+	(IU+2151D): Add `<-ancient' for UU+78EC.
+	(U+58F0): Add A2-DJT-01906 as a target of `<-denotational@usage';
+	add `ideographic-structure'; add `sound@ja/on'.
+	(UU+58F0): Unify DJT-01906; add `<-vulgar' for IU+2151D and
+	UU+8072.
+	(U+58F1): Add `<-denotational@usage' for BUCS+58F9.
+	(UU+58F1): Unify DJT-00942.
+	(U+58F9): Add `<-denotational@usage' for BUCS+58F9; use
+	`ideographic-structure@apparent' instead of
+	`ideographic-structure'.
+	(UU+58F9): Use `ideographic-structure@apparent' instead of
+	`ideographic-structure'; unify DJT-01909.
+	(A2-DJT-01906): New abstract node.
+	(BUCS+58F9): New abstract node; unify A2-DJT-01909.
+
 2022-04-10  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R037-Big.el (A-compU+592C): New abstract node.
