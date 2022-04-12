@@ -342,16 +342,13 @@
       ))
     ))
 (define-char
-  '((<-denotational@usage
-     ((==>ucs@bucs	  . #x65E3)	; &BUCS+65E3;
-      ))
-    (ideographic-radical . 71)	; ⽆
+  '((ideographic-radical . 71)	; ⽆
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
      ((=>ucs@iwds-1	  . #x7680)	; &A-IWDSU+7680;
-      (=>iwds-1		  .  0355)	; &A-IWDSU+7680;
+      (=>iwds-1		  .  35699)	; &A-IWDSU+7680;
       )
      ((=ucs		  . #x65E1)	; 旡
       ))
@@ -360,6 +357,9 @@
 (define-char
   '((<-denotational
      ((=>ucs@iwds-1	  . #x65E3)	; &A-IWDSU+65E3;
+      ))
+    (<-denotational@usage
+     ((==>ucs@bucs	  . #x65E3)	; &BUCS+65E3;
       ))
     (ideographic-radical . 71)	; ⽆
     (ideographic-strokes . 5)
@@ -521,6 +521,9 @@
   '((<-denotational
      ((=>ucs@iwds-1	  . #x65E3)	; &A-IWDSU+65E3;
       ))
+    (<-denotational@usage
+     ((==>ucs@bucs	  . #x65E3)	; &BUCS+65E3;
+      ))
     (ideographic-radical . 71)	; ⽆
     (ideographic-strokes . 7)
     (ideographic-structure
@@ -528,6 +531,7 @@
       (=ucs		  . #x2FF0)	; ⿰
       )
      ((=>ucs@component	  . #x7680)	; &A-compU+7680;
+      (=>big5-cdp	  . #x8ABE)	; &A-compU+7680;
       )
      ((=ucs		  . #x65E1)	; 旡
       ))
