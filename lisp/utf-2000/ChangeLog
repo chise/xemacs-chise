@@ -1,5 +1,33 @@
 2022-04-11  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R041-Inch.el (U-00021B6B): Apply new conventions for
+	glyph granularity.
+	(U-00021B27): Likewise.
+	(IWDS1-0387): Move <-denotational@usage' for BUCS+5C08 to U+5C08
+	and U+5C02.
+	(U+5C08): Add `<-denotational@usage' for BUCS+5C08; add
+	ideographic-structure.
+	(U+5C02): Add `<-denotational@usage' for BUCS+5C08.
+
+	* Ideograph-R031-Enclosure.el (U+56E2): Add `<-denotational@usage'
+	for BUCS+5718.
+	(UU+56E2): Add `<-simplified@CN' for UU+5718 and UU+7CF0.
+	(U+56E3): Add `<-denotational@usage' for BUCS+5718.
+	(U+56F9): Add `<-denotational@usage' for BUCS+56F9; apply new
+	conventions for glyph granularity.
+	(U+5718): Add `<-denotational@usage' for A2-DJT-01648 and
+	BUCS+5718; apply new conventions for glyph granularity.
+	(U+571B): Add `<-denotational@usage' for A2-DJT-01650; apply new
+	conventions for glyph granularity.
+	(BUCS+5718): New abstract node.
+	(BUCS+56F9): New abstract node; unify A2-DJT-01626.
+	(A2-DJT-01650): New abstract node.
+	(A2-DJT-01648): New abstract node; use `<-denotational' for
+	BUCS+5718.
+
+	* Ideograph-R025-Divination.el (IWDS1-0356): Add A-IWDSU+7680 as a
+	target of `<-denotational@component'.
+
 	* Ideograph-R042-Small.el (A-cgnU+5C17): New abstract node.
 	(U+5C17): Add `<-denotational' for A-cgnU+5C17; add
 	`<-denotational@usage' for A2-DJT-02444.
@@ -59,6 +87,14 @@
 	BUCS+592C.
 
 	* Ideograph-R025-Divination.el (U-000209E6): New character.
+
+2022-04-08  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R066-Rap.el (U+6548): Add <-denotational@usage' for
+	A2-DJT-04251 and BUCS+6548.
+	(BUCS+6548): New abstract node.
+	(A2-DJT-04251): New abstract node; add `<-denotational' for
+	BUCS+6548.
 
 2022-04-07  MORIOKA Tomohiko  <tomo.git@chise.org>
 
