@@ -3,6 +3,12 @@
   '((shuowen-radical	. 256)	; 香
     (=shuowen-jiguge	. 24010)	; &SW-JIGUGE-24010;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x2A3FD)	; 𪏽
+      )
+     ((=ucs		  . #x2A3F0)	; 𪏰
+      )
+     ((=ucs		  . #x2578C)	; 𥞌
+      )
      ((=ucs		  . #x9999)	; 香
       ))
     (->subsumptive

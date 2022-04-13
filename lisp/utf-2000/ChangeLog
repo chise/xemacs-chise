@@ -136,6 +136,11 @@
 	* Ideograph-R055-Two-Hands.el (U+8201): Apply new conventions for
 	glyph granularity for components of ideographic-structure.
 
+2022-04-04  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR256.el (SW-JIGUGE-24010): Add U-0002A3FD, U-0002A3F0
+	and U-0002578C as corresponding modern characters.
+
 2022-04-03  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* ShuoWen-SR241.el (SW-JIGUGE-23107): Add U-0002158D as a
