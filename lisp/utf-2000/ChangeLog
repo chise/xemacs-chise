@@ -1,3 +1,10 @@
+2022-04-12  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R071-Not.el (A-IWDSU+65E3): Move
+	`<-denotational@usage' for BUCS+65E3 to U+65E2 and U+65E3.
+	(U+65E2): Add `<-denotational@usage' for BUCS+65E3.
+	(U+65E3): Ditto.
+
 2022-04-11  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R041-Inch.el (U-00021B6B): Apply new conventions for
