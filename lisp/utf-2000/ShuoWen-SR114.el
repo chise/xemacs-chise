@@ -267,6 +267,8 @@
   '((shuowen-radical	. 114)	; 羊
     (=shuowen-jiguge	. 12020)	; &SW-JIGUGE-12020;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x7FA3)	; 羣
+      )
      ((=ucs		  . #x7FA4)	; 群
       ))
     (->subsumptive
