@@ -1,3 +1,12 @@
+2022-04-13  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR269.el (SW-JIGUGE-24708): Add U+5BC2 as a
+	corresponding modern character.
+	(SW-JIGUGE-24709): Add `<-formed@shuowen' for SW-JIGUGE-24708.
+
+	* ShuoWen-SR114.el (SW-JIGUGE-12020): Add U+7FA3 as a
+	corresponding modern character.
+
 2022-04-12  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R071-Not.el (A-IWDSU+65E3): Move
