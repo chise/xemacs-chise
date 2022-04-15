@@ -4162,6 +4162,25 @@
     (ideographic-radical . 15)	; ⼎
     (ideographic-strokes . 9)
     (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=>ucs@iwds-1	  . #x51AB)	; &A-IWDSU+51AB;
+      (=>iwds-1		  .  47219)	; &A-IWDSU+51AB;
+      )
+     ((=ucs		  . #x54B8)	; 咸
+      ))
+    (sound@ja/on	"geN")
+    (=ucs		. #x51CF)	; 减
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x51CF)	; 减
+      ))
+    (ideographic-radical . 15)	; ⼎
+    (ideographic-strokes . 9)
+    (total-strokes	 . 11)
     (hanyu-dazidian	1 299 18)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -4169,26 +4188,29 @@
       )
      ((=ucs		  . #x51AB)	; 冫
       )
-     ((=ucs		  . #x54B8)	; 咸
+     ((=ucs@unicode	  . #x54B8)	; &AJ1-04366;
+      (=adobe-japan1-0	  . 04366)	; &AJ1-04366;
       ))
-    (=ucs		. #x51CF)	; 减
-    (=adobe-japan1-5	. 19177)	; &I-AJ1-19177;
+    (=ucs@unicode	. #x51CF)	; &AJ1-19177;
+    (=adobe-japan1-5	. 19177)	; &AJ1-19177;
     (=gb2312		. #x3C75)	; &I-G0-3C75; [28-85]
     (=jis-x0212		. #x3322)	; &I-JSP-3322; [19-02]
     (=cns11643-3	. #x344F)	; &I-C3-344F; [20-47]
     (=daikanwa		. 01675)	; &I-M-01675;
     (=daijiten		. 00685)	; &I-DJT-00685;
-    (=shinjigen@1ed	.  4324)	; 减
-    (=shinjigen@rev	.  4325)	; 减
+    (=shinjigen@1ed	.  4324)	; &AJ1-19177;
+    (=shinjigen@rev	.  4325)	; &AJ1-19177;
     (=jef-china3	. #x43FC)	; &I-JC3-43FC;
     (<-vulgar
-     ((=ucs		  . #x6E1B)	; 減
+     ((=ucs@unicode	  . #x6E1B)	; &AJ1-01902;
+      (=adobe-japan1-0	  . 01902)	; &AJ1-01902;
       (=jis-x0208	  . #x383A)	; &I-J90-383A; [24-26]
-      (=shinjigen@1ed	  .  4323)	; 減
-      (=shinjigen@rev	  .  4324)	; 減
+      (=daikanwa	  . 17759)	; &I-M-17759;
+      (=shinjigen@1ed	  .  4323)	; &AJ1-01902;
+      (=shinjigen@rev	  .  4324)	; &AJ1-01902;
       ))
     (<-vulgar*sources
-     shinjigen@1ed shinjigen@rev)
+     yupian daikanwa shinjigen@1ed shinjigen@rev)
     (->subsumptive
      ((==ucs@unicode	  . #x51CF)	; &g2-AJ1-19177;
       (==adobe-japan1-5	  . 19177)	; &g2-AJ1-19177;
