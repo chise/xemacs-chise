@@ -1,3 +1,11 @@
+2022-04-14  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R076-Lack.el (U-00023917): Add
+	`ideographic-structure'; add `sound@ja/on'.
+	(GT-20791): Unify MJ038617 and KOSEKI-183840; add
+	`ideographic-structure'.
+	(IU+23917): Add `ideographic-structure'.
+
 2022-04-13  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* ShuoWen-SR269.el (SW-JIGUGE-24708): Add U+5BC2 as a
@@ -8,6 +16,12 @@
 	corresponding modern character.
 
 2022-04-12  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R078-Death.el (U+6B80): Add `<-denotational@usage' for
+	BUCS+6B80.
+	(UU+6B80): Use UU+6B79 instead of U+6B79 as a component; unify
+	DJT-05693.
+	(BUCS+6B80): New abstract node; unify A2-DJT-05693.
 
 	* Ideograph-R071-Not.el (A-IWDSU+65E3): Move
 	`<-denotational@usage' for BUCS+65E3 to U+65E2 and U+65E3.
