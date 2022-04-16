@@ -1,3 +1,15 @@
+2022-04-15  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R015-Ice.el (U+51CF): Apply new conventions for glyph
+	granularity.
+
+	* Ideograph-R002-Line.el (A-BC-87C2): New abstract node; unify
+	A-U+5F14-itaiji-002.
+	(U+5F14-itaiji-002): New character; use `<-denotational' for
+	A-BC-87C2.
+	(BC-87C2): Ditto.
+	(U-0002006E): Use `->denotational' and `->subsumptive'.
+
 2022-04-14  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R076-Lack.el (U-00023917): Add
