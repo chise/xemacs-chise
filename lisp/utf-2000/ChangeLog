@@ -15,6 +15,13 @@
 	* ShuoWen-SR114.el (SW-JIGUGE-12020): Add U+7FA3 as a
 	corresponding modern character.
 
+	* Ideograph-R026-Seal.el (A-IWDSU+537D): Move
+	`<-denotational@usage' for A2-DJT-01049 to U+5373 and U+537D.
+	(U+5373): Add `<-denotational@usage' for BUCS+537D.
+	(U+537D): Ditto.
+	(A2-DJT-01049): Unify BUCS+537D.
+	(A2-DJT-01052): Unify BUCS+537F.
+
 2022-04-12  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R078-Death.el (U+6B80): Add `<-denotational@usage' for
