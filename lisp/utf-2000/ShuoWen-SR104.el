@@ -33,6 +33,8 @@
   '((shuowen-radical	. 104)	; 白
     (=shuowen-jiguge	. 11310)	; &SW-JIGUGE-11310;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x29D91)	; 𩶑
+      )
      ((=ucs		  . #x9B6F)	; 魯
       ))
     (->subsumptive
