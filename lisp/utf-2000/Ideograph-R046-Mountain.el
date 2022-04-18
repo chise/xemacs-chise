@@ -22888,7 +22888,10 @@
     (=ucs		. #x21F1D)	; 𡼝
     ))
 (define-char
-  '((ideographic-radical@ucs . 46)	; ⼭
+  '((<-denotational@usage
+     ((==>daijiten	  . 13000)	; &A2-DJT-13000;
+      ))
+    (ideographic-radical@ucs . 46)	; ⼭
     (ideographic-strokes@ucs . 13)
     (ideographic-radical@ucs*sources
      daikanwa=08532 cns11643-2 ucs jis-x0213-2)
@@ -24594,6 +24597,8 @@
      daikanwa ucs)
     (ideographic-radical@cns . 172)	; ⾫
     (ideographic-strokes@cns . 10)
+    (ideographic-radical@cns*sources
+     daijiten)
     (total-strokes	 . 18)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
@@ -24611,6 +24616,7 @@
     (=cns11643-2	. #x643E)	; &I-C2-643E; [68-30]
     (=big5		. #xF172)	; &I-B-F172;
     (=daikanwa		. 08595)	; &I-M-08595;
+    (=daijiten		. 13000)	; &I-DJT-13000;
     (<-formed
      ((=ucs@unicode	  . #x96DF)	; &JSP-6679;
       (=jis-x0212	  . #x6679)	; &JSP-6679; [70-89]
@@ -24644,11 +24650,18 @@
 	(==cns11643-2	    . #x643E)	; &g2-CU+5DC2; [68-30]
 	))
       )
-     ((ideographic-radical . 46)	; ⼭
-      (ideographic-strokes . 15)
-      (==ucs@unicode	  . #x5DC2)	; &g2-UU+5DC2;
-      (==ucs@JP/hanazono  . nil)
-      (==iso-ir165	  . #x7B22)	; &g2-UU+5DC2; [91-02]
+     ((=>>ucs@unicode	  . #x5DC2)	; &G-UU+5DC2;
+      (->subsumptive
+       ((==ucs@unicode	    . #x5DC2)	; &g2-DJT-13000;
+	(==ucs@JP/hanazono  . nil)
+	(==iso-ir165	    . #x7B22)	; &g2-DJT-13000; [91-02]
+	(==daijiten	    . 13000)	; &g2-DJT-13000;
+	(->subsumptive
+	 ((===daijiten	      . 13000)	; &R-DJT-13000;
+	  )
+	 ((===ucs@unicode     . #x5DC2)	; &R-UU+5DC2;
+	  ))
+	))
       ))
     ))
 (define-char
