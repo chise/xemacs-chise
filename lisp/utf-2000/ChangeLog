@@ -1,3 +1,9 @@
+2022-04-16  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R050-Turban.el (UU+5E40): Add IU+22E51 as a target of
+	`<-formed'.
+	(UU+3867): Likewise.
+
 2022-04-15  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R015-Ice.el (U+51CF): Apply new conventions for glyph
@@ -11,6 +17,10 @@
 	(U-0002006E): Use `->denotational' and `->subsumptive'.
 
 2022-04-14  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR287.el (SW-JIGUGE-26505): Add `<-ancient@shuowen' for
+	SW-JIGUGE-26504.
+	(SW-JIGUGE-26506): Ditto.
 
 	* Ideograph-R076-Lack.el (U-00023917): Add
 	`ideographic-structure'; add `sound@ja/on'.
