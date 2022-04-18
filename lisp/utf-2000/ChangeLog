@@ -1,3 +1,54 @@
+2022-04-18  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R009-Man.el (U+4EED): Apply new conventions for glyph
+	granularity.
+	(A-U+343A-itaiji-004): New abstract node; use `<-denotational' for
+	A-IWDSU+4E51.
+	(U+343A-itaiji-004): New character; use `<-denotational' for
+	A-U+343A-itaiji-004.
+	(A-U+4F59-itaiji-002): New abstract node.
+	(GT-K01830): New character; use `<-denotational' for
+	A-U+4F59-itaiji-002; unify U+4F59-itaiji-002.
+	(U+4F8F): Add `<-denotational@usage' for BUCS+4F8F; add
+	`sound@ja/on/{kan|go}'; unify DJT-00290; add some relations for
+	other characters.
+	(U+4F9C): Add `<-denotational@usage' for A2-DJT-00300; unify
+	DJT-00300.
+	(GT-K03992): Use `<-subsumptive' for UU+3452 instead of
+	`<-denotational' for U+3452.
+	(U-0002028A): Add `<-denotational' for A-IWDSU+29681; apply new
+	conventions for glyph granularity.
+	(U+4FF6): Add `<-denotational@usage' for BUCS+4FF6; apply new
+	conventions for glyph granularity.
+	(U+4FFA): Add `<-denotational@usage' for BUCS+4FFA; add
+	`sound@ja/on'.
+	(UU+501A): Add UU+525E as a target of `->interchangeable'.
+	(U+501C): Separate BUCS+501C; add `<-denotational@usage' for
+	BUCS+501C; add `sound@ja/on/{kan|go}'.
+	(JU+501C): Unify DJT-00380; add some relations for other
+	characters.
+	(U+502A): Add `<-denotational@usage' for BUCS+502A; apply new
+	conventions for glyph granularity.
+	(U-000202E1): Add `ideographic-structure'.
+	(IU+202E1): Use UU+98DF instead of U+98DF as a component.
+	(U-000202D7): Apply new conventions for glyph granularity.
+	(M-00914): Add `<-denotational' for U-000202D7; unify IU+202D7,
+	MJ030692 and KOSEKI-010590.
+	(UU+50B8): Use UU+723D instead of U+723D as a component.
+	(U+50BD): Apply new conventions for glyph granularity.
+	(A-JU+50E9): Add `ideographic-structure'.
+	(U+50E9): Add `<-denotational@usage' for BUCS+50E9; apply new
+	conventions for glyph granularity.
+	(DJT-00507): New character; use `<-denotational' for U+50E9.
+	(U+50F4): Apply new conventions for glyph granularity.
+	(BUCS+4F8F): New abstract node; unify A2-DJT-00290.
+	(A2-DJT-00300): New abstract node.
+	(BUCS+4FF6): New abstract node; unify A2-DJT-00354.
+	(BUCS+4FFA): New abstract node; unify A2-DJT-00357.
+	(BUCS+501C): New abstract node; unify A2-DJT-00380.
+	(BUCS+502A): New abstract node; unify A2-DJT-00390.
+	(BUCS+50E9): New abstract node; unify A2-DJT-00507.
+
 2022-04-16  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R029-Again.el (U+53D4): Add `sound@ja/on'.
