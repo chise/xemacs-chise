@@ -1,5 +1,13 @@
 2022-04-16  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R029-Again.el (U+53D4): Add `sound@ja/on'.
+	(UU+53D4): Add some relations for other characters.
+	(U+53E1): Apply new conventions for glyph granularity.
+	(A2-DJT-01138): Unify BUCS+53E1.
+	(A2-DJT-01118): Add `<-denotational' for BUCS+592C.
+
+2022-04-16  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R050-Turban.el (UU+5E40): Add IU+22E51 as a target of
 	`<-formed'.
 	(UU+3867): Likewise.

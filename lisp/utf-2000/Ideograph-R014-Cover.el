@@ -2012,7 +2012,7 @@
     ))
 (define-char
   '((<-denotational@usage
-     ((==>daijiten	  . 02363)	; &A2-DJT-02363;
+     ((==>ucs@bucs	  . #x5BC7)	; &BUCS+5BC7;
       ))
     (ideographic-radical . 14)	; ⼍
     (ideographic-strokes . 8)
