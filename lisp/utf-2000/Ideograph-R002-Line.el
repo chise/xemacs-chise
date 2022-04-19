@@ -1621,6 +1621,7 @@
     (total-strokes	 . 7)
     (hanyu-dazidian	1 30 2)
     (sound@ja/kun	"kusi")
+    (sound@ja/on	"kWaN" "gWaN" "seN")
     (=ucs		. #x4E32)	; 串
     (=adobe-japan1-0	. 01778)	; &I-AJ1-01778;
     (=jis-x0208		. #x367A)	; &I-J90-367A; [22-90]
@@ -1635,6 +1636,66 @@
     (=daikanwa		. 00080)	; &I-M-00080;
     (=daijiten		. 00059)	; &I-DJT-00059;
     (=shinjigen		.  0038)	; 串
+    (<-formed
+     ((=ucs@unicode	  . #x645C)	; &JSP-4061;
+      (=jis-x0212	  . #x4061)	; &JSP-4061; [32-65]
+      (=cns11643-2	  . #x4A4F)	; &I-C2-4A4F; [42-47]
+      (=daikanwa	  . 12591)	; &I-M-12591;
+      ))
+    (<-formed$_1*sources
+     jiyun)
+    (<-interchangeable
+     ((=ucs@unicode	  . #x6163)	; &AJ1-01523;
+      (=adobe-japan1-0	  . 01523)	; &AJ1-01523;
+      (=daikanwa	  . 11111)	; &I-M-11111;
+      )
+     ((=ucs@unicode	  . #x7A7F)	; &AJ1-02720;
+      (=adobe-japan1-0	  . 02720)	; &AJ1-02720;
+      (=daikanwa	  . 25436)	; &I-M-25436;
+      )
+     ((=ucs@ks		  . #x5238)	; &AJ1-13749;
+      (=adobe-japan1-4	  . 13749)	; &AJ1-13749;
+      (=daikanwa	  . 01966)	; &I-M-01966;
+      ))
+    (<-interchangeable$_1*sources
+     zhengzitong daikanwa)
+    (<-interchangeable$_2*sources
+     zhengzitong daikanwa)
+    (<-interchangeable$_3*sources
+     zhengzitong daikanwa)
+    (<-interchangeable*sources
+     zhengzitong daikanwa)
+    (<-same
+     ((=ucs@unicode	  . #x645C)	; &JSP-4061;
+      (=jis-x0212	  . #x4061)	; &JSP-4061; [32-65]
+      (=cns11643-2	  . #x4A4F)	; &I-C2-4A4F; [42-47]
+      (=daikanwa	  . 12591)	; &I-M-12591;
+      ))
+    (<-same$_1*sources
+     jiyun daikanwa)
+    (<-same*sources
+     jiyun daikanwa)
+    (<-wrong@JP
+     ((=ucs		  . #x4E33)	; 丳
+      (=daikanwa	  . 00082)	; &I-M-00082;
+      ))
+    (<-wrong@JP*sources
+     daikanwa)
+    (->formed
+     ((=ucs@unicode	  . #x5086)	; &AJ1-21144;
+      (=adobe-japan1-6	  . 21144)	; &AJ1-21144;
+      (=daikanwa	  . 00940)	; &I-M-00940;
+      ))
+    (->formed$_1*sources
+     jiyun daikanwa)
+    (->formed*sources
+     jiyun daikanwa)
+    (->mistakable
+     ((=ucs		  . #x4E33)	; 丳
+      (=daikanwa	  . 00082)	; &I-M-00082;
+      ))
+    (->mistakable*sources
+     zihui-biansi-2char daikanwa)
     (->subsumptive
      ((==ucs@unicode	  . #x4E32)	; &g2-AJ1-01778;
       (==adobe-japan1-0	  . 01778)	; &g2-AJ1-01778;
