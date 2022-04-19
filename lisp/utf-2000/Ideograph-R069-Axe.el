@@ -2196,19 +2196,83 @@
       ))
     ))
 (define-char
-  '((=>ucs		. #x230BB)	; 𣂻
-    (ideographic-radical . 69)	; ⽄
+  '((ideographic-radical . 69)	; ⽄
     (ideographic-strokes . 11)
     (total-strokes	 . 15)
-    (=cns11643-4	. #x4A2F)	; &C4-4A2F; [42-15]
-    (=daikanwa		. 13589)	; &I-M-13589;
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5340)	; 區
+      )
+     ((=ucs		  . #x65A4)	; 斤
+      ))
+    (sound@ja/on/go	"u" "ku")
+    (sound@ja/on/kan	"ou" "kou")
+    (=ucs		. #x230BB)	; 𣂻
     ))
 (define-char
-  '((morohashi-daikanwa	13589 0 0)
+  '((<-denotational
+     ((=ucs		  . #x230BB)	; 𣂻
+      ))
     (ideographic-radical . 69)	; ⽄
     (ideographic-strokes . 11)
     (total-strokes	 . 15)
-    (=ucs		. #x230BB)	; 𣂻
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs@cns		  . #x5340)	; &MJ007833;
+      (=mj		  . 007833)	; &MJ007833;
+      )
+     ((=ucs		  . #x65A4)	; 斤
+      ))
+    (=ucs@cns		. #x230BB)	; &C4-4A2F;
+    (=cns11643-4	. #x4A2F)	; &C4-4A2F; [42-15]
+    (=daikanwa		. 13589)	; &I-M-13589;
+    (<-formed
+     ((=ucs@unicode	  . #x527E)	; &MJ007588;
+      (=mj		  . 007588)	; &MJ007588;
+      ))
+    (<-formed$_1*sources
+     jiyun)
+    (<-same
+     ((=ucs@unicode	  . #x527E)	; &MJ007588;
+      (=mj		  . 007588)	; &MJ007588;
+      (=daikanwa	  . 02163)	; &I-M-02163;
+      ))
+    (<-same$_1*sources
+     jiyun daikanwa)
+    (<-same*sources
+     jiyun daikanwa)
+    (->subsumptive
+     ((==ucs@cns	  . #x230BB)	; &g2-M-13589;
+      (==cns11643-4	  . #x4A2F)	; &g2-M-13589; [42-15]
+      (==daikanwa	  . 13589)	; &g2-M-13589;
+      (->subsumptive
+       ((===daikanwa	    . 13589)	; &R-M-13589;
+	)
+       ((===cns11643-4	    . #x4A2F)	; &R-C4-4A2F; [42-15]
+	))
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x230BB)	; 𣂻
+      ))
+    (ideographic-radical . 69)	; ⽄
+    (ideographic-strokes . 11)
+    (total-strokes	 . 15)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs@unicode	  . #x5340)	; &MJ007832;
+      (=mj		  . 007832)	; &MJ007832;
+      )
+     ((=ucs		  . #x65A4)	; 斤
+      ))
+    (=ucs@iso		. #x230BB)	; &U-000230BB;
     ))
 (define-char
   '((=>ucs		. #x3AC2)	; 㫂
