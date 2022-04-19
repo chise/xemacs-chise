@@ -1,5 +1,11 @@
 2022-04-18  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R046-Mountain.el (U+5DB2): Add `<-denotational@usage'
+	for A2-DJT-13000.
+	(UU+5DC2): Unify DJT-13000.
+
+2022-04-18  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R009-Man.el (U+4EED): Apply new conventions for glyph
 	granularity.
 	(A-U+343A-itaiji-004): New abstract node; use `<-denotational' for
