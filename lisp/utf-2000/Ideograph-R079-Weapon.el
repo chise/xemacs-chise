@@ -2394,8 +2394,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=>ucs@iwds-1	  . #x7680)	; &A-IWDSU+7680;
-      (=>iwds-1		  .  0355)	; &A-IWDSU+7680;
+     ((=>ucs@component	  . #x3AD0)	; &A-compU+3AD0;
+      (=>iwds-1		  .  0355)	; &A-compU+3AD0;
       )
      ((=ucs		  . #x6BB3)	; 殳
       ))
@@ -2447,6 +2447,7 @@
       (=ucs		  . #x2FF0)	; ⿰
       )
      ((=>ucs@component	  . #x7680)	; &A-compU+7680;
+      (=>big5-cdp	  . #x8ABE)	; &A-compU+7680;
       )
      ((=ucs		  . #x6BB3)	; 殳
       ))
@@ -5865,7 +5866,10 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 79)	; ⽎
+  '((<-denotational@usage
+     ((==>ucs@bucs	  . #x53E1)	; &BUCS+53E1;
+      ))
+    (ideographic-radical . 79)	; ⽎
     (ideographic-strokes . 14)
     (total-strokes	 . 18)
     (ideographic-structure
@@ -5877,6 +5881,7 @@
       )
      ((=ucs		  . #x6BB3)	; 殳
       ))
+    (sound@ja/on	"ei")
     (=ucs		. #x3C8A)	; 㲊
     ))
 (define-char
@@ -5894,15 +5899,29 @@
       )
      ((=ucs		  . #x6BB3)	; 殳
       ))
-    (=daikanwa		. 16698)	; &M-16698;
+    (=ucs@cns		. #x3C8A)	; &HD-KS-189320;
+    (=cns11643-3	. #x5825)	; &HD-KS-189320; [56-05]
+    (=hanyo-denshi/ks	. 189320)	; &HD-KS-189320;
+    (=daikanwa		. 16698)	; &I-M-16698;
     (<-wrong
-     ((=ucs		  . #x53E1)	; 叡
+     ((=ucs@unicode	  . #x53E1)	; &AJ1-01253;
+      (=adobe-japan1-0	  . 01253)	; &AJ1-01253;
       (=daikanwa	  . 03214)	; &I-M-03214;
       ))
     (<-wrong*sources
      zihui-bu daikanwa)
     (->subsumptive
-     ((==daikanwa	  . 16698)	; &g2-M-16698;
+     ((==hanyo-denshi/ks  . 189320)	; &g2-HD-KS-189320;
+      (==daikanwa	  . 16698)	; &g2-HD-KS-189320;
+      (->subsumptive
+       ((===daikanwa	    . 16698)	; &R-M-16698;
+	)
+       ((===hanyo-denshi/ks . 189320)	; &R-HD-KS-189320;
+	(=hanyo-denshi/ks/mf . #x49F4)	; &R-HD-KS-189320;
+	))
+      )
+     ((==ucs@cns	  . #x3C8A)	; &g2-CU+3C8A;
+      (==cns11643-3	  . #x5825)	; &g2-CU+3C8A; [56-05]
       ))
     ))
 (define-char
@@ -5920,16 +5939,13 @@
       )
      ((=ucs		  . #x6BB3)	; 殳
       ))
-    (=ucs@unicode	. #x3C8A)	; &C3-5825;
-    (=cns11643-3	. #x5825)	; &C3-5825; [56-05]
+    (=ucs@unicode	. #x3C8A)	; &DJT-05828;
+    (=daijiten		. 05828)	; &DJT-05828;
     (->subsumptive
+     ((==daijiten	  . 05828)	; &g2-DJT-05828;
+      )
      ((==ucs@unicode	  . #x3C8A)	; &g2-UU+3C8A;
-      (==cns11643-3	  . #x5825)	; &g2-UU+3C8A; [56-05]
-      (->subsumptive
-       ((===cns11643-3	    . #x5825)	; &R-C3-5825; [56-05]
-	)
-       ((===ucs@unicode	    . #x3C8A)	; &R-UU+3C8A;
-	))
+      (==ucs@JP/hanazono  . nil)
       ))
     ))
 (define-char
