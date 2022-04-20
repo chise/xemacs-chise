@@ -470,6 +470,7 @@ DESCRIPTION (string) is the description string of the charset."
 	  ==ucs-sip-var-001
 	  ==ucs-bmp-var-002
 	  ==ucs-sip-var-002
+	  ==ucs-bmp-var-003
 	  ==hanyo-denshi/ja
 	  ==hanyo-denshi/jb
 	  ==hanyo-denshi/jc
