@@ -1,3 +1,8 @@
+2022-04-19  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R002-Line.el (U+4E32): Add `sound@ja/on'; add some
+	relations for other characters.
+
 2022-04-18  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R046-Mountain.el (U+5DB2): Add `<-denotational@usage'
