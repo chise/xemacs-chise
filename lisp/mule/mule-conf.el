@@ -5012,6 +5012,29 @@
 		  mother	=+>ucs-var-003
 		  min-code #x30000 max-code #x3FFFF
 		  registry "ucs00\\.var003-3"))
+  (make-charset '==ucs-var-003
+		"Abstract glyph-forms corresponding with uXXXX-var-003 of GlyphWiki"
+		'(long-name	"UCS-var-003"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+                  ;; =>iso-ir	177
+		  mother	=ucs-var-003))
+  (make-charset '==ucs-bmp-var-003
+		"uXXXX-var-003's abstract glyph-forms in BMP"
+		'(long-name	"UCS-BMP-var-003 glyph-forms"
+		  chars		256
+		  dimension	2
+		  columns	2
+		  graphic	2
+		  direction	l2r
+                  ;; =>iso-ir	177
+		  mother	==ucs-var-003
+		  min-code #x2E00
+		  max-code #x9FCC
+		  registry "ucs\\.var003-0"))
 
   (make-charset '=ucs-var-004
 		"uXXXX-var-004 glyph-images of GlyphWiki"
