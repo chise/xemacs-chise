@@ -52696,6 +52696,8 @@
       )
      ((=ucs		  . #x539F)	; 原
       ))
+    (sound@ja/on/go	"gWaN" "kWaN")
+    (sound@ja/on/kan	"geN" "kWaN")
     (=ucs		. #x5086)	; 傆
     ))
 (define-char
@@ -52720,6 +52722,19 @@
     (=jis-x0212		. #x317A)	; &I-JSP-317A; [17-90]
     (=cns11643-4	. #x3633)	; &I-C4-3633; [22-19]
     (=daikanwa		. 00940)	; &I-M-00940;
+    (<-formed
+     ((=ucs		  . #x4E32)	; 串
+      ))
+    (<-formed$_1*sources
+     jiyun)
+    (<-same
+     ((=ucs		  . #x4E32)	; 串
+      (=daikanwa	  . 00080)	; &I-M-00080;
+      ))
+    (<-same$_1*sources
+     jiyun daikanwa)
+    (<-same*sources
+     jiyun daikanwa)
     (->subsumptive
      ((==ucs@unicode	  . #x5086)	; &g2-AJ1-21144;
       (==adobe-japan1-6	  . 21144)	; &g2-AJ1-21144;

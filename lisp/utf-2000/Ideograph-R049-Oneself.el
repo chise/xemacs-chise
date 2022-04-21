@@ -751,6 +751,37 @@
     (=jef-china3	. #x4BF1)	; &I-JC3-4BF1;
     ))
 (define-char
+  '((ideographic-radical . 49)	; ⼰
+    (ideographic-strokes . 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x6B7A)	; 歺
+      )
+     ((=>ucs@component	  . #x5DF1)	; &A-compU+5DF1;
+      (=>iwds-1		  .  0120)	; &A-compU+5DF1;
+      ))
+    (=ucs		. #x22038)	; 𢀸
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x22038)	; 𢀸
+      ))
+    (ideographic-radical . 49)	; ⼰
+    (ideographic-strokes . 5)
+    (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x6B7A)	; 歺
+      )
+     ((=ucs		  . #x5DF3)	; 巳
+      ))
+    (=ucs@iso		. #x22038)	; &U-00022038;
+    ))
+(define-char
   '((<-denotational@component
      ((=>ucs@iwds-1	  . #x3540)	; &A-IWDSU+3540;
       (=>ucs@iwds-1/normalized . #x3540)	; &A-IWDSU+3540;

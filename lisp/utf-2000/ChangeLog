@@ -1,3 +1,43 @@
+2022-04-20  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R072-Sun.el (U+6619): Add `<-denotational@usage' for
+	BUCS+66C7; apply new conventions for glyph granularity.
+	(U+6653): Add `<-denotational@usage' for BUCS+66C9; apply new
+	conventions for glyph granularity.
+	(U+6681): Add `<-denotational@usage' for BUCS+66C9.
+	(U+66C7): Add `<-denotational@usage' for BUCS+66C7; apply new
+	conventions for glyph granularity.
+	(U+66C9): Add `<-denotational@usage' for BUCS+66C9; apply new
+	conventions for glyph granularity.
+	(BUCS+66C7): New abstract node; unify A2-DJT-04621.
+	(BUCS+66C9): New abstract node; unify A2-DJT-04623.
+
+	* Ideograph-R070-Square.el (U+65C5): Add `<-denotational@usage'
+	for BUCS+65C5; add `ideographic-structure'; add
+	`sound@ja/on/{kan|go}'.
+	(UU+65C5): Add `ideographic-structure'; unify DJT-04402; add some
+	relations for other characters.
+	(JU+65C5): Add `ideographic-structure'.
+	(U-000230E8): Add `<-denotational@usage' for BUCS+65C5; apply new
+	conventions for glyph granularity.
+	(BUCS+65C5): New abstract node; unify A2-DJT-04402.
+
+	* Ideograph-R057-Bow.el (U+5F1E): Apply new conventions for glyph
+	granularity.
+	(A-cgnU+5F25): Delete `<-denotational' for BUCS+5F4C.
+	(U+5F25): Add `<-denotational@usage' for BUCS+5F4C.
+	(U+5F4C): Use `<-denotational@usage' instead of `<-denotational'
+	for BUCS+5F4C.
+	(UU+5F4C): Unify DJT-03084.
+	(BUCS+5F4C): Unify A2-DJT-03084.
+
+	* Ideograph-R049-Oneself.el (U-00022038): New character.
+
+2022-04-20  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R009-Man.el (U+5086): Add `sound@ja/on/{kan|go}'.
+	(UU+5086): Add `<-formed' and `<-same' for U+4E32.
+
 2022-04-19  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R079-Weapon.el (U+3C8A): Add `<-denotational@usage'
