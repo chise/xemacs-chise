@@ -1,5 +1,15 @@
 2022-04-19  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R079-Weapon.el (U+3C8A): Add `<-denotational@usage'
+	for BUCS+53E1; add `sound@ja/on'.
+	(M-16698): Unify CU+3C8A, C3-5825 and HD-KS189320.
+	(UU+3C8A): Separate C3-5825; unify DJT-05828.
+
+	* Ideograph-R069-Axe.el (U-000230BB): Use `->denotational' and
+	`->subsumptive'.
+
+2022-04-19  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R002-Line.el (U+4E32): Add `sound@ja/on'; add some
 	relations for other characters.
 
