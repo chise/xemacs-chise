@@ -2739,6 +2739,8 @@
 (define-char
   '((<-denotational@usage
      ((==>ucs@bucs	  . #x51C4)	; &BUCS+51C4;
+      )
+     ((==>ucs@bucs	  . #x6DD2)	; &BUCS+6DD2;
       ))
     (ideographic-radical . 15)	; ⼎
     (ideographic-strokes . 8)
@@ -4157,7 +4159,7 @@
     ))
 (define-char
   '((<-denotational@usage
-     ((==>daijiten	  . 06313)	; &A2-DJT-06313;
+     ((==>ucs@bucs	  . #x6E1B)	; &BUCS+6E1B;
       ))
     (ideographic-radical . 15)	; ⼎
     (ideographic-strokes . 9)
