@@ -1,3 +1,48 @@
+2022-04-21  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R018-Knife.el (BC-8BEA-var-001): New character; use
+	`<-subsumptive' for BC-8BEA.
+	(U+34DB): Add `<-denotational@usage' for BUCS+529F; apply new
+	conventions for glyph granularity.
+	(U-000206BD): Apply new conventions for glyph granularity.
+	(U+5212): Use `<-denotational@usage' instead of `<-denotational'
+	for BUCS+5283.
+	(U+5233): Add `<-denotational@usage' for BUCS+5233; apply new
+	conventions for glyph granularity.
+	(U+5238): Add `<-denotational@usage' for BUCS+5238; add
+	`sound@ja/on/{kan|go}'.
+	(KU+5238): Unify DJT-00780; add `->mistakable' for JU+52B5.
+	(A-IWDSU+524E): Delete `<-denotational' for BUCS+5239.
+	(U+5239): Add `<-denotational@usage' for BUCS+5239; apply new
+	conventions for glyph granularity.
+	(U+5243): Use `<-denotational@usage' instead of `<-denotational'
+	for BUCS+5243; apply new conventions for glyph granularity.
+	(U-00020713): Apply new conventions for glyph granularity.
+	(U+524E): Add `<-denotational@usage' for BUCS+5239.
+	(JU+524F): Use glyph-grained components instead of abstract
+	component.
+	(UU+524F): Likewise.
+	(U+5254): Add `<-denotational@usage' for BUCS+5254; apply new
+	conventions for glyph granularity.
+	(U+525E): Add `<-denotational@usage' for BUCS+525E; apply new
+	conventions for glyph granularity.
+	(U+5271): Add ideographic-structure.
+	(U+527E): Add `sound@ja/on/{kan|go}'; apply new conventions for
+	glyph granularity.
+	(UU+5292): Use glyph-grained components instead of abstract
+	component.
+	(CU+5292): Likewise.
+	(U+5294): Apply new conventions for glyph granularity.
+	(U-00020821): Likewise.
+	(BUCS+5283): New abstract node.
+	(BUCS+5233): New abstract node; unify A2-DJT-00773.
+	(BUCS+5238): New abstract node; unify A2-DJT-00780.
+	(BUCS+5239): Unify A2-DJT-00781.
+	(BUCS+5243): Unify A2-DJT-00787.
+	(BUCS+5254): New abstract node; unify A2-DJT-00797.
+	(BUCS+525E): New abstract node; unify A2-DJT-00806.
+	(BUCS+527F): Unify A2-DJT-00902.
+
 2022-04-20  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R072-Sun.el (U+6619): Add `<-denotational@usage' for
