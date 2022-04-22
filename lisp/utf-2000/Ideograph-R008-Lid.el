@@ -457,6 +457,20 @@
       )
      ((=ucs		  . #x4EA0)	; 亠
       )
+     ((=ucs		  . #x4EBB)	; 亻
+      ))
+    (=ucs-itaiji-003	. #x2CF44)	; &U-i003+2CF44;
+    ))
+(define-char
+  '((ideographic-radical . 8)	; ⼇
+    (ideographic-strokes . 2)
+    (total-strokes	 . 4)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x4EA0)	; 亠
+      )
      ((=ucs		  . #x4E86)	; 了
       ))
     (=gt-k		. 00823)	; &GT-K00823;
@@ -627,6 +641,20 @@
   '((ideographic-radical . 8)	; ⼇
     (sound@ja/on	"gai")
     (=>ucs@cognate	. #x342A)	; &A-cgnU+342A;
+    ))
+(define-char
+  '((ideographic-radical . 8)	; ⼇
+    (ideographic-strokes . 3)
+    (total-strokes	 . 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs-itaiji-003	  . #x2CF44)	; &U-i003+2CF44;
+      )
+     ((=gt-k		  . 00031)	; &GT-K00031;
+      ))
+    (=ucs-itaiji-002	. #x2CF44)	; &U-i002+2CF44;
     ))
 (define-char
   '((ideographic-radical . 8)	; ⼇
