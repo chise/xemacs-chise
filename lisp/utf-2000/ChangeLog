@@ -1,5 +1,10 @@
 2022-04-21  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R034-Go.el (BC-89F3-itaiji-001): New character; use
+	`<-denotational' for A-BC-89F3.
+
+2022-04-21  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R018-Knife.el (BC-8BEA-var-001): New character; use
 	`<-subsumptive' for BC-8BEA.
 	(U+34DB): Add `<-denotational@usage' for BUCS+529F; apply new
