@@ -264,6 +264,23 @@
     (ideographic-strokes . 1)
     (total-strokes	 . 4)
     (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
+      (=ucs		  . #x2FFA)	; ⿺
+      )
+     ((=gt-k		  . 00031)	; &GT-K00031;
+      )
+     ((=ucs		  . #x5915)	; 夕
+      ))
+    (=big5-cdp-itaiji-001 . #x89F3)	; &CDP-i001-89F3;
+    ))
+(define-char
+  '((<-denotational
+     ((=>big5-cdp	  . #x89F3)	; &A-CDP-89F3;
+      ))
+    (ideographic-radical . 34)	; ⼡
+    (ideographic-strokes . 1)
+    (total-strokes	 . 4)
+    (ideographic-structure
      ((name		  . "IDEOGRAPHIC DESCRIPTION CHARACTER OVERLAID")
       (=ucs		  . #x2FFB)	; ⿻
       )
