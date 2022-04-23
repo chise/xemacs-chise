@@ -485,12 +485,14 @@
     (=daikanwa		. 21652)	; &I-M-21652;
     (=cbeta		. 03042)	; &I-CB03042;
     (<-formed
-     ((=ucs		  . #x5769)	; 坩
+     ((=ucs@unicode	  . #x5769)	; &AJ1-04481;
+      (=adobe-japan1-0	  . 04481)	; &AJ1-04481;
       ))
     (<-formed$_1*sources
      jiyun)
     (<-same
-     ((=ucs		  . #x5769)	; 坩
+     ((=ucs@unicode	  . #x5769)	; &AJ1-04481;
+      (=adobe-japan1-0	  . 04481)	; &AJ1-04481;
       (=daikanwa	  . 04975)	; &I-M-04975;
       ))
     (<-same*sources
