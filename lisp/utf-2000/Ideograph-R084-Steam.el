@@ -127,6 +127,17 @@
       )
      ((=ucs		  . #x4E00)	; 一
       ))
+    (ideographic-structure@apparent
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
+      (=ucs		  . #x2FF3)	; ⿳
+      )
+     ((name*		  . "ideographic component person for top")
+      (=ucs		  . #x20089)	; 𠂉
+      )
+     ((=ucs		  . #x4E00)	; 一
+      )
+     ((=ucs		  . #x4E59)	; 乙
+      ))
     (=hanyo-denshi/ks	. 002130)	; &HD-KS-002130;
     (=gt-k		. 00816)	; &I-GT-K00816;
     (=gt-pj-k1		. #x3B3B)	; &HD-KS-002130; [27-27]
