@@ -1,3 +1,7 @@
+2022-04-26  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R006-Hook.el (U-00030052): New character.
+
 2022-04-22  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R015-Ice.el (U+51C4): Add BUCS+6DD2 as a target of
