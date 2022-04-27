@@ -1,3 +1,7 @@
+2022-04-27  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* JC3-to-UCS.txt (JC3-55FB): Map to U+FA45 instead of U+6D77.
+
 2021-11-26  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* JC3-to-UCS.txt (JC3-50CA): Map to U+FA41 instead of U+654F.
