@@ -716,6 +716,20 @@
       ))
     ))
 (define-char
+  '((ideographic-radical . 6)	; ⼅
+    (ideographic-strokes . 3)
+    (total-strokes	 . 4)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x4E86)	; 了
+      )
+     ((=ucs		  . #x4E86)	; 了
+      ))
+    (=ucs		. #x30052)	; 𰁒
+    ))
+(define-char
   '((ideographic-radical@ucs . 1)	; ⼀
     (ideographic-strokes@ucs . 4)
     (ideographic-radical@misc . 6)	; ⼅
