@@ -57,7 +57,8 @@
     (=gt-pj-9		. #x4B22)	; &I-GT-04091; [43-02]
     (=daikanwa/ho	.  0077)	; ㇣
     (<-formed@Zetian
-     ((=ucs		  . #x661F)	; 星
+     ((=ucs@unicode	  . #x661F)	; &AJ1-02645;
+      (=adobe-japan1-0	  . 02645)	; &I-AJ1-02645;
       (=daikanwa	  . 13837)	; &I-M-13837;
       ))
     (<-formed@Zetian*sources
