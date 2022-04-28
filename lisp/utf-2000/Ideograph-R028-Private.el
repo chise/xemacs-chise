@@ -3144,7 +3144,6 @@
   '((ideographic-radical . 28)	; ⼛
     (ideographic-strokes . 11)
     (total-strokes	 . 13)
-    (hanyu-dazidian	1 389 8)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
@@ -3155,7 +3154,26 @@
       ))
     (sound@ja/on	"sei")
     (=ucs		. #x20B0B)	; 𠬋
-    (=daikanwa		. 03109)	; &I-M-03109;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x20B0B)	; 𠬋
+      ))
+    (ideographic-radical . 28)	; ⼛
+    (ideographic-strokes . 11)
+    (total-strokes	 . 13)
+    (hanyu-dazidian	1 389 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x53B8)	; 厸
+      )
+     ((=ucs@unicode	  . #x661F)	; &AJ1-02645;
+      (=adobe-japan1-0	  . 02645)	; &AJ1-02645;
+      ))
+    (=ucs@iso		. #x20B0B)	; &M-03109;
+    (=daikanwa		. 03109)	; &M-03109;
     (->subsumptive
      ((==daikanwa	  . 03109)	; &g2-M-03109;
       )
