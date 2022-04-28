@@ -58,7 +58,7 @@
     (=daikanwa/ho	.  0077)	; ㇣
     (<-formed@Zetian
      ((=ucs@unicode	  . #x661F)	; &AJ1-02645;
-      (=adobe-japan1-0	  . 02645)	; &I-AJ1-02645;
+      (=adobe-japan1-0	  . 02645)	; &AJ1-02645;
       (=daikanwa	  . 13837)	; &I-M-13837;
       ))
     (<-formed@Zetian*sources
