@@ -2086,6 +2086,8 @@
       )
      ((=ucs		  . #x4E3F)	; 丿
       ))
+    (sound@ja/on/go	"dai" "dyaku" "dui")
+    (sound@ja/on/kan	"tei" "teki" "tai")
     (=ucs		. #x5F1F)	; 弟
     ))
 (define-char
@@ -2116,6 +2118,66 @@
     (=gt-pj-1		. #x446F)	; &I-GT-12265; [36-79]
     (=daikanwa		. 09737)	; &I-M-09737;
     (=shinjigen		.  2271)	; &AJ1-03083;
+    (<-formed
+     ((=ucs@unicode	  . #x608C)	; &AJ1-03084;
+      (=adobe-japan1-0	  . 03084)	; &AJ1-03084;
+      ))
+    (<-formed$_1*sources
+     shuowen-tongxun-dingsheng jiyun)
+    (<-interchangeable
+     ((=ucs		  . #x7B2C)	; 第
+      (=daikanwa	  . 25943)	; &I-M-25943;
+      )
+     ((=ucs		  . #x4F46)	; 但
+      (=daikanwa	  . 00495)	; &I-M-00495;
+      )
+     ((=ucs@unicode	  . #x608C)	; &AJ1-03084;
+      (=adobe-japan1-0	  . 03084)	; &AJ1-03084;
+      (=daikanwa	  . 10642)	; &I-M-10642;
+      ))
+    (<-interchangeable$_1*sources
+     shiji-jijie daikanwa)
+    (<-interchangeable$_2*sources
+     shiji-jijie daikanwa)
+    (<-interchangeable*sources
+     daikanwa)
+    (<-same
+     ((=ucs@unicode	  . #x608C)	; &AJ1-03084;
+      (=adobe-japan1-0	  . 03084)	; &AJ1-03084;
+      (=daikanwa	  . 10642)	; &I-M-10642;
+      ))
+    (<-same$_1*sources
+     shuowen-tongxun-dingsheng shiwen jiyun daikanwa)
+    (<-same*sources
+     shuowen-tongxun-dingsheng shiwen jiyun daikanwa)
+    (<-wrong
+     ((=ucs@unicode	  . #x571B)	; &MJ008887;
+      (=mj		  . 008887)	; &MJ008887;
+      (=daikanwa	  . 04850)	; &I-M-04850;
+      ))
+    (<-wrong$_1*sources
+     shuowen-tongxun-dingsheng daikanwa)
+    (<-wrong*sources
+     shuowen-tongxun-dingsheng daikanwa)
+    (->formed
+     ((=ucs		  . #x7B2C)	; 第
+      (=daikanwa	  . 25943)	; &I-M-25943;
+      ))
+    (->formed$_1*sources
+     jiyun daikanwa)
+    (->formed*sources
+     jiyun daikanwa)
+    (->mistakable
+     ((=ucs@cns		  . #x82D0)	; &C3-2E76;
+      (=cns11643-3	  . #x2E76)	; &C3-2E76; [14-86]
+      (=daikanwa	  . 30773)	; &I-M-30773;
+      )
+     ((=ucs@iso		  . #x26B37)	; &C4-2B3B;
+      (=cns11643-4	  . #x2B3B)	; &C4-2B3B; [11-27]
+      (=daikanwa	  . 30769)	; &I-M-30769;
+      ))
+    (->mistakable*sources
+     kangxi-biansi-3char daikanwa)
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x5F1F)	; 弟
