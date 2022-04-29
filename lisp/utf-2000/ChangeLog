@@ -1,3 +1,108 @@
+2022-04-28  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R036-Evening.el (U+591C): Add `<-denotational@usage'
+	for BUCS+591C; add ideographic-structure.
+	(UU+591C): Unify DJT-01939.
+	(A-cgnU+2158D): New abstract node.
+	(U-0002158D): Use `->denotational' and `->subsumptive'; add
+	`<-denotational' for A-cgnU+2158D.
+	(U+591D): Apply new conventions for glyph granularity.
+	(A-cgnU+3689): New abstract node.
+	(U+3689): Add `<-denotational' for A-cgnU+3689; apply new
+	conventions for glyph granularity.
+	(HD-TK01018830): New character; use `<-denotational' for
+	A-cgnU+3689.
+	(U-000215B7): Use `->denotational' and `->subsumptive'.
+	(U-000215B8): Use `<-Zhouwen' for U+5924.
+	(BUCS+591C): New abstract node; unify A2-DJT-01939.
+
+	* Ideograph-R030-Mouth.el (U+5429): Add `<-denotational@usage' for
+	BUCS+5429; apply new conventions for glyph granularity.
+	(U+542D): Add `<-denotational@component' for A-IWDSU+542D; add
+	`<-denotational@usage' for BUCS+542D; apply new conventions for
+	glyph granularity.
+	(U-00020BFF): Add `<-denotational@component' for A-IWDSU+542D.
+	(U+5432): Add `<-denotational@usage' for BUCS+5432; apply new
+	conventions for glyph granularity.
+	(U+548F): Add `<-denotational@usage' for BUCS+548F; apply new
+	conventions for glyph granularity.
+	(U-0002BA63): New character.
+	(U+54AF): Add `<-denotational@usage' for BUCS+54AF; apply new
+	conventions for glyph granularity.
+	(U+54BE): Apply new conventions for glyph granularity.
+	(U+54C2): Add `<-denotational@usage' for BUCS+54C2; apply new
+	conventions for glyph granularity.
+	(U+54C4): Add `<-denotational@usage' for BUCS+54C4; apply new
+	conventions for glyph granularity.
+	(U-0002D1F5): Apply new conventions for glyph granularity.
+	(U-00020D2E): Use `->denotational' and `->subsumptive'.
+	(U+5567): Add `<-denotational@usage' for BUCS+5616; apply new
+	conventions for glyph granularity.
+	(U+556E): Add `<-denotational@usage' for BUCS+5699.
+	(U+5580): Add `<-denotational@usage' for BUCS+5580; apply new
+	conventions for glyph granularity.
+	(U+5583): Add `<-denotational@usage' for BUCS+5583; apply new
+	conventions for glyph granularity.
+	(U+558A): Add `<-denotational@usage' for BUCS+558A; apply new
+	conventions for glyph granularity.
+	(U+5599): Add `<-denotational@usage' for BUCS+5599.
+	(U+55B0): Add `<-denotational@usage' for BUCS+55B0; apply new
+	conventions for glyph granularity.
+	(U+55B7): Add `<-denotational@usage' for BUCS+5674; apply new
+	conventions for glyph granularity.
+	(U-0002D237): Apply new conventions for glyph granularity.
+	(U-0002D26D): Likewise.
+	(U-00020ED6): Likewise.
+	(U+5616): Likewise; add `<-denotational@usage' for BUCS+5616.
+	(U+5636): Add `<-denotational@usage' for BUCS+5636; apply new
+	conventions for glyph granularity.
+	(U+35F4): Apply new conventions for glyph granularity for
+	components of ideographic-structure.
+	(U+564E): Add `<-denotational@usage' for BUCS+564E; apply new
+	conventions for glyph granularity.
+	(U+5650): Add `<-denotational@usage' for BUCS+5668; apply new
+	conventions for glyph granularity.
+	(U+5674): Add `<-denotational@usage' for BUCS+5674; add
+	`sound@ja/on/{kan|on}'.
+	(UU+5674): Unify DJT-01535.
+	(IU+20FA7): Use glyph-grained components instead of abstract
+	component.
+	(U+565B): Add `<-denotational@usage' for BUCS+5699; apply new
+	conventions for glyph granularity.
+	(U+5664): Add `<-denotational@usage' for BUCS+5664; apply new
+	conventions for glyph granularity.
+	(U-0002F84F): Apply new conventions for glyph granularity.
+	(U+5699): Add `<-denotational@usage' for BUCS+5699.
+	(U+56C2): Add `<-denotational@usage' for BUCS+56C2; apply new
+	conventions for glyph granularity.
+	(U+56C3): Add `<-denotational@usage' for BUCS+56C3; apply new
+	conventions for glyph granularity.
+	(A-IWDSU+542D): New abstract node.
+	(BUCS+5429): New abstract node; unify A2-DJT-01229.
+	(BUCS+542D): New abstract node; unify A2-DJT-01198.
+	(BUCS+5432): New abstract node; unify A2-DJT-01204.
+	(BUCS+548F): New abstract node; unify A2-DJT-01266.
+	(BUCS+54AF): New abstract node; unify A2-DJT-01283.
+	(BUCS+54C2): New abstract node; unify A2-DJT-01298.
+	(BUCS+54C4): New abstract node; unify A2-DJT-01300.
+	(BUCS+5616): New abstract node; unify A2-DJT-01478.
+	(BUCS+5699): New abstract node; unify A2-DJT-01560.
+	(BUCS+5580): New abstract node; unify A2-DJT-01392.
+	(BUCS+5583): New abstract node; unify A2-DJT-01394.
+	(BUCS+558A): New abstract node; unify A2-DJT-01400.
+	(BUCS+5599): New abstract node; unify A2-DJT-01409.
+	(BUCS+55B0): New abstract node; unify A2-DJT-01432.
+	(BUCS+5674): New abstract node; unify A2-DJT-01535.
+	(BUCS+5636): New abstract node; unify A2-DJT-01491.
+	(BUCS+564E): New abstract node; unify A2-DJT-01506.
+	(BUCS+5668): New abstract node; unify A2-DJT-01523.
+	(BUCS+5664): New abstract node; unify A2-DJT-01519.
+	(BUCS+56C2): New abstract node; unify A2-DJT-01589.
+	(BUCS+56C3): New abstract node; unify A2-DJT-01590.
+
+	* Ideograph-R028-Private.el (U-00020B0B): Apply new conventions
+	for glyph granularity.
+
 2022-04-27  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R032-Earth.el (U+5737): Apply new conventions for
