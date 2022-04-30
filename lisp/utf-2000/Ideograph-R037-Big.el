@@ -4210,6 +4210,27 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
+     ((=>ucs@iwds-1	  . #x5929)	; &A-IWDSU+5929;
+      (=>iwds-1		  .  0008)	; &A-IWDSU+5929;
+      )
+     ((=ucs		  . #x6C34)	; 水
+      ))
+    (=>ucs@cns		. #x6C97)	; &A-MJ015147;
+    (=>mj		. 015147)	; &A-MJ015147;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@cns	  . #x6C97)	; &A-MJ015147;
+      ))
+    (ideographic-radical@daikanwa . 37)	; ⼤
+    (ideographic-strokes@daikanwa . 5)
+    (ideographic-radical@cns . 85)	; ⽔
+    (ideographic-strokes@cns . 4)
+    (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
      ((=ucs		  . #x5929)	; 天
       )
      ((=ucs		  . #x6C34)	; 水
