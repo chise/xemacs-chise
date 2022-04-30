@@ -1,3 +1,8 @@
+2022-04-29  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R057-Bow.el (U+5F1F): Add `sound@ja/on/{kan|go}'.
+	(UU+5F1F): Add some relations for other characters.
+
 2022-04-28  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R036-Evening.el (U+591C): Add `<-denotational@usage'
