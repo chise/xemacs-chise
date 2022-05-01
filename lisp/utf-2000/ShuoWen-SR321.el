@@ -5,6 +5,8 @@
     (<-Small-Seal@shuowen
      ((=ucs		  . #x3C43)	; 㱃
       )
+     ((=ucs		  . #x28862)	; 𨡢
+      )
      ((=ucs		  . #x98EE)	; 飮
       )
      ((=ucs		  . #x98F2)	; 飲
@@ -21,6 +23,15 @@
     (<-Small-Seal@shuowen
      ((=ucs		  . #x23C8E)	; 𣲎
       ))
+    (<-ancient@shuowen
+     ((=shuowen-jiguge	  . 29518)	; &SW-JIGUGE-29518;
+      )
+     ((=ucs		  . #x3C43)	; 㱃
+      )
+     ((=ucs		  . #x98EE)	; 飮
+      )
+     ((=ucs		  . #x98F2)	; 飲
+      ))
     (->subsumptive
      ((===shuowen-jiguge5 . 29519)	; &SW-JIGUGE5-29519;
       )
@@ -32,6 +43,15 @@
     (=shuowen-jiguge	. 29520)	; &SW-JIGUGE-29520;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x2969C)	; 𩚜
+      ))
+    (<-ancient@shuowen
+     ((=shuowen-jiguge	  . 29518)	; &SW-JIGUGE-29518;
+      )
+     ((=ucs		  . #x3C43)	; 㱃
+      )
+     ((=ucs		  . #x98EE)	; 飮
+      )
+     ((=ucs		  . #x98F2)	; 飲
       ))
     (->subsumptive
      ((===shuowen-jiguge5 . 29520)	; &SW-JIGUGE5-29520;
