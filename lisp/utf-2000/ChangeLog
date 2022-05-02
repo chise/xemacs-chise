@@ -1,3 +1,9 @@
+2022-04-30  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R037-Big.el (A-CU+6C97): New abstract node; use
+	`<-denotational' for U+6C97.
+	(CU+6C97): Use A-CU+6C97 instead of U+6C97 as its mother.
+
 2022-04-29  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R057-Bow.el (U+5F1F): Add `sound@ja/on/{kan|go}'.
@@ -203,6 +209,12 @@
 	(U+6B55): Add `<-denotational@usage' for BUCS+5674; apply new
 	conventions for glyph granularity.
 	(A2-DJT-05617): New abstract node.
+
+2022-04-23  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR206.el (SW-JIGUGE-19315): Add `<-formed@shuowen' for
+	SW-JIGUGE-19314.
+	(SW-JIGUGE-19316): Add `<-Zhouwen@shuowen' for SW-JIGUGE-19314.
 
 2022-04-22  MORIOKA Tomohiko  <tomo.git@chise.org>
 
