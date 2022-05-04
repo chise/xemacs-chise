@@ -1,8 +1,22 @@
+2022-05-01  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR321.el (SW-JIGUGE-29518): Add U-00028862 as a
+	corresponding modern character.
+	(SW-JIGUGE-29519): Add `<-ancient@shuowen' for SW-JIGUGE-29518.
+	(SW-JIGUGE-29520): Add `<-ancient@shuowen' for SW-JIGUGE-29518.
+
+2022-05-01  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR022.el (SW-JIGUGE-04129): Add `<-formed@shuowen' for
+	SW-JIGUGE-04128.
+
 2022-04-30  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R037-Big.el (A-CU+6C97): New abstract node; use
 	`<-denotational' for U+6C97.
 	(CU+6C97): Use A-CU+6C97 instead of U+6C97 as its mother.
+
+	* Ideograph-R087-Claw.el (U-00024521): New character.
 
 2022-04-29  MORIOKA Tomohiko  <tomo.git@chise.org>
 
