@@ -1893,6 +1893,39 @@
   '((ideographic-radical . 36)	; ⼣
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x591A)	; 多
+      )
+     ((=>ucs@iwds-1	  . #x6534)	; &A-IWDSU+6534;
+      (=>iwds-1		  .  45924)	; &A-IWDSU+6534;
+      ))
+    (=ucs		. #x21599)	; 𡖙
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x21599)	; 𡖙
+      ))
+    (ideographic-radical . 36)	; ⼣
+    (ideographic-strokes . 7)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs@unicode	  . #x591A)	; &AJ1-02847;
+      (=adobe-japan1-0	  . 02847)	; &AJ1-02847;
+      )
+     ((=ucs		  . #x6535)	; 攵
+      ))
+    (=ucs@iso		. #x21599)	; &U-00021599;
+    ))
+(define-char
+  '((ideographic-radical . 36)	; ⼣
+    (ideographic-strokes . 7)
+    (total-strokes	 . 10)
     (=ucs		. #x2159B)	; 𡖛
     ))
 (define-char

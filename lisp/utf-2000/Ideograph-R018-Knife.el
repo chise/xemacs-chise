@@ -16945,6 +16945,36 @@
     ))
 (define-char
   '((ideographic-radical . 18)	; ⼑
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x9AA8)	; 骨
+      )
+     ((=ucs		  . #x5202)	; 刂
+      ))
+    (=ucs		. #x207A1)	; 𠞡
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x207A1)	; 𠞡
+      ))
+    (ideographic-radical . 18)	; ⼑
+    (ideographic-strokes . 10)
+    (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs@jis		  . #x9AA8)	; &AJ1-02062;
+      (=adobe-japan1-0	  . 02062)	; &AJ1-02062;
+      )
+     ((=ucs		  . #x5202)	; 刂
+      ))
+    (=ucs@iso		. #x207A1)	; &U-000207A1;
+    ))
+(define-char
+  '((ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 10)
     (total-strokes	 . 12)
     (ideographic-structure

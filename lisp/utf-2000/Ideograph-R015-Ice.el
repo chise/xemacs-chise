@@ -6689,6 +6689,50 @@
     ))
 (define-char
   '((ideographic-radical . 15)	; ⼎
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=>ucs@iwds-1	  . #x51AB)	; &A-IWDSU+51AB;
+      (=>iwds-1		  .  47219)	; &A-IWDSU+51AB;
+      )
+     ((=ucs		  . #x5EE3)	; 廣
+      ))
+    (=ucs		. #x2061B)	; 𠘛
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2061B)	; 𠘛
+      ))
+    (ideographic-radical . 15)	; ⼎
+    (ideographic-strokes . 15)
+    (total-strokes	 . 17)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x51AB)	; 冫
+      )
+     ((=ucs@cns		  . #x5EE3)	; &C1-6C5D;
+      (=cns11643-1	  . #x6C5D)	; &C1-6C5D; [76-61]
+      ))
+    (=ucs@iso		. #x2061B)	; &U-0002061B;
+    ))
+(define-char
+  '((ideographic-radical . 15)	; ⼎
+    (=ucs		. #x2061C)	; 𠘜
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2061C)	; 𠘜
+      ))
+    (ideographic-radical . 15)	; ⼎
+    (ideographic-strokes . 15)
+    (total-strokes	 . 17)
+    (=ucs@iso		. #x2061C)	; &U-0002061C;
+    ))
+(define-char
+  '((ideographic-radical . 15)	; ⼎
     (ideographic-strokes . 16)
     (total-strokes	 . 18)
     (ideographic-structure
