@@ -1,3 +1,31 @@
+2022-05-04  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R078-Death.el (U+3C60): Add `<-denotational@usage' for
+	A2-DJT-05706; apply new conventions for glyph granularity.
+	(U-000239EE): Likewise.
+	(A2-DJT-05706): New abstract node.
+
+2022-05-04  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R018-Knife.el (U-000207A1): New character.
+
+	* Ideograph-R015-Ice.el (U-0002061B): New character.
+	(U-0002061C): New character.
+
+2022-05-03  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R086-Fire.el (U+70AF): Add `<-denotational@usage' for
+	BUCS+70AF; add `ideographic-structure'.
+	(U+70F1): Add `<-denotational@usage' for BUCS+70AF; apply new
+	conventions for glyph granularity.
+	(U+9ED2): Use ideographic-structure@apparent instead of
+	ideographic-structure.
+	(BUCS+70AF): New abstract node; unify A2-DJT-06820.
+
+2022-05-02  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R036-Evening.el (U-00021599): New character.
+
 2022-05-01  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* ShuoWen-SR321.el (SW-JIGUGE-29518): Add U-00028862 as a
