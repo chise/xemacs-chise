@@ -1,5 +1,13 @@
 2022-05-06  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R030-Mouth.el (U-00020F0C): New character.
+	(U-00020F0D): New character.
+	(U-00020FEE): Add ideographic-structure.
+	(U-0002100F): New character.
+	(U+3612): Fix ideographic-structure.
+
+2022-05-06  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R009-Man.el (U-000203D8): Apply new conventions for
 	glyph granularity; add `<-denotational' for A-IWDSU+8AD0.
 
