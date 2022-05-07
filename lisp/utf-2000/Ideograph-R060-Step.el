@@ -12805,7 +12805,7 @@
     ))
 (define-char
   '((<-denotational@usage
-     ((==>daijiten	  . 03165)	; &A2-DJT-03165;
+     ((==>ucs@bucs	  . #x5FAE)	; &BUCS+5FAE;
       ))
     (ideographic-radical . 60)	; ⼻
     (ideographic-strokes . 10)
@@ -14113,6 +14113,45 @@
     (=ucs@JP/hanazono	. #x2D6FD)	; &hanaJU+2D6FD;
     ))
 (define-char
+  '((<-denotational@usage
+     ((==>ucs@bucs	  . #x5FAE)	; &BUCS+5FAE;
+      ))
+    (ideographic-radical . 60)	; ⼻
+    (ideographic-strokes . 10)
+    (total-strokes	 . 13)
+    (ideographic-structure@apparent
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO MIDDLE AND RIGHT")
+      (=ucs		  . #x2FF2)	; ⿲
+      )
+     ((=ucs		  . #x5F73)	; 彳
+      )
+     ((=ucs		  . #x37AC)	; 㞬
+      )
+     ((=>ucs@iwds-1	  . #x6534)	; &A-IWDSU+6534;
+      (=>iwds-1		  .  45924)	; &A-IWDSU+6534;
+      ))
+    (=>ucs-itaiji-007	. #x5FAE)	; &A-U-i007+5FAE;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs-itaiji-007	  . #x5FAE)	; &A-U-i007+5FAE;
+      ))
+    (ideographic-radical . 60)	; ⼻
+    (ideographic-strokes . 10)
+    (total-strokes	 . 13)
+    (ideographic-structure@apparent
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO MIDDLE AND RIGHT")
+      (=ucs		  . #x2FF2)	; ⿲
+      )
+     ((=ucs		  . #x5F73)	; 彳
+      )
+     ((=ucs@unicode	  . #x37AC)	; &C5-2250;
+      )
+     ((=ucs		  . #x6535)	; 攵
+      ))
+    (=ucs-itaiji-007	. #x5FAE)	; &U-i007+5FAE;
+    ))
+(define-char
   '((ideographic-radical . 60)	; ⼻
     (ideographic-strokes . 11)
     (total-strokes	 . 14)
@@ -14881,7 +14920,7 @@
     ))
 (define-char
   '((<-denotational@usage
-     ((==>daijiten	  . 03165)	; &A2-DJT-03165;
+     ((==>ucs@bucs	  . #x5FAE)	; &BUCS+5FAE;
       ))
     (ideographic-radical . 60)	; ⼻
     (ideographic-structure
@@ -20960,7 +20999,8 @@
     ))
 (define-char
   '((ideographic-radical . 60)	; ⼻
-    (==>daijiten	. 03165)	; &A2-DJT-03165;
+    (==>ucs@bucs	. #x5FAE)	; &BUCS+5FAE;
+    (==>daijiten	. 03165)	; &BUCS+5FAE;
     ))
 (define-char
   '((ideographic-radical . 60)	; ⼻
