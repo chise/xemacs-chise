@@ -1,3 +1,19 @@
+2022-05-07  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R060-Step.el (A-U+5FAE-itaiji-007): New abstract node;
+	use `<-denotational@usage' for BUCS+5FAE.
+	(U+5FAE-itaiji-007): New character; use `<-denotational' for
+	A-U+5FAE-itaiji-007.
+	(A2-DJT-03165): Unify BUCS+5FAE.
+
+	* Ideograph-R029-Again.el (A-cgnU+53E0): New abstract node.
+	(U+53E0): Add `<-denotational' for A-cgnU+53E0; add
+	`<-denotational@usage' for BUCS+758A; apply new conventions for
+	glyph granularity.
+	(AJ1-19219): Use A-cgnU+53E0 instead of U+53E0; add
+	`<-denotational@usage' for BUCS+758A; apply new conventions for
+	glyph granularity.
+
 2022-05-06  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R030-Mouth.el (U-00020F0C): New character.
