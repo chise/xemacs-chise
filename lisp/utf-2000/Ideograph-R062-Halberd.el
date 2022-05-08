@@ -4134,10 +4134,89 @@
     ))
 (define-char
   '((ideographic-radical . 62)	; ⼽
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x6208)	; 戈
+      )
+     ((=ucs		  . #x9B3C)	; 鬼
+      ))
+    (=ucs		. #x229E9)	; 𢧩
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x229E9)	; 𢧩
+      ))
+    (ideographic-radical . 62)	; ⼽
     (ideographic-strokes . 10)
     (total-strokes	 . 14)
-    (=ucs		. #x229E9)	; 𢧩
-    (=cns11643-5	. #x457D)	; &I-C5-457D; [37-93]
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x6208)	; 戈
+      )
+     ((name		  . "CJK RADICAL GHOST")
+      (=ucs		  . #x2EE4)	; ⻤
+      ))
+    (=+>ucs@iso		. #x229E9)	; &o-IU+229E9;
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((=ucs		    . #x6208)	; 戈
+	)
+       ((=ucs@cns	    . #x9B3C)	; &AJ1-01614;
+	(=ucs@jis	    . #x9B3C)	; &AJ1-01614;
+	(=ucs@ks	    . #x9B3C)	; &AJ1-01614;
+	(=adobe-japan1-0    . 01614)	; &AJ1-01614;
+	))
+      (=ucs@iso		  . #x229E9)	; &C5-457D;
+      (=cns11643-5	  . #x457D)	; &C5-457D; [37-93]
+      (->subsumptive
+       ((==ucs@iso	    . #x229E9)	; &g2-IU-000229E9;
+	(==cns11643-5	    . #x457D)	; &g2-IU-000229E9; [37-93]
+	(->subsumptive
+	 ((===cns11643-5      . #x457D)	; &R-C5-457D; [37-93]
+	  )
+	 ((===ucs@iso	      . #x229E9)	; &R-U-000229E9;
+	  ))
+	))
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 62)	; ⼽
+    (ideographic-strokes . 10)
+    (total-strokes	 . 14)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
+      (=ucs		  . #x2FF9)	; ⿹
+      )
+     ((=ucs		  . #x2298F)	; 𢦏
+      )
+     ((=ucs		  . #x65FE)	; 旾
+      ))
+    (=ucs		. #x229ED)	; 𢧭
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x229ED)	; 𢧭
+      ))
+    (ideographic-radical . 62)	; ⼽
+    (ideographic-strokes . 10)
+    (total-strokes	 . 14)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
+      (=ucs		  . #x2FF9)	; ⿹
+      )
+     ((=ucs		  . #x2298F)	; 𢦏
+      )
+     ((=ucs@unicode	  . #x65FE)	; &C3-2943;
+      (=cns11643-3	  . #x2943)	; &C3-2943; [09-35]
+      ))
+    (=ucs@iso		. #x229ED)	; &U-000229ED;
     ))
 (define-char
   '((=>ucs		. #x39BB)	; 㦻
