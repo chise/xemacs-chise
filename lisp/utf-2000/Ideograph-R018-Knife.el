@@ -4359,11 +4359,50 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
+     ((=>ucs@component	  . #x5200)	; &A-compU+5200;
+      (=>iwds-1		  .  0149)	; &A-compU+5200;
+      )
+     ((=>ucs@iwds-1	  . #x5197)	; &A-IWDSU+5197;
+      (=>ucs@iwds-1/normalized . #x34C1)	; &A-IWDSU+5197;
+      (=>iwds-1		  .  1119)	; &A-IWDSU+5197;
+      ))
+    (=>big5-cdp-itaiji-003 . #x8CAF)	; &A-CDP-i003-8CAF;
+    (=>big5-cdp-itaiji-004 . #x8CAF)	; &A-CDP-i003-8CAF;
+    ))
+(define-char
+  '((<-denotational
+     ((=>big5-cdp-itaiji-003 . #x8CAF)	; &A-CDP-i003-8CAF;
+      ))
+    (ideographic-radical . 18)	; ⼑
+    (ideographic-strokes . 4)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
      ((=ucs		  . #x5200)	; 刀
       )
      ((=ucs		  . #x34C1)	; 㓁
       ))
     (=big5-cdp-itaiji-003 . #x8CAF)	; &CDP-i003-8CAF;
+    ))
+(define-char
+  '((<-denotational
+     ((=>big5-cdp-itaiji-003 . #x8CAF)	; &A-CDP-i003-8CAF;
+      ))
+    (ideographic-radical . 18)	; ⼑
+    (ideographic-strokes . 4)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((name		  . "CJK RADICAL KNIFE ONE")
+      (=ucs		  . #x2E88)	; ⺈
+      )
+     ((=ucs		  . #x34C1)	; 㓁
+      ))
+    (=big5-cdp-itaiji-004 . #x8CAF)	; &CDP-i004-8CAF;
     ))
 (define-char
   '((ideographic-radical . 18)	; ⼑
@@ -17077,6 +17116,38 @@
       (=mj		  . 007450)	; &MJ007450;
       ))
     (=ucs@JP/hanazono	. #x2D100)	; &hanaJU+2D100;
+    ))
+(define-char
+  '((ideographic-radical . 18)	; ⼑
+    (ideographic-strokes . 10)
+    (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x7559)	; 留
+      )
+     ((=ucs		  . #x5202)	; 刂
+      ))
+    (=ucs		. #x2D101)	; 𭄁
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2D101)	; 𭄁
+      ))
+    (ideographic-radical . 18)	; ⼑
+    (ideographic-strokes . 10)
+    (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs@unicode	  . #x7559)	; &MJ017681;
+      (=mj		  . 017681)	; &MJ017681;
+      )
+     ((=ucs		  . #x5202)	; 刂
+      ))
+    (=ucs@JP/hanazono	. #x2D101)	; &hanaJU+2D101;
     ))
 (define-char
   '((<-denotational

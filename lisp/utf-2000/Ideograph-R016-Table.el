@@ -4093,6 +4093,80 @@
     ))
 (define-char
   '((ideographic-radical . 16)	; ⼏
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x205E6)	; 𠗦
+      )
+     ((=>ucs@component	  . #x51E0)	; &A-compU+51E0;
+      (=>iwds-1		  .  0119)	; &A-compU+51E0;
+      ))
+    (=ucs		. #x20665)	; 𠙥
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x20665)	; 𠙥
+      ))
+    (ideographic-radical . 16)	; ⼏
+    (ideographic-strokes . 11)
+    (total-strokes	 . 13)
+    (hanyu-dazidian	8 10 1)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs-var-001	  . #x205E6)	; &U-v001+205E6;
+      )
+     ((=ucs		  . #x51E0)	; 几
+      ))
+    (=ucs@iso		. #x20665)	; &U-00020665;
+    (->subsumptive
+     ((==ucs@iso	  . #x20665)	; &g2-IU-00020665;
+      (->subsumptive
+       ((===ucs@iso	    . #x20665)	; &R-U-00020665;
+	)
+       ((=hanziku-12	    . #xEBAB)	; &HZK12-EBAB;
+	))
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@iwds-1	  . #x7162)	; &A-IWDSU+7162;
+      ))
+    (ideographic-radical . 16)	; ⼏
+    (ideographic-strokes . 11)
+    (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x241FE)	; 𤇾
+      )
+     ((=ucs		  . #x51E1)	; 凡
+      ))
+    (=ucs		. #x20666)	; 𠙦
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x20666)	; 𠙦
+      ))
+    (ideographic-radical . 16)	; ⼏
+    (ideographic-strokes . 11)
+    (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x241FE)	; 𤇾
+      )
+     ((=ucs@unicode	  . #x51E1)	; &AJ1-03724;
+      (=adobe-japan1-0	  . 03724)	; &AJ1-03724;
+      ))
+    (=ucs@iso		. #x20666)	; &U-00020666;
+    ))
+(define-char
+  '((ideographic-radical . 16)	; ⼏
     (ideographic-strokes . 12)
     (total-strokes	 . 14)
     (ideographic-structure
@@ -4459,12 +4533,6 @@
     (hanyu-dazidian	8 9 27)
     (=ucs		. #x20656)	; 𠙖
     (=hanziku-12	. #xEBAA)	; &I-HZK12-EBAA;
-    ))
-(define-char
-  '((ideographic-radical . 16)	; ⼏
-    (hanyu-dazidian	8 10 1)
-    (=ucs		. #x20665)	; 𠙥
-    (=hanziku-12	. #xEBAB)	; &I-HZK12-EBAB;
     ))
 (define-char
   '((ideographic-radical . 16)	; ⼏

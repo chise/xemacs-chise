@@ -1,5 +1,21 @@
 2022-05-08  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R018-Knife.el (A-BC-8CAF-itaiji-003): New abstract
+	node; use `<-denotational' for A-IWDSBC-8CAF; unify
+	A-BC-8CAF-itaiji-004.
+	(BC-8CAF-itaiji-003): Use A-BC-8CAF-itaiji-003 instead of
+	A-IWDSBC-8CAF as its mother.
+	(BC-8CAF-itaiji-004): New character; use `<-denotational' for
+	A-BC-8CAF-itaiji-003.
+	(U-0002D101): New character.
+
+	* Ideograph-R016-Table.el (U-00020665): Apply new conventions for
+	glyph granularity.
+	(U-00020666): New character; use `<-denotational' for
+	A-IWDSU+7162.
+
+2022-05-08  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R062-Halberd.el (U-000229E9): Apply new conventions
 	for glyph granularity.
 	(U-000229ED): New character.
