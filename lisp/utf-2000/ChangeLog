@@ -1,3 +1,9 @@
+2022-05-08  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R062-Halberd.el (U-000229E9): Apply new conventions
+	for glyph granularity.
+	(U-000229ED): New character.
+
 2022-05-07  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R060-Step.el (A-U+5FAE-itaiji-007): New abstract node;
