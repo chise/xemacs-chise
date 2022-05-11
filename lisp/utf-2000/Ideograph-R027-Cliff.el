@@ -7853,6 +7853,37 @@
     ))
 (define-char
   '((ideographic-radical . 27)	; ⼚
+    (ideographic-structure
+     ((=>ucs@iwds-1	  . #x2FF8)	; &U-v002+2FF1;
+      (=>iwds-1		  .  0305)	; &U-v002+2FF1;
+      )
+     ((=ucs		  . #x53A4)	; 厤
+      )
+     ((=>ucs@iwds-1	  . #x4E1A)	; &A-IWDSU+4E1A;
+      (=>big5-cdp	  . #x8D6B)	; &A-IWDSU+4E1A;
+      ))
+    (=>ucs-itaiji-002	. #x6B77)	; &A-U-i002+6B77;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs-itaiji-002	  . #x6B77)	; &A-U-i002+6B77;
+      ))
+    (ideographic-radical . 27)	; ⼚
+    (ideographic-strokes . 15)
+    (total-strokes	 . 17)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs@unicode	  . #x53A4)	; &AJ1-17335;
+      (=adobe-japan1-5	  . 17335)	; &AJ1-17335;
+      )
+     ((=ucs		  . #x4E1A)	; 业
+      ))
+    (=ucs-itaiji-002	. #x6B77)	; &U-i002+6B77;
+    ))
+(define-char
+  '((ideographic-radical . 27)	; ⼚
     (ideographic-strokes . 16)
     (total-strokes	 . 18)
     (=ucs		. #x20AC3)	; 𠫃
