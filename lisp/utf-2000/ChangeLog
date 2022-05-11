@@ -1,3 +1,30 @@
+2022-05-10  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R032-Earth.el (U+5792): Add `<-denotational@usage' fir
+	A2-DJT-01715 and BUCS+5841; apply new conventions for glyph
+	granularity.
+	(U+5841): Add `<-denotational@usage' for BUCS+5841; apply new
+	conventions for glyph granularity.
+	(U-00021487): New character.
+	(hanaJU+2D3F7): Add `<-denotational' for U-0002D3F7 [fixed].
+	(U+58D8): Add `<-denotational@usage' for A2-DJT-01890 and
+	BUCS+5841.
+	(BUCS+5841): New abstract node.
+	(A2-DJT-01715): New abstract node; use `<-denotational' for
+	BUCS+5841.
+	(A2-DJT-01890): Ditto.
+
+2022-05-09  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R037-Big.el (U-0002165E): New character.
+	(U-0002165F): New character.
+
+	* Ideograph-R015-Ice.el (U-000205E6): Apply new conventions for
+	glyph granularity [abolish o-IU+205E6; unify CB02712 and
+	IU+205E6].
+	(U+205E6-var-001): New character; use `<-denotational' for
+	U-000205E6.
+
 2022-05-08  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R018-Knife.el (A-BC-8CAF-itaiji-003): New abstract
