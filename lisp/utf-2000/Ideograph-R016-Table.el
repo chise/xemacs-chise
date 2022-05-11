@@ -1195,6 +1195,11 @@
       ))
     ))
 (define-char
+  '((ideographic-radical . 16)	; ⼏
+    (=>ucs@iwds-1	. #x2D0AC)	; &A-IWDSU+2D0AC;
+    (=>ucs@iwds-1/normalized . #x2D0AC)	; &A-IWDSU+2D0AC;
+    ))
+(define-char
   '((<-denotational@component
      ((=>ucs@iwds-1	  . #x5C3B)	; &A-IWDSU+5C3B;
       ))
