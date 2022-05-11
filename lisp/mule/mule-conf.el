@@ -4293,6 +4293,19 @@
 		  direction	l2r
 		  =>iso-ir	177
 		  mother	=ucs@unicode))
+  (make-charset
+   '=ucs-sip@cns
+   "CNS glyphs of UCS SIP"
+   '(long-name "CNS SIP glyphs"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       registry "ucs00\\.t-2$"
+	       mother =ucs@cns
+	       min-code #x20000 max-code #x2FFFF
+	       code-offset #x20000))
   (define-charset-alias 'ucs-cns '=ucs@cns)
   (make-charset '=ucs@cns/fw
 		"ISO/IEC 10646 for CNS 11643 with fullwidth"
