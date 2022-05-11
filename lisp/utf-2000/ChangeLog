@@ -1,5 +1,15 @@
 2022-05-10  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R030-Mouth.el (U-00020DBA): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R009-Man.el (U+4FBF): Add `<-denotational@usage' for
+	BUCS+4FBF; unify DJT-00321; apply new conventions for glyph
+	granularity.
+	(U-000202B3): Add `<-denotational@usage' for BUCS+4FBF; apply new
+	conventions for glyph granularity.
+	(BUCS+4FBF): New abstract node; unify A2-DJT-00321.
+
 	* Ideograph-R032-Earth.el (U+5792): Add `<-denotational@usage' fir
 	A2-DJT-01715 and BUCS+5841; apply new conventions for glyph
 	granularity.
