@@ -1186,7 +1186,25 @@
     ))
 (define-char
   '((<-denotational@usage
-     ((==>daijiten	  . 00646)	; &A2-DJT-00646;
+     ((==>ucs@bucs	  . #x51A0)	; &BUCS+51A0;
+      ))
+    (ideographic-radical . 14)	; ⼍
+    (ideographic-strokes . 7)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5196)	; 冖
+      )
+     ((=ucs		  . #x3774)	; 㝴
+      ))
+    (sound@ja/on	"kWaN")
+    (=ucs		. #x51A0)	; 冠
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x51A0)	; 冠
       ))
     (ideographic-radical . 14)	; ⼍
     (ideographic-strokes . 7)
@@ -1198,10 +1216,12 @@
       )
      ((=ucs		  . #x5196)	; 冖
       )
-     ((=big5-cdp	  . #x8DB7)	; &CDP-8DB7;
+     ((=ucs@unicode	  . #x3774)	; &C4-2371;
+      (=cns11643-4	  . #x2371)	; &C4-2371; [03-81]
+      (=daikanwa	  . 07417)	; &I-M-07417;
       ))
-    (=ucs		. #x51A0)	; 冠
-    (=adobe-japan1-0	. 01507)	; &I-AJ1-01507;
+    (=ucs@unicode	. #x51A0)	; &AJ1-01507;
+    (=adobe-japan1-0	. 01507)	; &AJ1-01507;
     (=jis-x0208		. #x3427)	; &I-J90-3427; [20-07]
     (=gb2312		. #x395A)	; &I-G0-395A; [25-58]
     (=ks-x1001		. #x4E2E)	; &I-K0-4E2E; [46-14]
@@ -1213,7 +1233,16 @@
     (=gt-pj-1		. #x3427)	; &I-GT-02084; [20-07]
     (=daikanwa		. 01580)	; &I-M-01580;
     (=daijiten		. 00646)	; &I-DJT-00646;
-    (=shinjigen		.  0528)	; 冠
+    (=shinjigen		.  0528)	; &AJ1-01507;
+    (<-interchangeable
+     ((=ucs@cns		  . #x9E1B)	; &C1-7D49;
+      (=cns11643-1	  . #x7D49)	; &C1-7D49; [93-41]
+      (=daikanwa	  . 47500)	; &I-M-47500;
+      ))
+    (<-interchangeable$_1*sources
+     daikanwa)
+    (<-interchangeable*sources
+     daikanwa)
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x51A0)	; 冠
@@ -3765,7 +3794,8 @@
     ))
 (define-char
   '((ideographic-radical . 14)	; ⼍
-    (==>daijiten	. 00646)	; &A2-DJT-00646;
+    (==>ucs@bucs	. #x51A0)	; &BUCS+51A0;
+    (==>daijiten	. 00646)	; &BUCS+51A0;
     ))
 (define-char
   '((ideographic-radical . 14)	; ⼍
