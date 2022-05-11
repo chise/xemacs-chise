@@ -4285,48 +4285,52 @@
       )
      ((=ucs		  . #x51AB)	; 冫
       )
-     ((=ucs		  . #x2EA74)	; 𮩴
+     ((=ucs@JP/hanazono	  . #x2EA74)	; &hanaJU+2EA74;
       ))
-    (=+>ucs@iso		. #x205E6)	; &o-IU+205E6;
+    (=ucs@iso		. #x205E6)	; &C6-3D3F;
+    (=cns11643-6	. #x3D3F)	; &C6-3D3F; [29-31]
+    (=daikanwa		. 01677)	; &I-M-01677;
+    (=cbeta		. 02712)	; &I-CB02712;
+    (<-vulgar
+     ((=ucs@unicode	  . #x99AE)	; &AJ1-07231;
+      (=adobe-japan1-0	  . 07231)	; &AJ1-07231;
+      (=daikanwa	  . 44579)	; &I-M-44579;
+      ))
+    (<-vulgar*sources
+     zhengzitong daikanwa)
     (->subsumptive
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	(=ucs		    . #x2FF0)	; ⿰
-	)
-       ((=ucs		    . #x51AB)	; 冫
-	)
-       ((=ucs@JP/hanazono   . #x2EA74)	; &hanaJU+2EA74;
-	))
-      (=ucs@iso		  . #x205E6)	; &C6-3D3F;
-      (=cns11643-6	  . #x3D3F)	; &C6-3D3F; [29-31]
-      (=daikanwa	  . 01677)	; &I-M-01677;
-      (<-vulgar
-       ((=ucs@unicode	    . #x99AE)	; &AJ1-07231;
-	(=adobe-japan1-0    . 07231)	; &AJ1-07231;
-	(=daikanwa	    . 44579)	; &I-M-44579;
-	))
-      (<-vulgar*sources
-       zhengzitong daikanwa)
+     ((==ucs@iso	  . #x205E6)	; &g2-M-01677;
+      (==cns11643-6	  . #x3D3F)	; &g2-M-01677; [29-31]
+      (==daikanwa	  . 01677)	; &g2-M-01677;
       (->subsumptive
-       ((==ucs@iso	    . #x205E6)	; &g2-M-01677;
-	(==cns11643-6	    . #x3D3F)	; &g2-M-01677; [29-31]
-	(==daikanwa	    . 01677)	; &g2-M-01677;
-	(->subsumptive
-	 ((===daikanwa	      . 01677)	; &R-M-01677;
-	  )
-	 ((===cns11643-6      . #x3D3F)	; &R-C6-3D3F; [29-31]
-	  )
-	 ((===ucs@iso	      . #x205E6)	; &R-U-000205E6;
-	  )
-	 ((=hanziku-1	      . #xE3C5)	; &HZK01-E3C5;
-	  ))
+       ((===daikanwa	    . 01677)	; &R-M-01677;
+	)
+       ((===cns11643-6	    . #x3D3F)	; &R-C6-3D3F; [29-31]
+	)
+       ((===ucs@iso	    . #x205E6)	; &R-U-000205E6;
+	)
+       ((=hanziku-1	    . #xE3C5)	; &HZK01-E3C5;
 	))
       )
-     ((=cbeta		  . 02712)	; &CB02712;
-      (->subsumptive
-       ((==cbeta	    . 02712)	; &g2-CB02712;
-	))
+     ((==cbeta		  . 02712)	; &g2-CB02712;
       ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x205E6)	; 𠗦
+      ))
+    (ideographic-radical . 15)	; ⼎
+    (ideographic-strokes . 9)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x51AB)	; 冫
+      )
+     ((=ucs-var-004	  . #x2EA74)	; &U-v004+2EA74;
+      ))
+    (=ucs-var-001	. #x205E6)	; &U-v001+205E6;
     ))
 (define-char
   '((ideographic-radical . 15)	; ⼎
