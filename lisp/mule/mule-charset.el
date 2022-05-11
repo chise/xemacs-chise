@@ -444,6 +444,7 @@ DESCRIPTION (string) is the description string of the charset."
 	  =cbeta
 	  =jef-china3
 	  chinese-isoir165
+	  =ucs-sip@cns
 	  ===chise-hdic-tsj
 	  =chise-hdic-tsj
 	  ===chise-hdic-syp
