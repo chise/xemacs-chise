@@ -1,5 +1,14 @@
 2022-05-11  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R041-Inch.el (U+3774): Apply new conventions for glyph
+	granularity.
+
+2022-05-11  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R014-Cover.el (U+51A0): Apply new conventions for
+	glyph granularity.
+	(A2-DJT-00646): Unify BUCS+51A0.
+
 	* Ideograph-R027-Cliff.el (A-U+6B77-itaiji-002): New abstract
 	node.
 	(U+6B77-itaiji-002): New character; use `<-denotational' for

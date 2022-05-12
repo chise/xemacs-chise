@@ -552,18 +552,68 @@
   '((ideographic-radical . 41)	; ⼨
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
+    (ideographic-structure
+     ((=>ucs@iwds-1	  . #x2FFA)	; &A-IWDSU+2FFA;
+      (=>iwds-1		  .  0307)	; &A-IWDSU+2FFA;
+      )
+     ((=ucs		  . #x5143)	; 元
+      )
+     ((=ucs		  . #x5BF8)	; 寸
+      ))
     (sound@ja/on	"gWaN")
     (=ucs		. #x3774)	; 㝴
-    (=cns11643-4	. #x2371)	; &I-C4-2371; [03-81]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x3774)	; 㝴
+      ))
+    (ideographic-radical . 41)	; ⼨
+    (ideographic-strokes . 4)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
+      (=ucs		  . #x2FFA)	; ⿺
+      )
+     ((=ucs		  . #x5143)	; 元
+      )
+     ((=ucs		  . #x5BF8)	; 寸
+      ))
+    (=ucs@unicode	. #x3774)	; &C4-2371;
+    (=cns11643-4	. #x2371)	; &C4-2371; [03-81]
+    (=big5-cdp		. #x8DB7)	; &I-CDP-8DB7;
     (=daikanwa		. 07417)	; &I-M-07417;
-    (=shinjigen		.  0602)	; 㝴
+    (=shinjigen		.  0602)	; &C4-2371;
     (<-formed
      ((=ucs		  . #x5213)	; 刓
       (=jis-x0212	  . #x3334)	; &I-JSP-3334; [19-20]
       (=shinjigen	  .  0601)	; 刓
       ))
+    (<-formed$_1*sources
+     zihui shinjigen)
     (<-formed*sources
-     shinjigen)
+     zihui shinjigen)
+    (<-same
+     ((=ucs		  . #x5213)	; 刓
+      (=daikanwa	  . 01895)	; &I-M-01895;
+      ))
+    (<-same*sources
+     zihui daikanwa)
+    (->subsumptive
+     ((==ucs@unicode	  . #x3774)	; &g2-CDP-8DB7;
+      (==cns11643-4	  . #x2371)	; &g2-CDP-8DB7; [03-81]
+      (==big5-cdp	  . #x8DB7)	; &g2-CDP-8DB7;
+      (==daikanwa	  . 07417)	; &g2-CDP-8DB7;
+      (==shinjigen	  .  0602)	; &g2-CDP-8DB7;
+      (->subsumptive
+       ((===daikanwa	    . 07417)	; &R-M-07417;
+	)
+       ((===big5-cdp	    . #x8DB7)	; &R-CDP-8DB7;
+	)
+       ((===cns11643-4	    . #x2371)	; &R-C4-2371; [03-81]
+	)
+       ((===ucs@unicode	    . #x3774)	; &R-UU+3774;
+	))
+      ))
     ))
 (define-char
   '((<-denotational@usage
