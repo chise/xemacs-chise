@@ -1,3 +1,12 @@
+2022-05-11  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R027-Cliff.el (A-U+6B77-itaiji-002): New abstract
+	node.
+	(U+6B77-itaiji-002): New character; use `<-denotational' for
+	A-U+6B77-itaiji-002.
+
+	* Ideograph-R016-Table.el (A-IWDSU+2D0AC): New abstract node.
+
 2022-05-10  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R030-Mouth.el (U-00020DBA): Apply new conventions for
@@ -23,6 +32,10 @@
 	(A2-DJT-01715): New abstract node; use `<-denotational' for
 	BUCS+5841.
 	(A2-DJT-01890): Ditto.
+
+2022-05-09  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R039-Child.el (U-0002A9C2): New character.
 
 2022-05-09  MORIOKA Tomohiko  <tomo.git@chise.org>
 
