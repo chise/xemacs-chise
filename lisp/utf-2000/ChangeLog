@@ -1,5 +1,9 @@
 2022-05-11  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R073-Say.el (U+66F4): Add `sound@ja/on/{kan|go}'; add
+	some relations for other characters.
+	(A2-DJT-04654): Unify BUCS+66F4.
+
 	* Ideograph-R041-Inch.el (U+3774): Apply new conventions for glyph
 	granularity.
 
