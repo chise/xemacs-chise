@@ -1,3 +1,11 @@
+2022-05-12  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R067-Script.el (U-0002ABE2): New character.
+	(U-00023055): New character.
+	(U-000295B0): Apply new conventions for glyph granularity.
+	(U-00023058): New character.
+	(U-00023064): New character.
+
 2022-05-11  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R073-Say.el (U+66F4): Add `sound@ja/on/{kan|go}'; add
