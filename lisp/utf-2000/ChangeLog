@@ -1,3 +1,25 @@
+2022-05-14  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R009-Man.el (U+3465): Apply new conventions for glyph
+	granularity.
+
+	* Ideograph-R001-One.el (U-00020017): Modify structure; preserve
+	the previous IDS as an apparent structure.
+	(U+20017-itaiji-001): New character; use `<-denotational' for
+	U-00020017.
+
+2022-05-13  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R091-Slice.el (U+724D): Add `<-denotational@usage' for
+	BUCS+7258; apply new conventions for glyph granularity.
+	(U+7258): Likewise.
+	(BUCS+7258): New abstract node; unify A2-DJT-07064.
+
+	* Ideograph-R081-Compare.el (A-U+23B0B-itaiji-001): Unify
+	AU+23B0B-itaiji-005.
+	(U+23B0B-itaiji-001): New character; use `<-denotational' for
+	A-U+23B0B-itaiji-001.
+
 2022-05-12  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R067-Script.el (U-0002ABE2): New character.
@@ -133,6 +155,11 @@
 
 	* Ideograph-R015-Ice.el (U-0002061B): New character.
 	(U-0002061C): New character.
+
+2022-05-03  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR324.el (SW-JIGUGE-29700): Add U-0002944B as a
+	corresponding modern character.
 
 2022-05-03  MORIOKA Tomohiko  <tomo.git@chise.org>
 
