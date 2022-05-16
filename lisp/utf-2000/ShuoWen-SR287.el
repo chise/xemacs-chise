@@ -1819,6 +1819,8 @@
   '((shuowen-radical	. 287)	; 人
     (=shuowen-jiguge	. 26928)	; &SW-JIGUGE-26928;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x202B3)	; 𠊳
+      )
      ((=ucs		  . #x4FBF)	; 便
       ))
     (->subsumptive
