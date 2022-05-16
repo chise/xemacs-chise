@@ -18,6 +18,8 @@
      ((=ucs		  . #x9AEE)	; 髮
       )
      ((=ucs		  . #x9AEA)	; 髪
+      )
+     ((=ucs		  . #x29B07)	; 𩬇
       ))
     (->subsumptive
      ((===shuowen-jiguge5 . 30400)	; &SW-JIGUGE5-30400;
@@ -29,7 +31,18 @@
   '((shuowen-radical	. 334)	; 髟
     (=shuowen-jiguge	. 30401)	; &SW-JIGUGE-30401;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x29816)	; 𩠖
+      )
      ((=ucs		  . #x29819)	; 𩠙
+      ))
+    (<-formed@shuowen
+     ((=shuowen-jiguge	  . 30400)	; &SW-JIGUGE-30400;
+      )
+     ((=ucs		  . #x9AEE)	; 髮
+      )
+     ((=ucs		  . #x9AEA)	; 髪
+      )
+     ((=ucs		  . #x29B07)	; 𩬇
       ))
     (->subsumptive
      ((===shuowen-jiguge5 . 30401)	; &SW-JIGUGE5-30401;
@@ -42,6 +55,15 @@
     (=shuowen-jiguge	. 30402)	; &SW-JIGUGE-30402;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x2945B)	; 𩑛
+      ))
+    (<-ancient@shuowen
+     ((=shuowen-jiguge	  . 30400)	; &SW-JIGUGE-30400;
+      )
+     ((=ucs		  . #x9AEE)	; 髮
+      )
+     ((=ucs		  . #x9AEA)	; 髪
+      )
+     ((=ucs		  . #x29B07)	; 𩬇
       ))
     (->subsumptive
      ((===shuowen-jiguge5 . 30402)	; &SW-JIGUGE5-30402;
