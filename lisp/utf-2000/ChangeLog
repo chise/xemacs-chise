@@ -1,3 +1,7 @@
+2022-05-16  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R010-Legs.el (U-0002D021): New character.
+
 2022-05-14  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R009-Man.el (U+3465): Apply new conventions for glyph

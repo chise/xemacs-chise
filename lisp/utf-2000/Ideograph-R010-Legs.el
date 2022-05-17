@@ -4823,6 +4823,30 @@
     ))
 (define-char
   '((ideographic-radical . 10)	; ⼉
+    (ideographic-strokes . 6)
+    (total-strokes	 . 8)
+    (=ucs		. #x2D021)	; 𭀡
+    (=mj		. 056972)	; &I-MJ056972;
+    (=koseki		. 016030)	; 𭀡
+    (<-formed
+     ((=ucs		  . #x5146)	; 兆
+      (=mj		  . 007218)	; &I-MJ007218;
+      ))
+    (<-formed$_1*sources
+     koseki mj)
+    (<-formed*sources
+     koseki mj)
+    (->subsumptive
+     ((==ucs@JP/hanazono  . #x2D021)	; &g2-MJ056972;
+      (==mj		  . 056972)	; &g2-MJ056972;
+      (==koseki		  . 016030)	; &g2-MJ056972;
+      (->subsumptive
+       ((===mj		    . 056972)	; &R-MJ056972;
+	))
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 10)	; ⼉
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
