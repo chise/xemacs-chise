@@ -5598,6 +5598,42 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=ucs		  . #x20017)	; 𠀗
+      ))
+    (ideographic-radical . 1)	; ⼀
+    (ideographic-strokes . 5)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((name		  . "CJK RADICAL GRASS TWO")
+      (=ucs		  . #x2EBF)	; ⺿
+      )
+     ((=ucs		  . #x5382)	; 厂
+      ))
+    (=ucs-itaiji-002	. #x20017)	; &U-i002+20017;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x20017)	; 𠀗
+      ))
+    (ideographic-radical . 1)	; ⼀
+    (ideographic-strokes . 5)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((name		  . "CJK RADICAL GRASS THREE")
+      (=ucs		  . #x2EC0)	; ⻀
+      )
+     ((=ucs		  . #x4E06)	; 丆
+      ))
+    (=ucs-var-002	. #x20017)	; &U-v002+20017;
+    ))
+(define-char
   '((ideographic-radical . 1)	; ⼀
     (ideographic-strokes . 5)
     (total-strokes	 . 6)

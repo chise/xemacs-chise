@@ -17635,6 +17635,24 @@
     (=ucs		. #x2A730)	; 𪜰
     ))
 (define-char
+  '((<-denotational
+     ((=ucs		  . #x2A730)	; 𪜰
+      ))
+    (ideographic-radical . 9)	; ⼈
+    (ideographic-strokes . 5)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x4EBB)	; 亻
+      )
+     ((=ucs@unicode	  . #x79BE)	; &AJ1-01363;
+      (=adobe-japan1-0	  . 01363)	; &AJ1-01363;
+      ))
+    (=ucs@JP/hanazono	. #x2A730)	; &hanaJU+2A730;
+    ))
+(define-char
   '((ideographic-radical . 9)	; ⼈
     (ideographic-strokes . 5)
     (total-strokes	 . 7)
