@@ -919,6 +919,24 @@
      ((name		  . "CJK RADICAL PAW ONE")
       (=ucs		  . #x2EA4)	; ⺤
       )
+     ((=adobe-japan1-4	  . 15391)	; &AJ1-15391;
+      ))
+    (=ucs@cns		. #x2AE8D)	; &CU+2AE8D;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2AE8D)	; 𪺍
+      ))
+    (ideographic-radical . 87)	; ⽖
+    (ideographic-strokes . 3)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((name		  . "CJK RADICAL PAW ONE")
+      (=ucs		  . #x2EA4)	; ⺤
+      )
      ((=ucs@unicode	  . #x5F50)	; &G0-6566;
       (=gb2312		  . #x6566)	; &G0-6566; [69-70]
       ))

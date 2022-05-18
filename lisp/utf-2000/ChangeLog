@@ -2,6 +2,13 @@
 
 	* Ideograph-R010-Legs.el (U-0002D021): New character.
 
+2022-05-15  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R068-Dipper.el (U-00023077): Use `->denotational' and
+	`->subsumptive'.
+	(U-0002307B): Likewise.
+	(U-00023088): New character.
+
 2022-05-14  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R009-Man.el (U+3465): Apply new conventions for glyph
@@ -18,6 +25,9 @@
 	BUCS+7258; apply new conventions for glyph granularity.
 	(U+7258): Likewise.
 	(BUCS+7258): New abstract node; unify A2-DJT-07064.
+
+	* Ideograph-R087-Claw.el (CU+2AE8D): New character; use
+	`<-denotational' for U-0002AE8D.
 
 	* Ideograph-R081-Compare.el (A-U+23B0B-itaiji-001): Unify
 	AU+23B0B-itaiji-005.
