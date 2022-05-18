@@ -1,3 +1,15 @@
+2022-05-18  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R009-Man.el (hanaJU+2A730): New character; use
+	`<-denotational' for U-0002A730.
+
+	* Ideograph-R004-Slash.el (UU+4E58): Use UU+79BE instead of U+79BE
+	as a glyph-grained component.
+
+	* Ideograph-R001-One.el (U+20017-itaiji-002): New character; use
+	`<-denotational' for U-00020017.
+	(U+20017-var-002): Ditto.
+
 2022-05-16  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R010-Legs.el (U-0002D021): New character.
