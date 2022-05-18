@@ -5656,7 +5656,8 @@
     (ideographic-structure
      ((=ucs-itaiji-001	  . #x2FFB)	; &U-i001+2FFB;
       )
-     ((=ucs		  . #x79BE)	; 禾
+     ((=ucs@unicode	  . #x79BE)	; &AJ1-01363;
+      (=adobe-japan1-0	  . 01363)	; &AJ1-01363;
       )
      ((=ucs@unicode	  . #x5317)	; &AJ1-03706;
       (=adobe-japan1-0	  . 03706)	; &AJ1-03706;
