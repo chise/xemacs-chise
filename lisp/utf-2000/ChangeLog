@@ -2,6 +2,13 @@
 
 	* Ideograph-R010-Legs.el (U-0002D021): New character.
 
+2022-05-15  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R068-Dipper.el (U-00023077): Use `->denotational' and
+	`->subsumptive'.
+	(U-0002307B): Likewise.
+	(U-00023088): New character.
+
 2022-05-14  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R009-Man.el (U+3465): Apply new conventions for glyph
