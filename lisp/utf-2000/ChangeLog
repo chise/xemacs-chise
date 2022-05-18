@@ -26,6 +26,9 @@
 	(U+7258): Likewise.
 	(BUCS+7258): New abstract node; unify A2-DJT-07064.
 
+	* Ideograph-R087-Claw.el (CU+2AE8D): New character; use
+	`<-denotational' for U-0002AE8D.
+
 	* Ideograph-R081-Compare.el (A-U+23B0B-itaiji-001): Unify
 	AU+23B0B-itaiji-005.
 	(U+23B0B-itaiji-001): New character; use `<-denotational' for
