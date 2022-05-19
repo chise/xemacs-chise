@@ -3636,7 +3636,29 @@
     (=daikanwa		. 04741)	; &I-M-04741;
     ))
 (define-char
-  '((ideographic-radical . 31)	; ⼞
+  '((<-denotational@usage
+     ((==>daijiten	  . 01625)	; &A2-DJT-01625;
+      ))
+    (ideographic-radical . 31)	; ⼞
+    (ideographic-strokes . 5)
+    (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
+      (=ucs		  . #x2FF4)	; ⿴
+      )
+     ((=ucs		  . #x56D7)	; 囗
+      )
+     ((=ucs		  . #x79BE)	; 禾
+      ))
+    (sound@ja/on/go	"kiN" "giN")
+    (sound@ja/on/kan	"kiN" "kiN")
+    (=ucs		. #x56F7)	; 囷
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x56F7)	; 囷
+      ))
+    (ideographic-radical . 31)	; ⼞
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
     (hanyu-dazidian	1 717 9)
@@ -3646,16 +3668,18 @@
       )
      ((=ucs		  . #x56D7)	; 囗
       )
-     ((=ucs		  . #x79BE)	; 禾
+     ((=ucs@unicode	  . #x79BE)	; &AJ1-01363;
+      (=adobe-japan1-0	  . 01363)	; &AJ1-01363;
       ))
-    (=ucs		. #x56F7)	; 囷
-    (=adobe-japan1-5	. 17413)	; &I-AJ1-17413;
+    (=ucs@unicode	. #x56F7)	; &AJ1-17413;
+    (=adobe-japan1-5	. 17413)	; &AJ1-17413;
     (=jis-x0212		. #x3722)	; &I-JSP-3722; [23-02]
     (=iso-ir165		. #x7A67)	; &I-EGB-7A67; [90-71]
     (=cns11643-2	. #x2570)	; &I-C2-2570; [05-80]
     (=jis-x0213-2	. #x2458)	; &I-JX2-2458; [04-56]
     (=big5		. #xCBF0)	; &I-B-CBF0;
     (=daikanwa		. 04742)	; &I-M-04742;
+    (=daijiten		. 01625)	; &I-DJT-01625;
     (=jef-china3	. #x47C1)	; &I-JC3-47C1;
     (->subsumptive
      ((=decomposition@cid
@@ -3670,9 +3694,12 @@
       (==cns11643-2	  . #x2570)	; &g2-AJ1-17413; [05-80]
       (==jis-x0213-2	  . #x2458)	; &g2-AJ1-17413; [04-56]
       (==daikanwa	  . 04742)	; &g2-AJ1-17413;
+      (==daijiten	  . 01625)	; &g2-AJ1-17413;
       (==jef-china3	  . #x47C1)	; &g2-AJ1-17413;
       (->subsumptive
        ((===daikanwa	    . 04742)	; &R-M-04742;
+	)
+       ((===daijiten	    . 01625)	; &R-DJT-01625;
 	)
        ((===jis-x0212	    . #x3722)	; &R-JX2-2458; [23-02]
 	(===jis-x0213-2	    . #x2458)	; &R-JX2-2458; [04-56]
@@ -9802,6 +9829,10 @@
   '((ideographic-radical . 31)	; ⼞
     (==>ucs@bucs	. #x570B)	; &BUCS+570B;
     (==>daijiten	. 01639)	; &BUCS+570B;
+    ))
+(define-char
+  '((ideographic-radical . 31)	; ⼞
+    (==>daijiten	. 01625)	; &A2-DJT-01625;
     ))
 (define-char
   '((ideographic-radical . 31)	; ⼞
