@@ -1,3 +1,9 @@
+2022-05-19  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R031-Enclosure.el (U+56F7): Apply new conventions for
+	glyph granularity; add `<-denotational@usage' for A2-DJT-01625.
+	(A2-DJT-01625): New abstract node.
+
 2022-05-18  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R009-Man.el (hanaJU+2A730): New character; use
