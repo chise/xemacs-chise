@@ -457,20 +457,6 @@
 (define-char
   '((ideographic-radical . 90)	; ⽙
     (ideographic-strokes . 5)
-    (total-strokes	 . 9)
-    (=ucs		. #x245B1)	; 𤖱
-    (=cns11643-6	. #x3256)	; &I-C6-3256; [18-54]
-    ))
-(define-char
-  '((ideographic-radical . 90)	; ⽙
-    (ideographic-strokes . 5)
-    (total-strokes	 . 9)
-    (=ucs		. #x245B2)	; 𤖲
-    (=cns11643-6	. #x3255)	; &I-C6-3255; [18-53]
-    ))
-(define-char
-  '((ideographic-radical . 90)	; ⽙
-    (ideographic-strokes . 5)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
