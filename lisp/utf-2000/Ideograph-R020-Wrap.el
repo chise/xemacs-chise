@@ -1852,6 +1852,23 @@
     ))
 (define-char
   '((<-denotational
+     ((=>ucs@cognate	  . #x200D3)	; &A-cgnU+200D3;
+      ))
+    (ideographic-radical . 20)	; ⼓
+    (ideographic-strokes . 3)
+    (total-strokes	 . 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x4E00)	; 一
+      )
+     ((=ucs		  . #x52FF)	; 勿
+      ))
+    (=ucs-itaiji-002	. #x6613)	; &U-i002+6613;
+    ))
+(define-char
+  '((<-denotational
      ((=>gt-k		  . 01115)	; &A-GT-K01115;
       ))
     (ideographic-radical . 20)	; ⼓
