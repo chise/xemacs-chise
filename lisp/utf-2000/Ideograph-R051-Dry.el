@@ -1643,7 +1643,8 @@
      ((=ucs		  . #x2F958)	; 䄯
       (=daikanwa	  . 49407)	; &I-M-49407;
       )
-     ((=ucs		  . #x4150)	; 䅐
+     ((=ucs@unicode	  . #x4150)	; &C3-3D6A;
+      (=cns11643-3	  . #x3D6A)	; &C3-3D6A; [29-74]
       (=daikanwa	  . 25076)	; &I-M-25076;
       ))
     (->formed$_1*sources
