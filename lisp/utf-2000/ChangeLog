@@ -1,3 +1,12 @@
+2022-05-20  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R057-Bow.el (A-cgnU+38B4): New abstract node.
+	(U+38B4): Add `<-denotational' for A-cgnU+38B4.
+	(A-U+38B4-itaiji-001): New abstract node; use `<-denotational' for
+	A-cgnU+38B4.
+	(U+38B4-itaiji-001): New character; use `<-denotational' for
+	A-U+38B4-itaiji-001.
+
 2022-05-19  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R031-Enclosure.el (U+56F7): Apply new conventions for
@@ -19,6 +28,9 @@
 2022-05-16  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R010-Legs.el (U-0002D021): New character.
+
+	* ShuoWen-SR287.el (SW-JIGUGE-26928): Add U-000202B3 as a
+	corresponding modern character.
 
 2022-05-15  MORIOKA Tomohiko  <tomo.git@chise.org>
 
