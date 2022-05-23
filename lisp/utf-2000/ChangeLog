@@ -1,3 +1,16 @@
+2022-05-21  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R073-Say.el (U-0002C05F): New character.
+
+	* Ideograph-R020-Wrap.el (U+6613-itaiji-002): New character; use
+	`<-denotational' for A-cgnU+200D3.
+
+	* Ideograph-R018-Knife.el (U-000207DD): New character.
+
+	* Ideograph-R005-Second.el (U-000200D3): Add `<-denotational' for
+	A-cgnU+200D3.
+	(A-cgnU+200D3): New abstract node.
+
 2022-05-20  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R057-Bow.el (A-cgnU+38B4): New abstract node.

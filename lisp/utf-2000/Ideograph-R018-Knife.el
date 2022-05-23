@@ -18316,6 +18316,35 @@
     ))
 (define-char
   '((ideographic-radical . 18)	; ⼑
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x2C749)	; 𬝉
+      )
+     ((=ucs		  . #x5202)	; 刂
+      ))
+    (=ucs		. #x207DD)	; 𠟝
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x207DD)	; 𠟝
+      ))
+    (ideographic-radical . 18)	; ⼑
+    (ideographic-strokes . 11)
+    (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs@JP/hanazono	  . #x2C749)	; &hanaJU+2C749;
+      )
+     ((=ucs		  . #x5202)	; 刂
+      ))
+    (=ucs@iso		. #x207DD)	; &U-000207DD;
+    ))
+(define-char
+  '((ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 11)
     (total-strokes	 . 13)
     (ideographic-structure

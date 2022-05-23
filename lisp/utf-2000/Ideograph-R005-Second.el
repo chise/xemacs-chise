@@ -1123,7 +1123,10 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 5)	; ⼄
+  '((<-denotational
+     ((=>ucs@cognate	  . #x200D3)	; &A-cgnU+200D3;
+      ))
+    (ideographic-radical . 5)	; ⼄
     (ideographic-strokes . 2)
     (total-strokes	 . 3)
     (=ucs		. #x200D3)	; 𠃓
@@ -1272,6 +1275,10 @@
       )
      ((=ucs		  . #x5C71)	; 山
       ))
+    ))
+(define-char
+  '((ideographic-radical . 5)	; ⼄
+    (=>ucs@cognate	. #x200D3)	; &A-cgnU+200D3;
     ))
 (define-char
   '((ideographic-radical . 5)	; ⼄
