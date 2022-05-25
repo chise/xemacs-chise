@@ -3510,11 +3510,70 @@
     ))
 (define-char
   '((ideographic-radical . 41)	; ⼨
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x29810)	; 𩠐
+      )
+     ((=ucs		  . #x5BF8)	; 寸
+      ))
+    (sound@ja/on	"dAu")
+    (=ucs		. #x21B39)	; 𡬹
+    (<-ancient
+     ((=ucs		  . #x28581)	; 𨖁
+      )
+     ((=ucs		  . #x28565)	; 𨕥
+      )
+     ((=ucs		  . #x9053)	; 道
+      ))
+    (<-ancient$_1*sources
+     shuowen)
+    (<-ancient$_2*sources
+     shuowen)
+    (<-ancient$_3*sources
+     shuowen)
+    (<-ancient*sources
+     shuowen)
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x21B39)	; 𡬹
+      ))
+    (ideographic-radical . 41)	; ⼨
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
-    (=ucs		. #x21B39)	; 𡬹
-    (=cns11643-6	. #x517A)	; &I-C6-517A; [49-90]
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((name		  . "CJK RADICAL HEAD")
+      (=ucs		  . #x2EE1)	; ⻡
+      )
+     ((=ucs		  . #x5BF8)	; 寸
+      ))
+    (=ucs@iso		. #x21B39)	; &C6-517A;
+    (=cns11643-6	. #x517A)	; &C6-517A; [49-90]
     (=daikanwa		. 07452)	; &I-M-07452;
+    (<-ancient
+     ((=ucs@ks		  . #x9053)	; &AJ1-13963;
+      (=adobe-japan1-4	  . 13963)	; &AJ1-13963;
+      (=daikanwa	  . 39010)	; &I-M-39010;
+      ))
+    (<-ancient*sources
+     shuowen jiyun daikanwa)
+    (->subsumptive
+     ((==ucs@iso	  . #x21B39)	; &g2-M-07452;
+      (==cns11643-6	  . #x517A)	; &g2-M-07452; [49-90]
+      (==daikanwa	  . 07452)	; &g2-M-07452;
+      (->subsumptive
+       ((===daikanwa	    . 07452)	; &R-M-07452;
+	)
+       ((===cns11643-6	    . #x517A)	; &R-C6-517A; [49-90]
+	)
+       ((===ucs@iso	    . #x21B39)	; &R-U-00021B39;
+	))
+      ))
     ))
 (define-char
   '((<-denotational@usage
