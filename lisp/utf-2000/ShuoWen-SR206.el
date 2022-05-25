@@ -2702,7 +2702,18 @@
   '((shuowen-radical	. 206)	; 木
     (=shuowen-jiguge	. 19100)	; &SW-JIGUGE-19100;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x25C94)	; 𥲔
+      )
      ((=ucs		  . #x25D00)	; 𥴀
+      )
+     ((=ucs		  . #x25D01)	; 𥴁
+      )
+     ((=ucs		  . #x25D6D)	; 𥵭
+      ))
+    (<-ancient@shuowen
+     ((=shuowen-jiguge	  . 19028)	; &SW-JIGUGE-19028;
+      )
+     ((=ucs		  . #x7BC9)	; 築
       ))
     (->subsumptive
      ((===shuowen-jiguge5 . 19100)	; &SW-JIGUGE5-19100;
