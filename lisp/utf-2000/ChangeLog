@@ -1,3 +1,12 @@
+2022-05-23  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R078-Death.el (U+239B5-itaiji-003): New character.
+
+	* Ideograph-R074-Moon.el (U-0002338B): New character.
+
+	* Ideograph-R016-Table.el (A-BC-87B5): New abstract node.
+	(BC-87B5): New character; use `<-denotational' for A-BC-87B5.
+
 2022-05-22  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* ShuoWen-SR206.el (SW-JIGUGE-19100): Add U-00025C94, U-00025D01
