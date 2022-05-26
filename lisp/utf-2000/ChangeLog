@@ -1,3 +1,11 @@
+2022-05-25  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R060-Step.el (U-000224E1): Apply new conventions for
+	glyph granularity.
+	(U+38E2): Add `sound@ja/on/{kan|go}'.
+	(UU+38E2): Add `->formed' for IU+224E1.
+	(U-00022571): Add `<-ancient' for U+9060.
+
 2022-05-23  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R078-Death.el (U+239B5-itaiji-003): New character.
