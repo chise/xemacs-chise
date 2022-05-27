@@ -1,3 +1,52 @@
+2022-05-26  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R091-Slice.el (U-000245B1): Moved from
+	Ideograph-R090-Half-Tree-Trunk.el; apply new conventions for glyph
+	granularity.
+	(M-19825): Add `<-denotational' for U-000245B1; unify IU+245B1,
+	MJ040348, C6-3256 and KOSEKI-223220.
+	(U-000245B2): Moved from Ideograph-R090-Half-Tree-Trunk.el; apply
+	new conventions for glyph granularity.
+	(M-19826): Add `<-denotational' for U-000245B2; unify IU+245B2,
+	MJ040349, C6-3255 and KOSEKI-223230.
+
+	* Ideograph-R090-Half-Tree-Trunk.el (U-000245B1): Apply new
+	conventions for glyph granularity; moved to
+	Ideograph-R091-Slice.el.
+	(U-000245B2): Likewise.
+
+	* Ideograph-R050-Turban.el (U+3851): Apply new conventions for
+	glyph granularity.
+	(U-000220F8): Likewise.
+	(U+5E67): Add `<-denotational@usage' for A2-DJT-02885.
+	(UU+5E67): Unify DJT-02885.
+	(A2-DJT-02885): New abstract node.
+
+2022-05-25  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R105-Dotted-Tent.el (U+7678-itaiji-004): New
+	character; unify CHISE-HDIC-SYP-5818[c075b053].
+	(U-00024F29): Apply new conventions for glyph granularity.
+	(U+767B): Likewise; add `<-denotational@usage' for BUCS+767B.
+	(BUCS+767B): New abstract node; unify A2-DJT-07706.
+
+	* Ideograph-R030-Mouth.el (U+548A): Apply new conventions for
+	glyph granularity; add `<-denotational@usage' for BUCS+548C.
+	(U+548C): Likewise.
+	(U+357F): Apply new conventions for glyph granularity.
+	(U-00020D99): New character.
+	(U-00020E14): New character.
+	(U+557E): Apply new conventions for glyph granularity; add
+	`<-denotational@usage' for BUCS+557E.
+	(U-00020E16): New character.
+	(U-00020EB9): New character.
+	(U-00020FA7): Add `sound@ja/on'.
+	(IU+20FA7): Add `<-same' for UU+563C.
+	(U-000210FB): New character.
+	(U-00021196): New character.
+	(BUCS+548C): New abstract node; unify A2-DJT-01263.
+	(BUCS+557E): New abstract node; unify A2-DJT-01390.
+
 2022-05-25  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R060-Step.el (U-000224E1): Apply new conventions for
@@ -5,6 +54,11 @@
 	(U+38E2): Add `sound@ja/on/{kan|go}'.
 	(UU+38E2): Add `->formed' for IU+224E1.
 	(U-00022571): Add `<-ancient' for U+9060.
+
+2022-05-24  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR337.el (SW-JIGUGE-30601): Add U-00020A17 and U+5DF5 as
+	corresponding modern characters.
 
 2022-05-23  MORIOKA Tomohiko  <tomo.git@chise.org>
 

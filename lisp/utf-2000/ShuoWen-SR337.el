@@ -3,7 +3,11 @@
   '((shuowen-radical	. 337)	; 卮
     (=shuowen-jiguge	. 30601)	; &SW-JIGUGE-30601;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x20A17)	; 𠨗
+      )
      ((=ucs		  . #x536E)	; 卮
+      )
+     ((=ucs		  . #x5DF5)	; 巵
       ))
     (->subsumptive
      ((===shuowen-jiguge5 . 30601)	; &SW-JIGUGE5-30601;
