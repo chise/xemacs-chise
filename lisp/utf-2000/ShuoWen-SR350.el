@@ -27,7 +27,14 @@
   '((shuowen-radical	. 350)	; 山
     (=shuowen-jiguge	. 31202)	; &SW-JIGUGE-31202;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x21D93)	; 𡶓
+      )
      ((=ucs		  . #x5CB3)	; 岳
+      ))
+    (<-ancient@shuowen
+     ((=shuowen-jiguge	  . 31201)	; &SW-JIGUGE-31201;
+      )
+     ((=ucs		  . #x5DBD)	; 嶽
       ))
     (->subsumptive
      ((===shuowen-jiguge5 . 31202)	; &SW-JIGUGE5-31202;
