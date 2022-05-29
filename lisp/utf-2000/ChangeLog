@@ -1,5 +1,17 @@
 2022-05-26  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R097-Melon.el (U+74DD): Add `sound@ja/on/{kan|go}'.
+	(M-21372): Unify MJ017522 and KOSEKI-239610; add some relations
+	for other characters.
+	(U+74DF): Add `<-denotational@usage' for A2-DJT-07406; add
+	`sound@ja/on/{kan|go}'.
+	(UU+74DF): Add some relations for other characters.
+	(U+3F0E): Apply new conventions for glyph granularity.
+	(U-00024B0B): New character.
+	(U-00024B1D): Apply new conventions for glyph granularity.
+	(U+74E4): Likewise.
+	(A2-DJT-07406): New abstract node.
+
 	* Ideograph-R091-Slice.el (U-000245B1): Moved from
 	Ideograph-R090-Half-Tree-Trunk.el; apply new conventions for glyph
 	granularity.
@@ -29,6 +41,9 @@
 	(U-00024F29): Apply new conventions for glyph granularity.
 	(U+767B): Likewise; add `<-denotational@usage' for BUCS+767B.
 	(BUCS+767B): New abstract node; unify A2-DJT-07706.
+
+	* Ideograph-R041-Inch.el (U-00021B39): Apply new conventions for
+	glyph granularity.
 
 	* Ideograph-R030-Mouth.el (U+548A): Apply new conventions for
 	glyph granularity; add `<-denotational@usage' for BUCS+548C.
