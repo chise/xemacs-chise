@@ -2738,7 +2738,10 @@
     (=gb12345		. #x7D7A)	; 乯 [93-90]
     ))
 (define-char
-  '((ideographic-radical . 5)	; ⼄
+  '((<-denotational@usage
+     ((==>ucs@bucs	  . #x8CB7)	; &BUCS+8CB7;
+      ))
+    (ideographic-radical . 5)	; ⼄
     (ideographic-strokes . 5)
     (total-strokes	 . 6)
     (hanyu-dazidian	1 53 10)
@@ -2752,11 +2755,23 @@
       ))
     (=ucs		. #x4E70)	; 买
     (=gb2312		. #x4272)	; &I-G0-4272; [34-82]
-    (=hanziku-1		. #xAEE9)	; &I-HZK01-AEE9;
     (=jef-china3	. #x81ED)	; &I-JC3-81ED;
     (<-simplified@CN
-     ((=ucs		  . #x8CB7)	; 買
-      (=gb12345		  . #x4272)	; 買 [34-82]
+     ((=ucs@unicode	  . #x8CB7)	; &AJ1-03353;
+      (=adobe-japan1-0	  . 03353)	; &AJ1-03353;
+      (=gb12345		  . #x4272)	; &AJ1-03353; [34-82]
+      ))
+    (->subsumptive
+     ((==ucs@unicode	  . #x4E70)	; &g2-UU+4E70;
+      (==gb2312		  . #x4272)	; &g2-UU+4E70; [34-82]
+      (==jef-china3	  . #x81ED)	; &g2-UU+4E70;
+      (->subsumptive
+       ((===ucs@unicode	    . #x4E70)	; &R-UU+4E70;
+	)
+       ((=hanziku-1	    . #xAEE9)	; &HZK01-AEE9;
+	)
+       ((===jef-china3	    . #x81ED)	; &R-JC3-81ED;
+	))
       ))
     ))
 (define-char
