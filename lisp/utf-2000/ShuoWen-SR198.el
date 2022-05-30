@@ -75,6 +75,10 @@
   '((shuowen-radical	. 198)	; 夊
     (=shuowen-jiguge	. 17908)	; &SW-JIGUGE-17908;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x22724)	; 𢜤
+      )
+     ((=ucs		  . #x22674)	; 𢙴
+      )
      ((=ucs		  . #x611B)	; 愛
       ))
     (->subsumptive
