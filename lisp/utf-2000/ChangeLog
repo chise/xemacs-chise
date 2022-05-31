@@ -1,3 +1,86 @@
+2022-05-31  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ruimoku6.el (RUI6-E013): Add `<-denotational' for U-00030CAD;
+	unify hanaJU+30CAD.
+	(RUI6-E014): Add `<-denotational' for A-RUI6-E014.
+	(U-0002E980): Use `ideographic-structure@apparent' instead of
+	`ideographic-structure'.
+	(g2-hanaJU+2E980): Unify g2-RUI6-E037.
+	(RUI6-E082): Add `<-denotational' for A-RUI6-E082.
+	(RUI6-E0FE): Add `<-denotational' for A-RUI6-E0FE; add
+	`ideographic-radical', `ideographic-strokes' and `total-strokes';
+	add `ideographic-structure'.
+	(RUI6-E0FF): Add `<-denotational' for U-00030012.
+	(RUI6-E10E): Unify hanaJU+30A29 instead of U-00030A29; add
+	`<-denotational' for U-00030A29; use UU+79BE instead of U+79BE as
+	a glyph-grained component.
+	(RUI6-E126): Unify hanaJU+2C4B5 instead of U-0002C4B5; add
+	`<-denotational' for U-0002C4B5; use UU+4EA6 instead of U+4EA6 as
+	a glyph-grained component.
+	(RUI6-E13E): Add `<-denotational' for A-RUI6-E13E.
+	(RUI6-E168): Use o-UU+4EA6 instead of U+4EA6 as its mother.
+
+2022-05-28  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R040-Roof.el (U+3749): Apply new conventions for glyph
+	granularity.
+	(A-compU+5B90): New abstract node.
+	(U+5B90): Add `<-denotational' for A-compU+5B90.
+	(U-00030338): New character.
+	(U-000219D8): Use `->subsumptive'.
+	(U+5BA2): Add `sound@ja/on/{kan|go}'.
+	(UU+5BA2): Add some relations for other characters.
+	(U-000219EF): Apply new conventions for glyph granularity.
+	(A-cgnU+3759): New abstract node.
+	(U+3759): Add `<-denotational' for A-cgnU+3759.
+	(A-U+3759-itaiji-001): New abstract node; use `<-denotational' for
+	A-cgnU+3759.
+	(U+3759-itaiji-001): New character; use `<-denotational' for
+	A-U+3759-itaiji-001.
+	(A-cgnU+21A1C): Move `<-denotational@usage' into unified abstract
+	characters.
+	(U-00021A1C): Add `<-denotational@usage' for BUCS+5BC2.
+	(HNG-KHM0281-0): Ditto.
+	(U+5BC2): Apply new conventions for glyph granularity.
+	(A-IWDSU+5BC5): Changed from A-cgnU+5BC5; move
+	`<-denotational@usage' into unified abstract characters.
+	(U+5BC5): Apply new conventions for glyph granularity; add
+	`<-denotational@usage' for BUCS+5BC5.
+	(A-IWDSU+5BC7): Changed from A-cgnU+5BC7; move
+	`<-denotational@usage' into unified abstract characters.
+	(U-00021A25): Add <-denotational@usage' for BUCS+5BC7.
+	(U+5BC7): Ditto.
+	(U-0002D4F6): Apply new conventions for glyph granularity.
+	(U-00021A4B): New character.
+	(U-00021A5F): Apply new conventions for glyph granularity; add
+	`<-denotational' for A-IWDSU+5BC5.
+	(U-00021A6A): Apply new conventions for glyph granularity.
+	(U-00021A71): New character.
+	(U-00021A72): New character.
+	(U+5BE8): Apply new conventions for glyph granularity.
+	(U+376D): Likewise.
+	(AJ1-14146): Likewise.
+	(A-U+2059C-itaiji-001): New abstract node.
+	(U+2059C-itaiji-001): New character.
+	(U-00021ACE): New character.
+	(U-00021ADA): Use `->denotational' and `->subsumptive'.
+	(U-00021AD5): New character.
+	(U-00021AD8): New character.
+	(U-00021ADF): Modify structure [use ideographic-structure@apparent
+	instead of ideographic-structure].
+	(U-00021AFB): Use `->denotational' and `->subsumptive'.
+	(A2-DJT-02363): Unify BUCS+5BC7.
+	(A2-DJT-02327): Unify BUCS+5B9C.
+	(A2-DJT-02331): Unify BUCS+5BA2.
+	(A2-DJT-02357): Unify BUCS+5BC2.
+	(A2-DJT-02359): Unify BUCS+5BC5.
+
+2022-05-27  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR350.el (SW-JIGUGE-31202): Add U-00021D93 as a
+	corresponding modern character; add `<-ancient@shuowen' for
+	SW-JIGUGE-31201.
+
 2022-05-26  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R097-Melon.el (U+74DD): Add `sound@ja/on/{kan|go}'.
