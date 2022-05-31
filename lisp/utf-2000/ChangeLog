@@ -20,6 +20,16 @@
 	(RUI6-E13E): Add `<-denotational' for A-RUI6-E13E.
 	(RUI6-E168): Use o-UU+4EA6 instead of U+4EA6 as its mother.
 
+2022-05-29  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R042-Small.el (IU+21BB3): Use UU+8CB7 instead of
+	U+8CB7 as a glyph-grained component.
+
+2022-05-29  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R005-Second.el (U+4E70): Apply new conventions for
+	glyph granularity; add `<-denotational@usage' for BUCS+8CB7.
+
 2022-05-28  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R040-Roof.el (U+3749): Apply new conventions for glyph
