@@ -5,6 +5,9 @@
     (<-Small-Seal@shuowen
      ((=ucs		  . #x4E38)	; 丸
       ))
+    (<-formed@flipped-horizontally
+     ((=shuowen-jiguge	  . 31824)	; &SW-JIGUGE-31824;
+      ))
     (->subsumptive
      ((===shuowen-jiguge5 . 31900)	; &SW-JIGUGE5-31900;
       )

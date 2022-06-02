@@ -20,6 +20,14 @@
 	(RUI6-E13E): Add `<-denotational' for A-RUI6-E13E.
 	(RUI6-E168): Use o-UU+4EA6 instead of U+4EA6 as its mother.
 
+2022-05-30  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR355.el (SW-JIGUGE-31900): Add
+	`<-formed@flipped-horizontally' for SW-JIGUGE-31824.
+
+	* ShuoWen-SR198.el (SW-JIGUGE-17908): Add U-00022724 and
+	U-00022674 as corresponding modern characters.
+
 2022-05-29  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R042-Small.el (IU+21BB3): Use UU+8CB7 instead of
