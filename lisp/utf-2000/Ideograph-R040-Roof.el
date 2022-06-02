@@ -11327,6 +11327,15 @@
       ))
     (sound@ja/on	"WeN")
     (=ucs		. #x21A3E)	; 𡨾
+    (<-ancient
+     ((=ucs		  . #x243EF)	; 𤏯
+      )
+     ((=ucs		  . #x7159)	; 煙
+      ))
+    (<-ancient$_1*sources
+     shuowen)
+    (<-ancient$_2*sources
+     shuowen)
     ))
 (define-char
   '((<-denotational
