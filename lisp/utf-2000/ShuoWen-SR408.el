@@ -2082,6 +2082,8 @@
       ))
     (=shuowen-jiguge	. 36703)	; &SW-JIGUGE-36703;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x203D8)	; 𠏘
+      )
      ((=ucs		  . #x8AD0)	; 諐
       ))
     (<-Zhouwen@shuowen
@@ -2963,6 +2965,8 @@
   '((shuowen-radical	. 408)	; 心
     (=shuowen-jiguge	. 36911)	; &SW-JIGUGE-36911;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x225C3)	; 𢗃
+      )
      ((=ucs		  . #x225B3)	; 𢖳
       ))
     (->subsumptive
