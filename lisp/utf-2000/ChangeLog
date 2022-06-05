@@ -1,3 +1,14 @@
+2022-06-01  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR382.el (SW-JIGUGE-34820): Add U-000243EF as a
+	corresponding modern character.
+	(SW-JIGUGE-34821): Add `<-formed@shuowen' for SW-JIGUGE-34820.
+	(SW-JIGUGE-34822): Add U-0002059C as a corresponding modern
+	character; add `<-ancient@shuowen' for SW-JIGUGE-34820.
+	(SW-JIGUGE-34823): Add `<-Zhouwen@shuowen' for SW-JIGUGE-34820.
+	(SW-JIGUGE-34931): Add U-00024307, U+7155, U+7188 and U-000242EE
+	as corresponding modern characters.
+
 2022-05-31  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* ruimoku6.el (RUI6-E013): Add `<-denotational' for U-00030CAD;
