@@ -1,3 +1,20 @@
+2022-06-04  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR408.el (SW-JIGUGE-36703): Add U-000203D8 as a
+	corresponding modern character.
+	(SW-JIGUGE-36911): Add U-000225C3 as a corresponding modern
+	character.
+
+2022-06-03  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R030-Mouth.el (U+562A): Apply new conventions for
+	glyph granularity.
+
+2022-06-02  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R040-Roof.el (U-00021A3E): Add `<-ancient' for
+	U-000243EF and U+7159.
+
 2022-06-01  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* ShuoWen-SR382.el (SW-JIGUGE-34820): Add U-000243EF as a
