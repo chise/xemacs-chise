@@ -28692,8 +28692,8 @@
       )
      ((=ucs		  . #x53E3)	; 口
       )
-     ((=ucs@unicode	  . #x9EA6)	; ⻨
-      (=adobe-japan1-0	  . 03380)	; &AJ1-03380;
+     ((name		  . "CJK RADICAL SIMPLIFIED WHEAT")
+      (=ucs		  . #x2EE8)	; ⻨
       ))
     (=ucs@unicode	. #x551B)	; &G0-5F69;
     (=gb2312		. #x5F69)	; &G0-5F69; [63-73]
@@ -62736,7 +62736,6 @@
   '((ideographic-radical . 30)	; ⼝
     (ideographic-strokes . 12)
     (total-strokes	 . 15)
-    (hanyu-dazidian	1 683 13)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -62745,10 +62744,43 @@
       )
      ((=ucs		  . #x8CB7)	; 買
       ))
+    (sound@ja/on/go	"mai")
+    (sound@ja/on/kan	"bai")
     (=ucs		. #x562A)	; 嘪
-    (=cns11643-2	. #x4F6E)	; &I-C2-4F6E; [47-78]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x562A)	; 嘪
+      ))
+    (ideographic-radical . 30)	; ⼝
+    (ideographic-strokes . 12)
+    (total-strokes	 . 15)
+    (hanyu-dazidian	1 683 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x53E3)	; 口
+      )
+     ((=ucs@unicode	  . #x8CB7)	; &AJ1-03353;
+      (=adobe-japan1-0	  . 03353)	; &AJ1-03353;
+      ))
+    (=ucs@unicode	. #x562A)	; &C2-4F6E;
+    (=cns11643-2	. #x4F6E)	; &C2-4F6E; [47-78]
     (=big5		. #xE547)	; &I-B-E547;
     (=daikanwa		. 04236)	; &I-M-04236;
+    (->subsumptive
+     ((==ucs@unicode	  . #x562A)	; &g2-M-04236;
+      (==cns11643-2	  . #x4F6E)	; &g2-M-04236; [47-78]
+      (==daikanwa	  . 04236)	; &g2-M-04236;
+      (->subsumptive
+       ((===daikanwa	    . 04236)	; &R-M-04236;
+	)
+       ((===cns11643-2	    . #x4F6E)	; &R-C2-4F6E; [47-78]
+	)
+       ((===ucs@unicode	    . #x562A)	; &R-UU+562A;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 30)	; ⼝
