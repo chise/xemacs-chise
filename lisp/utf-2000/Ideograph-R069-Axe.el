@@ -818,27 +818,69 @@
     ))
 (define-char
   '((ideographic-radical . 69)	; ⽄
-    (=>daikanwa		. 13552)	; &A-M-13552;
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=>ucs@iwds-1	  . #x268DE)	; &A-IWDSU+268DE;
+      (=>iwds-1		  .  16263)	; &A-IWDSU+268DE;
+      )
+     ((=ucs		  . #x65A4)	; 斤
+      ))
+    (sound@ja/on	"kiN")
+    (=ucs		. #x2309C)	; 𣂜
+    (=>daikanwa		. 13552)	; 𣂜
     ))
 (define-char
   '((<-denotational
-     ((=>daikanwa	  . 13552)	; &A-M-13552;
+     ((=ucs		  . #x2309C)	; 𣂜
       ))
     (ideographic-radical . 69)	; ⽄
     (ideographic-strokes . 6)
     (total-strokes	 . 10)
-    (sound@ja/on	"kiN")
-    (=ucs		. #x2309C)	; 𣂜
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x81E3)	; 臣
+      )
+     ((=ucs		  . #x65A4)	; 斤
+      ))
+    (=ucs@iso		. #x2309C)	; &MJ037492;
+    (=mj		. 037492)	; &MJ037492;
+    (=koseki		. 151920)	; &MJ037492;
     (=daikanwa		. 13552)	; &I-M-13552;
-    (=hanziku-5		. #xF6C2)	; &I-HZK05-F6C2;
+    (->subsumptive
+     ((==ucs@iso	  . #x2309C)	; &g2-MJ037492;
+      (==mj		  . 037492)	; &g2-MJ037492;
+      (==koseki		  . 151920)	; &g2-MJ037492;
+      (==daikanwa	  . 13552)	; &g2-MJ037492;
+      (->subsumptive
+       ((===daikanwa	    . 13552)	; &R-M-13552;
+	)
+       ((===mj		    . 037492)	; &R-MJ037492;
+	)
+       ((===ucs@iso	    . #x2309C)	; &R-U-0002309C;
+	)
+       ((=hanziku-5	    . #xF6C2)	; &HZK05-F6C2;
+	))
+      ))
     ))
 (define-char
   '((<-denotational
-     ((=>daikanwa	  . 13552)	; &A-M-13552;
+     ((=ucs		  . #x2309C)	; 𣂜
       ))
     (ideographic-radical . 69)	; ⽄
     (ideographic-strokes . 7)
     (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x268DE)	; 𦣞
+      )
+     ((=ucs		  . #x65A4)	; 斤
+      ))
     (=jef-china3	. #x8FCF)	; &JC3-8FCF;
     ))
 (define-char

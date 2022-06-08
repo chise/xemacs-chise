@@ -42,6 +42,10 @@
   '((shuowen-radical	. 415)	; 川
     (=shuowen-jiguge	. 39402)	; &SW-JIGUGE-39402;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x21FEC)	; 𡿬
+      )
+     ((=ucs		  . #x21FEB)	; 𡿫
+      )
      ((=ucs		  . #x5DDF)	; 巟
       ))
     (->subsumptive
