@@ -1,3 +1,13 @@
+2022-06-06  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR415.el (SW-JIGUGE-39402): Add U-00021FEC and
+	U-00021FEB as corresponding modern characters.
+
+2022-06-05  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R069-Axe.el (U-0002309C): Apply new conventions for
+	glyph granularity.
+
 2022-06-04  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* ShuoWen-SR408.el (SW-JIGUGE-36703): Add U-000203D8 as a
@@ -6,6 +16,18 @@
 	character.
 
 2022-06-03  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R082-Fur.el (U+6BDF): Apply new conventions for glyph
+	granularity; add `<-denotational@usage' for BUCS+6BDF.
+	(U-00023B96): New character.
+	(U+6C00): Apply new conventions for glyph granularity; add
+	`<-denotational@usage' for A2-DJT-05906.
+	(U-00023BEB): Use `->denotational' and `->subsumptive'; add
+	`<-denotational@usage' for A2-DJT-05906.
+	(U-00023C1D): Add `ideographic-structure'; add `sound@ja/on'; add
+	`<-vulgar' for UU+6C00.
+	(BUCS+6BDF): New abstract node; unify A2-DJT-05852.
+	(A2-DJT-05906): New abstract node.
 
 	* Ideograph-R030-Mouth.el (U+562A): Apply new conventions for
 	glyph granularity.
