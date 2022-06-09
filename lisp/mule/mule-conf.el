@@ -3586,7 +3586,15 @@
 		  columns	2
 		  direction	l2r
 		  mother	===chise-hdic-ktb))
-
+  (make-charset '===chise-hdic-ktb-seal "Seal-script of HDIC-KTB (篆隸萬象名義 高山寺本)"
+		'(long-name "CHISE-HDIC/KTB-Seal"
+		  chars		256
+		  dimension	2
+		  registry	"chisektbs-0$"
+		  graphic	2
+		  columns	2
+		  direction	l2r))
+  
   (make-charset '=cbeta "CBETA private characters"
 		'(long-name	"CBETA PUA"
 		  chars		256
