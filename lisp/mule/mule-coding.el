@@ -422,6 +422,7 @@
 	  (  =chise-hdic-syp	       "CHISE-HDIC-SYP" 4 X)
 	  (===chise-hdic-ktb	     "R-CHISE-HDIC-KTB" 4 X)
 	  (  =chise-hdic-ktb	       "CHISE-HDIC-KTB" 4 X)
+	  (===chise-hdic-ktb-seal   "R-CHISE-HDIC-KTBS" 4 X)
 	  (===hng-jou			      "HNG001-" 5 d)
 	  (===hng-keg			      "HNG002-" 5 d)
 	  (===hng-dng			      "HNG003-" 5 d)
