@@ -1,3 +1,13 @@
+2022-06-10  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R018-Knife.el (A-U+5317-itaiji-002): New abstract
+	node.
+	(U+5317-itaiji-002): New character; use `<-denotational' for
+	A-U+5317-itaiji-002.
+
+	* Ideograph-R005-Second.el (BC-89CA): New character; use
+	`<-denotational' for U-0002CF17.
+
 2022-06-08  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R055-Two-Hands.el (U-0002BE1A): New character.
