@@ -1,3 +1,7 @@
+2022-06-08  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R055-Two-Hands.el (U-0002BE1A): New character.
+
 2022-06-06  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* ShuoWen-SR415.el (SW-JIGUGE-39402): Add U-00021FEC and
