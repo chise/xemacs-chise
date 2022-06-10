@@ -1,5 +1,16 @@
 2022-06-10  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R008-Lid.el (A-BC-8DEB): Use "&U-i001+2FF1;&U-i001+9F50;&A-U-i002+5317;" instead of
+	"⿸⿹&U-i001+9F50;&A-compU+5200;𬼗".
+	(BC-8DEB): Modify structure.
+	(A-BC-8DEB-itaiji-003): Use "&U-i001+2FF1;&GT-K00823;&A-U-i002+5317;" instead of "⿸⿹&GT-K00823;&A-compU+5200;𬼗".
+	(BC-8DEB-itaiji-003): Likewise.
+
+	* Ideograph-R001-One.el (A-U+4E20-itaiji-001): New abstract node;
+	use `<-denotational@usage' for A2-DJT-00026.
+	(U+4E20-itaiji-001): New character; use `<-denotational' for
+	A-U+4E20-itaiji-001.
+
 	* Ideograph-R018-Knife.el (A-U+5317-itaiji-002): New abstract
 	node.
 	(U+5317-itaiji-002): New character; use `<-denotational' for
