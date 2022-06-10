@@ -1714,6 +1714,18 @@
     ))
 (define-char
   '((<-denotational
+     ((=ucs		  . #x2CF17)	; 𬼗
+      ))
+    (ideographic-radical . 5)	; ⼄
+    (ideographic-strokes . 3)
+    (total-strokes	 . 4)
+    (=big5-cdp		. #x89CA)	; &CDP-89CA;
+    (<-formed@flipped-horizontally
+     ((=ucs		  . #x5200)	; 刀
+      ))
+    ))
+(define-char
+  '((<-denotational
      ((=>ucs@cognate	  . #x2CF18)	; &A-cgnU+2CF18;
       ))
     (ideographic-radical@ucs . 5)	; ⼄
