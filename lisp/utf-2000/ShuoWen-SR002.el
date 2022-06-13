@@ -9,6 +9,8 @@
      ((===shuowen-jiguge5 . 00205)	; &SW-JIGUGE5-00205;
       )
      ((===shuowen-jiguge4 . 00205)	; &SW-JIGUGE4-00205;
+      )
+     ((===chise-hdic-ktb-seal . #x0200)	; &R-CHISE-HDIC-KTBS0200;
       ))
     ))
 (define-char
