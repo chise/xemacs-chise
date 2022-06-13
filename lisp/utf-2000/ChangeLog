@@ -19,6 +19,11 @@
 	* Ideograph-R005-Second.el (BC-89CA): New character; use
 	`<-denotational' for U-0002CF17.
 
+2022-06-09  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR002.el (R-CHISE-HDIC-KTBS0200[T1_016_B31]): New
+	character; use `<-subsumptive' for SW-JIGUGE-00205.
+
 2022-06-08  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R055-Two-Hands.el (U-0002BE1A): New character.
