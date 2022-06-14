@@ -1,4 +1,12 @@
+2022-06-12  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR228.el (SW-JIGUGE-20901): Add U-00021A9B,
+	A-IWDSU+21A9B and U-00027D8E as corresponding modern characters.
+	(SW-JIGUGE-20902): Add `<-ancient@shuowen' for SW-JIGUGE-20901.
+
 2022-06-10  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R036-Evening.el (U-000215A5): New character.
 
 	* Ideograph-R008-Lid.el (A-BC-8DEB): Use "&U-i001+2FF1;&U-i001+9F50;&A-U-i002+5317;" instead of
 	"⿸⿹&U-i001+9F50;&A-compU+5200;𬼗".
@@ -27,6 +35,14 @@
 2022-06-08  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R055-Two-Hands.el (U-0002BE1A): New character.
+
+2022-06-07  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R076-Lack.el (U+6B3D): Add `<-denotational@usage' for
+	BUCS+6B3D; add `sound@ja/on/{kan|go}'.
+	(UU+6B3D): Unify DJT-05589; add some relations for other
+	characters.
+	(BUCS+6B3D): New abstract node; unify A2-DJT-05589.
 
 2022-06-06  MORIOKA Tomohiko  <tomo.git@chise.org>
 
