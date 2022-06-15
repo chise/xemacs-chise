@@ -1,5 +1,10 @@
 2022-06-12  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* ShuoWen-SR440.el (SW-JIGUGE-41718): Add `<-ancient@shuowen' for
+	SW-JIGUGE-41717.
+
+2022-06-12  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* ShuoWen-SR228.el (SW-JIGUGE-20901): Add U-00021A9B,
 	A-IWDSU+21A9B and U-00027D8E as corresponding modern characters.
 	(SW-JIGUGE-20902): Add `<-ancient@shuowen' for SW-JIGUGE-20901.
