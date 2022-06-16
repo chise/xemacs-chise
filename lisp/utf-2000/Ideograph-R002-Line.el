@@ -257,6 +257,37 @@
   '((ideographic-radical . 2)	; ⼁
     (ideographic-strokes . 1)
     (total-strokes	 . 2)
+    (=>big5-cdp		. #x8BF5)	; &A-CDP-8BF5;
+    ))
+(define-char
+  '((<-denotational
+     ((=>big5-cdp	  . #x8BF5)	; &A-CDP-8BF5;
+      ))
+    (ideographic-radical . 2)	; ⼁
+    (ideographic-strokes . 1)
+    (total-strokes	 . 2)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x4E28)	; 丨
+      )
+     ((=ucs		  . #x4E28)	; 丨
+      ))
+    (=gt-k		. 00132)	; &GT-K00132;
+    (=gt-pj-k1		. #x392F)	; &GT-K00132; [25-15]
+    (->subsumptive
+     ((==gt-k		  . 00132)	; &g2-GT-K00132;
+      (==gt-pj-k1	  . #x392F)	; &g2-GT-K00132; [25-15]
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>big5-cdp	  . #x8BF5)	; &A-CDP-8BF5;
+      ))
+    (ideographic-radical . 2)	; ⼁
+    (ideographic-strokes . 1)
+    (total-strokes	 . 2)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
