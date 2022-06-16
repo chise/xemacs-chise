@@ -3764,6 +3764,15 @@
 		  graphic	2
 		  columns	2
 		  direction	l2r))
+  (make-charset '=>shuowen-jiguge "汲古閣本説文解字抽象文字"
+		'(long-name "汲古閣本説文解字（抽象文字）"
+		  chars		256
+		  dimension	2
+		  registry	"ShuowenJiguge-5$"
+		  mother	=shuowen-jiguge
+		  graphic	2
+		  columns	2
+		  direction	l2r))
 
   (make-charset '===shuowen-jiguge4 "淮南書局4次様本説文解字"
 		'(long-name "京大人文研所蔵説文解字淮南書局4次様本"

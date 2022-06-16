@@ -1,3 +1,24 @@
+2022-06-16  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R027-Cliff.el (U-00020AC1): New character.
+
+	* Ideograph-R016-Table.el (A-U+264D0-itaiji-001): New abstract
+	node.
+	(U+264D0-itaiji-001): New character; use `<-denotational' for
+	A-U+264D0-itaiji-001.
+
+	* Ideograph-R004-Slash.el (U+4E47): Use A-compU+4E00 instead of
+	U+4E3F as an abstract component.
+
+2022-06-15  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R040-Roof.el (U-0002D4E6): New character.
+	(U-00021A9B): New character [copied from Ideograph-R154-Shell.el];
+	use `<-denotational' for A-IWDSU+21A9B.
+	(U-00021AB3): New character.
+	(U-00021AAC): New character.
+	(U-00021AAE): New character.
+
 2022-06-12  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* ShuoWen-SR440.el (SW-JIGUGE-41718): Add `<-ancient@shuowen' for
