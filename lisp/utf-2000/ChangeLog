@@ -1,5 +1,15 @@
 2022-06-16  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R001-One.el (U+4E47-itaiji-002): New character; use
+	`<-denotational' for U+4E47.
+	(U-0002CEC3): Apply new conventions for glyph granularity.
+	(HNG-SOK0215-0): New character; use `<-subsumptive' for
+	hanaJU+2CEC3.
+
+	* Ideograph-R002-Line.el (A-BC-8BF5): New abstract node.
+	(GT-K00132): New character; use `<-denotational' for A-BC-8BF5.
+	(BC-8BF5): Add `<-denotational' for A-BC-8BF5.
+
 	* Ideograph-R027-Cliff.el (U-00020AC1): New character.
 
 	* Ideograph-R016-Table.el (A-U+264D0-itaiji-001): New abstract
