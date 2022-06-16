@@ -7971,6 +7971,21 @@
     ))
 (define-char
   '((ideographic-radical . 27)	; ⼚
+    (ideographic-strokes . 16)
+    (total-strokes	 . 18)
+    (=ucs		. #x20AC1)	; 𠫁
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x20AC1)	; 𠫁
+      ))
+    (ideographic-radical . 27)	; ⼚
+    (ideographic-strokes . 16)
+    (total-strokes	 . 18)
+    (=ucs@iso		. #x20AC1)	; &U-00020AC1;
+    ))
+(define-char
+  '((ideographic-radical . 27)	; ⼚
     (ideographic-strokes . 17)
     (total-strokes	 . 19)
     (ideographic-structure
