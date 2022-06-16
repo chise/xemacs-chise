@@ -426,6 +426,7 @@
     =ucs@JP/hanazono
     =koseki
     =shuowen-jiguge
+    =>shuowen-jiguge
     ===shuowen-jiguge5
     ===shuowen-jiguge4))
 
@@ -801,7 +802,8 @@
 		 ===hng-kyo ===hng-ykk ===hng-saa
 		 ===hng-sab ===hng-wks ===hng-wke ===hng-smk
 		 ===hng-sgs ===hng-sts ===hng-kkd
-		 =shuowen-jiguge ===shuowen-jiguge4 ===shuowen-jiguge5))
+		 =>shuowen-jiguge =shuowen-jiguge
+		 ===shuowen-jiguge4 ===shuowen-jiguge5))
 	 ;; (string-match "^=adobe-" (symbol-name name))
 	 )
 	"(%-18s . %05d)\t; %c")
