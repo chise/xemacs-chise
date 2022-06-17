@@ -461,6 +461,42 @@
     ))
 (define-char
   '((ideographic-radical . 105)	; ⽨
+    (ideographic-strokes . 3)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>big5-cdp	  . #x8B6E)	; &A-CDP-8B6E;
+      )
+     ((=>ucs@iwds-1	  . #x571F)	; &A-IWDSU+571F;
+      (=>iwds-1		  .  0312)	; &A-IWDSU+571F;
+      ))
+    (=>gt-k		. 04536)	; &A-GT-K04536;
+    ))
+(define-char
+  '((<-denotational
+     ((=>gt-k		  . 04536)	; &A-GT-K04536;
+      ))
+    (ideographic-radical . 105)	; ⽨
+    (ideographic-strokes . 3)
+    (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x7676)	; 癶
+      )
+     ((=ucs		  . #x571F)	; 土
+      ))
+    (=gt-k		. 04536)	; &GT-K04536;
+    (=gt-pj-k2		. #x3B70)	; &GT-K04536; [27-80]
+    (->subsumptive
+     ((==gt-k		  . 04536)	; &g2-GT-K04536;
+      (==gt-pj-k2	  . #x3B70)	; &g2-GT-K04536; [27-80]
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 105)	; ⽨
     (ideographic-strokes . 4)
     (total-strokes	 . 9)
     (ideographic-structure
