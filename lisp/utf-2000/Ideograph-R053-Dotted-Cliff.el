@@ -5385,6 +5385,8 @@
       )
      ((=ucs		  . #x79C5)	; 秅
       ))
+    (sound@ja/on/go	"da" "tyaku")
+    (sound@ja/on/kan	"ta" "taku")
     (=ucs		. #x3889)	; 㢉
     ))
 (define-char
@@ -5401,10 +5403,21 @@
      ((=ucs		  . #x5E7F)	; 广
       )
      ((=ucs@unicode	  . #x79C5)	; &C2-2844;
+      (=cns11643-2	  . #x2844)	; &C2-2844; [08-36]
+      (=daikanwa	  . 24922)	; &I-M-24922;
       ))
     (=ucs@unicode	. #x3889)	; &C4-314E;
     (=cns11643-4	. #x314E)	; &C4-314E; [17-46]
     (=daikanwa		. 09352)	; &I-M-09352;
+    (<-interchangeable
+     ((=ucs@unicode	  . #x62D3)	; &AJ1-02899;
+      (=adobe-japan1-0	  . 02899)	; &AJ1-02899;
+      (=daikanwa	  . 11958)	; &I-M-11958;
+      ))
+    (<-interchangeable$_1*sources
+     shuowen-tongxun-dingsheng daikanwa)
+    (<-interchangeable*sources
+     shuowen-tongxun-dingsheng daikanwa)
     (->subsumptive
      ((==ucs@unicode	  . #x3889)	; &g2-M-09352;
       (==daikanwa	  . 09352)	; &g2-M-09352;
@@ -6874,6 +6887,21 @@
     (total-strokes	 . 11)
     (=ucs		. #x5EBC)	; 庼
     (=iso-ir165		. #x7B2A)	; &I-EGB-7B2A; [91-10]
+    ))
+(define-char
+  '((ideographic-radical . 53)	; ⼴
+    (ideographic-strokes . 8)
+    (total-strokes	 . 11)
+    (=ucs		. #x22249)	; 𢉉
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x22249)	; 𢉉
+      ))
+    (ideographic-radical . 53)	; ⼴
+    (ideographic-strokes . 8)
+    (total-strokes	 . 11)
+    (=ucs@iso		. #x22249)	; &U-00022249;
     ))
 (define-char
   '((<-denotational
