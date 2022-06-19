@@ -1295,6 +1295,8 @@
     (->Small-Seal
      ((=ucs		  . #x4E05)	; 丅
       (=daikanwa	  . 00008)	; &I-M-00008;
+      )
+     ((=>shuowen-jiguge	  . 00214)	; &A-SW-JIGUGE-00214;
       ))
     (->Small-Seal$_1*sources
      shuowen daikanwa)
