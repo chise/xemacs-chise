@@ -1,5 +1,15 @@
 2022-06-16  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R042-Small.el (U-00021B55): Apply new conventions for
+	glyph granularity.
+
+2022-06-16  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* char-db-util.el (char-db-coded-charset-priority-list): Add
+	`=>shuowen-jiguge'.
+	(char-db-insert-ccs-feature): Format `=>shuowen-jiguge' as the
+	same as `=shuowen-jiguge'.
+
 	* Ideograph-R001-One.el (U+4E47-itaiji-002): New character; use
 	`<-denotational' for U+4E47.
 	(U-0002CEC3): Apply new conventions for glyph granularity.
@@ -28,6 +38,50 @@
 	(U-00021AB3): New character.
 	(U-00021AAC): New character.
 	(U-00021AAE): New character.
+
+2022-06-14  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R081-Compare.el (U+6BD5): Use `<-denotational@usage'
+	instead of `<-denotational' for BUCS+7562; apply new conventions
+	for glyph granularity.
+
+	* Ideograph-R066-Rap.el (U+3A85): Changed from A-cgnU+3A85; apply
+	new conventions for glyph granularity; add `<-denotational@usage'
+	for BUCS+66F4.
+	(A-cgnU+22F43): New abstract node.
+	(U-00022F43): Add `<-denotational' for A-cgnU+22F43; add
+	`<-denotational@component' for A-compU+22F60; apply new
+	conventions for glyph granularity.
+	(A-CB08149): New abstract node; use `<-denotational' for
+	A-cgnU+22F43.
+	(CB08149): New character; use `<-denotational' for A-CB08149.
+	(U-00022F53): New character.
+	(U-00022F60): Add `<-denotational@component' for A-compU+22F60;
+	apply new conventions for glyph granularity for components of
+	ideographic-structure.
+	(A-IWDSU+6561): New abstract node.
+	(U+6561): Apply new conventions for glyph granularity; use
+	`<-denotational' for A-IWDSU+6561.
+	(U-0002BFBB): New character; use `<-denotational' for
+	A-IWDSU+6561.
+	(A-U+6B3E-itaiji-002): New abstract node.
+	(U+6B3E-itaiji-002): New character; use `<-denotational' for
+	A-U+6B3E-itaiji-002.
+	(A-cgnU+656B): New abstract node.
+	(U+656B): Add `<-denotational' for A-cgnU+656B.
+	(A-U+656B-itaiji-003): New abstract node; use `<-denotational' for
+	A-cgnU+656B.
+	(U+656B-itaiji-003): New character; use `<-denotational' for
+	A-U+656B-itaiji-003.
+	(A-IWDSU+656D): Changed from A-cgnU+656D.
+	(U+656D): Use A-IWDSU+656D instead of A-cgnU+656D; add
+	`<-denotational@usage' for BUCS+656D and A2-DJT-03904.
+	(UU+656D): Unify DJT-04287.
+	(U-00022F99): Use A-IWDSU+656Dinstead of A-cgnU+656D.
+	(U-00022F9F): New character.
+	(A-compU+22F60): New abstract node.
+	(BUCS+656D): New abstract node; use `<-denotational' for
+	A2-DJT-03904.
 
 2022-06-12  MORIOKA Tomohiko  <tomo.git@chise.org>
 
