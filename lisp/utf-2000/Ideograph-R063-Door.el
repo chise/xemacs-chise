@@ -527,7 +527,10 @@
     (=ucs@iso		. #x22A28)	; &U-00022A28;
     ))
 (define-char
-  '((ideographic-radical . 63)	; ⼾
+  '((<-denotational@usage
+     ((==>daijiten	  . 03642)	; &A2-DJT-03642;
+      ))
+    (ideographic-radical . 63)	; ⼾
     (ideographic-strokes . 3)
     (total-strokes	 . 7)
     (ideographic-structure
@@ -544,6 +547,11 @@
     (sound@ja/on/kan	"si" "i")
     (=ucs		. #x623A)	; 戺
     (=big5		. #xCAE6)	; &I-B-CAE6;
+    (<-ancient
+     ((=ucs		  . #x5DF8)	; 巸
+      ))
+    (<-ancient*sources
+     shuowen)
     ))
 (define-char
   '((<-denotational
@@ -3661,4 +3669,8 @@
   '((ideographic-radical . 63)	; ⼾
     (==>ucs@bucs	. #x6240)	; &BUCS+6240;
     (==>daijiten	. 03647)	; &BUCS+6240;
+    ))
+(define-char
+  '((ideographic-radical . 63)	; ⼾
+    (==>daijiten	. 03642)	; &A2-DJT-03642;
     ))
