@@ -1,3 +1,44 @@
+2022-06-17  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R105-Dotted-Tent.el (A-GT-K04536): New abstract node.
+	(GT-K04536): New character; use `<-denotational' for A-GT-K04536.
+
+	* Ideograph-R072-Sun.el (U-00023142): New character.
+	(U+6613): Add `<-denotational@usage' for BUCS+6613; add
+	`sound@ja/on/{kan|go}'.
+	(UU+6613): Unify DJT-04489; add some relations for other
+	characters.
+	(U-0002D94E): Apply new conventions for glyph granularity.
+	(U+661C): Add `<-denotational@usage' for A2-DJT-04496 and
+	BUCS+661C; modify structure; preserve the previous IDS as an
+	apparent structure.
+	(UU+661C): Unify DJT-04496.
+	(U+661F): Apply new conventions for glyph granularity.
+	(U+2C037-itaiji-003): New character; use `<-denotational' for
+	A-cgnU+2C037.
+	(U+6674): Add `<-denotational@usage' for BUCS+6674; add
+	ideographic-structure; add `sound@ja/on/{kan|go}'.
+	(U+FA12): Unify DJT-04563; add some relations for other
+	characters.
+	(U+6676): Apply new conventions for glyph granularity; add
+	`<-denotational@usage' for BUCS+6676.
+	(U+6692): Apply new conventions for glyph granularity; add
+	`<-denotational@usage' for BUCS+6674.
+	(U-0002326E): New character.
+	(U+66D0): Apply new conventions for glyph granularity.
+	(IU+232EE): Use UU+661F instead of U+661F as a glyph component.
+	(BUCS+661C): New abstract node.
+	(BUCS+6613): New abstract node; unify A2-DJT-04489.
+	(BUCS+661F): Unify A2-DJT-04499.
+	(BUCS+6674): New abstract node; unify A2-DJT-04563.
+	(BUCS+6676): New abstract node; unify A2-DJT-04564.
+	(A2-DJT-04496): New abstract node; use `<-denotational' for
+	BUCS+661C.
+
+	* Ideograph-R063-Door.el (U+623A): Add `<-denotational@usage' for
+	A2-DJT-03642; add `<-ancient' for U+5DF8.
+	(A2-DJT-03642): New abstract node.
+
 2022-06-16  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R042-Small.el (U-00021B55): Apply new conventions for
@@ -38,6 +79,29 @@
 	(U-00021AB3): New character.
 	(U-00021AAC): New character.
 	(U-00021AAE): New character.
+
+	* Ideograph-R114-Track.el (A-cgnU+79B8): New abstract node.
+	(U+79B8): Add `<-denotational' for A-cgnU+79B8; apply new
+	conventions for glyph granularity.
+	(U+79B8-itaiji-001): New character; use `<-denotational' for
+	A-cgnU+79B8.
+	(A-U+5E7A-itaiji-001): New abstract node.
+	(U+5E7A-itaiji-001): New character; use `<-denotational' for
+	A-U+5E7A-itaiji-001.
+	(A-U+25741-itaiji-001): New abstract node.
+	(U+25741-itaiji-001): New character; use `<-denotational' for
+	A-U+25741-itaiji-001.
+	(A-cgnU+79BA): New abstract node.
+	(U+79BA): Add `<-denotational' for A-cgnU+79BA.
+	(UU+79BA): Delete `=>ucs@iwds-1'.
+	(U+79BA-itaiji-001): Use A-cgnU+79BA instead of U+79BA as its
+	mother.
+	(U-0002573C): Apply new conventions for glyph granularity.
+	(A-BC-87FB): New abstract node.
+	(BC-87FB): New character; use `<-denotational' for A-BC-87FB.
+	(BC-87FB-itaiji-001): Ditto.
+	(U-00020398): Apply new conventions for glyph granularity.
+	(U-00020FA7): Apply new conventions for glyph granularity.
 
 2022-06-14  MORIOKA Tomohiko  <tomo.git@chise.org>
 
