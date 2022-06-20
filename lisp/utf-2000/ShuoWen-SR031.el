@@ -1,14 +1,14 @@
 ;; -*- coding: utf-8-mcs-er -*-
 (define-char
   '((shuowen-radical	. 31)	; 正
-    (=shuowen-jiguge	. 05004)	; &SW-JIGUGE-05004;
-    (<-Small-Seal@shuowen
+    (=>shuowen-jiguge	. 05004)	; &A-SW-JIGUGE-05004;
+    (<-Small-Seal
      ((=ucs		  . #x6B63)	; 正
       ))
     ))
 (define-char
   '((<-denotational
-     ((=shuowen-jiguge	  . 05004)	; &SW-JIGUGE-05004;
+     ((=>shuowen-jiguge	  . 05004)	; &A-SW-JIGUGE-05004;
       ))
     (===shuowen-jiguge5 . 05004)	; &SW-JIGUGE5-05004;
     (<-Small-Seal@shuowen
@@ -17,7 +17,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=shuowen-jiguge	  . 05004)	; &SW-JIGUGE-05004;
+     ((=>shuowen-jiguge	  . 05004)	; &A-SW-JIGUGE-05004;
       ))
     (===shuowen-jiguge4 . 04904)	; &SW-JIGUGE4-04904;
     (<-Small-Seal@shuowen
