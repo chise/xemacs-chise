@@ -19477,11 +19477,11 @@
 (define-char
   '((<-denotational@usage
      ((==>daijiten	  . 00835)	; &A2-DJT-00835;
+      )
+     ((==>ucs@bucs	  . #x7B9A)	; &BUCS+7B9A;
       ))
     (ideographic-radical@ucs . 18)	; ⼑
     (ideographic-strokes@ucs . 12)
-    (ideographic-radical@ucs*sources
-     daikanwa ucs)
     (ideographic-radical@cns . 118)	; ⽵
     (ideographic-strokes@cns . 8)
     (total-strokes	 . 14)
@@ -19495,15 +19495,38 @@
       ))
     (sound@ja/on	"tAHu")
     (=ucs		. #x5284)	; 劄
-    (=adobe-japan1-5	. 17317)	; &I-AJ1-17317;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5284)	; 劄
+      ))
+    (ideographic-radical@ucs . 18)	; ⼑
+    (ideographic-strokes@ucs . 12)
+    (ideographic-radical@ucs*sources
+     daikanwa ucs)
+    (ideographic-radical@cns . 118)	; ⽵
+    (ideographic-strokes@cns . 8)
+    (total-strokes	 . 14)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs@unicode	  . #x7B54)	; &AJ1-03188;
+      (=adobe-japan1-0	  . 03188)	; &AJ1-03188;
+      )
+     ((=ucs		  . #x5202)	; 刂
+      ))
+    (=ucs@unicode	. #x5284)	; &AJ1-17317;
+    (=adobe-japan1-5	. 17317)	; &AJ1-17317;
     (=cns11643-2	. #x4C61)	; &I-C2-4C61; [44-65]
     (=jis-x0213-2	. #x233D)	; &I-JX2-233D; [03-29]
     (=big5		. #xE35A)	; &I-B-E35A;
-    (=daikanwa/ho	.  0052)	; 劄
+    (=daikanwa/ho	.  0052)	; &AJ1-17317;
     (=daijiten		. 00835)	; &I-DJT-00835;
     (=jef-china3	. #x5EC1)	; &I-JC3-5EC1;
     (<-same
-     ((=ucs		  . #x7B9A)	; 箚
+     ((=ucs@unicode	  . #x7B9A)	; &AJ1-05989;
+      (=adobe-japan1-0	  . 05989)	; &AJ1-05989;
       (=daikanwa	  . 26149)	; &I-M-26149;
       ))
     (<-same*sources
