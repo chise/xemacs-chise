@@ -220,11 +220,14 @@
     ))
 (define-char
   '((shuowen-radical	. 441)	; 手
-    (=shuowen-jiguge	. 41813)	; &SW-JIGUGE-41813;
+    (=>shuowen-jiguge	. 41813)	; &A-SW-JIGUGE-41813;
+    (<-Small-Seal
+     ((=ucs		  . #x62DC)	; 拜
+      ))
     ))
 (define-char
   '((<-denotational
-     ((=shuowen-jiguge	  . 41813)	; &SW-JIGUGE-41813;
+     ((=>shuowen-jiguge	  . 41813)	; &A-SW-JIGUGE-41813;
       ))
     (shuowen-radical	. 441)	; 手
     (===shuowen-jiguge5 . 41813)	; &SW-JIGUGE5-41813;
@@ -243,7 +246,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=shuowen-jiguge	  . 41813)	; &SW-JIGUGE-41813;
+     ((=>shuowen-jiguge	  . 41813)	; &A-SW-JIGUGE-41813;
       ))
     (shuowen-radical	. 441)	; 手
     (===shuowen-jiguge4 . 40513)	; &SW-JIGUGE4-40513;
@@ -1971,6 +1974,8 @@
   '((shuowen-radical	. 441)	; 手
     (=shuowen-jiguge	. 42226)	; &SW-JIGUGE-42226;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x22C95)	; 𢲕
+      )
      ((=ucs		  . #x63C6)	; 揆
       ))
     (->subsumptive
