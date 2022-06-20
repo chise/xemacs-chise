@@ -2250,6 +2250,23 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=ucs		  . #x501D)	; 倝
+      ))
+    (ideographic-radical . 11)	; ⼊
+    (ideographic-strokes . 8)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x9FBA)	; 龺
+      )
+     ((=ucs		  . #x5165)	; 入
+      ))
+    (=ucs-var-001	. #x501D)	; &U-v001+501D;
+    ))
+(define-char
   '((ideographic-radical@ucs . 11)	; ⼊
     (ideographic-radical@ucs/code . 9)	; ⼈
     (ideographic-strokes . 10)
