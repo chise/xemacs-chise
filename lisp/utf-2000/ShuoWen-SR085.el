@@ -37,8 +37,8 @@
     ))
 (define-char
   '((shuowen-radical	. 85)	; 臣
-    (=shuowen-jiguge	. 09407)	; &SW-JIGUGE-09407;
-    (<-Small-Seal@shuowen
+    (=>shuowen-jiguge	. 09407)	; &A-SW-JIGUGE-09407;
+    (<-Small-Seal
      ((=ucs		  . #x21489)	; 𡒉
       )
      ((=ucs		  . #x214A5)	; 𡒥
@@ -48,17 +48,22 @@
     ))
 (define-char
   '((<-denotational
-     ((=shuowen-jiguge	  . 09407)	; &SW-JIGUGE-09407;
+     ((=>shuowen-jiguge	  . 09407)	; &A-SW-JIGUGE-09407;
       ))
     (shuowen-radical	. 85)	; 臣
     (===shuowen-jiguge5 . 09407)	; &SW-JIGUGE5-09407;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x21489)	; 𡒉
       ))
+    (<-Zhouwen@shuowen
+     ((=shuowen-jiguge	  . 09406)	; &SW-JIGUGE-09406;
+      )
+     ((=ucs		  . #x81E7)	; 臧
+      ))
     ))
 (define-char
   '((<-denotational
-     ((=shuowen-jiguge	  . 09407)	; &SW-JIGUGE-09407;
+     ((=>shuowen-jiguge	  . 09407)	; &A-SW-JIGUGE-09407;
       ))
     (shuowen-radical	. 85)	; 臣
     (ideographic-structure
@@ -74,5 +79,10 @@
      ((=ucs		  . #x214A5)	; 𡒥
       )
      ((=ucs		  . #x22A11)	; 𢨑
+      ))
+    (<-Zhouwen@shuowen
+     ((=shuowen-jiguge	  . 09406)	; &SW-JIGUGE-09406;
+      )
+     ((=ucs		  . #x81E7)	; 臧
       ))
     ))
