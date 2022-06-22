@@ -25,11 +25,20 @@
     ))
 (define-char
   '((shuowen-radical	. 266)	; 韭
-    (=shuowen-jiguge	. 24502)	; &SW-JIGUGE-24502;
+    (=>shuowen-jiguge	. 24502)	; &A-SW-JIGUGE-24502;
+    (<-Small-Seal
+     ((=ucs		  . #x4AA2)	; 䪢
+      )
+     ((=ucs		  . #x4AA3)	; 䪣
+      )
+     ((=ucs		  . #x4AA0)	; 䪠
+      )
+     ((=ucs		  . #x4AA1)	; 䪡
+      ))
     ))
 (define-char
   '((<-denotational
-     ((=shuowen-jiguge	  . 24502)	; &SW-JIGUGE-24502;
+     ((=>shuowen-jiguge	  . 24502)	; &A-SW-JIGUGE-24502;
       ))
     (shuowen-radical	. 266)	; 韭
     (===shuowen-jiguge5 . 24502)	; &SW-JIGUGE5-24502;
@@ -45,7 +54,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=shuowen-jiguge	  . 24502)	; &SW-JIGUGE-24502;
+     ((=>shuowen-jiguge	  . 24502)	; &A-SW-JIGUGE-24502;
       ))
     (shuowen-radical	. 266)	; 韭
     (===shuowen-jiguge4 . 24002)	; &SW-JIGUGE4-24002;

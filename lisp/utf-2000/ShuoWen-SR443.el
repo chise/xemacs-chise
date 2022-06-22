@@ -310,6 +310,15 @@
     (=shuowen-jiguge	. 42920)	; &SW-JIGUGE-42920;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x21708)	; 𡜈
+      )
+     ((=ucs-itaiji-001	  . #x21708)	; &U-i001+21708;
+      )
+     ((=ucs		  . #x2170C)	; 𡜌
+      ))
+    (<-ancient@shuowen
+     ((=shuowen-jiguge	  . 42919)	; &SW-JIGUGE-42919;
+      )
+     ((=ucs		  . #x59BB)	; 妻
       ))
     (->subsumptive
      ((===shuowen-jiguge5 . 42920)	; &SW-JIGUGE5-42920;
@@ -3050,6 +3059,11 @@
     (=shuowen-jiguge	. 43713)	; &SW-JIGUGE-43713;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x22676)	; 𢙶
+      ))
+    (<-ancient@shuowen
+     ((=shuowen-jiguge	  . 43712)	; &SW-JIGUGE-43712;
+      )
+     ((=ucs		  . #x59E6)	; 姦
       ))
     (->subsumptive
      ((===shuowen-jiguge5 . 43713)	; &SW-JIGUGE5-43713;
