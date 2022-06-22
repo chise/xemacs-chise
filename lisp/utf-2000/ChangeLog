@@ -1,3 +1,36 @@
+2022-06-20  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR443.el (SW-JIGUGE-42920): Add U+21708-itaiji-001 and
+	U-0002170C as corresponding modern characters; add
+	`<-ancient@shuowen' for SW-JIGUGE-42919.
+	(SW-JIGUGE-43713): Add `<-ancient@shuowen' for SW-JIGUGE-43712.
+
+	* ShuoWen-SR441.el: Use `=>shuowen-jiguge' instead of
+	`=shuowen-jiguge' as the CCS-feature of abstract character of
+	Shuowen-Jiguge which has `->denotational' to combine some
+	Small-Seal glyphs.
+	(SW-JIGUGE-42226): Add U-00022C95 as a corresponding modern
+	character.
+
+	* ShuoWen-SR266.el: Use `=>shuowen-jiguge' instead of
+	`=shuowen-jiguge' as the CCS-feature of abstract character of
+	Shuowen-Jiguge which has `->denotational' to combine some
+	Small-Seal glyphs.
+
+	* ShuoWen-SR031.el: Use `=>shuowen-jiguge' instead of
+	`=shuowen-jiguge' as the CCS-feature of abstract character of
+	Shuowen-Jiguge which has `->denotational' to combine some
+	Small-Seal glyphs.
+
+	* ShuoWen-SR002.el: Add some HDIC-KTB's Small-Seal glyphs.
+
+	* ShuoWen-SR001.el: Add some HDIC-KTB's Small-Seal glyphs.
+
+2022-06-19  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R001-One.el (U+4E0B): Add A-SW-JIGUGE-00214 as a
+	target of `->Small-Seal'.
+
 2022-06-17  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R105-Dotted-Tent.el (A-GT-K04536): New abstract node.
