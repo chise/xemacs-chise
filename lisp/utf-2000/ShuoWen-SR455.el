@@ -27,6 +27,8 @@
   '((shuowen-radical	. 455)	; 琴
     (=shuowen-jiguge	. 44201)	; &SW-JIGUGE-44201;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x24A1D)	; 𤨝
+      )
      ((=ucs		  . #x745F)	; 瑟
       ))
     (->subsumptive
@@ -40,6 +42,15 @@
     (=shuowen-jiguge	. 44202)	; &SW-JIGUGE-44202;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x2163C)	; 𡘼
+      )
+     ((=ucs		  . #x3ECE)	; 㻎
+      ))
+    (<-ancient@shuowen
+     ((=shuowen-jiguge	  . 44201)	; &SW-JIGUGE-44201;
+      )
+     ((=ucs		  . #x24A1D)	; 𤨝
+      )
+     ((=ucs		  . #x745F)	; 瑟
       ))
     (->subsumptive
      ((===shuowen-jiguge5 . 44202)	; &SW-JIGUGE5-44202;

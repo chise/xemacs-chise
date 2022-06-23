@@ -15,7 +15,14 @@
   '((shuowen-radical	. 126)	; 玄
     (=shuowen-jiguge	. 13003)	; &SW-JIGUGE-13003;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x20D53)	; 𠵓
+      )
      ((=ucs		  . #x221AF)	; 𢆯
+      ))
+    (<-ancient@shuowen
+     ((=shuowen-jiguge	  . 13002)	; &SW-JIGUGE-13002;
+      )
+     ((=ucs		  . #x7384)	; 玄
       ))
     (->subsumptive
      ((===shuowen-jiguge5 . 13003)	; &SW-JIGUGE5-13003;
