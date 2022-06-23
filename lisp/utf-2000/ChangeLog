@@ -1,4 +1,43 @@
+2022-06-22  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR126.el (SW-JIGUGE-13003): Add U-00020D53 as a
+	corresponding modern character; add `<-ancient@shuowen' for
+	SW-JIGUGE-13002.
+
+2022-06-21  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR455.el (SW-JIGUGE-44201): Add U-00024A1D as a
+	corresponding modern character.
+	(SW-JIGUGE-44202): Add U+3ECE as a corresponding modern character;
+	add `<-ancient@shuowen' for SW-JIGUGE-44201.
+
+	* ShuoWen-SR085.el: Use `=>shuowen-jiguge' instead of
+	`=shuowen-jiguge' as the CCS-feature of abstract character of
+	Shuowen-Jiguge which has `->denotational' to combine some
+	Small-Seal glyphs.
+	(SW-JIGUGE5-09407): Add `<-Zhouwen@shuowen' for SW-JIGUGE-09406.
+	(SW-JIGUGE4-09307): Ditto.
+
 2022-06-20  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R018-Knife.el (U+5284): Add BUCS+7B9A as a target of
+	`<-denotational@usage'; apply new conventions for glyph
+	granularity.
+
+	* Ideograph-R011-Enter.el (U+501D-var-001): New character; use
+	`<-denotational' for U+501D.
+
+	* Ideograph-R009-Man.el (A-U+5206-itaiji-006): New abstract node.
+	(U+5206-itaiji-006): New character; use `<-denotational' for
+	A-U+5206-itaiji-006.
+	(U+5052): Add `<-denotational@usage' for A2-DJT-00413; apply new
+	conventions for glyph granularity.
+	(U+5062): Apply new conventions for glyph granularity.
+	(JU+5099): Unify DJT-00455.
+	(U-00020398): Moved to Ideograph-R114-Track.el.
+	(U-000203D8): Add `<-Zhouwen' for U+6106.
+	(A2-DJT-00413): New abstract node.
+	(BUCS+5099): Unify A2-DJT-00455.
 
 	* ShuoWen-SR443.el (SW-JIGUGE-42920): Add U+21708-itaiji-001 and
 	U-0002170C as corresponding modern characters; add
@@ -27,6 +66,11 @@
 	* ShuoWen-SR001.el: Add some HDIC-KTB's Small-Seal glyphs.
 
 2022-06-19  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R053-Dotted-Cliff.el (U+3889): Add
+	`sound@ja/on/{kan|go}'.
+	(UU+3889): Add `<-interchangeable' for UU+62D3.
+	(U-00022249): New character.
 
 	* Ideograph-R001-One.el (U+4E0B): Add A-SW-JIGUGE-00214 as a
 	target of `->Small-Seal'.
