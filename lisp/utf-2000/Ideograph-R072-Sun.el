@@ -9952,7 +9952,8 @@
     (<-Large-Seal*sources
      shuowen daikanwa)
     (<-same
-     ((=ucs		  . #x26618)	; 𦘘
+     ((=ucs@iso		  . #x26618)	; &C6-4D36;
+      (=cns11643-6	  . #x4D36)	; &C6-4D36; [45-22]
       (=daikanwa	  . 29223)	; &I-M-29223;
       ))
     (<-same*sources
