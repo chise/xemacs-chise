@@ -908,10 +908,20 @@
     ))
 (define-char
   '((ideographic-radical . 10)	; ⼉
+    (=>big5-cdp@component . #x89B9)	; &A-compCDP-89B9;
+    ))
+(define-char
+  '((<-denotational
+     ((=>big5-cdp@component . #x89B9)	; &A-compCDP-89B9;
+      ))
+    (ideographic-radical . 10)	; ⼉
     (=>big5-cdp		. #x89B9)	; &A-CDP-89B9;
     ))
 (define-char
-  '((ideographic-radical . 10)	; ⼉
+  '((<-denotational
+     ((=>big5-cdp@component . #x89B9)	; &A-compCDP-89B9;
+      ))
+    (ideographic-radical . 10)	; ⼉
     (=>big5-cdp		. #x8BCB)	; &A-CDP-8BCB;
     (=>big5-cdp-itaiji-001 . #x89B9)	; &A-CDP-8BCB;
     ))
@@ -3543,7 +3553,7 @@
      ((name*		  . "ideographic component person for top")
       (=ucs		  . #x20089)	; 𠂉
       )
-     ((=>big5-cdp	  . #x8BCB)	; &A-CDP-8BCB;
+     ((=>big5-cdp@component . #x89B9)	; &A-compCDP-89B9;
       ))
     (=ucs		. #x2D020)	; 𭀠
     ))
@@ -3564,6 +3574,60 @@
      ((=big5-cdp	  . #x8BCB)	; &CDP-8BCB;
       ))
     (=ucs@JP/hanazono	. #x2D020)	; &hanaJU+2D020;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2D020)	; 𭀠
+      ))
+    (ideographic-radical@ucs . 10)	; ⼉
+    (ideographic-strokes@ucs . 5)
+    (ideographic-radical@ucs*sources
+     koseki mj)
+    (ideographic-strokes@ucs*sources
+     koseki mj)
+    (ideographic-radical@gt . 4)	; ⼃
+    (ideographic-strokes@gt . 6)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((name*		  . "ideographic component person for top")
+      (=ucs		  . #x20089)	; 𠂉
+      )
+     ((=big5-cdp	  . #x89B9)	; &CDP-89B9;
+      ))
+    (=mj		. 056970)	; &MJ056970;
+    (=koseki		. 015880)	; &MJ056970;
+    (=gt		. 00202)	; &I-GT-00202;
+    (=gt-pj-11		. #x4A7B)	; &I-GT-00202; [42-91]
+    (=chise-hdic-tsj	. #x55A7)	; &MJ056970;
+    (<-formed
+     ((=ucs@cns		  . #x2F80E)	; &MJ030246;
+      (=ucs@jis		  . #xFA32)	; &MJ030246;
+      (=mj		  . 030246)	; &MJ030246;
+      )
+     ((=ucs@jis		  . #x514D)	; &MJ007230;
+      (=mj		  . 007230)	; &MJ007230;
+      ))
+    (<-formed$_1*sources
+     mj)
+    (<-formed$_2*sources
+     mj)
+    (<-formed*sources
+     mj)
+    (->subsumptive
+     ((==mj		  . 056970)	; &g2-MJ056970;
+      (==koseki		  . 015880)	; &g2-MJ056970;
+      (==gt		  . 00202)	; &g2-MJ056970;
+      (->subsumptive
+       ((===mj		    . 056970)	; &R-MJ056970;
+	)
+       ((===gt		    . 00202)	; &R-GT-00202;
+	))
+      )
+     ((===chise-hdic-tsj  . #x55A7)	; &R-CHISE-HDIC-TSJ55A7;
+      ))
     ))
 (define-char
   '((ideographic-radical . 10)	; ⼉
