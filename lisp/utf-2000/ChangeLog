@@ -1,5 +1,13 @@
 2022-06-22  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R027-Cliff.el (A-U+53AD-itaiji-002): New abstract
+	node.
+	(U+53AD-itaiji-002): New character; use `<-denotational' for
+	A-U+53AD-itaiji-002.
+
+	* Ideograph-R004-Slash.el (GT-00202): Add `<-denotational' for
+	U-0002D020; unify MJ056970, KOSEKI-015880 and CHISE-HDIC-TSJ-55A7.
+
 	* ShuoWen-SR126.el (SW-JIGUGE-13003): Add U-00020D53 as a
 	corresponding modern character; add `<-ancient@shuowen' for
 	SW-JIGUGE-13002.
