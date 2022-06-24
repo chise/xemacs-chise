@@ -113,7 +113,33 @@
       ))
     ))
 (define-char
-  '((ideographic-radical@ucs . 210)	; ⿑
+  '((<-denotational@usage
+     ((==>ucs@bucs	  . #x9F4A)	; &BUCS+9F4A;
+      ))
+    (ideographic-radical@ucs . 210)	; ⿑
+    (ideographic-strokes@ucs . 0)
+    (ideographic-radical@daikanwa . 67)	; ⽂
+    (ideographic-strokes@daikanwa . 2)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x6587)	; 文
+      )
+     ((=>big5-cdp	  . #x8BF5)	; &A-CDP-8BF5;
+      ))
+    (=ucs		. #x9F50)	; 齐
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x9F50)	; 齐
+      ))
+    (name		. "CJK RADICAL C-SIMPLIFIED EVEN")
+    (general-category	symbol other) ; Informative Category
+    (bidi-category	. "ON")
+    (mirrored		. nil)
+    (ideographic-radical@ucs . 210)	; ⿑
     (ideographic-strokes@ucs . 0)
     (ideographic-radical@daikanwa . 67)	; ⽂
     (ideographic-strokes@daikanwa . 2)
@@ -128,7 +154,8 @@
       )
      ((=big5-cdp	  . #x8BF5)	; &CDP-8BF5;
       ))
-    (=ucs		. #x9F50)	; 齐
+    (=ucs		. #x2EEC)	; ⻬
+    (=ucs@unicode	. #x9F50)	; ⻬
     (=gb2312		. #x466B)	; &I-G0-466B; [38-75]
     (=cns11643-3	. #x2370)	; &I-C3-2370; [03-80]
     (=big5-cdp		. #x8A54)	; &I-CDP-8A54;
@@ -164,24 +191,6 @@
 	)
        ((===cns11643-3	    . #x2370)	; &R-C3-2370; [03-80]
 	))
-      ))
-    ))
-(define-char
-  '((<-denotational
-     ((=ucs		  . #x9F50)	; 齐
-      ))
-    (name		. "CJK RADICAL C-SIMPLIFIED EVEN")
-    (general-category	symbol other) ; Informative Category
-    (bidi-category	. "ON")
-    (mirrored		. nil)
-    (=ucs		. #x2EEC)	; ⻬
-    (<-identical@component
-     ((=ucs		  . #x9F50)	; 齐
-      ))
-    (<-simplified@CN/component
-     ((=ucs@unicode	  . #x9F4A)	; &AJ1-07457;
-      (=adobe-japan1-0	  . 07457)	; &AJ1-07457;
-      (=gb12345		  . #x466B)	; &AJ1-07457; [38-75]
       ))
     ))
 (define-char

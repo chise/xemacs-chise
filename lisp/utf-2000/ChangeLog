@@ -1,3 +1,9 @@
+2022-06-23  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R067-Script.el (U+9F50): Apply new conventions for
+	glyph granularity; add `<-denotational@usage' for BUCS+9F4A.
+	(UU+9F50): Unify <CJK RADICAL C-SIMPLIFIED EVEN>.
+
 2022-06-22  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R027-Cliff.el (A-U+53AD-itaiji-002): New abstract
