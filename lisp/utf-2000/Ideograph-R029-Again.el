@@ -2472,10 +2472,39 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 6)
     (hanyu-dazidian	1 394 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x4E5C)	; 乜
+      )
+     ((=big5-cdp	  . #x8C79)	; &CDP-8C79;
+      ))
+    (sound@ja/on	"syuN")
     (=ucs		. #x20B2B)	; 𠬫
     (=cns11643-6	. #x2424)	; &I-C6-2424; [04-04]
     (=daikanwa		. 03142)	; &I-M-03142;
-    (=hanziku-1		. #xF6F8)	; &I-HZK01-F6F8;
+    (<-ancient
+     ((=ucs@unicode	  . #x3F31)	; &C5-4748;
+      (=cns11643-5	  . #x4748)	; &C5-4748; [39-40]
+      (=daikanwa	  . 21558)	; &I-M-21558;
+      ))
+    (<-ancient*sources
+     kangxi daikanwa)
+    (->subsumptive
+     ((==ucs@iso	  . #x20B2B)	; &g2-M-03142;
+      (==daikanwa	  . 03142)	; &g2-M-03142;
+      (->subsumptive
+       ((===daikanwa	    . 03142)	; &R-M-03142;
+	)
+       ((===ucs@iso	    . #x20B2B)	; &R-U-00020B2B;
+	)
+       ((=hanziku-1	    . #xF6F8)	; &HZK01-F6F8;
+	))
+      )
+     ((==ucs@cns	  . #x20B2B)	; &g2-CU+20B2B;
+      (==cns11643-6	  . #x2424)	; &g2-CU+20B2B; [04-04]
+      ))
     ))
 (define-char
   '((ideographic-radical . 29)	; ⼜
@@ -6606,15 +6635,32 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=gt-k		  . 02232)	; &GT-K02232;
+     ((=>big5-cdp@iwds-1  . #x8CAF)	; &A-GT-K02231;
       )
      ((=ucs		  . #x378B)	; 㞋
       ))
     (sound@ja/on	"syuN")
     (=ucs		. #x20B60)	; 𠭠
-    (=mj		. 032061)	; &I-MJ032061;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x20B60)	; 𠭠
+      ))
+    (ideographic-radical . 29)	; ⼜
+    (ideographic-strokes . 9)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=gt-k		  . 02232)	; &GT-K02232;
+      )
+     ((=ucs		  . #x378B)	; 㞋
+      ))
+    (=ucs@iso		. #x20B60)	; &MJ032061;
+    (=mj		. 032061)	; &MJ032061;
     (=cns11643-6	. #x3D6A)	; &I-C6-3D6A; [29-74]
-    (=koseki		. 037050)	; 𠭠
+    (=koseki		. 037050)	; &MJ032061;
     (=daikanwa		. 48966)	; &I-M-48966;
     (<-Zhouwen
      ((=ucs@unicode	  . #x3F31)	; &C5-4748;
