@@ -1,8 +1,52 @@
+2022-06-24  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R015-Ice.el (U-000205F2): Use `->denotational' and
+	`->subsumptive'.
+
+	* Ideograph-R010-Legs.el (A-compBC-89B9): New abstract node.
+	(A-BC-89B9): Add `<-denotational' for A-compBC-89B9.
+	(A-BC-8BCB): Ditto.
+	(U-0002D020): Use A-compBC-89B9 instead of A-BC-8BCB as an
+	abstract component.
+	(GT-00202): Copied from Ideograph-R004-Slash.el.
+
 2022-06-23  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R077-Stop.el (A-BC-874A): New abstract node.
+	(BC-874A): New character; use `<-denotational' for A-BC-874A.
+	(U-00023950): Apply new conventions for glyph granularity.
+	(U-00023953): Likewise.
+	(U+6B74): Likewise; add `<-denotational@usage' for BUCS+6B77.
+	(U+6B77): Add `<-denotational@usage' for BUCS+6B77.
+	(U-000239B2): Apply new conventions for glyph granularity.
+	(BUCS+6B77): New abstract node; unify A2-DJT-05670.
 
 	* Ideograph-R067-Script.el (U+9F50): Apply new conventions for
 	glyph granularity; add `<-denotational@usage' for BUCS+9F4A.
 	(UU+9F50): Unify <CJK RADICAL C-SIMPLIFIED EVEN>.
+
+	* Ideograph-R032-Earth.el (U+573A): Apply new conventions for
+	glyph granularity; add `<-denotational@usage' for BUCS+5834.
+	(U-000212CD): New character.
+	(U-00021307): New character.
+	(U-0002130C): New character.
+	(U-0002130D): New character.
+	(U-00021359): New character.
+	(U+364A): Apply new conventions for glyph granularity.
+	(U+57F8): Likewise; add `<-denotational@usage' for BUCS+57F8.
+	(U+5834): Add `<-denotational@usage' for BUCS+5834; add
+	`sound@ja/on/{kan|go}'.
+	(A-U+2136F-itaiji-002): New abstract node.
+	(U+2136F-itaiji-002): New character; use `<-denotational' for
+	A-U+2136F-itaiji-002.
+	(U-0002D3CD): Add ideographic-structure.
+	(U+5872): Add `<-denotational@usage' for BUCS+5834.
+	(U+3663): Apply new conventions for glyph granularity.
+	(U-00021475): New character.
+	(U-00021489): Apply new conventions for glyph granularity.
+	(U-000214A5): Add `<-Zhouwen' for U+81E7.
+	(BUCS+5834): New abstract node; unify A2-DJT-01798.
+	(BUCS+57F8): New abstract node; unify A2-DJT-01756.
 
 2022-06-22  MORIOKA Tomohiko  <tomo.git@chise.org>
 
