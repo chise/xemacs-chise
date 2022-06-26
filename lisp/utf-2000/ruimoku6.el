@@ -3125,7 +3125,7 @@
       (=mj		  . 010275)	; &MJ010275;
       ))
     (=ucs@JP/hanazono	. #x31035)	; &RUI6-E0D3;
-    (=ruimoku-v6	. #xE0D3)	; &I-RUI6-E0D3;
+    (=ruimoku-v6	. #xE0D3)	; &RUI6-E0D3;
     (->subsumptive
      ((==ucs@JP/hanazono  . #x31035)	; &g2-hanaJU+31035;
       )
@@ -4205,6 +4205,15 @@
     (ideographic-radical . 128)	; ⽿
     (ideographic-strokes . 5)
     (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x8033)	; 耳
+      )
+     ((=ucs@iso		  . #x20B22)	; &MJ032014;
+      (=mj		  . 032014)	; &MJ032014;
+      ))
     (=ruimoku-v6	. #xE130)	; &RUI6-E130;
     ))
 (define-char
