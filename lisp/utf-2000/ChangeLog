@@ -1,5 +1,11 @@
 2022-06-24  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R029-Again.el (U-00020B2B): Apply new conventions for
+	glyph granularity.
+	(U-00020B60): Likewise.
+
+2022-06-24  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R015-Ice.el (U-000205F2): Use `->denotational' and
 	`->subsumptive'.
 
