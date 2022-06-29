@@ -3941,6 +3941,76 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=>ucs@iwds-1	  . #x4E51)	; &A-IWDSU+4E51;
+      (=>iwds-1		  .  0328)	; &A-IWDSU+4E51;
+      ))
+    (ideographic-radical . 4)	; ⼃
+    (ideographic-strokes . 5)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((=ucs-itaiji-001	  . #x2FFB)	; &U-i001+2FFB;
+      )
+     ((=ucs		  . #x4EBB)	; 亻
+      )
+     ((=>ucs@iwds-1	  . #x4ECE)	; &A-IWDSU+4ECE;
+      (=>ucs@iwds-1/normalized . #x4ECE)	; &A-IWDSU+4ECE;
+      ))
+    (=ucs		. #x2B851)	; 𫡑
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2B851)	; 𫡑
+      ))
+    (ideographic-radical@ucs . 4)	; ⼃
+    (ideographic-strokes@ucs . 5)
+    (ideographic-radical@r009 . 9)	; ⼈
+    (ideographic-strokes@r009 . 4)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((=ucs-itaiji-001	  . #x2FFB)	; &U-i001+2FFB;
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=ucs		    . #x4E3F)	; 丿
+	)
+       ((=ucs		    . #x4E28)	; 丨
+	))
+      )
+     ((=ucs		  . #x4ECE)	; 从
+      ))
+    (=ucs-itaiji-003	. #x343A)	; &U-i003+343A;
+    (->subsumptive
+     ((==ucs-itaiji-003	  . #x343A)	; &g2-U-i003+343A;
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2B851)	; 𫡑
+      ))
+    (ideographic-radical@ucs . 4)	; ⼃
+    (ideographic-strokes@ucs . 5)
+    (ideographic-radical@r009 . 9)	; ⼈
+    (ideographic-strokes@r009 . 4)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((=ucs-itaiji-001	  . #x2FFB)	; &U-i001+2FFB;
+      )
+     ((=ucs		  . #x4EBB)	; 亻
+      )
+     ((=ucs		  . #x4ECE)	; 从
+      ))
+    (=ucs@JP/hanazono	. #x2B851)	; &CDP-8C76;
+    (=big5-cdp		. #x8C76)	; &CDP-8C76;
+    (->subsumptive
+     ((==big5-cdp	  . #x8C76)	; &g2-CDP-8C76;
+      )
+     ((==ucs@JP/hanazono  . #x2B851)	; &g2-hanaJU+2B851;
+      ))
+    ))
+(define-char
   '((ideographic-radical . 4)	; ⼃
     (ideographic-strokes . 5)
     (total-strokes	 . 6)
