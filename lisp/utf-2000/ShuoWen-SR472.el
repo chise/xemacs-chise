@@ -435,6 +435,8 @@
   '((shuowen-radical	. 472)	; 䖵
     (=shuowen-jiguge	. 46629)	; &SW-JIGUGE-46629;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x2716A)	; 𧅪
+      )
      ((=ucs		  . #x8822)	; 蠢
       ))
     (->subsumptive
@@ -446,43 +448,21 @@
 (define-char
   '((shuowen-radical	. 472)	; 䖵
     (=shuowen-jiguge	. 46630)	; &SW-JIGUGE-46630;
+    (<-Small-Seal@shuowen
+     ((=ucs		  . #x229F8)	; 𢧸
+      )
+     ((=ucs		  . #x229ED)	; 𢧭
+      ))
+    (<-ancient@shuowen
+     ((=shuowen-jiguge	  . 46629)	; &SW-JIGUGE-46629;
+      )
+     ((=ucs		  . #x2716A)	; 𧅪
+      )
+     ((=ucs		  . #x8822)	; 蠢
+      ))
     (->subsumptive
      ((===shuowen-jiguge5 . 46630)	; &SW-JIGUGE5-46630;
-      (<-Small-Seal@shuowen
-       ((ideographic-structure
-	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
-	  (=ucs		      . #x2FF9)	; ⿹
-	  )
-	 ((=ucs		      . #x2298F)	; 𢦏
-	  )
-	 ((ideographic-structure
-	   ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	    (=ucs		. #x2FF1)	; ⿱
-	    )
-	   ((=ucs		. #x5C6F)	; 屯
-	    )
-	   ((=ucs		. #x65E5)	; 日
-	    ))
-	  ))
-	))
       )
      ((===shuowen-jiguge4 . 45630)	; &SW-JIGUGE4-45630;
-      (<-Small-Seal@shuowen
-       ((ideographic-structure
-	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
-	  (=ucs		      . #x2FF9)	; ⿹
-	  )
-	 ((=ucs		      . #x2298F)	; 𢦏
-	  )
-	 ((ideographic-structure
-	   ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	    (=ucs		. #x2FF1)	; ⿱
-	    )
-	   ((=ucs		. #x5C6F)	; 屯
-	    )
-	   ((=ucs		. #x65E5)	; 日
-	    ))
-	  ))
-	))
       ))
     ))

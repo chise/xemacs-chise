@@ -155,6 +155,37 @@
       ))
     ))
 (define-char
+  '((ideographic-radical . 41)	; ⼨
+    (ideographic-strokes . 2)
+    (total-strokes	 . 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
+      (=ucs		  . #x2FFA)	; ⿺
+      )
+     ((=ucs		  . #x9FB0)	; 龰
+      )
+     ((=ucs		  . #x5BF8)	; 寸
+      ))
+    (=>ucs-itaiji-001	. #x3774)	; &A-U-i001+3774;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs-itaiji-001	  . #x3774)	; &A-U-i001+3774;
+      ))
+    (ideographic-radical . 41)	; ⼨
+    (ideographic-strokes . 2)
+    (total-strokes	 . 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
+      (=ucs		  . #x2FFA)	; ⿺
+      )
+     ((=big5-cdp	  . #x8661)	; &CDP-8661;
+      )
+     ((=ucs		  . #x5BF8)	; 寸
+      ))
+    (=ucs-itaiji-001	. #x3774)	; &U-i001+3774;
+    ))
+(define-char
   '((<-denotational@usage
      ((==>daijiten	  . 02415)	; &A2-DJT-02415;
       ))

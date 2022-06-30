@@ -1,5 +1,9 @@
 2022-06-28  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R041-Inch.el (A-U+3774-itaiji-001): New abstract node.
+	(U+3774-itaiji-001): New character; use `<-denotational' for
+	A-U+3774-itaiji-001.
+
 	* Ideograph-R017-Open-Box.el (U+51FB): Apply new conventions for
 	glyph granularity.
 
@@ -46,6 +50,13 @@
 	(U-0002182D): New character.
 	(U-00021875): New character.
 	(U-000218A9): New character.
+
+2022-06-26  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR472.el (SW-JIGUGE-46629): Add U-0002716A as a
+	corresponding modern character.
+	(SW-JIGUGE-46630): Add `<-Small-Seal@shuowen' for U-000229F8 and
+	U-000229ED; add `<-ancient@shuowen' for SW-JIGUGE-46629.
 
 2022-06-24  MORIOKA Tomohiko  <tomo.git@chise.org>
 
