@@ -10948,7 +10948,10 @@
       )
      ((=ucs		  . #x5973)	; 女
       )
-     ((=ucs		  . #x268DD)	; 𦣝
+     ((=ucs@iso		  . #x268DD)	; &JX2-7556;
+      (=cns11643-6	  . #x287C)	; &I-C6-287C; [08-92]
+      (=jis-x0213-2	  . #x7556)	; &I-JX2-7556; [85-54]
+      (=daikanwa	  . 30069)	; &I-M-30069;
       ))
     (sound@ja/on	"ki" "i" "kyo")
     (sound@ja/on/conventional "ki")
