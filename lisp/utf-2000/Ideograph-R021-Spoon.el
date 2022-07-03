@@ -617,8 +617,15 @@
       ))
     ))
 (define-char
-  '((<-denotational@usage
-     ((==>daijiten	  . 00941)	; &A2-DJT-00941;
+  '((ideographic-radical . 21)	; ⼔
+    (=>ucs@cognate	. #x5317)	; &A-cgnU+5317;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@cognate	  . #x5317)	; &A-cgnU+5317;
+      ))
+    (<-denotational@usage
+     ((==>ucs@bucs	  . #x5317)	; &BUCS+5317;
       ))
     (ideographic-radical . 21)	; ⼔
     (ideographic-strokes . 3)
@@ -728,6 +735,45 @@
      ((==ucs@cns	  . #x5317)	; &g2-CU+5317;
       (==cns11643-1	  . #x4621)	; &g2-CU+5317; [38-01]
       ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@cognate	  . #x5317)	; &A-cgnU+5317;
+      ))
+    (<-denotational@usage
+     ((==>ucs@bucs	  . #x5317)	; &BUCS+5317;
+      ))
+    (ideographic-radical . 21)	; ⼔
+    (ideographic-strokes . 3)
+    (total-strokes	 . 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=>ucs@iwds-1	  . #x571F)	; &A-IWDSU+571F;
+      (=>iwds-1		  .  0312)	; &A-IWDSU+571F;
+      )
+     ((=>ucs@iwds-1	  . #x4E03)	; &A-IWDSU+4E03;
+      (=>iwds-1		  .  0141)	; &A-IWDSU+4E03;
+      ))
+    (=>cbeta		. 10451)	; &A-CB10451;
+    ))
+(define-char
+  '((<-denotational
+     ((=>cbeta		  . 10451)	; &A-CB10451;
+      ))
+    (ideographic-radical . 21)	; ⼔
+    (ideographic-strokes . 3)
+    (total-strokes	 . 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=gt-k		  . 00199)	; &GT-K00199;
+      )
+     ((=ucs		  . #x5315)	; 匕
+      ))
+    (=cbeta		. 10451)	; &CB10451;
     ))
 (define-char
   '((<-denotational@component
@@ -3062,7 +3108,8 @@
     ))
 (define-char
   '((ideographic-radical . 21)	; ⼔
-    (==>daijiten	. 00941)	; &A2-DJT-00941;
+    (==>ucs@bucs	. #x5317)	; &BUCS+5317;
+    (==>daijiten	. 00941)	; &BUCS+5317;
     ))
 (define-char
   '((ideographic-radical . 21)	; ⼔
