@@ -1,3 +1,19 @@
+2022-07-01  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R040-Roof.el (MJ010144): Use IU+268DD instead of
+	U-000268DD as a glyph-grained component.
+
+	* Ideograph-R014-Cover.el (U+5142-itaiji-001): New character.
+	(A-U+5B90-itaiji-001): New abstract node; use `<-denotational' for
+	A-compU+5B90; unify A-U+5B90-itaiji-002.
+	(U+5B90-itaiji-001): New character; use `<-denotational' for
+	A-U+5B90-itaiji-001.
+	(U+5B90-itaiji-002): Ditto.
+	(U-00020582): Apply new conventions for glyph granularity.
+	(U+519D): Likewise.
+	(U-00020581): New character.
+	(U-0002059C): Add `<-ancient' for U-000243EF and U+7159.
+
 2022-06-29  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R038-Woman.el (U-0002F862): Use IU+268DD instead of
