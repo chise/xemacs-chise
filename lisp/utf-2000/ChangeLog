@@ -1,5 +1,20 @@
 2022-07-01  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R021-Spoon.el (A-cgnU+5317): New abstract node.
+	(U+5317): Add `<-denotational' for A-cgnU+5317.
+	(A-CB10451): New abstract node; use `<-denotational' for
+	A-cgnU+5317; use `<-denotational@usage' for BUCS+5317.
+	(CB10451): New character; use `<-denotational' for A-CB10451.
+	(A2-DJT-00941): Unify BUCS+5317.
+
+	* Ideograph-R010-Legs.el (A-IWDSU+20479-itaiji-001): New abstract
+	node.
+	(A-U+20479-itaiji-001): New abstract node; use `<-denotational'
+	for A-IWDSU+20479-itaiji-001.
+	(U+20479-itaiji-001): New character; use `<-denotational' for
+	A-U+20479-itaiji-001.
+	(U+5160): Apply new conventions for glyph granularity.
+
 	* Ideograph-R040-Roof.el (MJ010144): Use IU+268DD instead of
 	U-000268DD as a glyph-grained component.
 
