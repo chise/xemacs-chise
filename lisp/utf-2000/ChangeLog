@@ -1,5 +1,19 @@
 2022-07-03  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R016-Table.el (U-0002B95F): New character.
+	(A-U+20479-itaiji-003): New abstract node.
+	(U+20479-itaiji-003): New character; use `<-denotational' for
+	A-U+20479-itaiji-003.
+	(A-U+20479-itaiji-004): New abstract node.
+	(U+20479-itaiji-004): New character; use `<-denotational' for
+	A-U+20479-itaiji-004.
+	(A-U+20479-itaiji-002): New abstract node; use `<-denotational'
+	for A-IWDSU+20479-itaiji-001.
+	(U+20479-itaiji-002): New character; use `<-denotational' for
+	A-U+20479-itaiji-002.
+	(U-0002B961): New character.
+	(U-0002B962): New character.
+
 	* Ideograph-R001-One.el (U+4E1A): Add BUCS+696D as a target of
 	`<-denotational@usage'.
 
