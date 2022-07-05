@@ -4305,7 +4305,9 @@
       (=>big5-cdp	  . #x8D6B)	; &A-IWDSU+4E1A;
       ))
     (<-denotational@usage
-     ((==>daijiten	  . 00941)	; &A2-DJT-00941;
+     ((==>ucs@bucs	  . #x696D)	; &BUCS+696D;
+      )
+     ((==>ucs@bucs	  . #x5317)	; &BUCS+5317;
       ))
     (ideographic-radical . 1)	; ⼀
     (ideographic-strokes . 4)

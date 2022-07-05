@@ -1,3 +1,75 @@
+2022-07-03  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R001-One.el (U+4E1A): Add BUCS+696D as a target of
+	`<-denotational@usage'.
+
+2022-07-02  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR477.el: Use `=>shuowen-jiguge' instead of
+	`=shuowen-jiguge' as the CCS-feature of abstract character of
+	Shuowen-Jiguge which has `->denotational' to combine some
+	Small-Seal glyphs.
+	(SW-JIGUGE5-46915): Add U+9F05 as a corresponding modern
+	character.
+	(SW-JIGUGE4-45915): Ditto.
+	(SW-JIGUGE-46916): Add U-00027332 and U+8718 as corresponding
+	modern characters.
+
+2022-07-01  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R049-Oneself.el (A-cgnU+5DF8): Abolished [unified with
+	A-IWDSU+5DF8].
+	(A-IWDSU+5DF8): Delete `<-denotational' for A-cgnU+5DF8.
+	(A-U+5DF8-itaiji-002): Use U+5DF8 instead of A-cgnU+5DF8 as its
+	mother; unify A-U+5DF8-itaiji-003 and A-U+5DF8-itaiji-004; modify
+	structure; preserve the previous IDS as an apparent structure.
+	(U+5DF8-var-002): Modify structure; preserve the previous IDS as
+	an apparent structure.
+	(U+5DF8-itaiji-004): New character; use `<-denotational' for
+	A-U+5DF8-itaiji-002.
+	(U+5DF8-itaiji-005): Ditto.
+	(U+5DF8-itaiji-002): Modify structure; preserve the previous IDS
+	as an apparent structure.
+
+	* Ideograph-R046-Mountain.el (U-00021D33): Apply new conventions
+	for glyph granularity.
+	(U+37AC): Likewise.
+	(U-00021D68): New character; use `<-denotational' for
+	A-IWDSU+21D68.
+	(U-00021D72): Ditto.
+	(A-IWDSU+21D68): New abstract node.
+	(U+5CB3): Apply new conventions for glyph granularity; add
+	`<-denotational@usage' for A2-DJT-02559 and BUCS+5CB3.
+	(U-00021D93): Apply new conventions for glyph granularity.
+	(U-00021DB3): Likewise.
+	(U-00021DD2): Use `->denotational' and `->subsumptive'.
+	(U-0002D59A): New character.
+	(U+5D07): Apply new conventions for glyph granularity; add
+	`<-denotational@usage' for BUCS+5D07.
+	(U-00021E2D): New character.
+	(U-00021E31): New character.
+	(U-00021E38): New character.
+	(U-00021E3B): New character.
+	(U-00021E3C): New character.
+	(U-00021E3E): New character.
+	(A-U+5FAE-itaiji-008): New abstract node.
+	(U+5FAE-itaiji-008): New character; use `<-denotational' for
+	A-U+5FAE-itaiji-008.
+	(U-00021F26): New character.
+	(U-00021F28): New character.
+	(U-00021F34): New character.
+	(U-00021F37): New character.
+	(U-00021F81): New character.
+	(U+5DBD): Apply new conventions for glyph granularity; add
+	`<-denotational@usage' for BUCS+5CB3 and A2-DJT-02737.
+	(U-00021F7A): Apply new conventions for glyph granularity.
+	(U-00021F6A): New character.
+	(BUCS+5CB3): New abstract node.
+	(BUCS+5D07): New abstract node; unify A2-DJT-02607.
+	(A2-DJT-02559): New abstract node; use `<-denotational' for
+	BUCS+5CB3.
+	(A2-DJT-02737): Ditto.
+
 2022-07-01  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R021-Spoon.el (A-cgnU+5317): New abstract node.
