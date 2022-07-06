@@ -230,7 +230,7 @@
      ((=>shuowen-jiguge	  . 41813)	; &A-SW-JIGUGE-41813;
       ))
     (shuowen-radical	. 441)	; 手
-    (===shuowen-jiguge5 . 41813)	; &SW-JIGUGE5-41813;
+    (=shuowen-jiguge	. 41813)	; &SW-JIGUGE-41813;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x62DC)	; 拜
       ))
@@ -242,6 +242,9 @@
      ((=ucs		  . #x22CCE)	; 𢳎
       )
      ((=ucs		  . #x22C6D)	; 𢱭
+      ))
+    (->subsumptive
+     ((===shuowen-jiguge5 . 41813)	; &SW-JIGUGE5-41813;
       ))
     ))
 (define-char
