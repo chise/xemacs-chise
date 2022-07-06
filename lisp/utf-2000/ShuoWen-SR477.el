@@ -157,11 +157,14 @@
      ((=>shuowen-jiguge	  . 46915)	; &A-SW-JIGUGE-46915;
       ))
     (shuowen-radical	. 477)	; 黽
-    (===shuowen-jiguge5 . 46915)	; &SW-JIGUGE5-46915;
+    (=shuowen-jiguge	. 46915)	; &SW-JIGUGE-46915;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x4D79)	; 䵹
       )
      ((=ucs		  . #x9F05)	; 鼅
+      ))
+    (->subsumptive
+     ((===shuowen-jiguge5 . 46915)	; &SW-JIGUGE5-46915;
       ))
     ))
 (define-char
