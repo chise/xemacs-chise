@@ -1,3 +1,23 @@
+2022-07-04  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR490.el (SW-JIGUGE5-49421): Add U+93A6 as a
+	corresponding modern character.
+
+2022-07-04  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R072-Sun.el (U+662D): Apply new conventions for glyph
+	granularity; add `<-denotational@usage' for BUCS+662D.
+	(A-IWDSU+3ADF): New abstract node.
+	(BUCS+662D): New abstract node; unify A2-DJT-04510.
+
+2022-07-03  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R076-Lack.el (MJ038540): Use IU+268DD instead of
+	U-000268DD as a glyph-grained component.
+	(U-000238FB): Apply new conventions for glyph granularity.
+	(U+6B51): Likewise; add `<-denotational@usage' for A2-DJT-05615.
+	(A2-DJT-05615): New abstract node.
+
 2022-07-03  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R016-Table.el (U-0002B95F): New character.
