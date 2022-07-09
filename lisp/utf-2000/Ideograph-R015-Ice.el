@@ -6212,7 +6212,7 @@
     (ideographic-structure
      ((=ucs-itaiji-001	  . #x2FF6)	; &U-i001+2FF6;
       )
-     ((=ucs-var-001	  . #x7188)	; &U-v001+7188;
+     ((=daijiten	  . 06937)	; &DJT-06937;
       )
      ((=ucs		  . #x51AB)	; 冫
       ))
