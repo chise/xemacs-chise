@@ -1,3 +1,48 @@
+2022-07-06  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR477.el (SW-JIGUGE-46915): Redefined to subsume
+	SW-JIGUGE5-46915.
+
+	* ShuoWen-SR451.el (SW-JIGUGE-44015): Add U-00022994 and
+	U-00022992 as corresponding modern characters.
+
+	* ShuoWen-SR441.el (SW-JIGUGE-41813): Redefined to subsume
+	SW-JIGUGE5-41813.
+
+2022-07-06  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR266.el (SW-JIGUGE-24502): Redefined to subsume
+	SW-JIGUGE5-24502.
+
+	* u02E00-CJK-Radical-Supplement.el (<CJK RADICAL SNOUT ONE>):
+	Unify UU+5F51, AJ1-04779, J0-5740, C3-2141, BC-8C53, GT-12504,
+	GT-K00234 and M-09909.
+	(AJ1-15391): Add `<-formed@component' for U+53C8.
+	(<CJK RADICAL FIRE>): Unify UU+706C, G0-6C61, JSP-4944, C4-2150,
+	JX2-6F58, BC-8B4F, GT-K00601, M-18851 and JC3-57CA.
+	(<CJK RADICAL COW>): Add `<-denotational' for A-compU+725B.
+	(<CJK RADICAL C-SIMPLIFIED SEE>): Unify UU+89C1 and G0-3C7B.
+	(<CJK RADICAL EAT THREE>): Unify UU+98E0, JX2-7C4B, G1-623B,
+	BC-8BB9 and GT-59024.
+	(<CJK RADICAL SIMPLIFIED WHEAT>): Unify UU+9EA6, AJ1-03380,
+	J0-477E, G0-4273, GT-64905, GT-K02633, M-47718, DJT-01918 and
+	SJG-9791.
+	(<CJK RADICAL C-SIMPLIFIED EVEN>): Unify UU+9F50, G0-466B,
+	C3-2370, BC-8A54 and M-13451.
+
+	* ShuoWen-SR085.el (SW-JIGUGE-09407): Redefined to subsume
+	SW-JIGUGE5-09407.
+
+	* ShuoWen-SR031.el (SW-JIGUGE-05004): Redefined to subsume
+	SW-JIGUGE5-05004.
+
+2022-07-05  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R066-Rap.el (A-U+247A3-itaiji-001): New abstract node.
+	(U+247A3-itaiji-001): New character; use `<-denotational' for
+	A-U+247A3-itaiji-001.
+	(U+3AA1): Use `->denotational' and `->subsumptive'.
+
 2022-07-04  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* ShuoWen-SR490.el (SW-JIGUGE5-49421): Add U+93A6 as a
@@ -295,6 +340,8 @@
 	(U-000218A9): New character.
 
 2022-06-26  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ruimoku6.el (RUI6-E130): Add `ideographic-structure'.
 
 	* ShuoWen-SR472.el (SW-JIGUGE-46629): Add U-0002716A as a
 	corresponding modern character.
