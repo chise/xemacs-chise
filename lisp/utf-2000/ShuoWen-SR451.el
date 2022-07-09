@@ -243,6 +243,10 @@
   '((shuowen-radical	. 451)	; 戈
     (=shuowen-jiguge	. 44015)	; &SW-JIGUGE-44015;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x22994)	; 𢦔
+      )
+     ((=ucs		  . #x22992)	; 𢦒
+      )
      ((=ucs		  . #x2298F)	; 𢦏
       ))
     (->subsumptive
