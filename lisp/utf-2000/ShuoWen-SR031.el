@@ -10,9 +10,12 @@
   '((<-denotational
      ((=>shuowen-jiguge	  . 05004)	; &A-SW-JIGUGE-05004;
       ))
-    (===shuowen-jiguge5 . 05004)	; &SW-JIGUGE5-05004;
+    (=shuowen-jiguge	. 05004)	; &SW-JIGUGE-05004;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x6B63)	; 正
+      ))
+    (->subsumptive
+     ((===shuowen-jiguge5 . 05004)	; &SW-JIGUGE5-05004;
       ))
     ))
 (define-char
