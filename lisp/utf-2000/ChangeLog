@@ -1,3 +1,10 @@
+2022-07-09  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR511.el (SW-JIGUGE-50809): Add U-00025745 and
+	U-00025744 as corresponding modern characters.
+	(SW-JIGUGE-50811): Add `<-ancient@shuowen' for SW-JIGUGE-50810.
+	(SW-JIGUGE-50902): Add `<-ancient@shuowen' for SW-JIGUGE-50901.
+
 2022-07-06  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* ShuoWen-SR477.el (SW-JIGUGE-46915): Redefined to subsume
