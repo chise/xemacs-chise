@@ -810,9 +810,19 @@
      ((=ucs@unicode	  . #x7678)	; &AJ1-05784;
       (=adobe-japan1-0	  . 05784)	; &AJ1-05784;
       (=daikanwa	  . 22660)	; &I-M-22660;
+      )
+     ((=ucs		  . #x7678)	; 癸
+      )
+     ((=ucs-itaiji-004	  . #x7678)	; &U-i004+7678;
       ))
-    (<-Zhouwen*sources
+    (<-Zhouwen$_1*sources
      zhengzitong daikanwa)
+    (<-Zhouwen$_2*sources
+     shuowen)
+    (<-Zhouwen$_3*sources
+     shuowen)
+    (<-Zhouwen*sources
+     shuowen zhengzitong daikanwa)
     (<-formed
      ((=ucs@unicode	  . #x7678)	; &AJ1-05784;
       (=adobe-japan1-0	  . 05784)	; &AJ1-05784;
