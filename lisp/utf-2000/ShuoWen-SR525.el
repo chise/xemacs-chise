@@ -136,6 +136,13 @@
     (=shuowen-jiguge	. 51311)	; &SW-JIGUGE-51311;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x21940)	; 𡥀
+      )
+     ((=ucs		  . #x233BC)	; 𣎼
+      ))
+    (<-ancient@shuowen
+     ((=shuowen-jiguge	  . 51310)	; &SW-JIGUGE-51310;
+      )
+     ((=ucs		  . #x5B5F)	; 孟
       ))
     (->subsumptive
      ((===shuowen-jiguge5 . 51311)	; &SW-JIGUGE5-51311;
