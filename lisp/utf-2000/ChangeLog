@@ -1,3 +1,14 @@
+2022-07-15  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR525.el (SW-JIGUGE-51311): Add U-000233BC as a
+	corresponding modern character; add `<-ancient@shuowen' for
+	SW-JIGUGE-51310.
+
+2022-07-14  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R105-Dotted-Tent.el (U-00024F29): Add U+7678 and
+	U+7678-itaiji-004 as targets of `<-Zhouwen'.
+
 2022-07-13  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* ShuoWen-SR524.el (SW-JIGUGE-51205): Add U+7678-itaiji-004 as a
