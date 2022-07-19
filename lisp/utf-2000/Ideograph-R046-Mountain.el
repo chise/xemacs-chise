@@ -25033,6 +25033,38 @@
   '((ideographic-radical . 46)	; ⼭
     (ideographic-strokes . 14)
     (total-strokes	 . 17)
+    (sound@ja/on	"riku")
+    (=ucs		. #x21F77)	; 𡽷
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x21F77)	; 𡽷
+      ))
+    (ideographic-radical . 46)	; ⼭
+    (ideographic-strokes . 14)
+    (total-strokes	 . 17)
+    (=ucs@iso		. #x21F77)	; &MJ034828;
+    (=mj		. 034828)	; &MJ034828;
+    (=koseki		. 096920)	; &MJ034828;
+    (=daikanwa		. 08576)	; &I-M-08576;
+    (->subsumptive
+     ((==ucs@iso	  . #x21F77)	; &g2-MJ034828;
+      (==mj		  . 034828)	; &g2-MJ034828;
+      (==koseki		  . 096920)	; &g2-MJ034828;
+      (==daikanwa	  . 08576)	; &g2-MJ034828;
+      (->subsumptive
+       ((===daikanwa	    . 08576)	; &R-M-08576;
+	)
+       ((===mj		    . 034828)	; &R-MJ034828;
+	)
+       ((===ucs@iso	    . #x21F77)	; &R-U-00021F77;
+	))
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 46)	; ⼭
+    (ideographic-strokes . 14)
+    (total-strokes	 . 17)
     (=ucs		. #x21FBB)	; 𡾻
     (=cns11643-5	. #x5B3E)	; &I-C5-5B3E; [59-30]
     (=daikanwa		. 08578)	; &I-M-08578;
