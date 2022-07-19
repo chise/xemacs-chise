@@ -1,3 +1,15 @@
+2022-07-16  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R062-Halberd.el (U-00022992): Apply new conventions
+	for glyph granularity.
+	(U-000229ED): Add `<-ancient' for U-0002716A and U+8822.
+	(U-000229F8): Use `->denotational' and `->subsumptive'.
+
+	* Ideograph-R035-Go-Slowly.el (U+9EA6): Add `<-denotational@usage'
+	for BUCS+9EA5; apply new conventions for glyph granularity.
+	(U-00021576): Use `->denotational' and `->subsumptive'.
+	(U-00021578): New character.
+
 2022-07-15  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* ShuoWen-SR525.el (SW-JIGUGE-51311): Add U-000233BC as a
