@@ -8664,6 +8664,14 @@
       )
      ((=ucs		  . #x2C278)	; 𬉸
       ))
+    (ideographic-structure@apparent/leftmost
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x707E)	; 灾
+      )
+     ((=ucs		  . #x53E3)	; 口
+      ))
     (=ucs		. #x21A10)	; 𡨐
     ))
 (define-char
