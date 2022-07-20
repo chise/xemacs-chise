@@ -268,6 +268,20 @@
     ))
 (define-char
   '((ideographic-radical . 71)	; ⽆
+    (ideographic-strokes . 4)
+    (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x4E88)	; 予
+      )
+     ((=ucs		  . #x65E1)	; 旡
+      ))
+    (=ucs-itaiji-003	. #x65E2)	; &U-i003+65E2;
+    ))
+(define-char
+  '((ideographic-radical . 71)	; ⽆
     (ideographic-strokes . 5)
     (total-strokes	 . 9)
     (ideographic-structure
