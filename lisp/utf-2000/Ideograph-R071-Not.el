@@ -381,7 +381,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=>iwds-1		  .  0357)	; &IWDS1-357;
+     ((=>big5-cdp	  . #x8B7C)	; &IWDS1-357;
       )
      ((=ucs		  . #x65E1)	; 旡
       ))
@@ -469,6 +469,42 @@
      ((total-strokes	   . 9)
       (===hng-khi	  . 00840)	; &HNG010-00840;
       ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@iwds-1	  . #x65E3)	; &A-IWDSU+65E3;
+      ))
+    (<-denotational@usage
+     ((==>ucs@bucs	  . #x65E3)	; &BUCS+65E3;
+      ))
+    (ideographic-radical . 71)	; ⽆
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=>ucs@iwds-1	  . #x826F)	; &A-IWDSU+826F;
+      (=>ucs@cognate	  . #x826F)	; &A-IWDSU+826F;
+      )
+     ((=ucs		  . #x65E1)	; 旡
+      ))
+    (=>ucs-itaiji-002	. #x65E2)	; &A-U-i002+65E2;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs-itaiji-002	  . #x65E2)	; &A-U-i002+65E2;
+      ))
+    (ideographic-radical . 71)	; ⽆
+    (ideographic-strokes . 6)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=big5-cdp	  . #x8C42)	; &CDP-8C42;
+      )
+     ((=ucs		  . #x65E1)	; 旡
+      ))
+    (=ucs-itaiji-002	. #x65E2)	; &U-i002+65E2;
     ))
 (define-char
   '((<-denotational@usage
