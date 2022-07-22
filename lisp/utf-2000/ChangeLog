@@ -1,3 +1,16 @@
+2022-07-20  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R040-Roof.el (U-00021A10): Add
+	`ideographic-structure@apparent/leftmost'.
+
+	* Ideograph-R005-Second.el (U+722A-itaiji-001): New character; use
+	`<-denotational' for U-0002CF16.
+	(A-U+73A8-itaiji-001): New abstract node.
+	(U+73A8-itaiji-001): New character; use `<-denotational' for
+	A-U+73A8-itaiji-001.
+	(U+73A8-itaiji-002): Ditto.
+	(U+73A8-itaiji-003): Ditto.
+
 2022-07-19  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R037-Big.el (U-0002163C): Use `->denotational' and
@@ -8,6 +21,13 @@
 	* Ideograph-R001-One.el (U+4E13-itaiji-005): New character.
 
 	* Ideograph-R071-Not.el (U+65E2-itaiji-003): New character.
+
+	* ShuoWen-SR528.el (SW-JIGUGE-51406): Add
+	`<-formed@flipped-vertically' for SW-JIGUGE-51300.
+	(SW-JIGUGE-51407): Add U+342C as a corresponding modern character.
+
+	* ShuoWen-SR527.el (SW-JIGUGE-51405): Add `<-Qizi@shuowen' for
+	SW-JIGUGE-22415; add `<-Zhouwen@shuowen' for SW-JIGUGE-51404.
 
 2022-07-17  MORIOKA Tomohiko  <tomo.git@chise.org>
 
