@@ -5,6 +5,9 @@
     (<-Small-Seal@shuowen
      ((=ucs		  . #x20AD3)	; 𠫓
       ))
+    (<-formed@flipped-vertically
+     ((=shuowen-jiguge	  . 51300)	; &SW-JIGUGE-51300;
+      ))
     (->subsumptive
      ((===shuowen-jiguge5 . 51406)	; &SW-JIGUGE5-51406;
       )
@@ -16,6 +19,8 @@
     (=shuowen-jiguge	. 51407)	; &SW-JIGUGE-51407;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x21FEE)	; 𡿮
+      )
+     ((=ucs		  . #x342C)	; 㐬
       ))
     (->subsumptive
      ((===shuowen-jiguge5 . 51407)	; &SW-JIGUGE5-51407;
