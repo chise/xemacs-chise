@@ -15343,7 +15343,6 @@
      ((=ucs		  . #x5973)	; 女
       )
      ((=>ucs@iwds-1	  . #x826F)	; &A-IWDSU+826F;
-      (=>ucs@cognate	  . #x826F)	; &A-IWDSU+826F;
       ))
     (=ucs		. #x5A18)	; 娘
     ))
