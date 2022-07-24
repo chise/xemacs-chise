@@ -1242,8 +1242,9 @@
     (=koseki		. 154610)	; &MJ037617;
     (=daikanwa		. 13754)	; &I-M-13754;
     (<-ancient
-     ((=ucs@unicode	  . #x671F)	; &AJ1-01592;
-      (=adobe-japan1-0	  . 01592)	; &AJ1-01592;
+     ((=ucs@unicode	  . #x671F)	; &AJ1-13702;
+      (=adobe-japan1-0	  . 01592)	; &AJ1-13702;
+      (=adobe-japan1-4	  . 13702)	; &I-AJ1-13702;
       (=daikanwa	  . 14378)	; &I-M-14378;
       )
      ((=ucs@unicode	  . #x7A18)	; &AJ1-05912;
@@ -1255,8 +1256,9 @@
     (<-ancient*sources
      daikanwa)
     (<-formed
-     ((=ucs@unicode	  . #x671F)	; &AJ1-01592;
-      (=adobe-japan1-0	  . 01592)	; &AJ1-01592;
+     ((=ucs@unicode	  . #x671F)	; &AJ1-13702;
+      (=adobe-japan1-0	  . 01592)	; &AJ1-13702;
+      (=adobe-japan1-4	  . 13702)	; &I-AJ1-13702;
       ))
     (<-formed$_1*sources
      koseki mj)
@@ -13780,8 +13782,9 @@
     (=cns11643-4	. #x3827)	; &C4-3827; [24-07]
     (=daikanwa		. 13988)	; &I-M-13988;
     (<-ancient
-     ((=ucs@unicode	  . #x671F)	; &AJ1-01592;
-      (=adobe-japan1-0	  . 01592)	; &AJ1-01592;
+     ((=ucs@unicode	  . #x671F)	; &AJ1-13702;
+      (=adobe-japan1-0	  . 01592)	; &AJ1-13702;
+      (=adobe-japan1-4	  . 13702)	; &I-AJ1-13702;
       (=daikanwa	  . 14378)	; &I-M-14378;
       )
      ((=ucs@unicode	  . #x671E)	; &MJ013559;
@@ -21958,23 +21961,60 @@
       )
      ((=ucs		  . #x81F8)	; 臸
       )
+     ((=>ucs@component	  . #x65E5)	; &A-compU+65E5;
+      (=>iwds-1		  .  0118)	; &A-compU+65E5;
+      ))
+    (sound@ja/on	"siN")
+    (=ucs		. #x3B1C)	; 㬜
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x3B1C)	; 㬜
+      ))
+    (ideographic-radical . 72)	; ⽇
+    (ideographic-strokes . 12)
+    (total-strokes	 . 16)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs@unicode	  . #x81F8)	; &JSP-5669;
+      (=jis-x0212	  . #x5669)	; &JSP-5669; [54-73]
+      (=cns11643-2	  . #x3F3A)	; &I-C2-3F3A; [31-26]
+      (=daikanwa	  . 30157)	; &I-M-30157;
+      )
      ((=ucs		  . #x65E5)	; 日
       ))
-    (=ucs		. #x3B1C)	; 㬜
+    (=ucs@unicode	. #x3B1C)	; &MJ001648;
+    (=mj		. 001648)	; &MJ001648;
     (=adobe-japan1-5	. 17757)	; &I-AJ1-17757;
     (=cns11643-3	. #x507C)	; &I-C3-507C; [48-92]
     (=jis-x0213-2	. #x2E34)	; &I-JX2-2E34; [14-20]
+    (=koseki		. 159670)	; &MJ001648;
     (=daikanwa		. 14164)	; &I-M-14164;
-    (=shinjigen		.  3325)	; 㬜
+    (=shinjigen		.  3325)	; &MJ001648;
     (=cbeta		. 12214)	; &I-CB12214;
+    (<-formed
+     ((=ucs@unicode	  . #x6649)	; &AJ1-05102;
+      (=adobe-japan1-0	  . 05102)	; &AJ1-05102;
+      )
+     ((=ucs		  . #x664B)	; 晋
+      ))
+    (<-formed$_1*sources
+     koseki mj)
+    (<-formed$_2*sources
+     koseki@mj)
+    (<-formed*sources
+     koseki mj)
     (<-original
      ((=ucs@unicode	  . #x6649)	; &AJ1-05102;
       (=adobe-japan1-0	  . 05102)	; &AJ1-05102;
       (=jis-x0208	  . #x5A69)	; &I-J90-5A69; [58-73]
+      (=daikanwa	  . 13898)	; &I-M-13898;
       (=shinjigen	  .  3324)	; &AJ1-05102;
       ))
     (<-original*sources
-     shinjigen)
+     zhengzitong daikanwa shinjigen)
     (->subsumptive
      ((==daikanwa	  . 14164)	; &g2-M-14164;
       )
@@ -21983,15 +22023,19 @@
 	)
        ((=ucs		    . #xE0100)	; 󠄀
 	))
-      (==ucs@unicode	  . #x3B1C)	; &g2-AJ1-17757;
-      (==adobe-japan1-5	  . 17757)	; &g2-AJ1-17757;
-      (==cns11643-3	  . #x507C)	; &g2-AJ1-17757; [48-92]
-      (==jis-x0213-2	  . #x2E34)	; &g2-AJ1-17757; [14-20]
-      (==shinjigen	  .  3325)	; &g2-AJ1-17757;
+      (==ucs@unicode	  . #x3B1C)	; &g2-MJ001648;
+      (==mj		  . 001648)	; &g2-MJ001648;
+      (==adobe-japan1-5	  . 17757)	; &g2-MJ001648;
+      (==cns11643-3	  . #x507C)	; &g2-MJ001648; [48-92]
+      (==jis-x0213-2	  . #x2E34)	; &g2-MJ001648; [14-20]
+      (==koseki		  . 159670)	; &g2-MJ001648;
+      (==shinjigen	  .  3325)	; &g2-MJ001648;
       (->subsumptive
        ((===jis-x0213-2	    . #x2E34)	; &R-JX2-2E34; [14-20]
 	)
        ((===adobe-japan1-5  . 17757)	; &R-AJ1-17757;
+	)
+       ((===mj		    . 001648)	; &R-MJ001648;
 	)
        ((===ucs@unicode	    . #x3B1C)	; &R-UU+3B1C;
 	)
