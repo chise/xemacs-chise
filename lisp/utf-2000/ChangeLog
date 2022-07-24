@@ -1,5 +1,23 @@
 2022-07-20  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R071-Not.el (A-U+65E2-itaiji-002): New abstract node;
+	use `<-denotational' for A-IWDSU+65E3; add `<-denotational@usage'
+	for BUCS+65E3.
+	(U+65E2-itaiji-002): New character; use `<-denotational' for
+	A-U+65E2-itaiji-002.
+
+2022-07-20  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R058-Snout.el (U+5F50): Add `<-denotational@component'
+	for A-compU+5F50.
+	(A-compU+5F50): New abstract node.
+	(A-U+5F50-itaiji-006): New abstract node; use
+	`<-denotational@component' for A-compU+5F50; unify
+	A-U+5F50-itaiji-007.
+	(U+5F50-itaiji-006): New character; use `<-denotational' for
+	A-U+5F50-itaiji-006.
+	(U+5F50-itaiji-007): Ditto.
+
 	* Ideograph-R040-Roof.el (U-00021A10): Add
 	`ideographic-structure@apparent/leftmost'.
 
