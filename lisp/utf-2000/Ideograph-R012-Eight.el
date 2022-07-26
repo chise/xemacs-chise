@@ -3079,8 +3079,9 @@
     (=daijiten		. 00605)	; &I-DJT-00605;
     (=shinjigen		.  0498)	; &AJ1-02838;
     (<-interchangeable
-     ((=ucs@unicode	  . #x671F)	; &AJ1-01592;
-      (=adobe-japan1-0	  . 01592)	; &AJ1-01592;
+     ((=ucs@unicode	  . #x671F)	; &AJ1-13702;
+      (=adobe-japan1-0	  . 01592)	; &AJ1-13702;
+      (=adobe-japan1-4	  . 13702)	; &I-AJ1-13702;
       (=daikanwa	  . 14378)	; &I-M-14378;
       )
      ((=ucs@unicode	  . #x5C45)	; &AJ1-01673;
