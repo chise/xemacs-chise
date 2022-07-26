@@ -1,3 +1,8 @@
+2022-07-23  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR533.el (SW-JIGUGE-51603): Add U+382F as a
+	corresponding modern character.
+
 2022-07-20  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R071-Not.el (A-U+65E2-itaiji-002): New abstract node;
