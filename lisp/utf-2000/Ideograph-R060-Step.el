@@ -15613,7 +15613,6 @@
      ((=>ucs-itaiji-007	  . #x6538)	; &A-U-i007+6538;
       )
      ((=>ucs@iwds-1	  . #x826F)	; &A-IWDSU+826F;
-      (=>ucs@cognate	  . #x826F)	; &A-IWDSU+826F;
       ))
     (sound@ja/on	"sIu")
     (=ucs		. #x22566)	; 𢕦
