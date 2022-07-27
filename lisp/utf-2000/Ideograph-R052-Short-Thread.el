@@ -1263,7 +1263,9 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=ucs		  . #x221B6)	; 𢆶
+     ((=ucs@iso		  . #x221B6)	; &C4-2267;
+      (=cns11643-4	  . #x2267)	; &C4-2267; [02-71]
+      (=daikanwa	  . 09196)	; &I-M-09196;
       )
      ((=ucs-var-002	  . #x706C)	; &U-v002+706C;
       ))
@@ -1674,8 +1676,9 @@
 	(=adobe-japan1-6    . 21159)	; &AJ1-21159;
 	(=daikanwa	    . 01106)	; &I-M-01106;
 	)
-       ((=ucs@unicode	    . #x671F)	; &AJ1-01592;
-	(=adobe-japan1-0    . 01592)	; &AJ1-01592;
+       ((=ucs@unicode	    . #x671F)	; &AJ1-13702;
+	(=adobe-japan1-0    . 01592)	; &AJ1-13702;
+	(=adobe-japan1-4    . 13702)	; &I-AJ1-13702;
 	(=daikanwa	    . 14378)	; &I-M-14378;
 	)
        ((=ucs@unicode	    . #x5209)	; &C2-214C;
