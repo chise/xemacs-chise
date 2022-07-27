@@ -1,3 +1,8 @@
+2022-07-24  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R072-Sun.el (U+3B1C): Apply new conventions for glyph
+	granularity.
+
 2022-07-23  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* ShuoWen-SR533.el (SW-JIGUGE-51603): Add U+382F as a
