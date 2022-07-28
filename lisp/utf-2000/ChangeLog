@@ -1,3 +1,10 @@
+2022-07-27  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R017-Open-Box.el (U-00030114): New character.
+
+	* Ideograph-R013-Down-Box.el (U-0002054C): Apply new conventions
+	for glyph granularity.
+
 2022-07-26  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R058-Snout.el (U-0002245A): Apply new conventions for
