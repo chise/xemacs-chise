@@ -1583,7 +1583,25 @@
     (total-strokes	 . 9)
     (sound@ja/on	"siN")
     (=ucs		. #x2245A)	; 𢑚
-    (=cns11643-6	. #x3123)	; &I-C6-3123; [17-03]
+    (<-Zhouwen
+     ((=ucs		  . #x26954)	; 𦥔
+      )
+     ((=ucs		  . #x7533)	; 申
+      ))
+    (<-Zhouwen$_1*sources
+     shuowen)
+    (<-Zhouwen$_2*sources
+     shuowen)
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2245A)	; 𢑚
+      ))
+    (ideographic-radical . 58)	; ⼹
+    (ideographic-strokes . 6)
+    (total-strokes	 . 9)
+    (=ucs@iso		. #x2245A)	; &C6-3123;
+    (=cns11643-6	. #x3123)	; &C6-3123; [17-03]
     (=big5-cdp		. #x88B0)	; &I-CDP-88B0;
     (=daikanwa		. 09919)	; &I-M-09919;
     (<-ancient
