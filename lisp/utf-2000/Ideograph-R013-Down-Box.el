@@ -2677,13 +2677,54 @@
   '((ideographic-radical . 13)	; ⼌
     (ideographic-strokes . 4)
     (total-strokes	 . 6)
-    (hanyu-dazidian	1 100 4)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
+      (=ucs		  . #x2FF5)	; ⿵
+      )
+     ((=ucs		  . #x5182)	; 冂
+      )
+     ((=>ucs@component	  . #x65E5)	; &A-compU+65E5;
+      (=>iwds-1		  .  0118)	; &A-compU+65E5;
+      ))
     (=ucs		. #x2054C)	; 𠕌
-    (=gt		. 02004)	; &I-GT-02004;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2054C)	; 𠕌
+      ))
+    (ideographic-radical . 13)	; ⼌
+    (ideographic-strokes . 4)
+    (total-strokes	 . 6)
+    (hanyu-dazidian	1 100 4)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
+      (=ucs		  . #x2FF5)	; ⿵
+      )
+     ((=ucs		  . #x5182)	; 冂
+      )
+     ((=ucs		  . #x65E5)	; 日
+      ))
+    (=ucs@iso		. #x2054C)	; &GT-02004;
+    (=gt		. 02004)	; &GT-02004;
     (=gt-k		. 02042)	; &I-GT-K02042;
-    (=gt-pj-2		. #x3D37)	; &I-GT-02004; [29-23]
+    (=gt-pj-2		. #x3D37)	; &GT-02004; [29-23]
     (=daikanwa		. 01526)	; &I-M-01526;
-    (=hanziku-1		. #xB8A1)	; &I-HZK01-B8A1;
+    (->subsumptive
+     ((==ucs@iso	  . #x2054C)	; &g2-GT-02004;
+      (==gt		  . 02004)	; &g2-GT-02004;
+      (==gt-k		  . 02042)	; &g2-GT-02004;
+      (==daikanwa	  . 01526)	; &g2-GT-02004;
+      (->subsumptive
+       ((===daikanwa	    . 01526)	; &R-M-01526;
+	)
+       ((===gt		    . 02004)	; &R-GT-02004;
+	(===gt-k	    . 02042)	; &R-GT-02004;
+	)
+       ((===ucs@iso	    . #x2054C)	; &R-U-0002054C;
+	)
+       ((=hanziku-1	    . #xB8A1)	; &HZK01-B8A1;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 13)	; ⼌

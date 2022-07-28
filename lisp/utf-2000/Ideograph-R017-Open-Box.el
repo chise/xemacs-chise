@@ -2066,6 +2066,37 @@
     ))
 (define-char
   '((ideographic-radical . 17)	; ⼐
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=>ucs@iwds-1	  . #x5C80)	; &A-IWDSU+5C80;
+      (=>ucs@component	  . #x51FA)	; &A-IWDSU+5C80;
+      )
+     ((=>ucs@iwds-1	  . #x5C80)	; &A-IWDSU+5C80;
+      (=>ucs@component	  . #x51FA)	; &A-IWDSU+5C80;
+      ))
+    (=ucs		. #x30114)	; 𰄔
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x30114)	; 𰄔
+      ))
+    (ideographic-radical . 17)	; ⼐
+    (ideographic-strokes . 8)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x51FA)	; 出
+      )
+     ((=ucs		  . #x51FA)	; 出
+      ))
+    (=ucs@JP/hanazono	. #x30114)	; &hanaJU+30114;
+    ))
+(define-char
+  '((ideographic-radical . 17)	; ⼐
     (ideographic-strokes . 8)
     (total-strokes	 . 10)
     (=big5-cdp		. #x867A)	; &CDP-867A;
