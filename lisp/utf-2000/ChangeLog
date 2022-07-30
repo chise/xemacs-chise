@@ -1,3 +1,10 @@
+2022-07-30  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* char-db-util.el (insert-char-attributes): Format
+	`ideographic-structure@apparent/rightmost' with the same format as
+	`ideographic-structure' and
+	`ideographic-structure@apparent/leftmost'.
+
 2022-07-28  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R009-Man.el (U+3439): Add `sound@ja/on'.
