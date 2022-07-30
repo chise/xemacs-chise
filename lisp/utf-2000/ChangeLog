@@ -1,3 +1,12 @@
+2022-07-28  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R009-Man.el (U+3439): Add `sound@ja/on'.
+	(UU+3439): Add `ideographic-structure'; add `<-formed' for
+	CU+FA3E; add `<-original' for UU+4EE1.
+	(U-000201C7): New character.
+	(U-0002027D): New character.
+	(U-0002039E): Apply new conventions for glyph granularity.
+
 2022-07-27  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R017-Open-Box.el (U-00030114): New character.
