@@ -16,6 +16,8 @@
     (=shuowen-jiguge	. 52017)	; &SW-JIGUGE-52017;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x2235C)	; 𢍜
+      )
+     ((=ucs		  . #x5960)	; 奠
       ))
     (->subsumptive
      ((===shuowen-jiguge5 . 52017)	; &SW-JIGUGE5-52017;
@@ -28,6 +30,11 @@
     (=shuowen-jiguge	. 52018)	; &SW-JIGUGE-52018;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x5C0A)	; 尊
+      ))
+    (<-formed@shuowen
+     ((=shuowen-jiguge	  . 52017)	; &SW-JIGUGE-52017;
+      )
+     ((=ucs		  . #x2235C)	; 𢍜
       ))
     (->subsumptive
      ((===shuowen-jiguge5 . 52018)	; &SW-JIGUGE5-52018;
