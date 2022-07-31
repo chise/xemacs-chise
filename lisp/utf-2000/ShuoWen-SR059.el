@@ -27,7 +27,14 @@
   '((shuowen-radical	. 59)	; 䇂
     (=shuowen-jiguge	. 08004)	; &SW-JIGUGE-08004;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x25ACD)	; 𥫍
+      )
      ((=ucs		  . #x25ABD)	; 𥪽
+      ))
+    (<-Zhouwen@shuowen
+     ((=shuowen-jiguge	  . 08003)	; &SW-JIGUGE-08003;
+      )
+     ((=ucs		  . #x7AE5)	; 童
       ))
     (->subsumptive
      ((===shuowen-jiguge5 . 08004)	; &SW-JIGUGE5-08004;
