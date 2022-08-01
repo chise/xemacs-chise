@@ -5,6 +5,19 @@
 	`ideographic-structure' and
 	`ideographic-structure@apparent/leftmost'.
 
+2022-07-29  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R032-Earth.el (U-00021259): Apply new conventions for
+	glyph granularity.
+	(U-00021373): Use `->denotational' and `->subsumptive'.
+	(U+588D): Add `<-denotational@usage' for BUCS+588D.
+	(UU+588D): Add some relations for other characters.
+	(JC3-47D8): Unify DJT-01848.
+	(U-000213F2): Apply new conventions for glyph granularity.
+	(U-00021496): Use `->denotational' and `->subsumptive'.
+	(U-000214F5): Add `<-ancient' for U-00021A5F and U+5BC5.
+	(BUCS+588D): New abstract node; unify A2-DJT-01848.
+
 2022-07-28  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R009-Man.el (U+3439): Add `sound@ja/on'.
@@ -14,12 +27,36 @@
 	(U-0002027D): New character.
 	(U-0002039E): Apply new conventions for glyph granularity.
 
+	* Ideograph-R039-Child.el (U-00021966): Apply new conventions for
+	glyph granularity.
+	(U-00021968): Likewise.
+	(U+5B74): Likewise.
+
 2022-07-27  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R017-Open-Box.el (U-00030114): New character.
 
 	* Ideograph-R013-Down-Box.el (U-0002054C): Apply new conventions
 	for glyph granularity.
+
+2022-07-27  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR537.el (SW-JIGUGE-51707): Add `<-ancient@shuowen' for
+	SW-JIGUGE-51706.
+
+	* ShuoWen-SR536.el (SW-JIGUGE-51700): Add U-00026954 as a
+	corresponding modern character.
+	(SW-JIGUGE-51701): Add U-00024C36 and U-00020D53 as corresponding
+	modern characters; add `<-ancient@shuowen' for SW-JIGUGE-51700.
+	(SW-JIGUGE-51702): Add `<-Zhouwen@shuowen' for SW-JIGUGE-51700.
+
+	* ShuoWen-SR530.el (A-SW-JIGUGE-51502): New abstract node.
+	(SW-JIGUGE-51502): Add `<-denotational' for A-SW-JIGUGE-51502; add
+	U-00021A5F as a corresponding modern character.
+	(SW-JIGUGE4-50002): Use `<-denotational' for A-SW-JIGUGE-51502
+	instead of `<-subsumptive' for SW-JIGUGE-51502.
+	(SW-JIGUGE-51503): Add `<-ancient@shuowen' for SW-JIGUGE-51502 and
+	SW-JIGUGE4-50002.
 
 2022-07-26  MORIOKA Tomohiko  <tomo.git@chise.org>
 
