@@ -1482,6 +1482,13 @@
       ))
     (<-formed@component*sources
      zihui/char-index zhengzitong daikanwa)
+    (->mistakable
+     ((=ucs@unicode	  . #x5183)	; &MJ007302;
+      (=mj		  . 007302)	; &MJ007302;
+      )
+     ((=ucs@unicode	  . #x6708)	; &MJ013520;
+      (=mj		  . 013520)	; &MJ013520;
+      ))
     (->subsumptive
      ((==gt		  . 37857)	; &g2-GT-37857;
       (==daikanwa	  . 29237)	; &g2-GT-37857;
