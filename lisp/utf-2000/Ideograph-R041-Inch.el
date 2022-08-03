@@ -2790,6 +2790,11 @@
       ))
     (=ucs		. #x5C0A)	; 尊
     (=big5		. #xB44C)	; &I-B-B44C;
+    (<-formed
+     ((=ucs		  . #x2235C)	; 𢍜
+      ))
+    (<-formed$_1*sources
+     shuowen)
     ))
 (define-char
   '((<-denotational

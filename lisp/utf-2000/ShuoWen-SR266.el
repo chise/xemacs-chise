@@ -78,7 +78,7 @@
      ((=ucs		  . #x9F4F)	; 齏
       ))
     (<-formed@shuowen
-     ((===shuowen-jiguge5 . 24502)	; &SW-JIGUGE5-24502;
+     ((=shuowen-jiguge	  . 24502)	; &SW-JIGUGE-24502;
       )
      ((===shuowen-jiguge4 . 24002)	; &SW-JIGUGE4-24002;
       )

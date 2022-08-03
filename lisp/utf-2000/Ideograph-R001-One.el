@@ -6165,6 +6165,13 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 7)
     (=ucs		. #x4E23)	; 丣
+    (<-ancient
+     ((=ucs		  . #x9149)	; 酉
+      ))
+    (<-ancient$_1*sources
+     shuowen)
+    (<-ancient*sources
+     shuowen)
     ))
 (define-char
   '((<-denotational

@@ -1,3 +1,22 @@
+2022-08-01  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R041-Inch.el (U+5C0A): Add `<-formed' for U-0002235C.
+
+	* Ideograph-R001-One.el (U+4E23): Add `<-ancient' for U+9149.
+
+2022-07-31  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR538.el (SW-JIGUGE-52017): Add U+5960 as a
+	corresponding modern character.
+	(SW-JIGUGE-52018): Add `<-formed@shuowen' for SW-JIGUGE-52017.
+
+	* ShuoWen-SR266.el (SW-JIGUGE-24503): Use SW-JIGUGE-24502 instead
+	of SW-JIGUGE5-24502 as a target of `<-formed@shuowen'.
+
+	* ShuoWen-SR059.el (SW-JIGUGE-08004): Add U-00025ACD as a
+	corresponding modern character; add `<-Zhouwen@shuowen' for
+	SW-JIGUGE-08003.
+
 2022-07-30  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* char-db-util.el (insert-char-attributes): Format
