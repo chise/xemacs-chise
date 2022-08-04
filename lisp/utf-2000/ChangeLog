@@ -1,5 +1,137 @@
 2022-08-01  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R061-Heart.el (A-compU+5FCE): New abstract node.
+	(U+5FCE): Add `<-denotational' for A-compU+5FCE; apply new
+	conventions for glyph granularity.
+	(U-0002BE6F): New character; use `<-denotational' for
+	A-compU+5FCE.
+	(A-compU+5FCF): New abstract node.
+	(U+5FCF): Add `<-denotational@component' for A-compU+5FCF; add
+	`<-denotational@usage' for A2-DJT-03185 and BUCS+61FA; apply new
+	conventions for glyph granularity.
+	(U+5FD3): Add `<-denotational@component' for A-compU+5FCF; add
+	`<-denotational@usage' for A2-DJT-03189; apply new conventions for
+	glyph granularity.
+	(U-000225B3): Add `<-denotational@component' for A-compU+5FCF;
+	apply new conventions for glyph granularity.
+	(U-000225C3): Apply new conventions for glyph granularity.
+	(U-000225BB): Add ideographic-structure.
+	(A-cgnU+3905): New abstract node.
+	(U+3905): Add `<-denotational' for A-cgnU+3905; add
+	`<-denotational@usage' for A2-DJT-03405; apply new conventions for
+	glyph granularity.
+	(U+3905-itaiji-004): New character; use `<-denotational' for
+	A-cgnU+3905.
+	(U+3905-itaiji-001): Ditto.
+	(A-U+3905-itaiji-002): New abstract node; use `<-denotational' for
+	A-cgnU+3905.
+	(U+3905-itaiji-002): New character; use `<-denotational' for
+	A-U+3905-itaiji-002.
+	(A-U+3905-itaiji-003): New abstract node; use `<-denotational' for
+	A-U+3905-itaiji-002.
+	(U+3905-itaiji-003): New character; use `<-denotational' for
+	A-U+3905-itaiji-003.
+	(U-000225DD): New character.
+	(U+603B): Add `<-denotational@usage' for BUCS+7E3D; apply new
+	conventions for glyph granularity.
+	(U-0002AAE9): New character.
+	(U+6057): Apply new conventions for glyph granularity.
+	(U+6059): Likewise; add `<-denotational@usage' for BUCS+6059.
+	(U+606B): Apply new conventions for glyph granularity; add
+	`<-denotational@usage' for BUCS+606B.
+	(U+6075): Add ideographic-structure.
+	(U-0002264F): New character.
+	(U-00022651): New character.
+	(U-00022674): Use `->denotational' and `->subsumptive'.
+	(U+608C): Apply new conventions for glyph granularity; add
+	`<-denotational@usage' for BUCS+608C.
+	(U-00022676): Add `<-ancient' for U+59E6.
+	(U+6090): Add `<-denotational@usage' for BUCS+60D5; apply new
+	conventions for glyph granularity.
+	(U-000226ED): Apply new conventions for glyph granularity.
+	(U+60AD): Apply new conventions for glyph granularity; add
+	`<-denotational@usage' for BUCS+6173.
+	(U-0002269D): New character.
+	(U-000226A4): New character.
+	(U-000226A9): Modify structure.
+	(U+226A9-var-001): New character; use `<-denotational' for
+	U-000226A9.
+	(U+226A9-var-002): Ditto.
+	(U+60D5): Apply new conventions for glyph granularity; add
+	`<-denotational@usage' for BUCS+60D5.
+	(U+60D6): Apply new conventions for glyph granularity.
+	(U+60EF): Likewise; add `<-denotational@usage' for BUCS+6163.
+	(U-00022707): New character.
+	(U-00022709): New character.
+	(U-0002270A): New character.
+	(U+60F6): Apply new conventions for glyph granularity; add
+	`<-denotational@usage' for BUCS+60F6.
+	(U+60FA): Apply new conventions for glyph granularity; add
+	`<-denotational@usage' for BUCS+60FA.
+	(U-0002272B): Apply new conventions for glyph granularity.
+	(U+6113): Likewise; add `<-denotational@usage' for A2-DJT-03398
+	and BUCS+661C.
+	(A-cgnU+611B): Changed from U+611B.
+	(B-B752): Use A-cgnU+611B instead of U+611B as its mother; unify
+	U+611B instead of A-IWDSU+611B and A-UU+611B; apply new
+	conventions for glyph granularity.
+	(U+611B-itaiji-001): Use A-cgnU+611B instead of U+611B as its
+	mother.
+	(U+611F): Add `<-denotational@usage' for BUCS+611F; add
+	ideographic-structure.
+	(DJT-03409): New character; use `<-denotational' for U+611F.
+	(U-000227AB): Apply new conventions for glyph granularity.
+	(U+6163): Likewise; add `<-denotational@usage' for BUCS+6163.
+	(U-000227EA): Apply new conventions for glyph granularity.
+	(U+6168): Likewise; add `<-denotational@usage' for BUCS+6168.
+	(U+6171): Add `<-denotational@usage' for BUCS+6171.
+	(UU+6171): Unify DJT-03470.
+	(U+6173): Add `<-denotational@usage' for BUCS+6173; apply new
+	conventions for glyph granularity.
+	(U-0002287F): Use `->subsumptive'.
+	(U+3989): Apply new conventions for glyph granularity.
+	(U-0002283C): Likewise.
+	(U-0002283D): Use `->denotational' and `->subsumptive'.
+	(A-JU+61AA): New abstract node.
+	(U+61AA): Apply new conventions for glyph granularity; add
+	`<-denotational' for A-JU+61AA; add `<-denotational@usage' for
+	A2-DJT-03522.
+	(U-00022880): New character; use `<-denotational' for A-JU+61AA.
+	(U-00022853): Apply new conventions for glyph granularity.
+	(M-11281): Add `<-denotational' for U-00022853; unify IU+22853,
+	MJ036365, C7-2E22 and KOSEKI-126700.
+	(U-00022855): Use `->denotational' and `->subsumptive'.
+	(U-00022861): New character.
+	(U-00022876): New character.
+	(U+61F4): Add `<-denotational@usage' for BUCS+61FA.
+	(U+39A4): Add `<-denotational@usage' for BUCS+61FF; apply new
+	conventions for glyph granularity.
+	(U+61FA): Add `<-denotational@usage' for A2-DJT-03587 and
+	BUCS+61FA; apply new conventions for glyph granularity.
+	(U+61FF): Add `<-denotational@usage' for BUCS+61FF; apply new
+	conventions for glyph granularity.
+	(BUCS+61FA): New abstract node.
+	(A2-DJT-03189): New abstract node.
+	(A2-DJT-03405): New abstract node.
+	(BUCS+6059): New abstract node; unify A2-DJT-03277.
+	(BUCS+606B): New abstract node; unify A2-DJT-03294.
+	(BUCS+608C): New abstract node; unify A2-DJT-03316.
+	(BUCS+60D5): New abstract node; unify A2-DJT-03359.
+	(BUCS+6173): New abstract node; unify A2-DJT-03471.
+	(BUCS+6163): New abstract node; unify A2-DJT-03459.
+	(BUCS+60F6): New abstract node; unify A2-DJT-03376.
+	(BUCS+60FA): New abstract node; unify A2-DJT-03380.
+	(BUCS+6168): New abstract node; unify A2-DJT-03463.
+	(BUCS+6171): New abstract node; unify A2-DJT-03470.
+	(A2-DJT-03522): New abstract node.
+	(BUCS+61FF): New abstract node; unify A2-DJT-03594.
+	(A2-DJT-03185): New abstract node; use `<-denotational' for
+	BUCS+61FA.
+	(A2-DJT-03398): New abstract node; use `<-denotational' for
+	BUCS+661C.
+	(A2-DJT-03587): New abstract node; use `<-denotational' for
+	BUCS+61FA.
+
 	* Ideograph-R041-Inch.el (U+5C0A): Add `<-formed' for U-0002235C.
 
 	* Ideograph-R001-One.el (U+4E23): Add `<-ancient' for U+9149.
