@@ -4597,6 +4597,7 @@
       )
      ((=ucs		  . #x76CD)	; 盍
       ))
+    (sound@ja/on	"aHu")
     (=ucs		. #x3529)	; 㔩
     ))
 (define-char
@@ -4618,6 +4619,13 @@
     (=ucs@unicode	. #x3529)	; &C4-364D;
     (=cns11643-4	. #x364D)	; &C4-364D; [22-45]
     (=daikanwa		. 02550)	; &I-M-02550;
+    (->formed
+     ((=daikanwa	  . 42582)	; &M-42582;
+      ))
+    (->formed$_1*sources
+     jiyun daikanwa)
+    (->formed*sources
+     jiyun daikanwa)
     (->subsumptive
      ((==ucs@unicode	  . #x3529)	; &g2-M-02550;
       (==cns11643-4	  . #x364D)	; &g2-M-02550; [22-45]
@@ -5700,6 +5708,15 @@
     ))
 (define-char
   '((ideographic-radical . 20)	; ⼓
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
+      (=ucs		  . #x2FF9)	; ⿹
+      )
+     ((=ucs		  . #x52F9)	; 勹
+      )
+     ((=ucs		  . #x84CB)	; 蓋
+      ))
+    (sound@ja/on	"aHu")
     (=ucs		. #x20905)	; 𠤅
     ))
 (define-char
@@ -5722,6 +5739,13 @@
     (=ucs@iso		. #x20905)	; &C7-2C50;
     (=cns11643-7	. #x2C50)	; &C7-2C50; [12-48]
     (=daikanwa		. 02564)	; &I-M-02564;
+    (<-same
+     ((=ucs@unicode	  . #x3529)	; &C4-364D;
+      (=cns11643-4	  . #x364D)	; &C4-364D; [22-45]
+      (=daikanwa	  . 02550)	; &I-M-02550;
+      ))
+    (<-same*sources
+     zihui daikanwa)
     (->subsumptive
      ((==ucs@iso	  . #x20905)	; &g2-M-02564;
       (==cns11643-7	  . #x2C50)	; &g2-M-02564; [12-48]
