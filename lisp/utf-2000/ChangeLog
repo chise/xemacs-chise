@@ -1,3 +1,8 @@
+2022-08-03  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R066-Rap.el (hanaJU+3AA1): New character; use
+	`<-denotational' for U+3AA1.
+
 2022-08-01  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R061-Heart.el (A-compU+5FCE): New abstract node.

@@ -10536,6 +10536,24 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
+     ((=mj		  . 010161)	; &MJ010161;
+      )
+     ((=ucs@unicode	  . #x6534)	; &AJ1-05058;
+      (=adobe-japan1-0	  . 05058)	; &AJ1-05058;
+      ))
+    (=ucs@JP/hanazono	. #x3AA1)	; &hanaJU+3AA1;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x3AA1)	; 㪡
+      ))
+    (ideographic-radical . 66)	; ⽁
+    (ideographic-strokes . 10)
+    (total-strokes	 . 14)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
      ((=ucs@cns		  . #x5BB3)	; &C1-5524;
       (=ucs@ks		  . #x5BB3)	; &C1-5524;
       (=ks-x1001	  . #x7A2A)	; &C1-5524; [90-10]
