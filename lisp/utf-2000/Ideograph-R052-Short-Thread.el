@@ -47,10 +47,28 @@
   '((ideographic-radical . 52)	; ⼳
     (ideographic-strokes . 0)
     (total-strokes	 . 2)
-    (=big5-cdp		. #x895C)	; &CDP-895C;
+    (=>big5-cdp		. #x895C)	; &A-CDP-895C;
     (<-simplified@component
      ((=ucs		  . #x5E7A)	; 幺
       ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>big5-cdp	  . #x895C)	; &A-CDP-895C;
+      ))
+    (ideographic-radical . 52)	; ⼳
+    (ideographic-strokes . 0)
+    (total-strokes	 . 2)
+    (=big5-cdp-var-002	. #x895C)	; &CDP-v002-895C;
+    ))
+(define-char
+  '((<-denotational
+     ((=>big5-cdp	  . #x895C)	; &A-CDP-895C;
+      ))
+    (ideographic-radical . 52)	; ⼳
+    (ideographic-strokes . 0)
+    (total-strokes	 . 2)
+    (=big5-cdp		. #x895C)	; &CDP-895C;
     ))
 (define-char
   '((ideographic-radical . 52)	; ⼳
