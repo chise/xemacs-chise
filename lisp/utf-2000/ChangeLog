@@ -14,6 +14,11 @@
 
 	* Ideograph-R010-Legs.el (U-0002D031): New character.
 
+2022-08-02  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* u02E00-CJK-Radical-Supplement.el (<CJK RADICAL MEAT>): Add
+	`->mistakable' for UU+5183 and UU+6708.
+
 2022-08-01  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R061-Heart.el (A-compU+5FCE): New abstract node.
