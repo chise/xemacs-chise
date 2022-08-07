@@ -1,3 +1,17 @@
+2022-08-05  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R052-Short-Thread.el (A-BC-895C): New abstract node.
+	(BC-895C-var-002): New character; use `<-denotational' for
+	A-BC-895C.
+	(BC-895C): Add `<-denotational' for A-BC-895C.
+
+2022-08-05  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R020-Wrap.el (U+3529): Add `sound@ja/on'.
+	(UU+3529): Add `->formed' for M-42582.
+	(U-00020905): Add `ideographic-structure'; add `sound@ja/on'.
+	(IU+20905): Add `<-same' for UU+3529.
+
 2022-08-04  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R024-Ten.el (A-BC-8BF8-itaiji-001): New abstract node;
