@@ -2303,7 +2303,8 @@
     (->mistakable*sources
      kangxi-biansi-2char daikanwa)
     (->vulgar
-     ((=ucs		  . #x7A93)	; 窓
+     ((=ucs@unicode	  . #x7A93)	; &AJ1-02797;
+      (=adobe-japan1-0	  . 02797)	; &AJ1-02797;
       (=daikanwa	  . 25494)	; &I-M-25494;
       ))
     (->vulgar*sources
