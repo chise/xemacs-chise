@@ -166,6 +166,8 @@
   '((shuowen-radical	. 137)	; 刀
     (=shuowen-jiguge	. 14103)	; &SW-JIGUGE-14103;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x23983)	; 𣦃
+      )
      ((=ucs		  . #x20763)	; 𠝣
       )
      ((=ucs		  . #x524D)	; 前
