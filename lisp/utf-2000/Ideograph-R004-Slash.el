@@ -2767,7 +2767,8 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 5)
     (hanyu-dazidian	1 36 8)
-    (sound@ja		"o")
+    (sound@ja/on/conventional "o")
+    (sound@ja/on/go	"go")
     (sound@ja/on/kan	"ko")
     (=ucs		. #x4E4E)	; 乎
     (=adobe-japan1-0	. 01911)	; &I-AJ1-01911;
@@ -2784,6 +2785,50 @@
     (=daijiten		. 00092)	; &I-DJT-00092;
     (=shinjigen@1ed	.  0050)	; 乎
     (=shinjigen@rev	.  0051)	; 乎
+    (<-formed
+     ((=ucs		  . #x547C)	; 呼
+      ))
+    (<-interchangeable
+     ((=ucs		  . #x4E8E)	; 于
+      (=daikanwa	  . 00252)	; &I-M-00252;
+      )
+     ((=gt		  . 17221)	; &GT-17221;
+      (=daikanwa	  . 13628)	; &I-M-13628;
+      ))
+    (<-interchangeable$_1*sources
+     shuowen-tongxun-dingsheng daikanwa)
+    (<-interchangeable$_2*sources
+     lushichunqiu-zhu daikanwa)
+    (<-interchangeable*sources
+     daikanwa)
+    (<-same
+     ((=ucs		  . #x547C)	; 呼
+      (=daikanwa	  . 03471)	; &I-M-03471;
+      ))
+    (<-same$_1*sources
+     shiwen daikanwa)
+    (<-same*sources
+     shiwen daikanwa)
+    (->ancient
+     ((=ucs@unicode	  . #x8656)	; &JX2-773A;
+      (=jis-x0212	  . #x5A3B)	; &JX2-773A; [58-27]
+      (=cns11643-2	  . #x3921)	; &I-C2-3921; [25-01]
+      (=jis-x0213-2	  . #x773A)	; &I-JX2-773A; [87-26]
+      (=daikanwa	  . 32698)	; &I-M-32698;
+      ))
+    (->ancient$_1*sources
+     jiyun daikanwa)
+    (->ancient*sources
+     jiyun daikanwa)
+    (->original
+     ((=ucs@iso		  . #x2009E)	; &GT-00180;
+      (=cns11643-6	  . #x2231)	; &GT-00180; [02-17]
+      (=daikanwa	  . 00137)	; &I-M-00137;
+      ))
+    (->original$_1*sources
+     zhengzitong daikanwa)
+    (->original*sources
+     zhengzitong daikanwa)
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x4E4E)	; 乎

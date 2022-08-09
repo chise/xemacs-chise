@@ -1,3 +1,20 @@
+2022-08-07  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R004-Slash.el (U+4E4E): Add some relations for other
+	characters.
+
+2022-08-06  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR540.el: Use `=>shuowen-jiguge' instead of
+	`=shuowen-jiguge' as the CCS-feature of abstract character of
+	Shuowen-Jiguge which has `->denotational' to combine some
+	Small-Seal glyphs.
+	(A-SW-JIGUGE-52101): Changed from SW-JIGUGE-52101; add
+	`<-Small-Seal' for U-00022053 and U-00020987.
+	(SW-JIGUGE-52101): Changed from R-SW-JIGUGE-52101; subsume
+	R-SW-JIGUGE-52101; add `<-ancient@shuowen' for SW-JIGUGE-52100.
+	(SW-JIGUGE4-50601): Add `<-ancient@shuowen' for SW-JIGUGE4-52100.
+
 2022-08-05  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R052-Short-Thread.el (A-BC-895C): New abstract node.
