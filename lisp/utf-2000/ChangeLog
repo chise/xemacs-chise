@@ -1,3 +1,9 @@
+2022-08-09  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R009-Man.el (A-U+4EFA-itaiji-001): New abstract node.
+	(U+4EFA-itaiji-001): New character; use `<-denotational' for
+	A-U+4EFA-itaiji-001.
+
 2022-08-07  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R038-Woman.el (U+5AB5): Add `<-denotational@usage' for
