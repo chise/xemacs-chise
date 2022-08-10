@@ -9284,8 +9284,28 @@
       )
      ((=ucs		  . #x5DFE)	; 巾
       ))
+    (sound@ja/on/go	"baN")
+    (sound@ja/on/kan	"haN")
     (=ucs		. #x5E4B)	; 幋
-    (=adobe-japan1-6	. 21495)	; &I-AJ1-21495;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5E4B)	; 幋
+      ))
+    (ideographic-radical . 50)	; ⼱
+    (ideographic-strokes . 10)
+    (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs@unicode	  . #x822C)	; &AJ1-03424;
+      (=adobe-japan1-0	  . 03424)	; &AJ1-03424;
+      )
+     ((=ucs		  . #x5DFE)	; 巾
+      ))
+    (=ucs@unicode	. #x5E4B)	; &AJ1-21495;
+    (=adobe-japan1-6	. 21495)	; &AJ1-21495;
     (=jis-x0212		. #x3C32)	; &I-JSP-3C32; [28-18]
     (=cns11643-2	. #x4262)	; &I-C2-4262; [34-66]
     (=big5		. #xDD5C)	; &I-B-DD5C;
@@ -9296,17 +9316,6 @@
        ((=ucs		    . #x5E4B)	; 幋
 	)
        ((=ucs		    . #xE0100)	; 󠄀
-	))
-      (ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	(=ucs		    . #x2FF1)	; ⿱
-	)
-       ((==ucs@jis	    . #x822C)	; &g2-AJ1-03424;
-	(==ucs@ks	    . #x822C)	; &g2-AJ1-03424;
-	(==adobe-japan1-0   . 03424)	; &g2-AJ1-03424;
-	)
-       ((==ucs@unicode	    . #x5DFE)	; &g2-AJ1-01738;
-	(==adobe-japan1-0   . 01738)	; &g2-AJ1-01738;
 	))
       (==ucs@jis	  . #x5E4B)	; &g2-AJ1-21495;
       (==adobe-japan1-6	  . 21495)	; &g2-AJ1-21495;
@@ -9323,29 +9332,10 @@
        ((===jef-china3	    . #x4BFD)	; &R-JC3-4BFD;
 	))
       )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	(=ucs		    . #x2FF1)	; ⿱
-	)
-       ((==ucs@cns	    . #x822C)	; &g2-CU+822C;
-	(==cns11643-1	    . #x576F)	; &g2-CU+822C; [55-79]
-	)
-       ((==ucs@unicode	    . #x5DFE)	; &g2-AJ1-01738;
-	(==adobe-japan1-0   . 01738)	; &g2-AJ1-01738;
-	))
-      (==ucs@cns	  . #x5E4B)	; &g2-CU+5E4B;
+     ((==ucs@cns	  . #x5E4B)	; &g2-CU+5E4B;
       (==cns11643-2	  . #x4262)	; &g2-CU+5E4B; [34-66]
       )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	(=ucs		    . #x2FF1)	; ⿱
-	)
-       ((==ucs@unicode	    . #x822C)	; &g2-UU+822C;
-	)
-       ((==ucs@unicode	    . #x5DFE)	; &g2-AJ1-01738;
-	(==adobe-japan1-0   . 01738)	; &g2-AJ1-01738;
-	))
-      (==ucs@unicode	  . #x5E4B)	; &g2-UU+5E4B;
+     ((==ucs@unicode	  . #x5E4B)	; &g2-UU+5E4B;
       (==ucs@JP/hanazono  . nil)
       ))
     ))
