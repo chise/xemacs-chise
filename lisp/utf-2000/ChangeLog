@@ -1,5 +1,11 @@
 2022-08-07  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R038-Woman.el (U+5AB5): Add `<-denotational@usage' for
+	BUCS+5AB5.
+	(BUCS+5AB5): New abstract node; unify A2-DJT-02190.
+
+2022-08-07  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R004-Slash.el (U+4E4E): Add some relations for other
 	characters.
 

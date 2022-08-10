@@ -31113,14 +31113,17 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 38)	; ⼥
+  '((<-denotational@usage
+     ((==>ucs@bucs	  . #x5AB5)	; &BUCS+5AB5;
+      ))
+    (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
       (=ucs		  . #x2FF8)	; ⿸
       )
-     ((=>gt-k		  . 06828)	; 𰮤
+     ((=ucs		  . #x30BA4)	; 𰮤
       )
      ((=ucs		  . #x5973)	; 女
       ))
@@ -54637,6 +54640,11 @@
   '((ideographic-radical . 38)	; ⼥
     (==>ucs@bucs	. #x5ABC)	; &BUCS+5ABC;
     (==>daijiten	. 02186)	; &BUCS+5ABC;
+    ))
+(define-char
+  '((ideographic-radical . 38)	; ⼥
+    (==>ucs@bucs	. #x5AB5)	; &BUCS+5AB5;
+    (==>daijiten	. 02190)	; &BUCS+5AB5;
     ))
 (define-char
   '((ideographic-radical . 38)	; ⼥
