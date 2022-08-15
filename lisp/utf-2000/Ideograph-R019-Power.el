@@ -469,6 +469,36 @@
     (=hanziku-1		. #xBB48)	; &I-HZK01-BB48;
     ))
 (define-char
+  '((<-denotational@usage
+     ((==>ucs@bucs	  . #x52F1)	; &BUCS+52F1;
+      ))
+    (ideographic-radical . 19)	; ⼒
+    (ideographic-strokes . 3)
+    (total-strokes	 . 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x4E07)	; 万
+      )
+     ((=ucs		  . #x529B)	; 力
+      ))
+    (=ucs		. #x52A2)	; 劢
+    (=gb2312		. #x5B3D)	; &I-G0-5B3D; [59-29]
+    (<-simplified@CN
+     ((=ucs@unicode	  . #x52F1)	; &AJ1-19200;
+      (=adobe-japan1-5	  . 19200)	; &AJ1-19200;
+      (=gb12345		  . #x5B3D)	; &AJ1-19200; [59-29]
+      ))
+    (->subsumptive
+     ((==ucs@unicode	  . #x52A2)	; &g2-UU+52A2;
+      (==gb2312		  . #x5B3D)	; &g2-UU+52A2; [59-29]
+      (->subsumptive
+       ((===ucs@unicode	    . #x52A2)	; &R-UU+52A2;
+	))
+      ))
+    ))
+(define-char
   '((ideographic-radical . 19)	; ⼒
     (ideographic-strokes . 3)
     (total-strokes	 . 5)
@@ -9092,6 +9122,21 @@
     ))
 (define-char
   '((ideographic-radical . 19)	; ⼒
+    (ideographic-strokes . 12)
+    (total-strokes	 . 14)
+    (=ucs		. #x208A8)	; 𠢨
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x208A8)	; 𠢨
+      ))
+    (ideographic-radical . 19)	; ⼒
+    (ideographic-strokes . 12)
+    (total-strokes	 . 14)
+    (=ucs@iso		. #x208A8)	; &U-000208A8;
+    ))
+(define-char
+  '((ideographic-radical . 19)	; ⼒
     (ideographic-strokes . 13)
     (total-strokes	 . 15)
     (=ucs		. #x208B0)	; 𠢰
@@ -9298,11 +9343,7 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 19)	; ⼒
-    (==>ucs@bucs	. #x52F1)	; &BUCS+52F1;
-    ))
-(define-char
-  '((<-denotational
+  '((<-denotational@usage
      ((==>ucs@bucs	  . #x52F1)	; &BUCS+52F1;
       ))
     (ideographic-radical . 19)	; ⼒
@@ -9390,29 +9431,6 @@
 	)
        ((===ucs@unicode	    . #x52F1)	; &R-UU+52F1;
 	))
-      ))
-    ))
-(define-char
-  '((<-denotational
-     ((==>ucs@bucs	  . #x52F1)	; &BUCS+52F1;
-      ))
-    (ideographic-radical . 19)	; ⼒
-    (ideographic-strokes . 3)
-    (total-strokes	 . 5)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((=ucs		  . #x4E07)	; 万
-      )
-     ((=ucs		  . #x529B)	; 力
-      ))
-    (=ucs		. #x52A2)	; 劢
-    (=gb2312		. #x5B3D)	; &I-G0-5B3D; [59-29]
-    (<-simplified@CN
-     ((=ucs@unicode	  . #x52F1)	; &AJ1-19200;
-      (=adobe-japan1-5	  . 19200)	; &AJ1-19200;
-      (=gb12345		  . #x5B3D)	; &AJ1-19200; [59-29]
       ))
     ))
 (define-char
@@ -10730,6 +10748,10 @@
   '((ideographic-radical . 19)	; ⼒
     (==>ucs@bucs	. #x52AB)	; &BUCS+52AB;
     (==>daijiten	. 00766)	; &BUCS+52AB;
+    ))
+(define-char
+  '((ideographic-radical . 19)	; ⼒
+    (==>ucs@bucs	. #x52F1)	; &BUCS+52F1;
     ))
 (define-char
   '((ideographic-radical . 19)	; ⼒
