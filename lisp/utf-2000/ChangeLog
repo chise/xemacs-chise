@@ -1,3 +1,16 @@
+2022-08-12  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR091.el (SW-JIGUGE-09700): Add `<-ancient@shuowen' for
+	SW-JIGUGE-09616.
+	(SW-JIGUGE-09701): Add `<-Zhouwen@shuowen' for SW-JIGUGE-09616.
+
+2022-08-10  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R050-Turban.el (U+5E4B): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R046-Mountain.el (U-00021D67): New character.
+
 2022-08-09  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R009-Man.el (A-U+4EFA-itaiji-001): New abstract node.
