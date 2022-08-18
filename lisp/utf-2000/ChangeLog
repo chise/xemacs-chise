@@ -1,3 +1,11 @@
+2022-08-15  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R019-Power.el (U+52A2): Use `<-denotational@usage'
+	instead of `<-denotational' for BUCS+52F1.
+	(U-000208A8): New character.
+	(U+52F1): Use `<-denotational@usage' instead of `<-denotational'
+	for BUCS+52F1.
+
 2022-08-12  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* ShuoWen-SR091.el (SW-JIGUGE-09700): Add `<-ancient@shuowen' for
