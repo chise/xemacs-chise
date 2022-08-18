@@ -5562,15 +5562,43 @@
   '((ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5973)	; 女
+      )
+     ((=ucs		  . #x5C3C)	; 尼
+      ))
+    (sound@ja/on/go	"ni")
+    (sound@ja/on/kan	"di")
     (=ucs		. #x59AE)	; 妮
-    (=mj		. 009605)	; &I-MJ009605;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x59AE)	; 妮
+      ))
+    (ideographic-radical . 38)	; ⼥
+    (ideographic-strokes . 5)
+    (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5973)	; 女
+      )
+     ((=ucs@unicode	  . #x5C3C)	; &AJ1-03276;
+      (=adobe-japan1-0	  . 03276)	; &AJ1-03276;
+      ))
+    (=ucs@unicode	. #x59AE)	; &MJ009605;
+    (=mj		. 009605)	; &MJ009605;
     (=adobe-japan1-5	. 17485)	; &I-AJ1-17485;
     (=gb2312		. #x445D)	; &I-G0-445D; [36-61]
     (=jis-x0212		. #x3932)	; &I-JSP-3932; [25-18]
     (=cns11643-1	. #x4C69)	; &I-C1-4C69; [44-73]
     (=jis-x0213-2	. #x254C)	; &I-JX2-254C; [05-44]
     (=big5		. #xA967)	; &I-B-A967;
-    (=koseki		. 070160)	; 妮
+    (=koseki		. 070160)	; &MJ009605;
     (=daikanwa		. 06123)	; &I-M-06123;
     (=jef-china3	. #x91C2)	; &I-JC3-91C2;
     (->subsumptive
