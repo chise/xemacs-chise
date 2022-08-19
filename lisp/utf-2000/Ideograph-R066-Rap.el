@@ -3815,18 +3815,67 @@
       (=>daikanwa	  . 13458)	; &A-IWDSU+2304B;
       ))
     (ideographic-radical . 66)	; ⽁
-    (ideographic-strokes . 6)
-    (total-strokes	 . 10)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
      ((=ucs		  . #x21D42)	; 𡵂
       )
-     ((=ucs		  . #x6535)	; 攵
+     ((=>ucs@component	  . #x6535)	; &A-compU+6535;
+      (=>iwds-1		  .  0194)	; &A-compU+6535;
       ))
     (=ucs		. #x22F38)	; 𢼸
-    (=ruimoku-v6	. #xE064)	; &I-RUI6-E064;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x22F38)	; 𢼸
+      ))
+    (ideographic-radical . 66)	; ⽁
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs-itaiji-003	  . #x21D42)	; &U-i003+21D42;
+      )
+     ((=>ucs@component	  . #x6535)	; &A-compU+6535;
+      (=>iwds-1		  .  0194)	; &A-compU+6535;
+      ))
+    (=>ucs-itaiji-003	. #x22F38)	; &A-U-i003+22F38;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs-itaiji-003	  . #x22F38)	; &A-U-i003+22F38;
+      ))
+    (ideographic-radical . 66)	; ⽁
+    (ideographic-strokes . 6)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs-itaiji-003	  . #x21D42)	; &U-i003+21D42;
+      )
+     ((=ucs		  . #x6535)	; 攵
+      ))
+    (=ucs-itaiji-003	. #x22F38)	; &U-i003+22F38;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x22F38)	; 𢼸
+      ))
+    (ideographic-radical . 66)	; ⽁
+    (ideographic-strokes . 6)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs@iso		  . #x21D42)	; &U-00021D42;
+      )
+     ((=ucs		  . #x6535)	; 攵
+      ))
+    (=ucs@iso		. #x22F38)	; &RUI6-E064;
+    (=ruimoku-v6	. #xE064)	; &RUI6-E064;
     (->subsumptive
      ((==ucs@iso	  . #x22F38)	; &g2-IU-00022F38;
       (->subsumptive
