@@ -1,3 +1,10 @@
+2022-08-18  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R004-Slash.el (U-0002B735): New character; use
+	`<-denotational@component' for A-IWDSU+2B735.
+	(A-IWDSU+2B735): New abstract node; unify IWDS1-0036; add
+	`<-denotational@component' for A-compU+722B.
+
 2022-08-15  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R019-Power.el (U+52A2): Use `<-denotational@usage'
