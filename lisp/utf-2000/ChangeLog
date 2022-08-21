@@ -1,5 +1,25 @@
 2022-08-18  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R033-Scholar.el (A-cgnU+58F4): New abstract node.
+	(U+58F4): Add `<-denotational' for A-cgnU+58F4; add
+	`<-denotational@usage' for A2-DJT-01907; add
+	`ideographic-structure@apparent/rightmost'; add `sound@ja/on'.
+	(UU+58F4): Add `ideographic-structure@apparent/rightmost'; unify
+	DJT-01907; add `<-interchangeable' for UU+8C4E.
+	(GT-K05309): Use `<-subsumptive' for UU+58F4 instead of
+	`<-denotational' for U+58F4.
+	(MJ009392): Add `ideographic-structure@apparent/rightmost'.
+	(A-U+58F4-itaiji-001): New abstract node; use `<-denotational' for
+	A-cgnU+58F4.
+	(U+58F4-itaiji-001): New character; use `<-denotational' for
+	A-U+58F4-itaiji-001.
+	(A2-DJT-01907): New abstract node.
+
+	* Ideograph-R038-Woman.el (U+59AE): Apply new conventions for
+	glyph granularity.
+
+2022-08-18  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R004-Slash.el (U-0002B735): New character; use
 	`<-denotational@component' for A-IWDSU+2B735.
 	(A-IWDSU+2B735): New abstract node; unify IWDS1-0036; add
@@ -36,6 +56,11 @@
 
 	* ShuoWen-SR137.el (SW-JIGUGE-14103): Add U-00023983 as a
 	corresponding modern character.
+
+2022-08-08  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R091-Slice.el (S-5699): Unify KOSEKI-223930 and
+	U+7255-var-001.
 
 2022-08-07  MORIOKA Tomohiko  <tomo.git@chise.org>
 

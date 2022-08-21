@@ -2456,14 +2456,24 @@
       )
      ((=big5-cdp	  . #x8BDD)	; &CDP-8BDD;
       ))
-    (=shinjigen		.  5699)	; &SJG2-5699;
+    (=koseki		. 223930)	; &KOSEKI-223930;
+    (=shinjigen		.  5699)	; &KOSEKI-223930;
+    (=ucs-var-001	. #x7255)	; &KOSEKI-223930;
     (<-formed
-     ((=ucs		  . #x7A93)	; 窓
+     ((=ucs@unicode	  . #x7A93)	; &AJ1-02797;
+      (=adobe-japan1-0	  . 02797)	; &AJ1-02797;
       (=jis-x0208	  . #x416B)	; &I-J90-416B; [33-75]
-      (=shinjigen	  .  5697)	; 窓
+      (=shinjigen	  .  5697)	; &AJ1-02797;
       ))
+    (<-formed$_1*sources
+     shinjigen koseki)
     (<-formed*sources
-     shinjigen)
+     shinjigen koseki)
+    (->subsumptive
+     ((==koseki		  . 223930)	; &g2-KOSEKI-223930;
+      (==shinjigen	  .  5699)	; &g2-KOSEKI-223930;
+      (==ucs-var-001	  . #x7255)	; &g2-KOSEKI-223930;
+      ))
     ))
 (define-char
   '((<-denotational
