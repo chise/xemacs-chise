@@ -1,3 +1,27 @@
+2022-08-19  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R066-Rap.el (U-00022F38): Apply new conventions for
+	glyph granularity.
+	(A-U+22F38-itaiji-003): New abstract node; use `<-denotational'
+	for U-00022F38.
+	(U+22F38-itaiji-003): New character; use `<-denotational' for
+	A-U+22F38-itaiji-003.
+
+	* Ideograph-R060-Step.el (A-MJ011344): New abstract node; use
+	`<-denotational' for U+5FAE.
+	(MJ011344): Use A-MJ011344 instead of U+5FAE as its mother; modify
+	structure.
+
+2022-08-19  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R032-Earth.el (U-000212B4): Use `->denotational' and
+	`->subsumptive'.
+	(U+57FF): Apply new conventions for glyph granularity; add
+	`<-denotational@usage' for A2-DJT-01762 and BUCS+6CE5.
+	(U-00021330): Use `->denotational' and `->subsumptive'.
+	(A2-DJT-01762): New abstract node; use `<-denotational' for
+	BUCS+6CE5.
+
 2022-08-18  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R033-Scholar.el (A-cgnU+58F4): New abstract node.
