@@ -1,4 +1,30 @@
+2022-08-22  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R012-Eight.el (A-IWDSU+5173): New abstract node.
+	(U+5173): Add `<-denotational' for A-IWDSU+5173; add BUCS+95DC as
+	a target of `<-denotational@usage'; modify structure; preserve the
+	previous IDS as an apparent structure; add `sound@ja/on'.
+	(CU+5173): Use `ideographic-structure@apparent' instead of
+	`ideographic-structure' for the previous structure; add
+	`<-ancient' and `<-formed' for UU+7B11.
+	(UU+5173): Use `ideographic-structure@apparent' instead of
+	`ideographic-structure' for the previous structure; unify
+	KOSEKI-017070; add `<-simplified@CN' for UU+95DC.
+
+2022-08-21  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R046-Mountain.el (U-00021D42): Add
+	`ideographic-structure@apparent/rightmost'.
+	(IU+21D42): Modify structure; preserve the previous IDS as an
+	apparent structure.
+	(U+21D42-itaiji-003): New character; use `<-denotational' for
+	U-00021D42.
+
 2022-08-19  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R095-Profound.el (A-cgnU+7384): New abstract node.
+	(U+7384): Add `<-denotational' for A-cgnU+7384.
+	(U-000248E5): New character; use `<-denotational' for A-cgnU+7384.
 
 	* Ideograph-R066-Rap.el (U-00022F38): Apply new conventions for
 	glyph granularity.
