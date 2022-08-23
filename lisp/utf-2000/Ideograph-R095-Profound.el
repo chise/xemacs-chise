@@ -2,6 +2,14 @@
 (define-char
   '((ideographic-radical . 95)	; ⽞
     (ideographic-strokes . 0)
+    (=>ucs@cognate	. #x7384)	; &A-cgnU+7384;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@cognate	  . #x7384)	; &A-cgnU+7384;
+      ))
+    (ideographic-radical . 95)	; ⽞
+    (ideographic-strokes . 0)
     (total-strokes	 . 5)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -83,6 +91,74 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=>ucs@cognate	  . #x7384)	; &A-cgnU+7384;
+      ))
+    (ideographic-radical . 95)	; ⽞
+    (ideographic-strokes . 0)
+    (total-strokes	 . 4)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x4EA0)	; 亠
+      )
+     ((=>big5-cdp	  . #x895C)	; &A-CDP-895C;
+      ))
+    (=ucs		. #x248E5)	; 𤣥
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x248E5)	; 𤣥
+      ))
+    (ideographic-radical . 95)	; ⽞
+    (ideographic-strokes . 0)
+    (total-strokes	 . 4)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x4EA0)	; 亠
+      )
+     ((=big5-cdp	  . #x895C)	; &CDP-895C;
+      ))
+    (=ucs@iso		. #x248E5)	; &U-000248E5;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x248E5)	; 𤣥
+      ))
+    (ideographic-radical . 95)	; ⽞
+    (ideographic-strokes . 0)
+    (total-strokes	 . 4)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x4EA0)	; 亠
+      )
+     ((=big5-cdp-var-002  . #x895C)	; &CDP-v002-895C;
+      ))
+    (=ucs-var-001	. #x248E5)	; &U-v001+248E5;
+    (->subsumptive
+     ((==ucs-var-001	  . #x248E5)	; &g2-U-v001+248E5;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 95)	; ⽞
+    (ideographic-strokes . 0)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((name		  . "IDEOGRAPHIC DESCRIPTION CHARACTER OVERLAID")
+      (=ucs		  . #x2FFB)	; ⿻
+      )
+     ((=ucs		  . #x7384)	; 玄
+      )
+     ((=ucs		  . #x5196)	; 冖
+      ))
+    (=>big5-cdp		. #x89FE)	; &A-CDP-89FE;
+    ))
+(define-char
   '((ideographic-radical . 95)	; ⽞
     (ideographic-strokes . 0)
     (total-strokes	 . 8)
@@ -120,20 +196,6 @@
     (->subsumptive
      ((==big5-cdp-itaiji-001 . #x89FE)	; &g2-CDP-i001-89FE;
       ))
-    ))
-(define-char
-  '((ideographic-radical . 95)	; ⽞
-    (ideographic-strokes . 0)
-    (total-strokes	 . 7)
-    (ideographic-structure
-     ((name		  . "IDEOGRAPHIC DESCRIPTION CHARACTER OVERLAID")
-      (=ucs		  . #x2FFB)	; ⿻
-      )
-     ((=ucs		  . #x7384)	; 玄
-      )
-     ((=ucs		  . #x5196)	; 冖
-      ))
-    (=>big5-cdp		. #x89FE)	; &A-CDP-89FE;
     ))
 (define-char
   '((<-denotational
