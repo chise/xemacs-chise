@@ -1,5 +1,47 @@
 2022-08-22  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R074-Moon.el:
+	- Add `=decomposition@cid' for some Adobe-Japan1 abstract
+	  glyph-forms.
+	- Add some Adobe-Japan1 code points.
+	(U+670B): Add `<-denotational@usage' for BUCS+670B; add
+	ideographic-structure.
+	(A-cgnU+670D): New abstract node.
+	(U+670D): Add `<-denotational' for A-cgnU+670D; add
+	`<-denotational@usage' for BUCS+670D; add ideographic-structure.
+	(A-UU+670D): Add `ideographic-structure'; delete `=>ucs@iwds-1'.
+	(HNG-KHI0425-0): Use A-cgnU+670D instead of U+670D as its mother.
+	(UU+670D): Add `ideographic-structure'.
+	(U+6712): Add `<-denotational@usage' for A2-DJT-04683; apply new
+	conventions for glyph granularity.
+	(U+6713): Add `<-denotational@component' for A-IWDSU+6713; add
+	`<-denotational@usage' for A2-DJT-04684; apply new conventions for
+	glyph granularity.
+	(A-IWDSU+6715): New abstract node.
+	(U+6715): Add `<-denotational' for A-IWDSU+6715; add
+	`<-denotational@usage' for BUCS+6715.
+	(U+6716): Add `<-denotational@usage' for BUCS+6717; apply new
+	conventions for glyph granularity.
+	(U+671C): Add `<-denotational@usage' for A2-DJT-04702; apply new
+	conventions for glyph granularity for components of
+	ideographic-structure.
+	(U+3B3F): Add `<-denotational@component' for A-IWDSU+3B3F; apply
+	new conventions for glyph granularity.
+	(BUCS+670B): New abstract node; unify A2-DJT-04676.
+	(BUCS+670D): New abstract node; unify A2-DJT-04679.
+	(A2-DJT-04683): New abstract node.
+	(A-IWDSU+6713): New abstract node.
+	(A2-DJT-04684): New abstract node.
+	(BUCS+6715): New abstract node; unify A2-DJT-04688.
+	(BUCS+6717): New abstract node; unify A2-DJT-04690.
+	(A2-DJT-04702): New abstract node.
+	(A-IWDSU+3B3F): New abstract node.
+
+	* Ideograph-R062-Halberd.el (U-000229F6): Use `->denotational' and
+	`->subsumptive'.
+
+2022-08-22  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R012-Eight.el (A-IWDSU+5173): New abstract node.
 	(U+5173): Add `<-denotational' for A-IWDSU+5173; add BUCS+95DC as
 	a target of `<-denotational@usage'; modify structure; preserve the
@@ -19,6 +61,18 @@
 	apparent structure.
 	(U+21D42-itaiji-003): New character; use `<-denotational' for
 	U-00021D42.
+
+2022-08-20  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ruimoku6.el (RUI6-E064): Unify IU+22F38 instead of U-00022F38;
+	use U-00022F38 instead of A-IWDSU+2304B as its mother.
+
+	* ShuoWen-SR090.el (SW-JIGUGE-09609): Add U-00021C3B as a
+	corresponding modern character.
+	(SW-JIGUGE-09610): Add U-00024FE4 as a corresponding modern
+	character; add `<-ancient@shuowen' for SW-JIGUGE-09609.
+	(SW-JIGUGE-09611): Add U-00024FCC as a corresponding modern
+	character; add `<-Zhouwen@shuowen' for SW-JIGUGE-09609.
 
 2022-08-19  MORIOKA Tomohiko  <tomo.git@chise.org>
 

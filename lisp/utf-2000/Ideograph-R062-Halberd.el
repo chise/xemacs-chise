@@ -4412,19 +4412,60 @@
       ))
     ))
 (define-char
-  '((=>ucs		. #x229F6)	; 𢧶
-    (ideographic-radical . 62)	; ⼽
+  '((ideographic-radical . 62)	; ⼽
     (ideographic-strokes . 11)
     (total-strokes	 . 15)
-    (=daikanwa		. 11654)	; &M-11654;
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x8656)	; 虖
+      )
+     ((=ucs		  . #x6208)	; 戈
+      ))
+    (sound@ja/on	"ko")
+    (=ucs		. #x229F6)	; 𢧶
     ))
 (define-char
-  '((morohashi-daikanwa	11654 0 0)
+  '((<-denotational
+     ((=ucs		  . #x229F6)	; 𢧶
+      ))
     (ideographic-radical . 62)	; ⼽
     (ideographic-strokes . 11)
     (total-strokes	 . 15)
-    (=ucs		. #x229F6)	; 𢧶
-    (=cns11643-7	. #x2328)	; &I-C7-2328; [03-08]
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs@unicode	  . #x8656)	; &JX2-773A;
+      (=jis-x0212	  . #x5A3B)	; &JX2-773A; [58-27]
+      (=cns11643-2	  . #x3921)	; &I-C2-3921; [25-01]
+      (=jis-x0213-2	  . #x773A)	; &I-JX2-773A; [87-26]
+      (=daikanwa	  . 32698)	; &I-M-32698;
+      )
+     ((=ucs		  . #x6208)	; 戈
+      ))
+    (=ucs@iso		. #x229F6)	; &C7-2328;
+    (=cns11643-7	. #x2328)	; &C7-2328; [03-08]
+    (=daikanwa		. 11654)	; &I-M-11654;
+    (<-formed
+     ((=ucs		  . #x547C)	; 呼
+      ))
+    (<-same
+     ((=ucs		  . #x547C)	; 呼
+      (=daikanwa	  . 03471)	; &I-M-03471;
+      ))
+    (<-same*note	"M-03506 seems a typo of M-03471.")
+    (<-same*sources
+     yupian daikanwa)
+    (->subsumptive
+     ((==daikanwa	  . 11654)	; &g2-M-11654;
+      )
+     ((==ucs@iso	  . #x229F6)	; &g2-IU-000229F6;
+      )
+     ((==ucs@cns	  . #x229F6)	; &g2-CU+229F6;
+      (==cns11643-7	  . #x2328)	; &g2-CU+229F6; [03-08]
+      ))
     ))
 (define-char
   '((ideographic-radical . 62)	; ⼽
