@@ -1,3 +1,64 @@
+2022-08-24  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R044-Corpse.el (U+5C3C-var-004): New character; use
+	`<-denotational' for U+5C3C.
+	(U-00021C25): Apply new conventions for glyph granularity.
+	(U+21C3B-itaiji-001): New character.
+	(U+5C40): Add `sound@ja/on/{kan|go}'; add some relations for other
+	characters.
+	(U+5C41): Apply new conventions for glyph granularity.
+	(U-00021C3B): New character.
+	(U-00021C3C): Apply new conventions for glyph granularity.
+	(U-00021C3A): Apply new conventions for glyph granularity.
+	(U+5C3F-itaiji-001): Use U+6C3A instead of BC-8C41.
+	(U+5C50): Apply new conventions for glyph granularity.
+	(U-00021C9E): Likewise.
+	(U-00021CA9): Likewise.
+	(J97-3C48): Move `<-denotational@usage' for A2-DJT-02504 to U+5C61
+	and U+5C62.
+	(U+5C61): Add `<-denotational@usage' for BUCS+5C62; apply new
+	conventions for glyph granularity.
+	(U-00021CBF): Apply new conventions for glyph granularity.
+	(U-00021CB7): Add ideographic-structure.
+	(U-00021CB9): New character.
+	(U-00021CBD): New character.
+	(U+5C62): Add `<-denotational@usage' for BUCS+5C62.
+	(U+5C62-itaiji-001): New character; use `<-denotational' for
+	U+5C62.
+	(HNG-KAR0788-0): Use `<-subsumptive' for U+5C62-itaiji-001 instead
+	of `<-denotational' for U+5C62.
+	(U-00021CF5): New character.
+	(U-00021CF6): New character.
+	(U-00021CFA): New character.
+	(A2-DJT-02480): Unify BUCS+5C40.
+	(BUCS+5C41): New abstract node; unify A2-DJT-02481.
+	(A2-DJT-02493): Unify BUCS+5C50.
+	(A2-DJT-02504): Unify BUCS+5C62.
+
+2022-08-23  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R018-Knife.el (U-000206DB): Apply new conventions for
+	glyph granularity.
+	(U-000206EB): Likewise.
+	(U+34E3): Likewise; add `<-denotational@usage' for BUCS+5272.
+	(U-000206F7): Apply new conventions for glyph granularity.
+	(U-00020700): New character.
+	(U+524D): Add `<-denotational@usage' for BUCS+524D.
+	(U-0002D0F2): New character.
+	(U+5272): Add `<-denotational@usage' for BUCS+5272; add
+	`sound@ja/on/{kan|go}'.
+	(CU+2F822): Add some relations for other characters.
+	(A-IWDSU+2078E): New abstract node.
+	(U-0002078E): Add `<-denotational' for A-IWDSU+2078E; apply new
+	conventions for glyph granularity.
+	(U-00020763): Add `<-denotational' for A-cgnU+23983; use
+	`->denotational' and `->subsumptive'.
+	(U-000207A3): New character.
+	(M-02138): Add `<-denotational' for U-000207A3; unify MJ031400 and
+	KOSEKI-025000.
+	(BUCS+5272): New abstract node; unify A2-DJT-00820.
+	(BUCS+524D): New abstract node; unify A2-DJT-00794.
+
 2022-08-22  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R074-Moon.el:
