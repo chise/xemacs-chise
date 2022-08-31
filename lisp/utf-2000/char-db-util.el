@@ -428,7 +428,8 @@
     =shuowen-jiguge
     =>shuowen-jiguge
     ===shuowen-jiguge5
-    ===shuowen-jiguge4))
+    ===shuowen-jiguge4
+    ===chise-hdic-ktb-seal))
 
 
 ;;; @ char-db formatters

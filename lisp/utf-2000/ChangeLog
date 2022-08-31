@@ -1,3 +1,74 @@
+2022-08-27  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R030-Mouth.el (MJ008040): Unify U-0002B738 and
+	CU+2F83A instead of U-0002F83A.
+	(U+5401): Add `<-denotational@usage' for BUCS+5401 and BUCS+7C72;
+	add `sound@ja/on/{kan|go}'; add some relations for other
+	characters.
+	(U-00020BB1): Add `<-denotational@usage' for BUCS+5401; add
+	`sound@ja/on'.
+	(IU+20BB1): Add `<-original' for U+5401.
+	(MJ032124): Unify DJT-01181.
+	(U+546C): Add `<-denotational@usage' for A2-DJT-01237; apply new
+	conventions for glyph granularity.
+	(U-00020C0E): Add `<-Zhouwen' for U-00021C3B and U+76AE.
+	(U+547C): Add `<-denotational@usage' for BUCS+547C; add
+	`sound@ja/on/{kan|go}'; add some relations for other characters.
+	(U-00020C1C): Apply new conventions for glyph granularity.
+	(U+5539): Add `<-denotational@usage' for BUCS+5539.
+	(UU+5539): Unify DJT-01356.
+	(U-00020D53): Use `->denotational' and `->subsumptive'.
+	(U+559D): Add `<-denotational@usage' for BUCS+559D; apply new
+	conventions for glyph granularity.
+	(U-00020E94): Apply new conventions for glyph granularity.
+	(U-00020E76): New character.
+	(U-00020E77): New character.
+	(U-00020E78): New character.
+	(U-00020E7B): New character.
+	(U-00020E87): New character.
+	(U-00020E88): New character.
+	(U-00020E8A): New character.
+	(U-00020EE2): Add `sound@ja/on'.
+	(IU+20EE2): Unify MJ032510 and KOSEKI-047950.
+	(U+5611): Add `<-denotational@usage' for A2-DJT-01474; add
+	`sound@ja/on/{kan|go}'.
+	(UU+5611): Unify DJT-01474; add some relations for other
+	characters.
+	(J97-3133): Unify A-IWDSU+5653; add `ideographic-structure'.
+	(U+5653): Add `<-denotational@usage' for BUCS+5653; apply new
+	conventions for glyph granularity.
+	(U+5618): Apply new conventions for glyph granularity.
+	(U-00020E70): New character.
+	(U-00020FD2): Apply new conventions for glyph granularity.
+	(U-00021015): Likewise.
+	(U-00021022): New character.
+	(U-0002102E): New character.
+	(U-0002103D): Add `<-denotational@usage' for A2-DJT-01539; add
+	`sound@ja/on/{kan|go}'.
+	(IU+2103D): Omit `sound@ja/on/p[123]'.
+	(U-00021040): Apply new conventions for glyph granularity.
+	(M-04438): Add `<-denotational' for U-00021040; unify IU+21040,
+	MJ032582 and KOSEKI-050870.
+	(U-00021041): Use `->denotational' and `->subsumptive'.
+	(U+568A): Add `<-denotational@usage' for BUCS+568A; add
+	`sound@ja/on'.
+	(UU+568A): Add `<-formed' and `<-same' for UU+546C.
+	(U-0002104D): Use `->denotational' and `->subsumptive'.
+	(BUCS+5401): New abstract node; unify A2-DJT-01166.
+	(A2-DJT-01237): New abstract node.
+	(BUCS+547C): New abstract node; unify A2-DJT-01251.
+	(BUCS+5539): New abstract node; unify A2-DJT-01356.
+	(BUCS+559D): New abstract node; unify A2-DJT-01414.
+	(A2-DJT-01474): New abstract node.
+	(BUCS+5653): New abstract node; unify A2-DJT-01480.
+	(A2-DJT-01539): New abstract node.
+	(BUCS+568A): New abstract node; unify A2-DJT-01550.
+
+2022-08-25  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* char-db-util.el (char-db-coded-charset-priority-list): Add
+	`===chise-hdic-ktb-seal'.
+
 2022-08-24  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R044-Corpse.el (U+5C3C-var-004): New character; use
