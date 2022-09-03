@@ -1130,14 +1130,32 @@
     (ideographic-strokes . 2)
     (total-strokes	 . 3)
     (=ucs		. #x200D3)	; 𠃓
-    (=big5-cdp		. #x89DB)	; &I-CDP-89DB;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x200D3)	; 𠃓
+      ))
+    (ideographic-radical . 5)	; ⼄
+    (ideographic-strokes . 2)
+    (total-strokes	 . 3)
+    (=ucs@iso		. #x200D3)	; &U-000200D3;
     (<-simplified@CN/component
      ((=ucs@unicode	  . #x661C)	; &AJ1-05099;
       (=adobe-japan1-0	  . 05099)	; &AJ1-05099;
       ))
     (->subsumptive
      ((==ucs@iso	  . #x200D3)	; &g2-IU-000200D3;
-      )
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x200D3)	; 𠃓
+      ))
+    (ideographic-radical . 5)	; ⼄
+    (ideographic-strokes . 2)
+    (total-strokes	 . 3)
+    (=big5-cdp		. #x89DB)	; &CDP-89DB;
+    (->subsumptive
      ((==big5-cdp	  . #x89DB)	; &g2-CDP-89DB;
       ))
     ))
