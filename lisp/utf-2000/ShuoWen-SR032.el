@@ -3,6 +3,8 @@
   '((shuowen-radical	. 32)	; 是
     (=shuowen-jiguge	. 05100)	; &SW-JIGUGE-05100;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x6630)	; 昰
+      )
      ((=ucs		  . #x662F)	; 是
       ))
     (->subsumptive
@@ -16,6 +18,13 @@
     (=shuowen-jiguge	. 05101)	; &SW-JIGUGE-05101;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x2319E)	; 𣆞
+      ))
+    (<-Zhouwen@shuowen
+     ((=shuowen-jiguge	  . 05100)	; &SW-JIGUGE-05100;
+      )
+     ((=ucs		  . #x6630)	; 昰
+      )
+     ((=ucs		  . #x662F)	; 是
       ))
     (->subsumptive
      ((===shuowen-jiguge5 . 05101)	; &SW-JIGUGE5-05101;
