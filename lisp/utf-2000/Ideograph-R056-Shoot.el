@@ -143,6 +143,13 @@
       (=>iwds-1		  .  47219)	; &A-IWDSU+51AB;
       ))
     (=ucs		. #x5F0D)	; 弍
+    (<-ancient
+     ((=ucs		  . #x4E8C)	; 二
+      ))
+    (<-ancient$_1*sources
+     shuowen)
+    (<-ancient*sources
+     shuowen)
     ))
 (define-char
   '((<-denotational
