@@ -13363,7 +13363,15 @@
       )
      ((=ucs		  . #x5FC3)	; 心
       ))
-    (=ucs@JP/hanazono	. #x2D728)	; &hanaJU+2D728;
+    (=ucs@JP/hanazono	. #x2D728)	; &CB06871;
+    (=cbeta		. 06871)	; &CB06871;
+    (->subsumptive
+     ((==ucs@JP/hanazono  . #x2D728)	; &g2-CB06871;
+      (==cbeta		  . 06871)	; &g2-CB06871;
+      (->subsumptive
+       ((===cbeta	    . 06871)	; &R-CB06871;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 61)	; ⼼
