@@ -13,14 +13,40 @@
     ))
 (define-char
   '((shuowen-radical	. 479)	; 二
+    (=>shuowen-jiguge	. 47003)	; &A-SW-JIGUGE-47003;
+    (<-Small-Seal
+     ((=ucs		  . #x5F0D)	; 弍
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>shuowen-jiguge	  . 47003)	; &A-SW-JIGUGE-47003;
+      ))
+    (shuowen-radical	. 479)	; 二
     (=shuowen-jiguge	. 47003)	; &SW-JIGUGE-47003;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x5F0D)	; 弍
+      ))
+    (<-ancient@shuowen
+     ((=shuowen-jiguge	  . 47002)	; &SW-JIGUGE-47002;
+      )
+     ((=ucs		  . #x4E8C)	; 二
       ))
     (->subsumptive
      ((===shuowen-jiguge5 . 47003)	; &SW-JIGUGE5-47003;
       )
      ((===shuowen-jiguge4 . 46003)	; &SW-JIGUGE4-46003;
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>shuowen-jiguge	  . 47003)	; &A-SW-JIGUGE-47003;
+      ))
+    (shuowen-radical	. 479)	; 二
+    (=hdic-ktb-seal-glyph-id . T1_021_A31)
+    (===chise-hdic-ktb-seal . #x0400)	; &R-CHISE-HDIC-KTBS0400;
+    (<-Small-Seal@tenrei-bansho-meigi/chise
+     ((=ucs		  . #x5F0D)	; 弍
       ))
     ))
 (define-char
