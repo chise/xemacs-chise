@@ -1,5 +1,11 @@
 2022-09-02  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R061-Heart.el (hanaJU+2D728): Unify CB06871.
+
+	* Ideograph-R032-Earth.el (U-000212AD): New character.
+
+2022-09-02  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R005-Second.el (U-000200D3): Apply new conventions for
 	glyph granularity.
 
