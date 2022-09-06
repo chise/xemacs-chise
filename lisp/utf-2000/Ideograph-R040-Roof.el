@@ -12584,13 +12584,41 @@
     ))
 (define-char
   '((<-denotational@usage
-     ((==>daijiten	  . 02373)	; &A2-DJT-02373;
+     ((==>ucs@bucs	  . #x5BD4)	; &BUCS+5BD4;
       ))
     (ideographic-radical . 40)	; ⼧
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5B80)	; 宀
+      )
+     ((=ucs		  . #x662F)	; 是
+      ))
+    (sound@ja/on/go	"ziki")
+    (sound@ja/on/kan	"syoku")
     (=ucs		. #x5BD4)	; 寔
-    (=adobe-japan1-0	. 04629)	; &I-AJ1-04629;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5BD4)	; 寔
+      ))
+    (ideographic-radical . 40)	; ⼧
+    (ideographic-strokes . 9)
+    (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5B80)	; 宀
+      )
+     ((=ucs@unicode	  . #x662F)	; &AJ1-02635;
+      (=adobe-japan1-0	  . 02635)	; &AJ1-02635;
+      ))
+    (=ucs@unicode	. #x5BD4)	; &AJ1-04629;
+    (=adobe-japan1-0	. 04629)	; &AJ1-04629;
     (=jis-x0208		. #x5566)	; &I-J90-5566; [53-70]
     (=ks-x1001		. #x6351)	; &I-K0-6351; [67-49]
     (=cns11643-2	. #x3B37)	; &I-C2-3B37; [27-23]
@@ -12601,7 +12629,22 @@
     (=gt-pj-1		. #x5566)	; &I-GT-09100; [53-70]
     (=daikanwa		. 07244)	; &I-M-07244;
     (=daijiten		. 02373)	; &I-DJT-02373;
-    (=shinjigen		.  1850)	; 寔
+    (=shinjigen		.  1850)	; &AJ1-04629;
+    (<-interchangeable
+     ((=ucs@unicode	  . #x5BE6)	; &AJ1-04632;
+      (=adobe-japan1-0	  . 04632)	; &AJ1-04632;
+      (=daikanwa	  . 07294)	; &I-M-07294;
+      )
+     ((=ucs@jis		  . #x5BD8)	; &AJ1-08435;
+      (=adobe-japan1-2	  . 08435)	; &AJ1-08435;
+      (=daikanwa	  . 07257)	; &I-M-07257;
+      ))
+    (<-interchangeable$_1*sources
+     zengyun liji-shu daikanwa)
+    (<-interchangeable$_2*sources
+     shiwen daikanwa)
+    (<-interchangeable*sources
+     daikanwa)
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x5BD4)	; 寔
@@ -23354,7 +23397,8 @@
     ))
 (define-char
   '((ideographic-radical . 40)	; ⼧
-    (==>daijiten	. 02373)	; &A2-DJT-02373;
+    (==>ucs@bucs	. #x5BD4)	; &BUCS+5BD4;
+    (==>daijiten	. 02373)	; &BUCS+5BD4;
     ))
 (define-char
   '((ideographic-radical . 40)	; ⼧
