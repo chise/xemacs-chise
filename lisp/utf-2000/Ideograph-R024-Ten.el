@@ -2186,6 +2186,10 @@
     (=>ucs-itaiji-002	. #x5352)	; &A-GT-K01816;
     ))
 (define-char
+  '((ideographic-radical . 24)	; ⼗
+    (=>big5-cdp		. #x8C4B)	; &A-CDP-8C4B;
+    ))
+(define-char
   '((<-denotational
      ((=>gt-k		  . 01816)	; &A-GT-K01816;
       ))
@@ -2246,6 +2250,15 @@
      ((==gt-k		  . 02241)	; &g2-GT-K02241;
       (==gt-pj-k1	  . #x373F)	; &g2-GT-K02241; [23-31]
       ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>big5-cdp	  . #x8C4B)	; &A-CDP-8C4B;
+      ))
+    (ideographic-radical . 24)	; ⼗
+    (ideographic-strokes . 4)
+    (total-strokes	 . 6)
+    (=big5-cdp		. #x8C4B)	; &CDP-8C4B;
     ))
 (define-char
   '((ideographic-radical . 24)	; ⼗
