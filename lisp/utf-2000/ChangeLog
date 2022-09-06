@@ -1,3 +1,8 @@
+2022-09-06  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R024-Ten.el (A-BC-8C4B): New abstract node.
+	(BC-8C4B): New character; use <-denotational' for A-BC-8C4B.
+
 2022-09-05  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R064-Hand.el (A-IWDSU+22A6B): Add
