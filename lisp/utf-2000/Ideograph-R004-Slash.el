@@ -5735,9 +5735,14 @@
     (ideographic-radical . 4)	; ⼃
     (ideographic-strokes . 9)
     (total-strokes	 . 10)
-    (===hng-kar		. 05040)	; &HNG018-05040;
+    (=ucs-var-002	. #x4E57)	; &U-v002+4E57;
     (<-formed
      ((=ucs		  . #x4E58)	; 乘
+      ))
+    (->subsumptive
+     ((==ucs-var-002	  . #x4E57)	; &g2-U-v002+4E57;
+      )
+     ((===hng-kar	  . 05040)	; &HNG018-05040;
       ))
     ))
 (define-char
