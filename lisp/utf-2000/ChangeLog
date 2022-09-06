@@ -1,5 +1,35 @@
 2022-09-05  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R064-Hand.el (A-IWDSU+22A6B): Add
+	`<-denotational@component' for A-IWDSU+629A.
+	(U-00022A91): Apply new conventions for glyph granularity.
+	(U+629A): Likewise; add `<-denotational@component' for
+	A-IWDSU+629A; add `<-denotational@usage' for BUCS+64AB.
+	(U+62BD): Apply new conventions for glyph granularity; add
+	`<-denotational@usage' for BUCS+62BD.
+	(U-00022B46): Apply new conventions for glyph granularity.
+	(U-00022C2A): New character.
+	(U+3A28): Add `<-denotational@usage' for BUCS+62BD; apply new
+	conventions for glyph granularity.
+	(U-00022C81): New character.
+	(U+6461): Add `<-denotational@usage' for A2-DJT-04001; apply new
+	conventions for glyph granularity.
+	(U+648B): Add `<-denotational@usage' for A2-DJT-04045; apply new
+	conventions for glyph granularity.
+	(U+3A45): Add `<-denotational@usage' for BUCS+62BD; apply new
+	conventions for glyph granularity.
+	(U+64AB): Add `<-denotational@usage' for BUCS+64AB; apply new
+	conventions for glyph granularity.
+	(U-00022E0F): New character.
+	(U-00022E10): New character.
+	(A-IWDSU+629A): New abstract node.
+	(BUCS+64AB): New abstract node; unify A2-DJT-04066.
+	(BUCS+62BD): New abstract node; unify A2-DJT-03725.
+	(A2-DJT-04045): New abstract node.
+
+	* Ideograph-R053-Dotted-Cliff.el (U-0002224B): New character.
+	(U-00022273): New character.
+
 	* Ideograph-R056-Shoot.el (U+5F0D): Add `<-ancient' for U+4E8C.
 
 2022-09-02  MORIOKA Tomohiko  <tomo.git@chise.org>
