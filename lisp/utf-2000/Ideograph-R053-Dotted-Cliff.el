@@ -6904,6 +6904,21 @@
     (=ucs@iso		. #x22249)	; &U-00022249;
     ))
 (define-char
+  '((ideographic-radical . 53)	; ⼴
+    (ideographic-strokes . 8)
+    (total-strokes	 . 11)
+    (=ucs		. #x2224B)	; 𢉋
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2224B)	; 𢉋
+      ))
+    (ideographic-radical . 53)	; ⼴
+    (ideographic-strokes . 8)
+    (total-strokes	 . 11)
+    (=ucs@iso		. #x2224B)	; &U-0002224B;
+    ))
+(define-char
   '((<-denotational
      ((=>ucs@iwds-1	  . #x22227)	; &A-IWDSU+22227;
       (=>ucs@iwds-1/normalized . #x22227)	; &A-IWDSU+22227;
@@ -6940,6 +6955,35 @@
     (->subsumptive
      ((==ucs@iso	  . #x22250)	; &g2-IU-00022250;
       ))
+    ))
+(define-char
+  '((ideographic-radical . 53)	; ⼴
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs		  . #x5E7F)	; 广
+      )
+     ((=ucs		  . #x82E5)	; 若
+      ))
+    (=ucs		. #x22273)	; 𢉳
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x22273)	; 𢉳
+      ))
+    (ideographic-radical . 53)	; ⼴
+    (ideographic-strokes . 8)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs		  . #x5E7F)	; 广
+      )
+     ((=ucs		  . #x2F998)	; 若
+      ))
+    (=ucs@iso		. #x22273)	; &U-00022273;
     ))
 (define-char
   '((<-denotational@usage
