@@ -43012,6 +43012,21 @@
   '((ideographic-radical . 32)	; ⼟
     (ideographic-strokes . 17)
     (total-strokes	 . 20)
+    (=ucs		. #x214E9)	; 𡓩
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x214E9)	; 𡓩
+      ))
+    (ideographic-radical . 32)	; ⼟
+    (ideographic-strokes . 17)
+    (total-strokes	 . 20)
+    (=ucs@iso		. #x214E9)	; &U-000214E9;
+    ))
+(define-char
+  '((ideographic-radical . 32)	; ⼟
+    (ideographic-strokes . 17)
+    (total-strokes	 . 20)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱

@@ -1,5 +1,9 @@
 2022-09-06  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R032-Earth.el (U-000214E9): New character.
+
+2022-09-06  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R018-Knife.el: Use `<-denotational@usage' instead of
 	`<-denotational' for BUCS.
 	(A-IWDSU+5203): Omit `<-denotational@usage'.
