@@ -1,7 +1,63 @@
 2022-09-06  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R018-Knife.el: Use `<-denotational@usage' instead of
+	`<-denotational' for BUCS.
+	(A-IWDSU+5203): Omit `<-denotational@usage'.
+	(U+5203): Add `<-denotational@usage' for BUCS+5203; apply new
+	conventions for glyph granularity.
+	(U+5204): Add `<-denotational@usage' for BUCS+5203.
+	(U+5205): Use `<-denotational@usage' instead of `<-denotational'
+	for BUCS+5275; add A2-DJT-00733 as a target of
+	`<-denotational@usage'; apply new conventions for glyph
+	granularity.
+	(U-0003011D): New character.
+	(U+5259): Add ideographic-structure.
+	(U+5270): Likewise.
+	(U-0002D0F6): New character.
+	(U-0002D0F8): Apply new conventions for glyph granularity.
+	(U-0002D0F9): Add `total-strokes'.
+	(hanaJU+2D0F9): Add `ideographic-radical', `ideographic-strokes'
+	and `total-strokes'.
+	(U+5269): Apply new conventions for glyph granularity.
+	(BUCS+5203): Unify A2-DJT-00732.
+	(A2-DJT-00733): New abstract node.
+	(BUCS+5231): New abstract node; unify A2-DJT-00771.
+	(BUCS+5269): Unify A2-DJT-00814.
+
+	* Ideograph-R004-Slash.el (U+4E57-var-002): New character; use
+	`<-denotational' for U+4E57.
+	(HNG-KAR0504-0): Use `<-subsumptive' for U+4E57-var-002 instead of
+	`<-denotational' for U+4E57.
+
+	* Ideograph-R040-Roof.el (U+5BD4): Apply new conventions for glyph
+	granularity.
+	(A2-DJT-02373): Unify BUCS+5BD4.
+
 	* Ideograph-R024-Ten.el (A-BC-8C4B): New abstract node.
 	(BC-8C4B): New character; use <-denotational' for A-BC-8C4B.
+
+2022-09-05  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R072-Sun.el (U+662F): Add `<-denotational@usage' for
+	BUCS+662F and A2-DJT-04512; add `ideographic-structure@apparent';
+	add `sound@ja/on/{kan|go}' and `sound@ja/on/conventional'.
+	(UU+662F): Modify structure; add an apparent field based on the
+	previous structure; add some relations for other characters.
+	(U+6630): Add `<-denotational@usage' for BUCS+6630 and
+	A2-DJT-04512; modify structure; preserve the previous IDS as an
+	apparent structure; add `sound@ja/on'.
+	(UU+6630): Modify structure; preserve the previous IDS as an
+	apparent structure; add `<-ancient' for CU+590F; add `<-original'
+	for UU+662F.
+	(U-0002319E): Apply new conventions for glyph granularity.
+	(A2-DJT-04512): New abstract node.
+	(BUCS+662F): New abstract node; use `<-denotational' for
+	A2-DJT-04512.
+	(BUCS+6630): New abstract node; use `<-denotational' for
+	A2-DJT-04512.
+
+	* Ideograph-R066-Rap.el (U-0002BFA8): New character.
+	(U-0002300D): New character.
 
 2022-09-05  MORIOKA Tomohiko  <tomo.git@chise.org>
 
