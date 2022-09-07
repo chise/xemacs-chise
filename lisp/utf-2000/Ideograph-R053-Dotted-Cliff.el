@@ -10529,7 +10529,25 @@
       ))
     (sound@ja/on	"tai")
     (=ucs		. #x5ED7)	; 廗
-    (=cns11643-2	. #x497C)	; &I-C2-497C; [41-92]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5ED7)	; 廗
+      ))
+    (ideographic-radical . 53)	; ⼴
+    (ideographic-strokes . 11)
+    (total-strokes	 . 14)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs		  . #x5E7F)	; 广
+      )
+     ((=ucs@unicode	  . #x5E36)	; &AJ1-04725;
+      (=adobe-japan1-0	  . 04725)	; &AJ1-04725;
+      ))
+    (=ucs@unicode	. #x5ED7)	; &C2-497C;
+    (=cns11643-2	. #x497C)	; &C2-497C; [41-92]
     (=big5		. #xE1B7)	; &I-B-E1B7;
     (=daikanwa		. 09465)	; &I-M-09465;
     (->subsumptive
