@@ -1228,7 +1228,7 @@
     (<-denotational@component
      ((=ucs		  . #x2D073)	; 𭁳
       )
-     ((=>mj		  . 058438)	; &A-MJ058438;
+     ((=ucs		  . #x2E39B)	; 𮎛
       ))
     (ideographic-radical . 20)	; ⼓
     (ideographic-strokes . 3)
@@ -1244,7 +1244,8 @@
       ))
     (=ucs-itaiji-002	. #x5305)	; &U-i002+5305;
     (->mistakable
-     ((=mj		  . 058438)	; &MJ058438;
+     ((=ucs@JP/hanazono	  . #x2E39B)	; &MJ058438;
+      (=mj		  . 058438)	; &MJ058438;
       ))
     (->subsumptive
      ((===hng-kar	  . 00470)	; &HNG018-00470;
