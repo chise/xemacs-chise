@@ -1604,6 +1604,37 @@
     (=ucs@JP/hanazono	. #x2AA61)	; &hanaJU+2AA61;
     ))
 (define-char
+  '((ideographic-radical . 47)	; ⼮
+    (ideographic-strokes . 4)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>ucs@iwds-1	  . #x5DDB)	; &A-IWDSU+5DDB;
+      (=>iwds-1		  .  0270)	; &A-IWDSU+5DDB;
+      )
+     ((=ucs		  . #x51F6)	; 凶
+      ))
+    (=ucs		. #x2D5FE)	; 𭗾
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2D5FE)	; 𭗾
+      ))
+    (ideographic-radical . 47)	; ⼮
+    (ideographic-strokes . 4)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5DDB)	; 巛
+      )
+     ((=ucs		  . #x51F6)	; 凶
+      ))
+    (=ucs@JP/hanazono	. #x2D5FE)	; &hanaJU+2D5FE;
+    ))
+(define-char
   '((<-denotational
      ((=>ucs@cognate	  . #x21FFA)	; &A-cgnU+21FFA;
       ))
