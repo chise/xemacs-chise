@@ -8217,6 +8217,26 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=ucs		  . #x20F96)	; 𠾖
+      ))
+    (<-denotational@usage
+     ((==>ucs@bucs	  . #x5668)	; &BUCS+5668;
+      ))
+    (ideographic-radical . 37)	; ⼤
+    (ideographic-strokes . 8)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
+      (=ucs		  . #x2FF4)	; ⿴
+      )
+     ((=ucs-itaiji-001	  . #x35CA)	; &U-i001+35CA;
+      )
+     ((=ucs		  . #x5927)	; 大
+      ))
+    (=daijiten		. 02000)	; &DJT-02000;
+    ))
+(define-char
   '((ideographic-radical . 37)	; ⼤
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
@@ -12610,6 +12630,70 @@
        ((===ucs@iso	    . #x216A4)	; &R-U-000216A4;
 	))
       ))
+    ))
+(define-char
+  '((ideographic-radical . 37)	; ⼤
+    (ideographic-strokes . 21)
+    (total-strokes	 . 24)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x2696F)	; 𦥯
+      )
+     ((=ucs		  . #x2163D)	; 𡘽
+      ))
+    (=ucs		. #x216A3)	; 𡚣
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x216A3)	; 𡚣
+      ))
+    (ideographic-radical . 37)	; ⼤
+    (ideographic-strokes . 21)
+    (total-strokes	 . 24)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs@iso		  . #x2696F)	; &JX2-755D;
+      (=jis-x0213-2	  . #x755D)	; &JX2-755D; [85-61]
+      )
+     ((=ucs@iso		  . #x2163D)	; &U-0002163D;
+      ))
+    (=ucs@iso		. #x216A3)	; &U-000216A3;
+    ))
+(define-char
+  '((ideographic-radical . 37)	; ⼤
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5950)	; 奐
+      )
+     ((=ucs		  . #x85CF)	; 藏
+      ))
+    (=ucs		. #x216A5)	; 𡚥
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x216A5)	; 𡚥
+      ))
+    (ideographic-radical . 37)	; ⼤
+    (ideographic-strokes . 24)
+    (total-strokes	 . 27)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs@cns		  . #x5950)	; &C1-5059;
+      (=cns11643-1	  . #x5059)	; &C1-5059; [48-57]
+      )
+     ((=ucs@cns		  . #x85CF)	; &C1-772F;
+      (=cns11643-1	  . #x772F)	; &C1-772F; [87-15]
+      (=daikanwa	  . 32264)	; &I-M-32264;
+      ))
+    (=ucs@iso		. #x216A5)	; &U-000216A5;
     ))
 (define-char
   '((ideographic-radical . 37)	; ⼤
