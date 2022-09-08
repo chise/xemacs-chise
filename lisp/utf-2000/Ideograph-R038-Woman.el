@@ -30474,6 +30474,69 @@
   '((ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5973)	; 女
+      )
+     ((=ucs		  . #x2695A)	; 𦥚
+      ))
+    (=ucs		. #x217B2)	; 𡞲
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x217B2)	; 𡞲
+      ))
+    (ideographic-radical . 38)	; ⼥
+    (ideographic-strokes . 9)
+    (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5973)	; 女
+      )
+     ((=ucs@iso		  . #x2695A)	; &U-0002695A;
+      ))
+    (=ucs@iso		. #x217B2)	; &U-000217B2;
+    ))
+(define-char
+  '((ideographic-radical . 38)	; ⼥
+    (ideographic-strokes . 9)
+    (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5973)	; 女
+      )
+     ((=ucs		  . #x5950)	; 奐
+      ))
+    (=ucs		. #x217B5)	; 𡞵
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x217B5)	; 𡞵
+      ))
+    (ideographic-radical . 38)	; ⼥
+    (ideographic-strokes . 9)
+    (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5973)	; 女
+      )
+     ((=ucs@cns		  . #x5950)	; &C1-5059;
+      (=cns11643-1	  . #x5059)	; &C1-5059; [48-57]
+      ))
+    (=ucs@iso		. #x217B5)	; &U-000217B5;
+    ))
+(define-char
+  '((ideographic-radical . 38)	; ⼥
+    (ideographic-strokes . 9)
+    (total-strokes	 . 12)
     (=ucs		. #x217C2)	; 𡟂
     ))
 (define-char
@@ -30490,14 +30553,12 @@
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
     (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO MIDDLE AND RIGHT")
-      (=ucs		  . #x2FF2)	; ⿲
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
+      (=ucs		  . #x2FF4)	; ⿴
       )
-     ((=ucs		  . #x5973)	; 女
+     ((=ucs		  . #x597B)	; 奻
       )
      ((=ucs-itaiji-002	  . #x77E3)	; &U-i002+77E3;
-      )
-     ((=ucs		  . #x5973)	; 女
       ))
     (=ucs		. #x217D8)	; 𡟘
     (->subsumptive
