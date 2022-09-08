@@ -1,3 +1,17 @@
+2022-09-07  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R027-Cliff.el (U-0002A80F): New character.
+
+	* Ideograph-R016-Table.el (U-00020670): New character.
+	(U-00020671): New character.
+	(U-00020673): New character.
+
+	* Ideograph-R009-Man.el (A-IWDSU+50C0): New abstract node.
+	(U+50C0): Add `<-denotational' for A-IWDSU+50C0; apply new
+	conventions for glyph granularity.
+	(U-00030097): New character; use `<-denotational' for
+	A-IWDSU+50C0.
+
 2022-09-06  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R032-Earth.el (U-000214E9): New character.
