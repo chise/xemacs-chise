@@ -3311,7 +3311,7 @@
     ))
 (define-char
   '((<-denotational@usage
-     ((==>daijiten	  . 02396)	; &A2-DJT-02396;
+     ((==>ucs@bucs	  . #x5BEB)	; &BUCS+5BEB;
       ))
     (ideographic-radical . 14)	; ⼍
     (ideographic-structure
