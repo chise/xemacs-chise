@@ -1,7 +1,18 @@
+2022-09-08  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R008-Lid.el (U-0002014B): Modify structure.
+
 2022-09-07  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R011-Enter.el (U-000204F6): Apply new conventions for
 	glyph granularity.
+
+	* Ideograph-R053-Dotted-Cliff.el (U+5ED7): Apply new conventions
+	for glyph granularity.
+
+	* Ideograph-R040-Roof.el (U+5BEB): Apply new conventions for glyph
+	granularity.
+	(A2-DJT-02396): Unify BUCS+5BEB.
 
 2022-09-07  MORIOKA Tomohiko  <tomo.git@chise.org>
 
