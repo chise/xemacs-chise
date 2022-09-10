@@ -390,15 +390,38 @@
     ))
 (define-char
   '((shuowen-radical	. 537)	; 酉
+    (=>shuowen-jiguge	. 51824)	; &A-SW-JIGUGE-51824;
+    (<-Small-Seal
+     ((=ucs		  . #x256F2)	; 𥛲
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>shuowen-jiguge	  . 51824)	; &A-SW-JIGUGE-51824;
+      ))
+    (shuowen-radical	. 537)	; 酉
     (=shuowen-jiguge	. 51824)	; &SW-JIGUGE-51824;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x256F2)	; 𥛲
+      ))
+    (<-formed@shuowen
+     ((=shuowen-jiguge	  . 51823)	; &SW-JIGUGE-51823;
+      )
+     ((=ucs		  . #x91AE)	; 醮
       ))
     (->subsumptive
      ((===shuowen-jiguge5 . 51824)	; &SW-JIGUGE5-51824;
       )
      ((===shuowen-jiguge4 . 50324)	; &SW-JIGUGE4-50324;
       ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>shuowen-jiguge	  . 51824)	; &A-SW-JIGUGE-51824;
+      ))
+    (shuowen-radical	. 537)	; 酉
+    (=hdic-ktb-seal-glyph-id . T1_020_B31)
+    (===chise-hdic-ktb-seal . #x035F)	; &R-CHISE-HDIC-KTBS035F;
     ))
 (define-char
   '((shuowen-radical	. 537)	; 酉
