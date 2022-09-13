@@ -1642,6 +1642,39 @@
       ))
     ))
 (define-char
+  '((ideographic-radical . 8)	; ⼇
+    (ideographic-strokes . 4)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name		  . "IDEOGRAPHIC DESCRIPTION CHARACTER OVERLAID")
+      (=ucs		  . #x2FFB)	; ⿻
+      )
+     ((=ucs		  . #x20AD3)	; 𠫓
+      )
+     ((=>ucs@iwds-1	  . #x4EBA)	; &A-IWDSU+4EBA;
+      (=>iwds-1		  .  14623)	; &A-IWDSU+4EBA;
+      ))
+    (=ucs		. #x2B745)	; 𫝅
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2B745)	; 𫝅
+      ))
+    (ideographic-radical . 8)	; ⼇
+    (ideographic-strokes . 4)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name		  . "IDEOGRAPHIC DESCRIPTION CHARACTER OVERLAID")
+      (=ucs		  . #x2FFB)	; ⿻
+      )
+     ((=ucs@jis		  . #x20AD3)	; &MJ031960;
+      (=mj		  . 031960)	; &MJ031960;
+      )
+     ((=ucs		  . #x4EBA)	; 人
+      ))
+    (=ucs@JP/hanazono	. #x2B745)	; &hanaJU+2B745;
+    ))
+(define-char
   '((<-denotational
      ((=>ucs@iwds-1	  . #x215D5)	; &A-IWDSU+215D5;
       ))
