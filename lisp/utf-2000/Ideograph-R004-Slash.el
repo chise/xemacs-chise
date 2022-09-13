@@ -882,30 +882,25 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 4)	; ⼃
-    (ideographic-strokes . 1)
-    (total-strokes	 . 2)
-    (=>big5-cdp		. #x86AA)	; &A-CDP-86AA;
-    ))
-(define-char
-  '((ideographic-radical . 4)	; ⼃
-    (ideographic-strokes . 1)
-    (total-strokes	 . 2)
-    (=>big5-cdp		. #x89A6)	; &A-CDP-89A6;
-    ))
-(define-char
   '((<-denotational@component
      ((=>big5-cdp	  . #x89A6)	; &A-CDP-89A6;
       ))
     (ideographic-radical . 4)	; ⼃
     (ideographic-strokes . 1)
     (total-strokes	 . 2)
-    (=>gt-k		. 00146)	; &A-CB13223;
-    (=>cbeta		. 13223)	; &A-CB13223;
+    (=ucs		. #x3002A)	; 𰀪
+    (=+>big5-cdp	. #x89A6)	; 𰀪
+    (=>gt-k		. 00146)	; 𰀪
+    (=>cbeta		. 13223)	; 𰀪
     (->subsumptive
-     ((=cbeta		  . 13223)	; &CB13223;
+     ((=ucs@JP/hanazono	  . #x3002A)	; &CB13223;
+      (=cbeta		  . 13223)	; &CB13223;
       (->subsumptive
-       ((==cbeta	    . 13223)	; &g2-CB13223;
+       ((==ucs@JP/hanazono  . #x3002A)	; &g2-CB13223;
+	(==cbeta	    . 13223)	; &g2-CB13223;
+	(->subsumptive
+	 ((===cbeta	      . 13223)	; &R-CB13223;
+	  ))
 	))
       )
      ((=gt-k		  . 00146)	; &GT-K00146;
@@ -920,6 +915,18 @@
        ((==big5-cdp	    . #x89A6)	; &g2-CDP-89A6;
 	))
       ))
+    ))
+(define-char
+  '((ideographic-radical . 4)	; ⼃
+    (ideographic-strokes . 1)
+    (total-strokes	 . 2)
+    (=>big5-cdp		. #x89A6)	; &A-CDP-89A6;
+    ))
+(define-char
+  '((ideographic-radical . 4)	; ⼃
+    (ideographic-strokes . 1)
+    (total-strokes	 . 2)
+    (=>big5-cdp		. #x86AA)	; &A-CDP-86AA;
     ))
 (define-char
   '((<-denotational@component
@@ -3966,7 +3973,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=cbeta		  . 13223)	; &CB13223;
+     ((=ucs@JP/hanazono	  . #x3002A)	; &CB13223;
+      (=cbeta		  . 13223)	; &CB13223;
       )
      ((=ucs		  . #x30020)	; 𰀠
       ))
@@ -3983,7 +3991,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=cbeta		  . 13223)	; &CB13223;
+     ((=ucs@JP/hanazono	  . #x3002A)	; &CB13223;
+      (=cbeta		  . 13223)	; &CB13223;
       )
      ((=big5-cdp	  . #x8C66)	; &CDP-8C66;
       ))
@@ -4003,7 +4012,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=cbeta		  . 13223)	; &CB13223;
+     ((=ucs@JP/hanazono	  . #x3002A)	; &CB13223;
+      (=cbeta		  . 13223)	; &CB13223;
       )
      ((=ucs@iso		  . #x27607)	; &CDP-8B67;
       (=big5-cdp	  . #x8B67)	; &CDP-8B67;
