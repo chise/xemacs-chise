@@ -2007,6 +2007,19 @@
      ((=ucs		  . #x4E5A)	; 乚
       ))
     (=ucs		. #x200DE)	; 𠃞
+    (<-ancient
+     ((=ucs		  . #x25728)	; 𥜨
+      )
+     ((=ucs		  . #x2572A)	; 𥜪
+      )
+     ((=ucs		  . #x79AE)	; 禮
+      ))
+    (<-ancient$_1*sources
+     shuowen)
+    (<-ancient$_2*sources
+     shuowen)
+    (<-ancient$_3*sources
+     shuowen)
     ))
 (define-char
   '((<-denotational
