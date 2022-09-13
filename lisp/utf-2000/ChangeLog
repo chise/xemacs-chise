@@ -1,5 +1,7 @@
 2022-09-13  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R008-Lid.el (U-0002B745): New character.
+
 	* Ideograph-R005-Second.el (U-000200DE): Add `<-ancient' for
 	U-00025728, U-0002572A and U+79AE.
 
