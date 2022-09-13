@@ -1,3 +1,18 @@
+2022-09-10  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR537.el (A-SW-JIGUGE-51824): New abstract node.
+	(SW-JIGUGE-51824): Add `<-denotational' for A-SW-JIGUGE-51824; add
+	`<-formed@shuowen' for SW-JIGUGE-51823.
+	(CHISE-HDIC-KTB-SEAL-035F): New character; use `<-denotational'
+	for A-SW-JIGUGE-51824.
+
+2022-09-09  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R034-Go.el (A-U+5905-itaiji-002): New abstract node.
+	(U+5905-itaiji-002): New character; use `<-denotational' for
+	A-U+5905-itaiji-002.
+	(U+3685): Apply new conventions for glyph granularity.
+
 2022-09-08  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R050-Turban.el (U+5E26): Add
@@ -7,6 +22,10 @@
 	(U-0002D627): New character.
 
 	* Ideograph-R047-River.el (U-0002D5FE): New character.
+
+	* Ideograph-R038-Woman.el (U-000217B2): New character.
+	(U-000217B5): New character.
+	(U-000217D8): Modify structure.
 
 	* Ideograph-R037-Big.el (DJT-02000): New character; use
 	`<-denotational' for U-00020F96; use `<-denotational@usage' for
@@ -150,6 +169,13 @@
 	`<-ancient@shuowen' for SW-JIGUGE-47002.
 	(CHISE-HDIC-KTB-SEAL-0400): New character; use `<-denotational'
 	for A-SW-JIGUGE-47003.
+
+2022-09-04  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR003.el: Add some HDIC-KTB-Seal characters
+	corresponding to ShuoWen's Small-Seal characters.
+	(SW-JIGUGE-00303): Add `<-ancient@shuowen' for SW-JIGUGE-00302.
+	(SW-JIGUGE-00328): Add `<-ancient@shuowen' for SW-JIGUGE-00327.
 
 2022-09-04  MORIOKA Tomohiko  <tomo.git@chise.org>
 
