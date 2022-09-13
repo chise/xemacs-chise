@@ -14,10 +14,23 @@
      ((===shuowen-jiguge5 . 00215)	; &SW-JIGUGE5-00215;
       )
      ((===shuowen-jiguge4 . 00215)	; &SW-JIGUGE4-00215;
+      )
+     ((=hdic-ktb-seal-glyph-id . T1_017_A11)
+      (===chise-hdic-ktb-seal . #x0300)	; &R-CHISE-HDIC-KTBS0300;
       ))
     ))
 (define-char
   '((shuowen-radical	. 3)	; 示
+    (=>shuowen-jiguge	. 00300)	; &A-SW-JIGUGE-00300;
+    (<-Small-Seal
+     ((=ucs		  . #x25605)	; 𥘅
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>shuowen-jiguge	  . 00300)	; &A-SW-JIGUGE-00300;
+      ))
+    (shuowen-radical	. 3)	; 示
     (=shuowen-jiguge	. 00300)	; &SW-JIGUGE-00300;
     (<-Small-Seal@shuowen
      ((=>gt-k		  . 00633)	; &A-GT-K00633;
@@ -31,7 +44,28 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=>shuowen-jiguge	  . 00300)	; &A-SW-JIGUGE-00300;
+      ))
+    (shuowen-radical	. 3)	; 示
+    (=hdic-ktb-seal-glyph-id . T1_017_A11_2)
+    (===chise-hdic-ktb-seal . #x0301)	; &R-CHISE-HDIC-KTBS0301;
+    (<-Small-Seal@tenrei-bansho-meigi/chise
+     ((=ucs		  . #x25605)	; 𥘅
+      ))
+    ))
+(define-char
   '((shuowen-radical	. 3)	; 示
+    (=>shuowen-jiguge	. 00301)	; &A-SW-JIGUGE-00301;
+    (<-Small-Seal
+     ((=ucs		  . #x795C)	; 祜
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>shuowen-jiguge	  . 00301)	; &A-SW-JIGUGE-00301;
+      ))
+    (shuowen-radical	. 3)	; 示
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -51,7 +85,29 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=>shuowen-jiguge	  . 00301)	; &A-SW-JIGUGE-00301;
+      ))
+    (shuowen-radical	. 3)	; 示
+    (=hdic-ktb-seal-glyph-id . T1_017_B41)
+    (===chise-hdic-ktb-seal . #x0316)	; &R-CHISE-HDIC-KTBS0316;
+    ))
+(define-char
   '((shuowen-radical	. 3)	; 示
+    (=>shuowen-jiguge	. 00302)	; &A-SW-JIGUGE-00302;
+    (<-Small-Seal
+     ((=ucs		  . #x25728)	; 𥜨
+      )
+     ((=ucs		  . #x2572A)	; 𥜪
+      )
+     ((=ucs		  . #x79AE)	; 禮
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>shuowen-jiguge	  . 00302)	; &A-SW-JIGUGE-00302;
+      ))
+    (shuowen-radical	. 3)	; 示
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -75,12 +131,41 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=>shuowen-jiguge	  . 00302)	; &A-SW-JIGUGE-00302;
+      ))
+    (shuowen-radical	. 3)	; 示
+    (=hdic-ktb-seal-glyph-id . T1_018_B32)
+    (===chise-hdic-ktb-seal . #x032E)	; &R-CHISE-HDIC-KTBS032E;
+    ))
+(define-char
   '((shuowen-radical	. 3)	; 示
+    (=>shuowen-jiguge	. 00303)	; &A-SW-JIGUGE-00303;
+    (<-Small-Seal
+     ((=ucs		  . #x200DE)	; 𠃞
+      )
+     ((=ucs		  . #x793C)	; 礼
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>shuowen-jiguge	  . 00303)	; &A-SW-JIGUGE-00303;
+      ))
+    (shuowen-radical	. 3)	; 示
     (=shuowen-jiguge	. 00303)	; &SW-JIGUGE-00303;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x200DE)	; 𠃞
       )
      ((=ucs		  . #x793C)	; 礼
+      ))
+    (<-ancient@shuowen
+     ((=shuowen-jiguge	  . 00302)	; &SW-JIGUGE-00302;
+      )
+     ((=ucs		  . #x25728)	; 𥜨
+      )
+     ((=ucs		  . #x2572A)	; 𥜪
+      )
+     ((=ucs		  . #x79AE)	; 禮
       ))
     (->subsumptive
      ((===shuowen-jiguge5 . 00303)	; &SW-JIGUGE5-00303;
@@ -89,7 +174,33 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=>shuowen-jiguge	  . 00303)	; &A-SW-JIGUGE-00303;
+      ))
+    (shuowen-radical	. 3)	; 示
+    (=hdic-ktb-seal-glyph-id . T1_018_B32_2)
+    (===chise-hdic-ktb-seal . #x032F)	; &R-CHISE-HDIC-KTBS032F;
+    (<-Small-Seal@tenrei-bansho-meigi/chise
+     ((=ucs		  . #x200DE)	; 𠃞
+      )
+     ((=ucs		  . #x793C)	; 礼
+      ))
+    (<-ancient@tenrei-bansho-meigi/chise
+     ((=shuowen-jiguge	  . 00302)	; &SW-JIGUGE-00302;
+      ))
+    ))
+(define-char
   '((shuowen-radical	. 3)	; 示
+    (=>shuowen-jiguge	. 00304)	; &A-SW-JIGUGE-00304;
+    (<-Small-Seal
+     ((=ucs		  . #x79A7)	; 禧
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>shuowen-jiguge	  . 00304)	; &A-SW-JIGUGE-00304;
+      ))
+    (shuowen-radical	. 3)	; 示
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -109,6 +220,14 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=>shuowen-jiguge	  . 00304)	; &A-SW-JIGUGE-00304;
+      ))
+    (shuowen-radical	. 3)	; 示
+    (=hdic-ktb-seal-glyph-id . T1_017_B42)
+    (===chise-hdic-ktb-seal . #x0317)	; &R-CHISE-HDIC-KTBS0317;
+    ))
+(define-char
   '((shuowen-radical	. 3)	; 示
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -126,10 +245,25 @@
      ((===shuowen-jiguge5 . 00305)	; &SW-JIGUGE5-00305;
       )
      ((===shuowen-jiguge4 . 00305)	; &SW-JIGUGE4-00305;
+      )
+     ((=hdic-ktb-seal-glyph-id . T1_018_A12)
+      (===chise-hdic-ktb-seal . #x031C)	; &R-CHISE-HDIC-KTBS031C;
       ))
     ))
 (define-char
   '((shuowen-radical	. 3)	; 示
+    (=>shuowen-jiguge	. 00306)	; &A-SW-JIGUGE-00306;
+    (<-Small-Seal
+     ((=ucs		  . #x797F)	; 祿
+      )
+     ((=ucs		  . #x7984)	; 禄
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>shuowen-jiguge	  . 00306)	; &A-SW-JIGUGE-00306;
+      ))
+    (shuowen-radical	. 3)	; 示
     (=shuowen-jiguge	. 00306)	; &SW-JIGUGE-00306;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x797F)	; 祿
@@ -143,7 +277,25 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=>shuowen-jiguge	  . 00306)	; &A-SW-JIGUGE-00306;
+      ))
+    (shuowen-radical	. 3)	; 示
+    (=hdic-ktb-seal-glyph-id . T1_018_A11)
+    (===chise-hdic-ktb-seal . #x031B)	; &R-CHISE-HDIC-KTBS031B;
+    ))
+(define-char
   '((shuowen-radical	. 3)	; 示
+    (=>shuowen-jiguge	. 00307)	; &A-SW-JIGUGE-00307;
+    (<-Small-Seal
+     ((=ucs		  . #x79A0)	; 禠
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>shuowen-jiguge	  . 00307)	; &A-SW-JIGUGE-00307;
+      ))
+    (shuowen-radical	. 3)	; 示
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -163,7 +315,25 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=>shuowen-jiguge	  . 00307)	; &A-SW-JIGUGE-00307;
+      ))
+    (shuowen-radical	. 3)	; 示
+    (=hdic-ktb-seal-glyph-id . T1_018_A43)
+    (===chise-hdic-ktb-seal . #x0322)	; &R-CHISE-HDIC-KTBS0322;
+    ))
+(define-char
   '((shuowen-radical	. 3)	; 示
+    (=>shuowen-jiguge	. 00308)	; &A-SW-JIGUGE-00308;
+    (<-Small-Seal
+     ((=ucs		  . #x798E)	; 禎
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>shuowen-jiguge	  . 00308)	; &A-SW-JIGUGE-00308;
+      ))
+    (shuowen-radical	. 3)	; 示
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -183,6 +353,14 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=>shuowen-jiguge	  . 00308)	; &A-SW-JIGUGE-00308;
+      ))
+    (shuowen-radical	. 3)	; 示
+    (=hdic-ktb-seal-glyph-id . T1_018_A32)
+    (===chise-hdic-ktb-seal . #x0320)	; &R-CHISE-HDIC-KTBS0320;
+    ))
+(define-char
   '((shuowen-radical	. 3)	; 示
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -200,10 +378,20 @@
      ((===shuowen-jiguge5 . 00309)	; &SW-JIGUGE5-00309;
       )
      ((===shuowen-jiguge4 . 00309)	; &SW-JIGUGE4-00309;
+      )
+     ((=hdic-ktb-seal-glyph-id . T1_018_A31)
+      (===chise-hdic-ktb-seal . #x031F)	; &R-CHISE-HDIC-KTBS031F;
       ))
     ))
 (define-char
   '((shuowen-radical	. 3)	; 示
+    (=>shuowen-jiguge	. 00310)	; &A-SW-JIGUGE-00310;
+    ))
+(define-char
+  '((<-denotational
+     ((=>shuowen-jiguge	  . 00310)	; &A-SW-JIGUGE-00310;
+      ))
+    (shuowen-radical	. 3)	; 示
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -223,6 +411,14 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=>shuowen-jiguge	  . 00310)	; &A-SW-JIGUGE-00310;
+      ))
+    (shuowen-radical	. 3)	; 示
+    (=hdic-ktb-seal-glyph-id . T1_018_A21)
+    (===chise-hdic-ktb-seal . #x031D)	; &R-CHISE-HDIC-KTBS031D;
+    ))
+(define-char
   '((shuowen-radical	. 3)	; 示
     (=shuowen-jiguge	. 00311)	; &SW-JIGUGE-00311;
     (<-Small-Seal@shuowen
@@ -232,6 +428,9 @@
      ((===shuowen-jiguge5 . 00311)	; &SW-JIGUGE5-00311;
       )
      ((===shuowen-jiguge4 . 00311)	; &SW-JIGUGE4-00311;
+      )
+     ((=hdic-ktb-seal-glyph-id . T1_017_B61)
+      (===chise-hdic-ktb-seal . #x031A)	; &R-CHISE-HDIC-KTBS031A;
       ))
     ))
 (define-char
@@ -252,10 +451,23 @@
      ((===shuowen-jiguge5 . 00312)	; &SW-JIGUGE5-00312;
       )
      ((===shuowen-jiguge4 . 00312)	; &SW-JIGUGE4-00312;
+      )
+     ((=hdic-ktb-seal-glyph-id . T1_017_B51)
+      (===chise-hdic-ktb-seal . #x0318)	; &R-CHISE-HDIC-KTBS0318;
       ))
     ))
 (define-char
   '((shuowen-radical	. 3)	; 示
+    (=>shuowen-jiguge	. 00313)	; &A-SW-JIGUGE-00313;
+    (<-Small-Seal
+     ((=ucs		  . #x797A)	; 祺
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>shuowen-jiguge	  . 00313)	; &A-SW-JIGUGE-00313;
+      ))
+    (shuowen-radical	. 3)	; 示
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -273,6 +485,14 @@
       )
      ((===shuowen-jiguge4 . 00313)	; &SW-JIGUGE4-00313;
       ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>shuowen-jiguge	  . 00313)	; &A-SW-JIGUGE-00313;
+      ))
+    (shuowen-radical	. 3)	; 示
+    (=hdic-ktb-seal-glyph-id . T1_017_B52)
+    (===chise-hdic-ktb-seal . #x0319)	; &R-CHISE-HDIC-KTBS0319;
     ))
 (define-char
   '((shuowen-radical	. 3)	; 示
@@ -296,6 +516,16 @@
     ))
 (define-char
   '((shuowen-radical	. 3)	; 示
+    (=>shuowen-jiguge	. 00315)	; &A-SW-JIGUGE-00315;
+    (<-Small-Seal
+     ((=ucs		  . #x7957)	; 祗
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>shuowen-jiguge	  . 00315)	; &A-SW-JIGUGE-00315;
+      ))
+    (shuowen-radical	. 3)	; 示
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -315,7 +545,25 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=>shuowen-jiguge	  . 00315)	; &A-SW-JIGUGE-00315;
+      ))
+    (shuowen-radical	. 3)	; 示
+    (=hdic-ktb-seal-glyph-id . T1_017_A32)
+    (===chise-hdic-ktb-seal . #x0306)	; &R-CHISE-HDIC-KTBS0306;
+    ))
+(define-char
   '((shuowen-radical	. 3)	; 示
+    (=>shuowen-jiguge	. 00316)	; &A-SW-JIGUGE-00316;
+    (<-Small-Seal
+     ((=ucs		  . #x7994)	; 禔
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>shuowen-jiguge	  . 00316)	; &A-SW-JIGUGE-00316;
+      ))
+    (shuowen-radical	. 3)	; 示
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -335,7 +583,27 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=>shuowen-jiguge	  . 00316)	; &A-SW-JIGUGE-00316;
+      ))
+    (shuowen-radical	. 3)	; 示
+    (=hdic-ktb-seal-glyph-id . T1_018_A22)
+    (===chise-hdic-ktb-seal . #x031E)	; &R-CHISE-HDIC-KTBS031E;
+    ))
+(define-char
   '((shuowen-radical	. 3)	; 示
+    (=>shuowen-jiguge	. 00317)	; &A-SW-JIGUGE-00317;
+    (<-Small-Seal
+     ((=ucs		  . #x2569E)	; 𥚞
+      )
+     ((=ucs		  . #x795E)	; 神
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>shuowen-jiguge	  . 00317)	; &A-SW-JIGUGE-00317;
+      ))
+    (shuowen-radical	. 3)	; 示
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -359,7 +627,36 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=>shuowen-jiguge	  . 00317)	; &A-SW-JIGUGE-00317;
+      ))
+    (shuowen-radical	. 3)	; 示
+    (=hdic-ktb-seal-glyph-id . T1_017_A13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=shuowen-jiguge	  . 00215)	; &SW-JIGUGE-00215;
+      )
+     ((=shuowen-jiguge	  . 51700)	; &SW-JIGUGE-51700;
+      ))
+    (===chise-hdic-ktb-seal . #x0302)	; &R-CHISE-HDIC-KTBS0302;
+    (<-Small-Seal@tenrei-bansho-meigi/chise
+     ((=ucs		  . #x2569E)	; 𥚞
+      ))
+    ))
+(define-char
   '((shuowen-radical	. 3)	; 示
+    (=>shuowen-jiguge	. 00318)	; &A-SW-JIGUGE-00318;
+    (<-Small-Seal
+     ((=ucs		  . #x7947)	; 祇
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>shuowen-jiguge	  . 00318)	; &A-SW-JIGUGE-00318;
+      ))
+    (shuowen-radical	. 3)	; 示
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -379,7 +676,27 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=>shuowen-jiguge	  . 00318)	; &A-SW-JIGUGE-00318;
+      ))
+    (shuowen-radical	. 3)	; 示
+    (=hdic-ktb-seal-glyph-id . T1_017_A21)
+    (===chise-hdic-ktb-seal . #x0303)	; &R-CHISE-HDIC-KTBS0303;
+    ))
+(define-char
   '((shuowen-radical	. 3)	; 示
+    (=>shuowen-jiguge	. 00319)	; &A-SW-JIGUGE-00319;
+    (<-Small-Seal
+     ((=ucs		  . #x7955)	; 祕
+      )
+     ((=ucs		  . #x79D8)	; 秘
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>shuowen-jiguge	  . 00319)	; &A-SW-JIGUGE-00319;
+      ))
+    (shuowen-radical	. 3)	; 示
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -401,7 +718,37 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=>shuowen-jiguge	  . 00319)	; &A-SW-JIGUGE-00319;
+      ))
+    (shuowen-radical	. 3)	; 示
+    (=hdic-ktb-seal-glyph-id . T1_017_A31)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=shuowen-jiguge	  . 00215)	; &SW-JIGUGE-00215;
+      )
+     ((=shuowen-jiguge	  . 20210)	; &SW-JIGUGE-20210;
+      ))
+    (===chise-hdic-ktb-seal . #x0305)	; &R-CHISE-HDIC-KTBS0305;
+    ))
+(define-char
   '((shuowen-radical	. 3)	; 示
+    (=>shuowen-jiguge	. 00320)	; &A-SW-JIGUGE-00320;
+    (<-Small-Seal
+     ((=ucs		  . #x256AA)	; 𥚪
+      )
+     ((=ucs		  . #x9F4B)	; 齋
+      )
+     ((=ucs		  . #x658E)	; 斎
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>shuowen-jiguge	  . 00320)	; &A-SW-JIGUGE-00320;
+      ))
+    (shuowen-radical	. 3)	; 示
     (=shuowen-jiguge	. 00320)	; &SW-JIGUGE-00320;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x256AA)	; 𥚪
@@ -419,6 +766,14 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=>shuowen-jiguge	  . 00320)	; &A-SW-JIGUGE-00320;
+      ))
+    (shuowen-radical	. 3)	; 示
+    (=hdic-ktb-seal-glyph-id . T1_017_A22)
+    (===chise-hdic-ktb-seal . #x0304)	; &R-CHISE-HDIC-KTBS0304;
+    ))
+(define-char
   '((shuowen-radical	. 3)	; 示
     (=shuowen-jiguge	. 00321)	; &SW-JIGUGE-00321;
     (<-Small-Seal@shuowen
@@ -434,6 +789,18 @@
     ))
 (define-char
   '((shuowen-radical	. 3)	; 示
+    (=>shuowen-jiguge	. 00322)	; &A-SW-JIGUGE-00322;
+    (<-Small-Seal
+     ((=ucs		  . #x256FF)	; 𥛿
+      )
+     ((=ucs		  . #x798B)	; 禋
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>shuowen-jiguge	  . 00322)	; &A-SW-JIGUGE-00322;
+      ))
+    (shuowen-radical	. 3)	; 示
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -455,7 +822,30 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=>shuowen-jiguge	  . 00322)	; &A-SW-JIGUGE-00322;
+      ))
+    (shuowen-radical	. 3)	; 示
+    (=hdic-ktb-seal-glyph-id . T1_017_A61)
+    (===chise-hdic-ktb-seal . #x030C)	; &R-CHISE-HDIC-KTBS030C;
+    (<-Small-Seal@tenrei-bansho-meigi/chise
+     ((=ucs		  . #x256FF)	; 𥛿
+      ))
+    ))
+(define-char
   '((shuowen-radical	. 3)	; 示
+    (=>shuowen-jiguge	. 00323)	; &A-SW-JIGUGE-00323;
+    (<-Small-Seal
+     ((=ucs		  . #x21AFB)	; 𡫻
+      )
+     ((=ucs		  . #x21ADA)	; 𡫚
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>shuowen-jiguge	  . 00323)	; &A-SW-JIGUGE-00323;
+      ))
+    (shuowen-radical	. 3)	; 示
     (=shuowen-jiguge	. 00323)	; &SW-JIGUGE-00323;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x21AFB)	; 𡫻
@@ -476,7 +866,30 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=>shuowen-jiguge	  . 00323)	; &A-SW-JIGUGE-00323;
+      ))
+    (shuowen-radical	. 3)	; 示
+    (=hdic-ktb-seal-glyph-id . T1_017_A61_2)
+    (===chise-hdic-ktb-seal . #x030D)	; &R-CHISE-HDIC-KTBS030D;
+    (<-Small-Seal@tenrei-bansho-meigi/chise
+     ((=ucs		  . #x21AFB)	; 𡫻
+      )
+     ((=ucs		  . #x21ADA)	; 𡫚
+      ))
+    ))
+(define-char
   '((shuowen-radical	. 3)	; 示
+    (=>shuowen-jiguge	. 00324)	; &A-SW-JIGUGE-00324;
+    (<-Small-Seal
+     ((=ucs		  . #x796D)	; 祭
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>shuowen-jiguge	  . 00324)	; &A-SW-JIGUGE-00324;
+      ))
+    (shuowen-radical	. 3)	; 示
     (=shuowen-jiguge	. 00324)	; &SW-JIGUGE-00324;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x796D)	; 祭
@@ -488,7 +901,25 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=>shuowen-jiguge	  . 00324)	; &A-SW-JIGUGE-00324;
+      ))
+    (shuowen-radical	. 3)	; 示
+    (=hdic-ktb-seal-glyph-id . T1_017_A41)
+    (===chise-hdic-ktb-seal . #x0307)	; &R-CHISE-HDIC-KTBS0307;
+    ))
+(define-char
   '((shuowen-radical	. 3)	; 示
+    (=>shuowen-jiguge	. 00325)	; &A-SW-JIGUGE-00325;
+    (<-Small-Seal
+     ((=ucs		  . #x7940)	; 祀
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>shuowen-jiguge	  . 00325)	; &A-SW-JIGUGE-00325;
+      ))
+    (shuowen-radical	. 3)	; 示
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -508,7 +939,25 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=>shuowen-jiguge	  . 00325)	; &A-SW-JIGUGE-00325;
+      ))
+    (shuowen-radical	. 3)	; 示
+    (=hdic-ktb-seal-glyph-id . T1_017_A43)
+    (===chise-hdic-ktb-seal . #x0308)	; &R-CHISE-HDIC-KTBS0308;
+    ))
+(define-char
   '((shuowen-radical	. 3)	; 示
+    (=>shuowen-jiguge	. 00326)	; &A-SW-JIGUGE-00326;
+    (<-Small-Seal
+     ((=ucs		  . #x79A9)	; 禩
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>shuowen-jiguge	  . 00326)	; &A-SW-JIGUGE-00326;
+      ))
+    (shuowen-radical	. 3)	; 示
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -521,6 +970,11 @@
     (<-Small-Seal@shuowen
      ((=ucs		  . #x79A9)	; 禩
       ))
+    (<-formed@shuowen
+     ((=shuowen-jiguge	  . 00325)	; &SW-JIGUGE-00325;
+      )
+     ((=ucs		  . #x7940)	; 祀
+      ))
     (->subsumptive
      ((===shuowen-jiguge5 . 00326)	; &SW-JIGUGE5-00326;
       )
@@ -528,7 +982,28 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=>shuowen-jiguge	  . 00326)	; &A-SW-JIGUGE-00326;
+      ))
+    (shuowen-radical	. 3)	; 示
+    (=hdic-ktb-seal-glyph-id . T1_017_A43_2)
+    (===chise-hdic-ktb-seal . #x0309)	; &R-CHISE-HDIC-KTBS0309;
+    (<-Small-Seal@tenrei-bansho-meigi/chise
+     ((=ucs		  . #x79A9)	; 禩
+      ))
+    ))
+(define-char
   '((shuowen-radical	. 3)	; 示
+    (=>shuowen-jiguge	. 00327)	; &A-SW-JIGUGE-00327;
+    (<-Small-Seal
+     ((=ucs		  . #x7961)	; 祡
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>shuowen-jiguge	  . 00327)	; &A-SW-JIGUGE-00327;
+      ))
+    (shuowen-radical	. 3)	; 示
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
@@ -548,10 +1023,38 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=>shuowen-jiguge	  . 00327)	; &A-SW-JIGUGE-00327;
+      ))
+    (shuowen-radical	. 3)	; 示
+    (=hdic-ktb-seal-glyph-id . T1_017_A63)
+    (===chise-hdic-ktb-seal . #x030E)	; &R-CHISE-HDIC-KTBS030E;
+    ))
+(define-char
   '((shuowen-radical	. 3)	; 示
+    (=>shuowen-jiguge	. 00328)	; &A-SW-JIGUGE-00328;
+    (<-Small-Seal
+     ((=ucs		  . #x256A8)	; 𥚨
+      ))
+    (<-ancient
+     ((=>shuowen-jiguge	  . 00327)	; &A-SW-JIGUGE-00327;
+      )
+     ((=ucs		  . #x7961)	; 祡
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>shuowen-jiguge	  . 00328)	; &A-SW-JIGUGE-00328;
+      ))
+    (shuowen-radical	. 3)	; 示
     (=shuowen-jiguge	. 00328)	; &SW-JIGUGE-00328;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x256A8)	; 𥚨
+      ))
+    (<-ancient@shuowen
+     ((=shuowen-jiguge	  . 00327)	; &SW-JIGUGE-00327;
+      )
+     ((=ucs		  . #x7961)	; 祡
       ))
     (->subsumptive
      ((===shuowen-jiguge5 . 00328)	; &SW-JIGUGE5-00328;
@@ -560,7 +1063,30 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=>shuowen-jiguge	  . 00328)	; &A-SW-JIGUGE-00328;
+      ))
+    (shuowen-radical	. 3)	; 示
+    (=hdic-ktb-seal-glyph-id . T1_017_A63_2)
+    (===chise-hdic-ktb-seal . #x030F)	; &R-CHISE-HDIC-KTBS030F;
+    (<-Small-Seal@tenrei-bansho-meigi/chise
+     ((=ucs		  . #x256A8)	; 𥚨
+      )
+     ((===chise-hdic-ktb  . #x0034)	; &R-CHISE-HDIC-KTB0034;
+      ))
+    ))
+(define-char
   '((shuowen-radical	. 3)	; 示
+    (=>shuowen-jiguge	. 00329)	; &A-SW-JIGUGE-00329;
+    (<-Small-Seal
+     ((=ucs		  . #x79B7)	; 禷
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>shuowen-jiguge	  . 00329)	; &A-SW-JIGUGE-00329;
+      ))
+    (shuowen-radical	. 3)	; 示
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -580,7 +1106,25 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=>shuowen-jiguge	  . 00329)	; &A-SW-JIGUGE-00329;
+      ))
+    (shuowen-radical	. 3)	; 示
+    (=hdic-ktb-seal-glyph-id . T1_018_B21)
+    (===chise-hdic-ktb-seal . #x0329)	; &R-CHISE-HDIC-KTBS0329;
+    ))
+(define-char
   '((shuowen-radical	. 3)	; 示
+    (=>shuowen-jiguge	. 00330)	; &A-SW-JIGUGE-00330;
+    (<-Small-Seal
+     ((=ucs		  . #x796A)	; 祪
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>shuowen-jiguge	  . 00330)	; &A-SW-JIGUGE-00330;
+      ))
+    (shuowen-radical	. 3)	; 示
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -600,7 +1144,25 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=>shuowen-jiguge	  . 00330)	; &A-SW-JIGUGE-00330;
+      ))
+    (shuowen-radical	. 3)	; 示
+    (=hdic-ktb-seal-glyph-id . T1_018_A51)
+    (===chise-hdic-ktb-seal . #x0323)	; &R-CHISE-HDIC-KTBS0323;
+    ))
+(define-char
   '((shuowen-radical	. 3)	; 示
+    (=>shuowen-jiguge	. 00331)	; &A-SW-JIGUGE-00331;
+    (<-Small-Seal
+     ((=ucs		  . #x7954)	; 祔
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>shuowen-jiguge	  . 00331)	; &A-SW-JIGUGE-00331;
+      ))
+    (shuowen-radical	. 3)	; 示
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -620,7 +1182,25 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=>shuowen-jiguge	  . 00331)	; &A-SW-JIGUGE-00331;
+      ))
+    (shuowen-radical	. 3)	; 示
+    (=hdic-ktb-seal-glyph-id . T1_018_B41)
+    (===chise-hdic-ktb-seal . #x0330)	; &R-CHISE-HDIC-KTBS0330;
+    ))
+(define-char
   '((shuowen-radical	. 3)	; 示
+    (=>shuowen-jiguge	. 00332)	; &A-SW-JIGUGE-00332;
+    (<-Small-Seal
+     ((=ucs		  . #x7956)	; 祖
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>shuowen-jiguge	  . 00332)	; &A-SW-JIGUGE-00332;
+      ))
+    (shuowen-radical	. 3)	; 示
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -638,6 +1218,14 @@
       )
      ((===shuowen-jiguge4 . 00332)	; &SW-JIGUGE4-00332;
       ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>shuowen-jiguge	  . 00332)	; &A-SW-JIGUGE-00332;
+      ))
+    (shuowen-radical	. 3)	; 示
+    (=hdic-ktb-seal-glyph-id . T1_017_B11)
+    (===chise-hdic-ktb-seal . #x0310)	; &R-CHISE-HDIC-KTBS0310;
     ))
 (define-char
   '((shuowen-radical	. 3)	; 示
@@ -661,6 +1249,16 @@
     ))
 (define-char
   '((shuowen-radical	. 3)	; 示
+    (=>shuowen-jiguge	. 00401)	; &A-SW-JIGUGE-00401;
+    (<-Small-Seal
+     ((=ucs		  . #x794A)	; 祊
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>shuowen-jiguge	  . 00401)	; &A-SW-JIGUGE-00401;
+      ))
+    (shuowen-radical	. 3)	; 示
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -680,7 +1278,25 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=>shuowen-jiguge	  . 00401)	; &A-SW-JIGUGE-00401;
+      ))
+    (shuowen-radical	. 3)	; 示
+    (=hdic-ktb-seal-glyph-id . T1_017_B12)
+    (===chise-hdic-ktb-seal . #x0311)	; &R-CHISE-HDIC-KTBS0311;
+    ))
+(define-char
   '((shuowen-radical	. 3)	; 示
+    (=>shuowen-jiguge	. 00402)	; &A-SW-JIGUGE-00402;
+    (<-Small-Seal
+     ((=ucs		  . #x7970)	; 祰
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>shuowen-jiguge	  . 00402)	; &A-SW-JIGUGE-00402;
+      ))
+    (shuowen-radical	. 3)	; 示
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -700,7 +1316,22 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=>shuowen-jiguge	  . 00402)	; &A-SW-JIGUGE-00402;
+      ))
+    (shuowen-radical	. 3)	; 示
+    (=hdic-ktb-seal-glyph-id . T1_018_A61)
+    (===chise-hdic-ktb-seal . #x0325)	; &R-CHISE-HDIC-KTBS0325;
+    ))
+(define-char
   '((shuowen-radical	. 3)	; 示
+    (=>shuowen-jiguge	. 00403)	; &A-SW-JIGUGE-00403;
+    ))
+(define-char
+  '((<-denotational
+     ((=>shuowen-jiguge	  . 00403)	; &A-SW-JIGUGE-00403;
+      ))
+    (shuowen-radical	. 3)	; 示
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -720,7 +1351,25 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=>shuowen-jiguge	  . 00403)	; &A-SW-JIGUGE-00403;
+      ))
+    (shuowen-radical	. 3)	; 示
+    (=hdic-ktb-seal-glyph-id . T1_017_A52)
+    (===chise-hdic-ktb-seal . #x030B)	; &R-CHISE-HDIC-KTBS030B;
+    ))
+(define-char
   '((shuowen-radical	. 3)	; 示
+    (=>shuowen-jiguge	. 00404)	; &A-SW-JIGUGE-00404;
+    (<-Small-Seal
+     ((=ucs		  . #x40FE)	; 䃾
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>shuowen-jiguge	  . 00404)	; &A-SW-JIGUGE-00404;
+      ))
+    (shuowen-radical	. 3)	; 示
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -740,6 +1389,14 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=>shuowen-jiguge	  . 00404)	; &A-SW-JIGUGE-00404;
+      ))
+    (shuowen-radical	. 3)	; 示
+    (=hdic-ktb-seal-glyph-id . T1_017_A51)
+    (===chise-hdic-ktb-seal . #x030A)	; &R-CHISE-HDIC-KTBS030A;
+    ))
+(define-char
   '((shuowen-radical	. 3)	; 示
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -757,10 +1414,23 @@
      ((===shuowen-jiguge5 . 00405)	; &SW-JIGUGE5-00405;
       )
      ((===shuowen-jiguge4 . 00405)	; &SW-JIGUGE4-00405;
+      )
+     ((=hdic-ktb-seal-glyph-id . T1_017_B21)
+      (===chise-hdic-ktb-seal . #x0312)	; &R-CHISE-HDIC-KTBS0312;
       ))
     ))
 (define-char
   '((shuowen-radical	. 3)	; 示
+    (=>shuowen-jiguge	. 00406)	; &A-SW-JIGUGE-00406;
+    (<-Small-Seal
+     ((=ucs		  . #x793F)	; 礿
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>shuowen-jiguge	  . 00406)	; &A-SW-JIGUGE-00406;
+      ))
+    (shuowen-radical	. 3)	; 示
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -780,7 +1450,22 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=>shuowen-jiguge	  . 00406)	; &A-SW-JIGUGE-00406;
+      ))
+    (shuowen-radical	. 3)	; 示
+    (=hdic-ktb-seal-glyph-id . T1_017_B22)
+    (===chise-hdic-ktb-seal . #x0313)	; &R-CHISE-HDIC-KTBS0313;
+    ))
+(define-char
   '((shuowen-radical	. 3)	; 示
+    (=>shuowen-jiguge	. 00407)	; &A-SW-JIGUGE-00407;
+    ))
+(define-char
+  '((<-denotational
+     ((=>shuowen-jiguge	  . 00407)	; &A-SW-JIGUGE-00407;
+      ))
+    (shuowen-radical	. 3)	; 示
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -800,7 +1485,25 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=>shuowen-jiguge	  . 00407)	; &A-SW-JIGUGE-00407;
+      ))
+    (shuowen-radical	. 3)	; 示
+    (=hdic-ktb-seal-glyph-id . T1_017_B32)
+    (===chise-hdic-ktb-seal . #x0315)	; &R-CHISE-HDIC-KTBS0315;
+    ))
+(define-char
   '((shuowen-radical	. 3)	; 示
+    (=>shuowen-jiguge	. 00408)	; &A-SW-JIGUGE-00408;
+    (<-Small-Seal
+     ((=ucs		  . #x796B)	; 祫
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>shuowen-jiguge	  . 00408)	; &A-SW-JIGUGE-00408;
+      ))
+    (shuowen-radical	. 3)	; 示
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -820,6 +1523,14 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=>shuowen-jiguge	  . 00408)	; &A-SW-JIGUGE-00408;
+      ))
+    (shuowen-radical	. 3)	; 示
+    (=hdic-ktb-seal-glyph-id . T1_017_B31)
+    (===chise-hdic-ktb-seal . #x0314)	; &R-CHISE-HDIC-KTBS0314;
+    ))
+(define-char
   '((shuowen-radical	. 3)	; 示
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -837,10 +1548,23 @@
      ((===shuowen-jiguge5 . 00409)	; &SW-JIGUGE5-00409;
       )
      ((===shuowen-jiguge4 . 00409)	; &SW-JIGUGE4-00409;
+      )
+     ((=hdic-ktb-seal-glyph-id . T1_018_A62)
+      (===chise-hdic-ktb-seal . #x0326)	; &R-CHISE-HDIC-KTBS0326;
       ))
     ))
 (define-char
   '((shuowen-radical	. 3)	; 示
+    (=>shuowen-jiguge	. 00410)	; &A-SW-JIGUGE-00410;
+    (<-Small-Seal
+     ((=ucs		  . #x411F)	; 䄟
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>shuowen-jiguge	  . 00410)	; &A-SW-JIGUGE-00410;
+      ))
+    (shuowen-radical	. 3)	; 示
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
@@ -860,7 +1584,25 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=>shuowen-jiguge	  . 00410)	; &A-SW-JIGUGE-00410;
+      ))
+    (shuowen-radical	. 3)	; 示
+    (=hdic-ktb-seal-glyph-id . T1_018_B31)
+    (===chise-hdic-ktb-seal . #x032D)	; &R-CHISE-HDIC-KTBS032D;
+    ))
+(define-char
   '((shuowen-radical	. 3)	; 示
+    (=>shuowen-jiguge	. 00411)	; &A-SW-JIGUGE-00411;
+    (<-Small-Seal
+     ((=ucs		  . #x795D)	; 祝
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>shuowen-jiguge	  . 00411)	; &A-SW-JIGUGE-00411;
+      ))
+    (shuowen-radical	. 3)	; 示
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -880,7 +1622,27 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=>shuowen-jiguge	  . 00411)	; &A-SW-JIGUGE-00411;
+      ))
+    (shuowen-radical	. 3)	; 示
+    (=hdic-ktb-seal-glyph-id . T1_018_B11)
+    (===chise-hdic-ktb-seal . #x0327)	; &R-CHISE-HDIC-KTBS0327;
+    ))
+(define-char
   '((shuowen-radical	. 3)	; 示
+    (=>shuowen-jiguge	. 00412)	; &A-SW-JIGUGE-00412;
+    (<-Small-Seal
+     ((=ucs		  . #x256FD)	; 𥛽
+      )
+     ((=ucs		  . #x256C5)	; 𥛅
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>shuowen-jiguge	  . 00412)	; &A-SW-JIGUGE-00412;
+      ))
+    (shuowen-radical	. 3)	; 示
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -892,6 +1654,8 @@
     (=shuowen-jiguge	. 00412)	; &SW-JIGUGE-00412;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x256FD)	; 𥛽
+      )
+     ((=ucs		  . #x256C5)	; 𥛅
       ))
     (->subsumptive
      ((===shuowen-jiguge5 . 00412)	; &SW-JIGUGE5-00412;
@@ -900,7 +1664,28 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=>shuowen-jiguge	  . 00412)	; &A-SW-JIGUGE-00412;
+      ))
+    (shuowen-radical	. 3)	; 示
+    (=hdic-ktb-seal-glyph-id . T1_018_B42)
+    (===chise-hdic-ktb-seal . #x0331)	; &R-CHISE-HDIC-KTBS0331;
+    (<-Small-Seal@tenrei-bansho-meigi/chise
+     ((=ucs		  . #x256FD)	; 𥛽
+      ))
+    ))
+(define-char
   '((shuowen-radical	. 3)	; 示
+    (=>shuowen-jiguge	. 00413)	; &A-SW-JIGUGE-00413;
+    (<-Small-Seal
+     ((=ucs		  . #x7953)	; 祓
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>shuowen-jiguge	  . 00413)	; &A-SW-JIGUGE-00413;
+      ))
+    (shuowen-radical	. 3)	; 示
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -920,7 +1705,25 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=>shuowen-jiguge	  . 00413)	; &A-SW-JIGUGE-00413;
+      ))
+    (shuowen-radical	. 3)	; 示
+    (=hdic-ktb-seal-glyph-id . T1_019_A31)
+    (===chise-hdic-ktb-seal . #x033A)	; &R-CHISE-HDIC-KTBS033A;
+    ))
+(define-char
   '((shuowen-radical	. 3)	; 示
+    (=>shuowen-jiguge	. 00414)	; &A-SW-JIGUGE-00414;
+    (<-Small-Seal
+     ((=ucs		  . #x7948)	; 祈
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>shuowen-jiguge	  . 00414)	; &A-SW-JIGUGE-00414;
+      ))
+    (shuowen-radical	. 3)	; 示
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -940,7 +1743,29 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=>shuowen-jiguge	  . 00414)	; &A-SW-JIGUGE-00414;
+      ))
+    (shuowen-radical	. 3)	; 示
+    (=hdic-ktb-seal-glyph-id . T1_018_B12)
+    (===chise-hdic-ktb-seal . #x0328)	; &R-CHISE-HDIC-KTBS0328;
+    ))
+(define-char
   '((shuowen-radical	. 3)	; 示
+    (=>shuowen-jiguge	. 00415)	; &A-SW-JIGUGE-00415;
+    (<-Small-Seal
+     ((=ucs		  . #x25723)	; 𥜣
+      )
+     ((=ucs		  . #x79B1)	; 禱
+      )
+     ((=ucs		  . #x7977)	; 祷
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>shuowen-jiguge	  . 00415)	; &A-SW-JIGUGE-00415;
+      ))
+    (shuowen-radical	. 3)	; 示
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -964,7 +1789,29 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=>shuowen-jiguge	  . 00415)	; &A-SW-JIGUGE-00415;
+      ))
+    (shuowen-radical	. 3)	; 示
+    (=hdic-ktb-seal-glyph-id . T1_018_B22)
+    (===chise-hdic-ktb-seal . #x032A)	; &R-CHISE-HDIC-KTBS032A;
+    ))
+(define-char
   '((shuowen-radical	. 3)	; 示
+    (=>shuowen-jiguge	. 00416)	; &A-SW-JIGUGE-00416;
+    (<-Small-Seal
+     ((=ucs		  . #x256C7)	; 𥛇
+      )
+     ((=ucs		  . #x256C8)	; 𥛈
+      )
+     ((=ucs		  . #x25678)	; 𥙸
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>shuowen-jiguge	  . 00416)	; &A-SW-JIGUGE-00416;
+      ))
+    (shuowen-radical	. 3)	; 示
     (=shuowen-jiguge	. 00416)	; &SW-JIGUGE-00416;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x256C7)	; 𥛇
@@ -987,7 +1834,35 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=>shuowen-jiguge	  . 00416)	; &A-SW-JIGUGE-00416;
+      ))
+    (shuowen-radical	. 3)	; 示
+    (=hdic-ktb-seal-glyph-id . T1_018_B22_3)
+    (===chise-hdic-ktb-seal . #x032C)	; &R-CHISE-HDIC-KTBS032C;
+    (<-Small-Seal@tenrei-bansho-meigi/chise
+     ((=ucs		  . #x256C7)	; 𥛇
+      )
+     ((=ucs		  . #x25678)	; 𥙸
+      )
+     ((=ucs		  . #x256C8)	; 𥛈
+      ))
+    (<-formed@tenrei-bansho-meigi
+     ((===chise-hdic-ktb-seal . #x032A)	; &R-CHISE-HDIC-KTBS032A;
+      ))
+    ))
+(define-char
   '((shuowen-radical	. 3)	; 示
+    (=>shuowen-jiguge	. 00417)	; &A-SW-JIGUGE-00417;
+    (<-Small-Seal
+     ((=ucs		  . #x25739)	; 𥜹
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>shuowen-jiguge	  . 00417)	; &A-SW-JIGUGE-00417;
+      ))
+    (shuowen-radical	. 3)	; 示
     (=shuowen-jiguge	. 00417)	; &SW-JIGUGE-00417;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x25739)	; 𥜹
@@ -1006,6 +1881,20 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=>shuowen-jiguge	  . 00417)	; &A-SW-JIGUGE-00417;
+      ))
+    (shuowen-radical	. 3)	; 示
+    (=hdic-ktb-seal-glyph-id . T1_018_B22_2)
+    (===chise-hdic-ktb-seal . #x032B)	; &R-CHISE-HDIC-KTBS032B;
+    (<-Small-Seal@tenrei-bansho-meigi/chise
+     ((=ucs		  . #x25739)	; 𥜹
+      ))
+    (<-formed@tenrei-bansho-meigi
+     ((===chise-hdic-ktb-seal . #x032A)	; &R-CHISE-HDIC-KTBS032A;
+      ))
+    ))
+(define-char
   '((shuowen-radical	. 3)	; 示
     (=shuowen-jiguge	. 00418)	; &SW-JIGUGE-00418;
     (<-Small-Seal@shuowen
@@ -1015,10 +1904,23 @@
      ((===shuowen-jiguge5 . 00418)	; &SW-JIGUGE5-00418;
       )
      ((===shuowen-jiguge4 . 00418)	; &SW-JIGUGE4-00418;
+      )
+     ((=hdic-ktb-seal-glyph-id . T1_018_B61)
+      (===chise-hdic-ktb-seal . #x0334)	; &R-CHISE-HDIC-KTBS0334;
       ))
     ))
 (define-char
   '((shuowen-radical	. 3)	; 示
+    (=>shuowen-jiguge	. 00419)	; &A-SW-JIGUGE-00419;
+    (<-Small-Seal
+     ((=ucs		  . #x79B3)	; 禳
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>shuowen-jiguge	  . 00419)	; &A-SW-JIGUGE-00419;
+      ))
+    (shuowen-radical	. 3)	; 示
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -1038,7 +1940,25 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=>shuowen-jiguge	  . 00419)	; &A-SW-JIGUGE-00419;
+      ))
+    (shuowen-radical	. 3)	; 示
+    (=hdic-ktb-seal-glyph-id . T1_019_A11)
+    (===chise-hdic-ktb-seal . #x0336)	; &R-CHISE-HDIC-KTBS0336;
+    ))
+(define-char
   '((shuowen-radical	. 3)	; 示
+    (=>shuowen-jiguge	. 00420)	; &A-SW-JIGUGE-00420;
+    (<-Small-Seal
+     ((=ucs		  . #x79AC)	; 禬
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>shuowen-jiguge	  . 00420)	; &A-SW-JIGUGE-00420;
+      ))
+    (shuowen-radical	. 3)	; 示
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -1056,6 +1976,14 @@
       )
      ((===shuowen-jiguge4 . 00420)	; &SW-JIGUGE4-00420;
       ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>shuowen-jiguge	  . 00420)	; &A-SW-JIGUGE-00420;
+      ))
+    (shuowen-radical	. 3)	; 示
+    (=hdic-ktb-seal-glyph-id . T1_019_A12)
+    (===chise-hdic-ktb-seal . #x0337)	; &R-CHISE-HDIC-KTBS0337;
     ))
 (define-char
   '((shuowen-radical	. 3)	; 示
@@ -1077,10 +2005,23 @@
      ((===shuowen-jiguge5 . 00421)	; &SW-JIGUGE5-00421;
       )
      ((===shuowen-jiguge4 . 00421)	; &SW-JIGUGE4-00421;
+      )
+     ((=hdic-ktb-seal-glyph-id . T1_018_B52)
+      (===chise-hdic-ktb-seal . #x0333)	; &R-CHISE-HDIC-KTBS0333;
       ))
     ))
 (define-char
   '((shuowen-radical	. 3)	; 示
+    (=>shuowen-jiguge	. 00422)	; &A-SW-JIGUGE-00422;
+    (<-Small-Seal
+     ((=ucs		  . #x79A6)	; 禦
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>shuowen-jiguge	  . 00422)	; &A-SW-JIGUGE-00422;
+      ))
+    (shuowen-radical	. 3)	; 示
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
@@ -1100,7 +2041,27 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=>shuowen-jiguge	  . 00422)	; &A-SW-JIGUGE-00422;
+      ))
+    (shuowen-radical	. 3)	; 示
+    (=hdic-ktb-seal-glyph-id . T1_019_A22)
+    (===chise-hdic-ktb-seal . #x0339)	; &R-CHISE-HDIC-KTBS0339;
+    ))
+(define-char
   '((shuowen-radical	. 3)	; 示
+    (=>shuowen-jiguge	. 00423)	; &A-SW-JIGUGE-00423;
+    (<-Small-Seal
+     ((=ucs		  . #x25671)	; 𥙱
+      )
+     ((=ucs		  . #x4106)	; 䄆
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>shuowen-jiguge	  . 00423)	; &A-SW-JIGUGE-00423;
+      ))
+    (shuowen-radical	. 3)	; 示
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -1122,7 +2083,25 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=>shuowen-jiguge	  . 00423)	; &A-SW-JIGUGE-00423;
+      ))
+    (shuowen-radical	. 3)	; 示
+    (=hdic-ktb-seal-glyph-id . T1_018_B62)
+    (===chise-hdic-ktb-seal . #x0335)	; &R-CHISE-HDIC-KTBS0335;
+    ))
+(define-char
   '((shuowen-radical	. 3)	; 示
+    (=>shuowen-jiguge	. 00424)	; &A-SW-JIGUGE-00424;
+    (<-Small-Seal
+     ((=ucs		  . #x7996)	; 禖
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>shuowen-jiguge	  . 00424)	; &A-SW-JIGUGE-00424;
+      ))
+    (shuowen-radical	. 3)	; 示
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -1142,7 +2121,25 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=>shuowen-jiguge	  . 00424)	; &A-SW-JIGUGE-00424;
+      ))
+    (shuowen-radical	. 3)	; 示
+    (=hdic-ktb-seal-glyph-id . T1_018_B51)
+    (===chise-hdic-ktb-seal . #x0332)	; &R-CHISE-HDIC-KTBS0332;
+    ))
+(define-char
   '((shuowen-radical	. 3)	; 示
+    (=>shuowen-jiguge	. 00425)	; &A-SW-JIGUGE-00425;
+    (<-Small-Seal
+     ((=ucs		  . #x256A9)	; 𥚩
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>shuowen-jiguge	  . 00425)	; &A-SW-JIGUGE-00425;
+      ))
+    (shuowen-radical	. 3)	; 示
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -1162,7 +2159,25 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=>shuowen-jiguge	  . 00425)	; &A-SW-JIGUGE-00425;
+      ))
+    (shuowen-radical	. 3)	; 示
+    (=hdic-ktb-seal-glyph-id . T1_019_B52)
+    (===chise-hdic-ktb-seal . #x034C)	; &R-CHISE-HDIC-KTBS034C;
+    ))
+(define-char
   '((shuowen-radical	. 3)	; 示
+    (=>shuowen-jiguge	. 00500)	; &A-SW-JIGUGE-00500;
+    (<-Small-Seal
+     ((=ucs		  . #x7973)	; 祳
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>shuowen-jiguge	  . 00500)	; &A-SW-JIGUGE-00500;
+      ))
+    (shuowen-radical	. 3)	; 示
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -1182,7 +2197,25 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=>shuowen-jiguge	  . 00500)	; &A-SW-JIGUGE-00500;
+      ))
+    (shuowen-radical	. 3)	; 示
+    (=hdic-ktb-seal-glyph-id . T1_019_A51)
+    (===chise-hdic-ktb-seal . #x033F)	; &R-CHISE-HDIC-KTBS033F;
+    ))
+(define-char
   '((shuowen-radical	. 3)	; 示
+    (=>shuowen-jiguge	. 00501)	; &A-SW-JIGUGE-00501;
+    (<-Small-Seal
+     ((=ucs		  . #x7974)	; 祴
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>shuowen-jiguge	  . 00501)	; &A-SW-JIGUGE-00501;
+      ))
+    (shuowen-radical	. 3)	; 示
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -1202,7 +2235,25 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=>shuowen-jiguge	  . 00501)	; &A-SW-JIGUGE-00501;
+      ))
+    (shuowen-radical	. 3)	; 示
+    (=hdic-ktb-seal-glyph-id . T1_019_A32)
+    (===chise-hdic-ktb-seal . #x033B)	; &R-CHISE-HDIC-KTBS033B;
+    ))
+(define-char
   '((shuowen-radical	. 3)	; 示
+    (=>shuowen-jiguge	. 00502)	; &A-SW-JIGUGE-00502;
+    (<-Small-Seal
+     ((=ucs		  . #x79A1)	; 禡
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>shuowen-jiguge	  . 00502)	; &A-SW-JIGUGE-00502;
+      ))
+    (shuowen-radical	. 3)	; 示
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -1222,7 +2273,25 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=>shuowen-jiguge	  . 00502)	; &A-SW-JIGUGE-00502;
+      ))
+    (shuowen-radical	. 3)	; 示
+    (=hdic-ktb-seal-glyph-id . T1_019_A41)
+    (===chise-hdic-ktb-seal . #x033C)	; &R-CHISE-HDIC-KTBS033C;
+    ))
+(define-char
   '((shuowen-radical	. 3)	; 示
+    (=>shuowen-jiguge	. 00503)	; &A-SW-JIGUGE-00503;
+    (<-Small-Seal
+     ((=ucs		  . #x7982)	; 禂
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>shuowen-jiguge	  . 00503)	; &A-SW-JIGUGE-00503;
+      ))
+    (shuowen-radical	. 3)	; 示
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -1240,6 +2309,14 @@
       )
      ((===shuowen-jiguge4 . 00503)	; &SW-JIGUGE4-00503;
       ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>shuowen-jiguge	  . 00503)	; &A-SW-JIGUGE-00503;
+      ))
+    (shuowen-radical	. 3)	; 示
+    (=hdic-ktb-seal-glyph-id . T1_019_B22)
+    (===chise-hdic-ktb-seal . #x0346)	; &R-CHISE-HDIC-KTBS0346;
     ))
 (define-char
   '((shuowen-radical	. 3)	; 示
@@ -1275,10 +2352,23 @@
      ((===shuowen-jiguge5 . 00505)	; &SW-JIGUGE5-00505;
       )
      ((===shuowen-jiguge4 . 00505)	; &SW-JIGUGE4-00505;
+      )
+     ((=hdic-ktb-seal-glyph-id . T1_019_A42)
+      (===chise-hdic-ktb-seal . #x033D)	; &R-CHISE-HDIC-KTBS033D;
       ))
     ))
 (define-char
   '((shuowen-radical	. 3)	; 示
+    (=>shuowen-jiguge	. 00506)	; &A-SW-JIGUGE-00506;
+    (<-Small-Seal
+     ((=ucs		  . #x2566D)	; 𥙭
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>shuowen-jiguge	  . 00506)	; &A-SW-JIGUGE-00506;
+      ))
+    (shuowen-radical	. 3)	; 示
     (=shuowen-jiguge	. 00506)	; &SW-JIGUGE-00506;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x2566D)	; 𥙭
@@ -1295,7 +2385,28 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=>shuowen-jiguge	  . 00506)	; &A-SW-JIGUGE-00506;
+      ))
+    (shuowen-radical	. 3)	; 示
+    (=hdic-ktb-seal-glyph-id . T1_019_A42_2)
+    (===chise-hdic-ktb-seal . #x033E)	; &R-CHISE-HDIC-KTBS033E;
+    (<-Small-Seal@tenrei-bansho-meigi/chise
+     ((=ucs		  . #x2566D)	; 𥙭
+      ))
+    ))
+(define-char
   '((shuowen-radical	. 3)	; 示
+    (=>shuowen-jiguge	. 00507)	; &A-SW-JIGUGE-00507;
+    (<-Small-Seal
+     ((=ucs		  . #x7993)	; 禓
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>shuowen-jiguge	  . 00507)	; &A-SW-JIGUGE-00507;
+      ))
+    (shuowen-radical	. 3)	; 示
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -1315,7 +2426,27 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=>shuowen-jiguge	  . 00507)	; &A-SW-JIGUGE-00507;
+      ))
+    (shuowen-radical	. 3)	; 示
+    (=hdic-ktb-seal-glyph-id . T1_019_B42)
+    (===chise-hdic-ktb-seal . #x034A)	; &R-CHISE-HDIC-KTBS034A;
+    ))
+(define-char
   '((shuowen-radical	. 3)	; 示
+    (=>shuowen-jiguge	. 00508)	; &A-SW-JIGUGE-00508;
+    (<-Small-Seal
+     ((=ucs		  . #x256C6)	; 𥛆
+      )
+     ((=ucs		  . #x7972)	; 祲
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>shuowen-jiguge	  . 00508)	; &A-SW-JIGUGE-00508;
+      ))
+    (shuowen-radical	. 3)	; 示
     (=shuowen-jiguge	. 00508)	; &SW-JIGUGE-00508;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x256C6)	; 𥛆
@@ -1329,7 +2460,25 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=>shuowen-jiguge	  . 00508)	; &A-SW-JIGUGE-00508;
+      ))
+    (shuowen-radical	. 3)	; 示
+    (=hdic-ktb-seal-glyph-id . T1_019_B51)
+    (===chise-hdic-ktb-seal . #x034B)	; &R-CHISE-HDIC-KTBS034B;
+    ))
+(define-char
   '((shuowen-radical	. 3)	; 示
+    (=>shuowen-jiguge	. 00509)	; &A-SW-JIGUGE-00509;
+    (<-Small-Seal
+     ((=ucs		  . #x798D)	; 禍
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>shuowen-jiguge	  . 00509)	; &A-SW-JIGUGE-00509;
+      ))
+    (shuowen-radical	. 3)	; 示
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -1349,6 +2498,14 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=>shuowen-jiguge	  . 00509)	; &A-SW-JIGUGE-00509;
+      ))
+    (shuowen-radical	. 3)	; 示
+    (=hdic-ktb-seal-glyph-id . T1_019_B61)
+    (===chise-hdic-ktb-seal . #x034D)	; &R-CHISE-HDIC-KTBS034D;
+    ))
+(define-char
   '((shuowen-radical	. 3)	; 示
     (=shuowen-jiguge	. 00510)	; &SW-JIGUGE-00510;
     (<-Small-Seal@shuowen
@@ -1358,6 +2515,9 @@
      ((===shuowen-jiguge5 . 00510)	; &SW-JIGUGE5-00510;
       )
      ((===shuowen-jiguge4 . 00510)	; &SW-JIGUGE4-00510;
+      )
+     ((=hdic-ktb-seal-glyph-id . T1_019_B62)
+      (===chise-hdic-ktb-seal . #x034E)	; &R-CHISE-HDIC-KTBS034E;
       ))
     ))
 (define-char
@@ -1374,6 +2534,16 @@
     ))
 (define-char
   '((shuowen-radical	. 3)	; 示
+    (=>shuowen-jiguge	. 00512)	; &A-SW-JIGUGE-00512;
+    (<-Small-Seal
+     ((=ucs		  . #x410F)	; 䄏
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>shuowen-jiguge	  . 00512)	; &A-SW-JIGUGE-00512;
+      ))
+    (shuowen-radical	. 3)	; 示
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -1393,6 +2563,14 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=>shuowen-jiguge	  . 00512)	; &A-SW-JIGUGE-00512;
+      ))
+    (shuowen-radical	. 3)	; 示
+    (=hdic-ktb-seal-glyph-id . T1_020_A22)
+    (===chise-hdic-ktb-seal . #x0352)	; &R-CHISE-HDIC-KTBS0352;
+    ))
+(define-char
   '((shuowen-radical	. 3)	; 示
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -1410,10 +2588,23 @@
      ((===shuowen-jiguge5 . 00513)	; &SW-JIGUGE5-00513;
       )
      ((===shuowen-jiguge4 . 00513)	; &SW-JIGUGE4-00513;
+      )
+     ((=hdic-ktb-seal-glyph-id . T1_020_B61)
+      (===chise-hdic-ktb-seal . #x0365)	; &R-CHISE-HDIC-KTBS0365;
       ))
     ))
 (define-char
   '((shuowen-radical	. 3)	; 示
+    (=>shuowen-jiguge	. 00514)	; &A-SW-JIGUGE-00514;
+    (<-Small-Seal
+     ((=ucs		  . #x7981)	; 禁
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>shuowen-jiguge	  . 00514)	; &A-SW-JIGUGE-00514;
+      ))
+    (shuowen-radical	. 3)	; 示
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
@@ -1433,7 +2624,29 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=>shuowen-jiguge	  . 00514)	; &A-SW-JIGUGE-00514;
+      ))
+    (shuowen-radical	. 3)	; 示
+    (=hdic-ktb-seal-glyph-id . T1_020_A21)
+    (===chise-hdic-ktb-seal . #x0351)	; &R-CHISE-HDIC-KTBS0351;
+    ))
+(define-char
   '((shuowen-radical	. 3)	; 示
+    (=>shuowen-jiguge	. 00515)	; &A-SW-JIGUGE-00515;
+    (<-Small-Seal
+     ((=ucs		  . #x25738)	; 𥜸
+      )
+     ((=ucs		  . #x2572F)	; 𥜯
+      )
+     ((=ucs		  . #x79AB)	; 禫
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>shuowen-jiguge	  . 00515)	; &A-SW-JIGUGE-00515;
+      ))
+    (shuowen-radical	. 3)	; 示
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -1457,7 +2670,27 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=>shuowen-jiguge	  . 00515)	; &A-SW-JIGUGE-00515;
+      ))
+    (shuowen-radical	. 3)	; 示
+    (=hdic-ktb-seal-glyph-id . T1_020_A31)
+    (===chise-hdic-ktb-seal . #x0353)	; &R-CHISE-HDIC-KTBS0353;
+    ))
+(define-char
   '((shuowen-radical	. 3)	; 示
+    (=>shuowen-jiguge	. 00516)	; &A-SW-JIGUGE-00516;
+    (<-Small-Seal
+     ((=ucs		  . #x79B0)	; 禰
+      )
+     ((=ucs		  . #x7962)	; 祢
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>shuowen-jiguge	  . 00516)	; &A-SW-JIGUGE-00516;
+      ))
+    (shuowen-radical	. 3)	; 示
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -1479,7 +2712,25 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=>shuowen-jiguge	  . 00516)	; &A-SW-JIGUGE-00516;
+      ))
+    (shuowen-radical	. 3)	; 示
+    (=hdic-ktb-seal-glyph-id . T1_018_A52)
+    (===chise-hdic-ktb-seal . #x0324)	; &R-CHISE-HDIC-KTBS0324;
+    ))
+(define-char
   '((shuowen-radical	. 3)	; 示
+    (=>shuowen-jiguge	. 00517)	; &A-SW-JIGUGE-00517;
+    (<-Small-Seal
+     ((=ucs		  . #x7967)	; 祧
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>shuowen-jiguge	  . 00517)	; &A-SW-JIGUGE-00517;
+      ))
+    (shuowen-radical	. 3)	; 示
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -1497,6 +2748,14 @@
       )
      ((===shuowen-jiguge4 . 00517)	; &SW-JIGUGE4-00517;
       ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>shuowen-jiguge	  . 00517)	; &A-SW-JIGUGE-00517;
+      ))
+    (shuowen-radical	. 3)	; 示
+    (=hdic-ktb-seal-glyph-id . T1_019_B32)
+    (===chise-hdic-ktb-seal . #x0348)	; &R-CHISE-HDIC-KTBS0348;
     ))
 (define-char
   '((shuowen-radical	. 3)	; 示
@@ -1520,6 +2779,16 @@
     ))
 (define-char
   '((shuowen-radical	. 3)	; 示
+    (=>shuowen-jiguge	. 00519)	; &A-SW-JIGUGE-00519;
+    (<-Small-Seal
+     ((=ucs		  . #x795A)	; 祚
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>shuowen-jiguge	  . 00519)	; &A-SW-JIGUGE-00519;
+      ))
+    (shuowen-radical	. 3)	; 示
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -1537,4 +2806,12 @@
       )
      ((===shuowen-jiguge4 . 00519)	; &SW-JIGUGE4-00519;
       ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>shuowen-jiguge	  . 00519)	; &A-SW-JIGUGE-00519;
+      ))
+    (shuowen-radical	. 3)	; 示
+    (=hdic-ktb-seal-glyph-id . T1_019_A52)
+    (===chise-hdic-ktb-seal . #x0340)	; &R-CHISE-HDIC-KTBS0340;
     ))

@@ -239,6 +239,38 @@
     (ideographic-strokes . 1)
     (total-strokes	 . 4)
     (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>ucs@component	  . #x5902)	; &A-compU+5902;
+      (=>iwds-1		  .  19492)	; &A-compU+5902;
+      )
+     ((=ucs		  . #x4E00)	; 一
+      ))
+    (=>ucs-itaiji-002	. #x5905)	; &A-U-i002+5905;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs-itaiji-002	  . #x5905)	; &A-U-i002+5905;
+      ))
+    (ideographic-radical . 34)	; ⼡
+    (ideographic-strokes . 1)
+    (total-strokes	 . 4)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5902)	; 夂
+      )
+     ((=ucs		  . #x4E00)	; 一
+      ))
+    (=ucs-itaiji-002	. #x5905)	; &U-i002+5905;
+    ))
+(define-char
+  '((ideographic-radical . 34)	; ⼡
+    (ideographic-strokes . 1)
+    (total-strokes	 . 4)
+    (ideographic-structure
      ((name		  . "IDEOGRAPHIC DESCRIPTION CHARACTER OVERLAID")
       (=ucs		  . #x2FFB)	; ⿻
       )
@@ -1149,17 +1181,34 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
     (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
-      (=ucs		  . #x2FF3)	; ⿳
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=ucs		  . #x5902)	; 夂
-      )
-     ((=ucs		  . #x4E00)	; 一
+     ((=>ucs-itaiji-002	  . #x5905)	; &A-U-i002+5905;
       )
      ((=ucs		  . #x751F)	; 生
       ))
+    (sound@ja/on/go	"ryu")
+    (sound@ja/on/kan	"ryuu")
     (=ucs		. #x3685)	; 㚅
-    (=cns11643-3	. #x2B78)	; &I-C3-2B78; [11-88]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x3685)	; 㚅
+      ))
+    (ideographic-radical . 34)	; ⼡
+    (ideographic-strokes . 6)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs-itaiji-002	  . #x5905)	; &U-i002+5905;
+      )
+     ((=ucs		  . #x751F)	; 生
+      ))
+    (=ucs@unicode	. #x3685)	; &HD-IA-2D6B;
+    (=cns11643-3	. #x2B78)	; &HD-IA-2D6B; [11-88]
     (=big5-cdp		. #x8DAF)	; &I-CDP-8DAF;
     (=hanyo-denshi/ia	. #x2D6B)	; &I-HD-IA-2D6B; [13-75]
     (=daikanwa		. 05701)	; &I-M-05701;
