@@ -1,3 +1,8 @@
+2022-09-13  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R005-Second.el (U-000200DE): Add `<-ancient' for
+	U-00025728, U-0002572A and U+79AE.
+
 2022-09-10  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* ShuoWen-SR537.el (A-SW-JIGUGE-51824): New abstract node.
