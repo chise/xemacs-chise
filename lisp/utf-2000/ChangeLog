@@ -12,6 +12,16 @@
 	* Ideograph-R005-Second.el (U-000200DE): Add `<-ancient' for
 	U-00025728, U-0002572A and U+79AE.
 
+2022-09-11  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R074-Moon.el (U-0002B785): New character.
+	(U-0002B786): New character.
+	(U-0002B787): New character.
+
+2022-09-11  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R032-Earth.el (U-0002B75F): New character.
+
 2022-09-10  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* ShuoWen-SR537.el (A-SW-JIGUGE-51824): New abstract node.
