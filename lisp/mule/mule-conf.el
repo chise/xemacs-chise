@@ -5857,6 +5857,17 @@
 		  min-code #x2E00
 		  max-code #x9FCC
 		  registry "ucs\\.itaiji005-0"))
+  (make-charset '==ucs-sip-itaiji-005
+		"uXXXX-itaiji-005's abstract glyph-forms in SIP"
+		'(long-name	"UCS-SIP-itaiji-005"
+		  chars		256
+		  dimension	2
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  mother	==ucs-itaiji-005
+		  min-code #x20000 max-code #x2FFFF
+		  registry "ucs00\\.itaiji005-2"))
 
   (make-charset '=ucs-itaiji-006
 		"uXXXX-itaiji-006 glyphs of GlyphWiki"
@@ -6902,7 +6913,7 @@
 	       direction l2r
 	       registry "\\(iso10646\\|ucs00\\)-3$"
 	       mother ucs
-	       min-code #x30000 max-code #x3134A
+	       min-code #x30000 max-code #x323AF
 	       code-offset #x30000))
   (make-charset
    '=ucs-tip@JP/hanazono
@@ -6915,7 +6926,7 @@
 	       direction l2r
 	       registry "ucs00-3$"
 	       mother =ucs@JP/hanazono
-	       min-code #x30000 max-code #x3134A
+	       min-code #x30000 max-code #x323AF
 	       code-offset #x30000))
   (make-charset
    '=>ucs-sip@iwds-1
@@ -6980,7 +6991,7 @@
 	       direction l2r
 	       registry "ucs00-3$"
 	       mother =>ucs@component
-	       min-code #x30000 max-code #x3134A
+	       min-code #x30000 max-code #x323AF
 	       code-offset #x30000))
   (make-charset
    '==>ucs-sip@esu
@@ -7044,7 +7055,7 @@
 	       direction l2r
 	       registry "ucs00-3$"
 	       mother ==ucs@JP/hanazono
-	       min-code #x30000 max-code #x3134A
+	       min-code #x30000 max-code #x323AF
 	       code-offset #x30000))
   (make-charset
    '===ucs-sip@iso
