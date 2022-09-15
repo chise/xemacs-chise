@@ -1,5 +1,8 @@
 2022-09-13  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R004-Slash.el (A-GT-K00146): Unify U-0003002A and
+	o-BC-89A6.
+
 	* Ideograph-R001-One.el (U-0002CEC6): New character; use
 	`<-denotational' for A-cgnU+2DD1A.
 	(A-U+2CEC6-itaiji-001): New abstract node; use `<-denotational'
