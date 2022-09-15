@@ -1,3 +1,17 @@
+2022-09-15  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R010-Legs.el (U-00020926): Use
+	`ideographic-structure@apparent' instead of
+	`ideographic-structure'.
+	(IU+20926): Ditto.
+
+2022-09-14  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R016-Table.el (U+51E8): Apply new conventions for
+	glyph granularity.
+	(U+51EC): Likewise.
+	(U+51EE): Likewise.
+
 2022-09-13  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R004-Slash.el (A-GT-K00146): Unify U-0003002A and
