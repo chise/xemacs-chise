@@ -1,3 +1,15 @@
+2022-09-15  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-conf.el (==ucs-sip-itaiji-005): New coded-charset for
+	XEmacs CHISE.
+	(=ucs-tip): Update `max-code' to sync with Ext-H of Unicode 15.0.
+	(=ucs-tip@JP/hanazono): Likewise.
+	(=>ucs-tip@component): Likewise.
+	(==ucs-tip@JP/hanazono): Likewise.
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`==ucs-sip-itaiji-005'.
+
 2022-06-16  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
