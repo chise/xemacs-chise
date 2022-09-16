@@ -1,11 +1,18 @@
 2022-09-15  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R001-One.el (GT-K00774): New character.
+	(U+2CEC6-itaiji-001): Add `ideographic-structure'.
+
 	* Ideograph-R010-Legs.el (U-00020926): Use
 	`ideographic-structure@apparent' instead of
 	`ideographic-structure'.
 	(IU+20926): Ditto.
 
 2022-09-14  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R021-Spoon.el (U-00020925): Use
+	`ideographic-structure@apparent' instead of
+	`ideographic-structure'.
 
 	* Ideograph-R016-Table.el (U+51E8): Apply new conventions for
 	glyph granularity.
