@@ -1,3 +1,11 @@
+2022-09-16  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R008-Lid.el (A-BC-8BEC): New abstract node; unify
+	A-GT-K02306.
+	(GT-K02306): New character; use `<-denotational' for A-BC-8BEC.
+	(BC-8BEC): New character; use `<-denotational' for A-BC-8BEC;
+	unify GT-K02309.
+
 2022-09-15  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R001-One.el (GT-K00774): New character.

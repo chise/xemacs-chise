@@ -469,6 +469,21 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
+     ((=big5-cdp	  . #x8BAE)	; &CDP-8BAE;
+      )
+     ((=>ucs@component	  . #x5182)	; &A-compU+5182;
+      ))
+    (=>big5-cdp		. #x8BEC)	; &A-GT-K02306;
+    (=>gt-k		. 02306)	; &A-GT-K02306;
+    ))
+(define-char
+  '((ideographic-radical . 8)	; ⼇
+    (ideographic-strokes . 2)
+    (total-strokes	 . 4)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
      ((=ucs		  . #x4EA0)	; 亠
       )
      ((=ucs		  . #x4E86)	; 了
@@ -478,6 +493,53 @@
     (->subsumptive
      ((==gt-k		  . 00823)	; &g2-GT-K00823;
       (==gt-pj-k1	  . #x3E52)	; &g2-GT-K00823; [30-50]
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>big5-cdp	  . #x8BEC)	; &A-GT-K02306;
+      ))
+    (ideographic-radical . 8)	; ⼇
+    (ideographic-strokes . 2)
+    (total-strokes	 . 4)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=big5-cdp	  . #x8BAE)	; &CDP-8BAE;
+      )
+     ((=ucs		  . #x5182)	; 冂
+      ))
+    (=gt-k		. 02306)	; &GT-K02306;
+    (=gt-pj-k1		. #x372E)	; &GT-K02306; [23-14]
+    (->subsumptive
+     ((==gt-k		  . 02306)	; &g2-GT-K02306;
+      (==gt-pj-k1	  . #x372E)	; &g2-GT-K02306; [23-14]
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>big5-cdp	  . #x8BEC)	; &A-GT-K02306;
+      ))
+    (ideographic-radical . 8)	; ⼇
+    (ideographic-strokes . 2)
+    (total-strokes	 . 4)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=big5-cdp	  . #x8BAE)	; &CDP-8BAE;
+      )
+     ((=ucs		  . #x5196)	; 冖
+      ))
+    (=big5-cdp		. #x8BEC)	; &CDP-8BEC;
+    (=gt-k		. 02309)	; &I-GT-K02309;
+    (=gt-pj-k1		. #x323B)	; &CDP-8BEC; [18-27]
+    (->subsumptive
+     ((==big5-cdp	  . #x8BEC)	; &g2-CDP-8BEC;
+      )
+     ((==gt-k		  . 02309)	; &g2-GT-K02309;
+      (==gt-pj-k1	  . #x323B)	; &g2-GT-K02309; [18-27]
       ))
     ))
 (define-char
