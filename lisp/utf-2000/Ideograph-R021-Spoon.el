@@ -2807,7 +2807,7 @@
     ))
 (define-char
   '((ideographic-radical . 21)	; ⼔
-    (ideographic-structure
+    (ideographic-structure@apparent
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
       (=ucs		  . #x2FF3)	; ⿳
       )

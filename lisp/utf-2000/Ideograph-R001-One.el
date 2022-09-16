@@ -3252,6 +3252,33 @@
     (=gt-pj-k1		. #x3E29)	; &GT-K00616; [30-09]
     ))
 (define-char
+  '((ideographic-radical . 1)	; ⼀
+    (ideographic-strokes . 3)
+    (total-strokes	 . 4)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x4E00)	; 一
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=big5-cdp	    . #x87C8)	; &CDP-87C8;
+	)
+       ((name		    . "CJK RADICAL SECOND THREE")
+	(=ucs		    . #x2E84)	; ⺄
+	))
+      ))
+    (=gt-k		. 00774)	; &GT-K00774;
+    (=gt-pj-k1		. #x392C)	; &GT-K00774; [25-12]
+    (->subsumptive
+     ((==gt-k		  . 00774)	; &g2-GT-K00774;
+      (==gt-pj-k1	  . #x392C)	; &g2-GT-K00774; [25-12]
+      ))
+    ))
+(define-char
   '((<-denotational
      ((=>big5-cdp	  . #x89C4)	; &A-CDP-89C4;
       ))
@@ -6085,6 +6112,28 @@
     (ideographic-radical . 1)	; ⼀
     (ideographic-strokes . 5)
     (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
+      (=ucs		  . #x2FF9)	; ⿹
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((ideographic-structure
+	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
+	  (=ucs		      . #x2FFA)	; ⿺
+	  )
+	 ((=ucs		      . #x200CB)	; 𠃋
+	  )
+	 ((=ucs		      . #x4E36)	; 丶
+	  ))
+	)
+       ((=big5-cdp	    . #x8BBF)	; &CDP-8BBF;
+	))
+      )
+     ((=ucs		  . #x4E00)	; 一
+      ))
     (=ucs-itaiji-001	. #x2CEC6)	; &U-i001+2CEC6;
     ))
 (define-char
