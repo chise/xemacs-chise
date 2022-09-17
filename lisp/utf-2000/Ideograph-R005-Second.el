@@ -1270,7 +1270,10 @@
       ))
     ))
 (define-char
-  '((ideographic-radical@ucs . 5)	; ⼄
+  '((<-denotational@component
+     ((=>ucs@component	  . #x2CF17)	; &A-compU+2CF17;
+      ))
+    (ideographic-radical@ucs . 5)	; ⼄
     (ideographic-radical@gt . 4)	; ⼃
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
@@ -1737,18 +1740,6 @@
     (->subsumptive
      ((==ucs@JP/hanazono  . #x2CF17)	; &g2-MJ056864;
       (==mj		  . 056864)	; &g2-MJ056864;
-      ))
-    ))
-(define-char
-  '((<-denotational
-     ((=ucs		  . #x2CF17)	; 𬼗
-      ))
-    (ideographic-radical . 5)	; ⼄
-    (ideographic-strokes . 3)
-    (total-strokes	 . 4)
-    (=big5-cdp		. #x89CA)	; &CDP-89CA;
-    (<-formed@flipped-horizontally
-     ((=ucs		  . #x5200)	; 刀
       ))
     ))
 (define-char
@@ -3976,8 +3967,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=ucs@unicode	  . #x5F50)	; &G0-6566;
-      (=gb2312		  . #x6566)	; &G0-6566; [69-70]
+     ((=ucs		  . #x2B739)	; 𫜹
       )
      ((=ucs		  . #x30004)	; 𰀄
       ))
@@ -6266,6 +6256,11 @@
 (define-char
   '((ideographic-radical . 5)	; ⼄
     (==>daijiten	. 00109)	; &A2-DJT-00109;
+    ))
+(define-char
+  '((ideographic-radical@ucs . 5)	; ⼄
+    (ideographic-radical@gt . 4)	; ⼃
+    (=>ucs@component	. #x2CF17)	; &A-compU+2CF17;
     ))
 (define-char
   '((ideographic-radical . 5)	; ⼄
