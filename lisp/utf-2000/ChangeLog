@@ -1,5 +1,15 @@
 2022-09-16  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R004-Slash.el (U-0002CF17): Add
+	`<-denotational@component' for A-compU+2CF17.
+	(U-00031378): New character; use `<-denotational@component' for
+	A-compU+2CF17.
+	(hanaJU+31378): New character; unify GT-K00319.
+	(BC-89CA): Moved from Ideograph-R005-Second.el; use U-00031378
+	instead of U-0002CF17 as its mother.
+	(U-0003137A): New character.
+	(A-compU+2CF17): New abstract node.
+
 	* Ideograph-R008-Lid.el (A-BC-8BEC): New abstract node; unify
 	A-GT-K02306.
 	(GT-K02306): New character; use `<-denotational' for A-BC-8BEC.
@@ -15,6 +25,10 @@
 	`ideographic-structure@apparent' instead of
 	`ideographic-structure'.
 	(IU+20926): Ditto.
+
+2022-09-14  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R073-Say.el (U-0002333A): New character.
 
 2022-09-14  MORIOKA Tomohiko  <tomo.git@chise.org>
 
