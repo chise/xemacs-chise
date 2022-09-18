@@ -1332,6 +1332,15 @@
     ))
 (define-char
   '((ideographic-radical . 14)	; ⼍
+    (ideographic-strokes . 6)
+    (total-strokes	 . 8)
+    (=big5-cdp		. #x8A49)	; &CDP-8A49;
+    (<-simplified@component
+     ((=big5-cdp	  . #x8DE8)	; &CDP-8DE8;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 14)	; ⼍
     (ideographic-strokes . 7)
     (total-strokes	 . 9)
     (hanyu-dazidian	1 304 3)
@@ -1561,6 +1570,12 @@
     (->subsumptive
      ((==ucs@iso	  . #x20587)	; &g2-IU-00020587;
       ))
+    ))
+(define-char
+  '((ideographic-radical . 14)	; ⼍
+    (ideographic-strokes . 7)
+    (total-strokes	 . 9)
+    (=big5-cdp		. #x8DE8)	; &CDP-8DE8;
     ))
 (define-char
   '((<-denotational@usage

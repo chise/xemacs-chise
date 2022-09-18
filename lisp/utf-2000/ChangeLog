@@ -1,3 +1,14 @@
+2022-09-17  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R014-Cover.el (BC-8A49): New character.
+	(BC-8DE8): New character.
+
+	* Ideograph-R005-Second.el (U-0002CF17): Add
+	`<-denotational@component' for A-compU+2CF17.
+	(BC-89CA): Moved to Ideograph-R004-Slash.el; use U-00031378
+	instead of U-0002CF17 as its mother.
+	(A-compU+2CF17): New abstract node.
+
 2022-09-16  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R004-Slash.el (U-0002CF17): Add
