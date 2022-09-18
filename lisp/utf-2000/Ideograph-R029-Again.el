@@ -1634,6 +1634,38 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
+     ((=>ucs@component	  . #x4E37)	; &A-compU+4E37;
+      (=>iwds-1		  .  0022)	; &A-compU+4E37;
+      )
+     ((=ucs		  . #x53C8)	; 又
+      ))
+    (=ucs		. #x20B20)	; 𠬠
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x20B20)	; 𠬠
+      ))
+    (ideographic-radical . 29)	; ⼜
+    (ideographic-strokes . 2)
+    (total-strokes	 . 4)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x4E37)	; 丷
+      )
+     ((=ucs		  . #x53C8)	; 又
+      ))
+    (=ucs@iso		. #x20B20)	; &U-00020B20;
+    ))
+(define-char
+  '((ideographic-radical . 29)	; ⼜
+    (ideographic-strokes . 2)
+    (total-strokes	 . 4)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
      ((=ucs		  . #x53C8)	; 又
       )
      ((=ucs		  . #x20006)	; 𠀆
@@ -1677,8 +1709,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=ucs@unicode	  . #x5F50)	; &G0-6566;
-      (=gb2312		  . #x6566)	; &G0-6566; [69-70]
+     ((=ucs		  . #x2B739)	; 𫜹
       )
      ((=ucs		  . #x53C8)	; 又
       ))
@@ -2963,8 +2994,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
       (=ucs		  . #x2FF3)	; ⿳
       )
-     ((=ucs@unicode	  . #x5F50)	; &G0-6566;
-      (=gb2312		  . #x6566)	; &G0-6566; [69-70]
+     ((=ucs		  . #x2B739)	; 𫜹
       )
      ((=ucs		  . #x5196)	; 冖
       )
