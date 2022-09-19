@@ -778,6 +778,21 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
 	(=ucs		    . #x2FF5)	; ⿵
 	)
+       ((=big5-cdp	    . #x8BC0)	; &CDP-8BC0;
+	)
+       ((=big5-cdp	    . #x8BC0)	; &CDP-8BC0;
+	))
+      (=gt-k		  . 00887)	; &GT-K00887;
+      (=gt-pj-k1	  . #x395C)	; &GT-K00887; [25-60]
+      (->subsumptive
+       ((==gt-k		    . 00887)	; &g2-GT-K00887;
+	(==gt-pj-k1	    . #x395C)	; &g2-GT-K00887; [25-60]
+	))
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
+	(=ucs		    . #x2FF5)	; ⿵
+	)
        ((=ucs		    . #x5182)	; 冂
 	)
        ((=ucs		    . #x5369)	; 卩
