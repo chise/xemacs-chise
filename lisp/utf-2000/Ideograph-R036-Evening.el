@@ -706,7 +706,8 @@
       )
      ((=gt-k		  . 00369)	; &GT-K00369;
       )
-     ((=big5-cdp	  . #x8B5E)	; &CDP-8B5E;
+     ((=ucs@JP/hanazono	  . #x31F00)	; &CDP-8B5E;
+      (=big5-cdp	  . #x8B5E)	; &CDP-8B5E;
       ))
     (=ucs-itaiji-001	. #x5919)	; &U-i001+5919;
     (->subsumptive

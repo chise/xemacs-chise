@@ -332,7 +332,14 @@
        ((==big5-cdp	    . #x8968)	; &g2-CDP-8968;
 	))
       )
-     ((=big5-cdp-var-001  . #x8BEA)	; &CDP-v001-8BEA;
+     ((ideographic-structure@apparent
+       ((=ucs-itaiji-001    . #x2FF6)	; &U-i001+2FF6;
+	)
+       ((=ucs		    . #x4E3F)	; 丿
+	)
+       ((=ucs		    . #x4E36)	; 丶
+	))
+      (=big5-cdp-var-001  . #x8BEA)	; &CDP-v001-8BEA;
       ))
     ))
 (define-char
@@ -2409,8 +2416,7 @@
      ((name		  . "CJK RADICAL KNIFE ONE")
       (=ucs		  . #x2E88)	; ⺈
       )
-     ((=ucs@unicode	  . #x5F50)	; &G0-6566;
-      (=gb2312		  . #x6566)	; &G0-6566; [69-70]
+     ((=ucs		  . #x2B739)	; 𫜹
       ))
     (=ucs@unicode	. #x520D)	; &G0-5B3B;
     (=gb2312		. #x5B3B)	; &G0-5B3B; [59-27]
