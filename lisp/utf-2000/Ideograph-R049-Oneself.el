@@ -271,6 +271,15 @@
     (=shinjigen		.  2071)	; 巴
     ))
 (define-char
+  '((ideographic-radical . 49)	; ⼰
+    (ideographic-strokes . 1)
+    (total-strokes	 . 4)
+    (=ucs		. #x22033)	; 𢀳
+    (->subsumptive
+     ((==ucs@iso	  . #x22033)	; &g2-IU-00022033;
+      ))
+    ))
+(define-char
   '((<-denotational
      ((=>ucs@iwds-1	  . #x5384)	; &A-IWDSU+5384;
       (=>ucs@iwds-1/normalized . #x5384)	; &A-IWDSU+5384;
