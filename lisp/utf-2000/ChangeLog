@@ -1,5 +1,14 @@
 2022-09-19  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R017-Open-Box.el (U+51FC): Add `<-denotational@usage'
+	for BUCS+51FC; apply new conventions for glyph granularity.
+	(A-U+26952-itaiji-003): New abstract node.
+	(U+26952-itaiji-003): New character; use `<-denotational' for
+	A-U+26952-itaiji-003.
+	(BUCS+51FC): New abstract node.
+
+2022-09-19  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R048-Work.el (A-U+5DE9-itaiji-002): New abstract node;
 	use `<-denotational' for U+5DE9.
 	(U+5DE9-itaiji-002): New character; use `<-denotational' for
