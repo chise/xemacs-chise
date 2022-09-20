@@ -6942,6 +6942,19 @@
 	       min-code #x20000 max-code #x2FFFF
 	       code-offset #x20000))
   (make-charset
+   '=>ucs-tip@iwds-1
+   "CJK Characters in TIP based on IWDS-1."
+   '(long-name "CJK in TIP@IWDS-1"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       registry "ucs00-3$"
+	       mother =>ucs@iwds-1
+	       min-code #x30000 max-code #x323AF
+	       code-offset #x30000))
+  (make-charset
    '=>ucs-sip@cognate
    "CJK Characters in SIP for abstract characters based on cognate."
    '(long-name "CJK in SIP@cognate"
