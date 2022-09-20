@@ -2255,6 +2255,21 @@
     ))
 (define-char
   '((ideographic-radical . 4)	; ⼃
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x4E3F)	; 丿
+      )
+     ((=ucs		  . #x3193B)	; 𱤻
+      ))
+    (=ucs		. #x2009C)	; 𠂜
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2009C)	; 𠂜
+      ))
+    (ideographic-radical . 4)	; ⼃
     (ideographic-strokes . 3)
     (total-strokes	 . 4)
     (hanyu-dazidian	1 36 3)
@@ -2264,14 +2279,31 @@
       )
      ((=ucs		  . #x4E3F)	; 丿
       )
-     ((=big5-cdp	  . #x88B1)	; &CDP-88B1;
+     ((=ucs@JP/hanazono	  . #x3193B)	; &CDP-88B1;
+      (=big5-cdp	  . #x88B1)	; &CDP-88B1;
       ))
-    (=ucs		. #x2009C)	; 𠂜
-    (=cns11643-6	. #x2145)	; &I-C6-2145; [01-37]
+    (=ucs@iso		. #x2009C)	; &GT-00174;
+    (=cns11643-6	. #x2145)	; &GT-00174; [01-37]
     (=gt		. 00174)	; &I-GT-00174;
     (=gt-pj-2		. #x3124)	; &I-GT-00174; [17-04]
     (=daikanwa		. 00127)	; &I-M-00127;
-    (=hanziku-1		. #xAB77)	; &I-HZK01-AB77;
+    (->subsumptive
+     ((==ucs@iso	  . #x2009C)	; &g2-GT-00174;
+      (==cns11643-6	  . #x2145)	; &g2-GT-00174; [01-37]
+      (==gt		  . 00174)	; &g2-GT-00174;
+      (==daikanwa	  . 00127)	; &g2-GT-00174;
+      (->subsumptive
+       ((===daikanwa	    . 00127)	; &R-M-00127;
+	)
+       ((===cns11643-6	    . #x2145)	; &R-C6-2145; [01-37]
+	)
+       ((===gt		    . 00174)	; &R-GT-00174;
+	)
+       ((===ucs@iso	    . #x2009C)	; &R-U-0002009C;
+	))
+      )
+     ((=hanziku-1	  . #xAB77)	; &HZK01-AB77;
+      ))
     ))
 (define-char
   '((ideographic-radical . 4)	; ⼃
