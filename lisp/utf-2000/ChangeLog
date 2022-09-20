@@ -1,3 +1,31 @@
+2022-09-19  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R048-Work.el (A-U+5DE9-itaiji-002): New abstract node;
+	use `<-denotational' for U+5DE9.
+	(U+5DE9-itaiji-002): New character; use `<-denotational' for
+	A-U+5DE9-itaiji-002.
+
+	* Ideograph-R013-Down-Box.el (GT-K00887): New character; use
+	`<-subsumptive' for U-0002053D.
+
+	* Ideograph-R012-Eight.el (BC-8BCB-itaiji-001): New character; use
+	`<-denotational' for A-BC-8BCB.
+	(A-U+5173-itaiji-002): New abstract node; use `<-denotational' for
+	A-IWDSU+5173.
+	(U+5173-itaiji-002): New character; use `<-denotational' for
+	A-U+5173-itaiji-002.
+
+	* Ideograph-R077-Stop.el (U+3C4F): Add `<-ancient' for U+6B63.
+	(U+6B64): Add `<-denotational@usage' for BUCS+6B64.
+	(UU+6B64): Unify DJT-05644.
+	(U-00023954): Apply new conventions for glyph granularity.
+	(BUCS+6B64): New abstract node; unify A2-DJT-05644.
+
+2022-09-18  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R060-Step.el (MJ035919): Add `ideographic-structure'.
+	(IU+2256C): Add `ideographic-structure'.
+
 2022-09-18  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R050-Turban.el (A-U+22053-itaiji-005): New abstract

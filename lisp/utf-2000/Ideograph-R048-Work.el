@@ -919,6 +919,23 @@
      ((=ucs		  . #x5DE9)	; 巩
       ))
     (ideographic-radical . 48)	; ⼯
+    (ideographic-strokes . 3)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5DE5)	; 工
+      )
+     ((=ucs		  . #x4E38)	; 丸
+      ))
+    (=>ucs-itaiji-002	. #x5DE9)	; &A-U-i002+5DE9;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5DE9)	; 巩
+      ))
+    (ideographic-radical . 48)	; ⼯
     (ideographic-strokes . 2)
     (total-strokes	 . 5)
     (ideographic-structure
@@ -934,6 +951,24 @@
     (->subsumptive
      ((==ucs-var-001	  . #x5DE9)	; &g2-U-v001+5DE9;
       ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs-itaiji-002	  . #x5DE9)	; &A-U-i002+5DE9;
+      ))
+    (ideographic-radical . 48)	; ⼯
+    (ideographic-strokes . 3)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs@unicode	  . #x5DE5)	; &AJ1-01979;
+      (=adobe-japan1-0	  . 01979)	; &AJ1-01979;
+      )
+     ((=ucs		  . #x2F801)	; 丸
+      ))
+    (=ucs-itaiji-002	. #x5DE9)	; &U-i002+5DE9;
     ))
 (define-char
   '((<-denotational
