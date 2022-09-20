@@ -1,5 +1,32 @@
 2022-09-19  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R049-Oneself.el (U-00022033): New character.
+
+	* Ideograph-R041-Inch.el (U+5BFB): Add `<-denotational@usage' for
+	BUCS+5C0B; apply new conventions for glyph granularity.
+	(U+5C0B): Modify structure.
+	(CU+5C0B): Use `ideographic-structure@apparent' instead of
+	`ideographic-structure'.
+	(UU+5C0B): Modify structure; preserve the previous IDS as an
+	apparent structure.
+	(A-IWDSU+3777): New abstract node; use `<-denotational' for
+	A-cgnU+5C0B.
+	(U+3777): Add `<-denotational' for A-IWDSU+3777; apply new
+	conventions for glyph granularity.
+	(U-00021B36): Add `<-denotational' for A-IWDSU+3777; use
+	`ideographic-structure@apparent/rightmost' instead of
+	`ideographic-structure@apparent'.
+	(MJ057349): Use `ideographic-structure@apparent/rightmost' instead
+	of `ideographic-structure@apparent'.
+	(A2-DJT-02430): Unify BUCS+5C0B.
+
+	* Ideograph-R030-Mouth.el (A-cgnU+20DCE): New abstract node.
+	(U-00020DCE): Add `<-denotational' for A-cgnU+20DCE.
+	(A-U+20DCE-itaiji-001): New abstract node; use `<-denotational'
+	for A-cgnU+20DCE.
+	(U+20DCE-itaiji-001): New character; use `<-denotational' for
+	A-U+20DCE-itaiji-001.
+
 	* Ideograph-R017-Open-Box.el (U+51FC): Add `<-denotational@usage'
 	for BUCS+51FC; apply new conventions for glyph granularity.
 	(A-U+26952-itaiji-003): New abstract node.
