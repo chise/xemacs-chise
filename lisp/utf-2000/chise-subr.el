@@ -40,7 +40,7 @@
   ;;   (sort dest #'string<))
   '(ucs ucs/compat daikanwa cns gt jis jis/a jis/b
 	jis-x0212 jis-x0213 cdp shinjigen mj
-	r030 r053 r055 r140 misc unknown))
+	r030 r053 r055 r074 r140 misc unknown))
 
 (defconst charset-id-=adobe-japan1-0 (charset-id '=adobe-japan1-0))
 (defconst charset-id-=adobe-japan1-6 (charset-id '=adobe-japan1-6))
