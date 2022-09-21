@@ -1,3 +1,20 @@
+2022-09-20  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R005-Second.el (A-U+200DB-itaiji-001): Unify
+	A-U+200DB-itaiji-002.
+	(U+200DB-itaiji-002): New character; use `<-denotational' for
+	A-U+200DB-itaiji-001.
+
+	* maps-conf.el: Don't set `==ucs@JP/hanazono' to nil if
+	`==ucs@JP/hanazono' same a value >= #x20000.
+
+	* Ideograph-R012-Eight.el (A-BC-89BB): New abstract node.
+	(BC-89BB-var-003): New character; use `<-denotational' for
+	A-BC-89BB.
+	(BC-89BB): Ditto.
+
+	* chise-subr.el (char-db-feature-domains): Add `r074'.
+
 2022-09-19  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R049-Oneself.el (U-00022033): New character.
