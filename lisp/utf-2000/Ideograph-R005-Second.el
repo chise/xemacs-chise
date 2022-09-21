@@ -1814,6 +1814,7 @@
     (ideographic-strokes . 3)
     (total-strokes	 . 4)
     (=>ucs-itaiji-001	. #x200DB)	; &A-U-i001+200DB;
+    (=>ucs-itaiji-002	. #x200DB)	; &A-U-i001+200DB;
     (<-formed@flipped-horizontally
      ((=>ucs@iwds-1	  . #x6236)	; &A-IWDSU+6236;
       (=>iwds-1		  .  0007)	; &A-IWDSU+6236;
@@ -1829,6 +1830,18 @@
     (=ucs-itaiji-001	. #x200DB)	; &U-i001+200DB;
     (<-formed@flipped-horizontally
      ((=ucs		  . #x6238)	; 戸
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs-itaiji-001	  . #x200DB)	; &A-U-i001+200DB;
+      ))
+    (ideographic-radical . 5)	; ⼄
+    (ideographic-strokes . 3)
+    (total-strokes	 . 4)
+    (=ucs-itaiji-002	. #x200DB)	; &U-i002+200DB;
+    (<-formed@flipped-horizontally
+     ((=ucs		  . #x6236)	; 戶
       ))
     ))
 (define-char
