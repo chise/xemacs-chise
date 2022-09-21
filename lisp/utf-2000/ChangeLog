@@ -1,5 +1,13 @@
 2022-09-20  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R004-Slash.el (U-0002009C): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R003-Dot.el (U-00031377): New character; use
+	`<-denotational@component' for A-IWDSU+30021.
+
+2022-09-20  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R005-Second.el (A-U+200DB-itaiji-001): Unify
 	A-U+200DB-itaiji-002.
 	(U+200DB-itaiji-002): New character; use `<-denotational' for
