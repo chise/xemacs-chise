@@ -1,5 +1,22 @@
 2022-09-21  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R045-Sprout.el (A-GT-K05515): Modify structure;
+	preserve the previous IDS as an apparent structure.
+	(GT-K05515): Ditto.
+
+	* Ideograph-R040-Roof.el (A-compU+5B9B): New abstract node.
+	(A-cgnU+5B9B): Add `<-denotational' for A-compU+5B9B.
+	(U+5B9B): Add `<-denotational@component' for A-compU+5B9B.
+	(hanaJU+2D4E9): Add `<-denotational@component' for A-compU+5B9B.
+	(CHISE-HDIC-TSJ-4D2F): New character; use `<-subsumptive' for
+	MJ057331.
+	(CHISE-HDIC-KTB-1A5D): New character; use `<-subsumptive' for
+	MJ057331.
+	(U-00021ADB): Use `->denotational' and `->subsumptive'.
+	(U+3770): Apply new conventions for glyph granularity.
+
+2022-09-21  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R024-Ten.el (A-cgnU+209AA): New abstract node.
 	(U-000209AA): Add `<-denotational' for A-cgnU+209AA.
 	(A-U+209AA-itaiji-002): New abstract node; use `<-denotational'
