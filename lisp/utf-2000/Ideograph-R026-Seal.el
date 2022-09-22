@@ -1008,6 +1008,29 @@
     (ideographic-strokes . 3)
     (total-strokes	 . 5)
     (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5F0B)	; 弋
+      )
+     ((=ucs		  . #x5369)	; 卩
+      ))
+    (sources		ruimoku=A016728-00002)
+    (=ucs		. #x31458)	; 𱑘
+    (=ruimoku-v6	. #xE00F)	; &I-RUI6-E00F;
+    (->subsumptive
+     ((==ucs@JP/hanazono  . #x31458)	; &g2-hanaJU+31458;
+      (==ruimoku-v6	  . #xE00F)	; &g2-hanaJU+31458;
+      (->subsumptive
+       ((===ruimoku-v6	    . #xE00F)	; &R-RUI6-E00F;
+	))
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 26)	; ⼙
+    (ideographic-strokes . 3)
+    (total-strokes	 . 5)
+    (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
@@ -1040,21 +1063,6 @@
     (->subsumptive
      ((==ucs-itaiji-003	  . #x5917)	; &g2-U-i003+5917;
       ))
-    ))
-(define-char
-  '((ideographic-radical . 26)	; ⼙
-    (ideographic-strokes . 3)
-    (total-strokes	 . 5)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((=ucs		  . #x5F0B)	; 弋
-      )
-     ((=ucs		  . #x5369)	; 卩
-      ))
-    (sources		ruimoku=A016728-00002)
-    (=ruimoku-v6	. #xE00F)	; &RUI6-E00F;
     ))
 (define-char
   '((<-denotational
@@ -1654,8 +1662,11 @@
       ))
     (=ruimoku-v6	. #xE007)	; &RUI6-E007;
     (<-error@ruimoku/2001
-     ((=ruimoku-v6	  . #xE00F)	; &RUI6-E00F;
+     ((=ucs		  . #x31458)	; 𱑘
+      (=ruimoku-v6	  . #xE00F)	; &I-RUI6-E00F;
       ))
+    (<-error@ruimoku/2001*sources
+     ruimoku-v6)
     ))
 (define-char
   '((<-denotational@usage
