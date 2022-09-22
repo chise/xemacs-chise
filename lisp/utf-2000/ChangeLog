@@ -1,5 +1,12 @@
 2022-09-21  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R024-Ten.el (A-cgnU+209AA): New abstract node.
+	(U-000209AA): Add `<-denotational' for A-cgnU+209AA.
+	(A-U+209AA-itaiji-002): New abstract node; use `<-denotational'
+	for A-cgnU+209AA.
+	(U+209AA-itaiji-002): New character; use `<-denotational' for
+	A-U+209AA-itaiji-002.
+
 	* Ideograph-R018-Knife.el (U-00030021): Add
 	`<-denotational@component' for A-IWDSU+30021; unify hanaJU+30021;
 	delete `=ucs@JP/hanazono'.
