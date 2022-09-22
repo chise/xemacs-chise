@@ -3536,6 +3536,40 @@
     ))
 (define-char
   '((ideographic-radical . 63)	; ⼾
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x31F50)	; 𱽐
+      )
+     ((=ucs		  . #x623F)	; 房
+      ))
+    (=ucs		. #x317E4)	; 𱟤
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x317E4)	; 𱟤
+      ))
+    (ideographic-radical . 63)	; ⼾
+    (ideographic-strokes . 11)
+    (total-strokes	 . 15)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs@JP/hanazono	  . #x31F50)	; &U-i001+847B;
+      (=ucs-itaiji-001	  . #x847B)	; &U-i001+847B;
+      )
+     ((=ucs@cns		  . #x623F)	; &HD-JT-B1D3;
+      (=ucs@ks		  . #x623F)	; &HD-JT-B1D3;
+      (=ks-x1001	  . #x5B2E)	; &HD-JT-B1D3; [59-14]
+      (=cns11643-1	  . #x4D52)	; &I-C1-4D52; [45-50]
+      (=daikanwa	  . 11714)	; &I-M-11714;
+      ))
+    (=ucs@JP/hanazono	. #x317E4)	; &hanaJU+317E4;
+    ))
+(define-char
+  '((ideographic-radical . 63)	; ⼾
     (ideographic-strokes . 13)
     (total-strokes	 . 17)
     (ideographic-structure
