@@ -1,3 +1,23 @@
+2022-09-21  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R018-Knife.el (U-00030021): Add
+	`<-denotational@component' for A-IWDSU+30021; unify hanaJU+30021;
+	delete `=ucs@JP/hanazono'.
+	(GT-K00651): Use U-00031377 instead of U-00030021 as its mother;
+	omit `ideographic-{radical|strokes}@ucs'; use
+	`ideographic-{radical|strokes}' instead of
+	`ideographic-{radical|strokes}@misc'.
+	(A-IWDSU+30021): New abstract node; unify A-GT-K00651.
+
+	* Ideograph-R002-Line.el (U-00030021): Add
+	`<-denotational@component' for A-IWDSU+30021; unify hanaJU+30021;
+	delete `=ucs@JP/hanazono'.
+	(GT-K00651): Moved to Ideograph-R018-Knife.el.
+
+	* Ideograph-R074-Moon.el (BC-8B5E): Unify hanaJU+31F00; delete
+	`ideographic-radical@ucs'; use `ideographic-radical' instead of
+	`ideographic-radical@r074'; add `ideographic-structure@apparent'.
+
 2022-09-20  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R004-Slash.el (U-0002009C): Apply new conventions for
@@ -81,6 +101,9 @@
 	(UU+6B64): Unify DJT-05644.
 	(U-00023954): Apply new conventions for glyph granularity.
 	(BUCS+6B64): New abstract node; unify A2-DJT-05644.
+
+	* Ideograph-R089-Double-X.el (U+723D): Apply new conventions for
+	glyph granularity.
 
 2022-09-18  MORIOKA Tomohiko  <tomo.git@chise.org>
 
