@@ -1875,23 +1875,6 @@
     ))
 (define-char
   '((ideographic-radical . 62)	; ⼽
-    (=>ucs@iwds-1	. #x39B3)	; &A-IWDSU+39B3;
-    ))
-(define-char
-  '((ideographic-radical . 62)	; ⼽
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
-      (=ucs		  . #x2FF5)	; ⿵
-      )
-     ((=ucs		  . #x620C)	; 戌
-      )
-     ((=>ucs@component	  . #x23942)	; &A-compU+23942;
-      (=>iwds-1		  .  0283)	; &A-compU+23942;
-      ))
-    (=>big5-cdp		. #x8CB3)	; &A-CDP-8CB3;
-    ))
-(define-char
-  '((ideographic-radical . 62)	; ⼽
     (ideographic-strokes . 5)
     (total-strokes	 . 9)
     (ideographic-structure
@@ -1902,11 +1885,29 @@
       )
      ((=ucs		  . #x51AC)	; 冬
       ))
-    (=>ruimoku-v6	. #xE005)	; &A-RUI6-E005;
+    (=ucs		. #x304A6)	; 𰒦
+    (=>ruimoku-v6	. #xE005)	; 𰒦
     ))
 (define-char
   '((<-denotational
-     ((=>ruimoku-v6	  . #xE005)	; &A-RUI6-E005;
+     ((=ucs		  . #x304A6)	; 𰒦
+      ))
+    (ideographic-radical . 62)	; ⼽
+    (ideographic-strokes . 5)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
+      (=ucs		  . #x2FF9)	; ⿹
+      )
+     ((=ucs		  . #x6208)	; 戈
+      )
+     ((=ucs		  . #x2F81A)	; 冬
+      ))
+    (=ucs@JP/hanazono	. #x304A6)	; &hanaJU+304A6;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x304A6)	; 𰒦
       ))
     (ideographic-radical . 62)	; ⼽
     (ideographic-strokes . 5)
@@ -1928,7 +1929,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=>ruimoku-v6	  . #xE005)	; &A-RUI6-E005;
+     ((=ucs		  . #x304A6)	; 𰒦
       ))
     (ideographic-radical . 62)	; ⼽
     (ideographic-strokes . 5)
@@ -1945,6 +1946,23 @@
     (->subsumptive
      ((==ruimoku-v6	  . #xE165)	; &g2-RUI6-E165;
       ))
+    ))
+(define-char
+  '((ideographic-radical . 62)	; ⼽
+    (=>ucs@iwds-1	. #x39B3)	; &A-IWDSU+39B3;
+    ))
+(define-char
+  '((ideographic-radical . 62)	; ⼽
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
+      (=ucs		  . #x2FF5)	; ⿵
+      )
+     ((=ucs		  . #x620C)	; 戌
+      )
+     ((=>ucs@component	  . #x23942)	; &A-compU+23942;
+      (=>iwds-1		  .  0283)	; &A-compU+23942;
+      ))
+    (=>big5-cdp		. #x8CB3)	; &A-CDP-8CB3;
     ))
 (define-char
   '((<-denotational

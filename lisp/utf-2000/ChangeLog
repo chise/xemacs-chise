@@ -1,4 +1,32 @@
+2022-09-22  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R053-Dotted-Cliff.el (U-0002229E): New character.
+
+	* Ideograph-R046-Mountain.el (U-00021D64): Modify structure;
+	preserve the previous IDS as an apparent structure.
+	(IU+21D64): Ditto.
+	(GT-K02925): Ditto.
+
+	* Ideograph-R026-Seal.el (RUI6-E00F): Unify U-00031458.
+
 2022-09-21  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R093-Cow.el (U+7261): Add `<-denotational@usage' for
+	BUCS+7261; apply new conventions for glyph granularity.
+	(U+728A): Add `<-denotational@usage' for BUCS+72A2; apply new
+	conventions for glyph granularity.
+	(U+7292): Add `<-denotational@usage' for BUCS+7292; apply new
+	conventions for glyph granularity.
+	(U-000246B7): New character.
+	(U-000246B9): New character.
+	(U-000246EF): Apply new conventions for glyph granularity.
+	(U+72A2): Add `<-denotational@usage' for BUCS+72A2; apply new
+	conventions for glyph granularity.
+	(BUCS+7261): New abstract node; unify A2-DJT-07075.
+	(BUCS+72A2): New abstract node; unify A2-DJT-07106.
+	(BUCS+7292): New abstract node; unify A2-DJT-07100.
+
+	* Ideograph-R062-Halberd.el (A-RUI6-E005): Unify U-000304A6.
 
 	* Ideograph-R045-Sprout.el (A-GT-K05515): Modify structure;
 	preserve the previous IDS as an apparent structure.
