@@ -4869,7 +4869,7 @@
       )
      ((=ucs		  . #x5F13)	; 弓
       )
-     ((=ruimoku-v6	  . #xE161)	; &RUI6-E161;
+     ((=ucs		  . #x301BA)	; 𰆺
       ))
     (=ucs		. #x2BE35)	; 𫸵
     (->subsumptive
@@ -6461,6 +6461,37 @@
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
     (=ucs@iso		. #x22409)	; &U-00022409;
+    ))
+(define-char
+  '((ideographic-radical . 57)	; ⼸
+    (ideographic-strokes . 9)
+    (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5F13)	; 弓
+      )
+     ((=ucs		  . #x5351)	; 卑
+      ))
+    (=ucs		. #x2D6BD)	; 𭚽
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2D6BD)	; 𭚽
+      ))
+    (ideographic-radical . 57)	; ⼸
+    (ideographic-strokes . 9)
+    (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5F13)	; 弓
+      )
+     ((=ucs		  . #xFA35)	; 卑
+      ))
+    (=ucs@JP/hanazono	. #x2D6BD)	; &hanaJU+2D6BD;
     ))
 (define-char
   '((ideographic-radical . 57)	; ⼸
