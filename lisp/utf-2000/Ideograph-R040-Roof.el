@@ -8859,6 +8859,46 @@
     ))
 (define-char
   '((ideographic-radical . 40)	; ⼧
+    (ideographic-strokes . 7)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5B80)	; 宀
+      )
+     ((=>ucs@iwds-1	  . #x898B)	; &A-IWDSU+898B;
+      ))
+    (=ucs		. #x31687)	; 𱚇
+    (=>ruimoku-v6	. #xE134)	; 𱚇
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x31687)	; 𱚇
+      ))
+    (ideographic-radical . 40)	; ⼧
+    (ideographic-strokes . 7)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5B80)	; 宀
+      )
+     ((=ucs		  . #x8C9D)	; 貝
+      ))
+    (=ucs@JP/hanazono	. #x31687)	; &RUI6-E134;
+    (=ruimoku-v6	. #xE134)	; &RUI6-E134;
+    (->subsumptive
+     ((==ucs@JP/hanazono  . #x31687)	; &g2-hanaJU+31687;
+      (==ruimoku-v6	  . #xE134)	; &g2-hanaJU+31687;
+      (->subsumptive
+       ((===ruimoku-v6	    . #xE134)	; &R-RUI6-E134;
+	))
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 40)	; ⼧
     (=>ucs@cognate	. #x21A0B)	; &A-cgnU+21A0B;
     ))
 (define-char
@@ -8900,20 +8940,6 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 40)	; ⼧
-    (ideographic-strokes . 7)
-    (total-strokes	 . 10)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-      (=ucs		  . #x2FF1)	; ⿱
-      )
-     ((=ucs		  . #x5B80)	; 宀
-      )
-     ((=>ucs@iwds-1	  . #x898B)	; &A-IWDSU+898B;
-      ))
-    (=>ruimoku-v6	. #xE134)	; &A-RUI6-E134;
-    ))
-(define-char
   '((<-denotational
      ((=>ucs-itaiji-001	  . #x219FE)	; &A-U-i001+219FE;
       ))
@@ -8949,23 +8975,6 @@
     (->subsumptive
      ((==ruimoku-v6	  . #xE0AF)	; &g2-RUI6-E0AF;
       ))
-    ))
-(define-char
-  '((<-denotational
-     ((=>ruimoku-v6	  . #xE134)	; &A-RUI6-E134;
-      ))
-    (ideographic-radical . 40)	; ⼧
-    (ideographic-strokes . 7)
-    (total-strokes	 . 10)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-      (=ucs		  . #x2FF1)	; ⿱
-      )
-     ((=ucs		  . #x5B80)	; 宀
-      )
-     ((=ucs		  . #x8C9D)	; 貝
-      ))
-    (=ruimoku-v6	. #xE134)	; &RUI6-E134;
     ))
 (define-char
   '((<-denotational
