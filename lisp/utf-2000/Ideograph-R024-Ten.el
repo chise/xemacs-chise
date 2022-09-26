@@ -4611,9 +4611,12 @@
      ((=ucs@unicode	  . #x5932)	; &AJ1-04546;
       (=adobe-japan1-0	  . 04546)	; &AJ1-04546;
       ))
-    (=ucs-var-001	. #x209AA)	; &U-v001+209AA;
+    (=ruimoku-v6	. #xE08D)	; &RUI6-E08D;
+    (=ucs-var-001	. #x209AA)	; &RUI6-E08D;
     (->subsumptive
      ((==ucs-var-001	  . #x209AA)	; &g2-U-v001+209AA;
+      )
+     ((==ruimoku-v6	  . #xE08D)	; &g2-RUI6-E08D;
       ))
     ))
 (define-char
