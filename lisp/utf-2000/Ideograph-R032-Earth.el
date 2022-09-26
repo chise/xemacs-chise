@@ -5392,7 +5392,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=ucs		  . #x30021)	; 𰀡
+     ((=>ucs@iwds-1	  . #x30021)	; &A-GT-K00651;
+      (=>gt-k		  . 00651)	; &A-GT-K00651;
       )
      ((=>ucs@iwds-1	  . #x571F)	; &A-IWDSU+571F;
       (=>iwds-1		  .  0312)	; &A-IWDSU+571F;
@@ -5411,7 +5412,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=gt-k		  . 00651)	; &GT-K00651;
+     ((=ucs		  . #x31377)	; 𱍷
       )
      ((=ucs		  . #x571F)	; 土
       ))
@@ -5436,7 +5437,15 @@
     (<-vulgar*sources
      pianhai daikanwa)
     (->subsumptive
-     ((=>>mj		  . 008955)	; &G-MJ008955;
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((=gt-k		    . 00651)	; &GT-K00651;
+	)
+       ((=ucs		    . #x571F)	; 土
+	))
+      (=>>mj		  . 008955)	; &G-MJ008955;
       (=>>daikanwa	  . 04963)	; &G-MJ008955;
       (->subsumptive
        ((==mj		    . 008955)	; &g2-MJ008955;
@@ -5449,7 +5458,15 @@
 	  ))
 	))
       )
-     ((=>>ucs@iso	  . #x21262)	; &G-IU+21262;
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((=ucs@JP/hanazono   . #x31377)	; &hanaJU+31377;
+	)
+       ((=ucs		    . #x571F)	; 土
+	))
+      (=>>ucs@iso	  . #x21262)	; &G-IU+21262;
       (=>>cns11643-6	  . #x2667)	; &G-IU+21262; [06-71]
       (->subsumptive
        ((==ucs@iso	    . #x21262)	; &g2-IU-00021262;
@@ -5474,7 +5491,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=ucs@JP/hanazono	  . #x30021)	; &hanaJU+30021;
+     ((=ucs		  . #x30021)	; 𰀡
       )
      ((=ucs		  . #x571F)	; 土
       ))
@@ -15359,7 +15376,7 @@
      ((=>ucs@iwds-1	  . #x571F)	; &A-IWDSU+571F;
       (=>iwds-1		  .  0312)	; &A-IWDSU+571F;
       )
-     ((=>ucs-itaiji-001	  . #x847B)	; &A-U-i001+847B;
+     ((=ucs		  . #x31F50)	; 𱽐
       ))
     (=ucs		. #x21359)	; 𡍙
     ))
@@ -15376,7 +15393,8 @@
       )
      ((=gt-k		  . 00199)	; &GT-K00199;
       )
-     ((=ucs-itaiji-001	  . #x847B)	; &U-i001+847B;
+     ((=ucs@JP/hanazono	  . #x31F50)	; &U-i001+847B;
+      (=ucs-itaiji-001	  . #x847B)	; &U-i001+847B;
       ))
     (=ucs@iso		. #x21359)	; &U-00021359;
     ))
@@ -25801,6 +25819,9 @@
   '((<-denotational
      ((=>ucs@cognate	  . #x5854)	; &A-cgnU+5854;
       ))
+    (<-denotational@usage
+     ((==>ucs@bucs	  . #x5854)	; &BUCS+5854;
+      ))
     (ideographic-radical . 32)	; ⼟
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -25809,8 +25830,7 @@
      ((=>ucs@iwds-1	  . #x571F)	; &A-IWDSU+571F;
       (=>iwds-1		  .  0312)	; &A-IWDSU+571F;
       )
-     ((=>ucs@iwds-1	  . #x8345)	; 荅
-      (=>ucs@unicode	  . #x8345)	; 荅
+     ((=ucs		  . #x8345)	; 荅
       ))
     (=ucs		. #x5854)	; 塔
     (=big5		. #xB6F0)	; &I-B-B6F0;
@@ -25896,6 +25916,7 @@
     (=hanyo-denshi/ja	. #x4563)	; &I-HD-JA-4563; [37-67]
     (=gt		. 06668)	; &I-GT-06668;
     (=gt-pj-1		. #x4563)	; &I-GT-06668; [37-67]
+    (=daijiten		. 01816)	; &I-DJT-01816;
     (=shinjigen@1ed	.  1445)	; &MJ009205;
     (=shinjigen@rev	.  1447)	; &MJ009205;
     (->subsumptive
@@ -25918,9 +25939,12 @@
       (==jis-x0213-1	  . #x4563)	; &g2-MJ009205; [37-67]
       (==hanyo-denshi/ja  . #x4563)	; &g2-MJ009205; [37-67]
       (==gt		  . 06668)	; &g2-MJ009205;
+      (==daijiten	  . 01816)	; &g2-MJ009205;
       (==shinjigen@1ed	  .  1445)	; &g2-MJ009205;
       (==shinjigen@rev	  .  1447)	; &g2-MJ009205;
       (->subsumptive
+       ((===daijiten	    . 01816)	; &R-DJT-01816;
+	)
        ((===jis-x0208	    . #x4563)	; &R-J0-4563; [37-67]
 	(===jis-x0213-1	    . #x4563)	; &R-J0-4563; [37-67]
 	)
@@ -44370,6 +44394,11 @@
   '((ideographic-radical . 32)	; ⼟
     (==>ucs@bucs	. #x58AE)	; &BUCS+58AE;
     (==>daijiten	. 01863)	; &BUCS+58AE;
+    ))
+(define-char
+  '((ideographic-radical . 32)	; ⼟
+    (==>ucs@bucs	. #x5854)	; &BUCS+5854;
+    (==>daijiten	. 01816)	; &BUCS+5854;
     ))
 (define-char
   '((ideographic-radical . 32)	; ⼟
