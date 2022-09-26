@@ -340,38 +340,9 @@ DESCRIPTION (string) is the description string of the charset."
 	  =ucs-bmp-cjk
 	  =ucs-sip-ext-b
 	  =ucs-tip
-	  =ruimoku-v6
-	  =zinbun-oracle
-	  =hanziku-1
-	  =hanziku-2
-	  =hanziku-3
-	  =hanziku-4
-	  =hanziku-5
-	  =hanziku-6
-	  =hanziku-7
-	  =hanziku-8
-	  =hanziku-9
-	  =hanziku-10
-	  =hanziku-11
-	  =hanziku-12
-	  =ucs-sip-ext-b@iso
-	  =ucs-sip@iso
-	  =daikanwa@rev2
-	  ideograph-daikanwa
-	  korean-ksc5601
-	  katakana-jisx0201
-	  hebrew-iso8859-8
-	  latin-viscii
-	  latin-viscii-lower
-	  latin-viscii-upper
-	  ipa
-	  lao
-	  ethiopic-ucs
-	  ethiopic
-	  arabic-digit
-	  arabic-1-column
-	  arabic-2-column
-	  arabic-iso8859-6
+	  =ucs-sip@JP/hanazono
+	  =ucs-tip@JP/hanazono
+	  =ucs-sip@gb
 	  chinese-big5-1
 	  chinese-big5-2
           ;; =zihai-17xx
@@ -437,9 +408,38 @@ DESCRIPTION (string) is the description string of the charset."
 	  =big5-cdp-var-010
 	  =ucs-bmp-cjk-compat
           =ucs-bmp-cjk-compat@unicode
-          =ucs-sip@JP/hanazono
-	  =ucs-tip@JP/hanazono
-	  =ucs-sip@gb
+          =ruimoku-v6
+	  =zinbun-oracle
+	  =hanziku-1
+	  =hanziku-2
+	  =hanziku-3
+	  =hanziku-4
+	  =hanziku-5
+	  =hanziku-6
+	  =hanziku-7
+	  =hanziku-8
+	  =hanziku-9
+	  =hanziku-10
+	  =hanziku-11
+	  =hanziku-12
+	  =ucs-sip-ext-b@iso
+	  =ucs-sip@iso
+	  =daikanwa@rev2
+	  ideograph-daikanwa
+	  korean-ksc5601
+	  katakana-jisx0201
+	  hebrew-iso8859-8
+	  latin-viscii
+	  latin-viscii-lower
+	  latin-viscii-upper
+	  ipa
+	  lao
+	  ethiopic-ucs
+	  ethiopic
+	  arabic-digit
+	  arabic-1-column
+	  arabic-2-column
+	  arabic-iso8859-6
 	  =daijiten
 	  =cbeta
 	  =jef-china3
@@ -474,6 +474,7 @@ DESCRIPTION (string) is the description string of the charset."
 	  ==ucs-bmp-var-002
 	  ==ucs-sip-var-002
 	  ==ucs-bmp-var-003
+	  ==ucs-bmp-var-007
 	  ==hanyo-denshi/ja
 	  ==hanyo-denshi/jb
 	  ==hanyo-denshi/jc

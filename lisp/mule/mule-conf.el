@@ -5205,6 +5205,29 @@
 		  min-code #x2E00
 		  max-code #x9FCC
 		  registry "ucs\\.var007-0"))
+  (make-charset '==ucs-var-007
+		"Abstract glyph-forms corresponding with uXXXX-var-007 of GlyphWiki"
+		'(long-name	"UCS-var-007"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+                  ;; =>iso-ir	177
+		  mother	=ucs-var-007))
+  (make-charset '==ucs-bmp-var-007
+		"uXXXX-var-007's abstract glyph-forms in BMP"
+		'(long-name	"UCS-BMP-var-007 glyph-forms"
+		  chars		256
+		  dimension	2
+		  columns	2
+		  graphic	2
+		  direction	l2r
+                  ;; =>iso-ir	177
+		  mother	==ucs-var-007
+		  min-code #x2E00
+		  max-code #x9FCC
+		  registry "ucs\\.var007-0"))
 
   (make-charset '=ucs-var-008
 		"uXXXX-var-008 glyph-images of GlyphWiki"

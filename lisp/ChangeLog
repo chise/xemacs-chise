@@ -1,3 +1,15 @@
+2022-09-26  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list):
+	- Prefer `=ucs-sip@JP/hanazono', `=ucs-tip@JP/hanazono' and	  
+	  `=ucs-sip@gb' to `=ruimoku-v6', `=zinbun-oracle', `=hanziku-*',
+	  etc.
+	- Add `==ucs-bmp-var-007'.
+
+	* mule/mule-conf.el (==ucs-var-007): New coded-charset for XEmacs
+	CHISE.
+	(==ucs-bmp-var-007): Ditto.
+
 2022-09-20  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* mule/mule-charset.el (default-coded-charset-priority-list): Add
