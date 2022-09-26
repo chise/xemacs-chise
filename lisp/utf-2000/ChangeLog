@@ -1,5 +1,38 @@
 2022-09-22  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R070-Square.el (U-00031874): New character.
+	(U-00031875): New character.
+
+	* Ideograph-R063-Door.el (U-000317E4): New character.
+
+	* Ideograph-R058-Snout.el (UU+5F50): Unify U-0002B739.
+	(U-00022451): Add `sound@ja/on'.
+	(IU+22451): Add `<-same' for UU+591A.
+	(A-cgnU+38C7): Modify structure; preserve the previous IDS as an
+	apparent structure.
+	(U+38C7): Likewise; add `<-denotational@usage' for A2-DJT-03090.
+	(U+38C7-itaiji-005): Modify structure; preserve the previous IDS
+	as an apparent structure.
+	(A-U+38C7-itaiji-011): Likewise.
+	(A-U+38C7-itaiji-012): Likewise.
+	(A-U+5F56-itaiji-003): Use `ideographic-structure@apparent'
+	instead of `ideographic-structure'.
+	(A-U+38C7-itaiji-009): Likewise.
+	(U+38C7-itaiji-008): Likewise.
+	(U+38C7-itaiji-009): Likewise.
+	(U+38C7-itaiji-010): Add `ideographic-structure' and
+	`ideographic-structure@apparent'.
+	(A2-DJT-03090): New abstract node.
+
+2022-09-22  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R001-One.el (A-U+5EF4-itaiji-001): New abstract node.
+	(U+5EF4-itaiji-001): New character; use `<-denotational' for
+	A-U+5EF4-itaiji-001.
+	(GT-K02041): New character.
+	(U-00031353): New character.
+	(GT-00080): New character.
+
 	* Ideograph-R053-Dotted-Cliff.el (U-0002229E): New character.
 
 	* Ideograph-R046-Mountain.el (U-00021D64): Modify structure;
