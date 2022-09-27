@@ -1,3 +1,23 @@
+2022-09-26  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R029-Again.el (RUI6-E161): Unify U-000301BA.
+
+	* Ideograph-R024-Ten.el (U+209AA-var-001): Unify RUI6-E08D.
+
+	* Ideograph-R020-Wrap.el (RUI6-E042): Unify U-00031441.
+
+	* Ideograph-R032-Earth.el (U+575A): Apply new conventions for
+	glyph granularity for components of ideographic-structure.
+	(U+5854): Likewise; add `<-denotational@usage' for BUCS+5854.
+	(BUCS+5854): New abstract node; unify A2-DJT-01816.
+
+2022-09-25  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R057-Bow.el (U-0002D6BD): New character.
+
+	* Ideograph-R040-Roof.el (A-RUI6-E134): Unify U-00031687.
+	(RUI6-E134): Unify hanaJU+31687.
+
 2022-09-22  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R070-Square.el (U-00031874): New character.

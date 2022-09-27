@@ -340,6 +340,7 @@ DESCRIPTION (string) is the description string of the charset."
 	  =ucs-bmp-cjk
 	  =ucs-sip-ext-b
 	  =ucs-tip
+	  =ucs-sip-ext-b@iso
 	  =ucs-sip@JP/hanazono
 	  =ucs-tip@JP/hanazono
 	  =ucs-sip@gb
@@ -422,7 +423,6 @@ DESCRIPTION (string) is the description string of the charset."
 	  =hanziku-10
 	  =hanziku-11
 	  =hanziku-12
-	  =ucs-sip-ext-b@iso
 	  =ucs-sip@iso
 	  =daikanwa@rev2
 	  ideograph-daikanwa

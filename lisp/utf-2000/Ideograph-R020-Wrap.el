@@ -5872,7 +5872,13 @@
       )
      ((=ucs		  . #x718F)	; 熏
       ))
-    (=ruimoku-v6	. #xE042)	; &RUI6-E042;
+    (=ucs		. #x31441)	; 𱑁
+    (=ruimoku-v6	. #xE042)	; &I-RUI6-E042;
+    (->subsumptive
+     ((==ucs@JP/hanazono  . #x31441)	; &g2-hanaJU+31441;
+      )
+     ((==ruimoku-v6	  . #xE042)	; &g2-RUI6-E042;
+      ))
     ))
 (define-char
   '((ideographic-radical . 20)	; ⼓
