@@ -1,5 +1,25 @@
 2022-09-26  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R087-Claw.el (U+722B): Use A-IWDSU+2B753 instead of
+	A-compU+722B as its mother.
+	(A-BC-8BB8-itaiji-001): New abstract node.
+	(BC-8BB8-itaiji-001): New character; use `<-denotational' for
+	A-BC-8BB8-itaiji-001.
+	(U-00030804): New character.
+	(RUI6-E0E7): Copied from ruimoku6.el; add `<-denotational' for
+	U-00030804.
+	(U-00024524): Apply new conventions for glyph granularity.
+
+2022-09-26  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R031-Enclosure.el (RUI6-E0BD): Unify U-0003024F.
+
+	* Ideograph-R009-Man.el (U+4F63): Apply new conventions for glyph
+	granularity.
+	(U-000313BC): New character.
+	(RUI6-E0EC): Copied from ruimoku6.el; add `<-denotational' for
+	U-000313BC; unify hanaJU+313BC.
+
 	* Ideograph-R029-Again.el (RUI6-E161): Unify U-000301BA.
 
 	* Ideograph-R024-Ten.el (U+209AA-var-001): Unify RUI6-E08D.
