@@ -1,3 +1,26 @@
+2022-09-27  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R061-Heart.el (U-000225AB): Apply new conventions for
+	glyph granularity.
+	(U+5FC9): Add `<-denotational@usage' for BUCS+5FC9; apply new
+	conventions for glyph granularity.
+	(U-000226AC): New character.
+	(U+6178): Add `<-denotational@usage' for A2-DJT-03477; apply new
+	conventions for glyph granularity.
+	(U+3985): Add `<-denotational@usage' for A2-DJT-03477; apply new
+	conventions for glyph granularity.
+	(A-IWDSU+61D8): New abstract node.
+	(U+61D8): Add `<-denotational' for A-IWDSU+61D8; add
+	`<-denotational@usage' for A2-DJT-03559; apply new conventions for
+	glyph granularity.
+	(U-00030492): New character; use `<-denotational' for
+	A-IWDSU+61D8.
+	(U-0002AB3E): New character.
+	(U-0002AB3F): New character.
+	(BUCS+5FC9): New abstract node; unify A2-DJT-03182.
+	(A2-DJT-03477): New abstract node.
+	(A2-DJT-03559): New abstract node.
+
 2022-09-26  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R087-Claw.el (U+722B): Use A-IWDSU+2B753 instead of
