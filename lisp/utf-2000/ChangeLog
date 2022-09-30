@@ -1,3 +1,42 @@
+2022-09-28  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R077-Stop.el (A-BC-88B1): Unify U-0003193B.
+	(BC-88B1): Unify hanaJU+3193B.
+	(U-00023944): Apply new conventions for glyph granularity.
+	(U-0003066B): New character.
+
+	* Ideograph-R076-Lack.el (U-000238E4): Apply new conventions for
+	glyph granularity.
+	(U+6B47): Add `<-denotational@usage' for BUCS+6B47; add
+	`ideographic-structure'; add `sound@ja/on/{kan|go}'.
+	(UU+6B47): Add `ideographic-structure'; unify DJT-05599; add some
+	relations for other characters.
+	(S-3933): Unify HD-FT2266 and U+6B47-var-007.
+	(U-0002DB50): New character.
+	(hanaJU+238F6): New character; use `<-subsumptive' for o-IU+238F6.
+	(BUCS+6B47): New abstract node; unify A2-DJT-05599.
+
+	* Ideograph-R050-Turban.el (A-U+22053-itaiji-003): Unify
+	A-U+22053-itaiji-007.
+	(U+22053-itaiji-007): New character; use `<-denotational' for
+	A-U+22053-itaiji-003.
+	(U-000220F5): Use `->denotational' and `->subsumptive'.
+
+	* Ideograph-R072-Sun.el (A-U+66C5-itaiji-001): New abstract node.
+	(U+66C5-itaiji-001): New character; use `<-denotational' for
+	A-U+66C5-itaiji-001.
+
+	* Ideograph-R053-Dotted-Cliff.el (U+22273-var-001): New character;
+	use `<-denotational' for U-00022273.
+
+	* Ideograph-R027-Cliff.el (A-U+20A47-itaiji-001): New abstract
+	node; use `<-denotational' for U-00020A47.
+	(U+20A47-itaiji-001): New character; use `<-denotational' for
+	A-U+20A47-itaiji-001.
+
+	* Ideograph-R017-Open-Box.el (U-00020692): Apply new conventions
+	for glyph granularity.
+
 2022-09-27  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R061-Heart.el (U-000225AB): Apply new conventions for
