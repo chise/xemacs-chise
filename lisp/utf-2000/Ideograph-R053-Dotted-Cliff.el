@@ -6986,6 +6986,25 @@
     (=ucs@iso		. #x22273)	; &U-00022273;
     ))
 (define-char
+  '((<-denotational
+     ((=ucs		  . #x22273)	; 𢉳
+      ))
+    (ideographic-radical . 53)	; ⼴
+    (ideographic-strokes . 8)
+    (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs		  . #x5E7F)	; 广
+      )
+     ((=ucs@cns		  . #x82E5)	; &GT-40124;
+      (=cns11643-1	  . #x533C)	; &GT-40124; [51-28]
+      (=daikanwa	  . 30796)	; &I-M-30796;
+      ))
+    (=ucs-var-001	. #x22273)	; &U-v001+22273;
+    ))
+(define-char
   '((<-denotational@usage
      ((==>ucs@bucs	  . #x5EA7)	; &BUCS+5EA7;
       ))

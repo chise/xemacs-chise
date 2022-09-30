@@ -2100,9 +2100,46 @@
     (total-strokes	 . 10)
     (hanyu-dazidian	1 309 14)
     (=ucs		. #x20692)	; 𠚒
+    (=mj		. 031224)	; &I-MJ031224;
     (=cns11643-6	. #x3548)	; &I-C6-3548; [21-40]
     (=big5-cdp		. #x87BF)	; &I-CDP-87BF;
+    (=koseki		. 021620)	; 𠚒
     (=daikanwa		. 01833)	; &I-M-01833;
+    (<-ancient
+     ((=ucs		  . #x9F52)	; 齒
+      )
+     ((=ucs@unicode	  . #x9F52)	; &AJ1-07458;
+      (=adobe-japan1-0	  . 07458)	; &AJ1-07458;
+      (=daikanwa	  . 48583)	; &I-M-48583;
+      ))
+    (<-ancient$_1*sources
+     shuowen)
+    (<-ancient$_2*sources
+     yupian daikanwa)
+    (<-ancient*sources
+     shuowen yupian daikanwa)
+    (->subsumptive
+     ((==ucs@cns	  . #x20692)	; &g2-MJ031224;
+      (==mj		  . 031224)	; &g2-MJ031224;
+      (==cns11643-6	  . #x3548)	; &g2-MJ031224; [21-40]
+      (==koseki		  . 021620)	; &g2-MJ031224;
+      (==daikanwa	  . 01833)	; &g2-MJ031224;
+      (->subsumptive
+       ((===daikanwa	    . 01833)	; &R-M-01833;
+	)
+       ((===mj		    . 031224)	; &R-MJ031224;
+	)
+       ((===cns11643-6	    . #x3548)	; &R-C6-3548; [21-40]
+	))
+      )
+     ((==ucs@iso	  . #x20692)	; &g2-CDP-87BF;
+      (==big5-cdp	  . #x87BF)	; &g2-CDP-87BF;
+      (->subsumptive
+       ((===big5-cdp	    . #x87BF)	; &R-CDP-87BF;
+	)
+       ((===ucs@iso	    . #x20692)	; &R-U-00020692;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 17)	; ⼐
