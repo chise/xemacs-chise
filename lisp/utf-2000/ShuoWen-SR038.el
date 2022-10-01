@@ -21,6 +21,13 @@
       )
      ((=ucs		  . #x20695)	; 𠚕
       ))
+    (<-ancient@shuowen
+     ((=shuowen-jiguge	  . 05815)	; &SW-JIGUGE-05815;
+      )
+     ((=ucs		  . #x9F52)	; 齒
+      )
+     ((=ucs		  . #x6B6F)	; 歯
+      ))
     (->subsumptive
      ((===shuowen-jiguge5 . 05816)	; &SW-JIGUGE5-05816;
       )

@@ -100,6 +100,19 @@
 	* Ideograph-R040-Roof.el (A-RUI6-E134): Unify U-00031687.
 	(RUI6-E134): Unify hanaJU+31687.
 
+2022-09-24  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR467.el (SW-JIGUGE-45501): Add U-000261B0 as a
+	corresponding modern character.
+
+2022-09-23  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR076.el (SW-JIGUGE-09020): Add `<-ancient@shuowen' for
+	SW-JIGUGE-09019.
+
+	* ShuoWen-SR038.el (SW-JIGUGE-05816): Add `<-ancient@shuowen' for
+	SW-JIGUGE-05815.
+
 2022-09-22  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R070-Square.el (U-00031874): New character.
