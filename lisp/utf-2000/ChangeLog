@@ -1,3 +1,13 @@
+2022-10-01  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R017-Open-Box.el (U-00020695): Add `<-ancient' for
+	U+9F52.
+
+2022-10-01  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR027.el (SW-JIGUGE-04909): Add
+	`<-formed@flipped-horizontally' for SW-JIGUGE-04821.
+
 2022-09-28  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R077-Stop.el (A-BC-88B1): Unify U-0003193B.
@@ -59,6 +69,8 @@
 	(BUCS+5FC9): New abstract node; unify A2-DJT-03182.
 	(A2-DJT-03477): New abstract node.
 	(A2-DJT-03559): New abstract node.
+
+	* chise-subr.el (char-db-feature-domains): Add `r130'.
 
 2022-09-26  MORIOKA Tomohiko  <tomo.git@chise.org>
 
