@@ -165,9 +165,12 @@
   '((shuowen-radical	. 27)	; 止
     (=shuowen-jiguge	. 04909)	; &SW-JIGUGE-04909;
     (<-Small-Seal@shuowen
-     ((=>big5-cdp	  . #x88B1)	; &A-CDP-88B1;
+     ((=ucs		  . #x3193B)	; 𱤻
       )
      ((=ucs		  . #x23942)	; 𣥂
+      ))
+    (<-formed@flipped-horizontally
+     ((=shuowen-jiguge	  . 04821)	; &SW-JIGUGE-04821;
       ))
     (->subsumptive
      ((===shuowen-jiguge5 . 04909)	; &SW-JIGUGE5-04909;

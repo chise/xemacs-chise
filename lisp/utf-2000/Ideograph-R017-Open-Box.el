@@ -2369,6 +2369,11 @@
 	))
       ))
     (=ucs		. #x20695)	; 𠚕
+    (<-ancient
+     ((=ucs		  . #x9F52)	; 齒
+      ))
+    (<-ancient*sources
+     shuowen)
     ))
 (define-char
   '((<-denotational
