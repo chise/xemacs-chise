@@ -10,6 +10,8 @@
      ((=ucs		  . #x6B69)	; 歩
       ))
     (->subsumptive
+     ((===shuowen-jiguge-A30 . 04815)	; &SW-JIGUGE30-04815;
+      )
      ((===shuowen-jiguge5 . 04915)	; &SW-JIGUGE5-04915;
       )
      ((===shuowen-jiguge4 . 04815)	; &SW-JIGUGE4-04815;
@@ -28,6 +30,8 @@
      ((=ucs		  . #x6B73)	; 歳
       ))
     (->subsumptive
+     ((===shuowen-jiguge-A30 . 04816)	; &SW-JIGUGE30-04816;
+      )
      ((===shuowen-jiguge5 . 04916)	; &SW-JIGUGE5-04916;
       )
      ((===shuowen-jiguge4 . 04816)	; &SW-JIGUGE4-04816;

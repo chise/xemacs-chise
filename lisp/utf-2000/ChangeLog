@@ -1,3 +1,23 @@
+2022-10-04  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR001.el, ShuoWen-SR002.el, ShuoWen-SR003.el,
+	ShuoWen-SR004.el, ShuoWen-SR005.el, ShuoWen-SR006.el,
+	ShuoWen-SR007.el, ShuoWen-SR008.el, ShuoWen-SR010.el,
+	ShuoWen-SR011.el, ShuoWen-SR012.el, ShuoWen-SR013.el,
+	ShuoWen-SR014.el, ShuoWen-SR015.el, ShuoWen-SR016.el,
+	ShuoWen-SR017.el, ShuoWen-SR018.el, ShuoWen-SR019.el,
+	ShuoWen-SR020.el, ShuoWen-SR021.el, ShuoWen-SR022.el,
+	ShuoWen-SR023.el, ShuoWen-SR024.el, ShuoWen-SR025.el,
+	ShuoWen-SR026.el, ShuoWen-SR027.el, ShuoWen-SR028.el,
+	ShuoWen-SR029.el, ShuoWen-SR030.el, ShuoWen-SR031.el,
+	ShuoWen-SR032.el, ShuoWen-SR033.el, ShuoWen-SR034.el,
+	ShuoWen-SR035.el, ShuoWen-SR036.el, ShuoWen-SR037.el,
+	ShuoWen-SR038.el, ShuoWen-SR039.el, ShuoWen-SR040.el,
+	ShuoWen-SR041.el, ShuoWen-SR042.el, ShuoWen-SR043.el,
+	ShuoWen-SR044.el, ShuoWen-SR045.el, ShuoWen-SR046.el,
+	ShuoWen-SR047.el, ShuoWen-SR048.el, ShuoWen-SR049.el,
+	ShuoWen-SR050.el: Add `===shuowen-jiguge-A30' characters.
+
 2022-10-03  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* char-db-util.el (char-db-insert-ccs-feature): Format

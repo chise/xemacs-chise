@@ -6,6 +6,8 @@
      ((=ucs		  . #x738B)	; 王
       ))
     (->subsumptive
+     ((===shuowen-jiguge-A30 . 00601)	; &SW-JIGUGE30-00601;
+      )
      ((===shuowen-jiguge5 . 00601)	; &SW-JIGUGE5-00601;
       )
      ((===shuowen-jiguge4 . 00601)	; &SW-JIGUGE4-00601;
@@ -23,6 +25,8 @@
      ((=ucs		  . #x738B)	; 王
       ))
     (->subsumptive
+     ((===shuowen-jiguge-A30 . 00602)	; &SW-JIGUGE30-00602;
+      )
      ((===shuowen-jiguge5 . 00602)	; &SW-JIGUGE5-00602;
       )
      ((===shuowen-jiguge4 . 00602)	; &SW-JIGUGE4-00602;
@@ -43,6 +47,8 @@
      ((=ucs		  . #x958F)	; 閏
       ))
     (->subsumptive
+     ((===shuowen-jiguge-A30 . 00603)	; &SW-JIGUGE30-00603;
+      )
      ((===shuowen-jiguge5 . 00603)	; &SW-JIGUGE5-00603;
       )
      ((===shuowen-jiguge4 . 00603)	; &SW-JIGUGE4-00603;
@@ -65,6 +71,8 @@
      ((=ucs		  . #x7687)	; 皇
       ))
     (->subsumptive
+     ((===shuowen-jiguge-A30 . 00604)	; &SW-JIGUGE30-00604;
+      )
      ((===shuowen-jiguge5 . 00604)	; &SW-JIGUGE5-00604;
       )
      ((===shuowen-jiguge4 . 00604)	; &SW-JIGUGE4-00604;

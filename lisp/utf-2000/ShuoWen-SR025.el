@@ -6,6 +6,8 @@
      ((=ucs		  . #x54ED)	; 哭
       ))
     (->subsumptive
+     ((===shuowen-jiguge-A30 . 04410)	; &SW-JIGUGE30-04410;
+      )
      ((===shuowen-jiguge5 . 04410)	; &SW-JIGUGE5-04410;
       )
      ((===shuowen-jiguge4 . 04410)	; &SW-JIGUGE4-04410;
@@ -22,6 +24,8 @@
      ((=ucs		  . #x55AA)	; 喪
       ))
     (->subsumptive
+     ((===shuowen-jiguge-A30 . 04411)	; &SW-JIGUGE30-04411;
+      )
      ((===shuowen-jiguge5 . 04411)	; &SW-JIGUGE5-04411;
       )
      ((===shuowen-jiguge4 . 04411)	; &SW-JIGUGE4-04411;
