@@ -11,6 +11,8 @@
      ((=ucs		  . #x26B20)	; 𦬠
       ))
     (->subsumptive
+     ((===shuowen-jiguge-A30 . 03114)	; &SW-JIGUGE30-03114;
+      )
      ((===shuowen-jiguge5 . 03114)	; &SW-JIGUGE5-03114;
       (<-Small-Seal@shuowen/mpsuzuki
        ((=ucs		    . #x26B07)	; 𦬇
@@ -29,6 +31,8 @@
      ((=ucs		  . #x83AB)	; 莫
       ))
     (->subsumptive
+     ((===shuowen-jiguge-A30 . 03115)	; &SW-JIGUGE30-03115;
+      )
      ((===shuowen-jiguge5 . 03115)	; &SW-JIGUGE5-03115;
       )
      ((===shuowen-jiguge4 . 03115)	; &SW-JIGUGE4-03115;
@@ -41,6 +45,8 @@
      ((=ucs		  . #x83BD)	; 莽
       ))
     (->subsumptive
+     ((===shuowen-jiguge-A30 . 03116)	; &SW-JIGUGE30-03116;
+      )
      ((===shuowen-jiguge5 . 03116)	; &SW-JIGUGE5-03116;
       )
      ((===shuowen-jiguge4 . 03116)	; &SW-JIGUGE4-03116;
@@ -53,6 +59,8 @@
      ((=ucs		  . #x846C)	; 葬
       ))
     (->subsumptive
+     ((===shuowen-jiguge-A30 . 03117)	; &SW-JIGUGE30-03117;
+      )
      ((===shuowen-jiguge5 . 03117)	; &SW-JIGUGE5-03117;
       )
      ((===shuowen-jiguge4 . 03117)	; &SW-JIGUGE4-03117;
