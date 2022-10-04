@@ -614,6 +614,7 @@ DESCRIPTION (string) is the description string of the charset."
 	  =>shuowen-jiguge
 	  ===shuowen-jiguge4
 	  ===shuowen-jiguge5
+	  ===shuowen-jiguge-A30
 	  ===cbeta
 	  ===jef-china3
 	  ===ucs-bmp-cjk-compat@unicode

@@ -804,7 +804,7 @@
 		 ===hng-sab ===hng-wks ===hng-wke ===hng-smk
 		 ===hng-sgs ===hng-sts ===hng-kkd
 		 =>shuowen-jiguge =shuowen-jiguge
-		 ===shuowen-jiguge4 ===shuowen-jiguge5))
+		 ===shuowen-jiguge4 ===shuowen-jiguge5 ===shuowen-jiguge-A30))
 	 ;; (string-match "^=adobe-" (symbol-name name))
 	 )
 	"(%-18s . %05d)\t; %c")

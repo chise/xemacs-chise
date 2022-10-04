@@ -1,3 +1,11 @@
+2022-10-03  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`===shuowen-jiguge-A30'.
+
+	* mule/mule-conf.el (===shuowen-jiguge-A30): New coded-charset for
+	XEmacs CHISE.
+
 2022-09-27  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* mule/mule-charset.el (default-coded-charset-priority-list):

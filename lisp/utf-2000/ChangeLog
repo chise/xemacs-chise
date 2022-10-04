@@ -1,3 +1,8 @@
+2022-10-03  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* char-db-util.el (char-db-insert-ccs-feature): Format
+	`===shuowen-jiguge-A30' as the same as `=shuowen-jiguge'.
+
 2022-10-01  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R017-Open-Box.el (U-00020695): Add `<-ancient' for

@@ -3792,6 +3792,15 @@
 		  columns	2
 		  direction	l2r))
 
+  (make-charset '===shuowen-jiguge-A30 "汲古閣刊第四次修改本"
+		'(long-name "京大人文研所蔵汲古閣刊第四次修改本"
+		  chars		256
+		  dimension	2
+		  registry	"ShuowenJiguge-30$"
+		  graphic	2
+		  columns	2
+		  direction	l2r))
+
   ;; (make-charset
   ;;  '=zihai
   ;;  "ZhongHua-ZiHai glyph-images"
