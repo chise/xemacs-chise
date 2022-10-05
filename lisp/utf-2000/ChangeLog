@@ -1,5 +1,15 @@
 2022-10-04  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R030-Mouth.el (U-000314AD): New character.
+	(U-000314B7): New character.
+	(U-000314C4): New character.
+	(U-00031542): New character.
+	(U+5684): Add `<-denotational@usage' for A2-DJT-01545; apply new
+	conventions for glyph granularity.
+	(UU+5699): Unify DJT-01560.
+	(U-00031569): New character.
+	(A2-DJT-01545): New abstract node.
+
 	* ShuoWen-SR001.el, ShuoWen-SR002.el, ShuoWen-SR003.el,
 	ShuoWen-SR004.el, ShuoWen-SR005.el, ShuoWen-SR006.el,
 	ShuoWen-SR007.el, ShuoWen-SR008.el, ShuoWen-SR010.el,
@@ -22,6 +32,15 @@
 
 	* char-db-util.el (char-db-insert-ccs-feature): Format
 	`===shuowen-jiguge-A30' as the same as `=shuowen-jiguge'.
+
+2022-10-03  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R061-Heart.el (g2-RUI6-E05F): Omit
+	`ideographic-structure'.
+
+2022-10-02  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R087-Claw.el (U-0002C2FA): New character.
 
 2022-10-01  MORIOKA Tomohiko  <tomo.git@chise.org>
 

@@ -32617,16 +32617,7 @@
       ))
     (=ruimoku-v6	. #xE05F)	; &RUI6-E05F;
     (->subsumptive
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	(=ucs		    . #x2FF1)	; ⿱
-	)
-       ((==ucs@iso	    . #x20CF5)	; &g2-IU-00020CF5;
-	)
-       ((==ucs@unicode	    . #x5FC3)	; &g2-AJ1-02554;
-	(==adobe-japan1-0   . 02554)	; &g2-AJ1-02554;
-	))
-      (==ruimoku-v6	  . #xE05F)	; &g2-RUI6-E05F;
+     ((==ruimoku-v6	  . #xE05F)	; &g2-RUI6-E05F;
       ))
     ))
 (define-char
