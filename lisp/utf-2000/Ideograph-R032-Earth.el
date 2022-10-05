@@ -1265,6 +1265,24 @@
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
     (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
+      (=ucs		  . #x2FF5)	; ⿵
+      )
+     ((=>ucs-itaiji-003	  . #x21249)	; &A-U-i003+21249;
+      )
+     ((=ucs		  . #x4E00)	; 一
+      ))
+    (=>ucs@iso		. #x21249)	; &A-IU+21249;
+    (=>ruimoku-v6	. #xE0BE)	; &A-IU+21249;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@iso	  . #x21249)	; &A-IU+21249;
+      ))
+    (ideographic-radical . 32)	; ⼟
+    (ideographic-strokes . 3)
+    (total-strokes	 . 6)
+    (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
@@ -1291,27 +1309,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=ucs		  . #x21249)	; 𡉉
-      ))
-    (ideographic-radical . 32)	; ⼟
-    (ideographic-strokes . 3)
-    (total-strokes	 . 6)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-      (=ucs		  . #x2FF1)	; ⿱
-      )
-     ((=>gt-k		  . 01189)	; &A-GT-K01189;
-      )
-     ((=ucs		  . #x4E00)	; 一
-      ))
-    (=>big5-cdp		. #x8D44)	; &A-CDP-8D44;
-    (<-formed@component/connect-below
-     ((=ucs		  . #x21249)	; 𡉉
-      ))
-    ))
-(define-char
-  '((<-denotational
-     ((=ucs		  . #x21249)	; 𡉉
+     ((=>ucs@iso	  . #x21249)	; &A-IU+21249;
       ))
     (ideographic-radical . 32)	; ⼟
     (ideographic-strokes . 3)
@@ -1332,6 +1330,26 @@
       (->subsumptive
        ((===ruimoku-v6	    . #xE0BE)	; &R-RUI6-E0BE;
 	))
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x21249)	; 𡉉
+      ))
+    (ideographic-radical . 32)	; ⼟
+    (ideographic-strokes . 3)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>gt-k		  . 01189)	; &A-GT-K01189;
+      )
+     ((=ucs		  . #x4E00)	; 一
+      ))
+    (=>big5-cdp		. #x8D44)	; &A-CDP-8D44;
+    (<-formed@component/connect-below
+     ((=ucs		  . #x21249)	; 𡉉
       ))
     ))
 (define-char
