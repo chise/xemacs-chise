@@ -1038,6 +1038,38 @@
     (=>big5-cdp@component . #x89AE)	; &A-compCDP-89AE;
     ))
 (define-char
+  '((ideographic-radical . 7)	; ⼆
+    (ideographic-strokes . 2)
+    (total-strokes	 . 4)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=>ucs@iwds-1	  . #x4E06)	; &A-IWDSU+4E06;
+      (=>iwds-1		  .  0150)	; &A-IWDSU+4E06;
+      )
+     ((=>ucs@component	  . #x4E8C)	; &A-compU+4E8C;
+      ))
+    (=>ucs-itaiji-004	. #x5DE6)	; &A-U-i004+5DE6;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs-itaiji-004	  . #x5DE6)	; &A-U-i004+5DE6;
+      ))
+    (ideographic-radical . 7)	; ⼆
+    (ideographic-strokes . 2)
+    (total-strokes	 . 4)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs		  . #x4E06)	; 丆
+      )
+     ((=ucs		  . #x4E8C)	; 二
+      ))
+    (=ucs-itaiji-004	. #x5DE6)	; &U-i004+5DE6;
+    ))
+(define-char
   '((<-denotational@component
      ((=>big5-cdp@component . #x89AE)	; &A-compCDP-89AE;
       ))
@@ -2842,6 +2874,50 @@
       )
      ((==gt		  . 00373)	; &g2-GT-00373;
       ))
+    ))
+(define-char
+  '((ideographic-radical . 7)	; ⼆
+    (ideographic-strokes . 12)
+    (total-strokes	 . 14)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x200B9)	; 𠂹
+      )
+     ((=>ucs-itaiji-004	  . #x5DE6)	; &A-U-i004+5DE6;
+      ))
+    (=>ucs-itaiji-003	. #x22029)	; &A-U-i003+22029;
+    (<-Zhouwen
+     ((=ucs		  . #x22029)	; 𢀩
+      )
+     ((=ucs		  . #x5DEE)	; 差
+      ))
+    (<-Zhouwen$_1*sources
+     shuowen)
+    (<-Zhouwen$_2*sources
+     shuowen)
+    (<-Zhouwen*sources
+     shuowen)
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs-itaiji-003	  . #x22029)	; &A-U-i003+22029;
+      ))
+    (ideographic-radical . 7)	; ⼆
+    (ideographic-strokes . 12)
+    (total-strokes	 . 14)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs@iso		  . #x200B9)	; &HD-KS-001860;
+      (=cns11643-5	  . #x2B67)	; &HD-KS-001860; [11-71]
+      (=daikanwa	  . 00155)	; &I-M-00155;
+      )
+     ((=ucs-itaiji-004	  . #x5DE6)	; &U-i004+5DE6;
+      ))
+    (=ucs-itaiji-003	. #x22029)	; &U-i003+22029;
     ))
 (define-char
   '((ideographic-radical . 7)	; ⼆

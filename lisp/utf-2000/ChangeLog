@@ -1,5 +1,19 @@
 2022-10-04  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R007-Two.el (A-U+5DE6-itaiji-004): New abstract node.
+	(U+5DE6-itaiji-004): New character; use `<-denotational' for
+	A-U+5DE6-itaiji-004.
+	(A-U+22029-itaiji-003): New abstract node.
+	(U+22029-itaiji-003): New character; use `<-denotational' for
+	A-U+22029-itaiji-003.
+
+2022-10-04  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR051.el, ShuoWen-SR052.el, ShuoWen-SR053.el,
+	ShuoWen-SR054.el, ShuoWen-SR055.el, ShuoWen-SR056.el,
+	ShuoWen-SR057.el, ShuoWen-SR058.el, ShuoWen-SR059.el,
+	ShuoWen-SR060.el: Add `===shuowen-jiguge-A30' characters.
+
 	* Ideograph-R030-Mouth.el (U-000314AD): New character.
 	(U-000314B7): New character.
 	(U-000314C4): New character.
