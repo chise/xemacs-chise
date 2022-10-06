@@ -1,4 +1,28 @@
+2022-10-05  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR061.el, ShuoWen-SR062.el, ShuoWen-SR063.el,
+	ShuoWen-SR064.el, ShuoWen-SR065.el, ShuoWen-SR066.el,
+	ShuoWen-SR067.el, ShuoWen-SR068.el, ShuoWen-SR069.el,
+	ShuoWen-SR070.el: Add `===shuowen-jiguge-A30' characters.
+
+	* ShuoWen-SR009.el: Add `===shuowen-jiguge-A30' characters.
+	(A-SW-JIGUGE-01304): New abstract node.
+	(SW-JIGUGE-01304): Add `<-denotational' for A-SW-JIGUGE-01304.
+	(SW-JIGUGE4-01304): Use `<-denotational' for A-SW-JIGUGE-01304
+	instead of `<-subsumptive' for SW-JIGUGE-01304.
+
 2022-10-04  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R079-Weapon.el (A-IWDSU+2DBB0): New abstract node; use
+	`<-denotational' for A-cgnU+3C7F.
+	(A-IWDSU+3C7F): Add `<-denotational' for A-IWDSU+2DBB0; add
+	`ideographic-structure'.
+	(U+3C7F): Use A-IU+21249 instead of U-00021249 as the left
+	component.
+	(U-00023A8A): Use A-BC-8D44 instead of BC-8D44 as the left
+	component.
+	(U-0002DBB0): New character; use `<-denotational' for
+	A-IWDSU+2DBB0.
 
 	* Ideograph-R007-Two.el (A-U+5DE6-itaiji-004): New abstract node.
 	(U+5DE6-itaiji-004): New character; use `<-denotational' for
