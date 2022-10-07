@@ -54354,6 +54354,36 @@
     ))
 (define-char
   '((ideographic-radical . 38)	; ⼥
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5973)	; 女
+      )
+     ((=ucs		  . #x56C2)	; 囂
+      ))
+    (=>ruimoku-v6	. #xE0A0)	; &A-RUI6-E0A0;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ruimoku-v6	  . #xE0A0)	; &A-RUI6-E0A0;
+      ))
+    (ideographic-radical . 38)	; ⼥
+    (ideographic-strokes . 21)
+    (total-strokes	 . 24)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5973)	; 女
+      )
+     ((=ucs@unicode	  . #x56C2)	; &AJ1-04450;
+      (=adobe-japan1-0	  . 04450)	; &AJ1-04450;
+      ))
+    (=ruimoku-v6	. #xE0A0)	; &RUI6-E0A0;
+    ))
+(define-char
+  '((ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 22)
     (total-strokes	 . 25)
     (ideographic-structure

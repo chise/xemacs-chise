@@ -1574,3 +1574,36 @@
       (==cns11643-6	  . #x515A)	; &g2-CU+2155D; [49-58]
       ))
     ))
+(define-char
+  '((ideographic-radical . 34)	; ⼡
+    (ideographic-strokes . 11)
+    (total-strokes	 . 14)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5906)	; 夆
+      )
+     ((=ucs		  . #x56E7)	; 囧
+      ))
+    (=>ruimoku-v6	. #xE087)	; &A-RUI6-E087;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ruimoku-v6	  . #xE087)	; &A-RUI6-E087;
+      ))
+    (ideographic-radical . 34)	; ⼡
+    (ideographic-strokes . 11)
+    (total-strokes	 . 14)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs@unicode	  . #x5906)	; &AJ1-21371;
+      (=adobe-japan1-6	  . 21371)	; &AJ1-21371;
+      )
+     ((=ucs@unicode	  . #x56E7)	; &AJ1-21316;
+      (=adobe-japan1-6	  . 21316)	; &AJ1-21316;
+      ))
+    (=ruimoku-v6	. #xE087)	; &RUI6-E087;
+    ))

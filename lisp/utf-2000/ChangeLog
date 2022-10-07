@@ -1,3 +1,97 @@
+2022-10-06  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R061-Heart.el (A-RUI6-E13B): New abstract node.
+	(RUI6-E13B): Copied from ruimoku6.el; add `<-denotational' for
+	A-RUI6-E13B.
+	(IU+22843): Add `ideographic-structure@apparent'.
+
+	* Ideograph-R038-Woman.el (A-RUI6-E0A0): New abstract node.
+	(RUI6-E0A0): Copied from ruimoku6.el; add `<-denotational' for
+	A-RUI6-E0A0.
+
+	* Ideograph-R034-Go.el (A-RUI6-E087): New abstract node.
+	(RUI6-E087): Copied from ruimoku6.el; add `<-denotational' for
+	A-RUI6-E087.
+
+	* ShuoWen-SR081.el, ShuoWen-SR082.el, ShuoWen-SR083.el,
+	ShuoWen-SR084.el, ShuoWen-SR085.el, ShuoWen-SR086.el,
+	ShuoWen-SR087.el, ShuoWen-SR088.el, ShuoWen-SR089.el,
+	ShuoWen-SR090.el, ShuoWen-SR091.el, ShuoWen-SR092.el,
+	ShuoWen-SR093.el, ShuoWen-SR094.el, ShuoWen-SR095.el,
+	ShuoWen-SR096.el, ShuoWen-SR097.el, ShuoWen-SR098.el,
+	ShuoWen-SR099.el, ShuoWen-SR100.el: Add `===shuowen-jiguge-A30'
+	characters.
+
+	* ruimoku6.el (RUI6-E00F): Unify U-00031458.
+	(RUI6-E021): Add `<-denotational' for A-RUI6-E021; add
+	`ideographic-structure'.
+	(RUI6-E042): Unify U-00031441.
+	(RUI6-E079): Unify hanaJU+30DA4.
+	(RUI6-E087): Add `<-denotational' for A-RUI6-E087; add
+	`ideographic-radical', `ideographic-strokes' and `total-strokes';
+	add `ideographic-structure'.
+	(RUI6-E089): Add `ideographic-radical', `ideographic-strokes' and
+	`total-strokes'; add `ideographic-structure'.
+	(RUI6-E08D): Add `<-denotational' for U-000209AA; add
+	`ideographic-radical', `ideographic-strokes' and `total-strokes';
+	add `ideographic-structure'; unify U+209AA-var-001.
+	(RUI6-E09C): Add `<-denotational' for A-RUI6-E09C; add
+	`ideographic-radical', `ideographic-strokes' and `total-strokes';
+	add `ideographic-structure'.
+	(RUI6-E09E): Unify U-0002B45B.
+	(RUI6-E09F): Add `ideographic-radical', `ideographic-strokes' and
+	`total-strokes'; add `ideographic-structure'.
+	(RUI6-E0A0): Add `<-denotational' for A-RUI6-E0A0; add
+	`ideographic-radical', `ideographic-strokes' and `total-strokes';
+	add `ideographic-structure'.
+	(RUI6-E0A1): Unify U-0002C278.
+	(RUI6-E0AA): Unify U-00032077.
+	(RUI6-E0AE): Unify hanaJU+30EE5.
+	(RUI6-E0BD): Unify U-0003024F.
+	(RUI6-E0BE): Use A-IU+21249 instead of U-00021249 as its mother.
+	(RUI6-E0CC): Add `ideographic-radical', `ideographic-strokes' and
+	`total-strokes'; add `ideographic-structure'.
+	(RUI6-E0CD): Add `<-denotational' for U-0002C6AA; add
+	`ideographic-radical', `ideographic-strokes' and `total-strokes';
+	add `ideographic-structure'.
+	(RUI6-E0E6): Add `ideographic-radical', `ideographic-strokes' and
+	`total-strokes'; add `ideographic-structure'.
+	(RUI6-E0E7): Add `<-denotational' for U-00030804; add
+	`ideographic-radical', `ideographic-strokes' and `total-strokes';
+	add `ideographic-structure'.
+	(RUI6-E0EC): Add `<-denotational' for U-000313BC; unify
+	hanaJU+313BC; add `ideographic-radical', `ideographic-strokes' and
+	`total-strokes'; add `ideographic-structure'.
+	(RUI6-E0F1): Add `ideographic-radical', `ideographic-strokes' and
+	`total-strokes'; add `ideographic-structure'.
+	(RUI6-E0F2): Ditto.
+	(RUI6-E0FA): Ditto.
+	(RUI6-E100): Ditto.
+	(RUI6-E107): Ditto; add `<-denotational' for A-RUI6-E107.
+	(RUI6-E110): Add `<-denotational' for A-RUI6-E0D6; add
+	`ideographic-radical', `ideographic-strokes' and `total-strokes';
+	add `ideographic-structure'.
+	(RUI6-E113): Unify U-00031D57.
+	(RUI6-E115): Add `<-denotational' for U-00031230; unify
+	hanaJU+31230; add `ideographic-radical', `ideographic-strokes' and
+	`total-strokes'; add `ideographic-structure'.
+	(RUI6-E134): Unify hanaJU+31687.
+	(RUI6-E13B): Add `<-denotational' for A-RUI6-E13B; add
+	`ideographic-radical', `ideographic-strokes' and `total-strokes'.
+	(RUI6-E153): Add `<-denotational' for A-RUI6-E153.
+	(RUI6-E154): Unify U-00031C8D.
+	(RUI6-E161): Unify U-000301BA.
+
+	* Oracle-Bones.el (ZOB-00138): Use ZOB-01261 instead of "⿰土&ZOB-1244;".
+	(ZOB-00646): Use U-00030CEE instead of "⿴行⿱方止".
+	(ZOB-01261): Add `ideographic-structure'.
+	(ZOB-01970): Use GT-K04534 instead of "⿰爿𱼀".
+	(ZOB-02001): Add `ideographic-structure'; use U-0002C4E8 instead
+	of "⿰禾⿱&CDP-8BAE;丂" as the corresponding modern character.
+	(ZOB-02003): Use U-000301D1 instead of "⿱冊口"; add U-00025909
+	and U+9FA2 as corresponding modern characters.
+	(ZOB-02611): Use U-00030DA4 instead of RUI6-E079.
+
 2022-10-05  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R032-Earth.el (A-IU+21249): New abstract node; use
