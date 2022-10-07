@@ -33383,6 +33383,27 @@
       ))
     ))
 (define-char
+  '((ideographic-radical . 9)	; ⼈
+    (ideographic-strokes . 7)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x4EBB)	; 亻
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((=ucs		    . #x53B6)	; 厶
+	)
+       ((=ucs		    . #x53F8)	; 司
+	))
+      ))
+    (=ruimoku-v6	. #xE0CC)	; &RUI6-E0CC;
+    ))
+(define-char
   '((<-denotational
      ((=>gt-k		  . 05990)	; &A-GT-K05990;
       ))
