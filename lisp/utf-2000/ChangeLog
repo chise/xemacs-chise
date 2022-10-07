@@ -1,5 +1,22 @@
 2022-10-05  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R032-Earth.el (A-IU+21249): New abstract node; use
+	`<-denotational' for U-00021249; unify A-RUI6-E0BE.
+	(IU+21249): Use A-IU+21249 instead of U-00021249 as its mother.
+	(RUI6-E0BE): Ditto.
+
+2022-10-05  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R030-Mouth.el (U+301D1-itaiji-001): New character; use
+	`<-denotational' for U-000301D1.
+
+	* ShuoWen-SR071.el, ShuoWen-SR072.el, ShuoWen-SR073.el,
+	ShuoWen-SR074.el, ShuoWen-SR075.el, ShuoWen-SR076.el,
+	ShuoWen-SR077.el, ShuoWen-SR078.el, ShuoWen-SR079.el,
+	ShuoWen-SR080.el: Add `===shuowen-jiguge-A30' characters.
+
+	* Ideograph-R009-Man.el (RUI6-E0CC): Copied from ruimoku6.el.
+
 	* ShuoWen-SR061.el, ShuoWen-SR062.el, ShuoWen-SR063.el,
 	ShuoWen-SR064.el, ShuoWen-SR065.el, ShuoWen-SR066.el,
 	ShuoWen-SR067.el, ShuoWen-SR068.el, ShuoWen-SR069.el,
