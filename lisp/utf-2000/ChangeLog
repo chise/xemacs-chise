@@ -1,3 +1,13 @@
+2022-10-07  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR101.el, ShuoWen-SR102.el, ShuoWen-SR103.el,
+	ShuoWen-SR104.el, ShuoWen-SR105.el, ShuoWen-SR106.el,
+	ShuoWen-SR107.el, ShuoWen-SR108.el, ShuoWen-SR109.el,
+	ShuoWen-SR110.el: Add `===shuowen-jiguge-A30' characters.
+
+	* Ideograph-R068-Dipper.el (AJ1-13805): Add `<-interchangeable'
+	for UU+6348.
+
 2022-10-06  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R061-Heart.el (A-RUI6-E13B): New abstract node.

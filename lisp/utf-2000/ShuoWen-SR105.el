@@ -6,6 +6,8 @@
      ((=ucs		  . #x9F3B)	; 鼻
       ))
     (->subsumptive
+     ((===shuowen-jiguge-A30 . 11401)	; &SW-JIGUGE30-11401;
+      )
      ((===shuowen-jiguge5 . 11401)	; &SW-JIGUGE5-11401;
       )
      ((===shuowen-jiguge4 . 11101)	; &SW-JIGUGE4-11101;
@@ -18,6 +20,8 @@
      ((=ucs		  . #x9F45)	; 齅
       ))
     (->subsumptive
+     ((===shuowen-jiguge-A30 . 11402)	; &SW-JIGUGE30-11402;
+      )
      ((===shuowen-jiguge5 . 11402)	; &SW-JIGUGE5-11402;
       )
      ((===shuowen-jiguge4 . 11102)	; &SW-JIGUGE4-11102;
@@ -30,6 +34,8 @@
      ((=ucs		  . #x9F3E)	; 鼾
       ))
     (->subsumptive
+     ((===shuowen-jiguge-A30 . 11403)	; &SW-JIGUGE30-11403;
+      )
      ((===shuowen-jiguge5 . 11403)	; &SW-JIGUGE5-11403;
       )
      ((===shuowen-jiguge4 . 11103)	; &SW-JIGUGE4-11103;
@@ -42,6 +48,8 @@
      ((=ucs		  . #x9F3D)	; 鼽
       ))
     (->subsumptive
+     ((===shuowen-jiguge-A30 . 11404)	; &SW-JIGUGE30-11404;
+      )
      ((===shuowen-jiguge5 . 11404)	; &SW-JIGUGE5-11404;
       )
      ((===shuowen-jiguge4 . 11104)	; &SW-JIGUGE4-11104;
@@ -54,6 +62,8 @@
      ((=ucs		  . #x9F42)	; 齂
       ))
     (->subsumptive
+     ((===shuowen-jiguge-A30 . 11405)	; &SW-JIGUGE30-11405;
+      )
      ((===shuowen-jiguge5 . 11405)	; &SW-JIGUGE5-11405;
       )
      ((===shuowen-jiguge4 . 11105)	; &SW-JIGUGE4-11105;

@@ -6,6 +6,8 @@
      ((=ucs		  . #x767D)	; 白
       ))
     (->subsumptive
+     ((===shuowen-jiguge-A30 . 11308)	; &SW-JIGUGE30-11308;
+      )
      ((===shuowen-jiguge5 . 11308)	; &SW-JIGUGE5-11308;
       (<-Small-Seal@shuowen/mpsuzuki
        ((=ucs		    . #x268F9)	; 𦣹
@@ -24,6 +26,8 @@
      ((=ucs		  . #x7686)	; 皆
       ))
     (->subsumptive
+     ((===shuowen-jiguge-A30 . 11309)	; &SW-JIGUGE30-11309;
+      )
      ((===shuowen-jiguge5 . 11309)	; &SW-JIGUGE5-11309;
       )
      ((===shuowen-jiguge4 . 11009)	; &SW-JIGUGE4-11009;
@@ -38,6 +42,8 @@
      ((=ucs		  . #x9B6F)	; 魯
       ))
     (->subsumptive
+     ((===shuowen-jiguge-A30 . 11310)	; &SW-JIGUGE30-11310;
+      )
      ((===shuowen-jiguge5 . 11310)	; &SW-JIGUGE5-11310;
       )
      ((===shuowen-jiguge4 . 11010)	; &SW-JIGUGE4-11010;
@@ -50,6 +56,8 @@
      ((=ucs		  . #x8005)	; 者
       ))
     (->subsumptive
+     ((===shuowen-jiguge-A30 . 11311)	; &SW-JIGUGE30-11311;
+      )
      ((===shuowen-jiguge5 . 11311)	; &SW-JIGUGE5-11311;
       )
      ((===shuowen-jiguge4 . 11011)	; &SW-JIGUGE4-11011;
@@ -64,6 +72,8 @@
      ((=ucs		  . #x3FE7)	; 㿧
       ))
     (->subsumptive
+     ((===shuowen-jiguge-A30 . 11312)	; &SW-JIGUGE30-11312;
+      )
      ((===shuowen-jiguge5 . 11312)	; &SW-JIGUGE5-11312;
       )
      ((===shuowen-jiguge4 . 11012)	; &SW-JIGUGE4-11012;
@@ -78,6 +88,8 @@
      ((=ucs		  . #x667A)	; 智
       ))
     (->subsumptive
+     ((===shuowen-jiguge-A30 . 11313)	; &SW-JIGUGE30-11313;
+      )
      ((===shuowen-jiguge5 . 11313)	; &SW-JIGUGE5-11313;
       )
      ((===shuowen-jiguge4 . 11013)	; &SW-JIGUGE4-11013;
@@ -97,6 +109,8 @@
      ((=ucs		  . #x667A)	; 智
       ))
     (->subsumptive
+     ((===shuowen-jiguge-A30 . 11314)	; &SW-JIGUGE30-11314;
+      )
      ((===shuowen-jiguge5 . 11314)	; &SW-JIGUGE5-11314;
       )
      ((===shuowen-jiguge4 . 11014)	; &SW-JIGUGE4-11014;
@@ -109,6 +123,8 @@
      ((=ucs		  . #x767E)	; 百
       ))
     (->subsumptive
+     ((===shuowen-jiguge-A30 . 11315)	; &SW-JIGUGE30-11315;
+      )
      ((===shuowen-jiguge5 . 11315)	; &SW-JIGUGE5-11315;
       )
      ((===shuowen-jiguge4 . 11015)	; &SW-JIGUGE4-11015;
@@ -121,6 +137,8 @@
      ((=ucs		  . #x268FB)	; 𦣻
       ))
     (->subsumptive
+     ((===shuowen-jiguge-A30 . 11400)	; &SW-JIGUGE30-11400;
+      )
      ((===shuowen-jiguge5 . 11400)	; &SW-JIGUGE5-11400;
       )
      ((===shuowen-jiguge4 . 11100)	; &SW-JIGUGE4-11100;

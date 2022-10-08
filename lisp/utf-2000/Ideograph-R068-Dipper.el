@@ -657,6 +657,11 @@
     (=adobe-japan1-4	. 13805)	; &AJ1-13805;
     (=hanyo-denshi/ks	. 151460)	; &AJ1-13805;
     (=daikanwa		. 13509)	; &I-M-13509;
+    (<-interchangeable
+     ((=ucs@unicode	  . #x6348)	; &C2-2F4E;
+      (=cns11643-2	  . #x2F4E)	; &C2-2F4E; [15-46]
+      (=daikanwa	  . 12135)	; &I-M-12135;
+      ))
     (->subsumptive
      ((=decomposition@hanyo-denshi
        ((=ucs		    . #x659C)	; 斜
