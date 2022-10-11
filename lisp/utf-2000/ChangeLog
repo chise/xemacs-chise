@@ -1,3 +1,10 @@
+2022-10-08  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR111.el, ShuoWen-SR112.el, ShuoWen-SR113.el,
+	ShuoWen-SR114.el, ShuoWen-SR115.el, ShuoWen-SR116.el,
+	ShuoWen-SR117.el, ShuoWen-SR118.el, ShuoWen-SR119.el,
+	ShuoWen-SR120.el: Add `===shuowen-jiguge-A30' characters.
+
 2022-10-07  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* ShuoWen-SR101.el, ShuoWen-SR102.el, ShuoWen-SR103.el,
