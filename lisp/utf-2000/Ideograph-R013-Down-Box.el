@@ -4952,6 +4952,21 @@
     ))
 (define-char
   '((ideographic-radical . 13)	; ⼌
+    (ideographic-strokes . 8)
+    (total-strokes	 . 10)
+    (=ucs		. #x2D06D)	; 𭁭
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2D06D)	; 𭁭
+      ))
+    (ideographic-radical . 13)	; ⼌
+    (ideographic-strokes . 8)
+    (total-strokes	 . 10)
+    (=ucs@JP/hanazono	. #x2D06D)	; &hanaJU+2D06D;
+    ))
+(define-char
+  '((ideographic-radical . 13)	; ⼌
     (ideographic-strokes . 9)
     (total-strokes	 . 11)
     (ideographic-structure
