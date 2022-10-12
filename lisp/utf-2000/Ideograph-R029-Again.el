@@ -2200,14 +2200,46 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 29)	; ⼜
+  '((<-denotational@component
+     ((=>ucs@iwds-1	  . #x2456D)	; &A-IWDSU+2456D;
+      ))
+    (ideographic-radical . 29)	; ⼜
     (ideographic-strokes . 3)
     (total-strokes	 . 5)
     (hanyu-dazidian	1 393 17)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x4E2C)	; 丬
+      )
+     ((=ucs		  . #x53C8)	; 又
+      ))
+    (sound@ja/on	"sIu")
     (=ucs		. #x20B27)	; 𠬧
     (=cns11643-6	. #x2253)	; &I-C6-2253; [02-51]
     (=daikanwa		. 03137)	; &I-M-03137;
-    (=hanziku-1		. #xF6E0)	; &I-HZK01-F6E0;
+    (<-vulgar
+     ((=ucs@unicode	  . #x6536)	; &AJ1-05061;
+      (=adobe-japan1-0	  . 05061)	; &AJ1-05061;
+      (=daikanwa	  . 13110)	; &I-M-13110;
+      ))
+    (<-vulgar*sources
+     guangyun daikanwa)
+    (->subsumptive
+     ((==ucs@iso	  . #x20B27)	; &g2-M-03137;
+      (==cns11643-6	  . #x2253)	; &g2-M-03137; [02-51]
+      (==daikanwa	  . 03137)	; &g2-M-03137;
+      (->subsumptive
+       ((===daikanwa	    . 03137)	; &R-M-03137;
+	)
+       ((===cns11643-6	    . #x2253)	; &R-C6-2253; [02-51]
+	)
+       ((===ucs@iso	    . #x20B27)	; &R-U-00020B27;
+	)
+       ((=hanziku-1	    . #xF6E0)	; &HZK01-F6E0;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 29)	; ⼜

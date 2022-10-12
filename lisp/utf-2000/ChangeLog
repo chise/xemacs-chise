@@ -1,3 +1,14 @@
+2022-10-10  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R029-Again.el (U-00020B27): Add
+	`<-denotational@component' for A-IWDSU+2456D; apply new
+	conventions for glyph granularity.
+
+	* ShuoWen-SR121.el, ShuoWen-SR122.el, ShuoWen-SR123.el,
+	ShuoWen-SR124.el, ShuoWen-SR125.el, ShuoWen-SR126.el,
+	ShuoWen-SR127.el, ShuoWen-SR128.el, ShuoWen-SR129.el,
+	ShuoWen-SR130.el: Add `===shuowen-jiguge-A30' characters.
+
 2022-10-08  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* ShuoWen-SR111.el, ShuoWen-SR112.el, ShuoWen-SR113.el,
