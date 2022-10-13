@@ -1,5 +1,13 @@
 2022-10-12  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R013-Down-Box.el (U-0002D06D): New character.
+
+	* Ideograph-R008-Lid.el (BC-8C4D): Add
+	`ideographic-structure@apparent'.
+	(g2-BC-8C4D): Omit `ideographic-structure'.
+
+2022-10-12  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* ShuoWen-SR131.el, ShuoWen-SR132.el, ShuoWen-SR133.el,
 	ShuoWen-SR134.el, ShuoWen-SR135.el: Add `===shuowen-jiguge-A30'
 	characters.

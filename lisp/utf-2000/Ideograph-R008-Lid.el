@@ -2210,6 +2210,16 @@
       )
      ((=ucs		  . #x5196)	; 冖
       ))
+    (ideographic-structure@apparent
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
+      (=ucs		  . #x2FF3)	; ⿳
+      )
+     ((=ucs		  . #x4EA0)	; 亠
+      )
+     ((=ucs		  . #x53E3)	; 口
+      )
+     ((=ucs		  . #x5196)	; 冖
+      ))
     (=big5-cdp		. #x8C4D)	; &CDP-8C4D;
     (=gt-k		. 02791)	; &I-GT-K02791;
     (=gt-pj-k1		. #x324C)	; &CDP-8C4D; [18-44]
@@ -2217,16 +2227,7 @@
      ((=ucs		  . #x9AD8)	; 高
       ))
     (->subsumptive
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	(=ucs		    . #x2FF1)	; ⿱
-	)
-       ((=gt-k		    . 01444)	; &GT-K01444;
-	)
-       ((==ucs@unicode	    . #x5196)	; &g2-AJ1-04227;
-	(==adobe-japan1-0   . 04227)	; &g2-AJ1-04227;
-	))
-      (==big5-cdp	  . #x8C4D)	; &g2-CDP-8C4D;
+     ((==big5-cdp	  . #x8C4D)	; &g2-CDP-8C4D;
       (==gt-k		  . 02791)	; &g2-CDP-8C4D;
       ))
     ))
