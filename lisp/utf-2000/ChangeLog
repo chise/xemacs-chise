@@ -1,3 +1,20 @@
+2022-10-12  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR131.el, ShuoWen-SR132.el, ShuoWen-SR133.el,
+	ShuoWen-SR134.el, ShuoWen-SR135.el: Add `===shuowen-jiguge-A30'
+	characters.
+
+2022-10-11  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R090-Half-Tree-Trunk.el (A-IWDSU+2456D): New abstract
+	node.
+	(U-0002456D): Use `->denotational' and `->subsumptive'; add
+	`<-denotational@component' for A-IWDSU+2456D.
+	(A-CB12189): New abstract node.
+	(CB12189): New character; use `<-denotational' for A-CB12189.
+
+	* Ideograph-R046-Mountain.el (U-0002D5D0): New character.
+
 2022-10-10  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R029-Again.el (U-00020B27): Add
