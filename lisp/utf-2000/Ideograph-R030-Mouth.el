@@ -1497,7 +1497,14 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 30)	; ⼝
+  '((<-denotational@usage
+     ((==>ucs@bucs	  . #x81FA)	; &BUCS+81FA;
+      )
+     ((==>ucs@bucs	  . #x6AAF)	; &BUCS+6AAF;
+      )
+     ((==>daijiten	  . 01155)	; &A2-DJT-01155;
+      ))
+    (ideographic-radical . 30)	; ⼝
     (ideographic-strokes . 2)
     (total-strokes	 . 5)
     (hanyu-dazidian	1 575 2)
@@ -1585,7 +1592,7 @@
     (<-interchangeable$_7*sources
      hanshu-zhu daikanwa)
     (<-interchangeable$_8*sources
-     chunqiu-zuoshi-zhuan|chunqiu-guliang daikanwa)
+     chunqiu-zuoshi-zhuan+chunqiu-guliang daikanwa)
     (<-interchangeable$_9*sources
      shuowen-tongxun-dingsheng daikanwa)
     (<-interchangeable*sources
@@ -93220,6 +93227,10 @@
   '((ideographic-radical . 30)	; ⼝
     (==>ucs@bucs	. #x53E8)	; &BUCS+53E8;
     (==>daijiten	. 01145)	; &BUCS+53E8;
+    ))
+(define-char
+  '((ideographic-radical . 30)	; ⼝
+    (==>daijiten	. 01155)	; &A2-DJT-01155;
     ))
 (define-char
   '((<-denotational@component

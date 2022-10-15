@@ -6,6 +6,8 @@
      ((=ucs		  . #x7B4B)	; 筋
       ))
     (->subsumptive
+     ((===shuowen-jiguge-A30 . 14005)	; &SW-JIGUGE30-14005;
+      )
      ((===shuowen-jiguge5 . 14005)	; &SW-JIGUGE5-14005;
       )
      ((===shuowen-jiguge4 . 13705)	; &SW-JIGUGE4-13705;
@@ -18,6 +20,8 @@
      ((=ucs		  . #x41DF)	; 䇟
       ))
     (->subsumptive
+     ((===shuowen-jiguge-A30 . 14006)	; &SW-JIGUGE30-14006;
+      )
      ((===shuowen-jiguge5 . 14006)	; &SW-JIGUGE5-14006;
       )
      ((===shuowen-jiguge4 . 13706)	; &SW-JIGUGE4-13706;
@@ -30,6 +34,8 @@
      ((=ucs		  . #x8171)	; 腱
       ))
     (->subsumptive
+     ((===shuowen-jiguge-A30 . 14007)	; &SW-JIGUGE30-14007;
+      )
      ((===shuowen-jiguge5 . 14007)	; &SW-JIGUGE5-14007;
       )
      ((===shuowen-jiguge4 . 13707)	; &SW-JIGUGE4-13707;
@@ -42,6 +48,8 @@
      ((=ucs		  . #x25B56)	; 𥭖
       ))
     (->subsumptive
+     ((===shuowen-jiguge-A30 . 14008)	; &SW-JIGUGE30-14008;
+      )
      ((===shuowen-jiguge5 . 14008)	; &SW-JIGUGE5-14008;
       )
      ((===shuowen-jiguge4 . 13708)	; &SW-JIGUGE4-13708;
@@ -54,6 +62,8 @@
      ((=ucs		  . #x8091)	; 肑
       ))
     (->subsumptive
+     ((===shuowen-jiguge-A30 . 14009)	; &SW-JIGUGE30-14009;
+      )
      ((===shuowen-jiguge5 . 14009)	; &SW-JIGUGE5-14009;
       )
      ((===shuowen-jiguge4 . 13709)	; &SW-JIGUGE4-13709;

@@ -1,3 +1,17 @@
+2022-10-13  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R030-Mouth.el (U+53F0): Add `<-denotational@usage' for
+	BUCS+81FA, BUCS+6AAF and A2-DJT-01155; use
+	`chunqiu-zuoshi-zhuan+chunqiu-guliang' instead of
+	`chunqiu-zuoshi-zhuan|chunqiu-guliang' as a source.
+	(A2-DJT-01155): New abstract node.
+
+2022-10-13  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR136.el, ShuoWen-SR137.el, ShuoWen-SR138.el,
+	ShuoWen-SR139.el, ShuoWen-SR140.el: Add `===shuowen-jiguge-A30'
+	characters.
+
 2022-10-12  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R013-Down-Box.el (U-0002D06D): New character.
