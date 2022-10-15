@@ -337,6 +337,40 @@
     (ideographic-radical . 51)	; ⼲
     (ideographic-strokes . 2)
     (total-strokes	 . 5)
+    (=gt-k		. 01438)	; &GT-K01438;
+    (=gt-pj-k1		. #x3648)	; &GT-K01438; [22-40]
+    (<-formed@component
+     ((=ucs		  . #x22189)	; 𢆉
+      ))
+    (<-simplified@component
+     ((=ucs		  . #x5C70)	; 屰
+      ))
+    (->subsumptive
+     ((==gt-k		  . 01438)	; &g2-GT-K01438;
+      (==gt-pj-k1	  . #x3648)	; &g2-GT-K01438; [22-40]
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x22189)	; 𢆉
+      ))
+    (ideographic-radical@ucs . 123)	; ⽺
+    (ideographic-strokes@ucs . 0)
+    (ideographic-radical@r051 . 51)	; ⼲
+    (ideographic-strokes@r051 . 2)
+    (total-strokes	 . 5)
+    (=ucs		. #x2634D)	; 𦍍
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2634D)	; 𦍍
+      ))
+    (ideographic-radical@ucs . 123)	; ⽺
+    (ideographic-strokes@ucs . 0)
+    (ideographic-radical@r051 . 51)	; ⼲
+    (ideographic-strokes@r051 . 2)
+    (total-strokes	 . 5)
+    (=ucs@iso		. #x2634D)	; &GT-K01380;
     (=gt-k		. 01380)	; &GT-K01380;
     (=gt-pj-k2		. #x4769)	; &GT-K01380; [39-73]
     (<-formed@component/connect-right
@@ -345,21 +379,15 @@
     (<-simplified@component
      ((=ucs		  . #x5C70)	; 屰
       ))
-    ))
-(define-char
-  '((<-denotational
-     ((=ucs		  . #x22189)	; 𢆉
-      ))
-    (ideographic-radical . 51)	; ⼲
-    (ideographic-strokes . 2)
-    (total-strokes	 . 5)
-    (=gt-k		. 01438)	; &GT-K01438;
-    (=gt-pj-k1		. #x3648)	; &GT-K01438; [22-40]
-    (<-formed@component
-     ((=ucs		  . #x22189)	; 𢆉
-      ))
-    (<-simplified@component
-     ((=ucs		  . #x5C70)	; 屰
+    (->subsumptive
+     ((==ucs@iso	  . #x2634D)	; &g2-GT-K01380;
+      (==gt-k		  . 01380)	; &g2-GT-K01380;
+      (==gt-pj-k2	  . #x4769)	; &g2-GT-K01380; [39-73]
+      (->subsumptive
+       ((===ucs@iso	    . #x2634D)	; &R-U-0002634D;
+	)
+       ((===gt-k	    . 01380)	; &R-GT-K01380;
+	))
       ))
     ))
 (define-char
