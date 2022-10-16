@@ -1,3 +1,73 @@
+2022-10-16  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R101-Use.el (U+7528): Add `<-denotational@usage' for
+	BUCS+7528; apply new conventions for glyph granularity.
+	(UU+7528): Unify DJT-07469.
+	(U+7528-var-004): New character; use `<-denotational' for U+7528.
+	(U-00031C1C): New character.
+	(U+752C): Add `ideographic-structure'.
+	(UU+752C): Unify DJT-07471.
+	(MJ058080): New character; use `<-denotational' for U+752C.
+	(U-000200F0): Apply new conventions for glyph granularity.
+	(U-00024C07): Add ideographic-structure.
+	(M-21714): Unify MJ041331 and KOSEKI-243510.
+	(U+24C07-var-005): New character; use `<-denotational' for
+	U-00024C07.
+	(U-000308B1): New character.
+	(u-00024C08): Add `<-denotational@usage' for A2-DJT-07476; add
+	ideographic-structure.
+	(U-0002DEBA): Apply new conventions for glyph granularity.
+	(U-00024C0F): Add `sound@ja/on'.
+	(M-21721): Add `<-denotational' for U-00024C0F.
+	(MJ041336): New character; use `<-denotational' for U-00024C0F.
+	(BUCS+7528): New abstract node; unify A2-DJT-07469.
+	(BUCS+752C): Unify A2-DJT-07471.
+	(A2-DJT-07476): New abstract node.
+
+2022-10-14  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R100-Life.el (U-0002C3BC): New character.
+
+2022-10-14  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R064-Hand.el (U-00022A71): Apply new conventions for
+	glyph granularity.
+	(U+22A71-itaiji-001): New character; use `<-denotational' for
+	U-00022A71.
+	(U+39CA): Apply new conventions for glyph granularity; add
+	`<-denotational@usage' for A2-DJT-03681.
+	(U-00022AC2): Use `->denotational' and `->subsumptive'.
+	(U-00022AC3): New character.
+	(U-00022AC7): New character.
+	(U-00022AC9): New character.
+	(U-00022ACA): New character.
+	(U-00022ACE): New character.
+	(U-00022AD8): New character.
+	(U+6348): Apply new conventions for glyph granularity; add
+	`<-denotational@usage' for A2-DJT-03817.
+	(U-0003180D): New character.
+	(U-0002AB82): New character.
+	(U+6455): Apply new conventions for glyph granularity.
+	(U+6462): Likewise.
+	(U+6474): Likewise.
+	(U-00022DEE): New character.
+	(U+6504): Apply new conventions for glyph granularity; add
+	`<-denotational@usage' for BUCS+6504.
+	(U+650E): Apply new conventions for glyph granularity; add
+	`<-denotational@usage' for A2-DJT-04171.
+	(U+651E): Apply new conventions for glyph granularity; add
+	`<-denotational@usage' for A2-DJT-04198.
+	(A2-DJT-03681): New abstract node.
+	(A2-DJT-03817): New abstract node.
+	(BUCS+6504): New abstract node; unify A2-DJT-04151.
+	(A2-DJT-04171): New abstract node.
+	(A2-DJT-04198): New abstract node.
+
+	* Ideograph-R032-Earth.el (U-00031590): New character.
+	(U+58A8): Add `<-denotational@usage' for BUCS+58A8.
+	(UU+58A8): Unify DJT-01859.
+	(BUCS+58A8): New abstract node; unify A2-DJT-01859.
+
 2022-10-13  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R030-Mouth.el (U+53F0): Add `<-denotational@usage' for
