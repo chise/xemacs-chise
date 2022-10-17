@@ -24,11 +24,20 @@
 	(BUCS+752C): Unify A2-DJT-07471.
 	(A2-DJT-07476): New abstract node.
 
+2022-10-15  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R051-Dry.el (U-0002634D): Copied from
+	Ideograph-R123-Sheep.el; add `<-denotational' for U-00022189.
+	(GT-K01380): Unify IU+2634D; use U-0002634D instead of U-00022189
+	as its mother.
+
 2022-10-14  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R100-Life.el (U-0002C3BC): New character.
 
 2022-10-14  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR142.el, ShuoWen-SR143.el, : Add `===shuowen-jiguge-A30' characters.
 
 	* Ideograph-R064-Hand.el (U-00022A71): Apply new conventions for
 	glyph granularity.
@@ -62,6 +71,12 @@
 	(BUCS+6504): New abstract node; unify A2-DJT-04151.
 	(A2-DJT-04171): New abstract node.
 	(A2-DJT-04198): New abstract node.
+
+	* ShuoWen-SR146.el: Add `===shuowen-jiguge-A30' characters.
+	(SW-JIGUGE-15312): New character.
+
+	* ShuoWen-SR141.el, ShuoWen-SR144.el, ShuoWen-SR145.el: Add
+	`===shuowen-jiguge-A30' characters.
 
 	* Ideograph-R032-Earth.el (U-00031590): New character.
 	(U+58A8): Add `<-denotational@usage' for BUCS+58A8.
