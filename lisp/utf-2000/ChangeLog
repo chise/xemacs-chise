@@ -1,3 +1,94 @@
+2022-10-17  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR147.el, ShuoWen-SR148.el, ShuoWen-SR149.el,
+	ShuoWen-SR150.el, ShuoWen-SR151.el, ShuoWen-SR152.el,
+	ShuoWen-SR153.el, ShuoWen-SR154.el, ShuoWen-SR155.el,
+	ShuoWen-SR156.el, ShuoWen-SR157.el, ShuoWen-SR158.el,
+	ShuoWen-SR159.el, ShuoWen-SR160.el: Add `===shuowen-jiguge-A30'
+	characters.
+
+	* Ideograph-R086-Fire.el (U+706C): Apply new conventions for glyph
+	granularity.
+	(UU+706C): Unify <CJK RADICAL FIRE>.
+	(U+706C-var-002): New character; use `<-denotational' for U+706C.
+	(U-0002C278): Unify RUI6-E0A1.
+	(hanaJU+2DD05): Unify CB02109.
+	(A-IWDSU+7087): New abstract node.
+	(U+7087): Use `->denotational' and `->subsumptive'; add
+	`<-denotational' for A-IWDSU+7087.
+	(U+7087-var-001): New character; use `<-denotational' for U+7087.
+	(U-0002419D): Use `->denotational' and `->subsumptive'; add
+	`<-denotational' for A-IWDSU+7087.
+	(U-000241AF): Use `->denotational' and `->subsumptive'.
+	(U-0002DD11): New character.
+	(A-U+5FDD-itaiji-001): New abstract node.
+	(U+5FDD-itaiji-001): New character; use `<-denotational' for
+	A-U+5FDD-itaiji-001.
+	(U+70A4): Apply new conventions for glyph granularity; add
+	`<-denotational@usage' for
+	(U-0002DD1A): New character; use `<-denotational' for
+	A-cgnU+2DD1A.
+	(A-cgnU+2DD1A): New abstract node.
+	(A-U+3DF1-itaiji-001): New abstract node.
+	(U+3DF1-itaiji-001): New character; use `<-denotational' for
+	A-U+3DF1-itaiji-001.
+	(U+70DF): Add `<-denotational@usage' for A2-DJT-06847 and
+	BUCS+7159; apply new conventions for glyph granularity.
+	(U-00024215): Apply new conventions for glyph granularity.
+	(U+9ED2): Add `<-denotational@usage' for BUCS+9ED1.
+	(UU+9ED2): Unify DJT-14710.
+	(U-0002B7A0): New character.
+	(U-00031AD6): New character.
+	(U-00024265): Add `<-denotational' for A-IWDSU+2078E; apply new
+	conventions for glyph granularity.
+	(U-00024270): New character.
+	(U-00024274): New character.
+	(U-00024275): New character.
+	(U+242B1-itaiji-001): New character; use `<-denotational' for
+	U-000242B1.
+	(U+7159): Add `<-denotational@usage' for BUCS+7159 and
+	A2-DJT-06901.
+	(U+3DD1): Add `<-denotational@usage' for A2-DJT-06901; add
+	ideographic-structure.
+	(M-19204): Unify MJ002283 and KOSEKI-216260.
+	(UU+3DD1): Unify DJT-06902.
+	(A-cgnU+7167): New abstract node.
+	(U+7167): Add `<-denotational' for A-cgnU+7167; add
+	`<-denotational@usage' for BUCS+7167; add ideographic-structure.
+	(UU+7167): Delete `=>ucs@iwds-1'; unify DJT-06918.
+	(A-U+7167-itaiji-004): New abstract node; use `<-denotational' for
+	A-cgnU+7167.
+	(U+7167-itaiji-004): Use A-U+7167-itaiji-004 instead of U+7167 as
+	its mother.
+	(U-000242D3): New character.
+	(U-000242D4): New character.
+	(U-0002435E): New character.
+	(U+7188): Add `<-denotational' for A-IWDSU+7155; add
+	`<-denotational@usage' for BUCS+7199 and A2-DJT-06898; add
+	ideographic-structure.
+	(U+7188-var-001): Unify DJT-06937.
+	(U-00024321): New character.
+	(U-0002439F): Use `->denotational' and `->subsumptive'.
+	(U-000243C6): New character.
+	(U-000243D1): New character.
+	(U-0002440B): New character.
+	(U+7202): Add ideographic-structure; add `sound@ja/on/{kan|go}'.
+	(M-19530): Unify MJ016686 and KOSEKI-219950.
+	(U-0002446E): New character.
+	(U-0002447B): New character.
+	(U-0002C2D5): New character; use `<-denotational' for
+	A-IWDSU+91AE.
+	(A-U+7202-itaiji-002): New abstract node.
+	(U+7202-itaiji-002): New character; use `<-denotational' for
+	A-U+7202-itaiji-002.
+	(BUCS+70A4): New abstract node; unify A2-DJT-06811.
+	(BUCS+7159): New abstract node.
+	(BUCS+7167): New abstract node; unify A2-DJT-06918.
+	(A2-DJT-06847): New abstract node; use `<-denotational' for
+	BUCS+7159.
+	(A2-DJT-06901): New abstract node; use `<-denotational' for
+	BUCS+7159.
+
 2022-10-16  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R101-Use.el (U+7528): Add `<-denotational@usage' for
@@ -37,7 +128,7 @@
 
 2022-10-14  MORIOKA Tomohiko  <tomo.git@chise.org>
 
-	* ShuoWen-SR142.el, ShuoWen-SR143.el, : Add `===shuowen-jiguge-A30' characters.
+	* ShuoWen-SR142.el, ShuoWen-SR143.el: Add `===shuowen-jiguge-A30' characters.
 
 	* Ideograph-R064-Hand.el (U-00022A71): Apply new conventions for
 	glyph granularity.
