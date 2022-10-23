@@ -4517,6 +4517,7 @@
      ((=ucs		  . #x7F52)	; 罒
       ))
     (=>big5-cdp		. #x8CBF)	; &A-CDP-8CBF;
+    (=>big5-cdp-itaiji-001 . #x8CBF)	; &A-CDP-8CBF;
     ))
 (define-char
   '((<-denotational
