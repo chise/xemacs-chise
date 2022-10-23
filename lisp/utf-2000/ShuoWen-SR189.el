@@ -6,6 +6,8 @@
      ((=ucs		  . #x29ACF)	; 𩫏
       ))
     (->subsumptive
+     ((===shuowen-jiguge-A30 . 18007)	; &SW-JIGUGE30-18007;
+      )
      ((===shuowen-jiguge5 . 17507)	; &SW-JIGUGE5-17507;
       (<-Small-Seal@shuowen/mpsuzuki
        ((=ucs		    . #x20177)	; 𠅷
@@ -24,6 +26,8 @@
      ((=ucs		  . #x29AE0)	; 𩫠
       ))
     (->subsumptive
+     ((===shuowen-jiguge-A30 . 18008)	; &SW-JIGUGE30-18008;
+      )
      ((===shuowen-jiguge5 . 17508)	; &SW-JIGUGE5-17508;
       )
      ((===shuowen-jiguge4 . 17208)	; &SW-JIGUGE4-17208;
