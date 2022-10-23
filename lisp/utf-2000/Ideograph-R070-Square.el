@@ -1,6 +1,9 @@
 ;; -*- coding: utf-8-mcs-er -*-
 (define-char
-  '((ideographic-radical . 70)	; ⽅
+  '((<-denotational@component
+     ((=>ucs@component	  . #x65B9)	; &A-compU+65B9;
+      ))
+    (ideographic-radical . 70)	; ⽅
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
     (=ucs		. #x65B9)	; 方
@@ -4205,6 +4208,10 @@
      ((=ucs@iso		  . #x2312B)	; &C7-6070;
       (=cns11643-7	  . #x6070)	; &C7-6070; [64-80]
       ))
+    ))
+(define-char
+  '((ideographic-radical . 70)	; ⽅
+    (=>ucs@component	. #x65B9)	; &A-compU+65B9;
     ))
 (define-char
   '((ideographic-radical . 70)	; ⽅
