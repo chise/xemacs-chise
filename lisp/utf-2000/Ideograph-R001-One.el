@@ -797,8 +797,13 @@
       ))
     ))
 (define-char
-  '((<-denotational@usage
+  '((<-denotational@component
+     ((=>ucs@component	  . #x65B9)	; &A-compU+65B9;
+      ))
+    (<-denotational@usage
      ((==>daijiten	  . 00005)	; &A2-DJT-00005;
+      )
+     ((==>ucs@bucs	  . #x842C)	; &BUCS+842C;
       ))
     (numeric-value	. 10000)
     (ideographic-radical . 1)	; ⼀
@@ -9742,11 +9747,6 @@
     ))
 (define-char
   '((ideographic-radical . 1)	; ⼀
-    (daijiten-pages	15)
-    (==>daijiten	. 00005)	; &A2-DJT-00005;
-    ))
-(define-char
-  '((ideographic-radical . 1)	; ⼀
     (daijiten-pages	16)
     (==>ucs@bucs	. #x4E08)	; &BUCS+4E08;
     (==>daijiten	. 00006)	; &BUCS+4E08;
@@ -9853,4 +9853,12 @@
 (define-char
   '((ideographic-radical . 1)	; ⼀
     (=>ucs@component	. #x4E0C)	; &A-compU+4E0C;
+    ))
+(define-char
+  '((<-denotational
+     ((==>ucs@bucs	  . #x842C)	; &BUCS+842C;
+      ))
+    (ideographic-radical . 1)	; ⼀
+    (daijiten-pages	15)
+    (==>daijiten	. 00005)	; &A2-DJT-00005;
     ))
