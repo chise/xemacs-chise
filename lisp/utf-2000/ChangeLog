@@ -1,3 +1,15 @@
+2022-10-21  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR161.el, ShuoWen-SR162.el, ShuoWen-SR163.el,
+	ShuoWen-SR164.el, ShuoWen-SR165.el, ShuoWen-SR166.el,
+	ShuoWen-SR167.el, ShuoWen-SR168.el, ShuoWen-SR169.el,
+	ShuoWen-SR170.el: Add `===shuowen-jiguge-A30' characters.
+
+2022-10-17  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R048-Work.el (IU+2201B): New character; use
+	`<-denotational' for U-0002201B.
+
 2022-10-17  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* ShuoWen-SR147.el, ShuoWen-SR148.el, ShuoWen-SR149.el,
