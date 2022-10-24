@@ -1,5 +1,12 @@
 2022-10-23  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R001-One.el (U+4E07): Add `<-denotational@component'
+	for A-compU+65B9; add BUCS+842C as a target of
+	`<-denotational@usage'.
+	(A2-DJT-00005): Add `<-denotational' for BUCS+842C.
+
+2022-10-23  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* ShuoWen-SR181.el, ShuoWen-SR182.el, ShuoWen-SR183.el,
 	ShuoWen-SR184.el, ShuoWen-SR185.el, ShuoWen-SR186.el,
 	ShuoWen-SR187.el, ShuoWen-SR188.el, ShuoWen-SR189.el,
