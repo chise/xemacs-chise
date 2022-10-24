@@ -6,6 +6,8 @@
      ((=ucs		  . #x5F1F)	; 弟
       ))
     (->subsumptive
+     ((===shuowen-jiguge-A30 . 18619)	; &SW-JIGUGE30-18619;
+      )
      ((===shuowen-jiguge5 . 18119)	; &SW-JIGUGE5-18119;
       )
      ((===shuowen-jiguge4 . 17819)	; &SW-JIGUGE4-17819;
@@ -18,6 +20,8 @@
      ((=ucs		  . #x20096)	; 𠂖
       ))
     (->subsumptive
+     ((===shuowen-jiguge-A30 . 18620)	; &SW-JIGUGE30-18620;
+      )
      ((===shuowen-jiguge5 . 18120)	; &SW-JIGUGE5-18120;
       )
      ((===shuowen-jiguge4 . 17820)	; &SW-JIGUGE4-17820;
@@ -32,6 +36,8 @@
      ((=ucs		  . #x665C)	; 晜
       ))
     (->subsumptive
+     ((===shuowen-jiguge-A30 . 18621)	; &SW-JIGUGE30-18621;
+      )
      ((===shuowen-jiguge5 . 18121)	; &SW-JIGUGE5-18121;
       )
      ((===shuowen-jiguge4 . 17821)	; &SW-JIGUGE4-17821;
