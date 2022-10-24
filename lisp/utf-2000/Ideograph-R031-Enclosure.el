@@ -934,6 +934,15 @@
     (ideographic-radical . 31)	; ⼞
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
+      (=ucs		  . #x2FF4)	; ⿴
+      )
+     ((=ucs		  . #x56D7)	; 囗
+      )
+     ((name		  . "CJK RADICAL SMALL ONE")
+      (=ucs		  . #x2E8C)	; ⺌
+      ))
     (=big5-cdp		. #x8B62)	; &CDP-8B62;
     (->subsumptive
      ((==big5-cdp	  . #x8B62)	; &g2-CDP-8B62;

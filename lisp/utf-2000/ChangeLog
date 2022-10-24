@@ -1,3 +1,23 @@
+2022-10-23  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR181.el, ShuoWen-SR182.el, ShuoWen-SR183.el,
+	ShuoWen-SR184.el, ShuoWen-SR185.el, ShuoWen-SR186.el,
+	ShuoWen-SR187.el, ShuoWen-SR188.el, ShuoWen-SR189.el,
+	ShuoWen-SR190.el, ShuoWen-SR191.el, ShuoWen-SR192.el,
+	ShuoWen-SR193.el, ShuoWen-SR194.el, ShuoWen-SR195.el,
+	ShuoWen-SR196.el, ShuoWen-SR197.el, ShuoWen-SR198.el,
+	ShuoWen-SR199.el: Add `===shuowen-jiguge-A30' characters.
+
+	* Ideograph-R070-Square.el (U+65B9): Add
+	`<-denotational@component' for A-compU+65B9.
+	(A-compU+65B9): New abstract node.
+
+	* Ideograph-R031-Enclosure.el (BC-8B62): Add
+	`ideographic-structure'.
+
+	* Ideograph-R013-Down-Box.el (A-BC-8CBF): Unify
+	A-BC-8CBF-itaiji-001.
+
 2022-10-22  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* ShuoWen-SR171.el, ShuoWen-SR172.el, ShuoWen-SR173.el,
