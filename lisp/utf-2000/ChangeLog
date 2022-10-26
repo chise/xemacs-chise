@@ -1,5 +1,18 @@
 2022-10-25  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R029-Again.el (U+53D6): Add detailed glyph objects.
+	(A2-DJT-01127): Unify BUCS+53D6.
+
+2022-10-25  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R030-Mouth.el (A-BC-8DAE): Unify A-BC-8DAE-itaiji-002.
+	(BC-8DAE-itaiji-002): New character; use `<-denotational' for
+	A-BC-8DAE.
+	(U+563C): Add `<-denotational@usage' for A2-DJT-01495.
+	(UU+563C): Unify DJT-01495.
+	(GT-K10496): New character; use `<-denotational' for U+563C.
+	(A2-DJT-01495): New abstract node.
+
 	* Ideograph-R032-Earth.el (UU+58D8): Unify DJT-01890.
 
 2022-10-24  MORIOKA Tomohiko  <tomo.git@chise.org>
