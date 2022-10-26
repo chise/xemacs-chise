@@ -1,3 +1,21 @@
+2022-10-25  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R032-Earth.el (UU+58D8): Unify DJT-01890.
+
+2022-10-24  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R072-Sun.el (U+3B05): Add `<-denotational@usage' for
+	A2-DJT-04660; add `ideographic-structure'; add `sound@ja/on'.
+	(M-14056): Unify MJ001623 and KOSEKI-158370.
+	(UU+3B05): Modify structure; unify DJT-04588.
+
+2022-10-24  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR200.el, ShuoWen-SR201.el, ShuoWen-SR202.el,
+	ShuoWen-SR203.el, ShuoWen-SR204.el, ShuoWen-SR205.el,
+	ShuoWen-SR206.el, ShuoWen-SR207.el, ShuoWen-SR208.el,
+	ShuoWen-SR209.el: Add `===shuowen-jiguge-A30' characters.
+
 2022-10-23  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R040-Roof.el (U-000219F1): Apply new conventions for
