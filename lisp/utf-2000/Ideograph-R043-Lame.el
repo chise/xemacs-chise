@@ -3047,7 +3047,8 @@
       (=cns11643-5	  . #x3174)	; &C5-3174; [17-84]
       (=daikanwa	  . 07590)	; &I-M-07590;
       )
-     ((=daikanwa	  . 22411)	; &M-22411;
+     ((=mj		  . 002717)	; &MJ002717;
+      (=daikanwa	  . 22411)	; &I-M-22411;
       ))
     (->formed$_1*sources
      jiyun daikanwa)
