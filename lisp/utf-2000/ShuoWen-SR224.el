@@ -6,6 +6,8 @@
      ((=ucs		  . #x675F)	; 束
       ))
     (->subsumptive
+     ((===shuowen-jiguge-A30 . 21007)	; &SW-JIGUGE30-21007;
+      )
      ((===shuowen-jiguge5 . 20507)	; &SW-JIGUGE5-20507;
       )
      ((===shuowen-jiguge4 . 20207)	; &SW-JIGUGE4-20207;
@@ -18,6 +20,8 @@
      ((=ucs		  . #x67EC)	; 柬
       ))
     (->subsumptive
+     ((===shuowen-jiguge-A30 . 21008)	; &SW-JIGUGE30-21008;
+      )
      ((===shuowen-jiguge5 . 20508)	; &SW-JIGUGE5-20508;
       )
      ((===shuowen-jiguge4 . 20208)	; &SW-JIGUGE4-20208;
@@ -30,6 +34,8 @@
      ((=ucs		  . #x2219E)	; 𢆞
       ))
     (->subsumptive
+     ((===shuowen-jiguge-A30 . 21009)	; &SW-JIGUGE30-21009;
+      )
      ((===shuowen-jiguge5 . 20509)	; &SW-JIGUGE5-20509;
       )
      ((===shuowen-jiguge4 . 20209)	; &SW-JIGUGE4-20209;
@@ -42,6 +48,8 @@
      ((=ucs		  . #x524C)	; 剌
       ))
     (->subsumptive
+     ((===shuowen-jiguge-A30 . 21010)	; &SW-JIGUGE30-21010;
+      )
      ((===shuowen-jiguge5 . 20510)	; &SW-JIGUGE5-20510;
       )
      ((===shuowen-jiguge4 . 20210)	; &SW-JIGUGE4-20210;
