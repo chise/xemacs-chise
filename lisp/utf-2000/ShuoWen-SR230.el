@@ -6,6 +6,8 @@
      ((=ucs		  . #x286DC)	; 𨛜
       ))
     (->subsumptive
+     ((===shuowen-jiguge-A30 . 22203)	; &SW-JIGUGE30-22203;
+      )
      ((===shuowen-jiguge5 . 21703)	; &SW-JIGUGE5-21703;
       )
      ((===shuowen-jiguge4 . 21403)	; &SW-JIGUGE4-21403;
@@ -23,6 +25,8 @@
      ((=ucs		  . #x90F7)	; 郷
       ))
     (->subsumptive
+     ((===shuowen-jiguge-A30 . 22204)	; &SW-JIGUGE30-22204;
+      )
      ((===shuowen-jiguge5 . 21704)	; &SW-JIGUGE5-21704;
       )
      ((===shuowen-jiguge4 . 21404)	; &SW-JIGUGE4-21404;
@@ -37,6 +41,8 @@
      ((=ucs		  . #x28715)	; 𨜕
       ))
     (->subsumptive
+     ((===shuowen-jiguge-A30 . 22205)	; &SW-JIGUGE30-22205;
+      )
      ((===shuowen-jiguge5 . 21705)	; &SW-JIGUGE5-21705;
       (<-Small-Seal@shuowen/mpsuzuki
        ((=ucs		    . #x8856)	; 衖
@@ -55,6 +61,8 @@
      ((=ucs		  . #x5DF7)	; 巷
       ))
     (->subsumptive
+     ((===shuowen-jiguge-A30 . 22206)	; &SW-JIGUGE30-22206;
+      )
      ((===shuowen-jiguge5 . 21706)	; &SW-JIGUGE5-21706;
       )
      ((===shuowen-jiguge4 . 21406)	; &SW-JIGUGE4-21406;
