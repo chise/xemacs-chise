@@ -1679,6 +1679,9 @@
      ((=>ucs@iwds-1	  . #x7540)	; &A-IWDSU+7540;
       (=>iwds-1		  .  0074)	; &A-IWDSU+7540;
       ))
+    (<-denotational@usage
+     ((==>ucs@bucs	  . #x7540)	; &BUCS+7540;
+      ))
     (ideographic-radical@ucs . 55)	; ⼶
     (ideographic-strokes@ucs . 5)
     (ideographic-radical@cns . 102)	; ⽥
