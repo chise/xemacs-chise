@@ -12,6 +12,8 @@
      ((=ucs		  . #x9999)	; 香
       ))
     (->subsumptive
+     ((===shuowen-jiguge-A30 . 24510)	; &SW-JIGUGE30-24510;
+      )
      ((===shuowen-jiguge5 . 24010)	; &SW-JIGUGE5-24010;
       )
      ((===shuowen-jiguge4 . 23509)	; &SW-JIGUGE4-23509;
@@ -24,6 +26,8 @@
      ((=ucs		  . #x99A8)	; 馨
       ))
     (->subsumptive
+     ((===shuowen-jiguge-A30 . 24511)	; &SW-JIGUGE30-24511;
+      )
      ((===shuowen-jiguge5 . 24011)	; &SW-JIGUGE5-24011;
       )
      ((===shuowen-jiguge4 . 23510)	; &SW-JIGUGE4-23510;
@@ -36,6 +40,8 @@
      ((=ucs		  . #x99A5)	; 馥
       ))
     (->subsumptive
+     ((===shuowen-jiguge-A30 . 24512)	; &SW-JIGUGE30-24512;
+      )
      ((===shuowen-jiguge5 . 24012)	; &SW-JIGUGE5-24012;
       )
      ((===shuowen-jiguge4 . 23511)	; &SW-JIGUGE4-23511;
