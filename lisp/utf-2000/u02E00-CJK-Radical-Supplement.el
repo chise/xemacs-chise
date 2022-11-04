@@ -534,40 +534,6 @@
     ))
 (define-char
   '((<-denotational
-     ((name		  . "CJK RADICAL SNOUT TWO")
-      (=ucs		  . #x2E95)	; ⺕
-      ))
-    (ideographic-radical . 58)	; ⼹
-    (ideographic-strokes . 0)
-    (total-strokes	 . 3)
-    (=ucs@unicode	. #x5F50)	; &G0-6566;
-    (=ucs@JP/hanazono	. nil)
-    (=gb2312		. #x6566)	; &G0-6566; [69-70]
-    (=big5-cdp		. #x897C)	; &I-CDP-897C;
-    (=gt-k		. 00266)	; &I-GT-K00266;
-    (=gt-pj-k1		. #x3663)	; &G0-6566; [22-67]
-    (<-formed@component
-     ((=ucs		  . #x722A)	; 爪
-      ))
-    (<-formed@flipped-horizontally
-     ((=ucs		  . #x30004)	; 𰀄
-      ))
-    (<-formed@sideways
-     ((=ucs		  . #x722A)	; 爪
-      ))
-    (->subsumptive
-     ((==ucs@unicode	  . #x5F50)	; &g2-UU+5F50;
-      (==ucs@JP/hanazono  . nil)
-      (==gb2312		  . #x6566)	; &g2-UU+5F50; [69-70]
-      )
-     ((==gt-k		  . 00266)	; &g2-GT-K00266;
-      (==gt-pj-k1	  . #x3663)	; &g2-GT-K00266; [22-67]
-      )
-     ((==big5-cdp	  . #x897C)	; &g2-CDP-897C;
-      ))
-    ))
-(define-char
-  '((<-denotational
      ((=ucs		  . #x5FC4)	; 忄
       ))
     (name		. "CJK RADICAL HEART ONE")
@@ -966,16 +932,54 @@
       ))
     ))
 (define-char
-  '((name		. "CJK RADICAL BOLT OF CLOTH")
+  '((<-denotational
+     ((=ucs		  . #x24D14)	; 𤴔
+      ))
+    (name		. "CJK RADICAL BOLT OF CLOTH")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (ideographic-radical . 103)	; ⽦
+    (ideographic-strokes . 0)
+    (total-strokes	 . 4)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x4E5B)	; 乛
+      )
+     ((=mj		  . 014824)	; &MJ014824;
+      ))
     (=ucs		. #x2EAA)	; ⺪
+    (=ucs@iso		. #x24D14)	; ⺪
+    (=jis-x0213-2	. #x7144)	; &I-JX2-7144; [81-36]
     (<-formed@component/connect-right
-     ((=ucs		  . #x758B)	; 疋
+     ((=ucs@unicode	  . #x758B)	; &AJ1-03479;
+      (=adobe-japan1-0	  . 03479)	; &AJ1-03479;
       ))
     (<-identical@component/connect-right
      ((=ucs		  . #x24D14)	; 𤴔
+      ))
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((=ucs		    . #x4E5B)	; 乛
+	)
+       ((=gt-k		    . 00439)	; &GT-K00439;
+	))
+      (=>>ucs@iso	  . #x24D14)	; &G-JX2-7144;
+      (=>>jis-x0213-2	  . #x7144)	; &G-JX2-7144; [81-36]
+      (->subsumptive
+       ((==ucs@iso	    . #x24D14)	; &g2-JX2-7144;
+	(==jis-x0213-2	    . #x7144)	; &g2-JX2-7144; [81-36]
+	(->subsumptive
+	 ((===jis-x0213-2     . #x7144)	; &R-JX2-7144; [81-36]
+	  )
+	 ((===ucs@iso	      . #x24D14)	; &R-U-00024D14;
+	  ))
+	))
       ))
     ))
 (define-char
