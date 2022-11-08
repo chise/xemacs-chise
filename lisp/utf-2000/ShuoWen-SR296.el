@@ -6,6 +6,8 @@
      ((=ucs		  . #x91CD)	; 重
       ))
     (->subsumptive
+     ((===shuowen-jiguge-A30 . 28206)	; &SW-JIGUGE30-28206;
+      )
      ((===shuowen-jiguge5 . 27706)	; &SW-JIGUGE5-27706;
       )
      ((===shuowen-jiguge4 . 27206)	; &SW-JIGUGE4-27206;
@@ -18,6 +20,8 @@
      ((=ucs		  . #x91CF)	; 量
       ))
     (->subsumptive
+     ((===shuowen-jiguge-A30 . 28207)	; &SW-JIGUGE30-28207;
+      )
      ((===shuowen-jiguge5 . 27707)	; &SW-JIGUGE5-27707;
       )
      ((===shuowen-jiguge4 . 27207)	; &SW-JIGUGE4-27207;
@@ -32,6 +36,8 @@
      ((=ucs		  . #x28925)	; 𨤥
       ))
     (->subsumptive
+     ((===shuowen-jiguge-A30 . 28208)	; &SW-JIGUGE30-28208;
+      )
      ((===shuowen-jiguge5 . 27708)	; &SW-JIGUGE5-27708;
       )
      ((===shuowen-jiguge4 . 27208)	; &SW-JIGUGE4-27208;
