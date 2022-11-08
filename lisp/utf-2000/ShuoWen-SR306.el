@@ -6,6 +6,8 @@
      ((=ucs		  . #x5C3A)	; 尺
       ))
     (->subsumptive
+     ((===shuowen-jiguge-A30 . 29100)	; &SW-JIGUGE30-29100;
+      )
      ((===shuowen-jiguge5 . 28600)	; &SW-JIGUGE5-28600;
       )
      ((===shuowen-jiguge4 . 28100)	; &SW-JIGUGE4-28100;
@@ -18,6 +20,8 @@
      ((=ucs		  . #x54AB)	; 咫
       ))
     (->subsumptive
+     ((===shuowen-jiguge-A30 . 29200)	; &SW-JIGUGE30-29200;
+      )
      ((===shuowen-jiguge5 . 28700)	; &SW-JIGUGE5-28700;
       )
      ((===shuowen-jiguge4 . 28200)	; &SW-JIGUGE4-28200;
