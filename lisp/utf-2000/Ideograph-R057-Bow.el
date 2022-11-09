@@ -4254,6 +4254,23 @@
      ((=ucs		  . #x223DA)	; 𢏚
       ))
     (ideographic-radical . 57)	; ⼸
+    (ideographic-strokes . 6)
+    (total-strokes	 . 9)
+    (ideographic-structure@apparent
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
+      (=ucs		  . #x2FF7)	; ⿷
+      )
+     ((=big5-cdp-itaiji-002 . #x86C9)	; &CDP-i002-86C9;
+      )
+     ((=ucs		  . #x531A)	; 匚
+      ))
+    (=ucs-var-003	. #x223DA)	; &U-v003+223DA;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x223DA)	; 𢏚
+      ))
+    (ideographic-radical . 57)	; ⼸
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
     (ideographic-structure
