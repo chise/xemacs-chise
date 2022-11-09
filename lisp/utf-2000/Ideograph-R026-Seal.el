@@ -802,7 +802,7 @@
     ))
 (define-char
   '((<-denotational@usage
-     ((==>daijiten	  . 01032)	; &A2-DJT-01032;
+     ((==>ucs@bucs	  . #x536E)	; &BUCS+536E;
       ))
     (ideographic-radical . 26)	; ⼙
     (ideographic-structure
@@ -874,6 +874,23 @@
       )
      ((==daijiten	  . 01032)	; &g2-DJT-01032;
       ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x536E)	; 卮
+      ))
+    (ideographic-radical . 26)	; ⼙
+    (ideographic-strokes . 3)
+    (total-strokes	 . 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs		  . #x2008B)	; 𠂋
+      )
+     ((=ucs		  . #x5DF3)	; 巳
+      ))
+    (=ucs-itaiji-001	. #x536E)	; &U-i001+536E;
     ))
 (define-char
   '((ideographic-radical . 26)	; ⼙
@@ -4766,7 +4783,8 @@
     ))
 (define-char
   '((ideographic-radical . 26)	; ⼙
-    (==>daijiten	. 01032)	; &A2-DJT-01032;
+    (==>ucs@bucs	. #x536E)	; &BUCS+536E;
+    (==>daijiten	. 01032)	; &BUCS+536E;
     ))
 (define-char
   '((ideographic-radical . 26)	; ⼙
