@@ -80895,7 +80895,6 @@
   '((ideographic-radical . 9)	; ⼈
     (ideographic-strokes . 15)
     (total-strokes	 . 17)
-    (hanyu-dazidian	1 235 3)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -80904,15 +80903,58 @@
       )
      ((=ucs		  . #x7F77)	; 罷
       ))
+    (sound@ja/on	"hi")
     (=ucs		. #x2040C)	; 𠐌
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2040C)	; 𠐌
+      ))
+    (ideographic-radical . 9)	; ⼈
+    (ideographic-strokes . 15)
+    (total-strokes	 . 17)
+    (hanyu-dazidian	1 235 3)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x4EBB)	; 亻
+      )
+     ((=ucs@unicode	  . #x7F77)	; &AJ1-03457;
+      (=adobe-japan1-0	  . 03457)	; &AJ1-03457;
+      ))
+    (=ucs@iso		. #x2040C)	; &MJ030856;
+    (=mj		. 030856)	; &MJ030856;
     (=cns11643-4	. #x5567)	; &I-C4-5567; [53-71]
+    (=koseki		. 014630)	; &MJ030856;
     (=daikanwa		. 01263)	; &I-M-01263;
     (=cbeta		. 07422)	; &I-CB07422;
+    (<-formed
+     ((=ucs@unicode	  . #x7F77)	; &AJ1-03457;
+      (=adobe-japan1-0	  . 03457)	; &AJ1-03457;
+      ))
+    (<-formed$_1*sources
+     jiyun koseki mj)
+    (<-formed*sources
+     jiyun koseki mj)
+    (<-same
+     ((=ucs@unicode	  . #x7F77)	; &AJ1-03457;
+      (=adobe-japan1-0	  . 03457)	; &AJ1-03457;
+      (=daikanwa	  . 28336)	; &I-M-28336;
+      ))
+    (<-same$_1*sources
+     jiyun daikanwa)
+    (<-same*sources
+     jiyun daikanwa)
     (->subsumptive
-     ((==daikanwa	  . 01263)	; &g2-M-01263;
-      (==cbeta		  . 07422)	; &g2-M-01263;
+     ((==mj		  . 030856)	; &g2-MJ030856;
+      (==koseki		  . 014630)	; &g2-MJ030856;
+      (==daikanwa	  . 01263)	; &g2-MJ030856;
+      (==cbeta		  . 07422)	; &g2-MJ030856;
       (->subsumptive
        ((===daikanwa	    . 01263)	; &R-M-01263;
+	)
+       ((===mj		    . 030856)	; &R-MJ030856;
 	)
        ((=hanziku-1	    . #xD6B2)	; &HZK01-D6B2;
 	)
