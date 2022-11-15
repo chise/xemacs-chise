@@ -304,6 +304,11 @@
       )
      ((==gt-k		  . 00142)	; &g2-GT-K00142;
       (==gt-pj-k1	  . #x3724)	; &g2-GT-K00142; [23-04]
+      )
+     ((=big5-cdp	  . #x89AB)	; &CDP-89AB;
+      (->subsumptive
+       ((==big5-cdp	    . #x89AB)	; &g2-CDP-89AB;
+	))
       ))
     ))
 (define-char
