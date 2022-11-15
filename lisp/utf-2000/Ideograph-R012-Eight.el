@@ -3952,7 +3952,10 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 12)	; ⼋
+  '((<-denotational
+     ((=>ucs@cognate	  . #x2D048)	; &A-cgnU+2D048;
+      ))
+    (ideographic-radical . 12)	; ⼋
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
     (ideographic-structure
@@ -4087,6 +4090,10 @@
      ((=ucs		  . #x5167)	; 內
       ))
     (=ucs@JP/hanazono	. #x2D04B)	; &hanaJU+2D04B;
+    ))
+(define-char
+  '((ideographic-radical . 12)	; ⼋
+    (=>ucs@cognate	. #x2D048)	; &A-cgnU+2D048;
     ))
 (define-char
   '((<-denotational
