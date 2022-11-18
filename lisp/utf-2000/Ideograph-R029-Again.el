@@ -8545,6 +8545,10 @@
     (=daijiten		. 01138)	; &I-DJT-01138;
     (=shinjigen		.  0928)	; &AJ1-01253;
     (=cbeta		. 02327)	; &I-CB02327;
+    (<-Zhouwen
+     ((=ucs@unicode	  . #x74BF)	; &AJ1-14840;
+      (=adobe-japan1-4	  . 14840)	; &AJ1-14840;
+      ))
     (<-interchangeable
      ((=ucs@unicode	  . #x5F87)	; &MJ011297;
       (=mj		  . 011297)	; &MJ011297;

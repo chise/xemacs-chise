@@ -390,6 +390,20 @@
     ))
 (define-char
   '((ideographic-radical . 78)	; ⽍
+    (ideographic-strokes . 0)
+    (total-strokes	 . 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x4E0A)	; 上
+      )
+     ((=ucs		  . #x5182)	; 冂
+      ))
+    (=ucs-itaiji-004	. #x239B5)	; &U-i004+239B5;
+    ))
+(define-char
+  '((ideographic-radical . 78)	; ⽍
     (ideographic-strokes . 1)
     (total-strokes	 . 6)
     (hanyu-dazidian	2 1380 1)
@@ -4171,7 +4185,8 @@
       )
      ((=daikanwa	  . 31076)	; &M-31076;
       )
-     ((=daikanwa	  . 29086)	; &M-29086;
+     ((=mj		  . 045368)	; &MJ045368;
+      (=daikanwa	  . 29086)	; &I-M-29086;
       )
      ((=mj		  . 038785)	; &MJ038785;
       (=daikanwa	  . 16440)	; &I-M-16440;

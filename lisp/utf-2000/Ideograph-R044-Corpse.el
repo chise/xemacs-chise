@@ -845,6 +845,25 @@
       ))
     ))
 (define-char
+  '((ideographic-radical . 44)	; ⼫
+    (ideographic-strokes . 2)
+    (total-strokes	 . 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs		  . #x5C38)	; 尸
+      )
+     ((=ucs		  . #x4E42)	; 乂
+      ))
+    (=gt-k		. 01502)	; &GT-K01502;
+    (=gt-pj-k1		. #x6255)	; &GT-K01502; [66-53]
+    (->subsumptive
+     ((==gt-k		  . 01502)	; &g2-GT-K01502;
+      (==gt-pj-k1	  . #x6255)	; &g2-GT-K01502; [66-53]
+      ))
+    ))
+(define-char
   '((<-denotational
      ((=>big5-cdp	  . #x8C7A)	; &A-CDP-8C7A;
       ))
