@@ -6,6 +6,8 @@
      ((=ucs		  . #x80FD)	; 能
       ))
     (->subsumptive
+     ((===shuowen-jiguge-A30 . 35001)	; &SW-JIGUGE30-35001;
+      )
      ((===shuowen-jiguge5 . 34501)	; &SW-JIGUGE5-34501;
       )
      ((===shuowen-jiguge4 . 33501)	; &SW-JIGUGE4-33501;
