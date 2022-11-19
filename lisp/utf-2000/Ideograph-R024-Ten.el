@@ -1693,13 +1693,63 @@
     ))
 (define-char
   '((ideographic-radical . 24)	; ⼗
+    (sound@ja/on	"tAu")
+    (=ucs		. #x20982)	; 𠦂
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x20982)	; 𠦂
+      ))
+    (ideographic-radical . 24)	; ⼗
     (ideographic-strokes . 4)
     (total-strokes	 . 6)
     (hanyu-dazidian	1 60 22)
-    (=ucs		. #x20982)	; 𠦂
-    (=cns11643-6	. #x2370)	; &I-C6-2370; [03-80]
+    (=ucs@iso		. #x20982)	; &C6-2370;
+    (=cns11643-6	. #x2370)	; &C6-2370; [03-80]
     (=big5-cdp		. #x88EA)	; &I-CDP-88EA;
     (=daikanwa		. 02717)	; &I-M-02717;
+    (<-vulgar
+     ((=ucs@unicode	  . #x5932)	; &AJ1-04546;
+      (=adobe-japan1-0	  . 04546)	; &AJ1-04546;
+      (=daikanwa	  . 05845)	; &I-M-05845;
+      ))
+    (<-vulgar*sources
+     zhengzitong daikanwa)
+    (->subsumptive
+     ((==ucs@iso	  . #x20982)	; &g2-CDP-88EA;
+      (==cns11643-6	  . #x2370)	; &g2-CDP-88EA; [03-80]
+      (==big5-cdp	  . #x88EA)	; &g2-CDP-88EA;
+      (==daikanwa	  . 02717)	; &g2-CDP-88EA;
+      (->subsumptive
+       ((===daikanwa	    . 02717)	; &R-M-02717;
+	)
+       ((===big5-cdp	    . #x88EA)	; &R-CDP-88EA;
+	)
+       ((===cns11643-6	    . #x2370)	; &R-C6-2370; [03-80]
+	)
+       ((===ucs@iso	    . #x20982)	; &R-U-00020982;
+	))
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x20982)	; 𠦂
+      ))
+    (ideographic-radical . 24)	; ⼗
+    (ideographic-strokes . 5)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=gt-k		  . 01494)	; &GT-K01494;
+      )
+     ((=ucs		  . #x5341)	; 十
+      ))
+    (=ucs-itaiji-001	. #x20982)	; &U-i001+20982;
+    (->subsumptive
+     ((==ucs-itaiji-001	  . #x20982)	; &g2-U-i001+20982;
+      ))
     ))
 (define-char
   '((ideographic-radical . 24)	; ⼗
@@ -2202,6 +2252,15 @@
 (define-char
   '((ideographic-radical . 24)	; ⼗
     (=>big5-cdp		. #x8C4B)	; &A-CDP-8C4B;
+    ))
+(define-char
+  '((<-denotational
+     ((=>big5-cdp	  . #x8C4B)	; &A-CDP-8C4B;
+      ))
+    (ideographic-radical . 24)	; ⼗
+    (ideographic-strokes . 4)
+    (total-strokes	 . 6)
+    (=big5-cdp-itaiji-001 . #x8C4B)	; &CDP-i001-8C4B;
     ))
 (define-char
   '((<-denotational
