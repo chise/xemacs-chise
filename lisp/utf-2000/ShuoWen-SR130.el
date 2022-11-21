@@ -92,6 +92,11 @@
      ((=>ucs@iwds-1	  . #x777F)	; &A-IWDSU+777F;
       (=>iwds-1		  .  0306)	; &A-IWDSU+777F;
       ))
+    (<-ancient@shuowen
+     ((=shuowen-jiguge	  . 13119)	; &SW-JIGUGE-13119;
+      )
+     ((=ucs		  . #x53E1)	; 叡
+      ))
     (->subsumptive
      ((===shuowen-jiguge-A30 . 13120)	; &SW-JIGUGE30-13120;
       )
@@ -105,6 +110,11 @@
     (=shuowen-jiguge	. 13121)	; &SW-JIGUGE-13121;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x58E1)	; 壡
+      ))
+    (<-Zhouwen@shuowen
+     ((=shuowen-jiguge	  . 13119)	; &SW-JIGUGE-13119;
+      )
+     ((=ucs		  . #x53E1)	; 叡
       ))
     (->subsumptive
      ((===shuowen-jiguge-A30 . 13121)	; &SW-JIGUGE30-13121;
