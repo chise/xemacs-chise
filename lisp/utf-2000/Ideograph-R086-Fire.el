@@ -7775,6 +7775,38 @@
     (=>ruimoku-v6	. #xE02F)	; &A-RUI6-E02F;
     ))
 (define-char
+  '((ideographic-radical . 86)	; ⽕
+    (ideographic-strokes . 6)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
+      (=ucs		  . #x2FF7)	; ⿷
+      )
+     ((=>ucs@component	  . #x531A)	; &A-compU+531A;
+      (=>iwds-1		  .  0209)	; &A-compU+531A;
+      )
+     ((=ucs		  . #x708E)	; 炎
+      ))
+    (=>ucs-itaiji-001	. #x821C)	; &A-U-i001+821C;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs-itaiji-001	  . #x821C)	; &A-U-i001+821C;
+      ))
+    (ideographic-radical . 86)	; ⽕
+    (ideographic-strokes . 6)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
+      (=ucs		  . #x2FF7)	; ⿷
+      )
+     ((=ucs		  . #x531A)	; 匚
+      )
+     ((=ucs		  . #x708E)	; 炎
+      ))
+    (=ucs-itaiji-001	. #x821C)	; &U-i001+821C;
+    ))
+(define-char
   '((<-denotational
      ((=>ruimoku-v6	  . #xE02F)	; &A-RUI6-E02F;
       ))

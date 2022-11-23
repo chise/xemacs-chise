@@ -42409,14 +42409,13 @@
     (ideographic-strokes . 16)
     (total-strokes	 . 19)
     (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
       )
-     ((=>ucs@iwds-1	  . #x777F)	; &A-IWDSU+777F;
-      (=>iwds-1		  .  0306)	; &A-IWDSU+777F;
+     ((=>ucs@iwds-1	  . #x53E1)	; &A-IWDSU+53E1;
       )
-     ((=>ucs@component	  . #x5723)	; &A-compU+5723;
-      (=>iwds-1		  .  0087)	; &A-compU+5723;
+     ((=>ucs@iwds-1	  . #x571F)	; &A-IWDSU+571F;
+      (=>iwds-1		  .  0312)	; &A-IWDSU+571F;
       ))
     (sound@ja/on	"ei")
     (=ucs		. #x58E1)	; 壡
@@ -42430,12 +42429,13 @@
     (total-strokes	 . 19)
     (hanyu-dazidian	1 499 10)
     (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
       )
-     ((=ucs		  . #x777F)	; 睿
+     ((=ucs@unicode	  . #x53E1)	; &AJ1-01253;
+      (=adobe-japan1-0	  . 01253)	; &AJ1-01253;
       )
-     ((=ucs		  . #x5723)	; 圣
+     ((=ucs		  . #x571F)	; 土
       ))
     (=ucs@unicode	. #x58E1)	; &AJ1-21370;
     (=adobe-japan1-6	. 21370)	; &AJ1-21370;
