@@ -2537,6 +2537,18 @@
     (ideographic-radical . 1)	; ⼀
     (ideographic-strokes . 3)
     (total-strokes	 . 4)
+    (=ucs-itaiji-003	. #x4E11)	; &U-i003+4E11;
+    (->subsumptive
+     ((==ucs-itaiji-003	  . #x4E11)	; &g2-U-i003+4E11;
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x4E11)	; 丑
+      ))
+    (ideographic-radical . 1)	; ⼀
+    (ideographic-strokes . 3)
+    (total-strokes	 . 4)
     (daijiten-pages	32)
     (=mj		. 006318)	; &MJ006318;
     (=hanyo-denshi/jt	. #xAD08)	; &I-HD-JT-AD08;
