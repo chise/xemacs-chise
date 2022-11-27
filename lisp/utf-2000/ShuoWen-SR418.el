@@ -8,6 +8,8 @@
      ((=>big5-cdp	  . #x85EF)	; &A-GT-K00775;
       ))
     (->subsumptive
+     ((===shuowen-jiguge-A30 . 40402)	; &SW-JIGUGE30-40402;
+      )
      ((===shuowen-jiguge5 . 39502)	; &SW-JIGUGE5-39502;
       )
      ((===shuowen-jiguge4 . 38702)	; &SW-JIGUGE4-38702;
@@ -24,6 +26,8 @@
      ((=ucs		  . #x23D0E)	; 𣴎
       ))
     (->subsumptive
+     ((===shuowen-jiguge-A30 . 40403)	; &SW-JIGUGE30-40403;
+      )
      ((===shuowen-jiguge5 . 39503)	; &SW-JIGUGE5-39503;
       )
      ((===shuowen-jiguge4 . 38703)	; &SW-JIGUGE4-38703;
