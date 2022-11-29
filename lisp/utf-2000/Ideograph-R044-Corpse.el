@@ -3984,6 +3984,20 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
       (=ucs		  . #x2FF8)	; ⿸
       )
+     ((=ucs		  . #x5C38)	; 尸
+      )
+     ((=ucs		  . #x866B)	; 虫
+      ))
+    (=ucs		. #x2D55B)	; 𭕛
+    ))
+(define-char
+  '((ideographic-radical . 44)	; ⼫
+    (ideographic-strokes . 6)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
      ((=ucs		  . #x21C25)	; 𡰥
       )
      ((=ucs		  . #x706B)	; 火
