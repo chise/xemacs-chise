@@ -226,15 +226,75 @@
     (=ucs@iso		. #x23041)	; &U-00023041;
     ))
 (define-char
-  '((ideographic-radical . 67)	; ⽂
+  '((<-denotational@usage
+     ((==>ucs@bucs	  . #x64E7)	; &BUCS+64E7;
+      ))
+    (ideographic-radical . 67)	; ⽂
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x6587)	; 文
+      )
+     ((=ucs		  . #x20006)	; 𠀆
+      ))
+    (sound@ja/on	"kyo")
+    (=ucs		. #x3AAF)	; 㪯
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x3AAF)	; 㪯
+      ))
+    (ideographic-radical . 67)	; ⽂
     (ideographic-strokes . 3)
     (total-strokes	 . 7)
-    (=ucs		. #x3AAF)	; 㪯
-    (->subsumptive
-     ((=daikanwa	  . 13452)	; &M-13452;
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=ucs@unicode	  . #x3AAF)	; &C3-263B;
-      (=cns11643-3	  . #x263B)	; &C3-263B; [06-27]
+     ((=ucs		  . #x6587)	; 文
+      )
+     ((=ucs		  . #x30001)	; 𰀁
+      ))
+    (=ucs@unicode	. #x3AAF)	; &MJ001546;
+    (=mj		. 001546)	; &MJ001546;
+    (=cns11643-3	. #x263B)	; &I-C3-263B; [06-27]
+    (=koseki		. 150890)	; &MJ001546;
+    (=daikanwa		. 13452)	; &I-M-13452;
+    (<-formed
+     ((=ucs@unicode	  . #x64E7)	; &AJ1-05038;
+      (=adobe-japan1-0	  . 05038)	; &AJ1-05038;
+      )
+     ((=ucs@unicode	  . #x6319)	; &AJ1-01677;
+      (=adobe-japan1-0	  . 01677)	; &AJ1-01677;
+      ))
+    (<-formed$_1*sources
+     koseki mj)
+    (<-formed$_2*sources
+     koseki@mj)
+    (<-formed*sources
+     koseki mj)
+    (<-vulgar
+     ((=ucs@unicode	  . #x64E7)	; &AJ1-05038;
+      (=adobe-japan1-0	  . 05038)	; &AJ1-05038;
+      (=daikanwa	  . 12863)	; &I-M-12863;
+      ))
+    (<-vulgar*sources
+     pianhai daikanwa)
+    (->subsumptive
+     ((==koseki		  . 150890)	; &g2-M-13452;
+      (==daikanwa	  . 13452)	; &g2-M-13452;
+      )
+     ((==ucs@unicode	  . #x3AAF)	; &g2-MJ001546;
+      (==mj		  . 001546)	; &g2-MJ001546;
+      (==cns11643-3	  . #x263B)	; &g2-MJ001546; [06-27]
+      (->subsumptive
+       ((===mj		    . 001546)	; &R-MJ001546;
+	)
+       ((===cns11643-3	    . #x263B)	; &R-C3-263B; [06-27]
+	)
+       ((===ucs@unicode	    . #x3AAF)	; &R-UU+3AAF;
+	))
       ))
     ))
 (define-char
