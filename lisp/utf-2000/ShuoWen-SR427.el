@@ -6,6 +6,8 @@
      ((=ucs		  . #x9F8D)	; 龍
       ))
     (->subsumptive
+     ((===shuowen-jiguge-A30 . 41209)	; &SW-JIGUGE30-41209;
+      )
      ((===shuowen-jiguge5 . 40309)	; &SW-JIGUGE5-40309;
       )
      ((===shuowen-jiguge4 . 39509)	; &SW-JIGUGE4-39509;
@@ -18,6 +20,8 @@
      ((=ucs		  . #x9F97)	; 龗
       ))
     (->subsumptive
+     ((===shuowen-jiguge-A30 . 41210)	; &SW-JIGUGE30-41210;
+      )
      ((===shuowen-jiguge5 . 40310)	; &SW-JIGUGE5-40310;
       )
      ((===shuowen-jiguge4 . 39510)	; &SW-JIGUGE4-39510;
@@ -30,6 +34,8 @@
      ((=ucs		  . #x9F95)	; 龕
       ))
     (->subsumptive
+     ((===shuowen-jiguge-A30 . 41211)	; &SW-JIGUGE30-41211;
+      )
      ((===shuowen-jiguge5 . 40311)	; &SW-JIGUGE5-40311;
       )
      ((===shuowen-jiguge4 . 39511)	; &SW-JIGUGE4-39511;
@@ -42,6 +48,8 @@
      ((=ucs		  . #x4DAC)	; 䶬
       ))
     (->subsumptive
+     ((===shuowen-jiguge-A30 . 41212)	; &SW-JIGUGE30-41212;
+      )
      ((===shuowen-jiguge5 . 40312)	; &SW-JIGUGE5-40312;
       )
      ((===shuowen-jiguge4 . 39512)	; &SW-JIGUGE4-39512;
@@ -54,6 +62,8 @@
      ((=ucs		  . #x9F96)	; 龖
       ))
     (->subsumptive
+     ((===shuowen-jiguge-A30 . 41300)	; &SW-JIGUGE30-41300;
+      )
      ((===shuowen-jiguge5 . 40400)	; &SW-JIGUGE5-40400;
       )
      ((===shuowen-jiguge4 . 39600)	; &SW-JIGUGE4-39600;
