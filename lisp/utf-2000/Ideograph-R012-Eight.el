@@ -3162,6 +3162,56 @@
       ))
     ))
 (define-char
+  '((<-denotational@usage
+     ((==>ucs@bucs	  . #x5176)	; &BUCS+5176;
+      ))
+    (ideographic-radical . 12)	; ⼋
+    (ideographic-strokes . 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=big5-cdp-itaiji-001 . #x88C8)	; &CDP-i001-88C8;
+      )
+     ((=>ucs@iwds-1	  . #x4E0C)	; &A-IWDSU+4E0C;
+      (=>iwds-1		  .  0221)	; &A-IWDSU+4E0C;
+      ))
+    (ideographic-structure@apparent
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=big5-cdp-itaiji-001 . #x8B72)	; &CDP-i001-8B72;
+      )
+     ((=>ucs@iwds-1	  . #x513F)	; &A-IWDSU+513F;
+      ))
+    (=>ucs-itaiji-011	. #x5176)	; &A-U-i011+5176;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs-itaiji-011	  . #x5176)	; &A-U-i011+5176;
+      ))
+    (ideographic-radical . 12)	; ⼋
+    (ideographic-strokes . 5)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=big5-cdp-itaiji-001 . #x88C8)	; &CDP-i001-88C8;
+      )
+     ((=gt-k		  . 00264)	; &GT-K00264;
+      ))
+    (ideographic-structure@apparent
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=big5-cdp-itaiji-001 . #x8B72)	; &CDP-i001-8B72;
+      )
+     ((=ucs		  . #x516B)	; 八
+      ))
+    (=ucs-itaiji-011	. #x5176)	; &U-i011+5176;
+    ))
+(define-char
   '((ideographic-radical . 12)	; ⼋
     (ideographic-strokes . 5)
     (total-strokes	 . 7)
@@ -3207,7 +3257,7 @@
     ))
 (define-char
   '((<-denotational@usage
-     ((==>daijiten	  . 00605)	; &A2-DJT-00605;
+     ((==>ucs@bucs	  . #x5176)	; &BUCS+5176;
       ))
     (ideographic-radical . 12)	; ⼋
     (ideographic-structure
@@ -8325,7 +8375,8 @@
     ))
 (define-char
   '((ideographic-radical . 12)	; ⼋
-    (==>daijiten	. 00605)	; &A2-DJT-00605;
+    (==>ucs@bucs	. #x5176)	; &BUCS+5176;
+    (==>daijiten	. 00605)	; &BUCS+5176;
     ))
 (define-char
   '((ideographic-radical . 12)	; ⼋
