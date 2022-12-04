@@ -83,6 +83,39 @@
       ))
     (ideographic-radical . 99)	; ⽢
     (ideographic-strokes . 0)
+    (total-strokes	 . 4)
+    (=>big5-cdp-itaiji-001 . #x88C8)	; &A-CDP-i001-88C8;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@cognate	  . #x7518)	; &A-cgnU+7518;
+      ))
+    (ideographic-radical . 99)	; ⽢
+    (ideographic-strokes . 0)
+    (ideographic-structure@apparent
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
+      (=ucs		  . #x2FF4)	; ⿴
+      )
+     ((=ucs		  . #x9FB7)	; 龷
+      )
+     ((=ucs		  . #x4E00)	; 一
+      ))
+    (ideographic-structure@apparent/leftmost
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>big5-cdp-itaiji-001 . #x88C8)	; &A-CDP-i001-88C8;
+      )
+     ((=ucs		  . #x4E00)	; 一
+      ))
+    (=>big5-cdp-itaiji-001 . #x8B72)	; &A-CDP-i001-8B72;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@cognate	  . #x7518)	; &A-cgnU+7518;
+      ))
+    (ideographic-radical . 99)	; ⽢
+    (ideographic-strokes . 0)
     (total-strokes	 . 5)
     (=big5-cdp		. #x88C8)	; &CDP-88C8;
     (->subsumptive
@@ -106,6 +139,40 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 5)
     (=ucs@JP/hanazono	. #x2DEAB)	; &hanaJU+2DEAB;
+    ))
+(define-char
+  '((<-denotational
+     ((=>big5-cdp-itaiji-001 . #x88C8)	; &A-CDP-i001-88C8;
+      ))
+    (ideographic-radical . 99)	; ⽢
+    (ideographic-strokes . 0)
+    (total-strokes	 . 4)
+    (=big5-cdp-itaiji-001 . #x88C8)	; &CDP-i001-88C8;
+    ))
+(define-char
+  '((<-denotational
+     ((=>big5-cdp-itaiji-001 . #x8B72)	; &A-CDP-i001-8B72;
+      ))
+    (ideographic-radical . 99)	; ⽢
+    (ideographic-strokes . 0)
+    (total-strokes	 . 5)
+    (ideographic-structure@apparent
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
+      (=ucs		  . #x2FF4)	; ⿴
+      )
+     ((=ucs@unicode	  . #x9FB7)	; &CDP-8B5C;
+      )
+     ((=ucs		  . #x4E00)	; 一
+      ))
+    (ideographic-structure@apparent/leftmost
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=big5-cdp-itaiji-001 . #x88C8)	; &CDP-i001-88C8;
+      )
+     ((=ucs		  . #x4E00)	; 一
+      ))
+    (=big5-cdp-itaiji-001 . #x8B72)	; &CDP-i001-8B72;
     ))
 (define-char
   '((<-denotational
