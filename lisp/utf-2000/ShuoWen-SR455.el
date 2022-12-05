@@ -6,6 +6,8 @@
      ((=ucs		  . #x7434)	; 琴
       ))
     (->subsumptive
+     ((===shuowen-jiguge-A30 . 44507)	; &SW-JIGUGE30-44507;
+      )
      ((===shuowen-jiguge5 . 44107)	; &SW-JIGUGE5-44107;
       )
      ((===shuowen-jiguge4 . 42807)	; &SW-JIGUGE4-42807;
@@ -18,6 +20,8 @@
      ((=ucs		  . #x4946)	; 䥆
       ))
     (->subsumptive
+     ((===shuowen-jiguge-A30 . 44600)	; &SW-JIGUGE30-44600;
+      )
      ((===shuowen-jiguge5 . 44200)	; &SW-JIGUGE5-44200;
       )
      ((===shuowen-jiguge4 . 42900)	; &SW-JIGUGE4-42900;
@@ -32,6 +36,8 @@
      ((=ucs		  . #x745F)	; 瑟
       ))
     (->subsumptive
+     ((===shuowen-jiguge-A30 . 44601)	; &SW-JIGUGE30-44601;
+      )
      ((===shuowen-jiguge5 . 44201)	; &SW-JIGUGE5-44201;
       )
      ((===shuowen-jiguge4 . 42901)	; &SW-JIGUGE4-42901;
@@ -53,6 +59,8 @@
      ((=ucs		  . #x745F)	; 瑟
       ))
     (->subsumptive
+     ((===shuowen-jiguge-A30 . 44602)	; &SW-JIGUGE30-44602;
+      )
      ((===shuowen-jiguge5 . 44202)	; &SW-JIGUGE5-44202;
       )
      ((===shuowen-jiguge4 . 42902)	; &SW-JIGUGE4-42902;
@@ -65,6 +73,8 @@
      ((=ucs		  . #x7435)	; 琵
       ))
     (->subsumptive
+     ((===shuowen-jiguge-A30 . 44603)	; &SW-JIGUGE30-44603;
+      )
      ((===shuowen-jiguge5 . 44203)	; &SW-JIGUGE5-44203;
       )
      ((===shuowen-jiguge4 . 42903)	; &SW-JIGUGE4-42903;
@@ -77,6 +87,8 @@
      ((=ucs		  . #x7436)	; 琶
       ))
     (->subsumptive
+     ((===shuowen-jiguge-A30 . 44604)	; &SW-JIGUGE30-44604;
+      )
      ((===shuowen-jiguge5 . 44204)	; &SW-JIGUGE5-44204;
       )
      ((===shuowen-jiguge4 . 42904)	; &SW-JIGUGE4-42904;
