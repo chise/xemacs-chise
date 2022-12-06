@@ -23062,7 +23062,6 @@
       ))
     (=mj		. 034149)	; &MJ034149;
     (=koseki		. 084080)	; &MJ034149;
-    (=>>daikanwa	. 28841)	; &MJ034149;
     (->subsumptive
      ((ideographic-radical . 40)	; ⼧
       (ideographic-strokes . 23)
