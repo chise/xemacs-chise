@@ -6,6 +6,8 @@
      ((=ucs		  . #x9F9C)	; 龜
       ))
     (->subsumptive
+     ((===shuowen-jiguge-A30 . 47716)	; &SW-JIGUGE30-47716;
+      )
      ((===shuowen-jiguge5 . 46816)	; &SW-JIGUGE5-46816;
       )
      ((===shuowen-jiguge4 . 45816)	; &SW-JIGUGE4-45816;
@@ -18,6 +20,8 @@
      ((=ucs		  . #x24563)	; 𤕣
       ))
     (->subsumptive
+     ((===shuowen-jiguge-A30 . 47800)	; &SW-JIGUGE30-47800;
+      )
      ((===shuowen-jiguge5 . 46900)	; &SW-JIGUGE5-46900;
       )
      ((===shuowen-jiguge4 . 45900)	; &SW-JIGUGE4-45900;
@@ -27,6 +31,8 @@
   '((shuowen-radical	. 476)	; 龜
     (=shuowen-jiguge	. 46901)	; &SW-JIGUGE-46901;
     (->subsumptive
+     ((===shuowen-jiguge-A30 . 47801)	; &SW-JIGUGE30-47801;
+      )
      ((===shuowen-jiguge5 . 46901)	; &SW-JIGUGE5-46901;
       (<-Small-Seal@shuowen
        ((ideographic-structure
@@ -59,6 +65,8 @@
      ((=ucs		  . #x2A6AE)	; 𪚮
       ))
     (->subsumptive
+     ((===shuowen-jiguge-A30 . 47802)	; &SW-JIGUGE30-47802;
+      )
      ((===shuowen-jiguge5 . 46902)	; &SW-JIGUGE5-46902;
       )
      ((===shuowen-jiguge4 . 45902)	; &SW-JIGUGE4-45902;
