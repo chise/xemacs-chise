@@ -1651,8 +1651,37 @@
   '((ideographic-radical . 72)	; ⽇
     (ideographic-strokes . 3)
     (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>ucs@component	  . #x65E5)	; &A-compU+65E5;
+      (=>iwds-1		  .  0118)	; &A-compU+65E5;
+      )
+     ((=>ucs@component	  . #x5C6E)	; &A-compU+5C6E;
+      (=>iwds-1		  .  0096)	; &A-compU+5C6E;
+      ))
+    (sound@ja/on/go	"teN")
+    (sound@ja/on/kan	"taN")
     (=ucs		. #x65F5)	; 旵
-    (=adobe-japan1-6	. 21696)	; &I-AJ1-21696;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x65F5)	; 旵
+      ))
+    (ideographic-radical . 72)	; ⽇
+    (ideographic-strokes . 3)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x65E5)	; 日
+      )
+     ((=ucs		  . #x5C71)	; 山
+      ))
+    (=ucs@unicode	. #x65F5)	; &AJ1-21696;
+    (=adobe-japan1-6	. 21696)	; &AJ1-21696;
     (=jis-x0212		. #x4171)	; &I-JSP-4171; [33-81]
     (=cns11643-2	. #x243D)	; &I-C2-243D; [04-29]
     (=big5		. #xCAFC)	; &I-B-CAFC;
