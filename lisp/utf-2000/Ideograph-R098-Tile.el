@@ -1434,6 +1434,55 @@
   '((ideographic-radical . 98)	; ⽡
     (ideographic-strokes . 8)
     (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x25762)	; 𥝢
+      )
+     ((=ucs		  . #x74E6)	; 瓦
+      ))
+    (sound@ja/on/go	"rai")
+    (sound@ja/on/kan	"rei")
+    (=ucs		. #x24B5C)	; 𤭜
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x24B5C)	; 𤭜
+      ))
+    (ideographic-radical . 98)	; ⽡
+    (ideographic-strokes . 8)
+    (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs@iso		  . #x25762)	; &C6-2D4A;
+      (=cns11643-6	  . #x2D4A)	; &C6-2D4A; [13-42]
+      (=daikanwa	  . 24936)	; &I-M-24936;
+      )
+     ((=ucs		  . #x74E6)	; 瓦
+      ))
+    (=ucs@iso		. #x24B5C)	; &C5-4052;
+    (=cns11643-5	. #x4052)	; &C5-4052; [32-50]
+    (=daikanwa		. 21524)	; &I-M-21524;
+    (->subsumptive
+     ((==ucs@iso	  . #x24B5C)	; &g2-M-21524;
+      (==cns11643-5	  . #x4052)	; &g2-M-21524; [32-50]
+      (==daikanwa	  . 21524)	; &g2-M-21524;
+      (->subsumptive
+       ((===daikanwa	    . 21524)	; &R-M-21524;
+	)
+       ((===cns11643-5	    . #x4052)	; &R-C5-4052; [32-50]
+	)
+       ((===ucs@iso	    . #x24B5C)	; &R-U-00024B5C;
+	))
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 98)	; ⽡
+    (ideographic-strokes . 8)
+    (total-strokes	 . 13)
     (=ucs		. #x74FD)	; 瓽
     (=cns11643-2	. #x4528)	; &I-C2-4528; [37-08]
     (=big5		. #xDEC2)	; &I-B-DEC2;
@@ -1708,10 +1757,32 @@
     ))
 (define-char
   '((ideographic-radical . 98)	; ⽡
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>ucs@iwds-1	  . #x25117)	; &A-IWDSU+25117;
+      )
+     ((=ucs		  . #x74E6)	; 瓦
+      ))
+    (=ucs		. #x24B72)	; 𤭲
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x24B72)	; 𤭲
+      ))
+    (ideographic-radical . 98)	; ⽡
     (ideographic-strokes . 8)
     (total-strokes	 . 13)
-    (=ucs		. #x24B5C)	; 𤭜
-    (=cns11643-5	. #x4052)	; &I-C5-4052; [32-50]
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x4011)	; 䀑
+      )
+     ((=ucs		  . #x74E6)	; 瓦
+      ))
+    (=ucs@iso		. #x24B72)	; &U-00024B72;
     ))
 (define-char
   '((ideographic-radical . 98)	; ⽡
