@@ -6,6 +6,8 @@
      ((=ucs		  . #x7537)	; 男
       ))
     (->subsumptive
+     ((===shuowen-jiguge-A30 . 48803)	; &SW-JIGUGE30-48803;
+      )
      ((===shuowen-jiguge5 . 47903)	; &SW-JIGUGE5-47903;
       )
      ((===shuowen-jiguge4 . 46903)	; &SW-JIGUGE4-46903;
@@ -18,6 +20,8 @@
      ((=ucs		  . #x8205)	; 舅
       ))
     (->subsumptive
+     ((===shuowen-jiguge-A30 . 48804)	; &SW-JIGUGE30-48804;
+      )
      ((===shuowen-jiguge5 . 47904)	; &SW-JIGUGE5-47904;
       )
      ((===shuowen-jiguge4 . 46904)	; &SW-JIGUGE4-46904;
@@ -30,6 +34,8 @@
      ((=ucs		  . #x7525)	; 甥
       ))
     (->subsumptive
+     ((===shuowen-jiguge-A30 . 48805)	; &SW-JIGUGE30-48805;
+      )
      ((===shuowen-jiguge5 . 47905)	; &SW-JIGUGE5-47905;
       )
      ((===shuowen-jiguge4 . 46905)	; &SW-JIGUGE4-46905;
