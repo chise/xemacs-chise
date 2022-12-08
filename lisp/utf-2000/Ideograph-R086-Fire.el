@@ -9895,6 +9895,38 @@
       )
      ((=ucs		  . #x706B)	; 火
       )
+     ((=ucs		  . #x65F5)	; 旵
+      ))
+    (=ucs		. #x24246)	; 𤉆
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x24246)	; 𤉆
+      ))
+    (ideographic-radical . 86)	; ⽕
+    (ideographic-strokes . 7)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x706B)	; 火
+      )
+     ((=ucs@unicode	  . #x65F5)	; &AJ1-21696;
+      (=adobe-japan1-6	  . 21696)	; &AJ1-21696;
+      ))
+    (=ucs@iso		. #x24246)	; &U-00024246;
+    ))
+(define-char
+  '((ideographic-radical . 86)	; ⽕
+    (ideographic-strokes . 7)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x706B)	; 火
+      )
      ((=ucs		  . #x2BA59)	; 𫩙
       ))
     (=ucs		. #x24248)	; 𤉈
