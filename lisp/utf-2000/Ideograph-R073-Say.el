@@ -335,6 +335,29 @@
       ))
     ))
 (define-char
+  '((ideographic-radical . 73)	; ⽈
+    (ideographic-strokes . 2)
+    (total-strokes	 . 6)
+    (=ucs		. #x2DA18)	; 𭨘
+    (=mj		. 057650)	; &I-MJ057650;
+    (=koseki		. 154570)	; 𭨘
+    (<-formed
+     ((=ucs		  . #x66F3)	; 曳
+      ))
+    (<-formed$_1*sources
+     koseki mj)
+    (<-formed*sources
+     koseki mj)
+    (->subsumptive
+     ((==ucs@JP/hanazono  . #x2DA18)	; &g2-MJ057650;
+      (==mj		  . 057650)	; &g2-MJ057650;
+      (==koseki		  . 154570)	; &g2-MJ057650;
+      (->subsumptive
+       ((===mj		    . 057650)	; &R-MJ057650;
+	))
+      ))
+    ))
+(define-char
   '((<-denotational
      ((=>ucs@iwds-1	  . #x81FE)	; &A-IWDSU+81FE;
       (=>iwds-1		  .  0173)	; &A-IWDSU+81FE;
