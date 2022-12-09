@@ -5333,6 +5333,23 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=ucs		  . #x2BD60)	; 𫵠
+      ))
+    (ideographic-radical . 44)	; ⼫
+    (ideographic-strokes . 8)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs-itaiji-001	  . #x5C3F)	; &U-i001+5C3F;
+      )
+     ((=ucs		  . #x3404)	; 㐄
+      ))
+    (=ucs-var-001	. #x2BD60)	; &U-v001+2BD60;
+    ))
+(define-char
   '((ideographic-radical . 44)	; ⼫
     (ideographic-strokes . 9)
     (total-strokes	 . 12)

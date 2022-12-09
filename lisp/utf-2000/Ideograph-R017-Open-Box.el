@@ -1979,6 +1979,45 @@
       ))
     ))
 (define-char
+  '((<-denotational@usage
+     ((==>ucs@bucs	  . #x9F52)	; &BUCS+9F52;
+      ))
+    (ideographic-radical@ucs . 17)	; ⼐
+    (ideographic-strokes@ucs . 6)
+    (ideographic-radical@daikanwa . 119)	; ⽶
+    (ideographic-strokes@daikanwa . 2)
+    (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM BELOW")
+      (=ucs		  . #x2FF6)	; ⿶
+      )
+     ((=ucs		  . #x51F5)	; 凵
+      )
+     ((=ucs		  . #x7C73)	; 米
+      ))
+    (sound@ja/on	"si")
+    (=ucs		. #x3140D)	; 𱐍
+    (=daikanwa		. 26840)	; &I-M-26840;
+    (=daijiten		. 08637)	; &I-DJT-08637;
+    (<-simplified@misc
+     ((=ucs@unicode	  . #x9F52)	; &AJ1-07458;
+      (=adobe-japan1-0	  . 07458)	; &AJ1-07458;
+      (=daikanwa	  . 48583)	; &I-M-48583;
+      ))
+    (<-simplified@misc*sources
+     daikanwa)
+    (->subsumptive
+     ((==ucs@JP/hanazono  . #x3140D)	; &g2-M-26840;
+      (==daikanwa	  . 26840)	; &g2-M-26840;
+      (==daijiten	  . 08637)	; &g2-M-26840;
+      (->subsumptive
+       ((===daikanwa	    . 26840)	; &R-M-26840;
+	)
+       ((===daijiten	    . 08637)	; &R-DJT-08637;
+	))
+      ))
+    ))
+(define-char
   '((=>ucs		. #x2068E)	; 𠚎
     (ideographic-radical . 17)	; ⼐
     (ideographic-strokes . 7)
