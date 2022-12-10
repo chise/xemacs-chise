@@ -3639,7 +3639,7 @@
     ))
 (define-char
   '((<-denotational@usage
-     ((==>daijiten	  . 07717)	; &A2-DJT-07717;
+     ((==>ucs@bucs	  . #x7686)	; &BUCS+7686;
       ))
     (ideographic-radical . 72)	; ⽇
     (ideographic-strokes . 4)
