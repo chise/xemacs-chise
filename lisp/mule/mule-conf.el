@@ -5797,6 +5797,27 @@
 		  mother	=>ucs-itaiji-004
 		  min-code #x20000 max-code #x2FFFF
 		  registry "ucs00\\.itaiji004-2"))
+  (make-charset '==ucs-itaiji-004
+		"Abstract glyph-forms corresponding with uXXXX-itaiji-004 of GlyphWiki"
+		'(long-name	"UCS-itaiji-004"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+                  ;; =>iso-ir	177
+		  mother	=ucs-itaiji-004))
+  (make-charset '==ucs-sip-itaiji-004
+		"uXXXX-itaiji-004's abstract glyph-forms in SIP"
+		'(long-name	"UCS-SIP-itaiji-004"
+		  chars		256
+		  dimension	2
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  mother	==ucs-itaiji-004
+		  min-code #x20000 max-code #x2FFFF
+		  registry "ucs00\\.itaiji004-2"))
 
   (make-charset '=ucs-itaiji-005
 		"uXXXX-itaiji-005 glyphs of GlyphWiki"
