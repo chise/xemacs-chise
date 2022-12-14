@@ -6651,6 +6651,39 @@
     (=daikanwa		. 14414)	; &I-M-14414;
     ))
 (define-char
+  '((ideographic-radical . 74)	; ⽉
+    (ideographic-strokes . 20)
+    (total-strokes	 . 24)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=>ucs@component	  . #x6708)	; &A-compU+6708;
+      (=>iwds-1		  .  0053)	; &A-compU+6708;
+      )
+     ((=>hanyo-denshi/tk  . 01097180)	; &A-HD-TK-01097180;
+      ))
+    (=ucs		. #x2DA57)	; 𭩗
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2DA57)	; 𭩗
+      ))
+    (ideographic-radical . 74)	; ⽉
+    (ideographic-strokes . 20)
+    (total-strokes	 . 24)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs@unicode	  . #x6708)	; &MJ013520;
+      (=mj		  . 013520)	; &MJ013520;
+      )
+     ((=hanyo-denshi/tk	  . 01097180)	; &HD-TK-01097180;
+      ))
+    (=ucs@JP/hanazono	. #x2DA57)	; &hanaJU+2DA57;
+    ))
+(define-char
   '((ideographic-radical@r074 . 74)	; ⽉
     (ideographic-radical@r130 . 130)	; ⾁
     (ideographic-structure
