@@ -710,6 +710,12 @@
   '((ideographic-radical . 2)	; ⼁
     (ideographic-strokes . 2)
     (total-strokes	 . 3)
+    (=>big5-cdp		. #x88AC)	; &A-CDP-88AC;
+    ))
+(define-char
+  '((ideographic-radical . 2)	; ⼁
+    (ideographic-strokes . 2)
+    (total-strokes	 . 3)
     (=>big5-cdp		. #x87C2)	; &A-CDP-87C2;
     (=>ucs-itaiji-002	. #x5F14)	; &A-CDP-87C2;
     ))
@@ -730,6 +736,19 @@
     (ideographic-strokes . 2)
     (total-strokes	 . 3)
     (=big5-cdp		. #x87C2)	; &CDP-87C2;
+    ))
+(define-char
+  '((<-denotational
+     ((=>big5-cdp	  . #x88AC)	; &A-CDP-88AC;
+      ))
+    (ideographic-radical . 2)	; ⼁
+    (ideographic-strokes . 2)
+    (total-strokes	 . 3)
+    (=big5-cdp		. #x88AC)	; &CDP-88AC;
+    (<-formed@flipped-horizontally
+     ((=ucs@unicode	  . #x4E29)	; &AJ1-17237;
+      (=adobe-japan1-5	  . 17237)	; &AJ1-17237;
+      ))
     ))
 (define-char
   '((<-denotational@usage
