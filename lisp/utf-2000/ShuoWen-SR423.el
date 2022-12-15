@@ -44,46 +44,17 @@
 (define-char
   '((shuowen-radical	. 423)	; 雲
     (=shuowen-jiguge	. 39908)	; &SW-JIGUGE-39908;
+    (<-Small-Seal@shuowen
+     ((=ucs		  . #x290EC)	; 𩃬
+      )
+     ((=ucs		  . #x9712)	; 霒
+      ))
     (->subsumptive
      ((===shuowen-jiguge-A30 . 40808)	; &SW-JIGUGE30-40808;
       )
      ((===shuowen-jiguge5 . 39908)	; &SW-JIGUGE5-39908;
-      (<-Small-Seal@shuowen
-       ((ideographic-structure
-	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	  (=ucs		      . #x2FF1)	; ⿱
-	  )
-	 ((=ucs		      . #x96E8)	; 雨
-	  )
-	 ((ideographic-structure
-	   ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	    (=ucs		. #x2FF0)	; ⿰
-	    )
-	   ((=ucs		. #x4E91)	; 云
-	    )
-	   ((=ucs		. #x4ECA)	; 今
-	    ))
-	  ))
-	))
       )
      ((===shuowen-jiguge4 . 39108)	; &SW-JIGUGE4-39108;
-      (<-Small-Seal@shuowen
-       ((ideographic-structure
-	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	  (=ucs		      . #x2FF1)	; ⿱
-	  )
-	 ((=ucs		      . #x96E8)	; 雨
-	  )
-	 ((ideographic-structure
-	   ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	    (=ucs		. #x2FF0)	; ⿰
-	    )
-	   ((=ucs		. #x4E91)	; 云
-	    )
-	   ((=ucs		. #x4ECA)	; 今
-	    ))
-	  ))
-	))
       ))
     ))
 (define-char
@@ -91,6 +62,13 @@
     (=shuowen-jiguge	. 39909)	; &SW-JIGUGE-39909;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x4F8C)	; 侌
+      ))
+    (<-ancient@shuowen
+     ((=shuowen-jiguge	  . 39908)	; &SW-JIGUGE-39908;
+      )
+     ((=ucs		  . #x290EC)	; 𩃬
+      )
+     ((=ucs		  . #x9712)	; 霒
       ))
     (->subsumptive
      ((===shuowen-jiguge-A30 . 40809)	; &SW-JIGUGE30-40809;
@@ -105,6 +83,13 @@
     (=shuowen-jiguge	. 39910)	; &SW-JIGUGE-39910;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x201AD)	; 𠆭
+      ))
+    (<-ancient@shuowen
+     ((=shuowen-jiguge	  . 39908)	; &SW-JIGUGE-39908;
+      )
+     ((=ucs		  . #x290EC)	; 𩃬
+      )
+     ((=ucs		  . #x9712)	; 霒
       ))
     (->subsumptive
      ((===shuowen-jiguge-A30 . 40810)	; &SW-JIGUGE30-40810;
