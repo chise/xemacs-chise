@@ -1936,46 +1936,17 @@
 (define-char
   '((shuowen-radical	. 410)	; 水
     (=shuowen-jiguge	. 37824)	; &SW-JIGUGE-37824;
+    (<-Small-Seal@shuowen
+     ((=ucs		  . #x23F4D)	; 𣽍
+      )
+     ((=ucs		  . #x23F84)	; 𣾄
+      ))
     (->subsumptive
      ((===shuowen-jiguge-A30 . 38724)	; &SW-JIGUGE30-38724;
       )
      ((===shuowen-jiguge5 . 37824)	; &SW-JIGUGE5-37824;
-      (<-Small-Seal@shuowen
-       ((ideographic-structure
-	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	  (=ucs		      . #x2FF0)	; ⿰
-	  )
-	 ((=ucs		      . #x6C35)	; 氵
-	  )
-	 ((ideographic-structure
-	   ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	    (=ucs		. #x2FF1)	; ⿱
-	    )
-	   ((=ucs		. #x81EA)	; 自
-	    )
-	   ((=ucs		. #x4E51)	; 乑
-	    ))
-	  ))
-	))
       )
      ((===shuowen-jiguge4 . 37024)	; &SW-JIGUGE4-37024;
-      (<-Small-Seal@shuowen
-       ((ideographic-structure
-	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	  (=ucs		      . #x2FF0)	; ⿰
-	  )
-	 ((=ucs		      . #x6C35)	; 氵
-	  )
-	 ((ideographic-structure
-	   ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	    (=ucs		. #x2FF1)	; ⿱
-	    )
-	   ((=ucs		. #x81EA)	; 自
-	    )
-	   ((=ucs		. #x4E51)	; 乑
-	    ))
-	  ))
-	))
       ))
     ))
 (define-char
