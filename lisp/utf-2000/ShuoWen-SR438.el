@@ -597,13 +597,13 @@
 (define-char
   '((shuowen-radical	. 438)	; 門
     (=shuowen-jiguge	. 41505)	; &SW-JIGUGE-41505;
+    (<-Small-Seal@shuowen
+     ((=ucs		  . #x9591)	; 閑
+      ))
     (->subsumptive
      ((===shuowen-jiguge-A30 . 41905)	; &SW-JIGUGE30-41905;
       )
      ((===shuowen-jiguge5 . 41505)	; &SW-JIGUGE5-41505;
-      (<-Small-Seal@shuowen
-       ((=ucs		    . #x9591)	; 閑
-	))
       )
      ((===shuowen-jiguge4 . 40205)	; &SW-JIGUGE4-40205;
       ))
