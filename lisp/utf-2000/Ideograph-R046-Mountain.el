@@ -4475,9 +4475,16 @@
     ))
 (define-char
   '((ideographic-radical . 46)	; ⼭
+    (=>ucs@cognate	. #x21D8D)	; &A-cgnU+21D8D;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@cognate	  . #x21D8D)	; &A-cgnU+21D8D;
+      ))
+    (ideographic-radical . 46)	; ⼭
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
-    (ideographic-structure
+    (ideographic-structure@apparent/leftmost
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
@@ -4560,6 +4567,57 @@
       )
      ((==ucs@iso	  . #x21D8D)	; &g2-IU-00021D8D;
       ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@cognate	  . #x21D8D)	; &A-cgnU+21D8D;
+      ))
+    (ideographic-radical . 46)	; ⼭
+    (ideographic-strokes . 5)
+    (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>ucs@component	  . #x5C6E)	; &A-compU+5C6E;
+      (=>iwds-1		  .  0096)	; &A-compU+5C6E;
+      )
+     ((=ucs		  . #x4EFA)	; 仺
+      ))
+    (ideographic-structure@apparent/leftmost
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>ucs@iwds-1	  . #x37A4)	; &A-IWDSU+37A4;
+      )
+     ((=ucs		  . #x2CF16)	; 𬼖
+      ))
+    (=>ucs-itaiji-001	. #x21D8D)	; &A-U-i001+21D8D;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs-itaiji-001	  . #x21D8D)	; &A-U-i001+21D8D;
+      ))
+    (ideographic-radical . 46)	; ⼭
+    (ideographic-strokes . 5)
+    (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5C71)	; 山
+      )
+     ((=gt-k		  . 01400)	; &U-v001+4EFA;
+      ))
+    (ideographic-structure@apparent/leftmost
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs@unicode	  . #x37A4)	; &C3-2242;
+      )
+     ((=koseki		  . 002080)	; &KOSEKI-002080;
+      ))
+    (=ucs-itaiji-001	. #x21D8D)	; &U-i001+21D8D;
     ))
 (define-char
   '((ideographic-radical . 46)	; ⼭
