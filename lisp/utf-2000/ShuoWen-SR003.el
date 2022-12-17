@@ -26,6 +26,8 @@
     (=>shuowen-jiguge	. 00300)	; &A-SW-JIGUGE-00300;
     (<-Small-Seal
      ((=ucs		  . #x25605)	; 𥘅
+      )
+     ((=ucs		  . #x21B55)	; 𡭕
       ))
     ))
 (define-char
@@ -38,6 +40,13 @@
      ((=>gt-k		  . 00633)	; &A-GT-K00633;
       )
      ((=ucs		  . #x25605)	; 𥘅
+      )
+     ((=ucs		  . #x21B55)	; 𡭕
+      ))
+    (<-ancient@shuowen
+     ((=shuowen-jiguge	  . 00215)	; &SW-JIGUGE-00215;
+      )
+     ((=ucs		  . #x793A)	; 示
       ))
     (->subsumptive
      ((===shuowen-jiguge-A30 . 00300)	; &SW-JIGUGE30-00300;
@@ -56,6 +65,8 @@
     (===chise-hdic-ktb-seal . #x0301)	; &R-CHISE-HDIC-KTBS0301;
     (<-Small-Seal@tenrei-bansho-meigi/chise
      ((=ucs		  . #x25605)	; 𥘅
+      )
+     ((=ucs		  . #x21B55)	; 𡭕
       ))
     ))
 (define-char
