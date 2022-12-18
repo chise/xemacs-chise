@@ -246,6 +246,8 @@
      ((=ucs		  . #x29D34)	; 𩴴
       )
      ((=ucs		  . #x29D13)	; 𩴓
+      )
+     ((=ucs		  . #x29D17)	; 𩴗
       ))
     (->subsumptive
      ((===shuowen-jiguge-A30 . 32019)	; &SW-JIGUGE30-32019;
