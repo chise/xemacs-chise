@@ -2305,6 +2305,8 @@
   '((shuowen-radical	. 408)	; 心
     (=shuowen-jiguge	. 36628)	; &SW-JIGUGE-36628;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x2290C)	; 𢤌
+      )
      ((=ucs		  . #x61D6)	; 懖
       ))
     (->subsumptive
@@ -2319,7 +2321,16 @@
   '((shuowen-radical	. 408)	; 心
     (=shuowen-jiguge	. 36629)	; &SW-JIGUGE-36629;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x26609)	; 𦘉
+      )
      ((=ucs		  . #x265FE)	; 𦗾
+      ))
+    (<-ancient@shuowen
+     ((=shuowen-jiguge	  . 36628)	; &SW-JIGUGE-36628;
+      )
+     ((=ucs		  . #x2290C)	; 𢤌
+      )
+     ((=ucs		  . #x61D6)	; 懖
       ))
     (->subsumptive
      ((===shuowen-jiguge-A30 . 37129)	; &SW-JIGUGE30-37129;
