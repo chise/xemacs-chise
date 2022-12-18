@@ -31,7 +31,14 @@
   '((shuowen-radical	. 339)	; 印
     (=shuowen-jiguge	. 30710)	; &SW-JIGUGE-30710;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x22BAE)	; 𢮮
+      )
      ((=ucs		  . #x6291)	; 抑
+      ))
+    (<-vulgar@shuowen
+     ((=shuowen-jiguge	  . 30709)	; &SW-JIGUGE-30709;
+      )
+     ((=ucs		  . #x2244F)	; 𢑏
       ))
     (->subsumptive
      ((===shuowen-jiguge-A30 . 31710)	; &SW-JIGUGE30-31710;
