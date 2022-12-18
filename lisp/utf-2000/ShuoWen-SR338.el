@@ -31,7 +31,7 @@
   '((shuowen-radical	. 338)	; 卩
     (=shuowen-jiguge	. 30606)	; &SW-JIGUGE-30606;
     (<-Small-Seal@shuowen
-     ((=ucs		  . #x2868D)	; 𨚍
+     ((=ucs		  . #x20A12)	; 𠨒
       ))
     (->subsumptive
      ((===shuowen-jiguge-A30 . 31606)	; &SW-JIGUGE30-31606;
@@ -176,6 +176,9 @@
     (=shuowen-jiguge	. 30707)	; &SW-JIGUGE-30707;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x353F)	; 㔿
+      ))
+    (<-formed@flipped-horizontally
+     ((=shuowen-jiguge	  . 30604)	; &SW-JIGUGE-30604;
       ))
     (->subsumptive
      ((===shuowen-jiguge-A30 . 31707)	; &SW-JIGUGE30-31707;
