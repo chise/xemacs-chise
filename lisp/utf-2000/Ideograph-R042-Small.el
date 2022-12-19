@@ -453,6 +453,11 @@
       ))
     (sound@ja/on	"si")
     (=ucs		. #x21B55)	; 𡭕
+    (<-ancient
+     ((=ucs		  . #x793A)	; 示
+      ))
+    (<-ancient*sources
+     shuowen)
     ))
 (define-char
   '((<-denotational

@@ -5739,6 +5739,11 @@
     (<-Small-Seal@shuowen
      ((=ucs		  . #x23E11)	; 𣸑
       ))
+    (<-ancient@shuowen
+     ((=shuowen-jiguge	  . 19702)	; &SW-JIGUGE-19702;
+      )
+     ((=ucs		  . #x6881)	; 梁
+      ))
     (->subsumptive
      ((===shuowen-jiguge-A30 . 20203)	; &SW-JIGUGE30-20203;
       )
@@ -6230,6 +6235,11 @@
     (=shuowen-jiguge	. 19806)	; &SW-JIGUGE-19806;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x2566B)	; 𥙫
+      ))
+    (<-formed@shuowen
+     ((=shuowen-jiguge	  . 19805)	; &SW-JIGUGE-19805;
+      )
+     ((=ucs		  . #x69F1)	; 槱
       ))
     (->subsumptive
      ((===shuowen-jiguge-A30 . 20306)	; &SW-JIGUGE30-20306;

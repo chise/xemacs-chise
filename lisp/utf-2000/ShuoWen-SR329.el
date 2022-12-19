@@ -4,6 +4,12 @@
     (=shuowen-jiguge	. 30203)	; &SW-JIGUGE-30203;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x25109)	; 𥄉
+      )
+     ((=ucs		  . #x2DFA1)	; 𭾡
+      )
+     ((=ucs		  . #x770C)	; 県
+      )
+     ((=ucs		  . #x2510A)	; 𥄊
       ))
     (->subsumptive
      ((===shuowen-jiguge-A30 . 31203)	; &SW-JIGUGE30-31203;
