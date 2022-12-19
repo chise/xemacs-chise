@@ -30,32 +30,21 @@
 (define-char
   '((shuowen-radical	. 476)	; 龜
     (=shuowen-jiguge	. 46901)	; &SW-JIGUGE-46901;
+    (<-Small-Seal@shuowen
+     ((=ucs		  . #x2A6AA)	; 𪚪
+      )
+     ((=ucs		  . #x4DB1)	; 䶱
+      )
+     ((=ucs		  . #x31347)	; 𱍇
+      )
+     ((=ucs		  . #x2A6BD)	; 𪚽
+      ))
     (->subsumptive
      ((===shuowen-jiguge-A30 . 47801)	; &SW-JIGUGE30-47801;
       )
      ((===shuowen-jiguge5 . 46901)	; &SW-JIGUGE5-46901;
-      (<-Small-Seal@shuowen
-       ((ideographic-structure
-	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	  (=ucs		      . #x2FF0)	; ⿰
-	  )
-	 ((=ucs		      . #x5915)	; 夕
-	  )
-	 ((=ucs		      . #x9F9C)	; 龜
-	  ))
-	))
       )
      ((===shuowen-jiguge4 . 45901)	; &SW-JIGUGE4-45901;
-      (<-Small-Seal@shuowen
-       ((ideographic-structure
-	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	  (=ucs		      . #x2FF0)	; ⿰
-	  )
-	 ((=ucs		      . #x5915)	; 夕
-	  )
-	 ((=ucs		      . #x9F9C)	; 龜
-	  ))
-	))
       ))
     ))
 (define-char

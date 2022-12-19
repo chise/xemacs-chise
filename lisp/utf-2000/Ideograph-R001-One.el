@@ -2993,8 +2993,8 @@
     (hanyu-dazidian	1 11 2)
     (=big5-cdp		. #x88C7)	; &CDP-88C7;
     (<-formed@component/connect-right
-     ((=ucs@cns		  . #x25605)	; &GT-31487;
-      (=cns11643-6	  . #x2227)	; &GT-31487; [02-07]
+     ((=ucs@cns		  . #x25605)	; &C6-2227;
+      (=cns11643-6	  . #x2227)	; &C6-2227; [02-07]
       (=daikanwa	  . 24624)	; &I-M-24624;
       )
      ((=ucs		  . #x793A)	; 示

@@ -1467,6 +1467,23 @@
       )
      ((=ucs-itaiji-001	  . #x2007E)	; &U-i001+2007E;
       )
+     ((=ucs		  . #x5F50)	; 彐
+      ))
+    (=>ucs-itaiji-001	. #x20A14)	; &A-U-i001+20A14;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs-itaiji-001	  . #x20A14)	; &A-U-i001+20A14;
+      ))
+    (ideographic-radical . 26)	; ⼙
+    (ideographic-strokes . 4)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs-itaiji-001	  . #x2007E)	; &U-i001+2007E;
+      )
      ((name		  . "CJK RADICAL SNOUT TWO")
       (=ucs		  . #x2E95)	; ⺕
       ))

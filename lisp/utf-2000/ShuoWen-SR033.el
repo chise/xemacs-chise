@@ -1545,7 +1545,19 @@
     (=shuowen-jiguge	. 05415)	; &SW-JIGUGE-05415;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x284F8)	; 𨓸
+      )
+     ((=ucs		  . #x28532)	; 𨔲
       ))
+    (<-ancient@shuowen
+     ((=shuowen-jiguge	  . 05414)	; &SW-JIGUGE-05414;
+      )
+     ((=ucs		  . #x9042)	; 遂
+      ))
+    (<-formed
+     ((=shuowen-jiguge	  . 05205)	; &SW-JIGUGE-05205;
+      ))
+    (<-formed*references (link (:ref "https://humanum.arts.cuhk.edu.hk//Lexis/lexi-mf/search.php?word=%E9%81%82") "[Multi-function Chinese Character Database: U+9042]")
+			 (link (:ref "https://humanum.arts.cuhk.edu.hk//Lexis/lexi-mf/search.php?word=%E8%BF%B0") "[Multi-function Chinese Character Database: U+8FF0]"))
     (->subsumptive
      ((===shuowen-jiguge-A30 . 05315)	; &SW-JIGUGE30-05315;
       )
