@@ -1222,6 +1222,23 @@
     (ideographic-radical . 5)	; ⼄
     (ideographic-strokes . 2)
     (total-strokes	 . 3)
+    (ideographic-structure@apparent
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x4E00)	; 一
+      )
+     ((=ucs		  . #x531A)	; 匚
+      ))
+    (=ucs-itaiji-002	. #x2CF16)	; &U-i002+2CF16;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2CF16)	; 𬼖
+      ))
+    (ideographic-radical . 5)	; ⼄
+    (ideographic-strokes . 2)
+    (total-strokes	 . 3)
     (=ucs-itaiji-001	. #x722A)	; &U-i001+722A;
     ))
 (define-char
