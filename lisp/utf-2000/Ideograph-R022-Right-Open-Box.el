@@ -422,18 +422,59 @@
   '((ideographic-radical . 22)	; ⼕
     (ideographic-strokes . 4)
     (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
+      (=ucs		  . #x2FF7)	; ⿷
+      )
+     ((=>ucs@component	  . #x531A)	; &A-compU+531A;
+      (=>iwds-1		  .  0209)	; &A-compU+531A;
+      )
+     ((=ucs		  . #x4ECA)	; 今
+      ))
+    (sound@ja/on/go	"goN")
+    (sound@ja/on/kan	"kaN")
     (=ucs		. #x2092E)	; 𠤮
-    (=cns11643-5	. #x2237)	; &I-C5-2237; [02-23]
-    (=daikanwa		. 02601)	; &I-M-02601;
     ))
 (define-char
-  '((=>ucs		. #x2092E)	; 𠤮
-    (morohashi-daikanwa	2601 0 0)
+  '((<-denotational
+     ((=ucs		  . #x2092E)	; 𠤮
+      ))
     (ideographic-radical . 22)	; ⼕
     (ideographic-strokes . 4)
     (total-strokes	 . 6)
     (hanyu-dazidian	1 84 1)
-    (=hanziku-1		. #xB553)	; &HZK01-B553;
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
+      (=ucs		  . #x2FF7)	; ⿷
+      )
+     ((=ucs		  . #x531A)	; 匚
+      )
+     ((=ucs@unicode	  . #x4ECA)	; &AJ1-02067;
+      (=adobe-japan1-0	  . 02067)	; &AJ1-02067;
+      ))
+    (=ucs@iso		. #x2092E)	; &MJ031667;
+    (=mj		. 031667)	; &MJ031667;
+    (=cns11643-5	. #x2237)	; &I-C5-2237; [02-23]
+    (=koseki		. 030220)	; &MJ031667;
+    (=daikanwa		. 02601)	; &I-M-02601;
+    (->subsumptive
+     ((==ucs@iso	  . #x2092E)	; &g2-MJ031667;
+      (==mj		  . 031667)	; &g2-MJ031667;
+      (==cns11643-5	  . #x2237)	; &g2-MJ031667; [02-23]
+      (==koseki		  . 030220)	; &g2-MJ031667;
+      (==daikanwa	  . 02601)	; &g2-MJ031667;
+      (->subsumptive
+       ((===daikanwa	    . 02601)	; &R-M-02601;
+	)
+       ((===mj		    . 031667)	; &R-MJ031667;
+	)
+       ((===cns11643-5	    . #x2237)	; &R-C5-2237; [02-23]
+	)
+       ((===ucs@iso	    . #x2092E)	; &R-U-0002092E;
+	))
+      )
+     ((=hanziku-1	  . #xB553)	; &HZK01-B553;
+      ))
     ))
 (define-char
   '((ideographic-radical . 22)	; ⼕
