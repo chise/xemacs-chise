@@ -4956,8 +4956,8 @@
     (->ancient*sources
      shuowen daikanwa)
     (->formed
-     ((=ucs@unicode	  . #x821A)	; &JSP-5673;
-      (=jis-x0212	  . #x5673)	; &JSP-5673; [54-83]
+     ((=ucs@unicode	  . #x821A)	; &MJ021364;
+      (=mj		  . 021364)	; &MJ021364;
       (=daikanwa	  . 30333)	; &I-M-30333;
       )
      ((=daikanwa	  . 30288)	; &M-30288;
