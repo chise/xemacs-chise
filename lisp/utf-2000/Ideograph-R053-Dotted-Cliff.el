@@ -330,7 +330,10 @@
     (=ucs		. #x2D64D)	; 𭙍
     ))
 (define-char
-  '((ideographic-radical . 53)	; ⼴
+  '((<-denotational@usage
+     ((==>daijiten	  . 02306)	; &A2-DJT-02306;
+      ))
+    (ideographic-radical . 53)	; ⼴
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
     (ideographic-structure
@@ -364,6 +367,7 @@
     (=ucs@unicode	. #x386F)	; &C3-2360;
     (=cns11643-3	. #x2360)	; &C3-2360; [03-64]
     (=daikanwa		. 09225)	; &I-M-09225;
+    (=daijiten		. 02920)	; &I-DJT-02920;
     (=shinjigen		.  1810)	; &C3-2360;
     (=cbeta		. 08779)	; &I-CB08779;
     (<-ancient
@@ -385,6 +389,10 @@
      jiyun daikanwa)
     (<-ancient*sources
      jiyun daikanwa shinjigen)
+    (<-formed
+     ((=ucs@unicode	  . #x5EA6)	; &AJ1-03155;
+      (=adobe-japan1-0	  . 03155)	; &AJ1-03155;
+      ))
     (<-same
      ((=ucs@unicode	  . #x5EA6)	; &AJ1-03155;
       (=adobe-japan1-0	  . 03155)	; &AJ1-03155;
@@ -404,10 +412,13 @@
        ((===ucs@unicode	    . #x386F)	; &R-UU+386F;
 	))
       )
-     ((==ucs@cns	  . #x386F)	; &g2-CB08779;
-      (==cns11643-3	  . #x2360)	; &g2-CB08779; [03-64]
-      (==cbeta		  . 08779)	; &g2-CB08779;
+     ((==ucs@cns	  . #x386F)	; &g2-DJT-02920;
+      (==cns11643-3	  . #x2360)	; &g2-DJT-02920; [03-64]
+      (==daijiten	  . 02920)	; &g2-DJT-02920;
+      (==cbeta		  . 08779)	; &g2-DJT-02920;
       (->subsumptive
+       ((===daijiten	    . 02920)	; &R-DJT-02920;
+	)
        ((===cbeta	    . 08779)	; &R-CB08779;
 	)
        ((===cns11643-3	    . #x2360)	; &R-C3-2360; [03-64]
@@ -3699,6 +3710,9 @@
       )
      ((=ucs		  . #x53C8)	; 又
       ))
+    (sound@ja/on/conventional "do")
+    (sound@ja/on/go	"du" "daku")
+    (sound@ja/on/kan	"to" "taku")
     (=ucs		. #x5EA6)	; 度
     ))
 (define-char
@@ -3730,6 +3744,52 @@
     (=daikanwa		. 09313)	; &I-M-09313;
     (=daijiten		. 02944)	; &I-DJT-02944;
     (=shinjigen		.  0917)	; &AJ1-03155;
+    (<-interchangeable
+     ((=ucs@unicode	  . #x6E21)	; &AJ1-03145;
+      (=adobe-japan1-0	  . 03145)	; &AJ1-03145;
+      (=daikanwa	  . 17765)	; &I-M-17765;
+      )
+     ((=ucs@unicode	  . #x5B85)	; &MJ010110;
+      (=mj		  . 010110)	; &MJ010110;
+      (=daikanwa	  . 07064)	; &I-M-07064;
+      )
+     ((=ucs@unicode	  . #x6295)	; &AJ1-03172;
+      (=adobe-japan1-0	  . 03172)	; &AJ1-03172;
+      (=daikanwa	  . 11887)	; &I-M-11887;
+      )
+     ((=ucs@unicode	  . #x526B)	; &C2-336C;
+      (=cns11643-2	  . #x336C)	; &C2-336C; [19-76]
+      (=daikanwa	  . 02090)	; &I-M-02090;
+      ))
+    (<-interchangeable$_1*sources
+     shuowen-tongxun-dingsheng daikanwa)
+    (<-interchangeable$_2*note "M-09225 seems a typo of M-07064 (or glyph bug?)")
+    (<-interchangeable$_2*sources
+     shuowen-tongxun-dingsheng daikanwa)
+    (<-interchangeable$_3*sources
+     shuowen-tongxun-dingsheng maoshi-zhu daikanwa)
+    (<-interchangeable$_4*sources
+     shuowen-tongxun-dingsheng chunqiu-zuoshi-huijian daikanwa)
+    (<-interchangeable*sources
+     shuowen-tongxun-dingsheng daikanwa)
+    (->ancient
+     ((=ucs@unicode	  . #x386F)	; &C3-2360;
+      (=cns11643-3	  . #x2360)	; &C3-2360; [03-64]
+      (=daikanwa	  . 09225)	; &I-M-09225;
+      ))
+    (->ancient$_1*sources
+     jiyun daikanwa)
+    (->ancient*sources
+     jiyun daikanwa)
+    (->formed
+     ((=ucs@unicode	  . #x386F)	; &C3-2360;
+      (=cns11643-3	  . #x2360)	; &C3-2360; [03-64]
+      (=daikanwa	  . 09225)	; &I-M-09225;
+      ))
+    (->formed$_1*sources
+     jiyun daikanwa)
+    (->formed*sources
+     jiyun daikanwa)
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x5EA6)	; 度
