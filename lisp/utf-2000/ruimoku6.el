@@ -2146,15 +2146,6 @@
 	)
        ((=ucs		    . #xE0100)	; 󠄀
 	))
-      (ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	(=ucs		    . #x2FF0)	; ⿰
-	)
-       ((=ucs@JP/hanazono   . #x31350)	; &AJ1-19130;
-	(=adobe-japan1-5    . 19130)	; &AJ1-19130;
-	)
-       ((=ucs		    . #x7533)	; 申
-	))
       (==ucs@unicode	  . #xFA19)	; &g2-AJ1-08580;
       (==ucs@ks		  . #x795E)	; &g2-AJ1-08580;
       (==adobe-japan1-2	  . 08580)	; &g2-AJ1-08580;
@@ -2273,7 +2264,10 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 167)	; ⾦
+  '((<-denotational
+     ((=>ruimoku-v6	  . #xE089)	; &A-RUI6-E089;
+      ))
+    (ideographic-radical . 167)	; ⾦
     (ideographic-strokes . 10)
     (total-strokes	 . 18)
     (ideographic-structure
