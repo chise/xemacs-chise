@@ -854,7 +854,10 @@
     (=jef-china3	. #x9DD2)	; &I-JC3-9DD2;
     ))
 (define-char
-  '((ideographic-radical . 42)	; ⼩
+  '((<-denotational@component
+     ((=>ucs@component	  . #x9FB8)	; &A-compU+9FB8;
+      ))
+    (ideographic-radical . 42)	; ⼩
     (ideographic-strokes . 2)
     (total-strokes	 . 5)
     (ideographic-structure
