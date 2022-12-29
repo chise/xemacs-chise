@@ -3361,7 +3361,10 @@
     (=hanziku-1		. #xAEED)	; &I-HZK01-AEED;
     ))
 (define-char
-  '((ideographic-radical . 5)	; ⼄
+  '((<-denotational
+     ((=>ucs@component	  . #x200EC)	; &A-compU+200EC;
+      ))
+    (ideographic-radical . 5)	; ⼄
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
       (=ucs		  . #x2FF7)	; ⿷
@@ -3399,6 +3402,34 @@
        ((===ucs@iso	    . #x200EC)	; &R-U-000200EC;
 	))
       ))
+    ))
+(define-char
+  '((ideographic-radical . 5)	; ⼄
+    (=>ucs@component	. #x200EC)	; &A-compU+200EC;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@component	  . #x200EC)	; &A-compU+200EC;
+      ))
+    (ideographic-radical . 5)	; ⼄
+    (ideographic-strokes . 6)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
+      (=ucs		  . #x2FF7)	; ⿷
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
+	(=ucs		    . #x2FF4)	; ⿴
+	)
+       ((=ucs		    . #x5DF1)	; 己
+	)
+       ((=ucs		    . #x53E3)	; 口
+	))
+      )
+     ((=ucs		  . #x53E3)	; 口
+      ))
+    (=ucs-itaiji-003	. #x200EC)	; &U-i003+200EC;
     ))
 (define-char
   '((ideographic-radical . 5)	; ⼄
