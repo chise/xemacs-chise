@@ -1393,6 +1393,10 @@
     (->ancient
      ((=mj		  . 037875)	; &MJ037875;
       (=daikanwa	  . 14333)	; &I-M-14333;
+      )
+     ((=ucs@iso		  . #x26A08)	; &MJ046103;
+      (=mj		  . 046103)	; &MJ046103;
+      (=daikanwa	  . 30357)	; &I-M-30357;
       ))
     (->ancient$_1*sources
      shuowen daikanwa)
