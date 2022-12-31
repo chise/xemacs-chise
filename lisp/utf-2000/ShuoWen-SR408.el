@@ -511,6 +511,9 @@
     (<-Small-Seal@shuowen
      ((=ucs		  . #x608A)	; 悊
       ))
+    (<-identical@shuowen
+     ((=shuowen-jiguge	  . 03911)	; &SW-JIGUGE-03911;
+      ))
     (->subsumptive
      ((===shuowen-jiguge-A30 . 36723)	; &SW-JIGUGE30-36723;
       )
