@@ -45,6 +45,8 @@
   '((shuowen-radical	. 482)	; 堇
     (=shuowen-jiguge	. 47616)	; &SW-JIGUGE-47616;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x25335)	; 𥌵
+      )
      ((=ucs		  . #x8271)	; 艱
       ))
     (->subsumptive
@@ -60,6 +62,17 @@
     (=shuowen-jiguge	. 47617)	; &SW-JIGUGE-47617;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x21190)	; 𡆐
+      )
+     ((=ucs		  . #x21192)	; 𡆒
+      )
+     ((=ucs		  . #x56CF)	; 囏
+      ))
+    (<-Zhouwen@shuowen
+     ((=shuowen-jiguge	  . 47616)	; &SW-JIGUGE-47616;
+      )
+     ((=ucs		  . #x25335)	; 𥌵
+      )
+     ((=ucs		  . #x8271)	; 艱
       ))
     (->subsumptive
      ((===shuowen-jiguge-A30 . 48517)	; &SW-JIGUGE30-48517;
