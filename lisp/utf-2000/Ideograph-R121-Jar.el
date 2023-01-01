@@ -1128,12 +1128,67 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 121)	; ⽸
+  '((<-denotational@usage
+     ((==>ucs@bucs	  . #x5668)	; &BUCS+5668;
+      ))
+    (ideographic-radical . 121)	; ⽸
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>ucs@component	  . #x5405)	; &A-compU+5405;
+      (=>iwds-1		  .  0398)	; &A-compU+5405;
+      )
+     ((=>ucs@iwds-1	  . #x7F36)	; &A-IWDSU+7F36;
+      (=>iwds-1		  .  39295)	; &A-IWDSU+7F36;
+      ))
+    (=ucs		. #x2622F)	; 𦈯
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2622F)	; 𦈯
+      ))
+    (ideographic-radical . 121)	; ⽸
     (ideographic-strokes . 6)
     (total-strokes	 . 12)
-    (=ucs		. #x2622F)	; 𦈯
-    (=cns11643-6	. #x4C74)	; &I-C6-4C74; [44-84]
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5405)	; 吅
+      )
+     ((=ucs		  . #x7F36)	; 缶
+      ))
+    (=ucs@iso		. #x2622F)	; &C6-4C74;
+    (=cns11643-6	. #x4C74)	; &C6-4C74; [44-84]
     (=daikanwa		. 28138)	; &I-M-28138;
+    (=daijiten		. 09087)	; &I-DJT-09087;
+    (<-formed
+     ((=ucs		  . #xFA38)	; 器
+      ))
+    (<-formed$_1*sources
+     jiyun)
+    (<-same
+     ((=ucs		  . #xFA38)	; 器
+      (=daikanwa	  . 04376)	; &I-M-04376;
+      ))
+    (<-same*sources
+     jiyun daikanwa)
+    (->subsumptive
+     ((==ucs@iso	  . #x2622F)	; &g2-M-28138;
+      (==cns11643-6	  . #x4C74)	; &g2-M-28138; [44-84]
+      (==daikanwa	  . 28138)	; &g2-M-28138;
+      (==daijiten	  . 09087)	; &g2-M-28138;
+      (->subsumptive
+       ((===daikanwa	    . 28138)	; &R-M-28138;
+	)
+       ((===daijiten	    . 09087)	; &R-DJT-09087;
+	)
+       ((===cns11643-6	    . #x4C74)	; &R-C6-4C74; [44-84]
+	)
+       ((===ucs@iso	    . #x2622F)	; &R-U-0002622F;
+	))
+      ))
     ))
 (define-char
   '((<-denotational
