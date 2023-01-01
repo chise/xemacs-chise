@@ -730,7 +730,10 @@
       ))
     ))
 (define-char
-  '((ideographic-radical@ucs . 14)	; ⼍
+  '((<-denotational@component
+     ((=>ucs@component	  . #x9FB8)	; &A-compU+9FB8;
+      ))
+    (ideographic-radical@ucs . 14)	; ⼍
     (ideographic-strokes@ucs . 3)
     (ideographic-radical@misc . 86)	; ⽕
     (ideographic-strokes@misc . 2)
@@ -3975,6 +3978,18 @@
 (define-char
   '((ideographic-radical . 14)	; ⼍
     (==>daijiten	. 00644)	; &A2-DJT-00644;
+    ))
+(define-char
+  '((ideographic-radical . 14)	; ⼍
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>ucs@component	  . #x5C0F)	; &A-compU+5C0F;
+      )
+     ((=ucs		  . #x5196)	; 冖
+      ))
+    (=>ucs@component	. #x9FB8)	; &A-compU+9FB8;
     ))
 (define-char
   '((ideographic-radical . 14)	; ⼍
