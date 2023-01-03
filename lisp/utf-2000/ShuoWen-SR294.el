@@ -67,6 +67,11 @@
       )
      ((=ucs		  . #x20568)	; 𠕨
       ))
+    (<-ancient@shuowen
+     ((=shuowen-jiguge	  . 27608)	; &SW-JIGUGE-27608;
+      )
+     ((=ucs		  . #x81EE)	; 臮
+      ))
     (->subsumptive
      ((===shuowen-jiguge-A30 . 28109)	; &SW-JIGUGE30-28109;
       )

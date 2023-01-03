@@ -811,7 +811,10 @@
       ))
     ))
 (define-char
-  '((ideographic-radical@ucs . 14)	; ⼍
+  '((<-denotational@component
+     ((=>ucs@component	  . #x9FB8)	; &A-compU+9FB8;
+      ))
+    (ideographic-radical@ucs . 14)	; ⼍
     (ideographic-strokes@ucs . 3)
     (ideographic-radical@misc . 86)	; ⽕
     (ideographic-strokes@misc . 2)

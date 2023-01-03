@@ -47,6 +47,8 @@
     (<-Small-Seal@shuowen
      ((=ucs		  . #x5433)	; 吳
       )
+     ((=ucs		  . #x5449)	; 呉
+      )
      ((=>ucs@iwds-1	  . #x5433)	; &A-IWDSU+5433;
       (=>iwds-1		  .  0313)	; &A-IWDSU+5433;
       ))
@@ -63,6 +65,13 @@
     (=shuowen-jiguge	. 35505)	; &SW-JIGUGE-35505;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x215FE)	; 𡗾
+      ))
+    (<-ancient@shuowen
+     ((=shuowen-jiguge	  . 35504)	; &SW-JIGUGE-35504;
+      )
+     ((=ucs		  . #x5433)	; 吳
+      )
+     ((=ucs		  . #x5449)	; 呉
       ))
     (->subsumptive
      ((===shuowen-jiguge-A30 . 36005)	; &SW-JIGUGE30-36005;
