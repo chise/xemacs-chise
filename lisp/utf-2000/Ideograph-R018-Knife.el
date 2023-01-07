@@ -17677,6 +17677,10 @@
     (=daikanwa		. 02127)	; &I-M-02127;
     (=daijiten		. 00824)	; &I-DJT-00824;
     (=shinjigen		.  0680)	; &MJ007577;
+    (<-ancient
+     ((=ucs@unicode	  . #x7621)	; &AJ1-05763;
+      (=adobe-japan1-0	  . 05763)	; &AJ1-05763;
+      ))
     (<-formed
      ((=ucs@unicode	  . #x5205)	; &AJ1-19183;
       (=adobe-japan1-5	  . 19183)	; &AJ1-19183;
