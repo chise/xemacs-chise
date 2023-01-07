@@ -1896,6 +1896,10 @@
      shuowen daikanwa)
     (<-ancient*sources
      shuowen daikanwa)
+    (<-formed
+     ((=ucs@unicode	  . #x658C)	; &AJ1-03518;
+      (=adobe-japan1-0	  . 03518)	; &AJ1-03518;
+      ))
     (<-interchangeable
      ((=ucs@unicode	  . #x73A2)	; &AJ1-16974;
       (=adobe-japan1-5	  . 16974)	; &AJ1-16974;
