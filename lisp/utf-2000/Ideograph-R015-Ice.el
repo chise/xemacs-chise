@@ -2657,6 +2657,73 @@
     ))
 (define-char
   '((ideographic-radical . 15)	; ⼎
+    (ideographic-strokes . 7)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=>ucs@iwds-1	  . #x4E8C)	; &A-IWDSU+4E8C;
+      (=>iwds-1		  .  0047)	; &A-IWDSU+4E8C;
+      )
+     ((=>ucs@iwds-1	  . #x8099)	; &A-IWDSU+8099;
+      (=>iwds-1		  .  0289)	; &A-IWDSU+8099;
+      ))
+    (=ucs		. #x205D3)	; 𠗓
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x205D3)	; 𠗓
+      ))
+    (ideographic-radical . 15)	; ⼎
+    (ideographic-strokes . 7)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x51AB)	; 冫
+      )
+     ((=ucs		  . #x8099)	; 肙
+      ))
+    (=ucs@iso		. #x205D3)	; &U-000205D3;
+    ))
+(define-char
+  '((ideographic-radical . 15)	; ⼎
+    (ideographic-strokes . 7)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=>ucs@iwds-1	  . #x51AB)	; &A-IWDSU+51AB;
+      (=>iwds-1		  .  47219)	; &A-IWDSU+51AB;
+      )
+     ((=ucs		  . #x590B)	; 夋
+      ))
+    (=ucs		. #x205D5)	; 𠗕
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x205D5)	; 𠗕
+      ))
+    (ideographic-radical . 15)	; ⼎
+    (ideographic-strokes . 7)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x51AB)	; 冫
+      )
+     ((=ucs@cns		  . #x590B)	; &C3-2546;
+      (=cns11643-3	  . #x2546)	; &C3-2546; [05-38]
+      (=daikanwa	  . 05711)	; &I-M-05711;
+      ))
+    (=ucs@iso		. #x205D5)	; &U-000205D5;
+    ))
+(define-char
+  '((ideographic-radical . 15)	; ⼎
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
