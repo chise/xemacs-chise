@@ -108,6 +108,8 @@
   '((shuowen-radical	. 86)	; 殳
     (=shuowen-jiguge	. 09500)	; &SW-JIGUGE-09500;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x23A90)	; 𣪐
+      )
      ((=ucs		  . #x23ABE)	; 𣪾
       )
      ((=ucs		  . #x23AD0)	; 𣫐

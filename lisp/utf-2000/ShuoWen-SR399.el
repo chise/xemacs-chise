@@ -31,7 +31,11 @@
   '((shuowen-radical	. 399)	; 亢
     (=shuowen-jiguge	. 35801)	; &SW-JIGUGE-35801;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x21567)	; 𡕧
+      )
      ((=ucs		  . #x20163)	; 𠅣
+      )
+     ((=ucs		  . #x2156C)	; 𡕬
       ))
     (->subsumptive
      ((===shuowen-jiguge-A30 . 36301)	; &SW-JIGUGE30-36301;
