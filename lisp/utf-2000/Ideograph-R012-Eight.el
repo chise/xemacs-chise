@@ -2527,6 +2527,13 @@
     (=ucs		. #x2050A)	; 𠔊
     (=cns11643-6	. #x257C)	; &I-C6-257C; [05-92]
     (=daikanwa		. 01463)	; &I-M-01463;
+    (<-ancient
+     ((=ucs		  . #x9577)	; 長
+      ))
+    (<-ancient$_1*sources
+     shuowen)
+    (<-ancient*sources
+     shuowen)
     (->subsumptive
      ((==ucs@iso	  . #x2050A)	; &g2-M-01463;
       (==daikanwa	  . 01463)	; &g2-M-01463;
