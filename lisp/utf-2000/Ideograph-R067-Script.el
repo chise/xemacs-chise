@@ -840,11 +840,41 @@
     (=iso-ir165		. #x2D69)	; &I-EGB-2D69; [13-73]
     ))
 (define-char
-  '((ideographic-radical . 67)	; ⽂
+  '((<-denotational@usage
+     ((==>ucs@bucs	  . #x658C)	; &BUCS+658C;
+      ))
+    (ideographic-radical . 67)	; ⽂
     (ideographic-strokes . 8)
     (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x6587)	; 文
+      )
+     ((=ucs		  . #x6B66)	; 武
+      ))
+    (sound@ja/on	"hiN")
     (=ucs		. #x658C)	; 斌
-    (=adobe-japan1-0	. 03518)	; &I-AJ1-03518;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x658C)	; 斌
+      ))
+    (ideographic-radical . 67)	; ⽂
+    (ideographic-strokes . 8)
+    (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x6587)	; 文
+      )
+     ((=ucs@unicode	  . #x6B66)	; &AJ1-03554;
+      (=adobe-japan1-0	  . 03554)	; &AJ1-03554;
+      ))
+    (=ucs@unicode	. #x658C)	; &AJ1-03518;
+    (=adobe-japan1-0	. 03518)	; &AJ1-03518;
     (=jis-x0208		. #x494C)	; &I-J90-494C; [41-44]
     (=gb2312		. #x3173)	; &I-G0-3173; [17-83]
     (=ks-x1001		. #x5E30)	; &I-K0-5E30; [62-16]
@@ -855,7 +885,45 @@
     (=gt-k		. 09135)	; &I-GT-K09135;
     (=gt-pj-1		. #x494C)	; &I-GT-17034; [41-44]
     (=daikanwa		. 13468)	; &I-M-13468;
-    (=shinjigen@rev	.  3208)	; 斌
+    (=daijiten		. 04328)	; &I-DJT-04328;
+    (=shinjigen		.  3208)	; &AJ1-03518;
+    (<-same
+     ((=ucs@unicode	  . #x4EFD)	; &AJ1-14312;
+      (=adobe-japan1-4	  . 14312)	; &AJ1-14312;
+      (=daikanwa	  . 00418)	; &I-M-00418;
+      )
+     ((=ucs@unicode	  . #x5F6C)	; &AJ1-03517;
+      (=adobe-japan1-0	  . 03517)	; &AJ1-03517;
+      (=daikanwa	  . 09996)	; &I-M-09996;
+      ))
+    (<-same$_1*sources
+     jiyun guangyun yupian daikanwa)
+    (<-same$_2*sources
+     jiyun guangyun yupian daikanwa)
+    (<-same*sources
+     jiyun guangyun yupian daikanwa)
+    (<-vulgar
+     ((=ucs@unicode	  . #x4EFD)	; &AJ1-14312;
+      (=adobe-japan1-4	  . 14312)	; &AJ1-14312;
+      )
+     ((=ucs@unicode	  . #x5F6C)	; &AJ1-03517;
+      (=adobe-japan1-0	  . 03517)	; &AJ1-03517;
+      ))
+    (<-vulgar$_1*sources
+     jiyun)
+    (->formed
+     ((=ucs@unicode	  . #x4EFD)	; &AJ1-14312;
+      (=adobe-japan1-4	  . 14312)	; &AJ1-14312;
+      )
+     ((=ucs@unicode	  . #x5F6C)	; &AJ1-03517;
+      (=adobe-japan1-0	  . 03517)	; &AJ1-03517;
+      ))
+    (->formed$_1*sources
+     yupian)
+    (->formed$_2*sources
+     yupian)
+    (->formed*sources
+     yupian)
     (->subsumptive
      ((==ucs@unicode	  . #x658C)	; &g2-AJ1-03518;
       (==adobe-japan1-0	  . 03518)	; &g2-AJ1-03518;
@@ -867,9 +935,12 @@
       (==gt		  . 17034)	; &g2-AJ1-03518;
       (==gt-k		  . 09135)	; &g2-AJ1-03518;
       (==daikanwa	  . 13468)	; &g2-AJ1-03518;
-      (==shinjigen@rev	  .  3208)	; &g2-AJ1-03518;
+      (==daijiten	  . 04328)	; &g2-AJ1-03518;
+      (==shinjigen	  .  3208)	; &g2-AJ1-03518;
       (->subsumptive
        ((===daikanwa	    . 13468)	; &R-M-13468;
+	)
+       ((===daijiten	    . 04328)	; &R-DJT-04328;
 	)
        ((===jis-x0208	    . #x494C)	; &R-J0-494C; [41-44]
 	(===jis-x0213-1	    . #x494C)	; &R-J0-494C; [41-44]
@@ -1482,4 +1553,9 @@
      ((=ucs@iso		  . #x2306B)	; &C7-5B5B;
       (=cns11643-7	  . #x5B5B)	; &C7-5B5B; [59-59]
       ))
+    ))
+(define-char
+  '((ideographic-radical . 67)	; ⽂
+    (==>ucs@bucs	. #x658C)	; &BUCS+658C;
+    (==>daijiten	. 04328)	; &BUCS+658C;
     ))
