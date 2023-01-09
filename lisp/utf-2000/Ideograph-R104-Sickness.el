@@ -10075,7 +10075,10 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 104)	; ⽧
+  '((<-denotational@usage
+     ((==>ucs@bucs	  . #x7621)	; &BUCS+7621;
+      ))
+    (ideographic-radical . 104)	; ⽧
     (ideographic-strokes . 10)
     (total-strokes	 . 15)
     (ideographic-structure
@@ -10086,6 +10089,8 @@
       )
      ((=ucs		  . #x5009)	; 倉
       ))
+    (sound@ja/on/go	"sIyAu")
+    (sound@ja/on/kan	"sAu")
     (=ucs		. #x7621)	; 瘡
     ))
 (define-char
@@ -10115,7 +10120,26 @@
     (=gt		. 28731)	; &I-GT-28731;
     (=gt-pj-1		. #x616C)	; &I-GT-28731; [65-76]
     (=daikanwa		. 22404)	; &I-M-22404;
+    (=daijiten		. 07649)	; &I-DJT-07649;
     (=shinjigen		.  5152)	; &AJ1-05763;
+    (<-interchangeable
+     ((=ucs@unicode	  . #x5275)	; &MJ007577;
+      (=mj		  . 007577)	; &MJ007577;
+      ))
+    (<-interchangeable$_1*sources
+     yupian daikanwa)
+    (<-vulgar
+     ((=ucs@unicode	  . #x5275)	; &MJ007577;
+      (=mj		  . 007577)	; &MJ007577;
+      ))
+    (->ancient
+     ((=ucs@unicode	  . #x5275)	; &MJ007577;
+      (=mj		  . 007577)	; &MJ007577;
+      ))
+    (->ancient$_1*sources
+     yupian)
+    (->ancient*sources
+     yupian)
     (->subsumptive
      ((==ucs@cns	  . #x7621)	; &g2-AJ1-05763;
       (==ucs@jis	  . #x7621)	; &g2-AJ1-05763;
@@ -10127,9 +10151,12 @@
       (==jis-x0213-1	  . #x616C)	; &g2-AJ1-05763; [65-76]
       (==gt		  . 28731)	; &g2-AJ1-05763;
       (==daikanwa	  . 22404)	; &g2-AJ1-05763;
+      (==daijiten	  . 07649)	; &g2-AJ1-05763;
       (==shinjigen	  .  5152)	; &g2-AJ1-05763;
       (->subsumptive
        ((===daikanwa	    . 22404)	; &R-M-22404;
+	)
+       ((===daijiten	    . 07649)	; &R-DJT-07649;
 	)
        ((===jis-x0208	    . #x616C)	; &R-J0-616C; [65-76]
 	(===jis-x0213-1	    . #x616C)	; &R-J0-616C; [65-76]
@@ -16832,6 +16859,11 @@
 (define-char
   '((ideographic-radical . 104)	; ⽧
     (==>ucs@bucs	. #x761F)	; &BUCS+761F;
+    ))
+(define-char
+  '((ideographic-radical . 104)	; ⽧
+    (==>ucs@bucs	. #x7621)	; &BUCS+7621;
+    (==>daijiten	. 07649)	; &BUCS+7621;
     ))
 (define-char
   '((ideographic-radical . 104)	; ⽧
