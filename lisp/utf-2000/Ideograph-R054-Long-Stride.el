@@ -1090,7 +1090,10 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 54)	; ⼵
+  '((<-denotational@usage
+     ((==>ucs@bucs	  . #x8FFA)	; &BUCS+8FFA;
+      ))
+    (ideographic-radical . 54)	; ⼵
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
     (ideographic-structure
@@ -1101,6 +1104,7 @@
       )
      ((=ucs		  . #x897F)	; 西
       ))
+    (sound@ja/on	"dai")
     (=ucs		. #x5EFC)	; 廼
     ))
 (define-char
@@ -1116,8 +1120,8 @@
       )
      ((=ucs		  . #x5EF4)	; 廴
       )
-     ((=ucs@unicode	  . #x897F)	; &AJ1-02658;
-      (=adobe-japan1-0	  . 02658)	; &AJ1-02658;
+     ((name		  . "CJK RADICAL WEST TWO")
+      (=ucs		  . #x2EC4)	; ⻄
       ))
     (=ucs@unicode	. #x5EFC)	; &AJ1-03308;
     (=adobe-japan1-0	. 03308)	; &AJ1-03308;
@@ -1127,16 +1131,18 @@
     (=gt		. 12066)	; &I-GT-12066;
     (=gt-pj-1		. #x4736)	; &I-GT-12066; [39-22]
     (=daikanwa		. 09576)	; &I-M-09576;
+    (=daijiten		. 03009)	; &I-DJT-03009;
     (=shinjigen		.  8258)	; &AJ1-03308;
     (=cbeta		. 02626)	; &I-CB02626;
     (<-wrong
      ((=ucs@jis		  . #x8FFA)	; &MJ025868;
       (=mj		  . 025868)	; &MJ025868;
       (=jis-x0208	  . #x6D72)	; &I-J90-6D72; [77-82]
+      (=daikanwa	  . 38831)	; &I-M-38831;
       (=shinjigen	  .  8257)	; &MJ025868;
       ))
     (<-wrong*sources
-     shinjigen)
+     zhengzitong daikanwa shinjigen)
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x5EFC)	; 廼
@@ -1149,10 +1155,13 @@
       (==jis-x0213-1	  . #x4736)	; &g2-AJ1-03308; [39-22]
       (==gt		  . 12066)	; &g2-AJ1-03308;
       (==daikanwa	  . 09576)	; &g2-AJ1-03308;
+      (==daijiten	  . 03009)	; &g2-AJ1-03308;
       (==shinjigen	  .  8258)	; &g2-AJ1-03308;
       (==cbeta		  . 02626)	; &g2-AJ1-03308;
       (->subsumptive
        ((===daikanwa	    . 09576)	; &R-M-09576;
+	)
+       ((===daijiten	    . 03009)	; &R-DJT-03009;
 	)
        ((===jis-x0208	    . #x4736)	; &R-J0-4736; [39-22]
 	(===jis-x0213-1	    . #x4736)	; &R-J0-4736; [39-22]
