@@ -20991,8 +20991,8 @@
       )
      ((=ucs		  . #x53E3)	; 口
       )
-     ((=ucs@unicode	  . #x897F)	; &AJ1-02658;
-      (=adobe-japan1-0	  . 02658)	; &AJ1-02658;
+     ((name		  . "CJK RADICAL WEST TWO")
+      (=ucs		  . #x2EC4)	; ⻄
       ))
     (=ucs@unicode	. #x54C2)	; &AJ1-04373;
     (=adobe-japan1-0	. 04373)	; &AJ1-04373;

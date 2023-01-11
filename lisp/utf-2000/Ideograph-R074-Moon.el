@@ -2490,8 +2490,8 @@
     (=shinjigen		.  3438)	; &AJ1-13936;
     (=jef-china3	. #x52C2)	; &I-JC3-52C2;
     (<-same
-     ((=ucs@iso		  . #x26A4E)	; &C6-6122;
-      (=cns11643-6	  . #x6122)	; &C6-6122; [65-02]
+     ((=ucs@iso		  . #x26A4E)	; &MJ046155;
+      (=mj		  . 046155)	; &MJ046155;
       (=daikanwa	  . 30460)	; &I-M-30460;
       ))
     (<-same$_1*sources

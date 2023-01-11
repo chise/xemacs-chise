@@ -3984,6 +3984,9 @@
   '((<-denotational
      ((=>ucs@cognate	  . #x38B4)	; &A-cgnU+38B4;
       ))
+    (<-denotational@usage
+     ((==>ucs@bucs	  . #x897F)	; &BUCS+897F;
+      ))
     (ideographic-radical . 57)	; ⼸
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
@@ -4016,9 +4019,10 @@
     (=ucs@unicode	. #x38B4)	; &C6-307A;
     (=cns11643-6	. #x307A)	; &C6-307A; [16-90]
     (=daikanwa		. 09776)	; &I-M-09776;
+    (=daijiten		. 03062)	; &I-DJT-03062;
     (<-ancient
-     ((=ucs@unicode	  . #x897F)	; &AJ1-02658;
-      (=adobe-japan1-0	  . 02658)	; &AJ1-02658;
+     ((name		  . "CJK RADICAL WEST TWO")
+      (=ucs		  . #x2EC4)	; ⻄
       (=daikanwa	  . 34763)	; &I-M-34763;
       ))
     (<-ancient*sources
@@ -4027,8 +4031,11 @@
      ((==ucs@unicode	  . #x38B4)	; &g2-M-09776;
       (==cns11643-6	  . #x307A)	; &g2-M-09776; [16-90]
       (==daikanwa	  . 09776)	; &g2-M-09776;
+      (==daijiten	  . 03062)	; &g2-M-09776;
       (->subsumptive
        ((===daikanwa	    . 09776)	; &R-M-09776;
+	)
+       ((===daijiten	    . 03062)	; &R-DJT-03062;
 	)
        ((===ucs@unicode	    . #x38B4)	; &R-UU+38B4;
 	)
