@@ -205,7 +205,10 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 75)	; ⽊
+  '((<-denotational@component
+     ((=>ucs@iwds-1	  . #x25605)	; &A-IWDSU+25605;
+      ))
+    (ideographic-radical . 75)	; ⽊
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
     (hanyu-dazidian	1 12 1)
