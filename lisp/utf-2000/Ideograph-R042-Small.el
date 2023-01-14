@@ -242,6 +242,18 @@
       ))
     ))
 (define-char
+  '((<-denotational@component
+     ((=>ucs@component	  . #x5C0F)	; &A-compU+5C0F;
+      ))
+    (ideographic-radical . 42)	; ⼩
+    (ideographic-strokes . 0)
+    (total-strokes	 . 3)
+    (=big5-cdp		. #x8665)	; &CDP-8665;
+    (->subsumptive
+     ((==big5-cdp	  . #x8665)	; &g2-CDP-8665;
+      ))
+    ))
+(define-char
   '((ideographic-radical . 42)	; ⼩
     (ideographic-strokes . 1)
     (total-strokes	 . 4)
@@ -439,7 +451,10 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 42)	; ⼩
+  '((<-denotational
+     ((=>ucs@component	  . #x25605)	; &A-compU+25605;
+      ))
+    (ideographic-radical . 42)	; ⼩
     (ideographic-strokes . 1)
     (total-strokes	 . 4)
     (ideographic-structure
