@@ -17,6 +17,8 @@
   '((shuowen-radical	. 381)	; 熊
     (=shuowen-jiguge	. 34503)	; &SW-JIGUGE-34503;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x26332)	; 𦌲
+      )
      ((=ucs		  . #x7F86)	; 羆
       ))
     (->subsumptive
@@ -32,6 +34,13 @@
     (=shuowen-jiguge	. 34504)	; &SW-JIGUGE-34504;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x2500D)	; 𥀍
+      ))
+    (<-ancient@shuowen
+     ((=shuowen-jiguge	  . 34503)	; &SW-JIGUGE-34503;
+      )
+     ((=ucs		  . #x26332)	; 𦌲
+      )
+     ((=ucs		  . #x7F86)	; 羆
       ))
     (->subsumptive
      ((===shuowen-jiguge-A30 . 35004)	; &SW-JIGUGE30-35004;
