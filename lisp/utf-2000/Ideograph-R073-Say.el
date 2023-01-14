@@ -1455,6 +1455,15 @@
   '((ideographic-radical . 73)	; ⽈
     (ideographic-strokes . 6)
     (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>ucs@component	  . #x65E5)	; &A-compU+65E5;
+      (=>iwds-1		  .  0118)	; &A-compU+65E5;
+      )
+     ((=ucs		  . #x20BC3)	; 𠯃
+      ))
     (=ucs		. #x231AA)	; 𣆪
     ))
 (define-char
@@ -1464,6 +1473,15 @@
     (ideographic-radical . 73)	; ⽈
     (ideographic-strokes . 6)
     (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x66F0)	; 曰
+      )
+     ((=ucs@iso		  . #x20BC3)	; &M-03311;
+      (=daikanwa	  . 03311)	; &M-03311;
+      ))
     (=ucs@iso		. #x231AA)	; &U-000231AA;
     ))
 (define-char
@@ -1473,6 +1491,31 @@
     (ideographic-radical . 73)	; ⽈
     (ideographic-strokes . 6)
     (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM BELOW")
+      (=ucs		  . #x2FF6)	; ⿶
+      )
+     ((=gt-k		  . 01881)	; &GT-K01881;
+      )
+     ((=ucs		  . #x66F0)	; 曰
+      ))
+    (=ucs-var-004	. #x231AA)	; &U-v004+231AA;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x231AA)	; 𣆪
+      ))
+    (ideographic-radical . 73)	; ⽈
+    (ideographic-strokes . 6)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x66F0)	; 曰
+      )
+     ((=gt-k		  . 01881)	; &GT-K01881;
+      ))
     (=big5-cdp		. #x8941)	; &CDP-8941;
     ))
 (define-char

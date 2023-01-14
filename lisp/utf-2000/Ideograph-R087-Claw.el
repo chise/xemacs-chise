@@ -58,7 +58,10 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 87)	; ⽖
+  '((<-denotational@component
+     ((=>ucs@iwds-1	  . #x25605)	; &A-IWDSU+25605;
+      ))
+    (ideographic-radical . 87)	; ⽖
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
     (sound@ja/on	"sIyAu")
