@@ -1477,6 +1477,23 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=ucs		  . #x51FB)	; 击
+      ))
+    (ideographic-radical . 17)	; ⼐
+    (ideographic-strokes . 4)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x571F)	; 土
+      )
+     ((=ucs		  . #x5C71)	; 山
+      ))
+    (=ucs-var-002	. #x51FB)	; &U-v002+51FB;
+    ))
+(define-char
   '((<-denotational@usage
      ((==>ucs@bucs	  . #x51FC)	; &BUCS+51FC;
       ))
