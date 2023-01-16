@@ -2587,9 +2587,31 @@
     (=hanziku-8		. #xDE7E)	; &I-HZK08-DE7E;
     ))
 (define-char
-  '((ideographic-radical . 123)	; ⽺
+  '((<-denotational@usage
+     ((==>ucs@bucs	  . #x8F9C)	; &BUCS+8F9C;
+      ))
+    (ideographic-radical . 123)	; ⽺
     (ideographic-strokes . 5)
     (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>ucs@iwds-1	  . #x53E4)	; &A-IWDSU+53E4;
+      )
+     ((=ucs		  . #x7F8A)	; 羊
+      ))
+    (sound@ja/on	"ko")
+    (=ucs		. #x2636C)	; 𦍬
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2636C)	; 𦍬
+      ))
+    (ideographic-radical . 123)	; ⽺
+    (ideographic-strokes . 5)
+    (total-strokes	 . 11)
+    (hanyu-dazidian	5 3129 5)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
@@ -2598,8 +2620,34 @@
       )
      ((=ucs		  . #x7F8A)	; 羊
       ))
+    (=ucs@iso		. #x2636C)	; &M-28469;
     (=daikanwa		. 28469)	; &M-28469;
+    (=daijiten		. 09169)	; &I-DJT-09169;
     (=cbeta		. 00959)	; &I-CB00959;
+    (<-same
+     ((=ucs@unicode	  . #x8F9C)	; &AJ1-06882;
+      (=adobe-japan1-0	  . 06882)	; &AJ1-06882;
+      (=daikanwa	  . 38636)	; &I-M-38636;
+      ))
+    (<-same*sources
+     kangxi daikanwa)
+    (->subsumptive
+     ((==ucs@iso	  . #x2636C)	; &g2-M-28469;
+      (==daikanwa	  . 28469)	; &g2-M-28469;
+      (==daijiten	  . 09169)	; &g2-M-28469;
+      (==cbeta		  . 00959)	; &g2-M-28469;
+      (->subsumptive
+       ((===daikanwa	    . 28469)	; &R-M-28469;
+	)
+       ((===daijiten	    . 09169)	; &R-DJT-09169;
+	)
+       ((===ucs@iso	    . #x2636C)	; &R-U-0002636C;
+	)
+       ((=hanziku-8	    . #xDEA1)	; &HZK08-DEA1;
+	)
+       ((===cbeta	    . 00959)	; &R-CB00959;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 123)	; ⽺
@@ -7932,12 +7980,6 @@
     (hanyu-dazidian	5 3130 10)
     (=ucs		. #x2636B)	; 𦍫
     (=hanziku-8		. #xDEC6)	; &I-HZK08-DEC6;
-    ))
-(define-char
-  '((ideographic-radical . 123)	; ⽺
-    (hanyu-dazidian	5 3129 5)
-    (=ucs		. #x2636C)	; 𦍬
-    (=hanziku-8		. #xDEA1)	; &I-HZK08-DEA1;
     ))
 (define-char
   '((ideographic-radical . 123)	; ⽺
