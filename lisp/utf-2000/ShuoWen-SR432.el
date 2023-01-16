@@ -3,6 +3,8 @@
   '((shuowen-radical	. 432)	; 不
     (=shuowen-jiguge	. 41103)	; &SW-JIGUGE-41103;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x2001A)	; 𠀚
+      )
      ((=ucs		  . #x4E0D)	; 不
       ))
     (->subsumptive
