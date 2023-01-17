@@ -3194,10 +3194,7 @@
       ))
     ))
 (define-char
-  '((<-denotational@usage
-     ((==>daijiten	  . 09291)	; &A2-DJT-09291;
-      ))
-    (ideographic-radical@ucs . 128)	; ⽿
+  '((ideographic-radical@ucs . 128)	; ⽿
     (ideographic-strokes@ucs . 1)
     (ideographic-radical@ucs*sources
      daikanwa cns11643 ucs)
@@ -3209,6 +3206,9 @@
 (define-char
   '((<-denotational
      ((=>ucs@component	  . #x8034)	; &A-compU+8034;
+      ))
+    (<-denotational@usage
+     ((==>daijiten	  . 09291)	; &A2-DJT-09291;
       ))
     (ideographic-radical@ucs . 128)	; ⽿
     (ideographic-strokes@ucs . 1)
@@ -3302,6 +3302,9 @@
 (define-char
   '((<-denotational
      ((=>ucs@component	  . #x8034)	; &A-compU+8034;
+      ))
+    (<-denotational@usage
+     ((==>daijiten	  . 09291)	; &A2-DJT-09291;
       ))
     (ideographic-radical@ucs . 128)	; ⽿
     (ideographic-strokes@ucs . 1)
