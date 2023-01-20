@@ -15790,6 +15790,12 @@
      ((=ucs@iso		  . #x249D7)	; &C5-404F;
       (=cns11643-5	  . #x404F)	; &C5-404F; [32-47]
       (=daikanwa	  . 21142)	; &I-M-21142;
+      )
+     ((=ucs@unicode	  . #x9FA2)	; &JX1-7E79;
+      (=jis-x0212	  . #x6D61)	; &JX1-7E79; [77-65]
+      (=cns11643-2	  . #x6E7C)	; &I-C2-6E7C; [78-92]
+      (=jis-x0213-1	  . #x7E79)	; &I-JX1-7E79; [94-89]
+      (=daikanwa	  . 48886)	; &I-M-48886;
       ))
     (->ancient$_1*sources
      jiyun shuowen-zhu daikanwa)
