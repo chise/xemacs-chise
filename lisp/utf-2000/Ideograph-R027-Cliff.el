@@ -4883,9 +4883,8 @@
       ))
     (=ucs@JP/hanazono	. #x2A80F)	; &hanaJU+2A80F;
     (<-simplified@CN
-     ((=ucs@cns		  . #x2502C)	; &C5-6849;
-      (=cns11643-5	  . #x6849)	; &C5-6849; [72-41]
-      (=daikanwa	  . 22927)	; &I-M-22927;
+     ((=ucs@cns		  . #x2502C)	; &MJ042045;
+      (=mj		  . 042045)	; &MJ042045;
       ))
     ))
 (define-char
