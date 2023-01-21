@@ -3330,11 +3330,68 @@
   '((ideographic-radical . 16)	; ⼏
     (ideographic-strokes . 7)
     (total-strokes	 . 9)
-    (hanyu-dazidian	1 278 2)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>big5-cdp	  . #x88BB)	; &A-GT-K01493;
+      )
+     ((=>ucs@iwds-1	  . #x5197)	; &A-IWDSU+5197;
+      (=>ucs@iwds-1/normalized . #x34C1)	; &A-IWDSU+5197;
+      (=>iwds-1		  .  1119)	; &A-IWDSU+5197;
+      ))
+    (sound@ja/on	"hu")
     (=ucs		. #x20650)	; 𠙐
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x20650)	; 𠙐
+      ))
+    (ideographic-radical . 16)	; ⼏
+    (ideographic-strokes . 7)
+    (total-strokes	 . 9)
+    (hanyu-dazidian	1 278 2)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=gt-k		  . 01493)	; &GT-K01493;
+      )
+     ((=ucs@unicode	  . #x5197)	; &MJ007329;
+      (=mj		  . 007329)	; &MJ007329;
+      ))
+    (=ucs@iso		. #x20650)	; &MJ031183;
+    (=mj		. 031183)	; &MJ031183;
     (=cns11643-6	. #x2E70)	; &I-C6-2E70; [14-80]
+    (=koseki		. 020990)	; &MJ031183;
     (=daikanwa		. 01778)	; &I-M-01778;
-    (=hanziku-1		. #xDF6A)	; &I-HZK01-DF6A;
+    (<-ancient
+     ((=ucs		  . #x4E0D)	; 不
+      (=daikanwa	  . 00019)	; &I-M-00019;
+      ))
+    (<-ancient*sources
+     zihui-bu daikanwa)
+    (<-formed
+     ((=ucs		  . #x4E0D)	; 不
+      ))
+    (<-formed$_1*sources
+     koseki mj)
+    (<-formed*sources
+     koseki mj)
+    (->subsumptive
+     ((==ucs@iso	  . #x20650)	; &g2-M-01778;
+      (==cns11643-6	  . #x2E70)	; &g2-M-01778; [14-80]
+      (==daikanwa	  . 01778)	; &g2-M-01778;
+      (->subsumptive
+       ((===daikanwa	    . 01778)	; &R-M-01778;
+	)
+       ((===cns11643-6	    . #x2E70)	; &R-C6-2E70; [14-80]
+	)
+       ((===ucs@iso	    . #x20650)	; &R-U-00020650;
+	)
+       ((=hanziku-1	    . #xDF6A)	; &HZK01-DF6A;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 16)	; ⼏
