@@ -17684,9 +17684,14 @@
     (<-formed
      ((=ucs@unicode	  . #x5205)	; &AJ1-19183;
       (=adobe-japan1-5	  . 19183)	; &AJ1-19183;
+      )
+     ((=ucs@unicode	  . #x7472)	; &AJ1-19543;
+      (=adobe-japan1-5	  . 19543)	; &AJ1-19543;
       ))
     (<-formed$_1*sources
      shuowen)
+    (<-formed$_2*sources
+     jiyun)
     (<-interchangeable
      ((=ucs@unicode	  . #x5231)	; &AJ1-19187;
       (=adobe-japan1-5	  . 19187)	; &AJ1-19187;

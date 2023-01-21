@@ -481,12 +481,19 @@
     ))
 (define-char
   '((<-denotational
-     ((=>big5-cdp	  . #x88BB)	; &A-CDP-88BB;
+     ((=>big5-cdp	  . #x88BB)	; &A-GT-K01493;
       ))
     (ideographic-radical . 58)	; ⼹
     (ideographic-strokes . 2)
     (total-strokes	 . 5)
     (=big5-cdp-itaiji-001 . #x88BB)	; &CDP-i001-88BB;
+    ))
+(define-char
+  '((ideographic-radical . 58)	; ⼹
+    (ideographic-strokes . 2)
+    (total-strokes	 . 5)
+    (=>big5-cdp		. #x88BB)	; &A-GT-K01493;
+    (=>gt-k		. 01493)	; &A-GT-K01493;
     ))
 (define-char
   '((ideographic-radical . 58)	; ⼹
@@ -537,12 +544,6 @@
      ((=adobe-japan1-4	  . 15391)	; &AJ1-15391;
       ))
     (=ucs-itaiji-003	. #x20B22)	; &U-i003+20B22;
-    ))
-(define-char
-  '((ideographic-radical . 58)	; ⼹
-    (ideographic-strokes . 2)
-    (total-strokes	 . 5)
-    (=>big5-cdp		. #x88BB)	; &A-CDP-88BB;
     ))
 (define-char
   '((ideographic-radical . 58)	; ⼹
@@ -667,7 +668,21 @@
     ))
 (define-char
   '((<-denotational
-     ((=>big5-cdp	  . #x88BB)	; &A-CDP-88BB;
+     ((=>big5-cdp	  . #x88BB)	; &A-GT-K01493;
+      ))
+    (ideographic-radical . 58)	; ⼹
+    (ideographic-strokes . 2)
+    (total-strokes	 . 5)
+    (=gt-k		. 01493)	; &GT-K01493;
+    (=gt-pj-k1		. #x4040)	; &GT-K01493; [32-32]
+    (->subsumptive
+     ((==gt-k		  . 01493)	; &g2-GT-K01493;
+      (==gt-pj-k1	  . #x4040)	; &g2-GT-K01493; [32-32]
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>big5-cdp	  . #x88BB)	; &A-GT-K01493;
       ))
     (ideographic-radical . 58)	; ⼹
     (ideographic-strokes . 2)

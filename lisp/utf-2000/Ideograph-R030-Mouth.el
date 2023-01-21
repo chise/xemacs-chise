@@ -93615,7 +93615,6 @@
 (define-char
   '((ideographic-radical . 30)	; ⼝
     (==>ucs@bucs	. #x548C)	; &BUCS+548C;
-    (==>daijiten	. 01263)	; &BUCS+548C;
     ))
 (define-char
   '((ideographic-radical . 30)	; ⼝
@@ -93777,4 +93776,11 @@
   '((ideographic-radical . 30)	; ⼝
     (==>ucs@bucs	. #x56C3)	; &BUCS+56C3;
     (==>daijiten	. 01590)	; &BUCS+56C3;
+    ))
+(define-char
+  '((<-denotational
+     ((==>ucs@bucs	  . #x548C)	; &BUCS+548C;
+      ))
+    (ideographic-radical . 30)	; ⼝
+    (==>daijiten	. 01263)	; &A2-DJT-01263;
     ))
