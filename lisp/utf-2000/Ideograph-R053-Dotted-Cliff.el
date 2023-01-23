@@ -6185,6 +6185,9 @@
      ((=>ucs@component	  . #x5EB6)	; &A-compU+5EB6;
       (=>iwds-1		  .  0365)	; &A-compU+5EB6;
       ))
+    (<-denotational@usage
+     ((==>ucs@bucs	  . #x5EB6)	; &BUCS+5EB6;
+      ))
     (ideographic-radical . 53)	; ⼴
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
@@ -6211,7 +6214,8 @@
       )
      ((=ucs-itaiji-005	  . #x77F3)	; &U-i005+77F3;
       )
-     ((=ucs		  . #x706C)	; 灬
+     ((name		  . "CJK RADICAL FIRE")
+      (=ucs		  . #x2EA3)	; ⺣
       ))
     (=ucs@unicode	. #x5EB6)	; &MJ011015;
     (=mj		. 011015)	; &MJ011015;
@@ -6292,7 +6296,8 @@
       )
      ((=ucs-itaiji-006	  . #x77F3)	; &U-i006+77F3;
       )
-     ((=ucs		  . #x706C)	; 灬
+     ((name		  . "CJK RADICAL FIRE")
+      (=ucs		  . #x2EA3)	; ⺣
       ))
     (=ucs		. #x2F88D)	; 庶
     (=mj		. 057448)	; &I-MJ057448;
@@ -16309,4 +16314,9 @@
   '((ideographic-radical . 53)	; ⼴
     (==>ucs@bucs	. #x5EA7)	; &BUCS+5EA7;
     (==>daijiten	. 02946)	; &BUCS+5EA7;
+    ))
+(define-char
+  '((ideographic-radical . 53)	; ⼴
+    (==>ucs@bucs	. #x5EB6)	; &BUCS+5EB6;
+    (==>daijiten	. 02961)	; &BUCS+5EB6;
     ))
