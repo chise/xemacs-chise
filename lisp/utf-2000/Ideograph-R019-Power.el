@@ -9571,7 +9571,8 @@
       )
      ((=ucs		  . #x52D5)	; 動
       )
-     ((=ucs		  . #x706C)	; 灬
+     ((name		  . "CJK RADICAL FIRE")
+      (=ucs		  . #x2EA3)	; ⺣
       ))
     (=ucs@unicode	. #x52F2)	; &AJ1-01796;
     (=adobe-japan1-0	. 01796)	; &AJ1-01796;
