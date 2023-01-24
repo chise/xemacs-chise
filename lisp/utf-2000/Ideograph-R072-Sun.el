@@ -5138,7 +5138,8 @@
     (=cns11643-6	. #x2B77)	; &C6-2B77; [11-87]
     (=daikanwa		. 13820)	; &I-M-13820;
     (<-ancient
-     ((=ucs		  . #x8C46)	; 豆
+     ((=ucs@unicode	  . #x8C46)	; &AJ1-03198;
+      (=adobe-japan1-0	  . 03198)	; &AJ1-03198;
       (=daikanwa	  . 36245)	; &I-M-36245;
       ))
     (<-ancient*sources
