@@ -29204,8 +29204,8 @@
      ((=ucs		  . #x99B4)	; 馴
       (=daikanwa	  . 44595)	; &I-M-44595;
       )
-     ((=ucs@cns		  . #x5CFB)	; &HD-KS-091970;
-      (=cns11643-1	  . #x5531)	; &HD-KS-091970; [53-17]
+     ((=ucs@cns		  . #x5CFB)	; &MJ010523;
+      (=mj		  . 010523)	; &MJ010523;
       (=daikanwa	  . 08116)	; &I-M-08116;
       ))
     (->formed$_1*sources
