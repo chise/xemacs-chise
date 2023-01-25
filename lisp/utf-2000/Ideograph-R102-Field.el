@@ -7677,7 +7677,7 @@
       (=>ucs@iwds-1/normalized . #x756F)	; &A-IWDSU+756F;
       ))
     (<-denotational@usage
-     ((==>daijiten	  . 07529)	; &A2-DJT-07529;
+     ((==>ucs@bucs	  . #x756F)	; &BUCS+756F;
       ))
     (ideographic-radical . 102)	; ⽥
     (ideographic-strokes . 7)
@@ -7690,6 +7690,7 @@
       )
      ((=ucs		  . #x590B)	; 夋
       ))
+    (sound@ja/on	"syuN")
     (=ucs		. #x756F)	; 畯
     (=big5		. #xDAAD)	; &I-B-DAAD;
     ))
@@ -7713,6 +7714,21 @@
     (=ucs@cns		. #x756F)	; &C2-3E31;
     (=cns11643-2	. #x3E31)	; &C2-3E31; [30-17]
     (=daikanwa		. 21865)	; &I-M-21865;
+    (<-formed
+     ((=ucs@cns		  . #x4FCA)	; &MJ006762;
+      (=mj		  . 006762)	; &MJ006762;
+      ))
+    (<-formed$_1*sources
+     shiwen)
+    (<-same
+     ((=ucs@cns		  . #x4FCA)	; &MJ006762;
+      (=mj		  . 006762)	; &MJ006762;
+      (=daikanwa	  . 00674)	; &I-M-00674;
+      ))
+    (<-same$_1*sources
+     shiwen daikanwa)
+    (<-same*sources
+     shiwen daikanwa)
     (->subsumptive
      ((==daikanwa	  . 21865)	; &g2-M-21865;
       )
@@ -13291,6 +13307,11 @@
     ))
 (define-char
   '((ideographic-radical . 102)	; ⽥
+    (=>ucs@iwds-1	. #x756F)	; &A-IWDSU+756F;
+    (=>ucs@iwds-1/normalized . #x756F)	; &A-IWDSU+756F;
+    ))
+(define-char
+  '((ideographic-radical . 102)	; ⽥
     (=>ucs@iwds-1	. #x758A)	; &A-IWDSU+758A;
     ))
 (define-char
@@ -13754,7 +13775,8 @@
     ))
 (define-char
   '((ideographic-radical . 102)	; ⽥
-    (==>daijiten	. 07529)	; &A2-DJT-07529;
+    (==>ucs@bucs	. #x756F)	; &BUCS+756F;
+    (==>daijiten	. 07529)	; &BUCS+756F;
     ))
 (define-char
   '((ideographic-radical . 102)	; ⽥

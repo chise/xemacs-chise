@@ -2667,8 +2667,8 @@
     (=big5		. #xB9DB)	; &I-B-B9DB;
     (=daikanwa		. 05805)	; &I-M-05805;
     (<-interchangeable
-     ((=ucs@cns		  . #x5CFB)	; &HD-KS-091970;
-      (=cns11643-1	  . #x5531)	; &HD-KS-091970; [53-17]
+     ((=ucs@cns		  . #x5CFB)	; &MJ010523;
+      (=mj		  . 010523)	; &MJ010523;
       (=daikanwa	  . 08116)	; &I-M-08116;
       )
      ((=ucs@unicode	  . #x5EF6)	; &MJ011102;
