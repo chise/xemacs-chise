@@ -7154,9 +7154,28 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=ucs		  . #x516B)	; 八
+     ((=>ucs@component	  . #x513F)	; &A-compU+513F;
+      (=>iwds-1		  .  0222)	; &A-compU+513F;
       )
      ((=ucs		  . #x9B5A)	; 魚
+      ))
+    (=>ruimoku-v6	. #xE059)	; &A-RUI6-E059;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ruimoku-v6	  . #xE059)	; &A-RUI6-E059;
+      ))
+    (ideographic-radical . 12)	; ⼋
+    (ideographic-strokes . 11)
+    (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x516B)	; 八
+      )
+     ((=ucs@unicode	  . #x9B5A)	; &AJ1-01685;
+      (=adobe-japan1-0	  . 01685)	; &AJ1-01685;
       ))
     (=ruimoku-v6	. #xE059)	; &RUI6-E059;
     ))
