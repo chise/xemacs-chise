@@ -63189,17 +63189,44 @@
     ))
 (define-char
   '((ideographic-radical . 30)	; ⼝
-    (ideographic-strokes . 11)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
      ((=ucs		  . #x53E3)	; 口
       )
-     ((=ucs		  . #x9B5A)	; 魚
+     ((=>ucs@iwds-1	  . #x9B5A)	; &A-IWDSU+9B5A;
+      (=>iwds-1		  .  0322)	; &A-IWDSU+9B5A;
       ))
     (=ucs		. #x20F50)	; 𠽐
-    (=cbeta		. 03331)	; &I-CB03331;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x20F50)	; 𠽐
+      ))
+    (ideographic-radical . 30)	; ⼝
+    (ideographic-strokes . 11)
+    (total-strokes	 . 14)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x53E3)	; 口
+      )
+     ((=ucs@unicode	  . #x9B5A)	; &AJ1-01685;
+      (=adobe-japan1-0	  . 01685)	; &AJ1-01685;
+      ))
+    (=ucs@iso		. #x20F50)	; &CB03331;
+    (=cbeta		. 03331)	; &CB03331;
+    (->subsumptive
+     ((==ucs@iso	  . #x20F50)	; &g2-CB03331;
+      (==cbeta		  . 03331)	; &g2-CB03331;
+      (->subsumptive
+       ((===ucs@iso	    . #x20F50)	; &R-U-00020F50;
+	)
+       ((===cbeta	    . 03331)	; &R-CB03331;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 30)	; ⼝
