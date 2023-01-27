@@ -1269,6 +1269,20 @@
 (define-char
   '((ideographic-radical . 77)	; ⽌
     (ideographic-strokes . 3)
+    (=ucs		. #x3C50)	; 㱐
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x3C50)	; 㱐
+      ))
+    (ideographic-radical . 77)	; ⽌
+    (ideographic-strokes . 3)
+    (total-strokes	 . 6)
+    (=ucs@unicode	. #x3C50)	; &UU+3C50;
+    ))
+(define-char
+  '((ideographic-radical . 77)	; ⽌
+    (ideographic-strokes . 3)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
