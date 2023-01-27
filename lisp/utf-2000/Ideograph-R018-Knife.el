@@ -22030,12 +22030,77 @@
     (=daikanwa		. 02230)	; &I-M-02230;
     ))
 (define-char
-  '((ideographic-radical . 18)	; ⼑
+  '((<-denotational
+     ((=>ucs@iwds-1	  . #x9B5D)	; &A-IWDSU+9B5D;
+      ))
+    (ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 13)
     (total-strokes	 . 15)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x242F3)	; 𤋳
+      )
+     ((=ucs		  . #x5202)	; 刂
+      ))
+    (sound@ja/on	"ketu")
     (=ucs		. #x207EE)	; 𠟮
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x207EE)	; 𠟮
+      ))
+    (ideographic-radical . 18)	; ⼑
+    (ideographic-strokes . 13)
+    (total-strokes	 . 15)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs@iso		  . #x242F3)	; &C6-5A54;
+      (=cns11643-6	  . #x5A54)	; &C6-5A54; [58-52]
+      (=daikanwa	  . 45957)	; &I-M-45957;
+      )
+     ((=ucs		  . #x5202)	; 刂
+      ))
+    (=ucs@iso		. #x207EE)	; &MJ031454;
+    (=mj		. 031454)	; &MJ031454;
     (=cns11643-7	. #x213E)	; &I-C7-213E; [01-30]
+    (=koseki		. 025960)	; &MJ031454;
     (=daikanwa		. 02231)	; &I-M-02231;
+    (<-formed
+     ((=ucs@unicode	  . #x9B5D)	; &C3-4563;
+      (=cns11643-3	  . #x4563)	; &C3-4563; [37-67]
+      (=daikanwa	  . 45964)	; &I-M-45964;
+      ))
+    (<-formed$_1*sources
+     koseki)
+    (<-formed*sources
+     koseki)
+    (<-same
+     ((=ucs@unicode	  . #x9B5D)	; &C3-4563;
+      (=cns11643-3	  . #x4563)	; &C3-4563; [37-67]
+      (=daikanwa	  . 45964)	; &I-M-45964;
+      ))
+    (<-same*sources
+     daikanwa)
+    (->subsumptive
+     ((==ucs@iso	  . #x207EE)	; &g2-MJ031454;
+      (==mj		  . 031454)	; &g2-MJ031454;
+      (==koseki		  . 025960)	; &g2-MJ031454;
+      (==daikanwa	  . 02231)	; &g2-MJ031454;
+      (->subsumptive
+       ((===daikanwa	    . 02231)	; &R-M-02231;
+	)
+       ((===mj		    . 031454)	; &R-MJ031454;
+	)
+       ((===ucs@iso	    . #x207EE)	; &R-U-000207EE;
+	))
+      )
+     ((==ucs@cns	  . #x207EE)	; &g2-CU+207EE;
+      (==cns11643-7	  . #x213E)	; &g2-CU+207EE; [01-30]
+      ))
     ))
 (define-char
   '((=>ucs		. #x207EF)	; 𠟯
