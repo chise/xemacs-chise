@@ -48965,6 +48965,14 @@
     ))
 (define-char
   '((ideographic-radical . 38)	; ⼥
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5973)	; 女
+      )
+     ((=>ucs@iwds-1	  . #x7155)	; &A-IWDSU+7155;
+      ))
     (=ucs		. #x372F)	; 㜯
     ))
 (define-char
@@ -49018,7 +49026,11 @@
       )
      ((=ucs		  . #x5973)	; 女
       )
-     ((=ucs		  . #x7199)	; 熙
+     ((=ucs@unicode	  . #x7199)	; &GT-24690;
+      (=gb2312		  . #x4E75)	; &GT-24690; [46-85]
+      (=ks-x1001	  . #x7D77)	; &I-K0-7D77; [93-87]
+      (=cns11643-1	  . #x695A)	; &I-C1-695A; [73-58]
+      (=jis-x0213-1	  . #x7426)	; &I-JX1-7426; [84-06]
       ))
     (=ucs@unicode	. #x372F)	; &C4-5624;
     (=cns11643-4	. #x5624)	; &C4-5624; [54-04]
