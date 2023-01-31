@@ -106,6 +106,9 @@
      ((=>big5-cdp	  . #x895C)	; &A-CDP-895C;
       ))
     (=ucs		. #x248E5)	; 𤣥
+    (<-avoiding-taboo
+     ((=ucs		  . #x7384)	; 玄
+      ))
     ))
 (define-char
   '((<-denotational
