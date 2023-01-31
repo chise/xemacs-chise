@@ -1,3 +1,8 @@
+2023-01-31  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list):
+	Prefer MJ to Hanazono font.
+
 2022-12-12  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
