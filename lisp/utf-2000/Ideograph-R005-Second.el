@@ -4770,6 +4770,10 @@
     (->interchangeable
      ((=ucs		  . #x5E72)	; 干
       (=daikanwa	  . 09165)	; &I-M-09165;
+      )
+     ((=ucs@unicode	  . #x8654)	; &AJ1-06481;
+      (=adobe-japan1-0	  . 06481)	; &AJ1-06481;
+      (=daikanwa	  . 32686)	; &I-M-32686;
       ))
     (->interchangeable$_1*sources
      jiyun daikanwa)
