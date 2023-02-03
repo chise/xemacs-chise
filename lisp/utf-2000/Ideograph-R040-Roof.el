@@ -2632,6 +2632,20 @@
       )
      ((=ucs		  . #x5B80)	; 宀
       )
+     ((=ucs		  . #x7236)	; 父
+      ))
+    (=ucs-itaiji-005	. #x5B93)	; &U-i005+5B93;
+    ))
+(define-char
+  '((ideographic-radical . 40)	; ⼧
+    (ideographic-strokes . 4)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5B80)	; 宀
+      )
      ((=ucs-itaiji-001	  . #x5928)	; &U-i001+5928;
       ))
     (=gt-k		. 03157)	; &GT-K03157;
@@ -8238,6 +8252,32 @@
   '((<-denotational
      ((=>ucs@cognate	  . #x5BBB)	; &A-cgnU+5BBB;
       ))
+    (ideographic-radical . 40)	; ⼧
+    (ideographic-strokes . 7)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs-itaiji-005	  . #x5B93)	; &U-i005+5B93;
+      )
+     ((=>ucs@component	  . #x5C6E)	; &A-compU+5C6E;
+      (=>iwds-1		  .  0096)	; &A-compU+5C6E;
+      ))
+    (ideographic-structure@apparent
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5B80)	; 宀
+      )
+     ((=ucs		  . #x2454F)	; 𤕏
+      ))
+    (=>ucs-itaiji-001	. #x5BBB)	; &A-U-i001+5BBB;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@cognate	  . #x5BBB)	; &A-cgnU+5BBB;
+      ))
     (<-denotational@usage
      ((==>ucs@bucs	  . #x5BC6)	; &BUCS+5BC6;
       ))
@@ -8273,6 +8313,23 @@
        ((===mj		    . 057334)	; &R-MJ057334;
 	))
       ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs-itaiji-001	  . #x5BBB)	; &A-U-i001+5BBB;
+      ))
+    (ideographic-radical . 40)	; ⼧
+    (ideographic-strokes . 7)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs-itaiji-005	  . #x5B93)	; &U-i005+5B93;
+      )
+     ((=ucs		  . #x5C71)	; 山
+      ))
+    (=ucs-itaiji-001	. #x5BBB)	; &U-i001+5BBB;
     ))
 (define-char
   '((ideographic-radical . 40)	; ⼧
