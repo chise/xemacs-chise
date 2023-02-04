@@ -7835,6 +7835,24 @@
       )
      ((=ucs		  . #x7121)	; 無
       ))
+    (=>ruimoku-v6	. #xE109)	; &A-RUI6-E109;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ruimoku-v6	  . #xE109)	; &A-RUI6-E109;
+      ))
+    (ideographic-radical . 57)	; ⼸
+    (ideographic-strokes . 12)
+    (total-strokes	 . 15)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5F13)	; 弓
+      )
+     ((=ucs@unicode	  . #x7121)	; &AJ1-03777;
+      (=adobe-japan1-0	  . 03777)	; &AJ1-03777;
+      ))
     (=ruimoku-v6	. #xE109)	; &RUI6-E109;
     ))
 (define-char
