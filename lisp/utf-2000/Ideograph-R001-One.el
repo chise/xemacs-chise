@@ -1944,7 +1944,8 @@
      ((=ucs		  . #x975E)	; 非
       (=daikanwa	  . 42585)	; &I-M-42585;
       )
-     ((=ucs		  . #x7121)	; 無
+     ((=ucs@unicode	  . #x7121)	; &AJ1-03777;
+      (=adobe-japan1-0	  . 03777)	; &AJ1-03777;
       (=daikanwa	  . 19113)	; &I-M-19113;
       )
      ((=ucs		  . #x5F17)	; 弗
@@ -8567,8 +8568,11 @@
     (=koseki		. 000940)	; 𬻝
     (=daijiten		. 00041)	; &I-DJT-00041;
     (<-formed
-     ((=ucs		  . #x7121)	; 無
+     ((=ucs@unicode	  . #x7121)	; &AJ1-03777;
+      (=adobe-japan1-0	  . 03777)	; &AJ1-03777;
       ))
+    (<-formed$_1*sources
+     koseki mj)
     (<-formed*sources
      koseki mj)
     (->subsumptive
