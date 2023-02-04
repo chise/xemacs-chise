@@ -1523,7 +1523,8 @@
      ((=ucs		  . #x5474)	; 呴
       (=daikanwa	  . 03457)	; &I-M-03457;
       )
-     ((=ucs		  . #x55A3)	; 喣
+     ((=ucs@unicode	  . #x55A3)	; &AJ1-21286;
+      (=adobe-japan1-6	  . 21286)	; &AJ1-21286;
       (=daikanwa	  . 03970)	; &I-M-03970;
       ))
     (<-same$_1*sources
@@ -1533,7 +1534,8 @@
     (<-same*sources
      daikanwa)
     (->formed
-     ((=ucs		  . #x7166)	; 煦
+     ((=ucs@unicode	  . #x7166)	; &AJ1-05571;
+      (=adobe-japan1-0	  . 05571)	; &AJ1-05571;
       ))
     (->formed$_1*sources
      shuowen-tongxun-dingsheng)
@@ -6123,6 +6125,25 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
+     ((=ucs@cns		  . #x25133)	; &C3-2E5A;
+      (=cns11643-3	  . #x2E5A)	; &C3-2E5A; [14-58]
+      )
+     ((=ucs@unicode	  . #x6B20)	; &AJ1-01853;
+      (=adobe-japan1-0	  . 01853)	; &AJ1-01853;
+      ))
+    (=ucs-var-001	. #x238F4)	; &U-v001+238F4;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@cns	  . #x238F4)	; &A-CU+238F4;
+      ))
+    (ideographic-radical . 76)	; ⽋
+    (ideographic-strokes . 10)
+    (total-strokes	 . 14)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
      ((=ucs		  . #x2F944)	; 𥄳
       )
      ((=ucs@unicode	  . #x6B20)	; &AJ1-01853;
@@ -10120,6 +10141,14 @@
   '((ideographic-radical . 76)	; ⽋
     (ideographic-strokes . 21)
     (total-strokes	 . 25)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
+      (=ucs		  . #x2FF9)	; ⿹
+      )
+     ((=ucs		  . #x238F4)	; 𣣴
+      )
+     ((=ucs		  . #x9B5A)	; 魚
+      ))
     (=ucs		. #x3C4E)	; 㱎
     ))
 (define-char
@@ -10130,20 +10159,14 @@
     (ideographic-strokes . 20)
     (total-strokes	 . 24)
     (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
+      (=ucs		  . #x2FF9)	; ⿹
       )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	(=ucs		    . #x2FF1)	; ⿱
-	)
-       ((=ucs		    . #x25133)	; 𥄳
-	)
-       ((=ucs		    . #x9B5A)	; 魚
-	))
+     ((=>ucs@cns	  . #x238F4)	; &A-CU+238F4;
       )
-     ((=ucs		  . #x6B20)	; 欠
+     ((=ucs		  . #x9B5A)	; 魚
       ))
+    (sound@ja/on	"koN")
     (=>daikanwa		. 16248)	; &A-M-16248;
     ))
 (define-char
@@ -10154,11 +10177,35 @@
     (ideographic-radical . 76)	; ⽋
     (ideographic-strokes . 20)
     (total-strokes	 . 24)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
+      (=ucs		  . #x2FF9)	; ⿹
+      )
+     ((=ucs-var-001	  . #x238F4)	; &U-v001+238F4;
+      )
+     ((=ucs@unicode	  . #x9B5A)	; &AJ1-01685;
+      (=adobe-japan1-0	  . 01685)	; &AJ1-01685;
+      ))
+    (sound@ja/on	"koN")
     (=ucs		. #x2F8F2)	; 㱎
     (=cns11643-7	. #x5E72)	; &I-C7-5E72; [62-82]
+    (=hanyo-denshi/ks	. 184420)	; 㱎
     (=daikanwa		. 16248)	; &I-M-16248;
+    (<-same
+     ((=ucs@unicode	  . #x3C4E)	; &M-16251;
+      (=daikanwa	  . 16251)	; &M-16251;
+      ))
+    (<-same*sources
+     wuyin-pianhai daikanwa)
     (->subsumptive
-     ((==daikanwa	  . 16248)	; &g2-M-16248;
+     ((==hanyo-denshi/ks  . 184420)	; &g2-HD-KS-184420;
+      (==daikanwa	  . 16248)	; &g2-HD-KS-184420;
+      (->subsumptive
+       ((===daikanwa	    . 16248)	; &R-M-16248;
+	)
+       ((===hanyo-denshi/ks . 184420)	; &R-HD-KS-184420;
+	(=hanyo-denshi/ks/mf . #x480A)	; &R-HD-KS-184420;
+	))
       )
      ((==ucs@cns	  . #x2F8F2)	; &g2-CU+2F8F2;
       (==cns11643-7	  . #x5E72)	; &g2-CU+2F8F2; [62-82]
@@ -10174,20 +10221,14 @@
     (ideographic-strokes . 21)
     (total-strokes	 . 25)
     (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
+      (=ucs		  . #x2FF9)	; ⿹
       )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	(=ucs		    . #x2FF1)	; ⿱
-	)
-       ((=ucs		    . #x2F944)	; 𥄳
-	)
-       ((=ucs		    . #x9B5A)	; 魚
-	))
+     ((=ucs@cns		  . #x238F4)	; &C5-465E;
+      (=cns11643-5	  . #x465E)	; &C5-465E; [38-62]
       )
-     ((=ucs@unicode	  . #x6B20)	; &AJ1-01853;
-      (=adobe-japan1-0	  . 01853)	; &AJ1-01853;
+     ((=ucs@unicode	  . #x9B5A)	; &AJ1-01685;
+      (=adobe-japan1-0	  . 01685)	; &AJ1-01685;
       ))
     (=ucs@cns		. #x3C4E)	; &C5-792F;
     (=cns11643-5	. #x792F)	; &C5-792F; [89-15]
