@@ -1683,6 +1683,21 @@
      ((name		  . "CJK RADICAL DIVINATION")
       (=ucs		  . #x2E8A)	; ⺊
       )
+     ((=ucs		  . #x211AA)	; 𡆪
+      ))
+    (=ucs-itaiji-004	. #x56EA)	; &U-i004+56EA;
+    ))
+(define-char
+  '((ideographic-radical . 25)	; ⼘
+    (ideographic-strokes . 6)
+    (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((name		  . "CJK RADICAL DIVINATION")
+      (=ucs		  . #x2E8A)	; ⺊
+      )
      ((=ucs		  . #x2054E)	; 𠕎
       ))
     (=>ucs-itaiji-003@iwds-1 . #x209EA)	; &A-IWDSU-i003+209EA;
