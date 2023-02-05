@@ -24361,6 +24361,30 @@
     (=cbeta		. 09946)	; &CB09946;
     ))
 (define-char
+  '((<-denotational@usage
+     ((==>daijiten	  . 09633)	; &BUCS+820A;
+      ))
+    (ideographic-radical . 72)	; ⽇
+    (ideographic-strokes . 12)
+    (total-strokes	 . 16)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x2E976)	; 𮥶
+      )
+     ((=ucs		  . #x65E7)	; 旧
+      ))
+    (=daijiten		. 04626)	; &DJT-04626;
+    (<-simplified@misc
+     ((=ucs@unicode	  . #x820A)	; &MJ021340;
+      (=mj		  . 021340)	; &MJ021340;
+      (=daijiten	  . 09633)	; &I-DJT-09633;
+      ))
+    (<-simplified@misc*sources
+     daijiten)
+    ))
+(define-char
   '((ideographic-radical . 72)	; ⽇
     (ideographic-strokes . 13)
     (total-strokes	 . 17)

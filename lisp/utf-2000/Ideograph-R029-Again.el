@@ -6043,6 +6043,20 @@
     ))
 (define-char
   '((ideographic-radical . 29)	; ⼜
+    (ideographic-strokes . 8)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs-itaiji-004	  . #x56EA)	; &U-i004+56EA;
+      )
+     ((=ucs		  . #x53C8)	; 又
+      ))
+    (=ucs-itaiji-001	. #x355F)	; &U-i001+355F;
+    ))
+(define-char
+  '((ideographic-radical . 29)	; ⼜
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
