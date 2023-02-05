@@ -4133,6 +4133,18 @@
     ))
 (define-char
   '((<-denotational
+     ((=ucs		  . #x4E51)	; 乑
+      ))
+    (ideographic-radical . 4)	; ⼃
+    (ideographic-strokes . 5)
+    (total-strokes	 . 6)
+    (=ucs-itaiji-002	. #x4E51)	; &U-i002+4E51;
+    (->subsumptive
+     ((==ucs-itaiji-002	  . #x4E51)	; &g2-U-i002+4E51;
+      ))
+    ))
+(define-char
+  '((<-denotational
      ((=>ucs@iwds-1	  . #x4E51)	; &A-IWDSU+4E51;
       (=>iwds-1		  .  0328)	; &A-IWDSU+4E51;
       ))
