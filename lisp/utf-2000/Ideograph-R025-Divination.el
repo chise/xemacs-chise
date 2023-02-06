@@ -69,6 +69,34 @@
     (=gt-pj-k1		. #x3671)	; &GT-K00061; [22-81]
     ))
 (define-char
+  '((<-denotational
+     ((=ucs		  . #x535C)	; 卜
+      ))
+    (name		. "CJK RADICAL DIVINATION")
+    (general-category	symbol other) ; Informative Category
+    (bidi-category	. "ON")
+    (mirrored		. nil)
+    (ideographic-radical . 25)	; ⼘
+    (ideographic-strokes . 0)
+    (total-strokes	 . 2)
+    (=ucs		. #x2E8A)	; ⺊
+    (=big5-cdp		. #x8B78)	; &I-CDP-8B78;
+    (=gt		. 67460)	; &I-GT-67460;
+    (=gt-k		. 00062)	; &I-GT-K00062;
+    (=gt-pj-11		. #x5A25)	; &I-GT-67460; [58-05]
+    (=gt-pj-k1		. #x3D4D)	; ⺊ [29-45]
+    (<-formed@component
+     ((=ucs		  . #x535C)	; 卜
+      ))
+    (->subsumptive
+     ((==big5-cdp	  . #x8B78)	; &g2-CDP-8B78;
+      (==gt-k		  . 00062)	; &g2-CDP-8B78;
+      (==gt-pj-k1	  . #x3D4D)	; &g2-CDP-8B78; [29-45]
+      )
+     ((==gt		  . 67460)	; &g2-GT-67460;
+      ))
+    ))
+(define-char
   '((ideographic-radical@ucs . 2)	; ⼁
     (ideographic-strokes@ucs . 1)
     (ideographic-radical@ucs*sources
