@@ -1432,6 +1432,9 @@
      ((=>ucs@iwds-1	  . #x5F54)	; &A-IWDSU+5F54;
       (=>daikanwa	  . 09918)	; &A-IWDSU+5F54;
       ))
+    (<-denotational@usage
+     ((==>daijiten	  . 03092)	; &A2-DJT-03092;
+      ))
     (ideographic-radical . 58)	; ⼹
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
@@ -1444,12 +1447,31 @@
      ((=ucs		  . #x6C3A)	; 氺
       ))
     (=ucs		. #x5F54)	; 彔
-    (=adobe-japan1-5	. 16858)	; &I-AJ1-16858;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5F54)	; 彔
+      ))
+    (ideographic-radical . 58)	; ⼹
+    (ideographic-strokes . 5)
+    (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((name		  . "CJK RADICAL SNOUT ONE")
+      (=ucs		  . #x2E94)	; ⺔
+      )
+     ((=ucs		  . #x6C3A)	; 氺
+      ))
+    (=ucs@unicode	. #x5F54)	; &AJ1-16858;
+    (=adobe-japan1-5	. 16858)	; &AJ1-16858;
     (=jis-x0212		. #x3C78)	; &I-JSP-3C78; [28-88]
     (=cns11643-2	. #x2655)	; &I-C2-2655; [06-53]
     (=jis-x0213-1	. #x743B)	; &I-JX1-743B; [84-27]
     (=big5		. #xCC74)	; &I-B-CC74;
     (=daikanwa		. 09918)	; &I-M-09918;
+    (=daijiten		. 03092)	; &I-DJT-03092;
     (=jef-china3	. #x4CFA)	; &I-JC3-4CFA;
     (->subsumptive
      ((=decomposition@cid
@@ -1476,6 +1498,8 @@
        ((===jef-china3	    . #x4CFA)	; &R-JC3-4CFA;
 	))
       )
+     ((==daijiten	  . 03092)	; &g2-DJT-03092;
+      )
      ((==ucs@cns	  . #x5F54)	; &g2-CU+5F54;
       (==cns11643-2	  . #x2655)	; &g2-CU+5F54; [06-53]
       ))
@@ -1484,6 +1508,11 @@
   '((<-denotational
      ((=>ucs@iwds-1	  . #x5F54)	; &A-IWDSU+5F54;
       (=>daikanwa	  . 09918)	; &A-IWDSU+5F54;
+      ))
+    (<-denotational@usage
+     ((==>ucs@bucs	  . #x9304)	; &BUCS+9304;
+      )
+     ((==>daijiten	  . 03092)	; &A2-DJT-03092;
       ))
     (ideographic-radical . 58)	; ⼹
     (ideographic-strokes . 5)
@@ -1517,6 +1546,7 @@
     (=ucs@unicode	. #x5F55)	; &C3-2871;
     (=gb2312		. #x423C)	; &C3-2871; [34-28]
     (=cns11643-3	. #x2871)	; &I-C3-2871; [08-81]
+    (=daijiten		. 03091)	; &I-DJT-03091;
     (=jef-china3	. #x82B3)	; &I-JC3-82B3;
     (->subsumptive
      ((==ucs@unicode	  . #x5F55)	; &g2-UU+5F55;
@@ -1527,6 +1557,8 @@
 	)
        ((===jef-china3	    . #x82B3)	; &R-JC3-82B3;
 	))
+      )
+     ((==daijiten	  . 03091)	; &g2-DJT-03091;
       )
      ((==ucs@cns	  . #x5F55)	; &g2-CU+5F55;
       (==cns11643-3	  . #x2871)	; &g2-CU+5F55; [08-81]
@@ -4363,4 +4395,8 @@
 (define-char
   '((ideographic-radical . 58)	; ⼹
     (==>daijiten	. 03090)	; &A2-DJT-03090;
+    ))
+(define-char
+  '((ideographic-radical . 58)	; ⼹
+    (==>daijiten	. 03092)	; &A2-DJT-03092;
     ))
