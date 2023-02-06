@@ -68138,7 +68138,6 @@
   '((ideographic-radical . 9)	; ⼈
     (ideographic-strokes . 12)
     (total-strokes	 . 14)
-    (hanyu-dazidian	1 220 2)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -68147,15 +68146,56 @@
       )
      ((=ucs		  . #x7121)	; 無
       ))
+    (sound@ja/on	"bu")
     (=ucs		. #x3487)	; 㒇
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x3487)	; 㒇
+      ))
+    (ideographic-radical . 9)	; ⼈
+    (ideographic-strokes . 12)
+    (total-strokes	 . 14)
+    (hanyu-dazidian	1 220 2)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x4EBB)	; 亻
+      )
+     ((=ucs@unicode	  . #x7121)	; &AJ1-03777;
+      (=adobe-japan1-0	  . 03777)	; &AJ1-03777;
+      ))
+    (=ucs@unicode	. #x3487)	; &MJ000102;
+    (=mj		. 000102)	; &MJ000102;
     (=cns11643-6	. #x5A73)	; &I-C6-5A73; [58-83]
+    (=koseki		. 012990)	; &MJ000102;
     (=daikanwa		. 01116)	; &I-M-01116;
+    (<-formed
+     ((=ucs@unicode	  . #x61AE)	; &AJ1-04908;
+      (=adobe-japan1-0	  . 04908)	; &AJ1-04908;
+      ))
+    (<-formed$_1*sources
+     koseki mj)
+    (<-formed*sources
+     koseki mj)
+    (<-same
+     ((=ucs@unicode	  . #x61AE)	; &AJ1-04908;
+      (=adobe-japan1-0	  . 04908)	; &AJ1-04908;
+      (=daikanwa	  . 11259)	; &I-M-11259;
+      ))
+    (<-same*sources
+     zhengzitong daikanwa)
     (->subsumptive
-     ((==ucs@unicode	  . #x3487)	; &g2-M-01116;
-      (==cns11643-6	  . #x5A73)	; &g2-M-01116; [58-83]
-      (==daikanwa	  . 01116)	; &g2-M-01116;
+     ((==ucs@unicode	  . #x3487)	; &g2-MJ000102;
+      (==mj		  . 000102)	; &g2-MJ000102;
+      (==cns11643-6	  . #x5A73)	; &g2-MJ000102; [58-83]
+      (==koseki		  . 012990)	; &g2-MJ000102;
+      (==daikanwa	  . 01116)	; &g2-MJ000102;
       (->subsumptive
        ((===daikanwa	    . 01116)	; &R-M-01116;
+	)
+       ((===mj		    . 000102)	; &R-MJ000102;
 	)
        ((===cns11643-6	    . #x5A73)	; &R-C6-5A73; [58-83]
 	)

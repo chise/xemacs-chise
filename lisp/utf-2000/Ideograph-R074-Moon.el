@@ -4946,7 +4946,9 @@
     (sound@ja/on/go	"su")
     (sound@ja/on/kan	"sou")
     (=ucs		. #x2F8DA)	; 朡
+    (=mj		. 013566)	; &I-MJ013566;
     (=cns11643-5	. #x3F66)	; &I-C5-3F66; [31-70]
+    (=koseki		. 161870)	; 朡
     (=daikanwa		. 14387)	; &I-M-14387;
     (<-Liwen
      ((=ucs@cns		  . #x8250)	; &C2-5332;
@@ -4965,14 +4967,15 @@
     (<-same*sources
      jiyun daikanwa)
     (->subsumptive
-     ((==daikanwa	  . 14387)	; &g2-M-14387;
+     ((==koseki		  . 161870)	; &g2-M-14387;
+      (==daikanwa	  . 14387)	; &g2-M-14387;
       )
-     ((==ucs@iso	  . #x2F8DA)	; &g2-IU-0002F8DA;
-      (==cns11643-5	  . #x3F66)	; &g2-IU-0002F8DA; [31-70]
+     ((==mj		  . 013566)	; &g2-MJ013566;
+      )
+     ((==ucs@cns	  . #x2F8DA)	; &g2-CU+2F8DA;
+      (==cns11643-5	  . #x3F66)	; &g2-CU+2F8DA; [31-70]
       (->subsumptive
        ((===cns11643-5	    . #x3F66)	; &R-C5-3F66; [31-70]
-	)
-       ((===ucs@iso	    . #x2F8DA)	; &R-U-0002F8DA;
 	))
       ))
     ))
@@ -4980,7 +4983,12 @@
   '((<-denotational
      ((=ucs		  . #x4DBD)	; 䶽
       ))
-    (ideographic-radical . 74)	; ⽉
+    (ideographic-radical@r074 . 74)	; ⽉
+    (ideographic-radical@r074*sources
+     ucs=0x4DBD)
+    (ideographic-radical@r130 . 130)	; ⾁
+    (ideographic-radical@r130*sources
+     ucs=0x6721 mj)
     (ideographic-strokes . 9)
     (total-strokes	 . 13)
     (ideographic-structure
@@ -4993,10 +5001,20 @@
      ((=ucs@unicode	  . #x3687)	; &HD-KS-065500;
       (=hanyo-denshi/ks	  . 065500)	; &HD-KS-065500;
       ))
-    (=ucs@unicode	. #x6721)	; &UU+6721;
-    (=ucs@JP/hanazono	. #x4DBD)	; &UU+6721;
+    (=ucs@unicode	. #x6721)	; &MJ013567;
+    (=ucs@JP/hanazono	. #x4DBD)	; &MJ013567;
+    (=mj		. 013567)	; &MJ013567;
+    (<-formed@mj
+     ((=ucs@cns		  . #x6721)	; &C2-4641;
+      (=cns11643-2	  . #x4641)	; &C2-4641; [38-33]
+      (=daikanwa	  . 29740)	; &I-M-29740;
+      ))
     (->subsumptive
-     ((==ucs@JP/hanazono  . #x4DBD)	; &g2-hanaJU+4DBD;
+     ((==ucs@JP/hanazono  . #x4DBD)	; &g2-MJ013567;
+      (==mj		  . 013567)	; &g2-MJ013567;
+      (->subsumptive
+       ((===mj		    . 013567)	; &R-MJ013567;
+	))
       )
      ((==ucs@unicode	  . #x6721)	; &g2-UU+6721;
       (==ucs@JP/hanazono  . nil)
