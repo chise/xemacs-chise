@@ -1513,6 +1513,38 @@
     ))
 (define-char
   '((ideographic-radical . 21)	; ⼔
+    (ideographic-strokes . 6)
+    (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
+      (=ucs		  . #x2FF4)	; ⿴
+      )
+     ((=ucs		  . #x5317)	; 北
+      )
+     ((=ucs		  . #x53E3)	; 口
+      ))
+    (=>big5-cdp		. #x8D76)	; &A-CDP-8D76;
+    ))
+(define-char
+  '((<-denotational
+     ((=>big5-cdp	  . #x8D76)	; &A-CDP-8D76;
+      ))
+    (ideographic-radical . 21)	; ⼔
+    (ideographic-strokes . 6)
+    (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
+      (=ucs		  . #x2FF4)	; ⿴
+      )
+     ((=ucs@unicode	  . #x5317)	; &AJ1-03706;
+      (=adobe-japan1-0	  . 03706)	; &AJ1-03706;
+      )
+     ((=ucs		  . #x53E3)	; 口
+      ))
+    (=big5-cdp		. #x8D76)	; &CDP-8D76;
+    ))
+(define-char
+  '((ideographic-radical . 21)	; ⼔
     (ideographic-strokes . 7)
     (total-strokes	 . 9)
     (ideographic-structure
@@ -2804,6 +2836,38 @@
       (=cns11643-1	  . #x5678)	; &I-C1-5678; [54-88]
       ))
     (=ucs@iso		. #x20924)	; &U-00020924;
+    ))
+(define-char
+  '((ideographic-radical . 21)	; ⼔
+    (ideographic-strokes . 10)
+    (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>ucs@component	  . #x5EFF)	; &A-compU+5EFF;
+      (=>iwds-1		  .  0303)	; &A-compU+5EFF;
+      )
+     ((=>big5-cdp	  . #x8D76)	; &A-CDP-8D76;
+      ))
+    (=>ucs-itaiji-002	. #x71D5)	; &A-U-i002+71D5;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs-itaiji-002	  . #x71D5)	; &A-U-i002+71D5;
+      ))
+    (ideographic-radical . 21)	; ⼔
+    (ideographic-strokes . 10)
+    (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5EFF)	; 廿
+      )
+     ((=big5-cdp	  . #x8D76)	; &CDP-8D76;
+      ))
+    (=ucs-itaiji-002	. #x71D5)	; &U-i002+71D5;
     ))
 (define-char
   '((ideographic-radical . 21)	; ⼔
