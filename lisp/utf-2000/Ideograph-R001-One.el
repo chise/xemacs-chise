@@ -8318,6 +8318,12 @@
     (=ucs@JP/hanazono	. #x31353)	; &hanaJU+31353;
     ))
 (define-char
+  '((ideographic-radical . 1)	; ⼀
+    (ideographic-strokes . 7)
+    (total-strokes	 . 8)
+    (=ucs-itaiji-004	. #x4E9E)	; &U-i004+4E9E;
+    ))
+(define-char
   '((<-denotational
      ((=>ucs@cognate	  . #x5937)	; &A-cgnU+5937;
       ))
