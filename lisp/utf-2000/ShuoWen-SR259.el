@@ -61,6 +61,8 @@
   '((shuowen-radical	. 259)	; 臼
     (=shuowen-jiguge	. 24214)	; &SW-JIGUGE-24214;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x24518)	; 𤔘
+      )
      ((=ucs		  . #x8200)	; 舀
       ))
     (->subsumptive
@@ -80,6 +82,8 @@
     (<-formed@shuowen
      ((=shuowen-jiguge	  . 24214)	; &SW-JIGUGE-24214;
       )
+     ((=ucs		  . #x24518)	; 𤔘
+      )
      ((=ucs		  . #x8200)	; 舀
       ))
     (->subsumptive
@@ -98,6 +102,8 @@
       ))
     (<-formed@shuowen
      ((=shuowen-jiguge	  . 24214)	; &SW-JIGUGE-24214;
+      )
+     ((=ucs		  . #x24518)	; 𤔘
       )
      ((=ucs		  . #x8200)	; 舀
       ))
