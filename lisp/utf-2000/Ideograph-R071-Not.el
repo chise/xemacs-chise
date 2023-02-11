@@ -1,14 +1,6 @@
 ;; -*- coding: utf-8-mcs-er -*-
 (define-char
-  '((ideographic-radical . 71)	; ⽆
-    (ideographic-strokes . 0)
-    (=>ucs@component	. #x65E0)	; &A-compU+65E0;
-    ))
-(define-char
-  '((<-denotational
-     ((=>ucs@component	  . #x65E0)	; &A-compU+65E0;
-      ))
-    (<-denotational@component
+  '((<-denotational@component
      ((=>ucs@iwds-1	  . #x65E0)	; &A-IWDSU+65E0;
       (=>ucs@iwds-1/normalized . #x65E0)	; &A-IWDSU+65E0;
       ))
@@ -23,7 +15,27 @@
     (sound@ja/on/go	"mu" "mo")
     (sound@ja/on/kan	"bu" "bo")
     (=ucs		. #x65E0)	; 无
-    (=adobe-japan1-0	. 05088)	; &I-AJ1-05088;
+    (<-Qizi
+     ((=ucs		  . #x2382E)	; 𣠮
+      )
+     ((=ucs		  . #x7121)	; 無
+      ))
+    (<-Qizi$_1*sources
+     shuowen)
+    (<-Qizi$_2*sources
+     shuowen)
+    (<-Qizi*sources
+     shuowen)
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x65E0)	; 无
+      ))
+    (ideographic-radical . 71)	; ⽆
+    (ideographic-strokes . 0)
+    (total-strokes	 . 4)
+    (=ucs@unicode	. #x65E0)	; &AJ1-05088;
+    (=adobe-japan1-0	. 05088)	; &AJ1-05088;
     (=jis-x0208		. #x5A5B)	; &I-J90-5A5B; [58-59]
     (=gb2312		. #x4E5E)	; &I-G0-4E5E; [46-62]
     (=ks-x1001		. #x5969)	; &I-K0-5969; [57-73]
@@ -35,18 +47,18 @@
     (=gt-pj-1		. #x5A5B)	; &I-GT-17330; [58-59]
     (=daikanwa		. 13716)	; &I-M-13716;
     (=daijiten		. 04439)	; &I-DJT-04439;
-    (=shinjigen		.  3259)	; 无
+    (=shinjigen		.  3259)	; &AJ1-05088;
     (=cbeta		. 07099)	; &I-CB07099;
     (=jef-china3	. #x82A3)	; &I-JC3-82A3;
     (<-Qizi
-     ((=ucs		  . #x2382E)	; 𣠮
-      )
-     ((=ucs		  . #x7121)	; 無
+     ((=ucs@unicode	  . #x7121)	; &AJ1-03777;
+      (=adobe-japan1-0	  . 03777)	; &AJ1-03777;
       ))
     (<-Qizi*sources
      shuowen)
     (<-same
-     ((=ucs		  . #x7121)	; 無
+     ((=ucs@unicode	  . #x7121)	; &AJ1-03777;
+      (=adobe-japan1-0	  . 03777)	; &AJ1-03777;
       (=daikanwa	  . 19113)	; &I-M-19113;
       ))
     (<-same*sources
@@ -121,12 +133,12 @@
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@component	  . #x65E0)	; &A-compU+65E0;
+     ((=ucs		  . #x65E0)	; 无
       ))
     (ideographic-radical . 71)	; ⽆
     (ideographic-strokes . 0)
     (total-strokes	 . 5)
-    (ideographic-structure
+    (ideographic-structure@apparent
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
@@ -516,7 +528,7 @@
       )
      ((=>iwds-1		  .  0357)	; &IWDS1-357;
       )
-     ((=>ucs@component	  . #x65E0)	; &A-compU+65E0;
+     ((=ucs		  . #x65E0)	; 无
       ))
     (=>mj		. 057647)	; &A-MJ057647;
     ))
@@ -533,7 +545,8 @@
       )
      ((=big5-cdp	  . #x8B7C)	; &CDP-8B7C;
       )
-     ((=ucs		  . #x65E0)	; 无
+     ((=ucs@unicode	  . #x65E0)	; &AJ1-05088;
+      (=adobe-japan1-0	  . 05088)	; &AJ1-05088;
       ))
     (=mj		. 057647)	; &MJ057647;
     (=koseki		. 154190)	; &MJ057647;

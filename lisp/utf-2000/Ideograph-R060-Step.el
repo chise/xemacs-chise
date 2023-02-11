@@ -18189,6 +18189,14 @@
 (define-char
   '((ideographic-radical . 60)	; ⼻
     (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
+      (=ucs		  . #x2FF5)	; ⿵
+      )
+     ((=>ucs-itaiji-003	  . #x5FAE)	; &A-U-i003+5FAE;
+      )
+     ((=ucs		  . #x866B)	; 虫
+      ))
+    (ideographic-structure@apparent/rightmost
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
@@ -18207,6 +18215,14 @@
     (ideographic-strokes . 13)
     (total-strokes	 . 16)
     (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
+      (=ucs		  . #x2FF5)	; ⿵
+      )
+     ((=ucs-itaiji-003	  . #x5FAE)	; &U-i003+5FAE;
+      )
+     ((=ucs		  . #x866B)	; 虫
+      ))
+    (ideographic-structure@apparent/rightmost
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )

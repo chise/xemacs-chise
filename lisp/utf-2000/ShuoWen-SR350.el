@@ -434,6 +434,11 @@
     (<-Small-Seal@shuowen
      ((=ucs		  . #x5CFB)	; 峻
       ))
+    (<-simplified@shuowen
+     ((=shuowen-jiguge	  . 31324)	; &SW-JIGUGE-31324;
+      )
+     ((=ucs		  . #x21EB2)	; 𡺲
+      ))
     (->subsumptive
      ((===shuowen-jiguge-A30 . 32325)	; &SW-JIGUGE30-32325;
       )
