@@ -4296,7 +4296,7 @@
     ))
 (define-char
   '((<-denotational@usage
-     ((==>daijiten	  . 14750)	; &A2-DJT-14750;
+     ((==>ucs@bucs	  . #x9EFD)	; &BUCS+9EFD;
       ))
     (ideographic-radical . 102)	; ⽥
     (ideographic-strokes . 4)
