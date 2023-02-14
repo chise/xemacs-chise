@@ -2573,7 +2573,8 @@
      ((=ucs		  . #x4E00)	; 一
       (=daikanwa	  . 00001)	; &I-M-00001;
       )
-     ((=ucs		  . #x7D6A)	; 絪
+     ((=ucs@unicode	  . #x7D6A)	; &AJ1-18348;
+      (=adobe-japan1-5	  . 18348)	; &AJ1-18348;
       (=daikanwa	  . 27438)	; &I-M-27438;
       )
      ((=ucs		  . #x6C24)	; 氤
