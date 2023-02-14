@@ -762,8 +762,8 @@
     (ideographic-strokes . 1)
     (total-strokes	 . 3)
     (=ucs@iso		. #x206A3)	; &MJ031235;
-    (=mj		. 031235)	; &I-MJ031235;
-    (=cns11643-6	. #x2139)	; &MJ031235; [01-25]
+    (=mj		. 031235)	; &MJ031235;
+    (=cns11643-6	. #x2139)	; &I-C6-2139; [01-25]
     (=hanyo-denshi/ks	. 021810)	; &MJ031235;
     (=daikanwa		. 01851)	; &I-M-01851;
     (=shinjigen		.  0589)	; &MJ031235;
