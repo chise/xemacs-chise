@@ -12963,6 +12963,10 @@
       )
      ((=ucs		  . #x5C3E)	; 尾
       (=daikanwa	  . 07650)	; &I-M-07650;
+      )
+     ((=ucs@unicode	  . #x7121)	; &AJ1-03777;
+      (=adobe-japan1-0	  . 03777)	; &AJ1-03777;
+      (=daikanwa	  . 19113)	; &I-M-19113;
       ))
     (<-interchangeable$_1*sources
      shuowen-tongxun-dingsheng daikanwa)
