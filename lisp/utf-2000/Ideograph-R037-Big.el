@@ -8240,9 +8240,75 @@
   '((ideographic-radical . 37)	; ⼤
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
+    (ideographic-structure
+     ((=ucs-itaiji-001	  . #x2FFB)	; &U-i001+2FFB;
+      )
+     ((=>ucs@component	  . #x72AC)	; &A-compU+72AC;
+      (=>iwds-1		  .  0239)	; &A-compU+72AC;
+      )
+     ((=ucs		  . #x2099C)	; 𠦜
+      ))
+    (sound@ja/on/go	"mo")
+    (sound@ja/on/kan	"bo")
     (=ucs		. #x21632)	; 𡘲
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x21632)	; 𡘲
+      ))
+    (ideographic-radical . 37)	; ⼤
+    (ideographic-strokes . 8)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((=ucs-itaiji-001	  . #x2FFB)	; &U-i001+2FFB;
+      )
+     ((=ucs		  . #x5927)	; 大
+      )
+     ((=ucs@iso		  . #x2099C)	; &C6-2976;
+      (=cns11643-6	  . #x2976)	; &C6-2976; [09-86]
+      (=daikanwa	  . 02747)	; &I-M-02747;
+      ))
+    (=ucs@iso		. #x21632)	; &MJ033462;
+    (=mj		. 033462)	; &MJ033462;
     (=cns11643-5	. #x3164)	; &I-C5-3164; [17-68]
+    (=koseki		. 068290)	; &MJ033462;
     (=daikanwa		. 05955)	; &I-M-05955;
+    (<-formed
+     ((=ucs@cns		  . #x6A21)	; &MJ014444;
+      (=mj		  . 014444)	; &MJ014444;
+      )
+     ((=ucs@unicode	  . #x6A21)	; &MJ014443;
+      (=mj		  . 014443)	; &MJ014443;
+      ))
+    (<-formed$_1*sources
+     jiyun koseki)
+    (<-formed$_2*sources
+     koseki@mj)
+    (<-formed*sources
+     koseki mj)
+    (<-same
+     ((=ucs@cns		  . #x6A21)	; &MJ014444;
+      (=mj		  . 014444)	; &MJ014444;
+      (=daikanwa	  . 15453)	; &I-M-15453;
+      ))
+    (<-same*sources
+     jiyun daikanwa)
+    (->subsumptive
+     ((==ucs@iso	  . #x21632)	; &g2-MJ033462;
+      (==mj		  . 033462)	; &g2-MJ033462;
+      (==cns11643-5	  . #x3164)	; &g2-MJ033462; [17-68]
+      (==koseki		  . 068290)	; &g2-MJ033462;
+      (==daikanwa	  . 05955)	; &g2-MJ033462;
+      (->subsumptive
+       ((===daikanwa	    . 05955)	; &R-M-05955;
+	)
+       ((===mj		    . 033462)	; &R-MJ033462;
+	)
+       ((===cns11643-5	    . #x3164)	; &R-C5-3164; [17-68]
+	)
+       ((===ucs@iso	    . #x21632)	; &R-U-00021632;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 37)	; ⼤
