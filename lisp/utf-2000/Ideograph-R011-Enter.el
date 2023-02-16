@@ -175,6 +175,9 @@
     (=daikanwa		. 01417)	; &I-M-01417;
     (=daijiten		. 00583)	; &I-DJT-00583;
     (=shinjigen@1ed	.  0091)	; 兦
+    (<-formed
+     ((=mj		  . 006462)	; &MJ006462;
+      ))
     (<-original
      ((=mj		  . 006462)	; &MJ006462;
       (=daikanwa	  . 00287)	; &I-M-00287;
