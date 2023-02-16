@@ -424,8 +424,8 @@
     (->Zhouwen*sources
      shuowen daikanwa)
     (->original
-     ((=ucs@iso		  . #x25335)	; &C7-5423;
-      (=cns11643-7	  . #x5423)	; &C7-5423; [52-03]
+     ((=ucs@iso		  . #x25335)	; &MJ042544;
+      (=mj		  . 042544)	; &MJ042544;
       (=daikanwa	  . 49383)	; &I-M-49383;
       ))
     (->original$_1*sources
