@@ -172,6 +172,39 @@
     (=ucs		. #x6BDD)	; 毝
     ))
 (define-char
+  '((ideographic-radical . 82)	; ⽑
+    (ideographic-strokes . 3)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((=>ucs@iwds-1	  . #x2FFA)	; &A-IWDSU+2FFA;
+      (=>iwds-1		  .  0307)	; &A-IWDSU+2FFA;
+      )
+     ((=ucs		  . #x6BDB)	; 毛
+      )
+     ((name		  . "CJK RADICAL CITY")
+      (=ucs		  . #x2ECF)	; ⻏
+      ))
+    (=ucs		. #x23B24)	; 𣬤
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x23B24)	; 𣬤
+      ))
+    (ideographic-radical . 82)	; ⽑
+    (ideographic-strokes . 3)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
+      (=ucs		  . #x2FFA)	; ⿺
+      )
+     ((=ucs		  . #x6BDB)	; 毛
+      )
+     ((name		  . "CJK RADICAL CITY")
+      (=ucs		  . #x2ECF)	; ⻏
+      ))
+    (=ucs@iso		. #x23B24)	; &U-00023B24;
+    ))
+(define-char
   '((=>ucs		. #x23B29)	; 𣬩
     (ideographic-radical . 82)	; ⽑
     (ideographic-strokes . 4)
