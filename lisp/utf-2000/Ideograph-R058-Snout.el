@@ -1828,8 +1828,8 @@
     (=daikanwa		. 09920)	; &I-M-09920;
     (=shinjigen		.  2301)	; &MJ011233;
     (<-interchangeable
-     ((=ucs@unicode	  . #x63BE)	; &MJ012514;
-      (=mj		  . 012514)	; &MJ012514;
+     ((=ucs@unicode	  . #x63BE)	; &MJ012513;
+      (=mj		  . 012513)	; &MJ012513;
       (=daikanwa	  . 12313)	; &I-M-12313;
       ))
     (<-interchangeable$_1*sources
