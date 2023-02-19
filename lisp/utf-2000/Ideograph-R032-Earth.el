@@ -9881,6 +9881,21 @@
       ))
     ))
 (define-char
+  '((ideographic-radical . 32)	; ⼟
+    (=>iwds-1*note	"0293+0312; 0293@IRGN2019")
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>ucs@iwds-1	  . #x571F)	; &A-IWDSU+571F;
+      (=>iwds-1		  .  0312)	; &A-IWDSU+571F;
+      )
+     ((=>big5-cdp@iwds-1  . #x8845)	; &IWDS1-293;
+      ))
+    (=>ucs@iwds-1	. #x8881)	; &A-IWDSU+8881;
+    (=>iwds-1		.  31293)	; &A-IWDSU+8881;
+    ))
+(define-char
   '((<-denotational
      ((=>ucs@iwds-1	  . #x8881)	; &A-IWDSU+8881;
       (=>iwds-1		  .  31293)	; &A-IWDSU+8881;
@@ -9896,21 +9911,6 @@
      ((=>big5-cdp	  . #x8845)	; &A-CDP-8845;
       ))
     (=>ucs@iwds-1	. #x212E1)	; &A-IWDSU+212E1;
-    ))
-(define-char
-  '((ideographic-radical . 32)	; ⼟
-    (=>iwds-1*note	"0293+0312; 0293@IRGN2019")
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-      (=ucs		  . #x2FF1)	; ⿱
-      )
-     ((=>ucs@iwds-1	  . #x571F)	; &A-IWDSU+571F;
-      (=>iwds-1		  .  0312)	; &A-IWDSU+571F;
-      )
-     ((=>big5-cdp@iwds-1  . #x8845)	; &IWDS1-293;
-      ))
-    (=>ucs@iwds-1	. #x8881)	; &A-IWDSU+8881;
-    (=>iwds-1		.  31293)	; &A-IWDSU+8881;
     ))
 (define-char
   '((ideographic-radical . 32)	; ⼟

@@ -1085,6 +1085,7 @@
       )
      ((=ucs		  . #x864E)	; 虎
       ))
+    (sound@ja/on	"gitu")
     (=ucs		. #x23C64)	; 𣱤
     ))
 (define-char
@@ -1106,11 +1107,27 @@
       (=ucs@ks		  . #x864E)	; &MJ023272;
       (=mj		  . 023272)	; &MJ023272;
       ))
-    (=ucs@iso		. #x23C64)	; &C5-395D;
-    (=cns11643-5	. #x395D)	; &C5-395D; [25-61]
+    (=ucs@iso		. #x23C64)	; &MJ039179;
+    (=mj		. 039179)	; &MJ039179;
+    (=cns11643-5	. #x395D)	; &I-C5-395D; [25-61]
+    (=koseki		. 193070)	; &MJ039179;
     (=daikanwa		. 49205)	; &I-M-49205;
+    (<-original
+     ((=ucs@iso		  . #x271A6)	; &C4-3476;
+      (=cns11643-4	  . #x3476)	; &C4-3476; [20-86]
+      (=daikanwa	  . 32695)	; &I-M-32695;
+      ))
+    (<-original*sources
+     daikanwa)
     (->subsumptive
-     ((==daikanwa	  . 49205)	; &g2-M-49205;
+     ((==mj		  . 039179)	; &g2-MJ039179;
+      (==koseki		  . 193070)	; &g2-MJ039179;
+      (==daikanwa	  . 49205)	; &g2-MJ039179;
+      (->subsumptive
+       ((===daikanwa	    . 49205)	; &R-M-49205;
+	)
+       ((===mj		    . 039179)	; &R-MJ039179;
+	))
       )
      ((==ucs@iso	  . #x23C64)	; &g2-IU-00023C64;
       )

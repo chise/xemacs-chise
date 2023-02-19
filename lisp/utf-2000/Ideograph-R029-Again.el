@@ -6621,6 +6621,10 @@
      ((=ucs@unicode	  . #x883B)	; &AJ1-06572;
       (=adobe-japan1-0	  . 06572)	; &AJ1-06572;
       (=daikanwa	  . 33914)	; &I-M-33914;
+      )
+     ((=ucs@unicode	  . #x7121)	; &AJ1-03777;
+      (=adobe-japan1-0	  . 03777)	; &AJ1-03777;
+      (=daikanwa	  . 19113)	; &I-M-19113;
       ))
     (<-interchangeable$_1*sources
      shuowen-tongxun-dingsheng daikanwa)

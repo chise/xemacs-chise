@@ -5113,7 +5113,7 @@
     ))
 (define-char
   '((<-denotational@usage
-     ((==>daijiten	  . 14887)	; &A2-DJT-14887;
+     ((==>ucs@bucs	  . #x9F9C)	; &BUCS+9F9C;
       ))
     (ideographic-radical . 5)	; ⼄
     (ideographic-strokes . 10)
@@ -5177,7 +5177,7 @@
     ))
 (define-char
   '((<-denotational@usage
-     ((==>daijiten	  . 14887)	; &A2-DJT-14887;
+     ((==>ucs@bucs	  . #x9F9C)	; &BUCS+9F9C;
       ))
     (ideographic-radical@ucs . 5)	; ⼄
     (ideographic-strokes@ucs . 10)
