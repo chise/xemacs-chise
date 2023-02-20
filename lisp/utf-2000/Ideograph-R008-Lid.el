@@ -56,8 +56,8 @@
     (ideographic-strokes . 1)
     (total-strokes	 . 3)
     (sound@ja/kun	"na+i" "horo+b5")
-    (sound@ja/on/go	"mAu")
-    (sound@ja/on/kan	"bAu")
+    (sound@ja/on/go	"mAu" "mu")
+    (sound@ja/on/kan	"bAu" "bu")
     (=ucs		. #x4EA1)	; 亡
     (=>jis-x0208	. #x4B34)	; 亡 [43-20]
     (=>jis-x0213-1	. #x4B34)	; 亡 [43-20]
@@ -77,6 +77,53 @@
     (=gt-pj-k1		. #x3343)	; &MJ006462; [19-35]
     (=daikanwa		. 00287)	; &I-M-00287;
     (=shinjigen		.  0090)	; &MJ006462;
+    (<-antonym
+     ((=ucs@unicode	  . #x6709)	; &MJ013521;
+      (=mj		  . 013521)	; &MJ013521;
+      (=daikanwa	  . 14332)	; &I-M-14332;
+      ))
+    (<-antonym$_1*sources
+     daikanwa)
+    (<-antonym*sources
+     daikanwa)
+    (<-formed
+     ((=ucs@unicode	  . #x7121)	; &AJ1-03777;
+      (=adobe-japan1-0	  . 03777)	; &AJ1-03777;
+      ))
+    (<-formed$_1*sources
+     jiyun lunyu-jizhu)
+    (<-interchangeable
+     ((=ucs@unicode	  . #x7121)	; &AJ1-03777;
+      (=adobe-japan1-0	  . 03777)	; &AJ1-03777;
+      (=daikanwa	  . 19113)	; &I-M-19113;
+      )
+     ((=ucs@ks		  . #x5FD8)	; &MJ011392;
+      (=mj		  . 011392)	; &MJ011392;
+      (=daikanwa	  . 10333)	; &I-M-10333;
+      ))
+    (<-interchangeable$_1*sources
+     shuowen-tongxun-dingsheng maoshi-zhu yili-zhu daikanwa)
+    (<-interchangeable$_2*sources
+     shuowen-tongxun-dingsheng maoshi-zhu shiwen daikanwa)
+    (<-interchangeable*sources
+     shuowen-tongxun-dingsheng maoshi-zhu daikanwa)
+    (<-same
+     ((=ucs@unicode	  . #x7121)	; &AJ1-03777;
+      (=adobe-japan1-0	  . 03777)	; &AJ1-03777;
+      (=daikanwa	  . 19113)	; &I-M-19113;
+      ))
+    (<-same$_1*sources
+     jiyun lunyu-jizhu daikanwa)
+    (<-same*sources
+     jiyun lunyu-jizhu daikanwa)
+    (->formed
+     ((=ucs		  . #x5166)	; 兦
+      (=daikanwa	  . 01417)	; &I-M-01417;
+      ))
+    (->formed$_1*sources
+     jiyun daikanwa)
+    (->formed*sources
+     jiyun daikanwa)
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x4EA1)	; 亡
