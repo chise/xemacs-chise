@@ -913,6 +913,42 @@
       ))
     ))
 (define-char
+  '((ideographic-radical . 42)	; ⼩
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>ucs@iwds-1	  . #x5C0F)	; &A-IWDSU+5C0F;
+      (=>iwds-1		  .  0028)	; &A-IWDSU+5C0F;
+      )
+     ((=>ucs@iwds-1	  . #x4EBA)	; &A-IWDSU+4EBA;
+      (=>iwds-1		  .  14623)	; &A-IWDSU+4EBA;
+      ))
+    (=>gt-k		. 01199)	; &A-GT-K01199;
+    ))
+(define-char
+  '((<-denotational
+     ((=>gt-k		  . 01199)	; &A-GT-K01199;
+      ))
+    (ideographic-radical . 42)	; ⼩
+    (ideographic-strokes . 2)
+    (total-strokes	 . 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5C0F)	; 小
+      )
+     ((=ucs		  . #x4EBA)	; 人
+      ))
+    (=gt-k		. 01199)	; &GT-K01199;
+    (=gt-pj-k1		. #x4E5B)	; &GT-K01199; [46-59]
+    (->subsumptive
+     ((==gt-k		  . 01199)	; &g2-GT-K01199;
+      (==gt-pj-k1	  . #x4E5B)	; &g2-GT-K01199; [46-59]
+      ))
+    ))
+(define-char
   '((<-denotational@usage
      ((==>ucs@bucs	  . #x5C16)	; &BUCS+5C16;
       ))
