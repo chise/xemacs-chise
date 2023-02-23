@@ -587,6 +587,20 @@
     (=gb2312		. #x5536)	; &I-G0-5536; [53-22]
     ))
 (define-char
+  '((ideographic-radical . 69)	; ⽄
+    (ideographic-strokes . 4)
+    (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=gt-k		  . 00762)	; &U-i002+72AD;
+      )
+     ((=ucs		  . #x65A4)	; 斤
+      ))
+    (=big5-cdp-itaiji-001 . #x89EE)	; &CDP-i001-89EE;
+    ))
+(define-char
   '((=>ucs		. #x23099)	; 𣂙
     (ideographic-radical . 69)	; ⽄
     (ideographic-strokes . 5)

@@ -11,7 +11,7 @@
     (=ucs@big5		. #x5315)	; &J97-5238;
     (=>jis-x0208	. #x5238)	; &J97-5238; [50-24]
     (=>jis-x0213-1	. #x5238)	; &J97-5238; [50-24]
-    (=big5		. #xA450)	; &J97-5238;
+    (=big5		. #xA450)	; &I-B-A450;
     (=>iwds-1		.  0140)	; &J97-5238;
     ))
 (define-char
@@ -826,7 +826,8 @@
     (<-same*sources
      zhengzitong daikanwa)
     (->mistakable
-     ((=ucs		  . #x20629)	; 𠘩
+     ((=ucs@iso		  . #x20629)	; &C6-2152;
+      (=cns11643-6	  . #x2152)	; &C6-2152; [01-50]
       (=daikanwa	  . 01741)	; &I-M-01741;
       ))
     (->mistakable*sources

@@ -52,9 +52,8 @@
     (=cns11643-1	. #x254B)	; &I-C1-254B; [05-43]
     (=big5		. #xA378)	; &I-B-A378;
     (<-Bopomofo
-     ((=ucs@iso		  . #x206A3)	; &C6-2139;
-      (=cns11643-6	  . #x2139)	; &C6-2139; [01-25]
-      (=daikanwa	  . 01851)	; &I-M-01851;
+     ((=ucs@iso		  . #x206A3)	; &MJ031235;
+      (=mj		  . 031235)	; &MJ031235;
       ))
     ))
 (define-char
@@ -148,6 +147,11 @@
     (=gb2312		. #x2851)	; &I-G0-2851; [08-49]
     (=cns11643-1	. #x2553)	; &I-C1-2553; [05-51]
     (=big5		. #xA3A2)	; &I-B-A3A2;
+    (<-Bopomofo
+     ((=ucs@iso		  . #x21FE8)	; &GT-10940;
+      (=cns11643-4	  . #x2125)	; &GT-10940; [01-05]
+      (=daikanwa	  . 08671)	; &I-M-08671;
+      ))
     ))
 (define-char
   '((name		. "BOPOMOFO LETTER X")
@@ -341,6 +345,9 @@
     (=gb2312		. #x2861)	; &I-G0-2861; [08-65]
     (=cns11643-1	. #x2563)	; &I-C1-2563; [05-67]
     (=big5		. #xA3B2)	; &I-B-A3B2;
+    (<-Bopomofo
+     ((=ucs		  . #x53C8)	; 又
+      ))
     ))
 (define-char
   '((name		. "BOPOMOFO LETTER AN")
