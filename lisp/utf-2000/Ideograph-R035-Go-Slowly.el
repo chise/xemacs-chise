@@ -133,7 +133,14 @@
     (=cns11643-6	. #x2438)	; &I-C6-2438; [04-24]
     ))
 (define-char
-  '((<-denotational@usage
+  '((ideographic-radical . 35)	; ⼢
+    (=>ucs@cognate	. #x590B)	; &A-cgnU+590B;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@cognate	  . #x590B)	; &A-cgnU+590B;
+      ))
+    (<-denotational@usage
      ((==>daijiten	  . 01922)	; &A2-DJT-01922;
       ))
     (ideographic-radical . 35)	; ⼢
