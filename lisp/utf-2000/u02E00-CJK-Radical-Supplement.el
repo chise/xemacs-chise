@@ -96,13 +96,6 @@
       ))
     ))
 (define-char
-  '((=>ucs		. #x2E86)	; ⺆
-    (total-strokes	 . 2)
-    (=big5-cdp		. #x8BF2)	; &CDP-8BF2;
-    (=gt-k		. 00143)	; &I-GT-K00143;
-    (=gt-pj-k1		. #x3D6C)	; &CDP-8BF2; [29-76]
-    ))
-(define-char
   '((<-denotational
      ((=ucs		  . #x51E0)	; 几
       ))
