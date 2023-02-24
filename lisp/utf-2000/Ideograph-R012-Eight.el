@@ -6477,8 +6477,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=>ucs@iwds-1	  . #x5409)	; &J97-3548;
-      (=>jis-x0208	  . #x3548)	; &J97-3548; [21-40]
+     ((=>ucs@iwds-1	  . #x5409)	; &A-IWDSU+5409;
       )
      ((=ucs		  . #x5171)	; 共
       ))
