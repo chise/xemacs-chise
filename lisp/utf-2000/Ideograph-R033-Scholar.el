@@ -1524,7 +1524,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=>ucs@iwds-1	  . #x5409)	; &J97-3548;
+     ((=>ucs@iwds-1	  . #x5409)	; &A-IWDSU+5409;
       )
      ((=ucs		  . #x8279)	; 艹
       ))
@@ -1776,8 +1776,7 @@
       )
      ((=>ucs@cognate	  . #x5928)	; &A-cgnU+5928;
       )
-     ((=>ucs@iwds-1	  . #x5409)	; &J97-3548;
-      (=>jis-x0208	  . #x3548)	; &J97-3548; [21-40]
+     ((=>ucs@iwds-1	  . #x5409)	; &A-IWDSU+5409;
       ))
     (=>ucs@iwds-1	. #x21523)	; &A-IWDSU+21523;
     ))
@@ -1794,8 +1793,7 @@
       )
      ((=big5-cdp	  . #x8CD5)	; &CDP-8CD5;
       )
-     ((=>ucs@iwds-1	  . #x5409)	; &J97-3548;
-      (=>jis-x0208	  . #x3548)	; &J97-3548; [21-40]
+     ((=>ucs@iwds-1	  . #x5409)	; &A-IWDSU+5409;
       ))
     (sound@ja/on/go	"keti")
     (sound@ja/on/kan	"tetu")
@@ -1864,8 +1862,7 @@
       )
      ((=ucs		  . #x5928)	; 夨
       )
-     ((=>ucs@iwds-1	  . #x5409)	; &J97-3548;
-      (=>jis-x0208	  . #x3548)	; &J97-3548; [21-40]
+     ((=>ucs@iwds-1	  . #x5409)	; &A-IWDSU+5409;
       ))
     (=ucs		. #x21522)	; 𡔢
     ))
@@ -1902,8 +1899,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=>ucs@iwds-1	  . #x5409)	; &J97-3548;
-      (=>jis-x0208	  . #x3548)	; &J97-3548; [21-40]
+     ((=>ucs@iwds-1	  . #x5409)	; &A-IWDSU+5409;
       )
      ((=ucs		  . #x4E39)	; 丹
       ))
@@ -2006,8 +2002,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=>ucs@iwds-1	  . #x5409)	; &J97-3548;
-      (=>jis-x0208	  . #x3548)	; &J97-3548; [21-40]
+     ((=>ucs@iwds-1	  . #x5409)	; &A-IWDSU+5409;
       )
      ((=>ucs@component	  . #x5EFF)	; &A-compU+5EFF;
       (=>iwds-1		  .  0303)	; &A-compU+5EFF;
@@ -2973,11 +2968,9 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=>ucs@iwds-1	  . #x5409)	; &J97-3548;
-      (=>jis-x0208	  . #x3548)	; &J97-3548; [21-40]
+     ((=>ucs@iwds-1	  . #x5409)	; &A-IWDSU+5409;
       )
-     ((=>ucs@iwds-1	  . #x5409)	; &J97-3548;
-      (=>jis-x0208	  . #x3548)	; &J97-3548; [21-40]
+     ((=>ucs@iwds-1	  . #x5409)	; &A-IWDSU+5409;
       ))
     (=ucs		. #x2152F)	; 𡔯
     ))
@@ -4788,8 +4781,7 @@
       )
      ((=ucs		  . #x21532)	; 𡔲
       )
-     ((=>ucs@iwds-1	  . #x5409)	; &J97-3548;
-      (=>jis-x0208	  . #x3548)	; &J97-3548; [21-40]
+     ((=>ucs@iwds-1	  . #x5409)	; &A-IWDSU+5409;
       ))
     (sound@ja/on	"itu")
     (=ucs		. #x2154D)	; 𡕍
