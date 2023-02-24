@@ -603,9 +603,15 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 48)	; ⼯
+  '((<-denotational@usage
+     ((==>ucs@bucs	  . #x5DE8)	; &BUCS+5DE8;
+      ))
+    (ideographic-radical . 48)	; ⼯
     (ideographic-strokes . 2)
     (total-strokes	 . 5)
+    (sound@ja/on/conventional "ko")
+    (sound@ja/on/go	"go")
+    (sound@ja/on/kan	"kyo")
     (=ucs		. #x5DE8)	; 巨
     (=big5		. #xA5A8)	; &I-B-A5A8;
     (->subsumptive
@@ -615,7 +621,90 @@
       (=cns11643-1	  . #x4648)	; &I-C1-4648; [38-40]
       (=hanyo-denshi/ks	  . 098730)	; &MJ010776;
       (=daikanwa	  . 08722)	; &I-M-08722;
+      (=daijiten	  . 02776)	; &I-DJT-02776;
       (=shinjigen	  .  2061)	; &MJ010776;
+      (<-formed
+       ((=ucs@cns	    . #x77E9)	; &AJ1-13732;
+	(=adobe-japan1-4    . 13732)	; &AJ1-13732;
+	))
+      (<-formed$_1*sources
+       liji-zhu)
+      (<-interchangeable
+       ((=ucs@cns	    . #x9245)	; &AJ1-06983;
+	(=ucs@jis	    . #x9245)	; &AJ1-06983;
+	(=adobe-japan1-0    . 06983)	; &AJ1-06983;
+	(=daikanwa	    . 40286)	; &I-M-40286;
+	)
+       ((=ucs@jis	    . #x8A4E)	; &AJ1-15140;
+	(=adobe-japan1-4    . 15140)	; &AJ1-15140;
+	(=daikanwa	    . 35370)	; &I-M-35370;
+	))
+      (<-interchangeable$_1*sources
+       shuowen-tongxun-dingsheng daikanwa)
+      (<-interchangeable$_2*sources
+       shuowen-tongxun-dingsheng hanshu-zhu daikanwa)
+      (<-interchangeable*sources
+       shuowen-tongxun-dingsheng daikanwa)
+      (<-original
+       ((=ucs@cns	    . #x77E9)	; &AJ1-13732;
+	(=adobe-japan1-4    . 13732)	; &AJ1-13732;
+	))
+      (<-original$_1*sources
+       zhengzitong guanzi-zhu)
+      (<-same
+       ((=ucs@jis	    . #x6998)	; &MJ014273;
+	(=mj		    . 014273)	; &MJ014273;
+	(=daikanwa	    . 15233)	; &I-M-15233;
+	)
+       ((=ucs@cns	    . #x77E9)	; &AJ1-13732;
+	(=adobe-japan1-4    . 13732)	; &AJ1-13732;
+	(=daikanwa	    . 23947)	; &I-M-23947;
+	))
+      (<-same$_1*sources
+       shuowen zhengzitong daikanwa)
+      (<-same$_2*sources
+       zhengzitong liji-zhu guanzi-zhu daikanwa)
+      (<-same*sources
+       zhengzitong daikanwa)
+      (->ancient
+       ((=ucs@iso	    . #x22011)	; &C6-216F;
+	(=cns11643-6	    . #x216F)	; &C6-216F; [01-79]
+	(=daikanwa	    . 08715)	; &I-M-08715;
+	)
+       ((=ucs@unicode	    . #x382A)	; &C6-216E;
+	(=cns11643-6	    . #x216E)	; &C6-216E; [01-78]
+	(=daikanwa	    . 08716)	; &I-M-08716;
+	)
+       ((=ucs@iso	    . #x20AD5)	; &M-03060;
+	(=daikanwa	    . 03060)	; &M-03060;
+	))
+      (->ancient$_1*sources
+       jiyun kangxi daikanwa)
+      (->ancient$_2*sources
+       kangxi daikanwa)
+      (->ancient$_3*sources
+       kangxi daikanwa)
+      (->ancient*sources
+       kangxi daikanwa)
+      (->formed
+       ((=ucs@jis	    . #x6998)	; &MJ014273;
+	(=mj		    . 014273)	; &MJ014273;
+	))
+      (->formed$_1*sources
+       shuowen zhengzitong)
+      (->formed*sources
+       shuowen zhengzitong)
+      (->interchangeable
+       ((=ucs@unicode	    . #x8152)	; &JSP-563B;
+	(=jis-x0212	    . #x563B)	; &JSP-563B; [54-27]
+	(=iso-ir165	    . #x2C59)	; &I-EGB-2C59; [12-57]
+	(=cns11643-2	    . #x3F31)	; &I-C2-3F31; [31-17]
+	(=daikanwa	    . 29627)	; &I-M-29627;
+	))
+      (->interchangeable$_1*sources
+       jiyun daikanwa)
+      (->interchangeable*sources
+       jiyun daikanwa)
       (->subsumptive
        ((=decomposition@cid
 	 ((=ucs		      . #x5DE8)	; 巨
@@ -633,9 +722,12 @@
 	(==cns11643-1	    . #x4648)	; &g2-MJ010776; [38-40]
 	(==hanyo-denshi/ks  . 098730)	; &g2-MJ010776;
 	(==daikanwa	    . 08722)	; &g2-MJ010776;
+	(==daijiten	    . 02776)	; &g2-MJ010776;
 	(==shinjigen	    .  2061)	; &g2-MJ010776;
 	(->subsumptive
 	 ((===daikanwa	      . 08722)	; &R-M-08722;
+	  )
+	 ((===daijiten	      . 02776)	; &R-DJT-02776;
 	  )
 	 ((===adobe-japan1-4  . 13714)	; &R-AJ1-13714;
 	  )
@@ -2501,6 +2593,11 @@
       (=>iwds-1		  .  0221)	; &A-IWDSU+4E0C;
       ))
     (=>ucs@iwds-1	. #x22018)	; &A-IWDSU+22018;
+    ))
+(define-char
+  '((ideographic-radical . 48)	; ⼯
+    (==>ucs@bucs	. #x5DE8)	; &BUCS+5DE8;
+    (==>daijiten	. 02776)	; &BUCS+5DE8;
     ))
 (define-char
   '((ideographic-radical . 48)	; ⼯
