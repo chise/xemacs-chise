@@ -1050,15 +1050,61 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 70)	; ⽅
+  '((<-denotational@usage
+     ((==>daijiten	  . 04396)	; &A2-DJT-04396;
+      ))
+    (ideographic-radical . 70)	; ⽅
     (ideographic-strokes . 6)
     (total-strokes	 . 10)
-    (=ucs		. #x230E6)	; 𣃦
-    (->subsumptive
-     ((=daikanwa	  . 13639)	; &M-13639;
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
       )
-     ((=ucs@iso		  . #x230E6)	; &C4-2D4A;
-      (=cns11643-4	  . #x2D4A)	; &C4-2D4A; [13-42]
+     ((=ucs		  . #x2D928)	; 𭤨
+      )
+     ((=ucs		  . #x52FF)	; 勿
+      ))
+    (sound@ja/on/go	"moti")
+    (sound@ja/on/kan	"butu")
+    (=ucs		. #x230E6)	; 𣃦
+    (=cns11643-4	. #x2D4A)	; &I-C4-2D4A; [13-42]
+    (=daikanwa		. 13639)	; &I-M-13639;
+    (=daijiten		. 04396)	; &I-DJT-04396;
+    (<-formed
+     ((=ucs		  . #x52FF)	; 勿
+      ))
+    (<-formed$_1*sources
+     shuowen)
+    (<-same
+     ((=ucs		  . #x52FF)	; 勿
+      (=daikanwa	  . 02501)	; &I-M-02501;
+      ))
+    (<-same$_1*sources
+     shuowen daikanwa)
+    (<-same*sources
+     shuowen daikanwa)
+    (->interchangeable
+     ((=ucs		  . #x7269)	; 物
+      (=daikanwa	  . 19959)	; &I-M-19959;
+      ))
+    (->interchangeable$_1*sources
+     shuowen-zhu daikanwa)
+    (->interchangeable*sources
+     shuowen-zhu daikanwa)
+    (->subsumptive
+     ((==ucs@iso	  . #x230E6)	; &g2-M-13639;
+      (==cns11643-4	  . #x2D4A)	; &g2-M-13639; [13-42]
+      (==daikanwa	  . 13639)	; &g2-M-13639;
+      (==daijiten	  . 04396)	; &g2-M-13639;
+      (->subsumptive
+       ((===daikanwa	    . 13639)	; &R-M-13639;
+	)
+       ((===daijiten	    . 04396)	; &R-DJT-04396;
+	)
+       ((===cns11643-4	    . #x2D4A)	; &R-C4-2D4A; [13-42]
+	)
+       ((===ucs@iso	    . #x230E6)	; &R-U-000230E6;
+	))
       ))
     ))
 (define-char
@@ -4272,6 +4318,10 @@
 (define-char
   '((ideographic-radical . 70)	; ⽅
     (=>ucs@component	. #x65B9)	; &A-compU+65B9;
+    ))
+(define-char
+  '((ideographic-radical . 70)	; ⽅
+    (==>daijiten	. 04396)	; &A2-DJT-04396;
     ))
 (define-char
   '((ideographic-radical . 70)	; ⽅
