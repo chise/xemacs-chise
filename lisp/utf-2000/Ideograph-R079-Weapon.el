@@ -1189,8 +1189,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=>ucs@iwds-1	  . #x5409)	; &J97-3548;
-      (=>jis-x0208	  . #x3548)	; &J97-3548; [21-40]
+     ((=>ucs@iwds-1	  . #x5409)	; &A-IWDSU+5409;
       )
      ((=>ucs@iwds-1	  . #x6BB3)	; &A-IWDSU+6BB3;
       (=>iwds-1		  .  22001)	; &A-IWDSU+6BB3;
