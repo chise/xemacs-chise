@@ -80,14 +80,16 @@
     (=koseki		. 221360)	; &MJ040208;
     (=daikanwa		. 19654)	; &I-M-19654;
     (<-formed
-     ((=ucs		  . #x638C)	; 掌
+     ((=ucs@unicode	  . #x638C)	; &AJ1-02464;
+      (=adobe-japan1-0	  . 02464)	; &AJ1-02464;
       ))
     (<-formed$_1*sources
      koseki mj)
     (<-formed*sources
      koseki mj)
     (<-same
-     ((=ucs		  . #x638C)	; 掌
+     ((=ucs@unicode	  . #x638C)	; &AJ1-02464;
+      (=adobe-japan1-0	  . 02464)	; &AJ1-02464;
       (=daikanwa	  . 12248)	; &I-M-12248;
       ))
     (<-same*sources
