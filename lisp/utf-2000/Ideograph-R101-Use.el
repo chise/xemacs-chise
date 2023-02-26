@@ -9,6 +9,24 @@
   '((<-denotational
      ((=>ucs@cognate	  . #x7528)	; &A-cgnU+7528;
       ))
+    (ideographic-radical . 101)	; ⽤
+    (ideographic-strokes . 0)
+    (total-strokes	 . 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
+      (=ucs		  . #x2FF5)	; ⿵
+      )
+     ((=ucs		  . #x5182)	; 冂
+      )
+     ((=>ucs@iwds-1	  . #x58EB)	; &A-IWDSU+58EB;
+      (=>iwds-1		  .  31272)	; &A-IWDSU+58EB;
+      ))
+    (=>ucs@iwds-1	. #x7528)	; &A-IWDSU+7528;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@iwds-1	  . #x7528)	; &A-IWDSU+7528;
+      ))
     (<-denotational@usage
      ((==>ucs@bucs	  . #x7528)	; &BUCS+7528;
       ))
@@ -113,11 +131,16 @@
     (ideographic-radical . 101)	; ⽤
     (ideographic-strokes . 0)
     (total-strokes	 . 5)
-    (===hng-kar		. 10810)	; &HNG018-10810;
+    (=ucs-itaiji-003	. #x7528)	; &U-i003+7528;
     (<-formed
      ((=ucs		  . #x24C03)	; 𤰃
       )
      ((=ucs		  . #x200A6)	; 𠂦
+      ))
+    (->subsumptive
+     ((==ucs-itaiji-003	  . #x7528)	; &g2-U-i003+7528;
+      )
+     ((===hng-kar	  . 10810)	; &HNG018-10810;
       ))
     ))
 (define-char
