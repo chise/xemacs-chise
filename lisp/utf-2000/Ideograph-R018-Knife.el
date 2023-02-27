@@ -17812,7 +17812,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=ucs		  . #x8C48)	; 豈
+     ((=ucs@unicode	  . #x8C48)	; &AJ1-06738;
+      (=adobe-japan1-0	  . 06738)	; &AJ1-06738;
       )
      ((=ucs		  . #x5202)	; 刂
       ))
@@ -17826,6 +17827,7 @@
     (=gt		. 02724)	; &I-GT-02724;
     (=gt-pj-1		. #x5173)	; &I-GT-02724; [49-83]
     (=daikanwa		. 02122)	; &I-M-02122;
+    (=daijiten		. 00823)	; &I-DJT-00823;
     (=shinjigen		.  0677)	; &AJ1-04266;
     (->subsumptive
      ((==ucs@unicode	  . #x5274)	; &g2-AJ1-04266;
@@ -17836,9 +17838,12 @@
       (==gb12345	  . #x585C)	; &g2-AJ1-04266; [56-60]
       (==gt		  . 02724)	; &g2-AJ1-04266;
       (==daikanwa	  . 02122)	; &g2-AJ1-04266;
+      (==daijiten	  . 00823)	; &g2-AJ1-04266;
       (==shinjigen	  .  0677)	; &g2-AJ1-04266;
       (->subsumptive
        ((===daikanwa	    . 02122)	; &R-M-02122;
+	)
+       ((===daijiten	    . 00823)	; &R-DJT-00823;
 	)
        ((===jis-x0208	    . #x5173)	; &R-J0-5173; [49-83]
 	(===jis-x0213-1	    . #x5173)	; &R-J0-5173; [49-83]
@@ -25141,6 +25146,7 @@
 (define-char
   '((ideographic-radical . 18)	; ⼑
     (==>ucs@bucs	. #x5274)	; &BUCS+5274;
+    (==>daijiten	. 00823)	; &BUCS+5274;
     ))
 (define-char
   '((ideographic-radical . 18)	; ⼑
