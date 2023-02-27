@@ -4349,6 +4349,83 @@
       ))
     ))
 (define-char
+  '((ideographic-radical . 24)	; ⼗
+    (ideographic-strokes . 7)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>ucs-itaiji-003	  . #x579A)	; &A-U-i003+579A;
+      )
+     ((=>ucs@iwds-1	  . #x4E0C)	; &A-IWDSU+4E0C;
+      (=>iwds-1		  .  0221)	; &A-IWDSU+4E0C;
+      ))
+    (ideographic-structure@apparent
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5725)	; 圥
+      )
+     ((=ucs		  . #x5143)	; 元
+      ))
+    (=ucs		. #x2B754)	; 𫝔
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2B754)	; 𫝔
+      ))
+    (ideographic-radical . 24)	; ⼗
+    (ideographic-strokes . 7)
+    (total-strokes	 . 9)
+    (ideographic-structure@apparent
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs@unicode	  . #x5725)	; &AJ1-21323;
+      )
+     ((=ucs		  . #x5143)	; 元
+      ))
+    (=ucs-itaiji-001	. #x2B754)	; &U-i001+2B754;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2B754)	; 𫝔
+      ))
+    (ideographic-radical . 24)	; ⼗
+    (ideographic-strokes . 7)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs-itaiji-003	  . #x579A)	; &U-i003+579A;
+      )
+     ((=ucs@unicode	  . #x5140)	; &AJ1-04209;
+      (=adobe-japan1-0	  . 04209)	; &AJ1-04209;
+      ))
+    (=ucs@JP/hanazono	. #x2B754)	; &MJ057218;
+    (=mj		. 057218)	; &MJ057218;
+    (=koseki		. 058080)	; &MJ057218;
+    (<-formed
+     ((=ucs@unicode	  . #x582F)	; &AJ1-07474;
+      (=adobe-japan1-0	  . 07474)	; &AJ1-07474;
+      ))
+    (<-formed$_1*sources
+     koseki mj)
+    (<-formed*sources
+     koseki mj)
+    (->subsumptive
+     ((==koseki		  . 058080)	; &g2-KOSEKI-058080;
+      )
+     ((==ucs@JP/hanazono  . #x2B754)	; &g2-MJ057218;
+      (==mj		  . 057218)	; &g2-MJ057218;
+      (->subsumptive
+       ((===mj		    . 057218)	; &R-MJ057218;
+	))
+      ))
+    ))
+(define-char
   '((=>ucs		. #x209A3)	; 𠦣
     (ideographic-radical . 24)	; ⼗
     (ideographic-strokes . 8)
