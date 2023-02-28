@@ -876,6 +876,9 @@
   '((<-denotational@component
      ((=>ucs@iwds-1	  . #x5C82)	; &A-IWDSU+5C82;
       ))
+    (<-denotational@usage
+     ((==>ucs@bucs	  . #x8C48)	; &BUCS+8C48;
+      ))
     (ideographic-radical . 46)	; ⼭
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
@@ -17210,12 +17213,47 @@
       )
      ((=ucs		  . #x5C71)	; 山
       )
-     ((=ucs		  . #x8C48)	; 豈
+     ((=>ucs@iwds-1	  . #x8C48)	; &A-IWDSU+8C48;
       ))
+    (sound@ja/on	"gai" "kai")
     (=ucs		. #x5D66)	; 嵦
-    (=cns11643-3	. #x407A)	; &I-C3-407A; [32-90]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5D66)	; 嵦
+      ))
+    (ideographic-radical . 46)	; ⼭
+    (ideographic-strokes . 10)
+    (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5C71)	; 山
+      )
+     ((=ucs@unicode	  . #x8C48)	; &AJ1-06738;
+      (=adobe-japan1-0	  . 06738)	; &AJ1-06738;
+      ))
+    (=ucs@unicode	. #x5D66)	; &C3-407A;
+    (=cns11643-3	. #x407A)	; &C3-407A; [32-90]
     (=daikanwa		. 08343)	; &I-M-08343;
     (=cbeta		. 06477)	; &I-CB06477;
+    (->subsumptive
+     ((==ucs@cns	  . #x5D66)	; &g2-M-08343;
+      (==cns11643-3	  . #x407A)	; &g2-M-08343; [32-90]
+      (==daikanwa	  . 08343)	; &g2-M-08343;
+      (==cbeta		  . 06477)	; &g2-M-08343;
+      (->subsumptive
+       ((===daikanwa	    . 08343)	; &R-M-08343;
+	)
+       ((===cns11643-3	    . #x407A)	; &R-C3-407A; [32-90]
+	)
+       ((===cbeta	    . 06477)	; &R-CB06477;
+	))
+      )
+     ((==ucs@unicode	  . #x5D66)	; &g2-UU+5D66;
+      (==ucs@JP/hanazono  . nil)
+      ))
     ))
 (define-char
   '((ideographic-radical . 46)	; ⼭
