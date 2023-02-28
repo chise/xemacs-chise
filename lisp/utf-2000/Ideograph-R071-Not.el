@@ -56,6 +56,10 @@
       ))
     (<-Qizi*sources
      shuowen)
+    (<-ancient
+     ((=ucs@unicode	  . #x6A46)	; &AJ1-08504;
+      (=adobe-japan1-2	  . 08504)	; &AJ1-08504;
+      ))
     (<-original
      ((=ucs@unicode	  . #x7121)	; &AJ1-03777;
       (=adobe-japan1-0	  . 03777)	; &AJ1-03777;
