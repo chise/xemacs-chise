@@ -4167,7 +4167,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=ucs		  . #x8C48)	; 豈
+     ((=>ucs@iwds-1	  . #x8C48)	; &A-IWDSU+8C48;
       )
      ((=>ucs@iwds-1	  . #x4E38)	; &A-IWDSU+4E38;
       (=>iwds-1		  .  65535)	; &A-IWDSU+4E38;
@@ -4188,7 +4188,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=ucs		  . #x8C48)	; 豈
+     ((=ucs@unicode	  . #x8C48)	; &AJ1-06738;
+      (=adobe-japan1-0	  . 06738)	; &AJ1-06738;
       )
      ((=ucs		  . #x51E0)	; 几
       ))
@@ -4241,7 +4242,8 @@
       (=jis-x0213-1	  . #x7D57)	; &I-JX1-7D57; [93-55]
       (=daikanwa	  . 41451)	; &I-M-41451;
       )
-     ((=ucs		  . #x8C48)	; 豈
+     ((=ucs@unicode	  . #x8C48)	; &AJ1-06738;
+      (=adobe-japan1-0	  . 06738)	; &AJ1-06738;
       (=daikanwa	  . 36249)	; &I-M-36249;
       ))
     (<-same$_1*sources
