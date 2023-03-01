@@ -11978,14 +11978,7 @@
     (zinbun-oracle-page . 44)
     (=zinbun-oracle	. 00949)	; &ZOB-0949;
     (<-Oracle-Bones
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	(=ucs		    . #x2FF1)	; ⿱
-	)
-       ((=ucs		    . #x73A8)	; 玨
-	)
-       ((=adobe-japan1-4    . 15391)	; &AJ1-15391;
-	))
+     ((=ucs-itaiji-003	  . #x5F57)	; &U-i003+5F57;
       ))
     ))
 (define-char
