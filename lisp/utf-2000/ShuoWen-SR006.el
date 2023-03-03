@@ -1775,6 +1775,11 @@
     (<-Small-Seal@shuowen
      ((=ucs		  . #x8CA6)	; 貦
       ))
+    (<-formed@shuowen
+     ((=shuowen-jiguge	  . 00925)	; &SW-JIGUGE-00925;
+      )
+     ((=ucs		  . #x73A9)	; 玩
+      ))
     (->subsumptive
      ((===shuowen-jiguge-A30 . 00926)	; &SW-JIGUGE30-00926;
       )
