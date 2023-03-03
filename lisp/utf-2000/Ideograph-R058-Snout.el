@@ -2070,6 +2070,49 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
+     ((=ucs		  . #x5F50)	; 彐
+      )
+     ((ideographic-structure
+       ((=ucs-itaiji-001    . #x2FF1)	; &U-i001+2FF1;
+	)
+       ((=ucs		    . #x4E95)	; 井
+	)
+       ((=ucs		    . #x516B)	; 八
+	))
+      ))
+    (=>ucs-itaiji-002	. #x2DD18)	; &A-U-i002+2DD18;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs-itaiji-002	  . #x2DD18)	; &A-U-i002+2DD18;
+      ))
+    (ideographic-radical . 58)	; ⼹
+    (ideographic-strokes . 6)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=adobe-japan1-4	  . 15391)	; &AJ1-15391;
+      )
+     ((ideographic-structure
+       ((=ucs-itaiji-001    . #x2FF1)	; &U-i001+2FF1;
+	)
+       ((=ucs		    . #x4E95)	; 井
+	)
+       ((=ucs		    . #x516B)	; 八
+	))
+      ))
+    (=ucs-itaiji-002	. #x2DD18)	; &U-i002+2DD18;
+    ))
+(define-char
+  '((ideographic-radical . 58)	; ⼹
+    (ideographic-strokes . 6)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
      ((=>ucs-itaiji-003@iwds-1 . #x5F51)	; &A-IWDSU-i003+5F51;
       )
      ((=ucs		  . #x6728)	; 木
@@ -2506,6 +2549,38 @@
        ((===ucs@iso	    . #x2245E)	; &R-U-0002245E;
 	))
       ))
+    ))
+(define-char
+  '((ideographic-radical . 58)	; ⼹
+    (ideographic-strokes . 8)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>ucs@iwds-1	  . #x73CF)	; &A-IWDSU+73CF;
+      )
+     ((name		  . "CJK RADICAL SNOUT TWO")
+      (=ucs		  . #x2E95)	; ⺕
+      ))
+    (=>ucs-itaiji-003	. #x5F57)	; &A-U-i003+5F57;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs-itaiji-003	  . #x5F57)	; &A-U-i003+5F57;
+      ))
+    (ideographic-radical . 58)	; ⼹
+    (ideographic-strokes . 8)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x73A8)	; 玨
+      )
+     ((=adobe-japan1-4	  . 15391)	; &AJ1-15391;
+      ))
+    (=ucs-itaiji-003	. #x5F57)	; &U-i003+5F57;
     ))
 (define-char
   '((ideographic-radical . 58)	; ⼹

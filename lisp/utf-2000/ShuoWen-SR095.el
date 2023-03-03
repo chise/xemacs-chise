@@ -3,6 +3,10 @@
   '((shuowen-radical	. 95)	; 用
     (=shuowen-jiguge	. 10019)	; &SW-JIGUGE-10019;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x200A6)	; 𠂦
+      )
+     ((=ucs		  . #x24C03)	; 𤰃
+      )
      ((=ucs		  . #x7528)	; 用
       ))
     (->subsumptive
@@ -17,7 +21,16 @@
   '((shuowen-radical	. 95)	; 用
     (=shuowen-jiguge	. 10100)	; &SW-JIGUGE-10100;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x24C06)	; 𤰆
+      ))
+    (<-ancient@shuowen
+     ((=shuowen-jiguge	  . 10019)	; &SW-JIGUGE-10019;
+      )
      ((=ucs		  . #x200A6)	; 𠂦
+      )
+     ((=ucs		  . #x24C03)	; 𤰃
+      )
+     ((=ucs		  . #x7528)	; 用
       ))
     (->subsumptive
      ((===shuowen-jiguge-A30 . 10600)	; &SW-JIGUGE30-10600;
