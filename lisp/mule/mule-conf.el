@@ -3926,6 +3926,37 @@
 		  direction     l2r
 		  registry      "cdp\\.itaiji-5$"
 		  mother        =big5-cdp))
+  (make-charset '=>big5-cdp-itaiji-005
+		"Big5-CDP-itaiji-005 abstract characters of GlyphWiki"
+		'(long-name     "Big5-CDP-itaiji-005"
+		  chars         256
+		  dimension     2
+		  columns       2
+		  graphic       2
+		  direction     l2r
+		  registry      "cdp\\.itaiji-5$"
+		  mother        =big5-cdp-itaiji-005))
+
+  (make-charset '=big5-cdp-itaiji-006
+		"Big5-CDP-itaiji-006 glyphs of GlyphWiki"
+		'(long-name     "Big5-CDP-itaiji-006"
+		  chars         256
+		  dimension     2
+		  columns       2
+		  graphic       2
+		  direction     l2r
+		  registry      "cdp\\.itaiji-6$"
+		  mother        =big5-cdp))
+  (make-charset '=>big5-cdp-itaiji-006
+		"Big5-CDP-itaiji-006 abstract characters of GlyphWiki"
+		'(long-name     "Big5-CDP-itaiji-006"
+		  chars         256
+		  dimension     2
+		  columns       2
+		  graphic       2
+		  direction     l2r
+		  registry      "cdp\\.itaiji-6$"
+		  mother        =big5-cdp-itaiji-006))
 
   (make-charset '=big5-cdp-var-001
 		"Big5-CDP-var-001 glyphs of GlyphWiki"
