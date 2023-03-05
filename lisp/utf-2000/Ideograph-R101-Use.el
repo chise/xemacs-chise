@@ -542,6 +542,19 @@
 	))
       ))
     (=ucs		. #x24C06)	; 𤰆
+    (<-ancient
+     ((=ucs		  . #x200A6)	; 𠂦
+      )
+     ((=ucs		  . #x24C03)	; 𤰃
+      )
+     ((=ucs		  . #x7528)	; 用
+      ))
+    (<-ancient$_1*sources
+     shuowen)
+    (<-ancient$_2*sources
+     shuowen)
+    (<-ancient$_3*sources
+     shuowen)
     ))
 (define-char
   '((<-denotational

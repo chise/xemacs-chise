@@ -2,7 +2,7 @@
 
 ;; Copyright (C) 1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007,
 ;;   2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019,
-;;   2020, 2021, 2022 MORIOKA Tomohiko.
+;;   2020, 2021, 2022, 2023 MORIOKA Tomohiko.
 
 ;; Author: MORIOKA Tomohiko <tomo@kanji.zinbun.kyoto-u.ac.jp>
 ;; Keywords: CHISE, Character Database, ISO/IEC 10646, UCS, Unicode, MULE.
@@ -408,6 +408,8 @@
     =>big5-cdp-itaiji-002
     =>big5-cdp-itaiji-003
     =>big5-cdp-itaiji-004
+    =>big5-cdp-itaiji-005
+    =>big5-cdp-itaiji-006
     =>big5-cdp-var-001
     =>ucs@iwds-1
     =>ucs@cognate
