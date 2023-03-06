@@ -6,7 +6,7 @@
 ;; Copyright (C) 1995 Sun Microsystems.
 ;; Copyright (C) 1997, 1999, 2002, 2003, 2004, 2005, 2006, 2008, 2009,
 ;;   2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020,
-;;   2021, 2022 MORIOKA Tomohiko
+;;   2021, 2022, 2023 MORIOKA Tomohiko
 
 ;; This file is part of XEmacs.
 
@@ -676,6 +676,8 @@
 	  (=>big5-cdp-itaiji-002	  "A-CDP-i002-" 4 X)
 	  (=>big5-cdp-itaiji-003	  "A-CDP-i003-" 4 X)
 	  (=>big5-cdp-itaiji-004	  "A-CDP-i004-" 4 X)
+	  (=>big5-cdp-itaiji-005	  "A-CDP-i005-" 4 X)
+	  (=>big5-cdp-itaiji-006	  "A-CDP-i006-" 4 X)
 	  (=>big5-cdp-var-001		  "A-CDP-v001-" 4 X)
 	  (=>ucs-itaiji-001@iwds-1	"A-IWDSU-i001+" 4 X)
 	  (=>ucs-itaiji-002@iwds-1	"A-IWDSU-i002+" 4 X)
