@@ -11474,6 +11474,7 @@
       )
      ((=ucs		  . #x5393)	; 厓
       ))
+    (sound@ja/on	"gai")
     (=ucs		. #x5D15)	; 崕
     ))
 (define-char
@@ -11509,8 +11510,17 @@
       (=jis-x0208	  . #x3333)	; &I-J90-3333; [19-19]
       (=shinjigen	  .  1993)	; &AJ1-01425;
       ))
+    (<-formed$_1*sources
+     shinjigen)
     (<-formed*sources
      shinjigen)
+    (<-same
+     ((=ucs@unicode	  . #x5D16)	; &AJ1-01425;
+      (=adobe-japan1-0	  . 01425)	; &AJ1-01425;
+      (=daikanwa	  . 08180)	; &I-M-08180;
+      ))
+    (<-same*sources
+     zhengzitong daikanwa)
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x5D15)	; 崕
@@ -11564,6 +11574,8 @@
       )
      ((=ucs		  . #x5393)	; 厓
       ))
+    (sound@ja/on/go	"ge" "gi")
+    (sound@ja/on/kan	"gai" "gi")
     (=ucs		. #x5D16)	; 崖
     ))
 (define-char
@@ -11596,6 +11608,30 @@
     (=daikanwa		. 08180)	; &I-M-08180;
     (=daijiten		. 02619)	; &I-DJT-02619;
     (=shinjigen		.  1993)	; &AJ1-01425;
+    (<-formed
+     ((=ucs@unicode	  . #x5393)	; &AJ1-08407;
+      (=adobe-japan1-2	  . 08407)	; &AJ1-08407;
+      ))
+    (<-formed$_1*sources
+     jiyun)
+    (<-interchangeable
+     ((=ucs@unicode	  . #x6DAF)	; &AJ1-01428;
+      (=adobe-japan1-0	  . 01428)	; &AJ1-01428;
+      (=daikanwa	  . 17582)	; &I-M-17582;
+      ))
+    (<-interchangeable$_1*sources
+     shiwen daikanwa)
+    (<-interchangeable*sources
+     shiwen daikanwa)
+    (<-same
+     ((=ucs@unicode	  . #x5393)	; &AJ1-08407;
+      (=adobe-japan1-2	  . 08407)	; &AJ1-08407;
+      (=daikanwa	  . 02930)	; &I-M-02930;
+      ))
+    (<-same$_1*sources
+     jiyun daikanwa)
+    (<-same*sources
+     jiyun daikanwa)
     (->subsumptive
      ((==ucs@unicode	  . #x5D16)	; &g2-AJ1-01425;
       (==adobe-japan1-0	  . 01425)	; &g2-AJ1-01425;
