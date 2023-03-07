@@ -4600,6 +4600,8 @@
       )
      ((=>ucs@iwds-1	  . #x8C48)	; &A-IWDSU+8C48;
       ))
+    (sound@ja/on/go	"ge" "gWai" "gai")
+    (sound@ja/on/kan	"gi" "gWai" "gai")
     (=ucs		. #x51D2)	; 凒
     ))
 (define-char
@@ -4626,6 +4628,25 @@
     (=daikanwa		. 01684)	; &I-M-01684;
     (=daijiten		. 00686)	; &I-DJT-00686;
     (=jef-china3	. #x43FD)	; &I-JC3-43FD;
+    (<-formed
+     ((=ucs@unicode	  . #x769A)	; &AJ1-05794;
+      (=adobe-japan1-0	  . 05794)	; &AJ1-05794;
+      ))
+    (->formed
+     ((=ucs@unicode	  . #x769A)	; &AJ1-05794;
+      (=adobe-japan1-0	  . 05794)	; &AJ1-05794;
+      (=daikanwa	  . 22765)	; &I-M-22765;
+      )
+     ((=ucs@unicode	  . #x6EB0)	; &C2-443B;
+      (=cns11643-2	  . #x443B)	; &C2-443B; [36-27]
+      (=daikanwa	  . 17976)	; &I-M-17976;
+      ))
+    (->formed$_1*sources
+     jiyun daikanwa)
+    (->formed$_2*sources
+     jiyun daikanwa)
+    (->formed*sources
+     jiyun daikanwa)
     (->subsumptive
      ((==ucs@unicode	  . #x51D2)	; &g2-AJ1-21186;
       (==adobe-japan1-6	  . 21186)	; &g2-AJ1-21186;
