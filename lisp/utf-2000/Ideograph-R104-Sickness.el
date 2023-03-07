@@ -5917,6 +5917,69 @@
       )
      ((=ucs		  . #x7592)	; 疒
       )
+     ((=ucs		  . #x5152)	; 兒
+      ))
+    (sound@ja/on/go	"gei" "ge")
+    (sound@ja/on/kan	"gei" "gai")
+    (=ucs		. #x24DC5)	; 𤷅
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x24DC5)	; 𤷅
+      ))
+    (ideographic-radical . 104)	; ⽧
+    (ideographic-strokes . 8)
+    (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs		  . #x7592)	; 疒
+      )
+     ((=ucs@unicode	  . #x5152)	; &MJ007236;
+      (=mj		  . 007236)	; &MJ007236;
+      ))
+    (=ucs@iso		. #x24DC5)	; &C4-3E7B;
+    (=cns11643-4	. #x3E7B)	; &C4-3E7B; [30-91]
+    (=daikanwa		. 22260)	; &I-M-22260;
+    (<-formed
+     ((=ucs@unicode	  . #x775A)	; &AJ1-05823;
+      (=adobe-japan1-0	  . 05823)	; &AJ1-05823;
+      ))
+    (<-formed$_1*sources
+     jiyun)
+    (<-same
+     ((=ucs@unicode	  . #x775A)	; &AJ1-05823;
+      (=adobe-japan1-0	  . 05823)	; &AJ1-05823;
+      (=daikanwa	  . 23437)	; &I-M-23437;
+      ))
+    (<-same$_1*sources
+     jiyun daikanwa)
+    (<-same*sources
+     jiyun daikanwa)
+    (->subsumptive
+     ((==ucs@iso	  . #x24DC5)	; &g2-M-22260;
+      (==cns11643-4	  . #x3E7B)	; &g2-M-22260; [30-91]
+      (==daikanwa	  . 22260)	; &g2-M-22260;
+      (->subsumptive
+       ((===daikanwa	    . 22260)	; &R-M-22260;
+	)
+       ((===cns11643-4	    . #x3E7B)	; &R-C4-3E7B; [30-91]
+	)
+       ((===ucs@iso	    . #x24DC5)	; &R-U-00024DC5;
+	))
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 104)	; ⽧
+    (ideographic-strokes . 8)
+    (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs		  . #x7592)	; 疒
+      )
      ((=ucs		  . #x7A7A)	; 空
       ))
     (=ucs		. #x3FA4)	; 㾤
@@ -7175,13 +7238,6 @@
     (ideographic-strokes . 8)
     (total-strokes	 . 13)
     (=ucs		. #x7606)	; 瘆
-    ))
-(define-char
-  '((ideographic-radical . 104)	; ⽧
-    (ideographic-strokes . 8)
-    (total-strokes	 . 13)
-    (=ucs		. #x24DC5)	; 𤷅
-    (=cns11643-4	. #x3E7B)	; &I-C4-3E7B; [30-91]
     ))
 (define-char
   '((ideographic-radical . 104)	; ⽧
