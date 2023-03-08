@@ -1845,7 +1845,10 @@
     (=daikanwa		. 02929)	; &I-M-02929;
     ))
 (define-char
-  '((ideographic-radical . 27)	; ⼚
+  '((<-denotational@usage
+     ((==>daijiten	  . 01063)	; &A2-DJT-01063;
+      ))
+    (ideographic-radical . 27)	; ⼚
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
     (ideographic-structure
@@ -1856,6 +1859,8 @@
       )
      ((=ucs		  . #x572D)	; 圭
       ))
+    (sound@ja/on/go	"ge" "gi")
+    (sound@ja/on/kan	"gai" "gi")
     (=ucs		. #x5393)	; 厓
     ))
 (define-char
@@ -1883,9 +1888,60 @@
     (=jis-x0213-1	. #x2E72)	; &I-JX1-2E72; [14-82]
     (=big5-cdp		. #x88E8)	; &I-CDP-88E8;
     (=daikanwa		. 02930)	; &I-M-02930;
+    (=daijiten		. 01063)	; &I-DJT-01063;
     (=shinjigen		.  0877)	; &AJ1-08407;
     (=cbeta		. 00514)	; &I-CB00514;
     (=jef-china3	. #x45DB)	; &I-JC3-45DB;
+    (<-formed
+     ((=ucs@unicode	  . #x775A)	; &AJ1-05823;
+      (=adobe-japan1-0	  . 05823)	; &AJ1-05823;
+      ))
+    (<-formed$_1*sources
+     jiyun)
+    (<-interchangeable
+     ((=ucs@unicode	  . #x775A)	; &AJ1-05823;
+      (=adobe-japan1-0	  . 05823)	; &AJ1-05823;
+      (=daikanwa	  . 23437)	; &I-M-23437;
+      ))
+    (<-interchangeable$_1*sources
+     hanshu-zhu daikanwa)
+    (<-interchangeable*sources
+     hanshu-zhu daikanwa)
+    (<-same
+     ((=ucs@unicode	  . #x775A)	; &AJ1-05823;
+      (=adobe-japan1-0	  . 05823)	; &AJ1-05823;
+      (=daikanwa	  . 23437)	; &I-M-23437;
+      ))
+    (<-same$_1*sources
+     jiyun daikanwa)
+    (<-same*sources
+     jiyun daikanwa)
+    (->formed
+     ((=ucs@unicode	  . #x5D16)	; &AJ1-01425;
+      (=adobe-japan1-0	  . 01425)	; &AJ1-01425;
+      (=daikanwa	  . 08180)	; &I-M-08180;
+      )
+     ((=ucs@unicode	  . #x5D15)	; &AJ1-04682;
+      (=adobe-japan1-0	  . 04682)	; &AJ1-04682;
+      (=daikanwa	  . 08179)	; &I-M-08179;
+      )
+     ((=ucs@unicode	  . #x6DAF)	; &AJ1-01428;
+      (=adobe-japan1-0	  . 01428)	; &AJ1-01428;
+      (=daikanwa	  . 17582)	; &I-M-17582;
+      )
+     ((=ucs		  . #x984F)	; 顏
+      (=daikanwa	  . 43591)	; &I-M-43591;
+      ))
+    (->formed$_1*sources
+     jiyun yunhai daikanwa)
+    (->formed$_2*sources
+     jiyun daikanwa)
+    (->formed$_3*sources
+     shiwen jiyun daikanwa)
+    (->formed$_4*sources
+     jiyun daikanwa)
+    (->formed*sources
+     jiyun daikanwa)
     (->subsumptive
      ((==ucs@unicode	  . #x5393)	; &g2-AJ1-08407;
       (==adobe-japan1-2	  . 08407)	; &g2-AJ1-08407;
@@ -1895,11 +1951,14 @@
       (==jis-x0213-1	  . #x2E72)	; &g2-AJ1-08407; [14-82]
       (==big5-cdp	  . #x88E8)	; &g2-AJ1-08407;
       (==daikanwa	  . 02930)	; &g2-AJ1-08407;
+      (==daijiten	  . 01063)	; &g2-AJ1-08407;
       (==shinjigen	  .  0877)	; &g2-AJ1-08407;
       (==cbeta		  . 00514)	; &g2-AJ1-08407;
       (==jef-china3	  . #x45DB)	; &g2-AJ1-08407;
       (->subsumptive
        ((===daikanwa	    . 02930)	; &R-M-02930;
+	)
+       ((===daijiten	    . 01063)	; &R-DJT-01063;
 	)
        ((===jis-x0212	    . #x3447)	; &R-JX1-2E72; [20-39]
 	(===jis-x0213-1	    . #x2E72)	; &R-JX1-2E72; [14-82]
@@ -8505,6 +8564,10 @@
 (define-char
   '((ideographic-radical . 27)	; ⼚
     (==>ucs@bucs	. #x5384)	; &BUCS+5384;
+    ))
+(define-char
+  '((ideographic-radical . 27)	; ⼚
+    (==>daijiten	. 01063)	; &A2-DJT-01063;
     ))
 (define-char
   '((ideographic-radical . 27)	; ⼚
