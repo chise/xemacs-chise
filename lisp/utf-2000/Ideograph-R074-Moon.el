@@ -4759,7 +4759,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=ucs		  . #x6708)	; 月
+     ((=>ucs@component	  . #x6708)	; &A-compU+6708;
+      (=>iwds-1		  .  0053)	; &A-compU+6708;
       )
      ((=ucs		  . #x9F21)	; 鼡
       ))
@@ -4783,6 +4784,38 @@
       (=adobe-japan1-0	  . 07454)	; &AJ1-07454;
       ))
     (=ucs@JP/hanazono	. #x2B787)	; &hanaJU+2B787;
+    ))
+(define-char
+  '((ideographic-radical . 74)	; ⽉
+    (ideographic-strokes . 8)
+    (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=>big5-cdp	  . #x8A73)	; &IWDS1-20021;
+      )
+     ((=ucs-itaiji-002	  . #x7077)	; &U-i002+7077;
+      ))
+    (=>ucs-itaiji-001	. #x23379)	; &A-U-i001+23379;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs-itaiji-001	  . #x23379)	; &A-U-i001+23379;
+      ))
+    (ideographic-radical . 74)	; ⽉
+    (ideographic-strokes . 8)
+    (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs@unicode	  . #x6708)	; &MJ013520;
+      (=mj		  . 013520)	; &MJ013520;
+      )
+     ((=ucs-itaiji-002	  . #x7077)	; &U-i002+7077;
+      ))
+    (=ucs-itaiji-001	. #x23379)	; &U-i001+23379;
     ))
 (define-char
   '((ideographic-radical . 74)	; ⽉
