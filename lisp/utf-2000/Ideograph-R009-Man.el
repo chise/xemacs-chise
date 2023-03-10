@@ -81888,6 +81888,8 @@
       )
      ((=ucs		  . #x7FEB)	; 翫
       ))
+    (sound@ja/on/go	"goN")
+    (sound@ja/on/kan	"koN")
     (=ucs		. #x20422)	; 𠐢
     ))
 (define-char
@@ -81908,8 +81910,38 @@
       (=ucs@ks		  . #x7FEB)	; &MJ020716;
       (=mj		  . 020716)	; &MJ020716;
       ))
-    (=daikanwa		. 01272)	; &M-01272;
-    (=hanziku-1		. #xD6BF)	; &I-HZK01-D6BF;
+    (=mj		. 030864)	; &MJ030864;
+    (=koseki		. 014760)	; &MJ030864;
+    (=daikanwa		. 01272)	; &I-M-01272;
+    (<-formed
+     ((=ucs@jis/2004	  . #x7FEB)	; &MJ020716;
+      (=ucs@ks		  . #x7FEB)	; &MJ020716;
+      (=mj		  . 020716)	; &MJ020716;
+      ))
+    (<-formed$_1*sources
+     koseki mj)
+    (<-formed*sources
+     koseki mj)
+    (<-same
+     ((=ucs@jis/2004	  . #x7FEB)	; &MJ020716;
+      (=ucs@ks		  . #x7FEB)	; &MJ020716;
+      (=mj		  . 020716)	; &MJ020716;
+      (=daikanwa	  . 28766)	; &I-M-28766;
+      ))
+    (<-same*sources
+     kangxi daikanwa)
+    (->subsumptive
+     ((==mj		  . 030864)	; &g2-MJ030864;
+      (==daikanwa	  . 01272)	; &g2-MJ030864;
+      (->subsumptive
+       ((===daikanwa	    . 01272)	; &R-M-01272;
+	)
+       ((===mj		    . 030864)	; &R-MJ030864;
+	))
+      )
+     ((==koseki		  . 014760)	; &g2-KOSEKI-014760;
+      (=hanziku-1	  . #xD6BF)	; &g2-KOSEKI-014760;
+      ))
     ))
 (define-char
   '((<-denotational
