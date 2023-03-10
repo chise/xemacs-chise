@@ -908,6 +908,14 @@
     (ideographic-radical . 26)	; ⼙
     (ideographic-strokes . 3)
     (total-strokes	 . 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x2008E)	; 𠂎
+      )
+     ((=ucs		  . #x5369)	; 卩
+      ))
     (=ucs		. #x536F)	; 卯
     (=>iwds-1		.  0039)	; 卯
     ))
@@ -923,7 +931,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=ucs		  . #x2008E)	; 𠂎
+     ((=big5-cdp	  . #x8D41)	; &CDP-8D41;
       )
      ((=ucs		  . #x5369)	; 卩
       ))
@@ -942,15 +950,7 @@
     (=daijiten		. 01033)	; &I-DJT-01033;
     (=shinjigen		.  0848)	; &AJ1-01230;
     (->subsumptive
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	(=ucs		    . #x2FF0)	; ⿰
-	)
-       ((=big5-cdp	    . #x8D41)	; &CDP-8D41;
-	)
-       ((=ucs		    . #x5369)	; 卩
-	))
-      (==ucs@unicode	  . #x536F)	; &g2-AJ1-01230;
+     ((==ucs@unicode	  . #x536F)	; &g2-AJ1-01230;
       (==adobe-japan1-0	  . 01230)	; &g2-AJ1-01230;
       (==gb2312		  . #x432E)	; &g2-AJ1-01230; [35-14]
       (==ks-x1001	  . #x5956)	; &g2-AJ1-01230; [57-54]
