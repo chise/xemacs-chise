@@ -18837,8 +18837,8 @@
     (<-formed$_2*sources
      jiyun)
     (<-interchangeable
-     ((=ucs@iso		  . #x2A5E8)	; &C4-6628;
-      (=cns11643-4	  . #x6628)	; &C4-6628; [70-08]
+     ((=ucs@iso		  . #x2A5E8)	; &MJ056614;
+      (=mj		  . 056614)	; &MJ056614;
       (=daikanwa	  . 48615)	; &I-M-48615;
       ))
     (<-interchangeable$_1*sources
