@@ -129,6 +129,10 @@
   '((shuowen-radical	. 353)	; 广
     (=shuowen-jiguge	. 31606)	; &SW-JIGUGE-31606;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x2230B)	; 𢌋
+      )
+     ((=ucs		  . #x222F0)	; 𢋰
+      )
      ((=ucs		  . #x5EE1)	; 廡
       ))
     (->subsumptive
@@ -144,6 +148,15 @@
     (=shuowen-jiguge	. 31607)	; &SW-JIGUGE-31607;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x222D1)	; 𢋑
+      ))
+    (<-Zhouwen@shuowen
+     ((=shuowen-jiguge	  . 31606)	; &SW-JIGUGE-31606;
+      )
+     ((=ucs		  . #x2230B)	; 𢌋
+      )
+     ((=ucs		  . #x222F0)	; 𢋰
+      )
+     ((=ucs		  . #x5EE1)	; 廡
       ))
     (->subsumptive
      ((===shuowen-jiguge-A30 . 32607)	; &SW-JIGUGE30-32607;
