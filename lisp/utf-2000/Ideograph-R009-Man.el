@@ -78831,8 +78831,10 @@
   '((<-denotational
      ((=>ucs@cognate	  . #x511B)	; &A-cgnU+511B;
       ))
+    (<-denotational@usage
+     ((==>ucs@bucs	  . #x821E)	; &BUCS+821E;
+      ))
     (ideographic-radical . 9)	; ⼈
-    (hanyu-dazidian	1 231 3)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -78844,22 +78846,42 @@
     (sound@ja/on/go	"mu")
     (sound@ja/on/kan	"bu")
     (=ucs		. #x511B)	; 儛
-    (=mj		. 007160)	; &I-MJ007160;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x511B)	; 儛
+      ))
+    (ideographic-radical . 9)	; ⼈
+    (hanyu-dazidian	1 231 3)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x4EBB)	; 亻
+      )
+     ((=ucs@unicode	  . #x821E)	; &MJ021375;
+      (=mj		  . 021375)	; &MJ021375;
+      ))
+    (=ucs@unicode	. #x511B)	; &MJ007160;
+    (=mj		. 007160)	; &MJ007160;
     (=adobe-japan1-4	. 14347)	; &I-AJ1-14347;
     (=jis-x0212		. #x3255)	; &I-JSP-3255; [18-53]
     (=cns11643-3	. #x5035)	; &I-C3-5035; [48-21]
     (=jis-x0213-2	. #x2324)	; &I-JX2-2324; [03-04]
     (=hanyo-denshi/jb	. #x3255)	; &I-HD-JB-3255; [18-53]
-    (=hanyo-denshi/ks	. 014330)	; 儛
+    (=hanyo-denshi/ks	. 014330)	; &MJ007160;
     (=daikanwa		. 01237)	; &I-M-01237;
+    (=daijiten		. 00537)	; &I-DJT-00537;
     (=cbeta		. 01425)	; &I-CB01425;
     (<-formed
-     ((=ucs		  . #x821E)	; 舞
+     ((=ucs@unicode	  . #x821E)	; &MJ021375;
+      (=mj		  . 021375)	; &MJ021375;
       ))
     (<-formed$_1*sources
      jiyun)
     (<-same
-     ((=ucs		  . #x821E)	; 舞
+     ((=ucs@unicode	  . #x821E)	; &MJ021375;
+      (=mj		  . 021375)	; &MJ021375;
       (=daikanwa	  . 30342)	; &I-M-30342;
       ))
     (<-same*sources
@@ -78924,8 +78946,11 @@
 	(==jis-x0212	    . #x3255)	; &g2-MJ007161; [18-53]
 	(==jis-x0213-2	    . #x2324)	; &g2-MJ007161; [03-04]
 	(==hanyo-denshi/jb  . #x3255)	; &g2-MJ007161; [18-53]
+	(==daijiten	    . 00537)	; &g2-MJ007161;
 	(==cbeta	    . 01425)	; &g2-MJ007161;
 	(->subsumptive
+	 ((===daijiten	      . 00537)	; &R-DJT-00537;
+	  )
 	 ((===jis-x0212	      . #x3255)	; &R-HD-JB-3255; [18-53]
 	  (===jis-x0213-2     . #x2324)	; &R-HD-JB-3255; [03-04]
 	  (===hanyo-denshi/jb . #x3255)	; &R-HD-JB-3255; [18-53]
