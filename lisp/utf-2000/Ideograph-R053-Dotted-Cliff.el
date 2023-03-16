@@ -12320,7 +12320,8 @@
     (->Small-Seal*sources
      zhengzitong)
     (->Zhouwen
-     ((=ucs		  . #x222D1)	; 𢋑
+     ((=ucs@iso		  . #x222D1)	; &MJ035427;
+      (=mj		  . 035427)	; &MJ035427;
       (=daikanwa	  . 09518)	; &I-M-09518;
       ))
     (->Zhouwen$_1*sources
@@ -12335,7 +12336,8 @@
       (=mj		  . 035463)	; &MJ035463;
       (=daikanwa	  . 09558)	; &I-M-09558;
       )
-     ((=ucs		  . #x222D1)	; 𢋑
+     ((=ucs@iso		  . #x222D1)	; &MJ035427;
+      (=mj		  . 035427)	; &MJ035427;
       (=daikanwa	  . 09518)	; &I-M-09518;
       ))
     (->formed$_1*sources
@@ -14025,9 +14027,40 @@
       ))
     (sound@ja/on	"bu")
     (=ucs		. #x222D1)	; 𢋑
-    (=mj		. 035427)	; &I-MJ035427;
+    (<-Zhouwen
+     ((=ucs		  . #x2230B)	; 𢌋
+      )
+     ((=ucs		  . #x222F0)	; 𢋰
+      )
+     ((=ucs		  . #x5EE1)	; 廡
+      ))
+    (<-Zhouwen$_1*sources
+     shuowen)
+    (<-Zhouwen$_2*sources
+     shuowen)
+    (<-Zhouwen$_3*sources
+     shuowen)
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x222D1)	; 𢋑
+      ))
+    (ideographic-radical . 53)	; ⼴
+    (ideographic-strokes . 14)
+    (total-strokes	 . 17)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs		  . #x5E7F)	; 广
+      )
+     ((=ucs@unicode	  . #x821E)	; &MJ021375;
+      (=mj		  . 021375)	; &MJ021375;
+      ))
+    (=ucs@iso		. #x222D1)	; &MJ035427;
+    (=mj		. 035427)	; &MJ035427;
     (=cns11643-7	. #x376E)	; &I-C7-376E; [23-78]
-    (=koseki		. 107650)	; 𢋑
+    (=koseki		. 107650)	; &MJ035427;
     (=daikanwa		. 09518)	; &I-M-09518;
     (=cbeta		. 03887)	; &I-CB03887;
     (<-Zhouwen
