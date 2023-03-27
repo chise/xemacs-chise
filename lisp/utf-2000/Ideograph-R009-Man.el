@@ -48752,6 +48752,8 @@
       )
      ((=ucs		  . #x5951)	; 契
       ))
+    (sound@ja/on/go	"seti")
+    (sound@ja/on/kan	"setu")
     (=ucs		. #x5070)	; 偰
     ))
 (define-char
@@ -48790,6 +48792,49 @@
     (=hanyo-denshi/jb	. #x3174)	; &I-HD-JB-3174; [17-84]
     (=daikanwa		. 00893)	; &I-M-00893;
     (=jef-china3	. #x42F5)	; &I-JC3-42F5;
+    (<-formed
+     ((=ucs@unicode	  . #x79BC)	; &MJ018987;
+      (=mj		  . 018987)	; &MJ018987;
+      ))
+    (->ancient
+     ((=ucs@unicode	  . #x79BC)	; &MJ018987;
+      (=mj		  . 018987)	; &MJ018987;
+      (=daikanwa	  . 24891)	; &I-M-24891;
+      )
+     ((=ucs@iso		  . #x2573F)	; &C6-4C40;
+      (=cns11643-6	  . #x4C40)	; &C6-4C40; [44-32]
+      (=daikanwa	  . 24890)	; &I-M-24890;
+      ))
+    (->ancient$_1*sources
+     shuowen-zhu daikanwa)
+    (->ancient$_2*sources
+     shuowen-zhu daikanwa)
+    (->ancient*sources
+     shuowen-zhu daikanwa)
+    (->formed
+     ((=mj		  . 009490)	; &MJ009490;
+      (=daikanwa	  . 05917)	; &I-M-05917;
+      ))
+    (->formed$_1*sources
+     shuowen-zhu jiyun daikanwa)
+    (->formed*sources
+     shuowen-zhu jiyun daikanwa)
+    (->interchangeable
+     ((=ucs@unicode	  . #x79BC)	; &MJ018987;
+      (=mj		  . 018987)	; &MJ018987;
+      )
+     ((=ucs@iso		  . #x2573F)	; &C6-4C40;
+      (=cns11643-6	  . #x4C40)	; &C6-4C40; [44-32]
+      (=daikanwa	  . 24890)	; &I-M-24890;
+      )
+     ((=mj		  . 009490)	; &MJ009490;
+      ))
+    (->interchangeable$_1*sources
+     jiyun)
+    (->interchangeable$_2*sources
+     jiyun)
+    (->interchangeable*sources
+     jiyun)
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x5070)	; 偰
