@@ -5164,6 +5164,9 @@
   '((<-denotational
      ((=>ucs@cognate	  . #x5951)	; &A-cgnU+5951;
       ))
+    (<-denotational@usage
+     ((==>ucs@bucs	  . #x5951)	; &BUCS+5951;
+      ))
     (ideographic-radical . 37)	; ⼤
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
@@ -5175,6 +5178,8 @@
       )
      ((=ucs		  . #x5927)	; 大
       ))
+    (sound@ja/on/go	"kei" "keti" "seti" "koti" "keti")
+    (sound@ja/on/kan	"kei" "ketu" "setu" "kitu" "katu")
     (=ucs		. #x5951)	; 契
     ))
 (define-char
@@ -5201,6 +5206,51 @@
     (=gt-k		. 05057)	; &I-GT-K05057;
     (=gt-pj-2		. #x6735)	; &I-GT-07464; [71-21]
     (=daikanwa		. 05917)	; &I-M-05917;
+    (=daijiten		. 01984)	; &I-DJT-01984;
+    (<-formed
+     ((=ucs@unicode	  . #x79BC)	; &MJ018987;
+      (=mj		  . 018987)	; &MJ018987;
+      ))
+    (<-interchangeable
+     ((=ucs@cns		  . #x2F822)	; &MJ007572;
+      (=mj		  . 007572)	; &MJ007572;
+      (=daikanwa	  . 02112)	; &I-M-02112;
+      )
+     ((=ucs@jis		  . #x6814)	; &AJ1-21752;
+      (=adobe-japan1-6	  . 21752)	; &AJ1-21752;
+      (=daikanwa	  . 14691)	; &I-M-14691;
+      )
+     ((=ucs@jis		  . #x6308)	; &MJ012328;
+      (=mj		  . 012328)	; &MJ012328;
+      (=daikanwa	  . 12035)	; &I-M-12035;
+      )
+     ((=cns11643-2	  . #x4748)	; &C2-4748; [39-40]
+      (=daikanwa	  . 35066)	; &I-M-35066;
+      )
+     ((=ucs@jis		  . #x5070)	; &MJ006945;
+      (=mj		  . 006945)	; &MJ006945;
+      (=daikanwa	  . 00893)	; &I-M-00893;
+      )
+     ((=ucs@cns		  . #x5368)	; &GT-03597;
+      (=ucs@ks		  . #x5368)	; &GT-03597;
+      (=ks-x1001	  . #x6059)	; &GT-03597; [64-57]
+      (=cns11643-4	  . #x3064)	; &I-C4-3064; [16-68]
+      (=daikanwa	  . 02820)	; &I-M-02820;
+      ))
+    (<-interchangeable$_1*sources
+     shuowen-tongxun-dingsheng daikanwa)
+    (<-interchangeable$_2*sources
+     shuowen-tongxun-dingsheng daikanwa)
+    (<-interchangeable$_3*sources
+     shuowen-tongxun-dingsheng daikanwa)
+    (<-interchangeable$_4*sources
+     shuowen-tongxun-dingsheng daikanwa)
+    (<-interchangeable$_5*sources
+     shuowen-tongxun-dingsheng shiwen daikanwa)
+    (<-interchangeable$_6*sources
+     shuowen-tongxun-dingsheng shiwen hanshu-zhu daikanwa)
+    (<-interchangeable*sources
+     shuowen-tongxun-dingsheng daikanwa)
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x5951)	; 契
@@ -5209,8 +5259,11 @@
 	))
       (==adobe-japan1-5	  . 20104)	; &g2-AJ1-20104;
       (==daikanwa	  . 05917)	; &g2-AJ1-20104;
+      (==daijiten	  . 01984)	; &g2-AJ1-20104;
       (->subsumptive
        ((===daikanwa	    . 05917)	; &R-M-05917;
+	)
+       ((===daijiten	    . 01984)	; &R-DJT-01984;
 	)
        ((===adobe-japan1-5  . 20104)	; &R-AJ1-20104;
 	))
@@ -13261,6 +13314,11 @@
   '((ideographic-radical . 37)	; ⼤
     (==>ucs@bucs	. #x5944)	; &BUCS+5944;
     (==>daijiten	. 01968)	; &BUCS+5944;
+    ))
+(define-char
+  '((ideographic-radical . 37)	; ⼤
+    (==>ucs@bucs	. #x5951)	; &BUCS+5951;
+    (==>daijiten	. 01984)	; &BUCS+5951;
     ))
 (define-char
   '((ideographic-radical . 37)	; ⼤
