@@ -28585,8 +28585,8 @@
     (=daikanwa		. 06522)	; &I-M-06522;
     (=jef-china3	. #x49D1)	; &I-JC3-49D1;
     (<-interchangeable
-     ((=ucs@jis		  . #x7994)	; &AJ1-08582;
-      (=adobe-japan1-2	  . 08582)	; &AJ1-08582;
+     ((=ucs@jis		  . #x7994)	; &MJ018908;
+      (=mj		  . 018908)	; &MJ018908;
       (=daikanwa	  . 24773)	; &I-M-24773;
       ))
     (<-interchangeable$_1*sources
@@ -44453,9 +44453,9 @@
     (<-formed$_2*sources
      jiyun)
     (<-interchangeable
-     ((=ucs@jis		  . #x79AA)	; &AJ1-05899;
-      (=ucs@ks		  . #x79AA)	; &AJ1-05899;
-      (=adobe-japan1-0	  . 05899)	; &AJ1-05899;
+     ((=ucs@jis		  . #x79AA)	; &MJ018954;
+      (=ucs@ks		  . #x79AA)	; &MJ018954;
+      (=mj		  . 018954)	; &MJ018954;
       (=daikanwa	  . 24835)	; &I-M-24835;
       )
      ((=ucs@unicode	  . #x5B0B)	; &MJ009976;
