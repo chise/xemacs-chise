@@ -2843,10 +2843,7 @@
     (=cns11643-5	. #x2540)	; &I-C5-2540; [05-32]
     ))
 (define-char
-  '((<-denotational@usage
-     ((==>ucs@bucs	  . #x5351)	; &BUCS+5351;
-      ))
-    (ideographic-radical . 24)	; ⼗
+  '((ideographic-radical . 24)	; ⼗
     (=>iwds-1*note	"190+287")
     (=>ucs@component	. #x5351)	; &A-compU+5351;
     (=>iwds-1		.  0287)	; &A-compU+5351;
@@ -2855,6 +2852,9 @@
   '((<-denotational
      ((=>ucs@component	  . #x5351)	; &A-compU+5351;
       (=>iwds-1		  .  0287)	; &A-compU+5351;
+      ))
+    (<-denotational@usage
+     ((==>ucs@bucs	  . #x5351)	; &BUCS+5351;
       ))
     (ideographic-radical . 24)	; ⼗
     (=ucs		. #x5351)	; 卑
@@ -2931,6 +2931,15 @@
   '((<-denotational
      ((=ucs		  . #x5351)	; 卑
       ))
+    (ideographic-radical . 24)	; ⼗
+    (ideographic-strokes . 6)
+    (total-strokes	 . 8)
+    (=ucs-itaiji-003	. #x5351)	; &U-i003+5351;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5351)	; 卑
+      ))
     (script		JP Jouyou Ideograph)
     (=>ucs*		. #x5351)	; 卑
     (ideographic-radical . 24)	; ⼗
@@ -2992,6 +3001,9 @@
       ))
     (<-denotational@component
      ((=>big5-cdp	  . #x8BD9)	; &A-CDP-8BD9;
+      ))
+    (<-denotational@usage
+     ((==>ucs@bucs	  . #x5351)	; &BUCS+5351;
       ))
     (ideographic-radical . 24)	; ⼗
     (=ucs		. #x24C1E)	; 𤰞
