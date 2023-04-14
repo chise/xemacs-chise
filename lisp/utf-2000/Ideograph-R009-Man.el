@@ -69164,7 +69164,29 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 9)	; ⼈
+  '((<-denotational@usage
+     ((==>ucs@bucs	  . #x50EC)	; &BUCS+50EC;
+      ))
+    (ideographic-radical . 9)	; ⼈
+    (ideographic-strokes . 12)
+    (total-strokes	 . 14)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x4EBB)	; 亻
+      )
+     ((=ucs		  . #x7126)	; 焦
+      ))
+    (sound@ja/on/go	"zEu" "sEu")
+    (sound@ja/on/kan	"sEu" "sEu")
+    (=ucs		. #x50EC)	; 僬
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x50EC)	; 僬
+      ))
+    (ideographic-radical . 9)	; ⼈
     (ideographic-strokes . 12)
     (total-strokes	 . 14)
     (hanyu-dazidian	1 220 7)
@@ -69174,20 +69196,25 @@
       )
      ((=ucs		  . #x4EBB)	; 亻
       )
-     ((=ucs		  . #x7126)	; 焦
+     ((=ucs@unicode	  . #x7126)	; &AJ1-02479;
+      (=adobe-japan1-0	  . 02479)	; &AJ1-02479;
       ))
-    (=ucs		. #x50EC)	; 僬
-    (=gb2312		. #x5955)	; &I-G0-5955; [57-53]
+    (=ucs@unicode	. #x50EC)	; &C2-4922;
+    (=gb2312		. #x5955)	; &C2-4922; [57-53]
     (=cns11643-2	. #x4922)	; &I-C2-4922; [41-02]
     (=big5		. #xE0FA)	; &I-B-E0FA;
     (=daikanwa		. 01127)	; &I-M-01127;
+    (=daijiten		. 00505)	; &I-DJT-00505;
     (->subsumptive
      ((==ucs@unicode	  . #x50EC)	; &g2-M-01127;
       (==gb2312		  . #x5955)	; &g2-M-01127; [57-53]
       (==cns11643-2	  . #x4922)	; &g2-M-01127; [41-02]
       (==daikanwa	  . 01127)	; &g2-M-01127;
+      (==daijiten	  . 00505)	; &g2-M-01127;
       (->subsumptive
        ((===daikanwa	    . 01127)	; &R-M-01127;
+	)
+       ((===daijiten	    . 00505)	; &R-DJT-00505;
 	)
        ((===cns11643-2	    . #x4922)	; &R-C2-4922; [41-02]
 	)
@@ -90086,6 +90113,11 @@
   '((ideographic-radical . 9)	; ⼈
     (==>ucs@bucs	. #x50E9)	; &BUCS+50E9;
     (==>daijiten	. 00507)	; &BUCS+50E9;
+    ))
+(define-char
+  '((ideographic-radical . 9)	; ⼈
+    (==>ucs@bucs	. #x50EC)	; &BUCS+50EC;
+    (==>daijiten	. 00505)	; &BUCS+50EC;
     ))
 (define-char
   '((ideographic-radical . 9)	; ⼈
