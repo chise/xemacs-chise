@@ -1421,11 +1421,18 @@
     (=daikanwa		. 09917)	; &I-M-09917;
     ))
 (define-char
-  '((ideographic-radical . 58)	; ⼹
+  '((<-denotational
+     ((=>ucs@cognate	  . #x5F54)	; &A-cgnU+5F54;
+      ))
+    (ideographic-radical . 58)	; ⼹
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
     (=>ucs@iwds-1	. #x5F54)	; &A-IWDSU+5F54;
     (=>daikanwa		. 09918)	; &A-IWDSU+5F54;
+    ))
+(define-char
+  '((ideographic-radical . 58)	; ⼹
+    (=>ucs@cognate	. #x5F54)	; &A-cgnU+5F54;
     ))
 (define-char
   '((<-denotational
@@ -1526,6 +1533,59 @@
      ((=ucs		  . #x6C3A)	; 氺
       ))
     (=ucs		. #x5F55)	; 录
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@cognate	  . #x5F54)	; &A-cgnU+5F54;
+      ))
+    (ideographic-radical . 58)	; ⼹
+    (ideographic-strokes . 5)
+    (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>ucs@iwds-1	  . #x5F51)	; &A-IWDSU+5F51;
+      (=>iwds-1		  .  37280)	; &A-IWDSU+5F51;
+      )
+     ((=ucs		  . #x6C34)	; 水
+      ))
+    (=>ucs-itaiji-002@iwds-1 . #x5F55)	; &A-IWDSU-i002+5F55;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs-itaiji-002@iwds-1 . #x5F55)	; &A-IWDSU-i002+5F55;
+      ))
+    (ideographic-radical . 58)	; ⼹
+    (ideographic-strokes . 5)
+    (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5F50)	; 彐
+      )
+     ((=ucs		  . #x6C34)	; 水
+      ))
+    (=>ucs-itaiji-002	. #x5F55)	; &A-U-i002+5F55;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs-itaiji-002	  . #x5F55)	; &A-U-i002+5F55;
+      ))
+    (ideographic-radical . 58)	; ⼹
+    (ideographic-strokes . 5)
+    (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs@jis		  . #x5F50)	; &AJ1-14521;
+      (=adobe-japan1-4	  . 14521)	; &AJ1-14521;
+      )
+     ((=ucs		  . #x6C34)	; 水
+      ))
+    (=ucs-itaiji-002	. #x5F55)	; &U-i002+5F55;
     ))
 (define-char
   '((<-denotational
