@@ -936,6 +936,28 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=ucs		  . #x74E0)	; 瓠
+      ))
+    (ideographic-radical . 97)	; ⽠
+    (ideographic-strokes . 6)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=mj		  . 009469)	; &MJ009469;
+      )
+     ((=ucs@jis		  . #x74DC)	; &AJ1-01245;
+      (=ucs@ks		  . #x74DC)	; &AJ1-01245;
+      (=adobe-japan1-0	  . 01245)	; &AJ1-01245;
+      ))
+    (=ucs-itaiji-002	. #x74E0)	; &U-i002+74E0;
+    (->subsumptive
+     ((==ucs-itaiji-002	  . #x74E0)	; &g2-U-i002+74E0;
+      ))
+    ))
+(define-char
   '((ideographic-radical . 97)	; ⽠
     (ideographic-strokes . 6)
     (total-strokes	 . 11)
