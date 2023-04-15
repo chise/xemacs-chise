@@ -4720,6 +4720,21 @@
       ))
     ))
 (define-char
+  '((ideographic-radical . 4)	; ⼃
+    (ideographic-strokes . 5)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((name*		  . "ideographic component person for top")
+      (=ucs		  . #x20089)	; 𠂉
+      )
+     ((=ucs		  . #x27607)	; 𧘇
+      ))
+    (=>big5-cdp		. #x8D55)	; &A-CDP-8D55;
+    ))
+(define-char
   '((<-denotational
      ((=+>big5-cdp	  . #x8845)	; &o-CDP-8845;
       ))
@@ -4811,6 +4826,24 @@
       )
      ((=big5-cdp-itaiji-003 . #x8845)	; &CDP-i003-8845;
       ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>big5-cdp	  . #x8D55)	; &A-CDP-8D55;
+      ))
+    (ideographic-radical . 4)	; ⼃
+    (ideographic-strokes . 5)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((name*		  . "ideographic component person for top")
+      (=ucs		  . #x20089)	; 𠂉
+      )
+     ((=big5-cdp	  . #x8C66)	; &CDP-8C66;
+      ))
+    (=big5-cdp		. #x8D55)	; &CDP-8D55;
     ))
 (define-char
   '((<-denotational@usage
