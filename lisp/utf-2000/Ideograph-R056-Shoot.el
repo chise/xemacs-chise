@@ -713,20 +713,45 @@
     (=gb2312		. #x5F30)	; &I-G0-5F30; [63-16]
     ))
 (define-char
-  '((ideographic-radical . 56)	; ⼷
+  '((<-denotational@usage
+     ((==>ucs@bucs	  . #x6212)	; &BUCS+6212;
+      ))
+    (ideographic-radical . 56)	; ⼷
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
       (=ucs		  . #x2FF9)	; ⿹
       )
-     ((=ucs		  . #x5F0F)	; 式
+     ((=ucs		  . #x6208)	; 戈
       )
-     ((=gt-k		  . 00059)	; &GT-K00059;
+     ((=>ucs@iwds-1	  . #x22018)	; &A-IWDSU+22018;
+      ))
+    (=>ucs-itaiji-001	. #x229B6)	; &A-U-i001+229B6;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs-itaiji-001	  . #x229B6)	; &A-U-i001+229B6;
+      ))
+    (ideographic-radical . 56)	; ⼷
+    (ideographic-strokes . 5)
+    (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
+      (=ucs		  . #x2FF9)	; ⿹
+      )
+     ((=ucs		  . #x6208)	; 戈
+      )
+     ((=gt-k		  . 01179)	; &GT-K01179;
       ))
     (=ucs-itaiji-001	. #x229B6)	; &U-i001+229B6;
-    (<-formed
+    (<-HNG@chise
      ((=ucs		  . #x229B6)	; 𢦶
+      ))
+    (<-formed
+     ((=ucs@iso		  . #x229B6)	; &C6-313C;
+      (=cns11643-6	  . #x313C)	; &C6-313C; [17-28]
+      (=daikanwa	  . 11576)	; &I-M-11576;
       ))
     (->subsumptive
      ((===hng-khi	  . 03940)	; &HNG010-03940;
