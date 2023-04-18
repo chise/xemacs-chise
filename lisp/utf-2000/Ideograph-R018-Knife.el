@@ -20387,10 +20387,12 @@
     (=hanziku-1		. #xEFFE)	; &I-HZK01-EFFE;
     ))
 (define-char
-  '((ideographic-radical . 18)	; ⼑
+  '((<-denotational@usage
+     ((==>ucs@bucs	  . #x5281)	; &BUCS+5281;
+      ))
+    (ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 12)
     (total-strokes	 . 14)
-    (hanyu-dazidian	1 355 20)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -20399,11 +20401,41 @@
       )
      ((=ucs		  . #x5202)	; 刂
       ))
+    (sound@ja/on/go	"zEu")
+    (sound@ja/on/kan	"sEu")
     (=ucs		. #x5281)	; 劁
-    (=gb2312		. #x5864)	; &I-G0-5864; [56-68]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5281)	; 劁
+      ))
+    (ideographic-radical . 18)	; ⼑
+    (ideographic-strokes . 12)
+    (total-strokes	 . 14)
+    (hanyu-dazidian	1 355 20)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs@unicode	  . #x7126)	; &AJ1-02479;
+      (=adobe-japan1-0	  . 02479)	; &AJ1-02479;
+      )
+     ((=ucs		  . #x5202)	; 刂
+      ))
+    (=ucs@unicode	. #x5281)	; &C2-4929;
+    (=gb2312		. #x5864)	; &C2-4929; [56-68]
     (=cns11643-2	. #x4929)	; &I-C2-4929; [41-09]
     (=big5		. #xE142)	; &I-B-E142;
     (=daikanwa		. 02182)	; &I-M-02182;
+    (<-interchangeable
+     ((=ucs@unicode	  . #x6A35)	; &AJ1-02473;
+      (=adobe-japan1-0	  . 02473)	; &AJ1-02473;
+      (=daikanwa	  . 15489)	; &I-M-15489;
+      ))
+    (<-interchangeable$_1*sources
+     guangya-shuzheng daikanwa)
+    (<-interchangeable*sources
+     guangya-shuzheng daikanwa)
     (->subsumptive
      ((==ucs@unicode	  . #x5281)	; &g2-M-02182;
       (==gb2312		  . #x5864)	; &g2-M-02182; [56-68]
@@ -25237,6 +25269,10 @@
   '((ideographic-radical . 18)	; ⼑
     (==>ucs@bucs	. #x527F)	; &BUCS+527F;
     (==>daijiten	. 00902)	; &BUCS+527F;
+    ))
+(define-char
+  '((ideographic-radical . 18)	; ⼑
+    (==>ucs@bucs	. #x5281)	; &BUCS+5281;
     ))
 (define-char
   '((ideographic-radical . 18)	; ⼑
