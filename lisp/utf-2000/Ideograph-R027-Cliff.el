@@ -1929,7 +1929,8 @@
       (=adobe-japan1-0	  . 01428)	; &AJ1-01428;
       (=daikanwa	  . 17582)	; &I-M-17582;
       )
-     ((=ucs		  . #x984F)	; 顏
+     ((=ucs@unicode	  . #x984F)	; &AJ1-07187;
+      (=adobe-japan1-0	  . 07187)	; &AJ1-07187;
       (=daikanwa	  . 43591)	; &I-M-43591;
       ))
     (->formed$_1*sources
