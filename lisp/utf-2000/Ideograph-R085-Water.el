@@ -151,6 +151,28 @@
 (define-char
   '((ideographic-radical . 85)	; ⽔
     (ideographic-strokes . 0)
+    (=>big5-cdp		. #x8864)	; &A-CDP-8864;
+    ))
+(define-char
+  '((<-denotational
+     ((=>big5-cdp	  . #x8864)	; &A-CDP-8864;
+      ))
+    (ideographic-radical . 85)	; ⽔
+    (ideographic-strokes . 0)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x4E09)	; 三
+      )
+     ((=ucs		  . #x4E09)	; 三
+      ))
+    (=big5-cdp-itaiji-003 . #x8CF0)	; &CDP-i003-8CF0;
+    ))
+(define-char
+  '((ideographic-radical . 85)	; ⽔
+    (ideographic-strokes . 0)
     (total-strokes	 . 5)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -187,7 +209,10 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 85)	; ⽔
+  '((<-denotational
+     ((=>big5-cdp	  . #x8864)	; &A-CDP-8864;
+      ))
+    (ideographic-radical . 85)	; ⽔
     (ideographic-strokes . 0)
     (total-strokes	 . 5)
     (=big5-cdp		. #x8864)	; &CDP-8864;
