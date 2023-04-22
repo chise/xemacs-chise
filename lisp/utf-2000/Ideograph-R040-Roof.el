@@ -8978,6 +8978,38 @@
       )
      ((=ucs		  . #x5B80)	; 宀
       )
+     ((=ucs		  . #x5942)	; 奂
+      ))
+    (=ucs		. #x21A21)	; 𡨡
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x21A21)	; 𡨡
+      ))
+    (ideographic-radical . 40)	; ⼧
+    (ideographic-strokes . 7)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5B80)	; 宀
+      )
+     ((=ucs@unicode	  . #x5942)	; &G0-5B3C;
+      (=gb2312		  . #x5B3C)	; &G0-5B3C; [59-28]
+      ))
+    (=ucs@iso		. #x21A21)	; &U-00021A21;
+    ))
+(define-char
+  '((ideographic-radical . 40)	; ⼧
+    (ideographic-strokes . 7)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5B80)	; 宀
+      )
      ((=ucs		  . #x4F2F)	; 伯
       ))
     (=ucs		. #x2A9D0)	; 𪧐
