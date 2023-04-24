@@ -3348,7 +3348,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
       (=ucs		  . #x2FF9)	; ⿹
       )
-     ((=big5-cdp	  . #x89D9)	; &CDP-89D9;
+     ((=ucs		  . #x2D80D)	; 𭠍
       )
      ((=ucs		  . #x4E00)	; 一
       ))

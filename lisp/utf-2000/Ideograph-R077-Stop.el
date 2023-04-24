@@ -4500,11 +4500,50 @@
     ))
 (define-char
   '((ideographic-radical . 77)	; ⽌
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
+      (=ucs		  . #x2FF4)	; ⿴
+      )
+     ((=>ucs@iwds-1	  . #x6B65)	; &A-IWDSU+6B65;
+      )
+     ((=>big5-cdp	  . #x8864)	; &A-CDP-8864;
+      ))
+    (=>ucs@cognate	. #x2397F)	; &A-cgnU+2397F;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@cognate	  . #x2397F)	; &A-cgnU+2397F;
+      ))
+    (ideographic-radical . 77)	; ⽌
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
+      (=ucs		  . #x2FF4)	; ⿴
+      )
+     ((=>ucs@iwds-1	  . #x6B65)	; &A-IWDSU+6B65;
+      )
+     ((=big5-cdp	  . #x8864)	; &CDP-8864;
+      ))
+    (=ucs		. #x2397F)	; 𣥿
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2397F)	; 𣥿
+      ))
+    (ideographic-radical . 77)	; ⽌
     (ideographic-strokes . 8)
     (total-strokes	 . 12)
     (hanyu-dazidian	2 1442 21)
-    (=ucs		. #x2397F)	; 𣥿
-    (=cns11643-6	. #x4A42)	; &I-C6-4A42; [42-34]
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
+      (=ucs		  . #x2FF4)	; ⿴
+      )
+     ((=ucs@unicode	  . #x6B65)	; &AJ1-13386;
+      (=adobe-japan1-4	  . 13386)	; &AJ1-13386;
+      )
+     ((=big5-cdp	  . #x8864)	; &CDP-8864;
+      ))
+    (=ucs@iso		. #x2397F)	; &C6-4A42;
+    (=cns11643-6	. #x4A42)	; &C6-4A42; [42-34]
     (=daikanwa		. 16315)	; &I-M-16315;
     (<-ancient
      ((=ucs		  . #x6D89)	; 涉
@@ -4525,6 +4564,41 @@
        ((===ucs@iso	    . #x2397F)	; &R-U-0002397F;
 	))
       ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@cognate	  . #x2397F)	; &A-cgnU+2397F;
+      ))
+    (ideographic-radical . 77)	; ⽌
+    (ideographic-strokes . 9)
+    (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
+      (=ucs		  . #x2FF4)	; ⿴
+      )
+     ((=>ucs@iwds-1	  . #x6B65)	; &A-IWDSU+6B65;
+      )
+     ((=big5-cdp-itaiji-003 . #x8CF0)	; &CDP-i003-8CF0;
+      ))
+    (=>ucs-itaiji-001	. #x2397F)	; &A-U-i001+2397F;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs-itaiji-001	  . #x2397F)	; &A-U-i001+2397F;
+      ))
+    (ideographic-radical . 77)	; ⽌
+    (ideographic-strokes . 9)
+    (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
+      (=ucs		  . #x2FF4)	; ⿴
+      )
+     ((=ucs@unicode	  . #x6B65)	; &AJ1-13386;
+      (=adobe-japan1-4	  . 13386)	; &AJ1-13386;
+      )
+     ((=big5-cdp-itaiji-003 . #x8CF0)	; &CDP-i003-8CF0;
+      ))
+    (=ucs-itaiji-001	. #x2397F)	; &U-i001+2397F;
     ))
 (define-char
   '((=>ucs		. #x23980)	; 𣦀
