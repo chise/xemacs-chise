@@ -628,9 +628,78 @@
   '((ideographic-radical . 98)	; ⽡
     (ideographic-strokes . 5)
     (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5917)	; 夗
+      )
+     ((=ucs		  . #x74E6)	; 瓦
+      ))
+    (sound@ja/on	"waN")
     (=ucs		. #x3F1D)	; 㼝
-    (=cns11643-3	. #x324B)	; &I-C3-324B; [18-43]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x3F1D)	; 㼝
+      ))
+    (ideographic-radical . 98)	; ⽡
+    (ideographic-strokes . 5)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs@unicode	  . #x5917)	; &MJ009433;
+      (=mj		  . 009433)	; &MJ009433;
+      )
+     ((=ucs		  . #x74E6)	; 瓦
+      ))
+    (=ucs@unicode	. #x3F1D)	; &C3-324B;
+    (=cns11643-3	. #x324B)	; &C3-324B; [18-43]
     (=daikanwa		. 21477)	; &I-M-21477;
+    (<-formed
+     ((=ucs@unicode	  . #x76CC)	; &AJ1-14871;
+      (=adobe-japan1-4	  . 14871)	; &AJ1-14871;
+      ))
+    (<-formed$_1*sources
+     jiyun)
+    (<-same
+     ((=ucs@unicode	  . #x76CC)	; &AJ1-14871;
+      (=adobe-japan1-4	  . 14871)	; &AJ1-14871;
+      (=daikanwa	  . 22979)	; &I-M-22979;
+      ))
+    (<-same$_1*sources
+     jiyun daikanwa)
+    (<-same*sources
+     jiyun daikanwa)
+    (->vulgar
+     ((=ucs@unicode	  . #x6900)	; &AJ1-04086;
+      (=adobe-japan1-0	  . 04086)	; &AJ1-04086;
+      (=daikanwa	  . 15001)	; &I-M-15001;
+      )
+     ((=ucs@unicode	  . #x7897)	; &AJ1-04088;
+      (=adobe-japan1-0	  . 04088)	; &AJ1-04088;
+      (=daikanwa	  . 24306)	; &I-M-24306;
+      ))
+    (->vulgar$_1*sources
+     shuowen-zhu daikanwa)
+    (->vulgar$_2*sources
+     shuowen-tongxun-dingsheng daikanwa)
+    (->vulgar*sources
+     daikanwa)
+    (->subsumptive
+     ((==ucs@unicode	  . #x3F1D)	; &g2-M-21477;
+      (==cns11643-3	  . #x324B)	; &g2-M-21477; [18-43]
+      (==daikanwa	  . 21477)	; &g2-M-21477;
+      (->subsumptive
+       ((===daikanwa	    . 21477)	; &R-M-21477;
+	)
+       ((===cns11643-3	    . #x324B)	; &R-C3-324B; [18-43]
+	)
+       ((===ucs@unicode	    . #x3F1D)	; &R-UU+3F1D;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 98)	; ⽡
