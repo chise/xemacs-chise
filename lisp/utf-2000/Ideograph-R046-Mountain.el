@@ -2065,10 +2065,18 @@
       ))
     (=ucs@iso		. #x21D49)	; &CDP-8CEF;
     (=big5-cdp		. #x8CEF)	; &CDP-8CEF;
+    (=cbeta		. 05467)	; &I-CB05467;
     (->subsumptive
-     ((=>>ucs@iso	  . #x21D49)	; &G-IU+21D49;
+     ((=>>ucs@iso	  . #x21D49)	; &G-CB05467;
+      (=>>cbeta		  . 05467)	; &G-CB05467;
       (->subsumptive
-       ((==ucs@iso	    . #x21D49)	; &g2-IU-00021D49;
+       ((==ucs@iso	    . #x21D49)	; &g2-CB05467;
+	(==cbeta	    . 05467)	; &g2-CB05467;
+	(->subsumptive
+	 ((===cbeta	      . 05467)	; &R-CB05467;
+	  )
+	 ((===ucs@iso	      . #x21D49)	; &R-U-00021D49;
+	  ))
 	)
        ((=gt-k		    . 01817)	; &GT-K01817;
 	(=gt-pj-k1	    . #x507B)	; &GT-K01817; [48-91]
@@ -16214,19 +16222,19 @@
      ((=ucs		  . #x5C71)	; 山
       )
      ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
-	(=ucs		    . #x2FF8)	; ⿸
-	)
-       ((=ucs		    . #x5382)	; 厂
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
+	(=ucs		    . #x2FF5)	; ⿵
 	)
        ((ideographic-structure
-	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
-	  (=ucs		      . #x2FF4)	; ⿴
+	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+	  (=ucs		      . #x2FF8)	; ⿸
 	  )
-	 ((=big5-cdp	      . #x89D9)	; &CDP-89D9;
+	 ((=ucs		      . #x5382)	; 厂
 	  )
-	 ((=ucs		      . #x2D544)	; 𭕄
+	 ((=ucs		      . #x2D80D)	; 𭠍
 	  ))
+	)
+       ((=ucs		    . #x2D544)	; 𭕄
 	))
       ))
     (===hng-khm		. 00720)	; &HNG011-00720;
