@@ -641,7 +641,8 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((=>>ucs@iso	    . #x21D49)	; &G-IU+21D49;
+       ((=>>ucs@iso	    . #x21D49)	; &G-CB05467;
+	(=>>cbeta	    . 05467)	; &G-CB05467;
 	)
        ((=ucs		    . #x6535)	; 攵
 	))
