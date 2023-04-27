@@ -8910,12 +8910,24 @@
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
     (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
-      (=ucs		  . #x2FF3)	; ⿳
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=ucs		  . #x5B80)	; 宀
+     ((=ucs-itaiji-001	  . #x707E)	; &U-i001+707E;
       )
-     ((=>ucs@component	  . #x706B)	; &A-compU+706B;
+     ((=ucs		  . #x5BF8)	; 寸
+      ))
+    (=ucs		. #x21A19)	; 𡨙
+    ))
+(define-char
+  '((ideographic-radical . 40)	; ⼧
+    (ideographic-strokes . 7)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>ucs@component	  . #x707E)	; &A-compU+707E;
       )
      ((=ucs		  . #x5915)	; 夕
       ))
