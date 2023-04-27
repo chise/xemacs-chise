@@ -1367,13 +1367,16 @@
     (=daikanwa/ho	.  0139)	; &M-H0139;
     ))
 (define-char
-  '((ideographic-radical . 43)	; ⼪
+  '((<-denotational@usage
+     ((==>ucs@bucs	  . #x582F)	; &BUCS+582F;
+      ))
+    (ideographic-radical . 43)	; ⼪
     (ideographic-strokes . 3)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=big5-cdp	  . #x89D9)	; &CDP-89D9;
+     ((=ucs		  . #x2D80D)	; 𭠍
       )
      ((=>ucs@component	  . #x5C22)	; &A-compU+5C22;
       (=>iwds-1		  .  0099)	; &A-compU+5C22;
@@ -1391,9 +1394,10 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=big5-cdp	  . #x89D9)	; &CDP-89D9;
+     ((=ucs		  . #x2D80D)	; 𭠍
       )
-     ((=ucs		  . #x5140)	; 兀
+     ((=ucs@unicode	  . #x5140)	; &AJ1-04209;
+      (=adobe-japan1-0	  . 04209)	; &AJ1-04209;
       ))
     (=ucs@unicode	. #x5C27)	; &G0-5222;
     (=gb2312		. #x5222)	; &G0-5222; [50-02]
