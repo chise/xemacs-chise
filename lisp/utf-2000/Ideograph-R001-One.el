@@ -7182,6 +7182,12 @@
     (=ucs-itaiji-006	. #x4E9F)	; &U-i006+4E9F;
     ))
 (define-char
+  '((ideographic-radical . 1)	; ⼀
+    (ideographic-strokes . 6)
+    (total-strokes	 . 7)
+    (=ucs-itaiji-001	. #x4E23)	; &U-i001+4E23;
+    ))
+(define-char
   '((<-denotational
      ((=>ucs@cognate	  . #x76F4)	; &A-cgnU+76F4;
       ))
