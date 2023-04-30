@@ -1163,13 +1163,15 @@
 	(=ucs@jis/2004	    . #x9F9C)	; &MJ030155;
 	(=mj		    . 030155)	; &MJ030155;
 	)
-       ((=ucs		    . #x706C)	; 灬
+       ((name		    . "CJK RADICAL FIRE")
+	(=ucs		    . #x2EA3)	; ⺣
 	))
       (=ucs@iso		  . #x2A6B0)	; &C4-662C;
       (=cns11643-4	  . #x662C)	; &C4-662C; [70-12]
       (=daikanwa	  . 48860)	; &I-M-48860;
       (<-same
-       ((=ucs		    . #x7126)	; 焦
+       ((=ucs@unicode	    . #x7126)	; &AJ1-02479;
+	(=adobe-japan1-0    . 02479)	; &AJ1-02479;
 	(=daikanwa	    . 19119)	; &I-M-19119;
 	)
        ((=ucs@jis/2004	    . #x707C)	; &HD-FT-3231;
@@ -1214,7 +1216,8 @@
 	(=jis-x0208@1978    . #x737D)	; &HD-FT-342D; [83-93]
 	(=ks-x1001	    . #x4F4F)	; &I-K0-4F4F; [47-47]
 	)
-       ((=ucs		    . #x706C)	; 灬
+       ((name		    . "CJK RADICAL FIRE")
+	(=ucs		    . #x2EA3)	; ⺣
 	))
       (=daijiten	  . 14890)	; &DJT-14890;
       (->subsumptive
@@ -1235,7 +1238,8 @@
       )
      ((=ucs-itaiji-003	  . #x9F9C)	; &U-i003+9F9C;
       )
-     ((=ucs		  . #x706C)	; 灬
+     ((name		  . "CJK RADICAL FIRE")
+      (=ucs		  . #x2EA3)	; ⺣
       ))
     (=ucs-var-002	. #x2A6B0)	; &U-v002+2A6B0;
     ))
@@ -1339,7 +1343,8 @@
      ((=ucs@unicode	  . #x9F9F)	; &G0-396A;
       (=gb2312		  . #x396A)	; &G0-396A; [25-74]
       )
-     ((=ucs		  . #x706C)	; 灬
+     ((name		  . "CJK RADICAL FIRE")
+      (=ucs		  . #x2EA3)	; ⺣
       ))
     (=ucs@JP/hanazono	. #x31346)	; &hanaJU+31346;
     (<-simplified@CN
