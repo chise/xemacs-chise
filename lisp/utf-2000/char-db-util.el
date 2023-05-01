@@ -182,6 +182,7 @@
     =hanyo-denshi/ia
     =hanyo-denshi/ib
     =hanyo-denshi/hg
+    =hanyo-denshi/ip
     =hanyo-denshi/jt
     =hanyo-denshi/ks
     =hanyo-denshi/tk
