@@ -10225,6 +10225,39 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
+     ((=>ucs@component	  . #x5C6E)	; &A-compU+5C6E;
+      (=>iwds-1		  .  0096)	; &A-compU+5C6E;
+      )
+     ((=ucs		  . #x590B)	; 夋
+      ))
+    (=ucs		. #x2D5A8)	; 𭖨
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2D5A8)	; 𭖨
+      ))
+    (ideographic-radical . 46)	; ⼭
+    (ideographic-strokes . 7)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5C71)	; 山
+      )
+     ((=ucs@unicode	  . #x590B)	; &AJ1-08425;
+      (=adobe-japan1-2	  . 08425)	; &AJ1-08425;
+      ))
+    (=ucs@JP/hanazono	. #x2D5A8)	; &hanaJU+2D5A8;
+    ))
+(define-char
+  '((ideographic-radical . 46)	; ⼭
+    (ideographic-strokes . 7)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
      ((=>gt-k		  . 02906)	; &A-GT-K02906;
       )
      ((=>ucs@component	  . #x5C6E)	; &A-compU+5C6E;
