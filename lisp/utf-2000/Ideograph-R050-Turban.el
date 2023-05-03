@@ -10726,7 +10726,8 @@
       ))
     (=ucs-itaiji-001	. #x5E23)	; &U-i001+5E23;
     (<-original
-     ((=daikanwa	  . 08881)	; &I-M-08881;
+     ((=hanyo-denshi/ip	  . #x5E23)	; &HD-IP-5E23;
+      (=daikanwa	  . 08881)	; &I-M-08881;
       ))
     ))
 (define-char
