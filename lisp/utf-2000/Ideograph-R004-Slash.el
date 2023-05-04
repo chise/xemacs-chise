@@ -6721,6 +6721,7 @@
       (=>iwds-1		  .  0150)	; &A-IWDSU+4E06;
       ))
     (=>gt-k		. 09373)	; &A-GT-K09373;
+    (=>ucs-itaiji-004	. #x22029)	; &A-GT-K09373;
     (<-simplified@component
      ((=ucs		  . #x22029)	; 𢀩
       ))
@@ -6736,7 +6737,28 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=ucs		  . #x200B9)	; 𠂹
+     ((=ucs@iso		  . #x200B9)	; &HD-KS-001860;
+      (=cns11643-5	  . #x2B67)	; &HD-KS-001860; [11-71]
+      (=daikanwa	  . 00155)	; &I-M-00155;
+      )
+     ((=ucs		  . #x5382)	; 厂
+      ))
+    (=ucs-itaiji-004	. #x22029)	; &U-i004+22029;
+    ))
+(define-char
+  '((<-denotational
+     ((=>gt-k		  . 09373)	; &A-GT-K09373;
+      ))
+    (ideographic-radical . 4)	; ⼃
+    (ideographic-strokes . 11)
+    (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs@iso		  . #x200B9)	; &HD-KS-001860;
+      (=cns11643-5	  . #x2B67)	; &HD-KS-001860; [11-71]
+      (=daikanwa	  . 00155)	; &I-M-00155;
       )
      ((=ucs		  . #x4E06)	; 丆
       ))

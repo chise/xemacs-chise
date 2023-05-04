@@ -28830,7 +28830,12 @@
     (=jef-china3	. #x48B0)	; &I-JC3-48B0;
     ))
 (define-char
-  '((ideographic-radical . 32)	; ⼟
+  '((<-denotational@usage
+     ((==>ucs@bucs	  . #x5869)	; &BUCS+5869;
+      )
+     ((==>daijiten	  . 14620)	; &A2-DJT-14620;
+      ))
+    (ideographic-radical . 32)	; ⼟
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
     (ideographic-structure
@@ -28867,10 +28872,12 @@
     (=gt		. 06701)	; &I-GT-06701;
     (=gt-pj-1		. #x3176)	; &I-GT-06701; [17-86]
     (=daikanwa		. 05382)	; &I-M-05382;
+    (=daijiten		. 01829)	; &I-DJT-01829;
     (=shinjigen		.  9769)	; &AJ1-01304;
     (=cbeta		. 02183)	; &I-CB02183;
     (<-simplified@JP/Jouyou
-     ((=ucs		  . #x9E7D)	; 鹽
+     ((=ucs@unicode	  . #x9E7D)	; &AJ1-07416;
+      (=adobe-japan1-0	  . 07416)	; &AJ1-07416;
       (=jis-x0208	  . #x7345)	; &I-J90-7345; [83-37]
       ))
     (->subsumptive
@@ -28881,10 +28888,13 @@
       (==jis-x0213-1	  . #x3176)	; &g2-AJ1-01304; [17-86]
       (==gt		  . 06701)	; &g2-AJ1-01304;
       (==daikanwa	  . 05382)	; &g2-AJ1-01304;
+      (==daijiten	  . 01829)	; &g2-AJ1-01304;
       (==shinjigen	  .  9769)	; &g2-AJ1-01304;
       (==cbeta		  . 02183)	; &g2-AJ1-01304;
       (->subsumptive
        ((===daikanwa	    . 05382)	; &R-M-05382;
+	)
+       ((===daijiten	    . 01829)	; &R-DJT-01829;
 	)
        ((===jis-x0208	    . #x3176)	; &R-J0-3176; [17-86]
 	(===jis-x0213-1	    . #x3176)	; &R-J0-3176; [17-86]
@@ -44930,6 +44940,13 @@
       ))
     (ideographic-radical . 32)	; ⼟
     (==>daijiten	. 01762)	; &A2-DJT-01762;
+    ))
+(define-char
+  '((<-denotational
+     ((==>daijiten	  . 14620)	; &A2-DJT-14620;
+      ))
+    (ideographic-radical . 32)	; ⼟
+    (==>ucs@bucs	. #x5869)	; &BUCS+5869;
     ))
 (define-char
   '((<-denotational
