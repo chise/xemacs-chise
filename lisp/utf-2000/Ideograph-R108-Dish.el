@@ -2081,11 +2081,37 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 108)	; ⽫
+  '((<-denotational@usage
+     ((==>ucs@bucs	  . #x9E7D)	; &BUCS+9E7D;
+      )
+     ((==>ucs@bucs	  . #x5869)	; &BUCS+5869;
+      ))
+    (ideographic-radical . 108)	; ⽫
     (ideographic-strokes . 5)
     (total-strokes	 . 10)
     (=ucs		. #x76D0)	; 盐
-    (=gb2312		. #x514E)	; &I-G0-514E; [49-46]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x76D0)	; 盐
+      ))
+    (ideographic-radical . 108)	; ⽫
+    (ideographic-strokes . 5)
+    (total-strokes	 . 10)
+    (=ucs@unicode	. #x76D0)	; &G0-514E;
+    (=gb2312		. #x514E)	; &G0-514E; [49-46]
+    (<-simplified@CN
+     ((=ucs@unicode	  . #x9E7D)	; &AJ1-07416;
+      (=adobe-japan1-0	  . 07416)	; &AJ1-07416;
+      (=gb12345		  . #x514E)	; &AJ1-07416; [49-46]
+      ))
+    (->subsumptive
+     ((==ucs@unicode	  . #x76D0)	; &g2-UU+76D0;
+      (==gb2312		  . #x514E)	; &g2-UU+76D0; [49-46]
+      (->subsumptive
+       ((===ucs@unicode	    . #x76D0)	; &R-UU+76D0;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 108)	; ⽫
@@ -4276,14 +4302,6 @@
     ))
 (define-char
   '((ideographic-radical . 108)	; ⽫
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-      (=ucs		  . #x2FF1)	; ⿱
-      )
-     ((=>big5-cdp@cognate . #x8CC9)	; &A-cgnCDP-8CC9;
-      )
-     ((=ucs		  . #x76BF)	; 皿
-      ))
     (=>ucs@cognate	. #x76E3)	; &A-cgnU+76E3;
     ))
 (define-char
@@ -4429,6 +4447,21 @@
      ((=>ucs@cognate	  . #x76E3)	; &A-cgnU+76E3;
       ))
     (ideographic-radical . 108)	; ⽫
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>ucs-itaiji-001	  . #x81E5)	; &A-U-i001+81E5;
+      )
+     ((=ucs		  . #x76BF)	; 皿
+      ))
+    (=>ucs-itaiji-005	. #x76E3)	; &A-U-i005+76E3;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@cognate	  . #x76E3)	; &A-cgnU+76E3;
+      ))
+    (ideographic-radical . 108)	; ⽫
     (ideographic-strokes . 10)
     (total-strokes	 . 15)
     (ideographic-structure
@@ -4477,6 +4510,23 @@
     (->subsumptive
      ((==ucs-itaiji-002	  . #x76E3)	; &g2-U-i002+76E3;
       ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs-itaiji-005	  . #x76E3)	; &A-U-i005+76E3;
+      ))
+    (ideographic-radical . 108)	; ⽫
+    (ideographic-strokes . 8)
+    (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs-itaiji-001	  . #x81E5)	; &U-i001+81E5;
+      )
+     ((=ucs		  . #x76BF)	; 皿
+      ))
+    (=ucs-itaiji-005	. #x76E3)	; &U-i005+76E3;
     ))
 (define-char
   '((<-denotational
