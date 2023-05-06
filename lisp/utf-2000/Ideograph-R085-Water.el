@@ -17659,6 +17659,76 @@
     (=ucs@iso		. #x23D45)	; &U-00023D45;
     ))
 (define-char
+  '((<-denotational
+     ((=>ucs@iwds-1	  . #x23D46)	; &A-IWDSU+23D46;
+      ))
+    (ideographic-radical . 85)	; ⽔
+    (ideographic-strokes . 7)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x6C35)	; 氵
+      )
+     ((=ucs		  . #x25924)	; 𥤤
+      ))
+    (=ucs		. #x23D46)	; 𣵆
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x23D46)	; 𣵆
+      ))
+    (ideographic-radical . 85)	; ⽔
+    (ideographic-strokes . 7)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x6C35)	; 氵
+      )
+     ((=ucs@iso		  . #x25924)	; &C5-2470;
+      (=cns11643-5	  . #x2470)	; &C5-2470; [04-80]
+      ))
+    (=ucs@iso		. #x23D46)	; &U-00023D46;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@iwds-1	  . #x23D46)	; &A-IWDSU+23D46;
+      ))
+    (ideographic-radical . 85)	; ⽔
+    (ideographic-strokes . 7)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x6C35)	; 氵
+      )
+     ((=ucs		  . #x7A76)	; 究
+      ))
+    (=ucs		. #x23D47)	; 𣵇
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x23D47)	; 𣵇
+      ))
+    (ideographic-radical . 85)	; ⽔
+    (ideographic-strokes . 7)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x6C35)	; 氵
+      )
+     ((=ucs@unicode	  . #x7A76)	; &AJ1-01664;
+      (=adobe-japan1-0	  . 01664)	; &AJ1-01664;
+      ))
+    (=ucs@iso		. #x23D47)	; &U-00023D47;
+    ))
+(define-char
   '((ideographic-radical . 85)	; ⽔
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
@@ -17729,6 +17799,18 @@
 (define-char
   '((ideographic-radical . 85)	; ⽔
     (=>ucs@cognate	. #x3CE4)	; &A-cgnU+3CE4;
+    ))
+(define-char
+  '((ideographic-radical . 85)	; ⽔
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x6C35)	; 氵
+      )
+     ((=>ucs@iwds-1	  . #x7A76)	; &A-IWDSU+7A76;
+      ))
+    (=>ucs@iwds-1	. #x23D46)	; &A-IWDSU+23D46;
     ))
 (define-char
   '((<-denotational

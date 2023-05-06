@@ -1980,8 +1980,7 @@
       )
      ((=zinbun-oracle	  . 00121)	; &ZOB-0121;
       )
-     ((=ucs@jis		  . #x7940)	; &AJ1-05886;
-      (=adobe-japan1-0	  . 05886)	; &AJ1-05886;
+     ((=shuowen-jiguge	  . 00325)	; &SW-JIGUGE-00325;
       ))
     (zinbun-oracle-page . 7)
     (=zinbun-oracle	. 00123)	; &ZOB-0123;

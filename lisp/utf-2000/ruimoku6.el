@@ -3576,7 +3576,10 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 181)	; ⾴
+  '((<-denotational
+     ((=>ruimoku-v6	  . #xE0E6)	; &A-RUI6-E0E6;
+      ))
+    (ideographic-radical . 181)	; ⾴
     (ideographic-strokes . 1)
     (total-strokes	 . 10)
     (ideographic-structure
