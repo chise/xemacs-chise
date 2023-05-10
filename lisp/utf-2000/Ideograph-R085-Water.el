@@ -31838,6 +31838,14 @@
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
     (ideographic-structure
+     ((=>ucs@component	  . #x2FF0)	; &U-v001+2FF0;
+      (=ucs-var-001	  . #x2FF0)	; &U-v001+2FF0;
+      )
+     ((=ucs		  . #x6C35)	; 氵
+      )
+     ((=ucs		  . #x5C03)	; 尃
+      ))
+    (ideographic-structure@apparent
      ((=>ucs@iwds-1	  . #x2FF8)	; &U-v002+2FF1;
       (=>iwds-1		  .  0305)	; &U-v002+2FF1;
       )
@@ -32013,6 +32021,14 @@
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
     (ideographic-structure
+     ((=ucs-itaiji-001	  . #x2FF6)	; &U-i001+2FF6;
+      )
+     ((=ucs@unicode	  . #x5C03)	; &AJ1-17537;
+      (=adobe-japan1-5	  . 17537)	; &AJ1-17537;
+      )
+     ((=ucs		  . #x6C35)	; 氵
+      ))
+    (ideographic-structure@apparent
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
