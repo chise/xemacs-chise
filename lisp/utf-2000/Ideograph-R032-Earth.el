@@ -28848,6 +28848,7 @@
       )
      ((=ucs		  . #x2C41A)	; 𬐚
       ))
+    (sound@ja/on	"eN")
     (=ucs		. #x5869)	; 塩
     ))
 (define-char
@@ -28881,6 +28882,13 @@
       (=adobe-japan1-0	  . 07416)	; &AJ1-07416;
       (=jis-x0208	  . #x7345)	; &I-J90-7345; [83-37]
       ))
+    (<-vulgar
+     ((=ucs@unicode	  . #x9E7D)	; &AJ1-07416;
+      (=adobe-japan1-0	  . 07416)	; &AJ1-07416;
+      (=daikanwa	  . 47579)	; &I-M-47579;
+      ))
+    (<-vulgar*sources
+     zhengzitong daikanwa)
     (->subsumptive
      ((==ucs@unicode	  . #x5869)	; &g2-AJ1-01304;
       (==adobe-japan1-0	  . 01304)	; &g2-AJ1-01304;
