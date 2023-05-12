@@ -3439,36 +3439,62 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 7)
     (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM BELOW")
-      (=ucs		  . #x2FF6)	; ⿶
+     ((=ucs-itaiji-001	  . #x2FF6)	; &U-i001+2FF6;
       )
      ((=>gt-k		  . 00383)	; &A-GT-K00383;
       )
-     ((=ucs		  . #x4ECC)	; 仌
+     ((=>ucs@iwds-1	  . #x4ECC)	; &A-IWDSU+4ECC;
+      (=>ucs@iwds-1/normalized . #x4ECC)	; &A-IWDSU+4ECC;
       ))
     (=>gt-k		. 03520)	; &A-GT-K03520;
+    (=>ucs-itaiji-001	. #x200DC)	; &A-GT-K03520;
+    ))
+(define-char
+  '((<-denotational
+     ((=>gt-k		  . 03520)	; &A-GT-K03520;
+      ))
+    (ideographic-radical . 5)	; ⼄
+    (ideographic-strokes . 6)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((=ucs-itaiji-001	  . #x2FF6)	; &U-i001+2FF6;
+      )
+     ((=gt-k		  . 00383)	; &GT-K00383;
+      )
+     ((=ucs		  . #x4ECC)	; 仌
+      ))
+    (=ucs-itaiji-001	. #x200DC)	; &U-i001+200DC;
     (->subsumptive
+     ((==ucs-itaiji-001	  . #x200DC)	; &g2-U-i001+200DC;
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>gt-k		  . 03520)	; &A-GT-K03520;
+      ))
+    (ideographic-radical . 5)	; ⼄
+    (ideographic-strokes . 6)
+    (total-strokes	 . 7)
+    (ideographic-structure@apparent
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
      ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	(=ucs		    . #x2FF1)	; ⿱
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((ideographic-structure
-	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	  (=ucs		      . #x2FF0)	; ⿰
-	  )
-	 ((=ucs		      . #x4ECC)	; 仌
-	  )
-	 ((=ucs		      . #x4E28)	; 丨
-	  ))
+       ((=ucs		    . #x4ECC)	; 仌
 	)
-       ((=ucs		    . #x4E06)	; 丆
+       ((=ucs		    . #x4E28)	; 丨
 	))
-      (=gt-k		  . 03520)	; &GT-K03520;
-      (=gt-pj-k1	  . #x5C58)	; &GT-K03520; [60-56]
-      (->subsumptive
-       ((==gt-k		    . 03520)	; &g2-GT-K03520;
-	(==gt-pj-k1	    . #x5C58)	; &g2-GT-K03520; [60-56]
-	))
+      )
+     ((=ucs		  . #x4E06)	; 丆
+      ))
+    (=gt-k		. 03520)	; &GT-K03520;
+    (=gt-pj-k1		. #x5C58)	; &GT-K03520; [60-56]
+    (->subsumptive
+     ((==gt-k		  . 03520)	; &g2-GT-K03520;
+      (==gt-pj-k1	  . #x5C58)	; &g2-GT-K03520; [60-56]
       ))
     ))
 (define-char
