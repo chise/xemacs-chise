@@ -526,7 +526,15 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=ucs		  . #x4E00)	; 一
+     ((=ucs		  . #x4E8C)	; 二
+      )
+     ((=ucs		  . #x6B62)	; 止
+      ))
+    (ideographic-structure@apparent
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>ucs@component	  . #x4E00)	; &A-compU+4E00;
       )
      ((=ucs		  . #x6B63)	; 正
       ))
@@ -545,6 +553,15 @@
     (ideographic-strokes . 2)
     (total-strokes	 . 6)
     (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x4E8C)	; 二
+      )
+     ((=ucs@unicode	  . #x6B62)	; &MJ014823;
+      (=mj		  . 014823)	; &MJ014823;
+      ))
+    (ideographic-structure@apparent
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
@@ -587,6 +604,41 @@
       )
      ((==ucs@cns	  . #x3C4F)	; &g2-CU+3C4F;
       (==cns11643-6	  . #x2525)	; &g2-CU+3C4F; [05-05]
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x3C4F)	; 㱏
+      ))
+    (ideographic-radical . 77)	; ⽌
+    (ideographic-structure@apparent
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x4EA0)	; 亠
+      )
+     ((=ucs		  . #x6B62)	; 止
+      ))
+    (=>ucs-itaiji-001	. #x3C4F)	; &A-U-i001+3C4F;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs-itaiji-001	  . #x3C4F)	; &A-U-i001+3C4F;
+      ))
+    (ideographic-radical . 77)	; ⽌
+    (ideographic-strokes . 2)
+    (total-strokes	 . 6)
+    (ideographic-structure@apparent
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=+>ucs@unicode	  . #x4EA0)	; &o-J0-5035;
+      )
+     ((=ucs@unicode	  . #x6B62)	; &MJ014823;
+      ))
+    (=ucs-itaiji-001	. #x3C4F)	; &U-i001+3C4F;
+    (->subsumptive
+     ((==ucs-itaiji-001	  . #x3C4F)	; &g2-U-i001+3C4F;
       ))
     ))
 (define-char
