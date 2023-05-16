@@ -561,7 +561,11 @@
     (->formed
      ((=ucs		  . #x353F)	; 㔿
       (=daikanwa	  . 02839)	; &I-M-02839;
+      )
+     ((=ucs-itaiji-002	  . #x2007E)	; &U-i002+2007E;
       ))
+    (->formed$_1*sources
+     shuowen-judu daikanwa)
     (->formed*sources
      shuowen-judu daikanwa)
     (->subsumptive
