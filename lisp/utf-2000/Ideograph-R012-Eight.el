@@ -4084,12 +4084,84 @@
      ((=ucs@jis		  . #x4E0E)	; &MJ006310;
       (=mj		  . 006310)	; &MJ006310;
       ))
+    (<-formed$_1*sources
+     koseki mj)
+    (<-formed$_2*sources
+     koseki mj)
     (<-formed*sources
      koseki mj)
     (->subsumptive
      ((==ucs@JP/hanazono  . #x2D048)	; &g2-MJ058413;
       (==mj		  . 058413)	; &g2-MJ058413;
       (==koseki		  . 336770)	; &g2-MJ058413;
+      (->subsumptive
+       ((===mj		    . 058413)	; &R-MJ058413;
+	))
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2D048)	; 𭁈
+      ))
+    (ideographic-radical . 12)	; ⼋
+    (ideographic-strokes . 6)
+    (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=big5-cdp	    . #x8969)	; &CDP-8969;
+	)
+       ((=ucs-var-003	    . #x30001)	; &U-v003+30001;
+	))
+      )
+     ((=gt-k		  . 00264)	; &GT-K00264;
+      ))
+    (=mj		. 059341)	; &MJ059341;
+    (->subsumptive
+     ((==mj		  . 059341)	; &g2-MJ059341;
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2D048)	; 𭁈
+      ))
+    (ideographic-radical . 12)	; ⼋
+    (ideographic-strokes . 6)
+    (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=big5-cdp	    . #x8969)	; &CDP-8969;
+	)
+       ((=ucs		    . #x30001)	; 𰀁
+	))
+      )
+     ((=gt-k		  . 00264)	; &GT-K00264;
+      ))
+    (=mj		. 059342)	; &MJ059342;
+    (=ucs-itaiji-003	. #x8208)	; &MJ059342;
+    (<-formed
+     ((=ucs@unicode	  . #x8207)	; &AJ1-06299;
+      (=adobe-japan1-0	  . 06299)	; &AJ1-06299;
+      ))
+    (<-formed$_1*sources
+     mj)
+    (<-formed*sources
+     mj)
+    (->subsumptive
+     ((==mj		  . 059342)	; &g2-MJ059342;
+      )
+     ((==ucs-itaiji-003	  . #x8208)	; &g2-U-i003+8208;
       ))
     ))
 (define-char
