@@ -574,6 +574,15 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=ucs		  . #x20006)	; 𠀆
+      ))
+    (ideographic-radical . 2)	; ⼁
+    (ideographic-strokes . 2)
+    (total-strokes	 . 3)
+    (=ucs-var-003	. #x30001)	; &U-v003+30001;
+    ))
+(define-char
   '((<-denotational@usage
      ((==>daijiten	  . 00055)	; &A2-DJT-00055;
       ))
