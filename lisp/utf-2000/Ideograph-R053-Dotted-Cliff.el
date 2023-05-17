@@ -6226,9 +6226,36 @@
   '((ideographic-radical . 53)	; ⼴
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs		  . #x5E7F)	; 广
+      )
+     ((=ucs		  . #x6216)	; 或
+      ))
+    (sound@ja/on	"waku")
     (=ucs		. #x2223F)	; 𢈿
     (=cns11643-6	. #x3F3F)	; &I-C6-3F3F; [31-31]
     (=daikanwa		. 09371)	; &I-M-09371;
+    (<-ancient
+     ((=ucs		  . #x6216)	; 或
+      (=daikanwa	  . 11563)	; &I-M-11563;
+      ))
+    (<-ancient*sources
+     yupian daikanwa)
+    (->subsumptive
+     ((==ucs@iso	  . #x2223F)	; &g2-M-09371;
+      (==cns11643-6	  . #x3F3F)	; &g2-M-09371; [31-31]
+      (==daikanwa	  . 09371)	; &g2-M-09371;
+      (->subsumptive
+       ((===daikanwa	    . 09371)	; &R-M-09371;
+	)
+       ((===cns11643-6	    . #x3F3F)	; &R-C6-3F3F; [31-31]
+	)
+       ((===ucs@iso	    . #x2223F)	; &R-U-0002223F;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 53)	; ⼴
