@@ -5104,6 +5104,37 @@
     ))
 (define-char
   '((ideographic-radical . 24)	; ⼗
+    (ideographic-strokes . 9)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x2D048)	; 𭁈
+      )
+     ((=ucs		  . #x30001)	; 𰀁
+      ))
+    (=ucs		. #x3144F)	; 𱑏
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x3144F)	; 𱑏
+      ))
+    (ideographic-radical . 24)	; ⼗
+    (ideographic-strokes . 9)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=mj		  . 059342)	; &MJ059342;
+      )
+     ((=ucs		  . #x30001)	; 𰀁
+      ))
+    (=ucs@JP/hanazono	. #x3144F)	; &hanaJU+3144F;
+    ))
+(define-char
+  '((ideographic-radical . 24)	; ⼗
     (=>big5-cdp		. #x856A)	; &A-CDP-856A;
     ))
 (define-char
