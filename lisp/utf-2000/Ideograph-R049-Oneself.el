@@ -253,11 +253,41 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 49)	; ⼰
+  '((<-denotational@usage
+     ((==>ucs@bucs	  . #x5DF4)	; &BUCS+5DF4;
+      ))
+    (ideographic-radical . 49)	; ⼰
+    (ideographic-strokes . 1)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
+      (=ucs		  . #x2FF4)	; ⿴
+      )
+     ((=>ucs@component	  . #x5DF1)	; &A-compU+5DF1;
+      (=>iwds-1		  .  0120)	; &A-compU+5DF1;
+      )
+     ((=ucs		  . #x4E28)	; 丨
+      ))
+    (sound@ja/on/go	"he")
+    (sound@ja/on/kan	"ha")
+    (=ucs		. #x5DF4)	; 巴
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5DF4)	; 巴
+      ))
+    (ideographic-radical . 49)	; ⼰
     (ideographic-strokes . 1)
     (total-strokes	 . 4)
-    (=ucs		. #x5DF4)	; 巴
-    (=adobe-japan1-0	. 03321)	; &I-AJ1-03321;
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
+      (=ucs		  . #x2FF4)	; ⿴
+      )
+     ((=ucs		  . #x5DF3)	; 巳
+      )
+     ((=ucs		  . #x4E28)	; 丨
+      ))
+    (=ucs@unicode	. #x5DF4)	; &AJ1-03321;
+    (=adobe-japan1-0	. 03321)	; &AJ1-03321;
     (=jis-x0208		. #x4743)	; &I-J90-4743; [39-35]
     (=gb2312		. #x304D)	; &I-G0-304D; [16-45]
     (=ks-x1001		. #x7769)	; &I-K0-7769; [87-73]
@@ -268,7 +298,76 @@
     (=gt-k		. 00474)	; &I-GT-K00474;
     (=gt-pj-1		. #x4743)	; &I-GT-11025; [39-35]
     (=daikanwa		. 08745)	; &I-M-08745;
-    (=shinjigen		.  2071)	; 巴
+    (=daijiten		. 02785)	; &I-DJT-02785;
+    (=shinjigen		.  2071)	; &AJ1-03321;
+    (<-formed@flipped-horizontally
+     ((=ucs-itaiji-003	  . #x2007E)	; &U-i003+2007E;
+      ))
+    (->subsumptive
+     ((==ucs@unicode	  . #x5DF4)	; &g2-AJ1-03321;
+      (==adobe-japan1-0	  . 03321)	; &g2-AJ1-03321;
+      (==gb2312		  . #x304D)	; &g2-AJ1-03321; [16-45]
+      (==ks-x1001	  . #x7769)	; &g2-AJ1-03321; [87-73]
+      (==jis-x0208	  . #x4743)	; &g2-AJ1-03321; [39-35]
+      (==cns11643-1	  . #x453B)	; &g2-AJ1-03321; [37-27]
+      (==jis-x0213-1	  . #x4743)	; &g2-AJ1-03321; [39-35]
+      (==gt		  . 11025)	; &g2-AJ1-03321;
+      (==gt-k		  . 00474)	; &g2-AJ1-03321;
+      (==daikanwa	  . 08745)	; &g2-AJ1-03321;
+      (==daijiten	  . 02785)	; &g2-AJ1-03321;
+      (==shinjigen	  .  2071)	; &g2-AJ1-03321;
+      (->subsumptive
+       ((===daikanwa	    . 08745)	; &R-M-08745;
+	)
+       ((===daijiten	    . 02785)	; &R-DJT-02785;
+	)
+       ((===jis-x0208	    . #x4743)	; &R-J0-4743; [39-35]
+	(===jis-x0213-1	    . #x4743)	; &R-J0-4743; [39-35]
+	)
+       ((===adobe-japan1-0  . 03321)	; &R-AJ1-03321;
+	)
+       ((===cns11643-1	    . #x453B)	; &R-C1-453B; [37-27]
+	)
+       ((===gt		    . 11025)	; &R-GT-11025;
+	(===gt-k	    . 00474)	; &R-GT-11025;
+	)
+       ((===ucs@ks	    . #x5DF4)	; &R-K0-7769;
+	(===ks-x1001	    . #x7769)	; &R-K0-7769; [87-73]
+	)
+       ((===ucs@unicode	    . #x5DF4)	; &R-UU+5DF4;
+	))
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5DF4)	; 巴
+      ))
+    (ideographic-radical . 49)	; ⼰
+    (ideographic-strokes . 1)
+    (total-strokes	 . 4)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
+      (=ucs		  . #x2FF4)	; ⿴
+      )
+     ((=ucs		  . #x5DF1)	; 己
+      )
+     ((=ucs		  . #x4E28)	; 丨
+      ))
+    (=ucs-itaiji-002	. #x5DF4)	; &U-i002+5DF4;
+    (<-formed
+     ((=ucs@JP/hanazono	  . #x2D172)	; &MJ057105;
+      (=mj		  . 057105)	; &MJ057105;
+      )
+     ((=ucs		  . #x536A)	; 卪
+      )
+     ((=ucs		  . #x5369)	; 卩
+      ))
+    (<-formed@flipped-horizontally
+     ((=ucs-itaiji-002	  . #x2007E)	; &U-i002+2007E;
+      ))
+    (->subsumptive
+     ((==ucs-itaiji-002	  . #x5DF4)	; &g2-U-i002+5DF4;
+      ))
     ))
 (define-char
   '((ideographic-radical . 49)	; ⼰
@@ -2371,6 +2470,11 @@
       ))
     (=>ucs@iwds-1	. #x5DFD)	; &A-IWDSU+5DFD;
     (=>ucs@iwds-1/normalized . #x5DFD)	; &A-IWDSU+5DFD;
+    ))
+(define-char
+  '((ideographic-radical . 49)	; ⼰
+    (==>ucs@bucs	. #x5DF4)	; &BUCS+5DF4;
+    (==>daijiten	. 02785)	; &BUCS+5DF4;
     ))
 (define-char
   '((<-denotational
