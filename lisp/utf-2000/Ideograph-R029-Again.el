@@ -5560,16 +5560,65 @@
     ))
 (define-char
   '((ideographic-radical . 29)	; ⼜
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x53D5)	; 叕
+      )
+     ((=>ucs@component	  . #x5DF1)	; &A-compU+5DF1;
+      (=>iwds-1		  .  0120)	; &A-compU+5DF1;
+      ))
+    (sound@ja/on	"si")
+    (=ucs		. #x20B4B)	; 𠭋
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x20B4B)	; 𠭋
+      ))
+    (ideographic-radical . 29)	; ⼜
     (ideographic-strokes . 8)
     (total-strokes	 . 10)
-    (=ucs		. #x20B4B)	; 𠭋
-    (->subsumptive
-     ((hanyu-dazidian	  1 399 6)
-      (=ucs@iso		  . #x20B4B)	; &M-03175;
-      (=daikanwa	  . 03175)	; &M-03175;
-      (=hanziku-1	  . #xF7F8)	; &I-HZK01-F7F8;
+    (hanyu-dazidian	1 399 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=cns11643-5	  . #x2C36)	; &C5-2C36; [12-22]
+     ((=ucs		  . #x53D5)	; 叕
+      )
+     ((=ucs		  . #x353E)	; 㔾
+      ))
+    (=ucs@iso		. #x20B4B)	; &C5-2C36;
+    (=cns11643-5	. #x2C36)	; &C5-2C36; [12-22]
+    (=daikanwa		. 03175)	; &I-M-03175;
+    (->formed
+     ((=ucs@unicode	  . #x6B3C)	; &MJ014777;
+      (=mj		  . 014777)	; &MJ014777;
+      (=daikanwa	  . 16103)	; &I-M-16103;
+      )
+     ((=ucs@iso		  . #x2390C)	; &C4-4A4D;
+      (=cns11643-4	  . #x4A4D)	; &C4-4A4D; [42-45]
+      (=daikanwa	  . 16188)	; &I-M-16188;
+      ))
+    (->formed$_1*sources
+     jiyun daikanwa)
+    (->formed$_2*sources
+     jiyun daikanwa)
+    (->formed*sources
+     jiyun daikanwa)
+    (->subsumptive
+     ((==ucs@iso	  . #x20B4B)	; &g2-M-03175;
+      (==daikanwa	  . 03175)	; &g2-M-03175;
+      (->subsumptive
+       ((===daikanwa	    . 03175)	; &R-M-03175;
+	)
+       ((===ucs@iso	    . #x20B4B)	; &R-U-00020B4B;
+	)
+       ((=hanziku-1	    . #xF7F8)	; &HZK01-F7F8;
+	))
+      )
+     ((==ucs@cns	  . #x20B4B)	; &g2-CU+20B4B;
+      (==cns11643-5	  . #x2C36)	; &g2-CU+20B4B; [12-22]
       ))
     ))
 (define-char
