@@ -4,6 +4,8 @@
     (=shuowen-jiguge	. 07005)	; &SW-JIGUGE-07005;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x8A00)	; 言
+      )
+     ((=ucs		  . #x8BA0)	; 讠
       ))
     (->subsumptive
      ((===shuowen-jiguge-A30 . 07505)	; &SW-JIGUGE30-07505;
@@ -1142,6 +1144,8 @@
       (=>jis-x0208	  . #x4062)	; &J97-4062; [32-66]
       )
      ((=ucs		  . #x8AAC)	; 説
+      )
+     ((=ucs		  . #x8BF4)	; 说
       ))
     (->subsumptive
      ((===shuowen-jiguge-A30 . 07726)	; &SW-JIGUGE30-07726;
