@@ -51,6 +51,10 @@
       )
      ((=>ucs@iwds-1	  . #x5433)	; &A-IWDSU+5433;
       (=>iwds-1		  .  0313)	; &A-IWDSU+5433;
+      )
+     ((=ucs		  . #x20BF5)	; 𠯵
+      )
+     ((=ucs		  . #x5434)	; 吴
       ))
     (->subsumptive
      ((===shuowen-jiguge-A30 . 36004)	; &SW-JIGUGE30-36004;
@@ -72,6 +76,8 @@
      ((=ucs		  . #x5433)	; 吳
       )
      ((=ucs		  . #x5449)	; 呉
+      )
+     ((=ucs		  . #x5434)	; 吴
       ))
     (->subsumptive
      ((===shuowen-jiguge-A30 . 36005)	; &SW-JIGUGE30-36005;
