@@ -157,6 +157,8 @@
   '((shuowen-radical	. 451)	; 戈
     (=shuowen-jiguge	. 44006)	; &SW-JIGUGE-44006;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x229C4)	; 𢧄
+      )
      ((=ucs		  . #x621C)	; 戜
       ))
     (->subsumptive
@@ -186,6 +188,11 @@
     (=shuowen-jiguge	. 44008)	; &SW-JIGUGE-44008;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x57DF)	; 域
+      ))
+    (<-formed@shuowen
+     ((=shuowen-jiguge	  . 44007)	; &SW-JIGUGE-44007;
+      )
+     ((=ucs		  . #x6216)	; 或
       ))
     (->subsumptive
      ((===shuowen-jiguge-A30 . 44408)	; &SW-JIGUGE30-44408;
