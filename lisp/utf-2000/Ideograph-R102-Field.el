@@ -8721,7 +8721,26 @@
     ))
 (define-char
   '((<-denotational@usage
-     ((==>daijiten	  . 01745)	; &A2-DJT-01745;
+     ((==>ucs@bucs	  . #x57DF)	; &BUCS+57DF;
+      ))
+    (ideographic-radical . 102)	; ⽥
+    (ideographic-strokes . 8)
+    (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=>ucs@component	  . #x7530)	; &A-compU+7530;
+      (=>iwds-1		  .  0083)	; &A-compU+7530;
+      )
+     ((=ucs		  . #x6216)	; 或
+      ))
+    (sound@ja/on	"Wiki")
+    (=ucs		. #x3F63)	; 㽣
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x3F63)	; 㽣
       ))
     (ideographic-radical . 102)	; ⽥
     (ideographic-strokes . 8)
@@ -8734,13 +8753,13 @@
       )
      ((=ucs		  . #x6216)	; 或
       ))
-    (sound@ja/on	"Wiki")
-    (=ucs		. #x3F63)	; 㽣
-    (=cns11643-3	. #x427A)	; &I-C3-427A; [34-90]
+    (=ucs@unicode	. #x3F63)	; &C3-427A;
+    (=cns11643-3	. #x427A)	; &C3-427A; [34-90]
     (=daikanwa		. 21886)	; &I-M-21886;
     (=daijiten		. 07534)	; &I-DJT-07534;
     (<-ancient
-     ((=ucs		  . #x57DF)	; 域
+     ((=ucs@unicode	  . #x57DF)	; &AJ1-01196;
+      (=adobe-japan1-0	  . 01196)	; &AJ1-01196;
       (=daikanwa	  . 05158)	; &I-M-05158;
       ))
     (<-ancient*sources

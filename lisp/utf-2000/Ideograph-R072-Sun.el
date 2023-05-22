@@ -21969,7 +21969,7 @@
      ((=ucs		  . #x65E5)	; 日
       )
      ((=ucs@unicode	  . #x68A8)	; &AJ1-03942;
-      (=adobe-japan1-0	  . 03942)	; &I-AJ1-03942;
+      (=adobe-japan1-0	  . 03942)	; &AJ1-03942;
       ))
     (=ucs@JP/hanazono	. #x2D9DC)	; &CB06740;
     (=cbeta		. 06740)	; &CB06740;
