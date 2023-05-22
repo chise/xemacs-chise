@@ -12588,7 +12588,8 @@
       (=cns11643-5	  . #x2230)	; &HD-IA-2A3A; [02-16]
       (=daikanwa	  . 01889)	; &I-M-01889;
       )
-     ((=ucs		  . #x592C)	; 夬
+     ((=ucs@unicode	  . #x592C)	; &AJ1-04544;
+      (=adobe-japan1-0	  . 04544)	; &I-AJ1-04544;
       ))
     (=ucs@cns		. #x20735)	; &C4-2B6F;
     (=cns11643-4	. #x2B6F)	; &C4-2B6F; [11-79]
@@ -12622,7 +12623,8 @@
      ((=ucs@unicode	  . #x34DE)	; &MJ000184;
       (=mj		  . 000184)	; &MJ000184;
       )
-     ((=ucs		  . #x592C)	; 夬
+     ((=ucs@unicode	  . #x592C)	; &AJ1-04544;
+      (=adobe-japan1-0	  . 04544)	; &I-AJ1-04544;
       ))
     (=ucs@iso		. #x20735)	; &U-00020735;
     (->subsumptive
@@ -19324,6 +19326,10 @@
      ((=ucs@unicode	  . #x68C3)	; &AJ1-17816;
       (=adobe-japan1-5	  . 17816)	; &AJ1-17816;
       (=daikanwa	  . 14912)	; &I-M-14912;
+      )
+     ((=ucs@unicode	  . #x68A8)	; &AJ1-03942;
+      (=adobe-japan1-0	  . 03942)	; &AJ1-03942;
+      (=daikanwa	  . 14873)	; &I-M-14873;
       ))
     (->interchangeable$_1*sources
      yunhai daikanwa)
