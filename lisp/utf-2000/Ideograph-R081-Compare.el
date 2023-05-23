@@ -1257,7 +1257,8 @@
       (=cns11643-4	  . #x297B)	; &C4-297B; [09-91]
       (=daikanwa	  . 16751)	; &I-M-16751;
       )
-     ((=ucs		  . #x592C)	; 夬
+     ((=ucs@unicode	  . #x592C)	; &AJ1-04544;
+      (=adobe-japan1-0	  . 04544)	; &AJ1-04544;
       ))
     (=ucs@iso		. #x23B0E)	; &C4-3E26;
     (=cns11643-4	. #x3E26)	; &C4-3E26; [30-06]
@@ -1288,7 +1289,8 @@
       )
      ((=ucs-itaiji-001	  . #x23B0B)	; &U-i001+23B0B;
       )
-     ((=ucs		  . #x592C)	; 夬
+     ((=ucs@unicode	  . #x592C)	; &AJ1-04544;
+      (=adobe-japan1-0	  . 04544)	; &AJ1-04544;
       ))
     (=ucs-itaiji-002	. #x23B0E)	; &U-i002+23B0E;
     (->subsumptive
@@ -1383,7 +1385,8 @@
       )
      ((=ucs		  . #x2DBCD)	; 𭯍
       )
-     ((=ucs		  . #x592C)	; 夬
+     ((=ucs@unicode	  . #x592C)	; &AJ1-04544;
+      (=adobe-japan1-0	  . 04544)	; &AJ1-04544;
       ))
     (=daikanwa		. 49201)	; &M-49201;
     (=ucs-itaiji-001	. #x23B0E)	; &M-49201;
