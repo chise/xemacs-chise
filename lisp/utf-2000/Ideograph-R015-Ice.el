@@ -985,7 +985,25 @@
     ))
 (define-char
   '((<-denotational@usage
-     ((==>daijiten	  . 06003)	; &A2-DJT-06003;
+     ((==>ucs@bucs	  . #x6C7A)	; &BUCS+6C7A;
+      ))
+    (ideographic-radical . 15)	; ⼎
+    (ideographic-strokes . 4)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x51AB)	; 冫
+      )
+     ((=ucs		  . #x592C)	; 夬
+      ))
+    (sound@ja/on	"ketu")
+    (=ucs		. #x51B3)	; 决
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x51B3)	; 决
       ))
     (ideographic-radical . 15)	; ⼎
     (ideographic-strokes . 4)
@@ -997,10 +1015,11 @@
       )
      ((=ucs		  . #x51AB)	; 冫
       )
-     ((=ucs		  . #x592C)	; 夬
+     ((=ucs@unicode	  . #x592C)	; &AJ1-04544;
+      (=adobe-japan1-0	  . 04544)	; &AJ1-04544;
       ))
-    (=ucs		. #x51B3)	; 决
-    (=adobe-japan1-0	. 04234)	; &I-AJ1-04234;
+    (=ucs@unicode	. #x51B3)	; &AJ1-04234;
+    (=adobe-japan1-0	. 04234)	; &AJ1-04234;
     (=jis-x0208		. #x5153)	; &I-J90-5153; [49-51]
     (=gb2312		. #x3E76)	; &I-G0-3E76; [30-86]
     (=cns11643-3	. #x227D)	; &I-C3-227D; [02-93]
@@ -1010,7 +1029,7 @@
     (=gt-pj-1		. #x5153)	; &I-GT-02132; [49-51]
     (=daikanwa		. 01617)	; &I-M-01617;
     (=daijiten		. 00669)	; &I-DJT-00669;
-    (=shinjigen		.  4081)	; 决
+    (=shinjigen		.  4081)	; &AJ1-04234;
     (=cbeta		. 00804)	; &I-CB00804;
     (<-vulgar
      ((=ucs@unicode	  . #x6C7A)	; &AJ1-01854;
@@ -1020,7 +1039,7 @@
       (=shinjigen	  .  4080)	; &AJ1-01854;
       ))
     (<-vulgar*sources
-     yupian daikanwa shinjigen@1ed)
+     yupian daikanwa shinjigen)
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x51B3)	; 决

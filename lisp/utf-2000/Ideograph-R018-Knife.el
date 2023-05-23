@@ -12589,7 +12589,7 @@
       (=daikanwa	  . 01889)	; &I-M-01889;
       )
      ((=ucs@unicode	  . #x592C)	; &AJ1-04544;
-      (=adobe-japan1-0	  . 04544)	; &I-AJ1-04544;
+      (=adobe-japan1-0	  . 04544)	; &AJ1-04544;
       ))
     (=ucs@cns		. #x20735)	; &C4-2B6F;
     (=cns11643-4	. #x2B6F)	; &C4-2B6F; [11-79]
@@ -12624,7 +12624,7 @@
       (=mj		  . 000184)	; &MJ000184;
       )
      ((=ucs@unicode	  . #x592C)	; &AJ1-04544;
-      (=adobe-japan1-0	  . 04544)	; &I-AJ1-04544;
+      (=adobe-japan1-0	  . 04544)	; &AJ1-04544;
       ))
     (=ucs@iso		. #x20735)	; &U-00020735;
     (->subsumptive
