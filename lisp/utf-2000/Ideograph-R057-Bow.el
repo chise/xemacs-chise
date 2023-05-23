@@ -1997,18 +1997,54 @@
     (=daikanwa		. 09734)	; &I-M-09734;
     ))
 (define-char
-  '((ideographic-radical . 57)	; ⼸
+  '((<-denotational@usage
+     ((==>daijiten	  . 03051)	; &A2-DJT-03051;
+      ))
+    (ideographic-radical . 57)	; ⼸
+    (ideographic-strokes . 4)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5F13)	; 弓
+      )
+     ((=ucs		  . #x592C)	; 夬
+      ))
+    (sound@ja/on/go	"keti")
+    (sound@ja/on/kan	"ketu")
+    (=ucs		. #x223B9)	; 𢎹
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x223B9)	; 𢎹
+      ))
+    (ideographic-radical . 57)	; ⼸
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
     (hanyu-dazidian	2 992 12)
-    (=ucs		. #x223B9)	; 𢎹
-    (=cns11643-5	. #x2431)	; &I-C5-2431; [04-17]
-    (=daikanwa		. 09735)	; &I-M-09735;
-    (<-formed
-     ((=ucs		  . #x592C)	; 夬
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5F13)	; 弓
+      )
+     ((=ucs@unicode	  . #x592C)	; &AJ1-04544;
+      (=adobe-japan1-0	  . 04544)	; &AJ1-04544;
       ))
+    (=ucs@iso		. #x223B9)	; &C5-2431;
+    (=cns11643-5	. #x2431)	; &C5-2431; [04-17]
+    (=daikanwa		. 09735)	; &I-M-09735;
+    (=daijiten		. 03051)	; &I-DJT-03051;
+    (<-formed
+     ((=ucs@unicode	  . #x592C)	; &AJ1-04544;
+      (=adobe-japan1-0	  . 04544)	; &AJ1-04544;
+      ))
+    (<-formed$_1*sources
+     jiyun)
     (<-same
-     ((=ucs		  . #x592C)	; 夬
+     ((=ucs@unicode	  . #x592C)	; &AJ1-04544;
+      (=adobe-japan1-0	  . 04544)	; &AJ1-04544;
       (=daikanwa	  . 05836)	; &I-M-05836;
       ))
     (<-same*sources
@@ -2016,8 +2052,11 @@
     (->subsumptive
      ((==ucs@iso	  . #x223B9)	; &g2-M-09735;
       (==daikanwa	  . 09735)	; &g2-M-09735;
+      (==daijiten	  . 03051)	; &g2-M-09735;
       (->subsumptive
        ((===daikanwa	    . 09735)	; &R-M-09735;
+	)
+       ((===daijiten	    . 03051)	; &R-DJT-03051;
 	)
        ((===ucs@iso	    . #x223B9)	; &R-U-000223B9;
 	)
@@ -9704,6 +9743,10 @@
   '((ideographic-radical . 57)	; ⼸
     (==>ucs@bucs	. #x5F17)	; &BUCS+5F17;
     (==>daijiten	. 03046)	; &BUCS+5F17;
+    ))
+(define-char
+  '((ideographic-radical . 57)	; ⼸
+    (==>daijiten	. 03051)	; &A2-DJT-03051;
     ))
 (define-char
   '((ideographic-radical . 57)	; ⼸
