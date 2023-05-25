@@ -40,6 +40,8 @@
   '((shuowen-radical	. 125)	; 叀
     (=shuowen-jiguge	. 12913)	; &SW-JIGUGE-12913;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x30184)	; 𰆄
+      )
      ((=ucs		  . #x209E2)	; 𠧢
       ))
     (<-ancient@shuowen
