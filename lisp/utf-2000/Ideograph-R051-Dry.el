@@ -1927,3 +1927,8 @@
   '((ideographic-radical . 51)	; ⼲
     (==>daijiten	. 02904)	; &A2-DJT-02904;
     ))
+(define-char
+  '((ideographic-radical . 51)	; ⼲
+    (==>ucs@bucs	. #x9878)	; &BUCS+9878;
+    (==>daijiten	. 13303)	; &BUCS+9878;
+    ))
