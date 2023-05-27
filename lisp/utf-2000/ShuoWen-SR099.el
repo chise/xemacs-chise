@@ -902,6 +902,11 @@
     (<-Small-Seal@shuowen
      ((=ucs		  . #x7734)	; 眴
       ))
+    (<-formed@shuowen
+     ((=shuowen-jiguge	  . 11011)	; &SW-JIGUGE-11011;
+      )
+     ((=ucs		  . #x400F)	; 䀏
+      ))
     (->subsumptive
      ((===shuowen-jiguge-A30 . 11012)	; &SW-JIGUGE30-11012;
       )
