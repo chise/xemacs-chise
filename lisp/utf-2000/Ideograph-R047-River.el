@@ -2484,11 +2484,75 @@
   '((ideographic-radical . 47)	; ⼮
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
-    (hanyu-dazidian	2 1406 14)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
+      (=ucs		  . #x2FF9)	; ⿹
+      )
+     ((=ucs		  . #x6216)	; 或
+      )
+     ((=>ucs@iwds-1	  . #x5DDB)	; &A-IWDSU+5DDB;
+      (=>iwds-1		  .  0270)	; &A-IWDSU+5DDB;
+      ))
+    (sound@ja/on/go	"Wiki" "waku" "koku")
+    (sound@ja/on/kan	"yoku" "koku" "kyoku")
     (=ucs		. #x21FFF)	; 𡿿
-    (=cns11643-4	. #x3141)	; &I-C4-3141; [17-33]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x21FFF)	; 𡿿
+      ))
+    (ideographic-radical . 47)	; ⼮
+    (ideographic-strokes . 8)
+    (total-strokes	 . 11)
+    (hanyu-dazidian	2 1406 14)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
+      (=ucs		  . #x2FF9)	; ⿹
+      )
+     ((=ucs		  . #x6216)	; 或
+      )
+     ((=ucs		  . #x5DDB)	; 巛
+      ))
+    (=ucs@iso		. #x21FFF)	; &C4-3141;
+    (=cns11643-4	. #x3141)	; &C4-3141; [17-33]
     (=daikanwa		. 08697)	; &I-M-08697;
-    (=hanziku-4		. #xCBE5)	; &I-HZK04-CBE5;
+    (<-interchangeable
+     ((=ucs@unicode	  . #x39BD)	; &C3-5462;
+      (=cns11643-3	  . #x5462)	; &C3-5462; [52-66]
+      (=daikanwa	  . 11679)	; &I-M-11679;
+      )
+     ((=ucs		  . #x5F67)	; 彧
+      (=daikanwa	  . 09983)	; &I-M-09983;
+      ))
+    (<-interchangeable$_1*sources
+     shuowen-zhu daikanwa)
+    (<-interchangeable$_2*sources
+     zhengzitong daikanwa)
+    (<-interchangeable*sources
+     daikanwa)
+    (->interchangeable
+     ((=ucs		  . #x5F67)	; 彧
+      )
+     ((=ucs		  . #x6216)	; 或
+      ))
+    (->interchangeable$_1*sources
+     zhengzitong)
+    (->interchangeable*sources
+     zhengzitong)
+    (->subsumptive
+     ((==ucs@iso	  . #x21FFF)	; &g2-M-08697;
+      (==cns11643-4	  . #x3141)	; &g2-M-08697; [17-33]
+      (==daikanwa	  . 08697)	; &g2-M-08697;
+      (->subsumptive
+       ((===daikanwa	    . 08697)	; &R-M-08697;
+	)
+       ((===cns11643-4	    . #x3141)	; &R-C4-3141; [17-33]
+	)
+       ((===ucs@iso	    . #x21FFF)	; &R-U-00021FFF;
+	))
+      )
+     ((=hanziku-4	  . #xCBE5)	; &HZK04-CBE5;
+      ))
     ))
 (define-char
   '((ideographic-radical . 47)	; ⼮
