@@ -2583,6 +2583,10 @@
     (=daijiten		. 04688)	; &I-DJT-04688;
     (=shinjigen		.  3438)	; &AJ1-13936;
     (=jef-china3	. #x52C2)	; &I-JC3-52C2;
+    (<-formed
+     ((=hanyo-denshi/ip	  . #x71C2)	; &HD-IP-71C2;
+      (=daikanwa	  . 19391)	; &I-M-19391;
+      ))
     (<-same
      ((=ucs@iso		  . #x26A4E)	; &MJ046155;
       (=mj		  . 046155)	; &MJ046155;

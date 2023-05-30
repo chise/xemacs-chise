@@ -1355,14 +1355,19 @@
   '((ideographic-radical . 5)	; ⼄
     (ideographic-strokes . 2)
     (total-strokes	 . 3)
-    (=>gt-k		. 00383)	; &A-GT-K00383;
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x4E28)	; 丨
+      )
+     ((=ucs		  . #x5382)	; 厂
+      ))
+    (=gt-k		. 00383)	; &GT-K00383;
+    (=gt-pj-k2		. #x3F77)	; &GT-K00383; [31-87]
     (->subsumptive
-     ((=gt-k		  . 00383)	; &GT-K00383;
-      (=gt-pj-k2	  . #x3F77)	; &GT-K00383; [31-87]
-      (->subsumptive
-       ((==gt-k		    . 00383)	; &g2-GT-K00383;
-	(==gt-pj-k2	    . #x3F77)	; &g2-GT-K00383; [31-87]
-	))
+     ((==gt-k		  . 00383)	; &g2-GT-K00383;
+      (==gt-pj-k2	  . #x3F77)	; &g2-GT-K00383; [31-87]
       )
      ((=gt-k		  . 00299)	; &GT-K00299;
       (=gt-pj-k1	  . #x3948)	; &GT-K00299; [25-40]
@@ -3441,7 +3446,7 @@
     (ideographic-structure
      ((=ucs-itaiji-001	  . #x2FF6)	; &U-i001+2FF6;
       )
-     ((=>gt-k		  . 00383)	; &A-GT-K00383;
+     ((=gt-k		  . 00383)	; &GT-K00383;
       )
      ((=>ucs@iwds-1	  . #x4ECC)	; &A-IWDSU+4ECC;
       (=>ucs@iwds-1/normalized . #x4ECC)	; &A-IWDSU+4ECC;
