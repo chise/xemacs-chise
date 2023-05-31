@@ -9316,6 +9316,10 @@
      ((=ucs@cns		  . #x99FF)	; &C1-762C;
       (=cns11643-1	  . #x762C)	; &C1-762C; [86-12]
       (=daikanwa	  . 44775)	; &I-M-44775;
+      )
+     ((=ucs@unicode	  . #x6042)	; &AJ1-04833;
+      (=adobe-japan1-0	  . 04833)	; &AJ1-04833;
+      (=daikanwa	  . 10520)	; &I-M-10520;
       ))
     (->interchangeable$_1*sources
      jiyun daikanwa)

@@ -15347,8 +15347,8 @@
       (=adobe-japan1-0	  . 02821)	; &AJ1-02821;
       (=daikanwa	  . 00664)	; &I-M-00664;
       )
-     ((=ucs@iso		  . #x2A60F)	; &C4-6A3E;
-      (=cns11643-4	  . #x6A3E)	; &C4-6A3E; [74-30]
+     ((=ucs@iso		  . #x2A60F)	; &MJ056648;
+      (=mj		  . 056648)	; &MJ056648;
       (=daikanwa	  . 48670)	; &I-M-48670;
       ))
     (<-interchangeable$_1*sources
