@@ -709,6 +709,23 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=ucs		  . #x5C75)	; 屵
+      ))
+    (ideographic-radical . 46)	; ⼭
+    (ideographic-strokes . 2)
+    (total-strokes	 . 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5C71)	; 山
+      )
+     ((=ucs		  . #x20087)	; 𠂇
+      ))
+    (=ucs-var-001	. #x5C75)	; &U-v001+5C75;
+    ))
+(define-char
   '((ideographic-radical . 46)	; ⼭
     (ideographic-strokes . 2)
     (total-strokes	 . 5)
