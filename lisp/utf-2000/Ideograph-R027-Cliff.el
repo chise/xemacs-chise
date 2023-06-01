@@ -4555,6 +4555,23 @@
     ))
 (define-char
   '((<-denotational
+     ((=ucs		  . #x20A7A)	; 𠩺
+      ))
+    (ideographic-radical . 27)	; ⼚
+    (ideographic-strokes . 9)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=gt-k		  . 05719)	; &GT-K05719;
+      )
+     ((=ucs		  . #x4E06)	; 丆
+      ))
+    (=ucs-var-002	. #x20A7A)	; &U-v002+20A7A;
+    ))
+(define-char
+  '((<-denotational
      ((=>ucs@cognate	  . #x20A7A)	; &A-cgnU+20A7A;
       ))
     (ideographic-radical . 27)	; ⼚
