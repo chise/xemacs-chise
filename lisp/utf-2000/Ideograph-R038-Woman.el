@@ -11328,10 +11328,30 @@
       )
      ((=ucs		  . #x65EC)	; 旬
       ))
+    (sound@ja/on/go	"kiN" "zyuN" "keN")
+    (sound@ja/on/kan	"kiN" "syuN" "keN")
     (=ucs		. #x59F0)	; 姰
-    (=mj		. 009675)	; &I-MJ009675;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x59F0)	; 姰
+      ))
+    (ideographic-radical . 38)	; ⼥
+    (ideographic-strokes . 6)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5973)	; 女
+      )
+     ((=ucs@unicode	  . #x65EC)	; &AJ1-02406;
+      (=adobe-japan1-0	  . 02406)	; &AJ1-02406;
+      ))
+    (=ucs@unicode	. #x59F0)	; &MJ009675;
+    (=mj		. 009675)	; &MJ009675;
     (=cns11643-3	. #x2C25)	; &I-C3-2C25; [12-05]
-    (=koseki		. 071290)	; 姰
+    (=koseki		. 071290)	; &MJ009675;
     (=daikanwa		. 06234)	; &I-M-06234;
     (=cbeta		. 05462)	; &I-CB05462;
     (->subsumptive
