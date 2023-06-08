@@ -1673,6 +1673,8 @@
   '((shuowen-radical	. 99)	; 目
     (=shuowen-jiguge	. 11202)	; &SW-JIGUGE-11202;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x252F0)	; 𥋰
+      )
      ((=ucs		  . #x779A)	; 瞚
       ))
     (->subsumptive
