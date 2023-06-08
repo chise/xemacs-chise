@@ -4526,6 +4526,26 @@
     (ideographic-strokes@ucs . 5)
     (ideographic-radical@cns . 49)	; ⼰
     (ideographic-strokes@cns . 3)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=>ucs@component	  . #x5382)	; &A-compU+5382;
+      )
+     ((=ucs		  . #x5DF4)	; 巴
+      ))
+    (sound@ja/on	"gWa")
+    (=ucs		. #x200AC)	; 𠂬
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x200AC)	; 𠂬
+      ))
+    (ideographic-radical@ucs . 4)	; ⼃
+    (ideographic-strokes@ucs . 5)
+    (ideographic-radical@cns . 49)	; ⼰
+    (ideographic-strokes@cns . 3)
     (ideographic-radical@cns*sources
      daikanwa cns11643)
     (total-strokes	 . 6)
@@ -4538,13 +4558,13 @@
       )
      ((=ucs		  . #x5DF4)	; 巴
       ))
-    (sound@ja/on	"gWa")
-    (=ucs		. #x200AC)	; 𠂬
-    (=cns11643-6	. #x245D)	; &I-C6-245D; [04-61]
+    (=ucs@iso		. #x200AC)	; &C6-245D;
+    (=cns11643-6	. #x245D)	; &C6-245D; [04-61]
     (=daikanwa		. 08750)	; &I-M-08750;
     (=daijiten		. 02788)	; &I-DJT-02788;
     (<-same
-     ((=ucs		  . #x5384)	; 厄
+     ((=ucs@unicode	  . #x5384)	; &AJ1-03837;
+      (=adobe-japan1-0	  . 03837)	; &AJ1-03837;
       (=daikanwa	  . 02893)	; &I-M-02893;
       ))
     (<-same*sources
