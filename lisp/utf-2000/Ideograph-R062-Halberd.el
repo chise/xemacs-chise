@@ -5511,15 +5511,15 @@
     (=koseki		. 131460)	; &MJ036622;
     (=daikanwa		. 49123)	; &I-M-49123;
     (<-ancient
-     ((=ucs@unicode	  . #x71BE)	; &AJ1-05584;
-      (=adobe-japan1-0	  . 05584)	; &AJ1-05584;
+     ((=ucs@unicode	  . #x71BE)	; &MJ016605;
+      (=mj		  . 016605)	; &MJ016605;
       (=daikanwa	  . 19385)	; &I-M-19385;
       ))
     (<-ancient*sources
      daikanwa)
     (<-formed
-     ((=ucs@unicode	  . #x71BE)	; &AJ1-05584;
-      (=adobe-japan1-0	  . 05584)	; &AJ1-05584;
+     ((=ucs@unicode	  . #x71BE)	; &MJ016605;
+      (=mj		  . 016605)	; &MJ016605;
       ))
     (<-formed$_1*sources
      koseki mj)
