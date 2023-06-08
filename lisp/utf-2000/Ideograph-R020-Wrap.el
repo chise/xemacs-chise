@@ -1225,8 +1225,8 @@
       (=mj		  . 010980)	; &MJ010980;
       (=daikanwa	  . 09266)	; &I-M-09266;
       )
-     ((=ucs@unicode	  . #x70AE)	; &AJ1-05559;
-      (=adobe-japan1-0	  . 05559)	; &AJ1-05559;
+     ((=ucs@unicode	  . #x70AE)	; &MJ016335;
+      (=mj		  . 016335)	; &MJ016335;
       (=daikanwa	  . 18954)	; &I-M-18954;
       )
      ((=ucs@unicode	  . #x80DE)	; &C1-5330;
