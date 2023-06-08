@@ -6433,8 +6433,8 @@
       )
      ((=ucs		  . #x51AB)	; 冫
       )
-     ((=ucs@unicode	  . #x7188)	; &AJ1-05570;
-      (=adobe-japan1-0	  . 05570)	; &AJ1-05570;
+     ((=ucs@unicode	  . #x7188)	; &MJ016545;
+      (=mj		  . 016545)	; &MJ016545;
       ))
     (=ucs@unicode	. #x51DE)	; &AJ1-14352;
     (=ucs@JP/hanazono	. nil)
@@ -6502,8 +6502,8 @@
     (ideographic-structure
      ((=ucs-itaiji-001	  . #x2FF6)	; &U-i001+2FF6;
       )
-     ((=ucs@unicode	  . #x7188)	; &AJ1-05570;
-      (=adobe-japan1-0	  . 05570)	; &AJ1-05570;
+     ((=ucs@unicode	  . #x7188)	; &MJ016545;
+      (=mj		  . 016545)	; &MJ016545;
       )
      ((=ucs		  . #x51AB)	; 冫
       ))
