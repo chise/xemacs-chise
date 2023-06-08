@@ -2584,8 +2584,7 @@
     (=shinjigen		.  3438)	; &AJ1-13936;
     (=jef-china3	. #x52C2)	; &I-JC3-52C2;
     (<-formed
-     ((=hanyo-denshi/ip	  . #x71C2)	; &HD-IP-71C2;
-      (=daikanwa	  . 19391)	; &I-M-19391;
+     ((=mj		  . 016615)	; &MJ016615;
       ))
     (<-same
      ((=ucs@iso		  . #x26A4E)	; &MJ046155;
@@ -4630,9 +4629,8 @@
      ((=ucs@unicode	  . #x6708)	; &MJ013520;
       (=mj		  . 013520)	; &MJ013520;
       )
-     ((=ucs@unicode	  . #x7077)	; &C3-265F;
-      (=cns11643-3	  . #x265F)	; &C3-265F; [06-63]
-      (=daikanwa	  . 18871)	; &I-M-18871;
+     ((=ucs@unicode	  . #x7077)	; &MJ016275;
+      (=mj		  . 016275)	; &MJ016275;
       ))
     (=ucs@iso		. #x23379)	; &C6-405A;
     (=cns11643-6	. #x405A)	; &C6-405A; [32-58]
