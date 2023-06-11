@@ -2815,8 +2815,8 @@
     (<-original*sources
      jiyun daikanwa)
     (->vulgar
-     ((=ucs@unicode	  . #x71FB)	; &AJ1-05577;
-      (=adobe-japan1-0	  . 05577)	; &AJ1-05577;
+     ((=ucs@unicode	  . #x71FB)	; &MJ016677;
+      (=mj		  . 016677)	; &MJ016677;
       ))
     (->vulgar*sources
      jiyun)
