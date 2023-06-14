@@ -419,7 +419,8 @@
       (=mj		  . 011309)	; &MJ011309;
       (=daikanwa	  . 10118)	; &I-M-10118;
       )
-     ((=ucs		  . #x70B3)	; 炳
+     ((=ucs@unicode	  . #x70B3)	; &MJ016341;
+      (=mj		  . 016341)	; &MJ016341;
       (=daikanwa	  . 18960)	; &I-M-18960;
       ))
     (<-interchangeable$_1*sources
