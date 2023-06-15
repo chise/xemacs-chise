@@ -340,6 +340,14 @@
     (ideographic-radical . 3)	; ⼂
     (ideographic-strokes . 2)
     (total-strokes	 . 3)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
+      (=ucs		  . #x2FF9)	; ⿹
+      )
+     ((=ucs		  . #x4E5D)	; 九
+      )
+     ((=ucs		  . #x4E36)	; 丶
+      ))
     (=ucs-itaiji-001	. #x4E38)	; &U-i001+4E38;
     (->subsumptive
      ((==ucs-itaiji-001	  . #x4E38)	; &g2-U-i001+4E38;
