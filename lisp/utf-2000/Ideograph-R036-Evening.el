@@ -284,6 +284,13 @@
   '((<-denotational
      ((=>ucs@cognate	  . #x5917)	; &A-cgnU+5917;
       ))
+    (<-denotational@component
+     ((=>ucs@iwds-1	  . #x6B7B)	; &A-IWDSU+6B7B;
+      (=>iwds-1		  .  0445)	; &A-IWDSU+6B7B;
+      ))
+    (<-denotational@usage
+     ((==>daijiten	  . 01935)	; &A2-DJT-01935;
+      ))
     (ideographic-radical . 36)	; ⼣
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -318,6 +325,7 @@
     (=big5		. #xC970)	; &I-B-C970;
     (=koseki		. 065920)	; &MJ009433;
     (=daikanwa		. 05752)	; &I-M-05752;
+    (=daijiten		. 01935)	; &I-DJT-01935;
     (=jef-china3	. #x48D7)	; &I-JC3-48D7;
     (->subsumptive
      ((==ucs@unicode	  . #x5917)	; &g2-MJ009433;
@@ -325,9 +333,12 @@
       (==cns11643-2	  . #x2151)	; &g2-MJ009433; [01-49]
       (==koseki		  . 065920)	; &g2-MJ009433;
       (==daikanwa	  . 05752)	; &g2-MJ009433;
+      (==daijiten	  . 01935)	; &g2-MJ009433;
       (==jef-china3	  . #x48D7)	; &g2-MJ009433;
       (->subsumptive
        ((===daikanwa	    . 05752)	; &R-M-05752;
+	)
+       ((===daijiten	    . 01935)	; &R-DJT-01935;
 	)
        ((===mj		    . 009433)	; &R-MJ009433;
 	)
@@ -3674,6 +3685,10 @@
     (hanyu-dazidian	2 867 14)
     (=ucs		. #x215D1)	; 𡗑
     (=hanziku-3		. #xAEB3)	; &I-HZK03-AEB3;
+    ))
+(define-char
+  '((ideographic-radical . 36)	; ⼣
+    (==>daijiten	. 01935)	; &A2-DJT-01935;
     ))
 (define-char
   '((ideographic-radical . 36)	; ⼣
