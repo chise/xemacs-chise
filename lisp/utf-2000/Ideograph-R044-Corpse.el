@@ -1289,11 +1289,34 @@
       )
      ((=ucs		  . #x5C38)	; 尸
       )
+     ((=ucs-itaiji-001	  . #x4E38)	; &U-i001+4E38;
+      ))
+    (=ucs-itaiji-002	. #x378D)	; &U-i002+378D;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x378D)	; 㞍
+      ))
+    (ideographic-radical . 44)	; ⼫
+    (ideographic-strokes . 3)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs		  . #x5C38)	; 尸
+      )
      ((=ucs		  . #x2F801)	; 丸
       ))
     (=ucs@unicode	. #x378D)	; &AJ1-13850;
     (=adobe-japan1-4	. 13850)	; &AJ1-13850;
     (=daijiten		. 02476)	; &I-DJT-02476;
+    (<-vulgar
+     ((=ucs		  . #x5C3B)	; 尻
+      (=daijiten	  . 02472)	; &I-DJT-02472;
+      ))
+    (<-vulgar*sources
+     daijiten)
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x378D)	; 㞍
