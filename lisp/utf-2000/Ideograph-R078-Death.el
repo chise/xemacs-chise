@@ -428,6 +428,10 @@
   '((<-denotational
      ((=>ucs@cognate	  . #x6B7B)	; &A-cgnU+6B7B;
       ))
+    (<-denotational@component
+     ((=>ucs@iwds-1	  . #x6B7B)	; &A-IWDSU+6B7B;
+      (=>iwds-1		  .  0445)	; &A-IWDSU+6B7B;
+      ))
     (ideographic-radical . 78)	; ⽍
     (ideographic-strokes . 2)
     (total-strokes	 . 6)
@@ -8929,6 +8933,12 @@
       (=gb2312		  . #x4352)	; &GT-57205; [35-50]
       ))
     (=cbeta		. 11859)	; &CB11859;
+    ))
+(define-char
+  '((ideographic-radical . 78)	; ⽍
+    (=>iwds-1*level	. 2)
+    (=>ucs@iwds-1	. #x6B7B)	; &A-IWDSU+6B7B;
+    (=>iwds-1		.  0445)	; &A-IWDSU+6B7B;
     ))
 (define-char
   '((ideographic-radical . 78)	; ⽍

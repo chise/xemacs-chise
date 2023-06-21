@@ -6626,7 +6626,10 @@
     (=daikanwa		. 14412)	; &I-M-14412;
     ))
 (define-char
-  '((ideographic-radical@ucs . 173)	; ⾬
+  '((<-denotational@usage
+     ((==>ucs@bucs	  . #x9738)	; &BUCS+9738;
+      ))
+    (ideographic-radical@ucs . 173)	; ⾬
     (ideographic-strokes@ucs . 13)
     (ideographic-radical@jis/a . 74)	; ⽉
     (ideographic-strokes@jis/a . 17)
@@ -6681,6 +6684,7 @@
     (=gt		. 57027)	; &I-GT-57027;
     (=gt-pj-1		. #x5B31)	; &I-GT-57027; [59-17]
     (=daikanwa		. 42490)	; &I-M-42490;
+    (=daijiten		. 13078)	; &I-DJT-13078;
     (=shinjigen@1ed	.  3453)	; &AJ1-05140;
     (=shinjigen@rev	.  3454)	; &AJ1-05140;
     (<-same
@@ -6757,7 +6761,10 @@
 	(==jis-x0208	    . #x5B31)	; &g2-AJ1-05140; [59-17]
 	(==jis-x0213-1	    . #x5B31)	; &g2-AJ1-05140; [59-17]
 	(==gt		    . 57027)	; &g2-AJ1-05140;
+	(==daijiten	    . 13078)	; &g2-AJ1-05140;
 	(->subsumptive
+	 ((===daijiten	      . 13078)	; &R-DJT-13078;
+	  )
 	 ((===jis-x0208	      . #x5B31)	; &R-J0-5B31; [59-17]
 	  (===jis-x0213-1     . #x5B31)	; &R-J0-5B31; [59-17]
 	  )
