@@ -36669,6 +36669,23 @@
     ))
 (define-char
   '((ideographic-radical . 85)	; ⽔
+    (ideographic-strokes . 10)
+    (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x6C35)	; 氵
+      )
+     ((=ucs		  . #x96BB)	; 隻
+      ))
+    (=ucs		. #x23EA6)	; 𣺦
+    (->subsumptive
+     ((==ucs@iso	  . #x23EA6)	; &g2-IU-00023EA6;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 85)	; ⽔
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
