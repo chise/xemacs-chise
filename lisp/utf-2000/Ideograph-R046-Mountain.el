@@ -8710,7 +8710,8 @@
      ((=hanyo-denshi/ks	  . 097610)	; &HD-KS-097610;
       (=daikanwa	  . 08636)	; &HD-KS-097610;
       )
-     ((=ucs		  . #x5DA9)	; 嶩
+     ((=ucs@unicode	  . #x5DA9)	; &MJ010704;
+      (=mj		  . 010704)	; &MJ010704;
       (=daikanwa	  . 08505)	; &I-M-08505;
       ))
     (->formed$_1*sources
@@ -23299,11 +23300,30 @@
       ))
     (sound@ja/on	"dAu")
     (=ucs		. #x5DA9)	; 嶩
-    (=mj		. 010704)	; &I-MJ010704;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5DA9)	; 嶩
+      ))
+    (ideographic-radical . 46)	; ⼭
+    (ideographic-strokes . 13)
+    (total-strokes	 . 16)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5C71)	; 山
+      )
+     ((=ucs@unicode	  . #x8FB2)	; &AJ1-03318;
+      (=adobe-japan1-0	  . 03318)	; &AJ1-03318;
+      ))
+    (=ucs@unicode	. #x5DA9)	; &MJ010704;
+    (=mj		. 010704)	; &MJ010704;
     (=cns11643-2	. #x566A)	; &I-C2-566A; [54-74]
     (=big5		. #xE960)	; &I-B-E960;
-    (=koseki		. 096180)	; 嶩
+    (=koseki		. 096180)	; &MJ010704;
     (=daikanwa		. 08505)	; &I-M-08505;
+    (=daijiten		. 02722)	; &I-DJT-02722;
     (<-formed
      ((=ucs@cns		  . #x5CF1)	; &AJ1-21468;
       (=ucs@jis		  . #x5CF1)	; &AJ1-21468;
@@ -23323,8 +23343,11 @@
      ((==mj		  . 010704)	; &g2-MJ010704;
       (==koseki		  . 096180)	; &g2-MJ010704;
       (==daikanwa	  . 08505)	; &g2-MJ010704;
+      (==daijiten	  . 02722)	; &g2-MJ010704;
       (->subsumptive
        ((===daikanwa	    . 08505)	; &R-M-08505;
+	)
+       ((===daijiten	    . 02722)	; &R-DJT-02722;
 	)
        ((===mj		    . 010704)	; &R-MJ010704;
 	))
