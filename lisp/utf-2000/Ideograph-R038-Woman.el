@@ -26326,7 +26326,8 @@
      ((=mj		  . 033748)	; &MJ033748;
       (=daikanwa	  . 06844)	; &I-M-06844;
       )
-     ((=ucs		  . #x61B9)	; 憹
+     ((=ucs@unicode	  . #x61B9)	; &AJ1-16870;
+      (=adobe-japan1-5	  . 16870)	; &AJ1-16870;
       (=daikanwa	  . 11304)	; &I-M-11304;
       ))
     (->formed*sources
