@@ -383,7 +383,20 @@
     (total-strokes	 . 5)
     (=big5-cdp		. #x8851)	; &CDP-8851;
     (->subsumptive
-     ((==big5-cdp	  . #x8851)	; &g2-CDP-8851;
+     ((=>>big5-cdp	  . #x8851)	; &G-CDP-8851;
+      (->subsumptive
+       ((==big5-cdp	    . #x8851)	; &g2-CDP-8851;
+	))
+      )
+     ((ideographic-structure@apparent
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+	(=ucs		    . #x2FF8)	; ⿸
+	)
+       ((=gt-k		    . 00304)	; &GT-K00304;
+	)
+       ((=gt-k		    . 00118)	; &GT-K00118;
+	))
+      (=big5-cdp-itaiji-004 . #x8851)	; &CDP-i004-8851;
       ))
     ))
 (define-char
