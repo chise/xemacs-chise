@@ -1886,12 +1886,26 @@
     (<-formed*sources
      koseki mj)
     (->subsumptive
-     ((==ucs@JP/hanazono  . #x2B755)	; &g2-MJ058834;
-      (==mj		  . 058834)	; &g2-MJ058834;
-      (==koseki		  . 437390)	; &g2-MJ058834;
+     ((=>>ucs@JP	  . #x2B755)	; &G-MJ058834;
+      (=>>mj		  . 058834)	; &G-MJ058834;
       (->subsumptive
-       ((===mj		    . 058834)	; &R-MJ058834;
+       ((==ucs@JP/hanazono  . #x2B755)	; &g2-MJ058834;
+	(==mj		    . 058834)	; &g2-MJ058834;
+	(==koseki	    . 437390)	; &g2-MJ058834;
+	(->subsumptive
+	 ((===mj	      . 058834)	; &R-MJ058834;
+	  ))
 	))
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+	(=ucs		    . #x2FF8)	; ⿸
+	)
+       ((=ucs		    . #x5382)	; 厂
+	)
+       ((=big5-cdp-itaiji-004 . #x8851)	; &CDP-i004-8851;
+	))
+      (=ucs-itaiji-002	  . #x2B755)	; &U-i002+2B755;
       ))
     ))
 (define-char
