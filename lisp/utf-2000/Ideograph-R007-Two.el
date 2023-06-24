@@ -2867,7 +2867,7 @@
        ((=ucs		    . #x4E8C)	; 二
 	)
        ((=>>ucs@unicode	    . #x570D)	; &G-MJ008868;
-	(=>>adobe-japan1-0  . 04468)	; &G-MJ008868;
+	(=>>mj		    . 008868)	; &G-MJ008868;
 	))
       (=>>ucs@iso	  . #x2013F)	; &G-IU+2013F;
       (=>>daikanwa	  . 00285)	; &G-IU+2013F;
