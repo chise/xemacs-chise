@@ -1126,6 +1126,20 @@
     ))
 (define-char
   '((ideographic-radical . 100)	; ⽣
+    (ideographic-strokes . 10)
+    (total-strokes	 . 15)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x751F)	; 生
+      )
+     ((=ucs		  . #x7521)	; 甡
+      ))
+    (=ucs		. #x3F53)	; 㽓
+    ))
+(define-char
+  '((ideographic-radical . 100)	; ⽣
     (ideographic-strokes . 12)
     (total-strokes	 . 17)
     (ideographic-structure

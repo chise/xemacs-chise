@@ -250,6 +250,7 @@
     ;; =>>>hanyo-denshi/jt
     ;; =>>>hanyo-denshi/ks
     ;; =>>>gt
+    =>>mj
     =>>adobe-japan1-0
     =>>adobe-japan1-1
     =>>adobe-japan1-2
@@ -303,6 +304,7 @@
     =>>ucs@iso
     =>>ucs@unicode
     =>>ucs@jis
+    =>>ucs@JP
     =>>ucs@cns
     =>>>ucs@iso
     =>>>ucs@unicode
