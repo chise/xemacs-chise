@@ -2693,7 +2693,7 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((=>>hanyo-denshi/ks . 016040)	; &G-MJ007239;
+       ((=>>mj		    . 007239)	; &G-MJ007239;
 	)
        ((=ucs		    . #x66F0)	; 曰
 	))
