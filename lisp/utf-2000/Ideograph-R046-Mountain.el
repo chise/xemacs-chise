@@ -6287,7 +6287,7 @@
        ((=ucs		    . #x5C71)	; 山
 	)
        ((=>>ucs@unicode	    . #x4E3B)	; &G-MJ006362;
-	(=>>adobe-japan1-0  . 02323)	; &G-MJ006362;
+	(=>>mj		    . 006362)	; &G-MJ006362;
 	))
       (=ucs@gb		  . #x2D592)	; &GU+2D592;
       ))
@@ -9860,8 +9860,12 @@
       )
      ((=ucs		  . #x4F4F)	; 住
       ))
+    (sound@ja/on/go	"dyu")
+    (sound@ja/on/kan	"tyu")
     (=ucs		. #x21E0C)	; 𡸌
+    (=mj		. 034609)	; &I-MJ034609;
     (=cns11643-5	. #x2D36)	; &I-C5-2D36; [13-22]
+    (=koseki		. 092180)	; 𡸌
     (=daikanwa		. 08137)	; &I-M-08137;
     (->subsumptive
      ((ideographic-structure
@@ -9871,12 +9875,20 @@
        ((=ucs		    . #x5C71)	; 山
 	)
        ((=>>ucs@unicode	    . #x4F4F)	; &G-MJ006633;
-	(=>>adobe-japan1-0  . 02373)	; &G-MJ006633;
+	(=>>mj		    . 006633)	; &G-MJ006633;
 	))
-      (=>>ucs@iso	  . #x21E0C)	; &G-IU+21E0C;
-      (=>>daikanwa	  . 08137)	; &G-IU+21E0C;
+      (=>>ucs@iso	  . #x21E0C)	; &G-MJ034609;
+      (=>>mj		  . 034609)	; &G-MJ034609;
+      (=>>daikanwa	  . 08137)	; &G-MJ034609;
       (->subsumptive
-       ((==daikanwa	    . 08137)	; &g2-M-08137;
+       ((==mj		    . 034609)	; &g2-MJ034609;
+	(==koseki	    . 092180)	; &g2-MJ034609;
+	(==daikanwa	    . 08137)	; &g2-MJ034609;
+	(->subsumptive
+	 ((===daikanwa	      . 08137)	; &R-M-08137;
+	  )
+	 ((===mj	      . 034609)	; &R-MJ034609;
+	  ))
 	)
        ((==ucs@iso	    . #x21E0C)	; &g2-IU-00021E0C;
 	))
