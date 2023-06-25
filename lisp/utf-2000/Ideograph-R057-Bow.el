@@ -2677,7 +2677,10 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 57)	; ⼸
+  '((<-denotational@usage
+     ((==>daijiten	  . 03053)	; &A2-DJT-03053;
+      ))
+    (ideographic-radical . 57)	; ⼸
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -2713,6 +2716,7 @@
     (=cns11643-2	. #x2652)	; &I-C2-2652; [06-50]
     (=big5		. #xCC71)	; &I-B-CC71;
     (=daikanwa		. 09748)	; &I-M-09748;
+    (=daijiten		. 03053)	; &I-DJT-03053;
     (<-interchangeable
      ((=ucs@jis		  . #x97DC)	; &MJ028094;
       (=ucs@ks		  . #x97DC)	; &MJ028094;
@@ -2765,11 +2769,13 @@
        ((=ucs		    . #x5F13)	; 弓
 	)
        ((=>>ucs@iso	    . #x20B22)	; &G-MJ032014;
-	(=>>gt		    . 03965)	; &G-MJ032014;
+	(=>>mj		    . 032014)	; &G-MJ032014;
 	))
       (=>>ucs@unicode	  . #x5F22)	; &G-UU+5F22;
       (=>>cns11643-2	  . #x2652)	; &G-UU+5F22; [06-50]
       (->subsumptive
+       ((==daijiten	    . 03053)	; &g2-DJT-03053;
+	)
        ((==ucs@unicode	    . #x5F22)	; &g2-UU+5F22;
 	(==ucs@JP/hanazono  . nil)
 	(==iso-ir165	    . #x7B35)	; &g2-UU+5F22; [91-21]
@@ -9747,6 +9753,10 @@
 (define-char
   '((ideographic-radical . 57)	; ⼸
     (==>daijiten	. 03051)	; &A2-DJT-03051;
+    ))
+(define-char
+  '((ideographic-radical . 57)	; ⼸
+    (==>daijiten	. 03053)	; &A2-DJT-03053;
     ))
 (define-char
   '((ideographic-radical . 57)	; ⼸
