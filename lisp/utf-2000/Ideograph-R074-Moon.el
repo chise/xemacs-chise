@@ -1708,7 +1708,10 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 74)	; ⽉
+  '((<-denotational@usage
+     ((==>daijiten	  . 04680)	; &A2-DJT-04680;
+      ))
+    (ideographic-radical . 74)	; ⽉
     (ideographic-strokes . 5)
     (total-strokes	 . 9)
     (ideographic-structure
@@ -1719,11 +1722,33 @@
       )
      ((=ucs		  . #x4EE4)	; 令
       ))
+    (sound@ja/on/go	"rIyAu")
+    (sound@ja/on/kan	"rei")
     (=ucs		. #x670E)	; 朎
-    (=adobe-japan1-2	. 08488)	; &I-AJ1-08488;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x670E)	; 朎
+      ))
+    (ideographic-radical . 74)	; ⽉
+    (ideographic-strokes . 5)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs@unicode	  . #x6708)	; &MJ013520;
+      (=mj		  . 013520)	; &MJ013520;
+      )
+     ((=ucs@unicode	  . #x4EE4)	; &AJ1-04009;
+      (=adobe-japan1-0	  . 04009)	; &AJ1-04009;
+      ))
+    (=ucs@unicode	. #x670E)	; &AJ1-08488;
+    (=adobe-japan1-2	. 08488)	; &AJ1-08488;
     (=jis-x0212		. #x4270)	; &I-JSP-4270; [34-80]
     (=cns11643-3	. #x2D27)	; &I-C3-2D27; [13-07]
     (=daikanwa		. 14348)	; &I-M-14348;
+    (=daijiten		. 04680)	; &I-DJT-04680;
     (=jef-china3	. #x52BC)	; &I-JC3-52BC;
     (->subsumptive
      ((ideographic-structure
@@ -1746,7 +1771,7 @@
 	(=ucs		    . #x2FF0)	; ⿰
 	)
        ((=>>ucs@unicode	    . #x6708)	; &G-MJ013520;
-	(=>>adobe-japan1-0  . 01860)	; &G-MJ013520;
+	(=>>mj		    . 013520)	; &G-MJ013520;
 	)
        ((=>>ucs@jis	    . #x4EE4)	; &G-AJ1-04009;
 	(=>>ucs@ks	    . #x4EE4)	; &G-AJ1-04009;
@@ -1763,8 +1788,11 @@
 	(==ucs@jis	    . #x670E)	; &g2-AJ1-08488;
 	(==adobe-japan1-2   . 08488)	; &g2-AJ1-08488;
 	(==jis-x0212	    . #x4270)	; &g2-AJ1-08488; [34-80]
+	(==daijiten	    . 04680)	; &g2-AJ1-08488;
 	(==jef-china3	    . #x52BC)	; &g2-AJ1-08488;
 	(->subsumptive
+	 ((===daijiten	      . 04680)	; &R-DJT-04680;
+	  )
 	 ((===jis-x0212	      . #x4270)	; &R-JSP-4270; [34-80]
 	  )
 	 ((===adobe-japan1-2  . 08488)	; &R-AJ1-08488;
@@ -6869,6 +6897,10 @@
   '((ideographic-radical . 74)	; ⽉
     (==>ucs@bucs	. #x670D)	; &BUCS+670D;
     (==>daijiten	. 04679)	; &BUCS+670D;
+    ))
+(define-char
+  '((ideographic-radical . 74)	; ⽉
+    (==>daijiten	. 04680)	; &A2-DJT-04680;
     ))
 (define-char
   '((ideographic-radical . 74)	; ⽉
