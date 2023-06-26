@@ -2018,7 +2018,10 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 39)	; ⼦
+  '((<-denotational@usage
+     ((==>ucs@bucs	  . #x5B69)	; &BUCS+5B69;
+      ))
+    (ideographic-radical . 39)	; ⼦
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
     (ideographic-structure
@@ -2029,7 +2032,14 @@
       )
      ((=ucs		  . #x4EA5)	; 亥
       ))
+    (sound@ja/on/go	"gai")
+    (sound@ja/on/kan	"kai")
     (=ucs		. #x5B69)	; 孩
+    (<-ancient
+     ((=ucs		  . #x54B3)	; 咳
+      ))
+    (<-ancient$_1*sources
+     shuowen)
     ))
 (define-char
   '((<-denotational
@@ -2061,6 +2071,16 @@
     (=gt		. 08767)	; &I-GT-08767;
     (=gt-pj-1		. #x5558)	; &I-GT-08767; [53-56]
     (=daikanwa		. 06977)	; &I-M-06977;
+    (=daijiten		. 02281)	; &I-DJT-02281;
+    (<-ancient
+     ((=ucs@unicode	  . #x54B3)	; &AJ1-01423;
+      (=adobe-japan1-0	  . 01423)	; &AJ1-01423;
+      (=daikanwa	  . 03555)	; &I-M-03555;
+      ))
+    (<-ancient$_1*sources
+     shuowen daikanwa)
+    (<-ancient*sources
+     shuowen daikanwa)
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -2069,7 +2089,7 @@
        ((=ucs		    . #x5B50)	; 子
 	)
        ((=>>ucs@unicode	    . #x4EA5)	; &G-MJ006470;
-	(=>>adobe-japan1-0  . 01195)	; &G-MJ006470;
+	(=>>mj		    . 006470)	; &G-MJ006470;
 	))
       (=>>ucs@unicode	  . #x5B69)	; &G-MJ010077;
       (=>>mj		  . 010077)	; &G-MJ010077;
@@ -2103,8 +2123,11 @@
 	(==hanyo-denshi/ja  . #x5558)	; &g2-MJ010077; [53-56]
 	(==gt		    . 08767)	; &g2-MJ010077;
 	(==daikanwa	    . 06977)	; &g2-MJ010077;
+	(==daijiten	    . 02281)	; &g2-MJ010077;
 	(->subsumptive
 	 ((===daikanwa	      . 06977)	; &R-M-06977;
+	  )
+	 ((===daijiten	      . 02281)	; &R-DJT-02281;
 	  )
 	 ((===jis-x0208	      . #x5558)	; &R-J0-5558; [53-56]
 	  (===jis-x0213-1     . #x5558)	; &R-J0-5558; [53-56]
@@ -5358,4 +5381,9 @@
   '((ideographic-radical . 39)	; ⼦
     (==>ucs@bucs	. #x5B64)	; &BUCS+5B64;
     (==>daijiten	. 02277)	; &BUCS+5B64;
+    ))
+(define-char
+  '((ideographic-radical . 39)	; ⼦
+    (==>ucs@bucs	. #x5B69)	; &BUCS+5B69;
+    (==>daijiten	. 02281)	; &BUCS+5B69;
     ))
