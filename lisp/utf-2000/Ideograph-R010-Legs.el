@@ -6460,8 +6460,9 @@
       )
      ((=ucs		  . #x514B)	; 克
       )
-     ((=gt-k		  . 00619)	; &GT-K00619;
+     ((=>big5-cdp	  . #x89FA)	; &IWDS1-078;
       ))
+    (sound@ja/kun	"hekuto-guramu")
     (=ucs		. #x20498)	; 𠒘
     ))
 (define-char
@@ -6478,13 +6479,17 @@
      ((=ucs@unicode	  . #x514B)	; &MJ007226;
       (=mj		  . 007226)	; &MJ007226;
       )
-     ((=gt-k		  . 00619)	; &GT-K00619;
+     ((=big5-cdp	  . #x8743)	; &CDP-8743;
       ))
     (=ucs@iso		. #x20498)	; &MJ030928;
     (=mj		. 030928)	; &MJ030928;
     (=cns11643-5	. #x3124)	; &I-C5-3124; [17-04]
     (=koseki		. 016240)	; &MJ030928;
     (=daikanwa		. 01389)	; &I-M-01389;
+    (<-same
+     ((=ucs@unicode	  . #x74F8)	; &AJ1-05696;
+      (=adobe-japan1-0	  . 05696)	; &AJ1-05696;
+      ))
     (->subsumptive
      ((==ucs@iso	  . #x20498)	; &g2-MJ030928;
       (==mj		  . 030928)	; &g2-MJ030928;
