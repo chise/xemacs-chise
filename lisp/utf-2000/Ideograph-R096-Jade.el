@@ -377,6 +377,8 @@
     (<-ancient
      ((=ucs		  . #x7389)	; 玉
       ))
+    (<-ancient$_1*sources
+     shuowen)
     (<-ancient*sources
      shuowen)
     ))
@@ -3917,6 +3919,38 @@
     (total-strokes	 . 9)
     (=ucs		. #x24912)	; 𤤒
     (=cns11643-4	. #x2A36)	; &I-C4-2A36; [10-22]
+    ))
+(define-char
+  '((ideographic-radical . 96)	; ⽟
+    (ideographic-strokes . 5)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x248E9)	; 𤣩
+      )
+     ((=ucs		  . #x79BE)	; 禾
+      ))
+    (=ucs		. #x24924)	; 𤤤
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x24924)	; 𤤤
+      ))
+    (ideographic-radical . 96)	; ⽟
+    (ideographic-strokes . 5)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x248E9)	; 𤣩
+      )
+     ((=ucs@unicode	  . #x79BE)	; &AJ1-01363;
+      (=adobe-japan1-0	  . 01363)	; &AJ1-01363;
+      ))
+    (=ucs@iso		. #x24924)	; &U-00024924;
     ))
 (define-char
   '((<-denotational@component
