@@ -348,6 +348,11 @@
     (<-Small-Seal@shuowen
      ((=ucs		  . #x5B69)	; 孩
       ))
+    (<-ancient@shuowen
+     ((=shuowen-jiguge	  . 03801)	; &SW-JIGUGE-03801;
+      )
+     ((=ucs		  . #x54B3)	; 咳
+      ))
     (->subsumptive
      ((===shuowen-jiguge-A30 . 03802)	; &SW-JIGUGE30-03802;
       )
