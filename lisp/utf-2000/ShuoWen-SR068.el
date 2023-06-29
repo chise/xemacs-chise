@@ -4,6 +4,8 @@
     (=shuowen-jiguge	. 08310)	; &SW-JIGUGE-08310;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x4885)	; 䢅
+      )
+     ((=ucs		  . #x6668)	; 晨
       ))
     (->subsumptive
      ((===shuowen-jiguge-A30 . 08810)	; &SW-JIGUGE30-08810;

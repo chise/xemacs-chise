@@ -2901,8 +2901,9 @@
     (<-formed$_1*sources
      jiyun)
     (->formed
-     ((=ucs@iso		  . #x2911F)	; &M-42391;
-      (=daikanwa	  . 42391)	; &M-42391;
+     ((=ucs@iso		  . #x2911F)	; &C7-4462;
+      (=cns11643-7	  . #x4462)	; &C7-4462; [36-66]
+      (=daikanwa	  . 42391)	; &I-M-42391;
       )
      ((=ucs@unicode	  . #x51D2)	; &AJ1-21186;
       (=adobe-japan1-6	  . 21186)	; &AJ1-21186;
