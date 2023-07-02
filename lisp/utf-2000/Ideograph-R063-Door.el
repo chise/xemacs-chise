@@ -386,9 +386,56 @@
   '((ideographic-radical . 63)	; ⼾
     (ideographic-strokes . 2)
     (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=>ucs@iwds-1	  . #x6236)	; &A-IWDSU+6236;
+      (=>iwds-1		  .  0007)	; &A-IWDSU+6236;
+      )
+     ((=>ucs@iwds-1	  . #x5315)	; &J97-5238;
+      (=>jis-x0208	  . #x5238)	; &J97-5238; [50-24]
+      ))
+    (sound@ja/on	"yaku")
     (=ucs		. #x22A29)	; 𢨩
-    (=cns11643-6	. #x2478)	; &I-C6-2478; [04-88]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x22A29)	; 𢨩
+      ))
+    (ideographic-radical . 63)	; ⼾
+    (ideographic-strokes . 2)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs		  . #x6236)	; 戶
+      )
+     ((=ucs		  . #x5315)	; 匕
+      ))
+    (=ucs@iso		. #x22A29)	; &C6-2478;
+    (=cns11643-6	. #x2478)	; &C6-2478; [04-88]
     (=daikanwa		. 11700)	; &I-M-11700;
+    (<-same
+     ((=ucs@unicode	  . #x5384)	; &AJ1-03837;
+      (=adobe-japan1-0	  . 03837)	; &AJ1-03837;
+      (=daikanwa	  . 02893)	; &I-M-02893;
+      ))
+    (<-same*sources
+     haipian daikanwa)
+    (->subsumptive
+     ((==ucs@iso	  . #x22A29)	; &g2-M-11700;
+      (==cns11643-6	  . #x2478)	; &g2-M-11700; [04-88]
+      (==daikanwa	  . 11700)	; &g2-M-11700;
+      (->subsumptive
+       ((===daikanwa	    . 11700)	; &R-M-11700;
+	)
+       ((===cns11643-6	    . #x2478)	; &R-C6-2478; [04-88]
+	)
+       ((===ucs@iso	    . #x22A29)	; &R-U-00022A29;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 63)	; ⼾
