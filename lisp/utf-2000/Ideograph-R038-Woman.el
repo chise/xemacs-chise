@@ -2702,21 +2702,80 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 38)	; ⼥
+  '((<-denotational@usage
+     ((==>daijiten	  . 02039)	; &A2-DJT-02039;
+      ))
+    (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5973)	; 女
+      )
+     ((=ucs		  . #x516C)	; 公
+      ))
+    (sound@ja/on/go	"syu")
+    (sound@ja/on/kan	"syou")
     (=ucs		. #x5990)	; 妐
-    (=mj		. 009575)	; &I-MJ009575;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5990)	; 妐
+      ))
+    (ideographic-radical . 38)	; ⼥
+    (ideographic-strokes . 4)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5973)	; 女
+      )
+     ((=ucs@unicode	  . #x516C)	; &MJ007275;
+      (=mj		  . 007275)	; &MJ007275;
+      ))
+    (=ucs@unicode	. #x5990)	; &MJ009575;
+    (=mj		. 009575)	; &MJ009575;
     (=cns11643-2	. #x2358)	; &I-C2-2358; [03-56]
     (=big5		. #xCAB8)	; &I-B-CAB8;
-    (=koseki		. 069710)	; 妐
+    (=koseki		. 069710)	; &MJ009575;
     (=daikanwa		. 06080)	; &I-M-06080;
+    (=daijiten		. 02039)	; &I-DJT-02039;
+    (<-interchangeable
+     ((=ucs@unicode	  . #x516C)	; &MJ007275;
+      (=mj		  . 007275)	; &MJ007275;
+      (=daikanwa	  . 01452)	; &I-M-01452;
+      )
+     ((=ucs@unicode	  . #x4F00)	; &MJ006558;
+      (=mj		  . 006558)	; &MJ006558;
+      (=daikanwa	  . 00421)	; &I-M-00421;
+      ))
+    (<-interchangeable$_1*sources
+     shiwen daikanwa)
+    (<-interchangeable$_2*sources
+     shiming-shuzheng daikanwa)
+    (<-interchangeable*sources
+     daikanwa)
+    (->interchangeable
+     ((=ucs@unicode	  . #x937E)	; &AJ1-02505;
+      (=adobe-japan1-0	  . 02505)	; &AJ1-02505;
+      (=daikanwa	  . 40672)	; &I-M-40672;
+      ))
+    (->interchangeable$_1*sources
+     jiyun daikanwa)
+    (->interchangeable*sources
+     jiyun daikanwa)
     (->subsumptive
      ((==mj		  . 009575)	; &g2-MJ009575;
       (==koseki		  . 069710)	; &g2-MJ009575;
       (==daikanwa	  . 06080)	; &g2-MJ009575;
+      (==daijiten	  . 02039)	; &g2-MJ009575;
       (->subsumptive
        ((===daikanwa	    . 06080)	; &R-M-06080;
+	)
+       ((===daijiten	    . 02039)	; &R-DJT-02039;
 	)
        ((===mj		    . 009575)	; &R-MJ009575;
 	))
@@ -55197,6 +55256,10 @@
   '((ideographic-radical . 38)	; ⼥
     (==>ucs@bucs	. #x5A66)	; &BUCS+5A66;
     (==>daijiten	. 02155)	; &BUCS+5A66;
+    ))
+(define-char
+  '((ideographic-radical . 38)	; ⼥
+    (==>daijiten	. 02039)	; &A2-DJT-02039;
     ))
 (define-char
   '((ideographic-radical . 38)	; ⼥
