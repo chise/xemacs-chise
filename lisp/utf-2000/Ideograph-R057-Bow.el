@@ -7966,11 +7966,72 @@
   '((ideographic-radical . 57)	; ⼸
     (ideographic-strokes . 13)
     (total-strokes	 . 16)
-    (hanyu-dazidian	2 1003 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
+      (=ucs		  . #x2FF4)	; ⿴
+      )
+     ((=ucs		  . #x5F1C)	; 弜
+      )
+     ((=ucs		  . #x82BB)	; 芻
+      ))
+    (sound@ja/on	"sAu")
     (=ucs		. #x22428)	; 𢐨
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x22428)	; 𢐨
+      ))
+    (ideographic-radical . 57)	; ⼸
+    (ideographic-strokes . 13)
+    (total-strokes	 . 16)
+    (hanyu-dazidian	2 1003 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
+      (=ucs		  . #x2FF4)	; ⿴
+      )
+     ((=ucs		  . #x5F1C)	; 弜
+      )
+     ((=ucs@unicode	  . #x82BB)	; &AJ1-06328;
+      (=adobe-japan1-0	  . 06328)	; &AJ1-06328;
+      ))
+    (=ucs@iso		. #x22428)	; &MJ035677;
+    (=mj		. 035677)	; &MJ035677;
     (=cns11643-7	. #x2D60)	; &I-C7-2D60; [13-64]
+    (=koseki		. 111610)	; &MJ035677;
     (=daikanwa		. 09875)	; &I-M-09875;
-    (=hanziku-3		. #xCCDD)	; &I-HZK03-CCDD;
+    (<-ancient
+     ((=ucs@unicode	  . #x7092)	; &AJ1-05553;
+      (=adobe-japan1-0	  . 05553)	; &AJ1-05553;
+      (=daikanwa	  . 18915)	; &I-M-18915;
+      ))
+    (<-ancient*sources
+     zihui daikanwa)
+    (<-formed
+     ((=ucs@unicode	  . #x7092)	; &AJ1-05553;
+      (=adobe-japan1-0	  . 05553)	; &AJ1-05553;
+      ))
+    (<-formed$_1*sources
+     koseki mj)
+    (<-formed*sources
+     koseki mj)
+    (->subsumptive
+     ((==ucs@iso	  . #x22428)	; &g2-MJ035677;
+      (==mj		  . 035677)	; &g2-MJ035677;
+      (==cns11643-7	  . #x2D60)	; &g2-MJ035677; [13-64]
+      (==koseki		  . 111610)	; &g2-MJ035677;
+      (==daikanwa	  . 09875)	; &g2-MJ035677;
+      (->subsumptive
+       ((===daikanwa	    . 09875)	; &R-M-09875;
+	)
+       ((===mj		    . 035677)	; &R-MJ035677;
+	)
+       ((===cns11643-7	    . #x2D60)	; &R-C7-2D60; [13-64]
+	)
+       ((===ucs@iso	    . #x22428)	; &R-U-00022428;
+	)
+       ((=hanziku-3	    . #xCCDD)	; &HZK03-CCDD;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 57)	; ⼸
