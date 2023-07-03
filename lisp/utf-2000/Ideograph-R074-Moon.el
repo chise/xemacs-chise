@@ -895,6 +895,19 @@
       ))
     (=ucs-var-002	. #x23362)	; &U-v002+23362;
     (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=mj		    . 006462)	; &MJ006462;
+	)
+       ((=mj		    . 013519)	; &MJ013519;
+	))
+      (=big5-cdp-itaiji-001 . #x8C47)	; &CDP-i001-8C47;
+      (->subsumptive
+       ((==big5-cdp-itaiji-001 . #x8C47)	; &g2-CDP-i001-8C47;
+	))
+      )
      ((==ucs-var-002	  . #x23362)	; &g2-U-v002+23362;
       ))
     ))
