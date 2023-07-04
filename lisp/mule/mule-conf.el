@@ -4888,6 +4888,29 @@
 		  mother	=ucs-var-001
 		  min-code #x30000 max-code #x3FFFF
 		  registry "ucs00\\.var001-3"))
+  (make-charset '=>ucs-var-001
+		"Abstract characters corresponding with uXXXX-var-001 of GlyphWiki"
+		'(long-name	"UCS-var-001"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+                  ;; =>iso-ir	177
+		  mother	=ucs))
+  (make-charset '=>ucs-bmp-var-001
+		"uXXXX-var-001's abstract characters in BMP"
+		'(long-name	"UCS-BMP-var-001 characters"
+		  chars		256
+		  dimension	2
+		  columns	2
+		  graphic	2
+		  direction	l2r
+                  ;; =>iso-ir	177
+		  mother	=>ucs-var-001
+		  min-code #x2E00
+		  max-code #x9FCC
+		  registry "ucs\\.var001-0"))
   (make-charset '==ucs-var-001
 		"Abstract glyph-forms corresponding with uXXXX-var-001 of GlyphWiki"
 		'(long-name	"UCS-var-001"
