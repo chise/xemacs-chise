@@ -5590,12 +5590,79 @@
   '((ideographic-radical . 40)	; ⼧
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
-    (=ucs		. #x219F0)	; 𡧰
-    (->subsumptive
-     ((=daikanwa	  . 07141)	; &M-07141;
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=ucs@iso		  . #x219F0)	; &C6-302B;
-      (=cns11643-6	  . #x302B)	; &C6-302B; [16-11]
+     ((=ucs		  . #x5B80)	; 宀
+      )
+     ((=>ucs@iwds-1	  . #x7F36)	; &A-IWDSU+7F36;
+      (=>iwds-1		  .  39295)	; &A-IWDSU+7F36;
+      ))
+    (sound@ja/on	"hAu")
+    (=ucs		. #x219F0)	; 𡧰
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x219F0)	; 𡧰
+      ))
+    (ideographic-radical . 40)	; ⼧
+    (ideographic-strokes . 6)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5B80)	; 宀
+      )
+     ((=ucs		  . #x7F36)	; 缶
+      ))
+    (=ucs@iso		. #x219F0)	; &MJ033972;
+    (=mj		. 033972)	; &MJ033972;
+    (=cns11643-6	. #x302B)	; &I-C6-302B; [16-11]
+    (=koseki		. 081150)	; &MJ033972;
+    (=daikanwa		. 07141)	; &I-M-07141;
+    (<-formed
+     ((=ucs		  . #x219D6)	; 𡧖
+      (=mj		  . 033952)	; &I-MJ033952;
+      (=koseki		  . 080700)	; 𡧖
+      )
+     ((=ucs@unicode	  . #x5BE6)	; &AJ1-04632;
+      (=adobe-japan1-0	  . 04632)	; &AJ1-04632;
+      )
+     ((=ucs		  . #x5B9F)	; 実
+      ))
+    (<-formed$_1*sources
+     koseki)
+    (<-formed$_2*note	"Maybe wrong mapping")
+    (<-formed$_2*sources
+     koseki@mj)
+    (<-formed$_3*note	"Maybe wrong mapping")
+    (<-formed$_3*sources
+     koseki@mj)
+    (<-formed*sources
+     koseki mj)
+    (<-same
+     ((=ucs		  . #x219D6)	; 𡧖
+      (=daikanwa	  . 07099)	; &I-M-07099;
+      ))
+    (<-same*sources
+     zhengzitong daikanwa)
+    (->subsumptive
+     ((==ucs@iso	  . #x219F0)	; &g2-MJ033972;
+      (==mj		  . 033972)	; &g2-MJ033972;
+      (==cns11643-6	  . #x302B)	; &g2-MJ033972; [16-11]
+      (==koseki		  . 081150)	; &g2-MJ033972;
+      (==daikanwa	  . 07141)	; &g2-MJ033972;
+      (->subsumptive
+       ((===daikanwa	    . 07141)	; &R-M-07141;
+	)
+       ((===mj		    . 033972)	; &R-MJ033972;
+	)
+       ((===cns11643-6	    . #x302B)	; &R-C6-302B; [16-11]
+	)
+       ((===ucs@iso	    . #x219F0)	; &R-U-000219F0;
+	))
       ))
     ))
 (define-char
