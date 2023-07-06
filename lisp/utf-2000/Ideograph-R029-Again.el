@@ -4245,7 +4245,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=hanyo-denshi/ks	  . 021320)	; &HD-KS-021320;
+     ((=mj		  . 057037)	; &MJ057037;
       )
      ((=>ucs@component	  . #x53CB)	; &A-compU+53CB;
       (=>iwds-1		  .  0256)	; &A-compU+53CB;
@@ -4263,7 +4263,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=hanyo-denshi/ks	  . 021320)	; &HD-KS-021320;
+     ((=mj		  . 057037)	; &MJ057037;
       )
      ((=ucs@unicode	  . #x53CB)	; &AJ1-03857;
       (=adobe-japan1-0	  . 03857)	; &AJ1-03857;
