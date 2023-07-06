@@ -28512,8 +28512,8 @@
       )
      ((=ucs		  . #x5973)	; 女
       )
-     ((=ucs@unicode	  . #x3687)	; &HD-KS-065500;
-      (=hanyo-denshi/ks	  . 065500)	; &HD-KS-065500;
+     ((=ucs@unicode	  . #x3687)	; &MJ000557;
+      (=mj		  . 000557)	; &MJ000557;
       ))
     (=ucs@iso		. #x217A7)	; &U-000217A7;
     (->subsumptive
