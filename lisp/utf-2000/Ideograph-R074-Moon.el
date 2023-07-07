@@ -5168,8 +5168,8 @@
      ((=ucs@unicode	  . #x6708)	; &MJ013520;
       (=mj		  . 013520)	; &MJ013520;
       )
-     ((=ucs@unicode	  . #x3687)	; &HD-KS-065500;
-      (=hanyo-denshi/ks	  . 065500)	; &HD-KS-065500;
+     ((=ucs@unicode	  . #x3687)	; &MJ000557;
+      (=mj		  . 000557)	; &MJ000557;
       ))
     (=ucs@unicode	. #x6721)	; &MJ013567;
     (=ucs@JP/hanazono	. #x4DBD)	; &MJ013567;
