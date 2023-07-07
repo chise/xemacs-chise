@@ -4887,8 +4887,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=ucs@unicode	  . #x51FD)	; &AJ1-20082;
-      (=adobe-japan1-5	  . 20082)	; &AJ1-20082;
+     ((=ucs@unicode	  . #x51FD)	; &MJ007444;
+      (=mj		  . 007444)	; &MJ007444;
       )
      ((=ucs@unicode	  . #x6B20)	; &AJ1-01853;
       (=adobe-japan1-0	  . 01853)	; &AJ1-01853;
