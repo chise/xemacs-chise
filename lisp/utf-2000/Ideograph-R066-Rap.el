@@ -12950,15 +12950,45 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=big5-cdp	  . #x8CAF)	; &CDP-8CAF;
+     ((=>big5-cdp@iwds-1  . #x8CAF)	; &A-GT-K02231;
       )
      ((=big5-cdp	  . #x88FD)	; &CDP-88FD;
       ))
     (=ucs		. #x657B)	; 敻
-    (=cns11643-2	. #x5067)	; &I-C2-5067; [48-71]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x657B)	; 敻
+      ))
+    (ideographic-radical . 66)	; ⽁
+    (ideographic-strokes . 11)
+    (total-strokes	 . 15)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=big5-cdp	  . #x8CAF)	; &CDP-8CAF;
+      )
+     ((=big5-cdp	  . #x88FD)	; &CDP-88FD;
+      ))
+    (=ucs@unicode	. #x657B)	; &HD-KS-149900;
+    (=cns11643-2	. #x5067)	; &HD-KS-149900; [48-71]
+    (=hanyo-denshi/ks	. 149900)	; &HD-KS-149900;
     (->subsumptive
-     ((==ucs@cns	  . #x657B)	; &g2-CU+657B;
-      (==cns11643-2	  . #x5067)	; &g2-CU+657B; [48-71]
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x5910)	; 夐
+	)
+       ((=ucs		    . #xE0102)	; 󠄂
+	))
+      (==ucs@cns	  . #x657B)	; &g2-HD-KS-149900;
+      (==cns11643-2	  . #x5067)	; &g2-HD-KS-149900; [48-71]
+      (==hanyo-denshi/ks  . 149900)	; &g2-HD-KS-149900;
+      (->subsumptive
+       ((===hanyo-denshi/ks . 149900)	; &R-HD-KS-149900;
+	(=hanyo-denshi/ks/mf . #x3A8E)	; &R-HD-KS-149900;
+	)
+       ((===cns11643-2	    . #x5067)	; &R-C2-5067; [48-71]
+	))
       )
      ((==ucs@unicode	  . #x657B)	; &g2-UU+657B;
       (==ucs@JP/hanazono  . nil)
