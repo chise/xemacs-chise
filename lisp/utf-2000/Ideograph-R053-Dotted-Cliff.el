@@ -6775,9 +6775,8 @@
     (<-interchangeable*sources
      daikanwa)
     (->Small-Seal
-     ((=ucs@iso		  . #x20B7B)	; &C6-5F21;
-      (=cns11643-6	  . #x5F21)	; &C6-5F21; [63-01]
-      (=daikanwa	  . 49330)	; &I-M-49330;
+     ((=ucs@iso		  . #x20B7B)	; &MJ032080;
+      (=mj		  . 032080)	; &MJ032080;
       ))
     (->Small-Seal$_1*sources
      zhengzitong)
@@ -6793,8 +6792,8 @@
     (->ancient*sources
      jiyun daikanwa)
     (->original
-     ((=ucs@iso		  . #x20B7B)	; &C6-5F21;
-      (=cns11643-6	  . #x5F21)	; &C6-5F21; [63-01]
+     ((=ucs@iso		  . #x20B7B)	; &MJ032080;
+      (=mj		  . 032080)	; &MJ032080;
       (=daikanwa	  . 49330)	; &I-M-49330;
       ))
     (->original$_1*sources
