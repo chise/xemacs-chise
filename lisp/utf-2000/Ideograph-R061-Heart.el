@@ -7535,7 +7535,10 @@
     (=daikanwa		. 10482)	; &I-M-10482;
     ))
 (define-char
-  '((ideographic-radical . 61)	; ⼼
+  '((<-denotational@usage
+     ((==>ucs@bucs	  . #x602A)	; &BUCS+602A;
+      ))
+    (ideographic-radical . 61)	; ⼼
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
     (ideographic-structure
@@ -7564,7 +7567,8 @@
       )
      ((=ucs		  . #x5FC4)	; 忄
       )
-     ((=ucs		  . #x5723)	; 圣
+     ((=ucs@unicode	  . #x5723)	; &AJ1-14419;
+      (=adobe-japan1-4	  . 14419)	; &AJ1-14419;
       ))
     (=ucs@unicode	. #x602A)	; &AJ1-01400;
     (=adobe-japan1-0	. 01400)	; &AJ1-01400;
@@ -7577,6 +7581,7 @@
     (=gt		. 13115)	; &I-GT-13115;
     (=gt-pj-1		. #x3278)	; &I-GT-13115; [18-88]
     (=daikanwa		. 10483)	; &I-M-10483;
+    (=daijiten		. 03248)	; &I-DJT-03248;
     (=shinjigen		.  2426)	; &AJ1-01400;
     (->formed
      ((=ucs@cns		  . #x5080)	; &AJ1-04179;
@@ -7619,9 +7624,12 @@
       (==jis-x0213-1	  . #x3278)	; &g2-AJ1-01400; [18-88]
       (==gt		  . 13115)	; &g2-AJ1-01400;
       (==daikanwa	  . 10483)	; &g2-AJ1-01400;
+      (==daijiten	  . 03248)	; &g2-AJ1-01400;
       (==shinjigen	  .  2426)	; &g2-AJ1-01400;
       (->subsumptive
        ((===daikanwa	    . 10483)	; &R-M-10483;
+	)
+       ((===daijiten	    . 03248)	; &R-DJT-03248;
 	)
        ((===jis-x0208	    . #x3278)	; &R-J0-3278; [18-88]
 	(===jis-x0213-1	    . #x3278)	; &R-J0-3278; [18-88]
@@ -16626,7 +16634,10 @@
     (=daikanwa		. 10688)	; &I-M-10688;
     ))
 (define-char
-  '((ideographic-radical . 61)	; ⼼
+  '((<-denotational@usage
+     ((==>ucs@bucs	  . #x60A7)	; &BUCS+60A7;
+      ))
+    (ideographic-radical . 61)	; ⼼
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
     (ideographic-structure
@@ -16637,8 +16648,27 @@
       )
      ((=ucs		  . #x5229)	; 利
       ))
+    (sound@ja/on	"ri")
     (=ucs		. #x60A7)	; 悧
-    (=adobe-japan1-0	. 04847)	; &I-AJ1-04847;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x60A7)	; 悧
+      ))
+    (ideographic-radical . 61)	; ⼼
+    (ideographic-strokes . 7)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5FC4)	; 忄
+      )
+     ((=ucs@unicode	  . #x5229)	; &AJ1-03938;
+      (=adobe-japan1-0	  . 03938)	; &AJ1-03938;
+      ))
+    (=ucs@unicode	. #x60A7)	; &AJ1-04847;
+    (=adobe-japan1-0	. 04847)	; &AJ1-04847;
     (=jis-x0208		. #x5826)	; &I-J90-5826; [56-06]
     (=ks-x1001		. #x575C)	; &I-K0-575C; [55-60]
     (=cns11643-3	. #x3128)	; &I-C3-3128; [17-08]
@@ -16646,7 +16676,15 @@
     (=gt		. 13437)	; &I-GT-13437;
     (=gt-pj-1		. #x5826)	; &I-GT-13437; [56-06]
     (=daikanwa		. 10689)	; &I-M-10689;
+    (=daijiten		. 03332)	; &I-DJT-03332;
     (=cbeta		. 00384)	; &I-CB00384;
+    (<-same
+     ((=ucs@unicode	  . #x4FD0)	; &AJ1-04151;
+      (=adobe-japan1-0	  . 04151)	; &AJ1-04151;
+      (=daikanwa	  . 00682)	; &I-M-00682;
+      ))
+    (<-same*sources
+     cihai daikanwa)
     (->subsumptive
      ((==ucs@unicode	  . #x60A7)	; &g2-AJ1-04847;
       (==adobe-japan1-0	  . 04847)	; &g2-AJ1-04847;
@@ -16656,9 +16694,12 @@
       (==jis-x0213-1	  . #x5826)	; &g2-AJ1-04847; [56-06]
       (==gt		  . 13437)	; &g2-AJ1-04847;
       (==daikanwa	  . 10689)	; &g2-AJ1-04847;
+      (==daijiten	  . 03332)	; &g2-AJ1-04847;
       (==cbeta		  . 00384)	; &g2-AJ1-04847;
       (->subsumptive
        ((===daikanwa	    . 10689)	; &R-M-10689;
+	)
+       ((===daijiten	    . 03332)	; &R-DJT-03332;
 	)
        ((===jis-x0208	    . #x5826)	; &R-J0-5826; [56-06]
 	(===jis-x0213-1	    . #x5826)	; &R-J0-5826; [56-06]
@@ -53334,6 +53375,11 @@
     ))
 (define-char
   '((ideographic-radical . 61)	; ⼼
+    (==>ucs@bucs	. #x602A)	; &BUCS+602A;
+    (==>daijiten	. 03248)	; &BUCS+602A;
+    ))
+(define-char
+  '((ideographic-radical . 61)	; ⼼
     (==>ucs@bucs	. #x6042)	; &BUCS+6042;
     (==>daijiten	. 03264)	; &BUCS+6042;
     ))
@@ -53381,6 +53427,11 @@
   '((ideographic-radical . 61)	; ⼼
     (==>ucs@bucs	. #x609B)	; &BUCS+609B;
     (==>daijiten	. 03324)	; &BUCS+609B;
+    ))
+(define-char
+  '((ideographic-radical . 61)	; ⼼
+    (==>ucs@bucs	. #x60A7)	; &BUCS+60A7;
+    (==>daijiten	. 03332)	; &BUCS+60A7;
     ))
 (define-char
   '((ideographic-radical . 61)	; ⼼
