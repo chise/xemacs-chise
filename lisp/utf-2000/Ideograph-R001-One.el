@@ -6977,19 +6977,38 @@
       ))
     ))
 (define-char
-  '((<-denotational
+  '((<-denotational@usage
      ((==>ucs@bucs	  . #x56B4)	; &BUCS+56B4;
       ))
     (ideographic-radical . 1)	; ⼀
     (ideographic-strokes . 6)
     (total-strokes	 . 7)
-    (hanyu-dazidian	1 19 10)
     (=ucs		. #x4E25)	; 严
-    (=gb2312		. #x514F)	; &I-G0-514F; [49-47]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x4E25)	; 严
+      ))
+    (ideographic-radical . 1)	; ⼀
+    (ideographic-strokes . 6)
+    (total-strokes	 . 7)
+    (hanyu-dazidian	1 19 10)
+    (=ucs@unicode	. #x4E25)	; &G0-514F;
+    (=gb2312		. #x514F)	; &G0-514F; [49-47]
     (=big5-cdp		. #x8A6C)	; &I-CDP-8A6C;
     (<-simplified@CN
-     ((=ucs@unicode	  . #x56B4)	; &UU+56B4;
-      (=gb12345		  . #x514F)	; &UU+56B4; [49-47]
+     ((=ucs@unicode	  . #x56B4)	; &DJT-01581;
+      (=gb12345		  . #x514F)	; &DJT-01581; [49-47]
+      ))
+    (->subsumptive
+     ((==ucs@unicode	  . #x4E25)	; &g2-CDP-8A6C;
+      (==gb2312		  . #x514F)	; &g2-CDP-8A6C; [49-47]
+      (==big5-cdp	  . #x8A6C)	; &g2-CDP-8A6C;
+      (->subsumptive
+       ((===big5-cdp	    . #x8A6C)	; &R-CDP-8A6C;
+	)
+       ((===ucs@unicode	    . #x4E25)	; &R-UU+4E25;
+	))
       ))
     ))
 (define-char
