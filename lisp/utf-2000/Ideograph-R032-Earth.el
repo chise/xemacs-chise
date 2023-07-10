@@ -44786,8 +44786,8 @@
       )
      ((=gt-k		  . 00199)	; &GT-K00199;
       )
-     ((=ucs@unicode	  . #x56B4)	; &UU+56B4;
-      (=gb12345		  . #x514F)	; &UU+56B4; [49-47]
+     ((=ucs@unicode	  . #x56B4)	; &DJT-01581;
+      (=gb12345		  . #x514F)	; &DJT-01581; [49-47]
       ))
     (=ucs@unicode	. #x58E7)	; &UU+58E7;
     (=ucs@JP/hanazono	. nil)
