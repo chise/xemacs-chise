@@ -1616,8 +1616,7 @@
 	)
        ((=ucs		    . #x51AB)	; 冫
 	)
-       ((=>>ucs@unicode	    . #x4EE4)	; &GT-K01022;
-	(=gt-k		    . 01022)	; &GT-K01022;
+       ((=mj		    . 056905)	; &MJ056905;
 	))
       (=>>ucs@unicode	  . #x51B7)	; &G-UU+51B7;
       (->subsumptive
