@@ -1341,11 +1341,51 @@
 (define-char
   '((ideographic-radical . 90)	; ⽙
     (ideographic-strokes . 11)
-    (total-strokes	 . 15)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=>ucs@iwds-1	  . #x723F)	; &A-IWDSU+723F;
+      (=>iwds-1		  .  0363)	; &A-IWDSU+723F;
+      )
+     ((=ucs		  . #x5EB8)	; 庸
+      ))
+    (sound@ja/on	"you")
     (=ucs		. #x7245)	; 牅
-    (=jis-x0212		. #x4A50)	; &I-JSP-4A50; [42-48]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x7245)	; 牅
+      ))
+    (ideographic-radical . 90)	; ⽙
+    (ideographic-strokes . 11)
+    (total-strokes	 . 15)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x723F)	; 爿
+      )
+     ((=ucs@unicode	  . #x5EB8)	; &MJ011018;
+      (=mj		  . 011018)	; &MJ011018;
+      ))
+    (=ucs@unicode	. #x7245)	; &JSP-4A50;
+    (=jis-x0212		. #x4A50)	; &JSP-4A50; [42-48]
     (=cns11643-4	. #x4A6D)	; &I-C4-4A6D; [42-77]
     (=daikanwa		. 19797)	; &I-M-19797;
+    (<-formed
+     ((=ucs@unicode	  . #x5889)	; &AJ1-16820;
+      (=adobe-japan1-5	  . 16820)	; &AJ1-16820;
+      ))
+    (<-formed$_1*sources
+     jiyun)
+    (<-same
+     ((=ucs@unicode	  . #x5889)	; &AJ1-16820;
+      (=adobe-japan1-5	  . 16820)	; &AJ1-16820;
+      (=daikanwa	  . 05419)	; &I-M-05419;
+      ))
+    (<-same*sources
+     jiyun daikanwa)
     (->subsumptive
      ((==ucs@unicode	  . #x7245)	; &g2-JSP-4A50;
       (==jis-x0212	  . #x4A50)	; &g2-JSP-4A50; [42-48]
