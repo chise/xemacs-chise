@@ -957,8 +957,7 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((=>>ucs@unicode	    . #x4EE4)	; &GT-K01022;
-	(=gt-k		    . 01022)	; &GT-K01022;
+       ((=mj		    . 056905)	; &MJ056905;
 	)
        ((=ucs		    . #x4E01)	; 丁
 	))
