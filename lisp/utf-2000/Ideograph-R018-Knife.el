@@ -5539,8 +5539,7 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((=>>ucs@unicode	    . #x4EE4)	; &GT-K01022;
-	(=gt-k		    . 01022)	; &GT-K01022;
+       ((=mj		    . 056905)	; &MJ056905;
 	)
        ((=ucs		    . #x5202)	; 刂
 	))
@@ -12930,8 +12929,8 @@
     (<-interchangeable*sources
      daikanwa)
     (->ancient
-     ((=ucs@iso		  . #x201D9)	; &C6-256A;
-      (=cns11643-6	  . #x256A)	; &C6-256A; [05-74]
+     ((=ucs@iso		  . #x201D9)	; &MJ030560;
+      (=mj		  . 030560)	; &MJ030560;
       (=daikanwa	  . 00523)	; &I-M-00523;
       )
      ((=ucs@iso		  . #x201DD)	; &C6-2570;
