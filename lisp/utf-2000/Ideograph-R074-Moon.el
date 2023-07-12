@@ -1837,8 +1837,7 @@
        ((=ucs@unicode	    . #x6708)	; &MJ013520;
 	(=mj		    . 013520)	; &MJ013520;
 	)
-       ((=>>ucs@unicode	    . #x4EE4)	; &GT-K01022;
-	(=gt-k		    . 01022)	; &GT-K01022;
+       ((=mj		    . 056905)	; &MJ056905;
 	))
       (=>>ucs@unicode	  . #x670E)	; &G-UU+670E;
       (->subsumptive
