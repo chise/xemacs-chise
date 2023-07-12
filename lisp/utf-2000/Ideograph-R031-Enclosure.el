@@ -3968,8 +3968,7 @@
 	)
        ((=ucs		    . #x56D7)	; 囗
 	)
-       ((=>>ucs@unicode	    . #x4EE4)	; &GT-K01022;
-	(=gt-k		    . 01022)	; &GT-K01022;
+       ((=mj		    . 056905)	; &MJ056905;
 	))
       (=>>ucs@unicode	  . #x56F9)	; &G-UU+56F9;
       (->subsumptive
