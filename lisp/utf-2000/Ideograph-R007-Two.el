@@ -2484,8 +2484,8 @@
       )
      ((=>ucs@component	  . #x4E8C)	; &A-compU+4E8C;
       )
-     ((=>ucs@component	  . #x5405)	; &A-compU+5405;
-      (=>iwds-1		  .  0398)	; &A-compU+5405;
+     ((=>ucs@iwds-1	  . #x5405)	; &A-IWDSU+5405;
+      (=>iwds-1		  .  0398)	; &A-IWDSU+5405;
       ))
     (=>ucs-itaiji-001	. #x2012E)	; &A-U-i001+2012E;
     ))
