@@ -2335,15 +2335,18 @@
     (=hanziku-1		. #xC3E4)	; &HZK01-C3E4;
     ))
 (define-char
-  '((ideographic-radical . 2)	; ⼁
+  '((<-denotational@usage
+     ((==>ucs@bucs	  . #x81E8)	; &BUCS+81E8;
+      ))
+    (ideographic-radical . 2)	; ⼁
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
       (=ucs		  . #x2FF8)	; ⿸
       )
      ((=ucs		  . #x30022)	; 𰀢
       )
-     ((=>ucs@component	  . #x5405)	; &A-compU+5405;
-      (=>iwds-1		  .  0398)	; &A-compU+5405;
+     ((=>ucs@iwds-1	  . #x5405)	; &A-IWDSU+5405;
+      (=>iwds-1		  .  0398)	; &A-IWDSU+5405;
       ))
     (=ucs		. #x4E34)	; 临
     ))
