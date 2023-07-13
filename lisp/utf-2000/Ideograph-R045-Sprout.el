@@ -2525,8 +2525,8 @@
       )
      ((=big5-cdp	  . #x875D)	; &CDP-875D;
       )
-     ((=>ucs@component	  . #x5405)	; &A-compU+5405;
-      (=>iwds-1		  .  0398)	; &A-compU+5405;
+     ((=>ucs@iwds-1	  . #x5405)	; &A-IWDSU+5405;
+      (=>iwds-1		  .  0398)	; &A-IWDSU+5405;
       ))
     (sound@ja/on	"hoN")
     (=ucs		. #x21D21)	; 𡴡
