@@ -379,6 +379,7 @@
     =ucs-itaiji-012
     =ucs-itaiji-014
     =ucs-itaiji-016
+    =ucs-itaiji-018
     =+>ucs-var-003
     =>ucs-itaiji-001
     =>ucs-itaiji-002

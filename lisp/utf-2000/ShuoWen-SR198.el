@@ -147,9 +147,9 @@
   '((shuowen-radical	. 198)	; 夊
     (=shuowen-jiguge	. 17912)	; &SW-JIGUGE-17912;
     (<-Small-Seal@shuowen
-     ((=ucs		  . #x2157E)	; 𡕾
-      )
      ((=ucs		  . #x5913)	; 夓
+      )
+     ((=ucs		  . #x2157E)	; 𡕾
       )
      ((=ucs		  . #x590F)	; 夏
       ))
