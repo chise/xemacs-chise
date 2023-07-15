@@ -14505,6 +14505,15 @@
       ))
     (sound@ja/on	"hAu")
     (=ucs		. #x5BDA)	; 寚
+    (<-ancient
+     ((=ucs		  . #x5BF6)	; 寶
+      )
+     ((=ucs		  . #x5B9D)	; 宝
+      ))
+    (<-ancient$_1*sources
+     shuowen)
+    (<-ancient$_2*sources
+     shuowen)
     ))
 (define-char
   '((<-denotational
