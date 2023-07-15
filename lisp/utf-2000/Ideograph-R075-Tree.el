@@ -774,7 +774,16 @@
       )
      ((=ucs		  . #x4E36)	; 丶
       ))
+    (ideographic-structure@apparent
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>ucs@iwds-1	  . #x672E)	; &A-IWDSU+672E;
+      )
+     ((=ucs		  . #x4E00)	; 一
+      ))
     (=>ucs-itaiji-001	. #x233B6)	; &A-U-i001+233B6;
+    (=>ucs-itaiji-002	. #x233B6)	; &A-U-i001+233B6;
     ))
 (define-char
   '((<-denotational
@@ -784,16 +793,29 @@
     (ideographic-strokes . 1)
     (total-strokes	 . 5)
     (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
-      (=ucs		  . #x2FFA)	; ⿺
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=ucs		  . #x233B6)	; 𣎶
+     ((=ucs		  . #x672F)	; 术
       )
-     ((=ucs		  . #x4E36)	; 丶
+     ((=ucs		  . #x4E00)	; 一
       ))
-    (=ucs-itaiji-001	. #x233B6)	; &U-i001+233B6;
+    (=ucs-itaiji-002	. #x233B6)	; &U-i002+233B6;
     (->subsumptive
-     ((==ucs-itaiji-001	  . #x233B6)	; &g2-U-i001+233B6;
+     ((==ucs-itaiji-002	  . #x233B6)	; &g2-U-i002+233B6;
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
+	(=ucs		    . #x2FFA)	; ⿺
+	)
+       ((=ucs		    . #x233B6)	; 𣎶
+	)
+       ((=ucs		    . #x4E36)	; 丶
+	))
+      (=ucs-itaiji-001	  . #x233B6)	; &U-i001+233B6;
+      (->subsumptive
+       ((==ucs-itaiji-001   . #x233B6)	; &g2-U-i001+233B6;
+	))
       ))
     ))
 (define-char
