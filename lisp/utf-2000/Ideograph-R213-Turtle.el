@@ -363,6 +363,51 @@
   '((<-denotational
      ((=>ucs@cognate	  . #x2EBDE)	; &A-cgnU+2EBDE;
       ))
+    (ideographic-radical . 213)	; ⿔
+    (ideographic-strokes . 0)
+    (total-strokes	 . 16)
+    (=>ucs-itaiji-018	. 40860)
+    (ideographic-structure@apparent
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
+      (=ucs		  . #x2FF7)	; ⿷
+      )
+     ((=>big5-cdp	  . #x88CB)	; &A-CDP-88CB;
+      )
+     ((=ucs		  . #x5F50)	; 彐
+      ))
+    (=>ucs-itaiji-001	. #x2EBDE)	; &A-U-i001+2EBDE;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs-itaiji-001	  . #x2EBDE)	; &A-U-i001+2EBDE;
+      ))
+    (ideographic-radical . 213)	; ⿔
+    (ideographic-strokes . 0)
+    (total-strokes	 . 16)
+    (ideographic-structure@apparent
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
+      (=ucs		  . #x2FF7)	; ⿷
+      )
+     ((=big5-cdp-var-005  . #x88CB)	; &CDP-v005-88CB;
+      )
+     ((name		  . "CJK RADICAL SNOUT TWO")
+      (=ucs		  . #x2E95)	; ⺕
+      ))
+    (=ucs-itaiji-018	. #x9F9C)	; &U-i018+9F9C;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs-itaiji-001	  . #x2EBDE)	; &A-U-i001+2EBDE;
+      ))
+    (ideographic-radical . 213)	; ⿔
+    (ideographic-strokes . 0)
+    (total-strokes	 . 16)
+    (=ucs-itaiji-001	. #x2EBDE)	; &U-i001+2EBDE;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@cognate	  . #x2EBDE)	; &A-cgnU+2EBDE;
+      ))
     (<-denotational@component
      ((=>ucs@iwds-1	  . #x9F9C)	; &A-IWDSU+9F9C;
       ))
