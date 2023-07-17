@@ -58,6 +58,8 @@
   '((shuowen-radical	. 95)	; 用
     (=shuowen-jiguge	. 10102)	; &SW-JIGUGE-10102;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x20B7B)	; 𠭻
+      )
      ((=ucs		  . #x5EB8)	; 庸
       ))
     (->subsumptive

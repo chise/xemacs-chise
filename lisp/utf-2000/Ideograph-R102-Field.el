@@ -6908,8 +6908,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=>ucs@component	  . #x5405)	; &A-compU+5405;
-      (=>iwds-1		  .  0398)	; &A-compU+5405;
+     ((=>ucs@iwds-1	  . #x5405)	; &A-IWDSU+5405;
+      (=>iwds-1		  .  0398)	; &A-IWDSU+5405;
       )
      ((=>ucs@iwds-1	  . #x6BCC)	; &A-IWDSU+6BCC;
       (=>iwds-1		  .  18283)	; &A-IWDSU+6BCC;
@@ -10476,8 +10476,8 @@
       ))
     (=ucs@iso		. #x24CB3)	; &U-00024CB3;
     (<-formed
-     ((=ucs@iso		  . #x25748)	; &M-24903;
-      (=daikanwa	  . 24903)	; &M-24903;
+     ((=ucs@iso		  . #x25748)	; &MJ043118;
+      (=mj		  . 043118)	; &MJ043118;
       ))
     (->subsumptive
      ((==ucs@iso	  . #x24CB3)	; &g2-IU-00024CB3;

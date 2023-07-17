@@ -12571,7 +12571,10 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 53)	; ⼴
+  '((<-denotational@usage
+     ((==>ucs@bucs	  . #x5EE3)	; &BUCS+5EE3;
+      ))
+    (ideographic-radical . 53)	; ⼴
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
       (=ucs		  . #x2FF8)	; ⿸
@@ -12642,6 +12645,7 @@
     (=gt-k		. 11969)	; &I-GT-K11969;
     (=gt-pj-1		. #x5722)	; &I-GT-11938; [55-02]
     (=daikanwa		. 09493)	; &I-M-09493;
+    (=daijiten		. 02993)	; &I-DJT-02993;
     (=shinjigen		.  2168)	; &MJ011077;
     (->subsumptive
      ((=decomposition@cid
@@ -12665,9 +12669,12 @@
       (==gt		  . 11938)	; &g2-MJ011077;
       (==gt-k		  . 11969)	; &g2-MJ011077;
       (==daikanwa	  . 09493)	; &g2-MJ011077;
+      (==daijiten	  . 02993)	; &g2-MJ011077;
       (==shinjigen	  .  2168)	; &g2-MJ011077;
       (->subsumptive
        ((===daikanwa	    . 09493)	; &R-M-09493;
+	)
+       ((===daijiten	    . 02993)	; &R-DJT-02993;
 	)
        ((===jis-x0208	    . #x5722)	; &R-J0-5722; [55-02]
 	(===jis-x0213-1	    . #x5722)	; &R-J0-5722; [55-02]
@@ -12741,6 +12748,28 @@
      ((=ucs-var-007	  . #x9EC4)	; &U-v007+9EC4;
       ))
     (=ucs-var-003	. #x5EE3)	; &U-v003+5EE3;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@unicode	  . #x5EE3)	; &A-UU+5EE3;
+      ))
+    (ideographic-radical . 53)	; ⼴
+    (ideographic-strokes . 11)
+    (total-strokes	 . 14)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs		  . #x5E7F)	; 广
+      )
+     ((=hanyo-denshi/tk	  . 01078270)	; &HD-TK-01078270;
+      ))
+    (=hanyo-denshi/tk	. 01028180)	; &HD-TK-01028180;
+    (=hanyo-denshi/tk/mf-01 . #x0B02)	; &HD-TK-01028180;
+    (->subsumptive
+     ((==hanyo-denshi/tk  . 01028180)	; &g2-HD-TK-01028180;
+      (==hanyo-denshi/tk/mf-01 . #x0B02)	; &g2-HD-TK-01028180;
+      ))
     ))
 (define-char
   '((<-denotational
@@ -16650,4 +16679,9 @@
   '((ideographic-radical . 53)	; ⼴
     (==>ucs@bucs	. #x5EE1)	; &BUCS+5EE1;
     (==>daijiten	. 02991)	; &BUCS+5EE1;
+    ))
+(define-char
+  '((ideographic-radical . 53)	; ⼴
+    (==>ucs@bucs	. #x5EE3)	; &BUCS+5EE3;
+    (==>daijiten	. 02993)	; &BUCS+5EE3;
     ))

@@ -1092,7 +1092,16 @@
   '((shuowen-radical	. 480)	; 土
     (=shuowen-jiguge	. 47310)	; &SW-JIGUGE-47310;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x29AD6)	; 𩫖
+      )
      ((=ucs		  . #x29ACF)	; 𩫏
+      )
+     ((=ucs		  . #x29AC3)	; 𩫃
+      ))
+    (<-ancient@shuowen
+     ((=shuowen-jiguge	  . 47309)	; &SW-JIGUGE-47309;
+      )
+     ((=ucs		  . #x5889)	; 墉
       ))
     (->subsumptive
      ((===shuowen-jiguge-A30 . 48210)	; &SW-JIGUGE30-48210;

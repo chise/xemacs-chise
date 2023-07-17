@@ -670,6 +670,13 @@
     (<-Small-Seal@shuowen
      ((=ucs		  . #x5BDA)	; 寚
       ))
+    (<-ancient@shuowen
+     ((=shuowen-jiguge	  . 24720)	; &SW-JIGUGE-24720;
+      )
+     ((=ucs		  . #x5BF6)	; 寶
+      )
+     ((=ucs		  . #x5B9D)	; 宝
+      ))
     (->subsumptive
      ((===shuowen-jiguge-A30 . 25221)	; &SW-JIGUGE30-25221;
       )
