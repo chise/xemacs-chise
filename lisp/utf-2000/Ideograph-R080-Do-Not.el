@@ -172,6 +172,16 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=>ucs@component	  . #x6BCB)	; &A-compU+6BCB;
+      (=>iwds-1		  .  0182)	; &A-compU+6BCB;
+      ))
+    (ideographic-radical . 80)	; ⽏
+    (ideographic-strokes . 1)
+    (total-strokes	 . 5)
+    (=ucs-var-001	. #x6BCD)	; &U-v001+6BCD;
+    ))
+(define-char
   '((<-denotational@component
      ((=>ucs@component	  . #x7530)	; &A-compU+7530;
       (=>iwds-1		  .  0083)	; &A-compU+7530;
@@ -894,6 +904,23 @@
       (=cns11643-1	  . #x4551)	; &I-C1-4551; [37-49]
       ))
     (=ucs-var-004	. #x6BD2)	; &U-v004+6BD2;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x6BD2)	; 毒
+      ))
+    (ideographic-radical . 80)	; ⽏
+    (ideographic-strokes . 4)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x9FB6)	; 龶
+      )
+     ((=ucs-var-001	  . #x6BCD)	; &U-v001+6BCD;
+      ))
+    (=ucs-var-005	. #x6BD2)	; &U-v005+6BD2;
     ))
 (define-char
   '((<-denotational
