@@ -19121,8 +19121,8 @@
     (<-same*sources
      shuowen-tongxun-dingsheng daikanwa)
     (->formed
-     ((=ucs@iso		  . #x25A81)	; &C5-3A77;
-      (=cns11643-5	  . #x3A77)	; &C5-3A77; [26-87]
+     ((=ucs@iso		  . #x25A81)	; &MJ043595;
+      (=mj		  . 043595)	; &MJ043595;
       (=daikanwa	  . 25777)	; &I-M-25777;
       ))
     (->formed$_1*sources
