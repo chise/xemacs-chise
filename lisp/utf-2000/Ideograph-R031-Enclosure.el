@@ -238,6 +238,12 @@
   '((ideographic-radical . 31)	; ⼞
     (ideographic-strokes . 1)
     (total-strokes	 . 4)
+    (=ucs		. #x211A2)	; 𡆢
+    ))
+(define-char
+  '((ideographic-radical . 31)	; ⼞
+    (ideographic-strokes . 1)
+    (total-strokes	 . 4)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
       (=ucs		  . #x2FF4)	; ⿴
