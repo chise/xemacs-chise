@@ -8750,6 +8750,7 @@
       )
      ((=ucs-itaiji-001	  . #x6BB3)	; &U-i001+6BB3;
       ))
+    (sound@ja/on	"satu")
     (=ucs		. #x20B81)	; 𠮁
     (<-Zhouwen
      ((=ucs		  . #x6BBA)	; 殺
