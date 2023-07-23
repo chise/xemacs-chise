@@ -231,6 +231,15 @@
     (=ucs-var-001	. #x209D2)	; &U-v001+209D2;
     ))
 (define-char
+  '((<-denotational
+     ((=>ucs@component	  . #x2A7FD)	; &A-compU+2A7FD;
+      ))
+    (ideographic-radical . 25)	; ⼘
+    (ideographic-strokes . 1)
+    (total-strokes	 . 3)
+    (=ucs-itaiji-003	. #x2A7FD)	; &U-i003+2A7FD;
+    ))
+(define-char
   '((ideographic-radical . 25)	; ⼘
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
@@ -364,6 +373,30 @@
        ((===hng-kar	    . 00570)	; &HNG018-00570;
 	))
       ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@component	  . #x2A7FD)	; &A-compU+2A7FD;
+      ))
+    (ideographic-radical . 25)	; ⼘
+    (ideographic-strokes . 2)
+    (total-strokes	 . 4)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((name		  . "CJK RADICAL DIVINATION")
+      (=ucs		  . #x2E8A)	; ⺊
+      )
+     ((=ucs		  . #x4E86)	; 了
+      ))
+    (=ucs		. #x2A7FD)	; 𪟽
+    ))
+(define-char
+  '((ideographic-radical . 25)	; ⼘
+    (ideographic-strokes . 2)
+    (total-strokes	 . 4)
+    (=>ucs@component	. #x2A7FD)	; &A-compU+2A7FD;
     ))
 (define-char
   '((ideographic-radical . 25)	; ⼘
