@@ -5207,8 +5207,33 @@
       ))
     ))
 (define-char
-  '((<-denotational@usage
+  '((<-denotational
+     ((=>ucs@cognate	  . #x4E80)	; &A-cgnU+4E80;
+      ))
+    (<-denotational@usage
      ((==>ucs@bucs	  . #x9F9C)	; &BUCS+9F9C;
+      ))
+    (ideographic-radical@ucs . 5)	; ⼄
+    (ideographic-strokes@ucs . 10)
+    (ideographic-radical@cns . 213)	; ⿔
+    (ideographic-strokes@cns . 0)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>ucs@component	  . #x5200)	; &A-compU+5200;
+      (=>iwds-1		  .  0149)	; &A-compU+5200;
+      )
+     ((=big5-cdp	  . #x89BD)	; &CDP-89BD;
+      ))
+    (sound@ja/kun	"kame")
+    (sound@ja/on	"ki")
+    (=ucs		. #x4E80)	; 亀
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x4E80)	; 亀
       ))
     (ideographic-radical@ucs . 5)	; ⼄
     (ideographic-strokes@ucs . 10)
@@ -5228,10 +5253,8 @@
       )
      ((=big5-cdp	  . #x89BD)	; &CDP-89BD;
       ))
-    (sound@ja/kun	"kame")
-    (sound@ja/on	"ki")
-    (=ucs		. #x4E80)	; 亀
-    (=adobe-japan1-0	. 01615)	; &I-AJ1-01615;
+    (=ucs@unicode	. #x4E80)	; &AJ1-01615;
+    (=adobe-japan1-0	. 01615)	; &AJ1-01615;
     (=jis-x0208		. #x3535)	; &I-J90-3535; [21-21]
     (=cns11643-3	. #x396C)	; &I-C3-396C; [25-76]
     (=jis-x0213-1	. #x3535)	; &I-JX1-3535; [21-21]
@@ -5241,8 +5264,8 @@
     (=gt-pj-1		. #x3535)	; &I-GT-66701; [21-21]
     (=daikanwa		. 00210)	; &I-M-00210;
     (=daijiten		. 00120)	; &I-DJT-00120;
-    (=shinjigen@1ed	.  9917)	; 亀
-    (=shinjigen@rev	.  9916)	; 亀
+    (=shinjigen@1ed	.  9917)	; &AJ1-01615;
+    (=shinjigen@rev	.  9916)	; &AJ1-01615;
     (<-vulgar
      ((=ucs@cns		  . #x9F9C)	; &MJ030155;
       (=ucs@jis/1990	  . #x9F9C)	; &MJ030155;
