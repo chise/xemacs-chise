@@ -1688,8 +1688,8 @@
      ((=ucs@unicode	  . #x8012)	; &HD-FT-384C;
       (=gb2312		  . #x7167)	; &HD-FT-384C; [81-71]
       )
-     ((=ucs@unicode	  . #x3687)	; &HD-KS-065500;
-      (=hanyo-denshi/ks	  . 065500)	; &HD-KS-065500;
+     ((=ucs@unicode	  . #x3687)	; &MJ000557;
+      (=mj		  . 000557)	; &MJ000557;
       ))
     (=ucs@unicode	. #x43AB)	; &UU+43AB;
     (=ucs@JP/hanazono	. nil)
@@ -2397,9 +2397,8 @@
       (=ucs@ks		  . #x8012)	; &AJ1-06205;
       (=adobe-japan1-0	  . 06205)	; &AJ1-06205;
       )
-     ((=ucs@iso		  . #x21569)	; &HD-KS-065600;
-      (=cns11643-6	  . #x3E3C)	; &HD-KS-065600; [30-28]
-      (=daikanwa	  . 49004)	; &I-M-49004;
+     ((=ucs@iso		  . #x21569)	; &MJ033336;
+      (=mj		  . 033336)	; &MJ033336;
       ))
     (=ucs@iso		. #x26515)	; &C7-3A5A;
     (=cns11643-7	. #x3A5A)	; &C7-3A5A; [26-58]
