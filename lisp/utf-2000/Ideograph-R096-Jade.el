@@ -21462,7 +21462,10 @@
     (=daikanwa		. 21335)	; &I-M-21335;
     ))
 (define-char
-  '((ideographic-radical . 96)	; ⽟
+  '((<-denotational@usage
+     ((==>ucs@bucs	  . #x7470)	; &BUCS+7470;
+      ))
+    (ideographic-radical . 96)	; ⽟
     (ideographic-strokes . 16)
     (total-strokes	 . 20)
     (ideographic-structure
@@ -21475,7 +21478,27 @@
       ))
     (sound@ja/on	"kWai")
     (=ucs		. #x74CC)	; 瓌
-    (=jis-x0212		. #x4C6C)	; &I-JSP-4C6C; [44-76]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x74CC)	; 瓌
+      ))
+    (ideographic-radical . 96)	; ⽟
+    (ideographic-strokes . 16)
+    (total-strokes	 . 20)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x248E9)	; 𤣩
+      )
+     ((=ucs@unicode	  . #x8931)	; &JSP-5C65;
+      (=jis-x0212	  . #x5C65)	; &JSP-5C65; [60-69]
+      (=cns11643-2	  . #x5A44)	; &I-C2-5A44; [58-36]
+      (=daikanwa	  . 34514)	; &I-M-34514;
+      ))
+    (=ucs@unicode	. #x74CC)	; &JSP-4C6C;
+    (=jis-x0212		. #x4C6C)	; &JSP-4C6C; [44-76]
     (=cns11643-3	. #x5C5E)	; &I-C3-5C5E; [60-62]
     (=daikanwa		. 21336)	; &I-M-21336;
     (<-formed
@@ -23212,4 +23235,8 @@
   '((ideographic-radical . 96)	; ⽟
     (==>ucs@bucs	. #x74CA)	; &BUCS+74CA;
     (==>daijiten	. 07394)	; &BUCS+74CA;
+    ))
+(define-char
+  '((ideographic-radical . 96)	; ⽟
+    (==>ucs@bucs	. #x7470)	; &BUCS+7470;
     ))
