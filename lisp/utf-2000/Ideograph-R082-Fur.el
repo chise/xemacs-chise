@@ -4690,6 +4690,19 @@
     ))
 (define-char
   '((ideographic-radical . 82)	; ⽑
+    (=ucs		. #x23C13)	; 𣰓
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x23C13)	; 𣰓
+      ))
+    (ideographic-radical . 82)	; ⽑
+    (ideographic-strokes . 12)
+    (total-strokes	 . 16)
+    (=ucs@iso		. #x23C13)	; &U-00023C13;
+    ))
+(define-char
+  '((ideographic-radical . 82)	; ⽑
     (ideographic-strokes . 12)
     (total-strokes	 . 16)
     (=ucs		. #x2DBE5)	; 𭯥
@@ -5488,6 +5501,37 @@
       )
      ((=cns11643-7	  . #x4036)	; &C7-4036; [32-22]
       ))
+    ))
+(define-char
+  '((ideographic-radical . 82)	; ⽑
+    (ideographic-strokes . 14)
+    (total-strokes	 . 18)
+    (ideographic-structure
+     ((=>ucs@iwds-1	  . #x2FFA)	; &A-IWDSU+2FFA;
+      (=>iwds-1		  .  0307)	; &A-IWDSU+2FFA;
+      )
+     ((=ucs		  . #x6BDB)	; 毛
+      )
+     ((=ucs		  . #x7CBD)	; 粽
+      ))
+    (=ucs		. #x23C24)	; 𣰤
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x23C24)	; 𣰤
+      ))
+    (ideographic-radical . 82)	; ⽑
+    (ideographic-strokes . 14)
+    (total-strokes	 . 18)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
+      (=ucs		  . #x2FFA)	; ⿺
+      )
+     ((=ucs		  . #x6BDB)	; 毛
+      )
+     ((=ucs		  . #x7CBD)	; 粽
+      ))
+    (=ucs@iso		. #x23C24)	; &U-00023C24;
     ))
 (define-char
   '((ideographic-radical . 82)	; ⽑
