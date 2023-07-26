@@ -477,6 +477,8 @@
   '((shuowen-radical	. 500)	; 𨸏
     (=shuowen-jiguge	. 50326)	; &SW-JIGUGE-50326;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x2E943)	; 𮥃
+      )
      ((=ucs		  . #x964D)	; 降
       ))
     (->subsumptive
