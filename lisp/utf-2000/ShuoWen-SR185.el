@@ -241,6 +241,8 @@
   '((shuowen-radical	. 185)	; 缶
     (=shuowen-jiguge	. 17316)	; &SW-JIGUGE-17316;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x2622B)	; 𦈫
+      )
      ((=ucs		  . #x7F3A)	; 缺
       ))
     (->subsumptive
