@@ -521,7 +521,8 @@
     (=daijiten		. 01950)	; &I-DJT-01950;
     (=shinjigen		.  1557)	; &AJ1-04544;
     (<-same
-     ((=ucs		  . #x53CF)	; 叏
+     ((=ucs@unicode	  . #x53CF)	; &AJ1-21244;
+      (=adobe-japan1-6	  . 21244)	; &AJ1-21244;
       (=daikanwa	  . 03130)	; &I-M-03130;
       ))
     (<-same*sources
@@ -619,7 +620,8 @@
     (=gt-pj-k1		. #x6970)	; &MJ033409; [73-80]
     (=daikanwa		. 05837)	; &I-M-05837;
     (<-formed
-     ((=ucs		  . #x53CF)	; 叏
+     ((=ucs@unicode	  . #x53CF)	; &AJ1-21244;
+      (=adobe-japan1-6	  . 21244)	; &AJ1-21244;
       )
      ((=ucs@unicode	  . #x592C)	; &AJ1-04544;
       (=adobe-japan1-0	  . 04544)	; &AJ1-04544;
@@ -631,7 +633,8 @@
     (<-formed*sources
      koseki mj)
     (<-vulgar
-     ((=ucs		  . #x53CF)	; 叏
+     ((=ucs@unicode	  . #x53CF)	; &AJ1-21244;
+      (=adobe-japan1-6	  . 21244)	; &AJ1-21244;
       (=daikanwa	  . 03130)	; &I-M-03130;
       ))
     (<-vulgar*sources

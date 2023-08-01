@@ -690,10 +690,15 @@
     ))
 (define-char
   '((ideographic-radical . 2)	; ⼁
-    (=>ucs@component	. #x2B740)	; &A-compU+2B740;
+    (ideographic-strokes . 2)
+    (total-strokes	 . 3)
+    (=>big5-cdp		. #x89B3)	; &A-CDP-89B3;
     ))
 (define-char
   '((<-denotational
+     ((=>big5-cdp	  . #x89B3)	; &A-CDP-89B3;
+      ))
+    (<-denotational@component
      ((=>ucs@component	  . #x2B740)	; &A-compU+2B740;
       ))
     (ideographic-radical . 2)	; ⼁
@@ -758,6 +763,15 @@
      ((=ucs@unicode	  . #x4E29)	; &AJ1-17237;
       (=adobe-japan1-5	  . 17237)	; &AJ1-17237;
       ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>big5-cdp	  . #x89B3)	; &A-CDP-89B3;
+      ))
+    (ideographic-radical . 2)	; ⼁
+    (ideographic-strokes . 2)
+    (total-strokes	 . 3)
+    (=big5-cdp		. #x89B3)	; &CDP-89B3;
     ))
 (define-char
   '((<-denotational@usage
@@ -2864,6 +2878,10 @@
 (define-char
   '((ideographic-radical . 2)	; ⼁
     (==>daijiten	. 00045)	; &A2-DJT-00045;
+    ))
+(define-char
+  '((ideographic-radical . 2)	; ⼁
+    (=>ucs@component	. #x2B740)	; &A-compU+2B740;
     ))
 (define-char
   '((ideographic-radical . 2)	; ⼁
