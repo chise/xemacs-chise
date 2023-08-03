@@ -68,6 +68,38 @@
     ))
 (define-char
   '((ideographic-radical . 107)	; ⽪
+    (ideographic-strokes . 2)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((=>ucs@iwds-1	  . #x2FFA)	; &A-IWDSU+2FFA;
+      (=>iwds-1		  .  0307)	; &A-IWDSU+2FFA;
+      )
+     ((=ucs		  . #x76AE)	; 皮
+      )
+     ((=ucs		  . #x535C)	; 卜
+      ))
+    (=ucs		. #x31C7F)	; 𱱿
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x31C7F)	; 𱱿
+      ))
+    (ideographic-radical . 107)	; ⽪
+    (ideographic-strokes . 2)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x76AE)	; 皮
+      )
+     ((=ucs@unicode	  . #x535C)	; &AJ1-03708;
+      (=adobe-japan1-0	  . 03708)	; &AJ1-03708;
+      ))
+    (=ucs@JP/hanazono	. #x31C7F)	; &hanaJU+31C7F;
+    ))
+(define-char
+  '((ideographic-radical . 107)	; ⽪
     (ideographic-strokes . 3)
     (total-strokes	 . 8)
     (=ucs		. #x3FEA)	; 㿪
