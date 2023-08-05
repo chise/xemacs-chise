@@ -1790,6 +1790,24 @@
     (ideographic-radical . 29)	; ⼜
     (ideographic-strokes . 3)
     (total-strokes	 . 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>big5-cdp	  . #x89B3)	; &A-CDP-89B3;
+      )
+     ((=ucs		  . #x53C8)	; 又
+      ))
+    (sound@ja/on	"kWai")
+    (=ucs		. #x53CF)	; 叏
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x53CF)	; 叏
+      ))
+    (ideographic-radical . 29)	; ⼜
+    (ideographic-strokes . 3)
+    (total-strokes	 . 5)
     (hanyu-dazidian	1 393 18)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -1799,12 +1817,37 @@
       )
      ((=ucs		  . #x53C8)	; 又
       ))
-    (=ucs		. #x53CF)	; 叏
+    (=ucs@unicode	. #x53CF)	; &MJ007997;
+    (=mj		. 007997)	; &MJ007997;
     (=adobe-japan1-6	. 21244)	; &I-AJ1-21244;
     (=jis-x0212		. #x3459)	; &I-JSP-3459; [20-57]
     (=cns11643-4	. #x2169)	; &I-C4-2169; [01-73]
+    (=koseki		. 036270)	; &MJ007997;
     (=daikanwa		. 03130)	; &I-M-03130;
     (=daijiten		. 01118)	; &I-DJT-01118;
+    (<-formed
+     ((=ucs@unicode	  . #x592C)	; &AJ1-04544;
+      (=adobe-japan1-0	  . 04544)	; &AJ1-04544;
+      ))
+    (<-formed$_1*sources
+     koseki mj)
+    (<-formed*sources
+     koseki mj)
+    (<-same
+     ((=ucs@unicode	  . #x592C)	; &AJ1-04544;
+      (=adobe-japan1-0	  . 04544)	; &AJ1-04544;
+      (=daikanwa	  . 05836)	; &I-M-05836;
+      ))
+    (<-same*sources
+     zihui daikanwa)
+    (->Liwen
+     ((=ucs@unicode	  . #x592C)	; &AJ1-04544;
+      (=adobe-japan1-0	  . 04544)	; &AJ1-04544;
+      ))
+    (->Liwen$_1*sources
+     zihui)
+    (->Liwen*sources
+     zihui)
     (->subsumptive
      ((==daikanwa	  . 03130)	; &g2-M-03130;
       (==daijiten	  . 01118)	; &g2-M-03130;
@@ -1819,14 +1862,18 @@
 	)
        ((=ucs		    . #xE0100)	; 󠄀
 	))
-      (==ucs@unicode	  . #x53CF)	; &g2-AJ1-21244;
-      (==adobe-japan1-6	  . 21244)	; &g2-AJ1-21244;
-      (==jis-x0212	  . #x3459)	; &g2-AJ1-21244; [20-57]
-      (==cns11643-4	  . #x2169)	; &g2-AJ1-21244; [01-73]
+      (==ucs@unicode	  . #x53CF)	; &g2-MJ007997;
+      (==mj		  . 007997)	; &g2-MJ007997;
+      (==adobe-japan1-6	  . 21244)	; &g2-MJ007997;
+      (==jis-x0212	  . #x3459)	; &g2-MJ007997; [20-57]
+      (==cns11643-4	  . #x2169)	; &g2-MJ007997; [01-73]
+      (==koseki		  . 036270)	; &g2-MJ007997;
       (->subsumptive
        ((===jis-x0212	    . #x3459)	; &R-JSP-3459; [20-57]
 	)
        ((===adobe-japan1-6  . 21244)	; &R-AJ1-21244;
+	)
+       ((===mj		    . 007997)	; &R-MJ007997;
 	)
        ((===ucs@unicode	    . #x53CF)	; &R-UU+53CF;
 	)
