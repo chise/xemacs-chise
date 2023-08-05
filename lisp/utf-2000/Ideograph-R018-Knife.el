@@ -17795,6 +17795,13 @@
     ))
 (define-char
   '((ideographic-radical . 18)	; ⼑
+    (=>ucs@cognate	. #x34F9)	; &A-cgnU+34F9;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@cognate	  . #x34F9)	; &A-cgnU+34F9;
+      ))
+    (ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 10)
     (total-strokes	 . 12)
     (hanyu-dazidian	1 349 20)
@@ -17834,6 +17841,23 @@
      ((==ucs@cns	  . #x34F9)	; &g2-CU+34F9;
       (==cns11643-4	  . #x3642)	; &g2-CU+34F9; [22-34]
       ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@cognate	  . #x34F9)	; &A-cgnU+34F9;
+      ))
+    (ideographic-radical . 18)	; ⼑
+    (ideographic-strokes . 10)
+    (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs		  . #x5382)	; 厂
+      )
+     ((=ucs		  . #x5261)	; 剡
+      ))
+    (=big5-cdp		. #x8AD6)	; &CDP-8AD6;
     ))
 (define-char
   '((=>ucs		. #x20782)	; 𠞂
