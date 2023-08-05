@@ -1,3 +1,11 @@
+2023-08-05  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`=>ucs-sip-itaiji-009'.
+
+	* mule/mule-conf.el (=>ucs-sip-itaiji-009): New coded-charset for
+	XEmacs CHISE.
+
 2023-07-14  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
