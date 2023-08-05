@@ -494,10 +494,8 @@
     (ideographic-radical . 37)	; ⼤
     (ideographic-strokes . 1)
     (total-strokes	 . 4)
-    (sound@ja/on/go/p=guai4 "ke")
-    (sound@ja/on/go/p=jue2 "keti")
-    (sound@ja/on/kan/p=guai4 "kWai")
-    (sound@ja/on/kan/p=jue2 "ketu")
+    (sound@ja/on/go	"ke" "keti")
+    (sound@ja/on/kan	"kWai" "ketu")
     (=ucs		. #x592C)	; 夬
     ))
 (define-char
@@ -520,11 +518,17 @@
     (=daikanwa		. 05836)	; &I-M-05836;
     (=daijiten		. 01950)	; &I-DJT-01950;
     (=shinjigen		.  1557)	; &AJ1-04544;
+    (<-Liwen
+     ((=ucs@unicode	  . #x53CF)	; &MJ007997;
+      (=mj		  . 007997)	; &MJ007997;
+      ))
     (<-same
-     ((=ucs@unicode	  . #x53CF)	; &AJ1-21244;
-      (=adobe-japan1-6	  . 21244)	; &AJ1-21244;
+     ((=ucs@unicode	  . #x53CF)	; &MJ007997;
+      (=mj		  . 007997)	; &MJ007997;
       (=daikanwa	  . 03130)	; &I-M-03130;
       ))
+    (<-same$_1*sources
+     zhengzitong daikanwa)
     (<-same*sources
      zhengzitong daikanwa)
     (->formed
@@ -548,8 +552,17 @@
       (=adobe-japan1-0	  . 01854)	; &AJ1-01854;
       (=daikanwa	  . 17174)	; &I-M-17174;
       ))
+    (->interchangeable$_1*sources
+     jiyun daikanwa)
     (->interchangeable*sources
      jiyun daikanwa)
+    (->mistakable
+     ((=ucs@unicode	  . #x592E)	; &AJ1-01309;
+      (=adobe-japan1-0	  . 01309)	; &AJ1-01309;
+      (=daikanwa	  . 05840)	; &I-M-05840;
+      ))
+    (->mistakable*sources
+     daikanwa)
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x592C)	; 夬
@@ -620,8 +633,9 @@
     (=gt-pj-k1		. #x6970)	; &MJ033409; [73-80]
     (=daikanwa		. 05837)	; &I-M-05837;
     (<-formed
-     ((=ucs@unicode	  . #x53CF)	; &AJ1-21244;
-      (=adobe-japan1-6	  . 21244)	; &AJ1-21244;
+     ((=ucs@unicode	  . #x53CF)	; &MJ007997;
+      (=mj		  . 007997)	; &MJ007997;
+      (=koseki		  . 036270)	; &MJ007997;
       )
      ((=ucs@unicode	  . #x592C)	; &AJ1-04544;
       (=adobe-japan1-0	  . 04544)	; &AJ1-04544;
@@ -633,8 +647,8 @@
     (<-formed*sources
      koseki mj)
     (<-vulgar
-     ((=ucs@unicode	  . #x53CF)	; &AJ1-21244;
-      (=adobe-japan1-6	  . 21244)	; &AJ1-21244;
+     ((=ucs@unicode	  . #x53CF)	; &MJ007997;
+      (=mj		  . 007997)	; &MJ007997;
       (=daikanwa	  . 03130)	; &I-M-03130;
       ))
     (<-vulgar*sources
