@@ -509,10 +509,6 @@
     (=>big5-cdp-itaiji-003 . #x8CC9)	; &A-CDP-8CC9;
     ))
 (define-char
-  '((ideographic-radical . 131)	; ⾂
-    (=>big5-cdp@cognate . #x8CC9)	; &A-cgnCDP-8CC9;
-    ))
-(define-char
   '((<-denotational
      ((=>big5-cdp@cognate . #x8CC9)	; &A-cgnCDP-8CC9;
       ))
@@ -553,6 +549,10 @@
      ((=+>big5-cdp	  . #x8C74)	; &o-CDP-8C74;
       ))
     (=big5-cdp-itaiji-003 . #x8CC9)	; &CDP-i003-8CC9;
+    ))
+(define-char
+  '((ideographic-radical . 131)	; ⾂
+    (=>big5-cdp@cognate . #x8CC9)	; &A-cgnCDP-8CC9;
     ))
 (define-char
   '((<-denotational
@@ -1805,15 +1805,15 @@
     ))
 (define-char
   '((ideographic-radical . 131)	; ⾂
+    (==>ucs@bucs	. #x81E8)	; &BUCS+81E8;
+    (==>daijiten	. 09601)	; &BUCS+81E8;
+    ))
+(define-char
+  '((ideographic-radical . 131)	; ⾂
     (==>ucs@bucs	. #x81E5)	; &BUCS+81E5;
     ))
 (define-char
   '((ideographic-radical . 131)	; ⾂
     (==>ucs@bucs	. #x81E7)	; &BUCS+81E7;
     (==>daijiten	. 09600)	; &BUCS+81E7;
-    ))
-(define-char
-  '((ideographic-radical . 131)	; ⾂
-    (==>ucs@bucs	. #x81E8)	; &BUCS+81E8;
-    (==>daijiten	. 09601)	; &BUCS+81E8;
     ))
