@@ -14001,15 +14001,39 @@
     (sound@ja/on/go	"suku")
     (sound@ja/on/kan	"syuku")
     (=ucs		. #x3AA9)	; 㪩
-    (=cns11643-4	. #x504C)	; &I-C4-504C; [48-44]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x3AA9)	; 㪩
+      ))
+    (ideographic-radical . 66)	; ⽁
+    (ideographic-strokes . 12)
+    (total-strokes	 . 16)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs@unicode	  . #x8085)	; &AJ1-06230;
+      (=adobe-japan1-0	  . 06230)	; &AJ1-06230;
+      )
+     ((=ucs@unicode	  . #x6534)	; &AJ1-05058;
+      (=adobe-japan1-0	  . 05058)	; &AJ1-05058;
+      ))
+    (=ucs@unicode	. #x3AA9)	; &C4-504C;
+    (=cns11643-4	. #x504C)	; &C4-504C; [48-44]
     (=daikanwa		. 13387)	; &I-M-13387;
     (<-formed
-     ((=ucs		  . #x3A4B)	; 㩋
+     ((=ucs@unicode	  . #x3A4B)	; &C5-4D3A;
+      (=cns11643-5	  . #x4D3A)	; &C5-4D3A; [45-26]
+      (=daikanwa	  . 12738)	; &I-M-12738;
       ))
+    (<-formed$_1*sources
+     jiyun)
     (<-formed*sources
      jiyun)
     (<-same
-     ((=ucs		  . #x3A4B)	; 㩋
+     ((=ucs@unicode	  . #x3A4B)	; &C5-4D3A;
+      (=cns11643-5	  . #x4D3A)	; &C5-4D3A; [45-26]
       (=daikanwa	  . 12738)	; &I-M-12738;
       ))
     (<-same*sources
