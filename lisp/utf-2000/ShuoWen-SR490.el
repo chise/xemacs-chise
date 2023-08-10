@@ -1629,7 +1629,14 @@
   '((shuowen-radical	. 490)	; 金
     (=shuowen-jiguge	. 49126)	; &SW-JIGUGE-49126;
     (<-Small-Seal@shuowen
+     ((=big5-cdp	  . #x8AD6)	; &CDP-8AD6;
+      )
      ((=ucs		  . #x34F9)	; 㓹
+      ))
+    (<-Zhouwen@shuowen
+     ((=shuowen-jiguge	  . 49125)	; &SW-JIGUGE-49125;
+      )
+     ((=ucs		  . #x92B3)	; 銳
       ))
     (->subsumptive
      ((===shuowen-jiguge-A30 . 49526)	; &SW-JIGUGE30-49526;

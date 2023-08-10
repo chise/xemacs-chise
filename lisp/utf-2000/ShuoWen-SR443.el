@@ -3140,6 +3140,9 @@
     (=shuowen-jiguge	. 43612)	; &SW-JIGUGE-43612;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x5A41)	; 婁
+      )
+     ((=>ucs@iwds-1	  . #x5A41)	; &A-IWDSU+5A41;
+      (=>iwds-1		  .  0348)	; &A-IWDSU+5A41;
       ))
     (->subsumptive
      ((===shuowen-jiguge-A30 . 44012)	; &SW-JIGUGE30-44012;

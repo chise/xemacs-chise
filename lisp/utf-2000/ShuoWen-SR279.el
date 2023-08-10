@@ -4,8 +4,6 @@
     (=shuowen-jiguge	. 25705)	; &SW-JIGUGE-25705;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x7F51)	; 网
-      )
-     ((=ucs		  . #x7F52)	; 罒
       ))
     (->subsumptive
      ((===shuowen-jiguge-A30 . 26205)	; &SW-JIGUGE30-26205;
@@ -21,7 +19,18 @@
     (<-Small-Seal@shuowen
      ((=ucs		  . #x26278)	; 𦉸
       )
+     ((=ucs		  . #x34BA)	; 㒺
+      )
+     ((=ucs		  . #x7F54)	; 罔
+      )
      ((=ucs		  . #x2627D)	; 𦉽
+      )
+     ((=ucs		  . #x2627E)	; 𦉾
+      ))
+    (<-formed@shuowen
+     ((=shuowen-jiguge	  . 25705)	; &SW-JIGUGE-25705;
+      )
+     ((=ucs		  . #x7F51)	; 网
       ))
     (->subsumptive
      ((===shuowen-jiguge-A30 . 26206)	; &SW-JIGUGE30-26206;
@@ -39,6 +48,11 @@
       )
      ((=ucs		  . #x26052)	; 𦁒
       ))
+    (<-formed@shuowen
+     ((=shuowen-jiguge	  . 25705)	; &SW-JIGUGE-25705;
+      )
+     ((=ucs		  . #x7F51)	; 网
+      ))
     (->subsumptive
      ((===shuowen-jiguge-A30 . 26207)	; &SW-JIGUGE30-26207;
       )
@@ -55,6 +69,11 @@
       )
      ((=ucs		  . #x20543)	; 𠕃
       ))
+    (<-ancient@shuowen
+     ((=shuowen-jiguge	  . 25705)	; &SW-JIGUGE-25705;
+      )
+     ((=ucs		  . #x7F51)	; 网
+      ))
     (->subsumptive
      ((===shuowen-jiguge-A30 . 26208)	; &SW-JIGUGE30-26208;
       )
@@ -68,6 +87,15 @@
     (=shuowen-jiguge	. 25709)	; &SW-JIGUGE-25709;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x2626F)	; 𦉯
+      )
+     ((=ucs		  . #x26270)	; 𦉰
+      )
+     ((=ucs		  . #x7F52)	; 罒
+      ))
+    (<-Zhouwen@shuowen
+     ((=shuowen-jiguge	  . 25705)	; &SW-JIGUGE-25705;
+      )
+     ((=ucs		  . #x7F51)	; 网
       ))
     (->subsumptive
      ((===shuowen-jiguge-A30 . 26209)	; &SW-JIGUGE30-26209;
@@ -278,6 +306,8 @@
     (=shuowen-jiguge	. 25803)	; &SW-JIGUGE-25803;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x7F80)	; 羀
+      )
+     ((=ucs		  . #x7F76)	; 罶
       ))
     (->subsumptive
      ((===shuowen-jiguge-A30 . 26303)	; &SW-JIGUGE30-26303;
@@ -291,7 +321,16 @@
   '((shuowen-radical	. 279)	; 网
     (=shuowen-jiguge	. 25804)	; &SW-JIGUGE-25804;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x26311)	; 𦌑
+      )
      ((=ucs		  . #x26301)	; 𦌁
+      ))
+    (<-formed@shuowen
+     ((=shuowen-jiguge	  . 25803)	; &SW-JIGUGE-25803;
+      )
+     ((=ucs		  . #x7F80)	; 羀
+      )
+     ((=ucs		  . #x7F76)	; 罶
       ))
     (->subsumptive
      ((===shuowen-jiguge-A30 . 26304)	; &SW-JIGUGE30-26304;
