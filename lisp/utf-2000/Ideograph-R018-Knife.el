@@ -17805,7 +17805,7 @@
     (ideographic-strokes . 10)
     (total-strokes	 . 12)
     (hanyu-dazidian	1 349 20)
-    (ideographic-structure
+    (ideographic-structure@apparent
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
@@ -17822,9 +17822,13 @@
       (=ks-x1001	  . #x6765)	; &GT-54320; [71-69]
       (=cns11643-1	  . #x6F5E)	; &I-C1-6F5E; [79-62]
       (=daikanwa	  . 40418)	; &I-M-40418;
+      )
+     ((=ucs		  . #x92B3)	; 銳
       ))
     (<-Zhouwen$_1*sources
      shuowen daikanwa)
+    (<-Zhouwen$_2*sources
+     shuowen)
     (<-Zhouwen*sources
      shuowen daikanwa)
     (->subsumptive
@@ -17858,6 +17862,11 @@
      ((=ucs		  . #x5261)	; 剡
       ))
     (=big5-cdp		. #x8AD6)	; &CDP-8AD6;
+    (<-Zhouwen
+     ((=ucs		  . #x92B3)	; 銳
+      ))
+    (<-Zhouwen$_1*sources
+     shuowen)
     ))
 (define-char
   '((=>ucs		. #x20782)	; 𠞂

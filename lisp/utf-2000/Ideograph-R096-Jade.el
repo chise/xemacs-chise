@@ -173,7 +173,8 @@
       (=cns11643-4	  . #x3331)	; &C4-3331; [19-17]
       (=daikanwa	  . 20955)	; &I-M-20955;
       )
-     ((=ucs		  . #x749B)	; 璛
+     ((=ucs@unicode	  . #x749B)	; &C3-5167;
+      (=cns11643-3	  . #x5167)	; &C3-5167; [49-71]
       (=daikanwa	  . 21241)	; &I-M-21241;
       ))
     (->formed$_1*sources
@@ -16569,7 +16570,25 @@
     (sound@ja/on/go	"suku")
     (sound@ja/on/kan	"syuku")
     (=ucs		. #x749B)	; 璛
-    (=cns11643-3	. #x5167)	; &I-C3-5167; [49-71]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x749B)	; 璛
+      ))
+    (ideographic-radical . 96)	; ⽟
+    (ideographic-strokes . 12)
+    (total-strokes	 . 16)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x248E9)	; 𤣩
+      )
+     ((=ucs@unicode	  . #x8085)	; &AJ1-06230;
+      (=adobe-japan1-0	  . 06230)	; &AJ1-06230;
+      ))
+    (=ucs@unicode	. #x749B)	; &C3-5167;
+    (=cns11643-3	. #x5167)	; &C3-5167; [49-71]
     (=daikanwa		. 21241)	; &I-M-21241;
     (<-formed
      ((=ucs		  . #x738A)	; 玊
