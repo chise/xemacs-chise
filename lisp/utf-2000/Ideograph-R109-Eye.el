@@ -8136,6 +8136,24 @@
     ))
 (define-char
   '((ideographic-radical . 109)	; ⽬
+    (ideographic-strokes . 6)
+    (total-strokes	 . 11)
+    (=>ucs-itaiji-005	. #x771E)	; &A-U-i005+771E;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs-itaiji-005	  . #x771E)	; &A-U-i005+771E;
+      ))
+    (ideographic-radical . 109)	; ⽬
+    (ideographic-strokes . 6)
+    (total-strokes	 . 11)
+    (=ucs-itaiji-005	. #x771E)	; &U-i005+771E;
+    (->subsumptive
+     ((==ucs-itaiji-005	  . #x771E)	; &g2-U-i005+771E;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 109)	; ⽬
     (ideographic-strokes . 7)
     (total-strokes	 . 12)
     (ideographic-structure
@@ -12348,11 +12366,11 @@
      ((=>ucs@component	  . #x590A)	; &A-compU+590A;
       (=>iwds-1		  .  0092)	; &A-compU+590A;
       ))
-    (=>ucs-itaiji-005	. #x771E)	; &A-U-i005+771E;
+    (=>ucs-itaiji-007	. #x771E)	; &A-U-i007+771E;
     ))
 (define-char
   '((<-denotational
-     ((=>ucs-itaiji-005	  . #x771E)	; &A-U-i005+771E;
+     ((=>ucs-itaiji-007	  . #x771E)	; &A-U-i007+771E;
       ))
     (ideographic-radical . 109)	; ⽬
     (ideographic-strokes . 8)
@@ -12366,10 +12384,7 @@
       )
      ((=ucs		  . #x590A)	; 夊
       ))
-    (=ucs-itaiji-005	. #x771E)	; &U-i005+771E;
-    (->subsumptive
-     ((==ucs-itaiji-005	  . #x771E)	; &g2-U-i005+771E;
-      ))
+    (=ucs-itaiji-007	. #x771E)	; &U-i007+771E;
     ))
 (define-char
   '((ideographic-radical . 109)	; ⽬
