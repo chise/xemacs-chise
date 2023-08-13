@@ -40050,7 +40050,29 @@
   '((ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 11)
     (total-strokes	 . 14)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x708F)	; 炏
+      )
+     ((=ucs		  . #x5B89)	; 安
+      ))
     (=ucs		. #x2183A)	; 𡠺
+    ))
+(define-char
+  '((ideographic-radical . 38)	; ⼥
+    (ideographic-strokes . 11)
+    (total-strokes	 . 14)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5973)	; 女
+      )
+     ((=ucs		  . #x9CE5)	; 鳥
+      ))
+    (=ucs		. #x21845)	; 𡡅
     ))
 (define-char
   '((ideographic-radical . 38)	; ⼥
