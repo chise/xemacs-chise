@@ -1166,6 +1166,24 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=>ucs@unicode	  . #x6BBA)	; &A-GT-21319;
+      (=>ucs@cns	  . #x2F8F5)	; &A-GT-21319;
+      ))
+    (ideographic-radical . 79)	; ⽎
+    (ideographic-strokes . 6)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=mj		  . 057698)	; &MJ057698;
+      )
+     ((=mj		  . 014909)	; &MJ014909;
+      ))
+    (=ucs-itaiji-001	. #x6BBA)	; &U-i001+6BBA;
+    ))
+(define-char
   '((ideographic-radical . 79)	; ⽎
     (ideographic-strokes . 6)
     (total-strokes	 . 10)
