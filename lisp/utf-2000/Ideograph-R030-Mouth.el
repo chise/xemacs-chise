@@ -12670,6 +12670,37 @@
       )
      ((=ucs		  . #x53E3)	; 口
       )
+     ((=>big5-cdp@component . #x89AE)	; &A-compCDP-89AE;
+      ))
+    (=>ucs-itaiji-003	. #x54C1)	; &A-U-i003+54C1;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs-itaiji-003	  . #x54C1)	; &A-U-i003+54C1;
+      ))
+    (ideographic-radical . 30)	; ⼝
+    (ideographic-strokes . 4)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x53E3)	; 口
+      )
+     ((=big5-cdp	  . #x89AE)	; &CDP-89AE;
+      ))
+    (=ucs-itaiji-003	. #x54C1)	; &U-i003+54C1;
+    ))
+(define-char
+  '((ideographic-radical . 30)	; ⼝
+    (ideographic-strokes . 4)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x53E3)	; 口
+      )
      ((=ucs		  . #x6587)	; 文
       ))
     (=ruimoku-v6	. #xE035)	; &RUI6-E035;
@@ -41007,6 +41038,48 @@
      ((=ucs		  . #x5382)	; 厂
       ))
     (=ucs-itaiji-003	. #x55A6)	; &U-i003+55A6;
+    ))
+(define-char
+  '((ideographic-radical . 30)	; ⼝
+    (ideographic-strokes . 8)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>ucs-itaiji-003	  . #x54C1)	; &A-U-i003+54C1;
+      )
+     ((=>ucs@iwds-1	  . #x6728)	; &A-IWDSU+6728;
+      (=>iwds-1		  .  0233)	; &A-IWDSU+6728;
+      ))
+    (=>ucs-itaiji-003	. #x55BF)	; &A-U-i003+55BF;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs-itaiji-003	  . #x55BF)	; &A-U-i003+55BF;
+      ))
+    (ideographic-radical . 30)	; ⼝
+    (ideographic-strokes . 8)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs-itaiji-003	  . #x54C1)	; &U-i003+54C1;
+      )
+     ((=ucs		  . #x6728)	; 木
+      ))
+    (ideographic-structure@apparent
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
+      (=ucs		  . #x2FF3)	; ⿳
+      )
+     ((=ucs		  . #x53E3)	; 口
+      )
+     ((=big5-cdp	  . #x89AE)	; &CDP-89AE;
+      )
+     ((=ucs		  . #x6728)	; 木
+      ))
+    (=ucs-itaiji-003	. #x55BF)	; &U-i003+55BF;
     ))
 (define-char
   '((ideographic-radical . 30)	; ⼝
