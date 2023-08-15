@@ -3934,8 +3934,8 @@
       )
      ((=ucs		  . #x821F)	; 舟
       )
-     ((=ucs@unicode	  . #x3687)	; &HD-KS-065500;
-      (=hanyo-denshi/ks	  . 065500)	; &HD-KS-065500;
+     ((=ucs@unicode	  . #x3687)	; &MJ000557;
+      (=mj		  . 000557)	; &MJ000557;
       ))
     (=ucs@unicode	. #x8250)	; &DJT-09685;
     (=daijiten		. 09685)	; &DJT-09685;
