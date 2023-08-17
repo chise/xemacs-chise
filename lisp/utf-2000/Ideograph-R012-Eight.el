@@ -1270,6 +1270,11 @@
     (=ucs@unicode	. #x5170)	; &G0-403C;
     (=gb2312		. #x403C)	; &G0-403C; [32-28]
     (=jef-china3	. #x82AB)	; &I-JC3-82AB;
+    (<-simplified@CN
+     ((=ucs@unicode	  . #x862D)	; &AJ1-14084;
+      (=adobe-japan1-4	  . 14084)	; &AJ1-14084;
+      (=gb12345		  . #x403C)	; &AJ1-14084; [32-28]
+      ))
     (->subsumptive
      ((==ucs@unicode	  . #x5170)	; &g2-UU+5170;
       (==gb2312		  . #x403C)	; &g2-UU+5170; [32-28]
