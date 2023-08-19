@@ -1110,7 +1110,7 @@
     ))
 (define-char
   '((<-denotational@usage
-     ((==>daijiten	  . 02420)	; &A2-DJT-02420;
+     ((==>ucs@bucs	  . #x5C01)	; &BUCS+5C01;
       ))
     (ideographic-radical . 41)	; ⼨
     (ideographic-strokes . 6)
@@ -1159,12 +1159,14 @@
     (=daijiten		. 02420)	; &I-DJT-02420;
     (=shinjigen		.  1887)	; &AJ1-03559;
     (<-ancient
-     ((=ucs		  . #x7A86)	; 窆
+     ((=ucs@unicode	  . #x7A86)	; &AJ1-19629;
+      (=adobe-japan1-5	  . 19629)	; &AJ1-19629;
       ))
     (<-ancient$_1*sources
      zhouyi-jijie)
     (<-formed
-     ((=ucs		  . #x7A86)	; 窆
+     ((=ucs@unicode	  . #x7A86)	; &AJ1-19629;
+      (=adobe-japan1-5	  . 19629)	; &AJ1-19629;
       ))
     (<-formed$_1*sources
      jiyun)
@@ -1184,7 +1186,8 @@
     (<-interchangeable*sources
      shuowen-tongxun-dingsheng daikanwa)
     (<-same
-     ((=ucs		  . #x7A86)	; 窆
+     ((=ucs@unicode	  . #x7A86)	; &AJ1-19629;
+      (=adobe-japan1-5	  . 19629)	; &AJ1-19629;
       (=daikanwa	  . 25459)	; &I-M-25459;
       ))
     (<-same$_1*sources
@@ -4940,7 +4943,8 @@
     ))
 (define-char
   '((ideographic-radical . 41)	; ⼨
-    (==>daijiten	. 02420)	; &A2-DJT-02420;
+    (==>ucs@bucs	. #x5C01)	; &BUCS+5C01;
+    (==>daijiten	. 02420)	; &BUCS+5C01;
     ))
 (define-char
   '((ideographic-radical . 41)	; ⼨
