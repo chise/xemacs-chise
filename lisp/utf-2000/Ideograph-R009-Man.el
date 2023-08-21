@@ -62837,6 +62837,23 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=ucs		  . #x20336)	; 𠌶
+      ))
+    (ideographic-radical . 9)	; ⼈
+    (ideographic-strokes . 11)
+    (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs-itaiji-004	  . #x200B9)	; &U-i004+200B9;
+      )
+     ((=ucs		  . #x4E8F)	; 亏
+      ))
+    (=ucs-var-001	. #x20336)	; &U-v001+20336;
+    ))
+(define-char
   '((ideographic-radical . 9)	; ⼈
     (ideographic-strokes . 11)
     (total-strokes	 . 13)
