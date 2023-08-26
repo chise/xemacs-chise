@@ -27586,7 +27586,28 @@
     (=cbeta		. 00063)	; &I-CB00063;
     ))
 (define-char
-  '((ideographic-radical . 30)	; ⼝
+  '((<-denotational@usage
+     ((==>ucs@bucs	  . #x8A98)	; &BUCS+8A98;
+      ))
+    (ideographic-radical . 30)	; ⼝
+    (ideographic-strokes . 7)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x53E3)	; 口
+      )
+     ((=ucs		  . #x79C0)	; 秀
+      ))
+    (sound@ja/on	"Iu")
+    (=ucs		. #x5500)	; 唀
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5500)	; 唀
+      ))
+    (ideographic-radical . 30)	; ⼝
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
     (hanyu-dazidian	1 630 19)
@@ -27596,16 +27617,25 @@
       )
      ((=ucs		  . #x53E3)	; 口
       )
-     ((=ucs		  . #x79C0)	; 秀
+     ((=ucs@unicode	  . #x79C0)	; &AJ1-02354;
+      (=adobe-japan1-0	  . 02354)	; &AJ1-02354;
       ))
-    (=ucs		. #x5500)	; 唀
-    (=adobe-japan1-5	. 17364)	; &I-AJ1-17364;
+    (=ucs@unicode	. #x5500)	; &AJ1-17364;
+    (=adobe-japan1-5	. 17364)	; &AJ1-17364;
     (=jis-x0212		. #x3545)	; &I-JSP-3545; [21-37]
     (=cns11643-3	. #x2F7B)	; &I-C3-2F7B; [15-91]
     (=jis-x0213-2	. #x237C)	; &I-JX2-237C; [03-92]
     (=daikanwa		. 03689)	; &I-M-03689;
+    (=daijiten		. 01331)	; &I-DJT-01331;
     (=cbeta		. 01831)	; &I-CB01831;
     (=jef-china3	. #x46D6)	; &I-JC3-46D6;
+    (<-same
+     ((=ucs@unicode	  . #x8A98)	; &AJ1-03872;
+      (=adobe-japan1-0	  . 03872)	; &AJ1-03872;
+      (=daikanwa	  . 35525)	; &I-M-35525;
+      ))
+    (<-same*sources
+     zhengzitong daikanwa)
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x5500)	; 唀
@@ -27617,10 +27647,13 @@
       (==jis-x0212	  . #x3545)	; &g2-AJ1-17364; [21-37]
       (==jis-x0213-2	  . #x237C)	; &g2-AJ1-17364; [03-92]
       (==daikanwa	  . 03689)	; &g2-AJ1-17364;
+      (==daijiten	  . 01331)	; &g2-AJ1-17364;
       (==cbeta		  . 01831)	; &g2-AJ1-17364;
       (==jef-china3	  . #x46D6)	; &g2-AJ1-17364;
       (->subsumptive
        ((===daikanwa	    . 03689)	; &R-M-03689;
+	)
+       ((===daijiten	    . 01331)	; &R-DJT-01331;
 	)
        ((===jis-x0212	    . #x3545)	; &R-JX2-237C; [21-37]
 	(===jis-x0213-2	    . #x237C)	; &R-JX2-237C; [03-92]
