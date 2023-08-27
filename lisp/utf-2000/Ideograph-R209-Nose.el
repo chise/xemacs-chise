@@ -86,6 +86,100 @@
     ))
 (define-char
   '((ideographic-radical . 209)	; ⿐
+    (ideographic-strokes . 0)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x81EA)	; 自
+      )
+     ((=ucs		  . #x24C1E)	; 𤰞
+      ))
+    (=ucs		. #x2EBB4)	; 𮮴
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2EBB4)	; 𮮴
+      ))
+    (ideographic-radical . 209)	; ⿐
+    (ideographic-strokes . 0)
+    (total-strokes	 . 14)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x81EA)	; 自
+      )
+     ((=mj		  . 041344)	; &MJ041344;
+      ))
+    (=ucs@JP/hanazono	. #x2EBB4)	; &MJ059276;
+    (=mj		. 059276)	; &MJ059276;
+    (=koseki		. 548280)	; &MJ059276;
+    (<-formed
+     ((=ucs@unicode	  . #x9F3B)	; &GT-66224;
+      (=gb2312		  . #x3147)	; &GT-66224; [17-39]
+      (=cns11643-1	  . #x6B7C)	; &I-C1-6B7C; [75-92]
+      (=daikanwa	  . 48498)	; &I-M-48498;
+      )
+     ((=ucs		  . #x2FA1C)	; 鼻
+      ))
+    (<-formed$_1*sources
+     koseki)
+    (<-formed$_2*sources
+     koseki@mj)
+    (<-formed*sources
+     koseki mj)
+    (->subsumptive
+     ((==ucs@JP/hanazono  . #x2EBB4)	; &g2-MJ059276;
+      (==mj		  . 059276)	; &g2-MJ059276;
+      (==koseki		  . 548280)	; &g2-MJ059276;
+      (->subsumptive
+       ((===mj		    . 059276)	; &R-MJ059276;
+	)
+       ((===hng-dng	    . 09000)	; &HNG003-09000;
+	(<-HNG@chise
+	 ((=ucs		      . #x2EBB4)	; 𮮴
+	  ))
+	)
+       ((===hng-mam	    . 10360)	; &HNG005-10360;
+	(<-HNG@chise
+	 ((=ucs		      . #x2EBB4)	; 𮮴
+	  ))
+	)
+       ((===hng-drt	    . 05360)	; &HNG006-05360;
+	(<-HNG@chise
+	 ((=ucs		      . #x2EBB4)	; 𮮴
+	  ))
+	)
+       ((===hng-kgk	    . 02740)	; &HNG007-02740;
+	(<-HNG@chise
+	 ((=ucs		      . #x2EBB4)	; 𮮴
+	  ))
+	)
+       ((===hng-hok	    . 02610)	; &HNG013-02610;
+	(<-HNG@chise
+	 ((=ucs		      . #x2EBB4)	; 𮮴
+	  ))
+	)
+       ((===hng-sab	    . 02180)	; &HNG071-02180;
+	(<-HNG@chise
+	 ((=ucs		      . #x2EBB4)	; 𮮴
+	  ))
+	)
+       ((===hng-okd	    . 05260)	; &HNG050-05260;
+	(<-HNG@chise
+	 ((=ucs		      . #x2EBB4)	; 𮮴
+	  ))
+	)
+       ((===hng-zkd	    . 05540)	; &HNG056-05540;
+	(<-HNG@chise
+	 ((=ucs		      . #x2EBB4)	; 𮮴
+	  ))
+	))
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 209)	; ⿐
     (ideographic-strokes . 1)
     (total-strokes	 . 15)
     (=ucs		. #x2A590)	; 𪖐
