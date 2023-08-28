@@ -2600,11 +2600,41 @@
       )
      ((=ucs		  . #x53B6)	; 厶
       ))
-    (=ucs@unicode	. #x3557)	; &C6-3D61;
-    (=cns11643-6	. #x3D61)	; &C6-3D61; [29-65]
+    (=ucs@unicode	. #x3557)	; &MJ000306;
+    (=mj		. 000306)	; &MJ000306;
+    (=cns11643-6	. #x3D61)	; &I-C6-3D61; [29-65]
+    (=koseki		. 035870)	; &MJ000306;
     (=daikanwa		. 03097)	; &I-M-03097;
+    (<-formed
+     ((=ucs@unicode	  . #x8A98)	; &AJ1-03872;
+      (=adobe-japan1-0	  . 03872)	; &AJ1-03872;
+      )
+     ((=ucs@unicode	  . #x7F91)	; &JX1-7A3B;
+      (=jis-x0212	  . #x552A)	; &JX1-7A3B; [53-10]
+      (=iso-ir165	  . #x7E36)	; &I-EGB-7E36; [94-22]
+      (=cns11643-2	  . #x2C6F)	; &I-C2-2C6F; [12-79]
+      (=jis-x0213-1	  . #x7A3B)	; &I-JX1-7A3B; [90-27]
+      (=daikanwa	  . 28438)	; &I-M-28438;
+      )
+     ((=ucs@unicode	  . #x5500)	; &AJ1-17364;
+      (=adobe-japan1-5	  . 17364)	; &AJ1-17364;
+      )
+     ((=ucs@unicode	  . #x7F90)	; &AJ1-18392;
+      (=adobe-japan1-5	  . 18392)	; &AJ1-18392;
+      ))
+    (<-formed$_1*sources
+     mj)
+    (<-formed$_2*sources
+     mj)
+    (<-formed$_3*sources
+     mj)
+    (<-formed$_4*sources
+     mj)
+    (<-formed*sources
+     mj)
     (<-original
-     ((=ucs		  . #x8A98)	; 誘
+     ((=ucs@unicode	  . #x8A98)	; &AJ1-03872;
+      (=adobe-japan1-0	  . 03872)	; &AJ1-03872;
       ))
     (->ancient
      ((=ucs@unicode	  . #x7F90)	; &AJ1-18392;
@@ -2616,7 +2646,8 @@
     (->ancient*sources
      shuowen daikanwa)
     (->formed
-     ((=ucs		  . #x8A98)	; 誘
+     ((=ucs@unicode	  . #x8A98)	; &AJ1-03872;
+      (=adobe-japan1-0	  . 03872)	; &AJ1-03872;
       (=daikanwa	  . 35525)	; &I-M-35525;
       )
      ((=ucs@unicode	  . #x46FB)	; &C3-526D;
@@ -2636,11 +2667,15 @@
     (->formed*sources
      jiyun daikanwa)
     (->subsumptive
-     ((==ucs@unicode	  . #x3557)	; &g2-M-03097;
-      (==cns11643-6	  . #x3D61)	; &g2-M-03097; [29-65]
-      (==daikanwa	  . 03097)	; &g2-M-03097;
+     ((==ucs@unicode	  . #x3557)	; &g2-MJ000306;
+      (==mj		  . 000306)	; &g2-MJ000306;
+      (==cns11643-6	  . #x3D61)	; &g2-MJ000306; [29-65]
+      (==koseki		  . 035870)	; &g2-MJ000306;
+      (==daikanwa	  . 03097)	; &g2-MJ000306;
       (->subsumptive
        ((===daikanwa	    . 03097)	; &R-M-03097;
+	)
+       ((===mj		    . 000306)	; &R-MJ000306;
 	)
        ((===cns11643-6	    . #x3D61)	; &R-C6-3D61; [29-65]
 	)

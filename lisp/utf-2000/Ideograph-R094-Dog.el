@@ -10297,7 +10297,8 @@
       (=adobe-japan1-0	  . 01619)	; &AJ1-01619;
       (=daikanwa	  . 07111)	; &I-M-07111;
       )
-     ((=ucs		  . #x8A98)	; 誘
+     ((=ucs@unicode	  . #x8A98)	; &AJ1-03872;
+      (=adobe-japan1-0	  . 03872)	; &AJ1-03872;
       (=daikanwa	  . 35525)	; &I-M-35525;
       )
      ((=ucs		  . #x8A52)	; 詒
@@ -11644,7 +11645,7 @@
       )
      ((=ucs		  . #x72AD)	; 犭
       )
-     ((=>ucs@unicode	  . #xFAB3)	; 𮎰
+     ((=ucs		  . #x2E3B0)	; 𮎰
       ))
     (sound@ja/on	"kou")
     (=ucs		. #x2481B)	; 𤠛
