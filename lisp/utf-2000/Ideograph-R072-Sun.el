@@ -13890,6 +13890,39 @@
     (ideographic-strokes . 7)
     (total-strokes	 . 11)
     (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>ucs@component	  . #x65E5)	; &A-compU+65E5;
+      (=>iwds-1		  .  0118)	; &A-compU+65E5;
+      )
+     ((=>ucs@iwds-1	  . #x752B)	; &A-IWDSU+752B;
+      (=>iwds-1		  .  0068)	; &A-IWDSU+752B;
+      ))
+    (=>ucs-itaiji-002	. #x2E4DE)	; &A-U-i002+2E4DE;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs-itaiji-002	  . #x2E4DE)	; &A-U-i002+2E4DE;
+      ))
+    (ideographic-radical . 72)	; ⽇
+    (ideographic-strokes . 7)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x65E5)	; 日
+      )
+     ((=ucs		  . #x752B)	; 甫
+      ))
+    (=ucs-itaiji-002	. #x2E4DE)	; &U-i002+2E4DE;
+    ))
+(define-char
+  '((ideographic-radical . 72)	; ⽇
+    (ideographic-strokes . 7)
+    (total-strokes	 . 11)
+    (ideographic-structure
      ((=ucs-itaiji-001	  . #x2FFB)	; &U-i001+2FFB;
       )
      ((=ucs		  . #x5DE5)	; 工
