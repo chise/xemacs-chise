@@ -5380,6 +5380,21 @@
     ))
 (define-char
   '((ideographic-radical . 60)	; ⼻
+    (ideographic-strokes . 6)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5F73)	; 彳
+      )
+     ((=ucs		  . #x56DF)	; 囟
+      ))
+    (=ucs-itaiji-001	. #x20208)	; &U-i001+20208;
+    (*references	(link (:ref "https://db2.sido.keio.ac.jp/iipsrv/kanseki/043739/043739-003/tif/043739-003-0005.tif/1440,1083,220,760/full/0/default.jpg") "Da guang yi hui yu pian [Imperial Household Agency, Japan]"))
+    ))
+(define-char
+  '((ideographic-radical . 60)	; ⼻
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
     (ideographic-structure
