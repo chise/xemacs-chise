@@ -6115,6 +6115,61 @@
     ))
 (define-char
   '((ideographic-radical . 79)	; ⽎
+    (ideographic-strokes . 13)
+    (total-strokes	 . 17)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x776A)	; 睪
+      )
+     ((=>ucs@iwds-1	  . #x6BB3)	; &A-IWDSU+6BB3;
+      (=>iwds-1		  .  22001)	; &A-IWDSU+6BB3;
+      ))
+    (=>ucs-itaiji-001@iwds-1 . #x6581)	; &A-IWDSU-i001+6581;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs-itaiji-001@iwds-1 . #x6581)	; &A-IWDSU-i001+6581;
+      ))
+    (ideographic-radical . 79)	; ⽎
+    (ideographic-strokes . 13)
+    (total-strokes	 . 17)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x776A)	; 睪
+      )
+     ((=ucs		  . #x6BB3)	; 殳
+      ))
+    (=>ucs-itaiji-001	. #x6581)	; &A-U-i001+6581;
+    (*references	(link (:ref "https://db2.sido.keio.ac.jp/iipsrv/kanseki/043739/043739-002/tif/043739-002-0013.tif/1440,1930,220,1280/full/0/default.jpg") "Da guang yi hui yu pian [Imperial Household Agency, Japan]"))
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs-itaiji-001	  . #x6581)	; &A-U-i001+6581;
+      ))
+    (ideographic-radical . 79)	; ⽎
+    (ideographic-strokes . 13)
+    (total-strokes	 . 17)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs@unicode	  . #x776A)	; &JX2-7227;
+      (=jis-x0212	  . #x4F23)	; &JX2-7227; [47-03]
+      (=cns11643-1	  . #x6548)	; &I-C1-6548; [69-40]
+      (=jis-x0213-2	  . #x7227)	; &I-JX2-7227; [82-07]
+      (=daikanwa	  . 23466)	; &I-M-23466;
+      )
+     ((=ucs@unicode	  . #x6BB3)	; &MJ014908;
+      (=mj		  . 014908)	; &MJ014908;
+      ))
+    (=ucs-itaiji-001	. #x6581)	; &U-i001+6581;
+    ))
+(define-char
+  '((ideographic-radical . 79)	; ⽎
     (ideographic-strokes . 14)
     (total-strokes	 . 18)
     (ideographic-structure
