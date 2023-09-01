@@ -1208,7 +1208,8 @@
     (=jis-x0213-2	. #x7473)	; &I-JX2-7473; [84-83]
     (=daikanwa		. 28437)	; &I-M-28437;
     (<-ancient
-     ((=ucs		  . #x8A98)	; 誘
+     ((=ucs@unicode	  . #x8A98)	; &AJ1-03872;
+      (=adobe-japan1-0	  . 03872)	; &AJ1-03872;
       ))
     (<-ancient*sources
      yupian)
@@ -1225,7 +1226,8 @@
     (<-interchangeable*sources
      yunhai daikanwa)
     (<-same
-     ((=ucs		  . #x8A98)	; 誘
+     ((=ucs@unicode	  . #x8A98)	; &AJ1-03872;
+      (=adobe-japan1-0	  . 03872)	; &AJ1-03872;
       (=daikanwa	  . 35525)	; &I-M-35525;
       ))
     (<-same$_1*sources
