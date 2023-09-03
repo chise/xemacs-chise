@@ -81,6 +81,38 @@
     ))
 (define-char
   '((ideographic-radical . 126)	; ⽽
+    (ideographic-strokes . 2)
+    (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>ucs@iwds-1	  . #x513F)	; &A-IWDSU+513F;
+      (=>iwds-1		  .  11922)	; &A-IWDSU+513F;
+      )
+     ((=ucs		  . #x800C)	; 而
+      ))
+    (=>ucs-itaiji-003	. #x8011)	; &A-U-i003+8011;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs-itaiji-003	  . #x8011)	; &A-U-i003+8011;
+      ))
+    (ideographic-radical . 126)	; ⽽
+    (ideographic-strokes . 2)
+    (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x51E0)	; 几
+      )
+     ((=ucs		  . #x800C)	; 而
+      ))
+    (=ucs-itaiji-003	. #x8011)	; &U-i003+8011;
+    ))
+(define-char
+  '((ideographic-radical . 126)	; ⽽
     (ideographic-strokes . 3)
     (total-strokes	 . 9)
     (=ucs		. #x800D)	; 耍

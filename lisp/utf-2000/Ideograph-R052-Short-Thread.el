@@ -2080,6 +2080,7 @@
     (=ucs@iso		. #x221CC)	; &C5-455B;
     (=cns11643-5	. #x455B)	; &C5-455B; [37-59]
     (=daikanwa		. 09214)	; &I-M-09214;
+    (=chise-hdic-syp	. #x3EA7)	; &C5-455B;
     (<-formed
      ((=ucs		  . #x20208)	; 𠈈
       )
@@ -2115,6 +2116,8 @@
 	))
       )
      ((==ucs@iso	  . #x221CC)	; &g2-IU-000221CC;
+      )
+     ((===chise-hdic-syp  . #x3EA7)	; &R-CHISE-HDIC-SYP3EA7;
       ))
     ))
 (define-char
