@@ -1073,6 +1073,7 @@
       )
      ((=ucs		  . #x4E47)	; 乇
       ))
+    (sound@ja/on	"to")
     (=ucs		. #x239C3)	; 𣧃
     ))
 (define-char
@@ -1098,6 +1099,14 @@
     (=cns11643-6	. #x283C)	; &I-C6-283C; [08-28]
     (=koseki		. 185890)	; &MJ038743;
     (=daikanwa		. 16376)	; &I-M-16376;
+    (<-formed
+     ((=ucs@unicode	  . #x6BAC)	; &JSP-462C;
+      (=jis-x0212	  . #x462C)	; &JSP-462C; [38-12]
+      (=cns11643-4	  . #x5652)	; &I-C4-5652; [54-50]
+      (=daikanwa	  . 16584)	; &I-M-16584;
+      ))
+    (<-formed$_1*sources
+     jiyun daikanwa)
     (<-same
      ((=ucs@unicode	  . #x6BAC)	; &JSP-462C;
       (=jis-x0212	  . #x462C)	; &JSP-462C; [38-12]
@@ -2622,11 +2631,83 @@
   '((ideographic-radical . 78)	; ⽍
     (ideographic-strokes . 5)
     (total-strokes	 . 9)
-    (hanyu-dazidian	2 1383 20)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x6B79)	; 歹
+      )
+     ((=ucs		  . #x5931)	; 失
+      ))
+    (sound@ja/on/go	"ti" "titi")
+    (sound@ja/on/kan	"ti" "titu")
     (=ucs		. #x239DE)	; 𣧞
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x239DE)	; 𣧞
+      ))
+    (ideographic-radical . 78)	; ⽍
+    (ideographic-strokes . 5)
+    (total-strokes	 . 9)
+    (hanyu-dazidian	2 1383 20)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs@unicode	  . #x6B79)	; &AJ1-05349;
+      (=adobe-japan1-0	  . 05349)	; &AJ1-05349;
+      )
+     ((=ucs		  . #x5931)	; 失
+      ))
+    (=ucs@iso		. #x239DE)	; &MJ038766;
+    (=mj		. 038766)	; &MJ038766;
     (=cns11643-4	. #x2978)	; &I-C4-2978; [09-88]
+    (=koseki		. 186250)	; &MJ038766;
     (=daikanwa		. 16411)	; &I-M-16411;
-    (=hanziku-4		. #xC4BE)	; &I-HZK04-C4BE;
+    (<-formed
+     ((=ucs@iso		  . #x29CAB)	; &C7-2B63;
+      (=cns11643-7	  . #x2B63)	; &C7-2B63; [11-67]
+      (=daikanwa	  . 45813)	; &I-M-45813;
+      )
+     ((=mj		  . 005913)	; &MJ005913;
+      ))
+    (<-formed$_1*sources
+     jiyun)
+    (<-formed$_2*sources
+     jiyun)
+    (<-same
+     ((=ucs@iso		  . #x29CAB)	; &C7-2B63;
+      (=cns11643-7	  . #x2B63)	; &C7-2B63; [11-67]
+      (=daikanwa	  . 45813)	; &I-M-45813;
+      )
+     ((=mj		  . 005913)	; &MJ005913;
+      (=daikanwa	  . 45812)	; &I-M-45812;
+      ))
+    (<-same$_1*sources
+     jiyun daikanwa)
+    (<-same$_2*sources
+     jiyun daikanwa)
+    (<-same*sources
+     jiyun daikanwa)
+    (->subsumptive
+     ((==ucs@iso	  . #x239DE)	; &g2-MJ038766;
+      (==mj		  . 038766)	; &g2-MJ038766;
+      (==cns11643-4	  . #x2978)	; &g2-MJ038766; [09-88]
+      (==koseki		  . 186250)	; &g2-MJ038766;
+      (==daikanwa	  . 16411)	; &g2-MJ038766;
+      (->subsumptive
+       ((===daikanwa	    . 16411)	; &R-M-16411;
+	)
+       ((===mj		    . 038766)	; &R-MJ038766;
+	)
+       ((===cns11643-4	    . #x2978)	; &R-C4-2978; [09-88]
+	)
+       ((===ucs@iso	    . #x239DE)	; &R-U-000239DE;
+	)
+       ((=hanziku-4	    . #xC4BE)	; &HZK04-C4BE;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 78)	; ⽍
@@ -7808,6 +7889,8 @@
       )
      ((=ucs		  . #x776A)	; 睪
       ))
+    (sound@ja/on/go	"tu")
+    (sound@ja/on/kan	"to")
     (=ucs		. #x6BAC)	; 殬
     ))
 (define-char
@@ -7834,6 +7917,32 @@
     (=jis-x0212		. #x462C)	; &JSP-462C; [38-12]
     (=cns11643-4	. #x5652)	; &I-C4-5652; [54-50]
     (=daikanwa		. 16584)	; &I-M-16584;
+    (=chise-hdic-syp	. #x21CB)	; &JSP-462C;
+    (->formed
+     ((=ucs@iso		  . #x239C3)	; &MJ038743;
+      (=mj		  . 038743)	; &MJ038743;
+      (=daikanwa	  . 16376)	; &I-M-16376;
+      )
+     ((=ucs@unicode	  . #x6581)	; &JX2-2D66;
+      (=jis-x0212	  . #x4156)	; &JX2-2D66; [33-54]
+      (=cns11643-2	  . #x5C79)	; &I-C2-5C79; [60-89]
+      (=jis-x0213-2	  . #x2D66)	; &I-JX2-2D66; [13-70]
+      (=daikanwa	  . 13406)	; &I-M-13406;
+      )
+     ((=ucs@unicode	  . #x776A)	; &JX2-7227;
+      (=jis-x0212	  . #x4F23)	; &JX2-7227; [47-03]
+      (=cns11643-1	  . #x6548)	; &I-C1-6548; [69-40]
+      (=jis-x0213-2	  . #x7227)	; &I-JX2-7227; [82-07]
+      (=daikanwa	  . 23466)	; &I-M-23466;
+      ))
+    (->formed$_1*sources
+     jiyun daikanwa)
+    (->formed$_2*sources
+     jiyun daikanwa)
+    (->formed$_3*sources
+     jiyun daikanwa)
+    (->formed*sources
+     jiyun daikanwa)
     (->subsumptive
      ((==ucs@jis	  . #x6BAC)	; &g2-JSP-462C;
       (==jis-x0212	  . #x462C)	; &g2-JSP-462C; [38-12]
@@ -7851,6 +7960,8 @@
        ((===cns11643-4	    . #x5652)	; &R-C4-5652; [54-50]
 	)
        ((===ucs@unicode	    . #x6BAC)	; &R-UU+6BAC;
+	)
+       ((===chise-hdic-syp  . #x21CB)	; &R-CHISE-HDIC-SYP21CB;
 	))
       ))
     ))
