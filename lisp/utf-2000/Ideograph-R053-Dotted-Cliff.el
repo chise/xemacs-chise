@@ -14455,6 +14455,37 @@
     (ideographic-strokes . 14)
     (total-strokes	 . 17)
     (ideographic-structure
+     ((=>ucs@iwds-1	  . #x2FF8)	; &U-v002+2FF1;
+      (=>iwds-1		  .  0305)	; &U-v002+2FF1;
+      )
+     ((=ucs		  . #x49F9)	; 䧹
+      )
+     ((=ucs		  . #x706B)	; 火
+      ))
+    (=ucs		. #x222D7)	; 𢋗
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x222D7)	; 𢋗
+      ))
+    (ideographic-radical . 53)	; ⼴
+    (ideographic-strokes . 14)
+    (total-strokes	 . 17)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs		  . #x49F9)	; 䧹
+      )
+     ((=ucs		  . #x706B)	; 火
+      ))
+    (=ucs@iso		. #x222D7)	; &U-000222D7;
+    ))
+(define-char
+  '((ideographic-radical . 53)	; ⼴
+    (ideographic-strokes . 14)
+    (total-strokes	 . 17)
+    (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
       (=ucs		  . #x2FF8)	; ⿸
       )

@@ -12104,6 +12104,38 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
+     ((=ucs		  . #x5E1D)	; 帝
+      )
+     ((=ucs		  . #x5DE8)	; 巨
+      ))
+    (=ucs		. #x2212B)	; 𢄫
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2212B)	; 𢄫
+      ))
+    (ideographic-radical . 50)	; ⼱
+    (ideographic-strokes . 11)
+    (total-strokes	 . 14)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5E1D)	; 帝
+      )
+     ((=ucs@cns		  . #x5DE8)	; &MJ010776;
+      (=mj		  . 010776)	; &MJ010776;
+      ))
+    (=ucs@iso		. #x2212B)	; &U-0002212B;
+    ))
+(define-char
+  '((ideographic-radical . 50)	; ⼱
+    (ideographic-strokes . 11)
+    (total-strokes	 . 14)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
