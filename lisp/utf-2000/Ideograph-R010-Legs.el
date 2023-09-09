@@ -5938,9 +5938,9 @@
      ((=>ucs@component	  . #x513F)	; &A-compU+513F;
       (=>iwds-1		  .  0222)	; &A-compU+513F;
       ))
-    (=gt-k		. 06142)	; &U-i006+56E7;
-    (=gt-pj-k1		. #x4D39)	; &U-i006+56E7; [45-25]
-    (=ucs-itaiji-006	. #x56E7)	; &U-i006+56E7;
+    (=gt-k		. 06142)	; &GT-K06142;
+    (=gt-pj-k1		. #x4D39)	; &GT-K06142; [45-25]
+    (=ucs-itaiji-006	. #x56E7)	; &GT-K06142;
     (->subsumptive
      ((==gt-k		  . 06142)	; &g2-GT-K06142;
       (==gt-pj-k1	  . #x4D39)	; &g2-GT-K06142; [45-25]
