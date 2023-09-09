@@ -2821,7 +2821,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=gt-k		  . 02400)	; &CDP-v001-8B7C;
+     ((=gt-k		  . 02400)	; &GT-K02400;
       )
      ((=ucs		  . #x5369)	; 卩
       ))

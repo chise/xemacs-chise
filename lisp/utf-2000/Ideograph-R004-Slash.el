@@ -4859,9 +4859,9 @@
      ((=ucs@iso		  . #x27607)	; &CDP-8B67;
       (=big5-cdp	  . #x8B67)	; &CDP-8B67;
       ))
-    (=gt-k		. 01340)	; &CDP-i002-8845;
-    (=gt-pj-k1		. #x716E)	; &CDP-i002-8845; [81-78]
-    (=big5-cdp-itaiji-002 . #x8845)	; &CDP-i002-8845;
+    (=gt-k		. 01340)	; &GT-K01340;
+    (=gt-pj-k1		. #x716E)	; &GT-K01340; [81-78]
+    (=big5-cdp-itaiji-002 . #x8845)	; &GT-K01340;
     (<-unknown
      ((=ucs		  . #x200A2)	; 𠂢
       ))

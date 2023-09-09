@@ -4894,7 +4894,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=gt-k		  . 07307)	; &U-i005+24514;
+     ((=gt-k		  . 07307)	; &GT-K07307;
       )
      ((=ucs		  . #x4E5A)	; 乚
       ))

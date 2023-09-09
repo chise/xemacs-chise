@@ -4179,7 +4179,7 @@
     (ideographic-structure
      ((=ucs-itaiji-001	  . #x2FF6)	; &U-i001+2FF6;
       )
-     ((=gt-k		  . 04948)	; &U-i001+23470;
+     ((=gt-k		  . 04948)	; &GT-K04948;
       )
      ((=ucs		  . #x51AB)	; 冫
       ))

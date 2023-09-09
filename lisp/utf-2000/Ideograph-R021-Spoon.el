@@ -2028,7 +2028,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=gt-k		  . 03607)	; &U-v003+2EB6;
+     ((=gt-k		  . 03607)	; &GT-K03607;
       )
      ((=>ucs@iwds-1	  . #x5315)	; &J97-5238;
       (=>jis-x0208	  . #x5238)	; &J97-5238; [50-24]
@@ -2046,7 +2046,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=gt-k		  . 03607)	; &U-v003+2EB6;
+     ((=gt-k		  . 03607)	; &GT-K03607;
       )
      ((=ucs		  . #x5315)	; 匕
       ))
@@ -2092,9 +2092,9 @@
       )
      ((=ucs		  . #x5315)	; 匕
       ))
-    (=gt-k		. 05697)	; &U-i003+20917;
-    (=gt-pj-k1		. #x4C23)	; &U-i003+20917; [44-03]
-    (=ucs-itaiji-003	. #x20917)	; &U-i003+20917;
+    (=gt-k		. 05697)	; &GT-K05697;
+    (=gt-pj-k1		. #x4C23)	; &GT-K05697; [44-03]
+    (=ucs-itaiji-003	. #x20917)	; &GT-K05697;
     (->subsumptive
      ((==ucs-itaiji-003	  . #x20917)	; &g2-U-i003+20917;
       )

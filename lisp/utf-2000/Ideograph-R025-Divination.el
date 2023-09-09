@@ -1151,9 +1151,9 @@
       )
      ((=ucs		  . #x20541)	; 𠕁
       ))
-    (=gt-k		. 03610)	; &U-i006+89E3;
-    (=gt-pj-k1		. #x3550)	; &U-i006+89E3; [21-48]
-    (=ucs-itaiji-006	. #x89E3)	; &U-i006+89E3;
+    (=gt-k		. 03610)	; &GT-K03610;
+    (=gt-pj-k1		. #x3550)	; &GT-K03610; [21-48]
+    (=ucs-itaiji-006	. #x89E3)	; &GT-K03610;
     (->subsumptive
      ((==gt-k		  . 03610)	; &g2-U-i006+89E3;
       (==gt-pj-k1	  . #x3550)	; &g2-U-i006+89E3; [21-48]
@@ -1191,7 +1191,7 @@
      ((name		  . "CJK RADICAL DIVINATION")
       (=ucs		  . #x2E8A)	; ⺊
       )
-     ((=gt-k		  . 02079)	; &U-i001+56EA;
+     ((=gt-k		  . 02079)	; &GT-K02079;
       ))
     (=ucs@unicode	. #x5365)	; &AJ1-21235;
     (=adobe-japan1-6	. 21235)	; &AJ1-21235;
