@@ -722,9 +722,9 @@
     (ideographic-radical . 17)	; ⼐
     (ideographic-strokes . 3)
     (total-strokes	 . 5)
-    (=gt-k		. 01275)	; &U-v001+20679;
-    (=gt-pj-k2		. #x4125)	; &U-v001+20679; [33-05]
-    (=ucs-var-001	. #x20679)	; &U-v001+20679;
+    (=gt-k		. 01275)	; &GT-K01275;
+    (=gt-pj-k2		. #x4125)	; &GT-K01275; [33-05]
+    (=ucs-var-001	. #x20679)	; &GT-K01275;
     (->subsumptive
      ((==gt-k		  . 01275)	; &g2-GT-K01275;
       (==gt-pj-k2	  . #x4125)	; &g2-GT-K01275; [33-05]
@@ -1633,9 +1633,9 @@
       )
      ((=ucs		  . #x2A832)	; 𪠲
       ))
-    (=gt-k		. 02909)	; &U-i003+20020;
-    (=gt-pj-k1		. #x3F70)	; &U-i003+20020; [31-80]
-    (=ucs-itaiji-003	. #x20020)	; &U-i003+20020;
+    (=gt-k		. 02909)	; &GT-K02909;
+    (=gt-pj-k1		. #x3F70)	; &GT-K02909; [31-80]
+    (=ucs-itaiji-003	. #x20020)	; &GT-K02909;
     (<-formed@component
      ((=ucs		  . #x20020)	; 𠀠
       ))
