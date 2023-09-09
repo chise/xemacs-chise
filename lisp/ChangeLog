@@ -1,3 +1,9 @@
+2023-09-09  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-coding.el (coded-charset-entity-reference-alist):
+	Prefer `=gt-k' to `=ucs-var-*', `=ucs-itaiji-*',
+	`=big5-cdp-var-*', `=big5-cdp-itaiji-*' and `=jis-x0208@1978/1pr'.
+
 2023-08-05  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* mule/mule-charset.el (default-coded-charset-priority-list): Add
