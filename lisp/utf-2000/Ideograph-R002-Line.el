@@ -2164,9 +2164,9 @@
       )
      ((=ucs		  . #x53E3)	; 口
       ))
-    (=gt-k		. 04143)	; &CDP-i001-88B7;
-    (=gt-pj-k2		. #x407A)	; &CDP-i001-88B7; [32-90]
-    (=big5-cdp-itaiji-001 . #x88B7)	; &CDP-i001-88B7;
+    (=gt-k		. 04143)	; &GT-K04143;
+    (=gt-pj-k2		. #x407A)	; &GT-K04143; [32-90]
+    (=big5-cdp-itaiji-001 . #x88B7)	; &GT-K04143;
     (->subsumptive
      ((==big5-cdp-itaiji-001 . #x88B7)	; &g2-CDP-i001-88B7;
       )
