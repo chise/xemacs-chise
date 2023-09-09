@@ -5090,7 +5090,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=gt-k		  . 04903)	; &U-i001+23140;
+     ((=gt-k		  . 04903)	; &GT-K04903;
       )
      ((=ucs		  . #x5C0F)	; 小
       ))
@@ -6338,7 +6338,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=gt-k		  . 04903)	; &U-i001+23140;
+     ((=gt-k		  . 04903)	; &GT-K04903;
       )
      ((name		  . "CJK RADICAL EWE")
       (=ucs		  . #x2EB8)	; ⺸
@@ -6993,7 +6993,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=gt-k		  . 04903)	; &U-i001+23140;
+     ((=gt-k		  . 04903)	; &GT-K04903;
       )
      ((=ucs		  . #x9999)	; 香
       ))
