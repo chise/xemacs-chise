@@ -1881,7 +1881,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=gt-k		  . 01085)	; &U-i001+5F01;
+     ((=gt-k		  . 01085)	; &GT-K01085;
       )
      ((=ucs		  . #x4E09)	; 三
       ))
@@ -1954,7 +1954,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=gt-k		  . 01085)	; &U-i001+5F01;
+     ((=gt-k		  . 01085)	; &GT-K01085;
       )
      ((=ucs		  . #x5F61)	; 彡
       ))
@@ -2184,7 +2184,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=gt-k		  . 01085)	; &U-i001+5F01;
+     ((=gt-k		  . 01085)	; &GT-K01085;
       )
      ((=ucs		  . #x6728)	; 木
       ))
@@ -2199,7 +2199,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=gt-k		  . 01085)	; &U-i001+5F01;
+     ((=gt-k		  . 01085)	; &GT-K01085;
       )
      ((=>ucs@component	  . #x6C34)	; &A-compU+6C34;
       ))
@@ -2422,7 +2422,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=gt-k		  . 01085)	; &U-i001+5F01;
+     ((=gt-k		  . 01085)	; &GT-K01085;
       )
      ((=>ucs@iwds-1	  . #x51F7)	; &A-IWDSU+51F7;
       ))
@@ -2444,7 +2444,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=gt-k		  . 01085)	; &U-i001+5F01;
+     ((=gt-k		  . 01085)	; &GT-K01085;
       )
      ((=ucs		  . #x2067D)	; 𠙽
       ))
@@ -2487,7 +2487,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=gt-k		  . 01085)	; &U-i001+5F01;
+     ((=gt-k		  . 01085)	; &GT-K01085;
       )
      ((=ucs		  . #x51F7)	; 凷
       ))
@@ -2521,7 +2521,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=gt-k		  . 01085)	; &U-i001+5F01;
+     ((=gt-k		  . 01085)	; &GT-K01085;
       )
      ((=ucs		  . #x6C3A)	; 氺
       ))
