@@ -5402,7 +5402,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=gt-k		  . 02909)	; &U-i003+20020;
+     ((=gt-k		  . 02909)	; &GT-K02909;
       )
      ((=gt-k		  . 00264)	; &GT-K00264;
       ))
