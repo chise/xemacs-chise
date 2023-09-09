@@ -1234,9 +1234,9 @@
       )
      ((=big5-cdp	  . #x8B6C)	; &CDP-8B6C;
       ))
-    (=gt-k		. 00810)	; &U-v002+5206;
-    (=gt-pj-k1		. #x5C49)	; &U-v002+5206; [60-41]
-    (=ucs-var-002	. #x5206)	; &U-v002+5206;
+    (=gt-k		. 00810)	; &GT-K00810;
+    (=gt-pj-k1		. #x5C49)	; &GT-K00810; [60-41]
+    (=ucs-var-002	. #x5206)	; &GT-K00810;
     (->subsumptive
      ((=gt-k		  . 00860)	; &GT-K00860;
       (=gt-pj-k1	  . #x4879)	; &GT-K00860; [40-89]
@@ -6393,7 +6393,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=gt-k		  . 01400)	; &U-v001+4EFA;
+     ((=gt-k		  . 01400)	; &GT-K01400;
       )
      ((=ucs		  . #x5202)	; 刂
       ))
@@ -6884,13 +6884,34 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((name		  . "CJK RADICAL KNIFE ONE")
-      (=ucs		  . #x2E88)	; ⺈
+     ((=>ucs@component	  . #x5200)	; &A-compU+5200;
+      (=>iwds-1		  .  0149)	; &A-compU+5200;
       )
      ((=ucs		  . #x7F52)	; 罒
       ))
+    (=>gt-k		. 03322)	; &A-GT-K03322;
+    (=>big5-cdp-itaiji-005 . #x8CAF)	; &A-GT-K03322;
+    ))
+(define-char
+  '((<-denotational
+     ((=>gt-k		  . 03322)	; &A-GT-K03322;
+      ))
+    (ideographic-radical . 18)	; ⼑
+    (ideographic-strokes . 5)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((name		  . "CJK RADICAL KNIFE ONE")
+      (=ucs		  . #x2E88)	; ⺈
+      )
+     ((name		  . "CJK RADICAL NET TWO")
+      (=ucs		  . #x2EB2)	; ⺲
+      ))
     (=gt-k		. 03322)	; &GT-K03322;
     (=gt-pj-k1		. #x5524)	; &GT-K03322; [53-04]
+    (=big5-cdp-itaiji-005 . #x8CAF)	; &GT-K03322;
     (<-unknown@component
      ((=ucs		  . #x8980)	; 覀
       )
@@ -8466,7 +8487,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=gt-k		  . 01804)	; &U-i002+23470;
+     ((=gt-k		  . 01804)	; &GT-K01804;
       )
      ((=ucs		  . #x5202)	; 刂
       ))
@@ -8957,9 +8978,9 @@
       )
      ((=ucs		  . #x5202)	; 刂
       ))
-    (=gt-k		. 06148)	; &U-i001+206F1;
-    (=gt-pj-k2		. #x396F)	; &U-i001+206F1; [25-79]
-    (=ucs-itaiji-001	. #x206F1)	; &U-i001+206F1;
+    (=gt-k		. 06148)	; &GT-K06148;
+    (=gt-pj-k2		. #x396F)	; &GT-K06148; [25-79]
+    (=ucs-itaiji-001	. #x206F1)	; &GT-K06148;
     (->subsumptive
      ((==gt-k		  . 06148)	; &g2-GT-K06148;
       (==gt-pj-k2	  . #x396F)	; &g2-GT-K06148; [25-79]
@@ -13056,7 +13077,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=gt-k		  . 04403)	; &U-v001+2B74D;
+     ((=gt-k		  . 04403)	; &GT-K04403;
       )
      ((=ucs		  . #x5202)	; 刂
       ))
@@ -15117,7 +15138,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
       (=ucs		  . #x2FF8)	; ⿸
       )
-     ((=gt-k		  . 03607)	; &U-v003+2EB6;
+     ((=gt-k		  . 03607)	; &GT-K03607;
       )
      ((=>ucs@iwds-1	  . #x5203)	; &A-IWDSU+5203;
       (=>iwds-1		  .  0106)	; &A-IWDSU+5203;
@@ -15135,7 +15156,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
       (=ucs		  . #x2FF8)	; ⿸
       )
-     ((=gt-k		  . 03607)	; &U-v003+2EB6;
+     ((=gt-k		  . 03607)	; &GT-K03607;
       )
      ((=ucs@unicode	  . #x5204)	; &AJ1-04250;
       (=adobe-japan1-0	  . 04250)	; &AJ1-04250;
