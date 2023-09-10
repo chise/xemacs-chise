@@ -2841,9 +2841,9 @@
       )
      ((=ucs		  . #x5927)	; 大
       ))
-    (=gt-k		. 01085)	; &U-i001+5F01;
-    (=gt-pj-k1		. #x4B62)	; &U-i001+5F01; [43-66]
-    (=ucs-itaiji-001	. #x5F01)	; &U-i001+5F01;
+    (=gt-k		. 01085)	; &GT-K01085;
+    (=gt-pj-k1		. #x4B62)	; &GT-K01085; [43-66]
+    (=ucs-itaiji-001	. #x5F01)	; &GT-K01085;
     (<-formed@component
      ((=ucs		  . #x5F01)	; 弁
       ))
@@ -2855,7 +2855,7 @@
      ((=gt-k		  . 01084)	; &GT-K01084;
       (=gt-pj-k1	  . #x305F)	; &GT-K01084; [16-63]
       (<-formed@component/connect-below
-       ((=gt-k		    . 01085)	; &U-i001+5F01;
+       ((=gt-k		    . 01085)	; &GT-K01085;
 	))
       ))
     ))
@@ -6963,7 +6963,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=gt-k		  . 01085)	; &U-i001+5F01;
+     ((=gt-k		  . 01085)	; &GT-K01085;
       )
      ((=>ucs@iwds-1	  . #x51F7)	; &A-IWDSU+51F7;
       ))
@@ -6985,7 +6985,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=gt-k		  . 01085)	; &U-i001+5F01;
+     ((=gt-k		  . 01085)	; &GT-K01085;
       )
      ((=ucs		  . #x2067D)	; 𠙽
       ))
@@ -10305,7 +10305,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=gt-k		  . 06261)	; &CDP-v002-8D7C;
+     ((=gt-k		  . 06261)	; &GT-K06261;
       )
      ((=>ucs@component	  . #x72AC)	; &A-compU+72AC;
       (=>iwds-1		  .  0239)	; &A-compU+72AC;
@@ -10325,7 +10325,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=gt-k		  . 06261)	; &CDP-v002-8D7C;
+     ((=gt-k		  . 06261)	; &GT-K06261;
       )
      ((=ucs		  . #x5927)	; 大
       ))

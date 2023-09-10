@@ -1068,7 +1068,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=gt-k		  . 02400)	; &CDP-v001-8B7C;
+     ((=gt-k		  . 02400)	; &GT-K02400;
       )
      ((=ucs		  . #x5BF8)	; 寸
       ))
@@ -4456,7 +4456,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=gt-k		  . 06142)	; &U-i006+56E7;
+     ((=gt-k		  . 06142)	; &GT-K06142;
       )
      ((=ucs@unicode	  . #x5C17)	; &AJ1-21451;
       (=adobe-japan1-6	  . 21451)	; &AJ1-21451;

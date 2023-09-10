@@ -365,9 +365,9 @@
     (ideographic-radical . 63)	; ⼾
     (ideographic-strokes . 1)
     (total-strokes	 . 5)
-    (=gt-k		. 01390)	; &U-i001+2666A;
-    (=gt-pj-k1		. #x6254)	; &U-i001+2666A; [66-52]
-    (=ucs-itaiji-001	. #x2666A)	; &U-i001+2666A;
+    (=gt-k		. 01390)	; &GT-K01390;
+    (=gt-pj-k1		. #x6254)	; &GT-K01390; [66-52]
+    (=ucs-itaiji-001	. #x2666A)	; &GT-K01390;
     (->subsumptive
      ((==gt-k		  . 01390)	; &g2-U-i001+2666A;
       (==gt-pj-k1	  . #x6254)	; &g2-U-i001+2666A; [66-52]
@@ -1940,7 +1940,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
       (=ucs		  . #x2FF8)	; ⿸
       )
-     ((=gt-k		  . 01390)	; &U-i001+2666A;
+     ((=gt-k		  . 01390)	; &GT-K01390;
       )
      ((=ucs		  . #x4E07)	; 万
       ))

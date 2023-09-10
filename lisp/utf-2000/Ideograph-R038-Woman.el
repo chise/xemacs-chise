@@ -20328,7 +20328,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=gt-k		  . 04143)	; &CDP-i001-88B7;
+     ((=gt-k		  . 04143)	; &GT-K04143;
       )
      ((=ucs		  . #x5973)	; 女
       ))
@@ -22004,7 +22004,7 @@
       )
      ((=ucs		  . #x5973)	; 女
       )
-     ((=gt-k		  . 06360)	; &U-i001+758C;
+     ((=gt-k		  . 06360)	; &GT-K06360;
       ))
     (=ucs@unicode	. #x5AAB)	; &C3-3A78;
     (=cns11643-3	. #x3A78)	; &C3-3A78; [26-88]
@@ -24443,7 +24443,7 @@
       )
      ((=ucs		  . #x5973)	; 女
       )
-     ((=gt-k		  . 04143)	; &CDP-i001-88B7;
+     ((=gt-k		  . 04143)	; &GT-K04143;
       ))
     (sound@ja/on	"hei")
     (=ucs		. #x21790)	; 𡞐
@@ -36183,7 +36183,7 @@
       )
      ((=ucs		  . #x5973)	; 女
       )
-     ((=gt-k		  . 07307)	; &U-i005+24514;
+     ((=gt-k		  . 07307)	; &GT-K07307;
       ))
     (=ucs@JP/hanazono	. #x2BC58)	; &hanaJU+2BC58;
     (->subsumptive
@@ -46025,7 +46025,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=gt-k		  . 11083)	; &U-i001+26989;
+     ((=gt-k		  . 11083)	; &GT-K11083;
       )
      ((=ucs		  . #x5973)	; 女
       ))
