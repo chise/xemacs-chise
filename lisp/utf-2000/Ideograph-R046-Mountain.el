@@ -3974,9 +3974,9 @@
       )
      ((=ucs		  . #x4EC9)	; 仉
       ))
-    (=gt-k		. 02930)	; &U-i001+21D5D;
-    (=gt-pj-k1		. #x445B)	; &U-i001+21D5D; [36-59]
-    (=ucs-itaiji-001	. #x21D5D)	; &U-i001+21D5D;
+    (=gt-k		. 02930)	; &GT-K02930;
+    (=gt-pj-k1		. #x445B)	; &GT-K02930; [36-59]
+    (=ucs-itaiji-001	. #x21D5D)	; &GT-K02930;
     (->subsumptive
      ((==gt-k		  . 02930)	; &g2-U-i001+21D5D;
       (==gt-pj-k1	  . #x445B)	; &g2-U-i001+21D5D; [36-59]
@@ -4734,7 +4734,7 @@
       )
      ((=ucs		  . #x5C71)	; 山
       )
-     ((=gt-k		  . 01400)	; &U-v001+4EFA;
+     ((=gt-k		  . 01400)	; &GT-K01400;
       ))
     (ideographic-structure@apparent/leftmost
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -21712,7 +21712,7 @@
       )
      ((=ucs		  . #x5C71)	; 山
       )
-     ((=gt-k		  . 09615)	; &U-i001+20D5B;
+     ((=gt-k		  . 09615)	; &GT-K09615;
       ))
     (=ucs@iso		. #x21F11)	; &C7-224A;
     (=cns11643-7	. #x224A)	; &C7-224A; [02-42]
@@ -21765,7 +21765,7 @@
       )
      ((=ucs		  . #x5C71)	; 山
       )
-     ((=gt-k		  . 09615)	; &U-i001+20D5B;
+     ((=gt-k		  . 09615)	; &GT-K09615;
       ))
     (=ucs@unicode	. #x380B)	; &C4-4953;
     (=cns11643-4	. #x4953)	; &C4-4953; [41-51]
@@ -25866,7 +25866,7 @@
       )
      ((=ucs		  . #x5C7E)	; 屾
       )
-     ((=gt-k		  . 08912)	; &U-i002+20336;
+     ((=gt-k		  . 08912)	; &GT-K08912;
       ))
     (=ucs@iso		. #x21F80)	; &C5-5B40;
     (=cns11643-5	. #x5B40)	; &C5-5B40; [59-32]
