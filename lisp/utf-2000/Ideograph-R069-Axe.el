@@ -594,7 +594,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=gt-k		  . 00762)	; &U-i002+72AD;
+     ((=gt-k		  . 00762)	; &GT-K00762;
       )
      ((=ucs		  . #x65A4)	; 斤
       ))
@@ -1041,9 +1041,9 @@
       )
      ((=ucs		  . #x65A4)	; 斤
       ))
-    (=gt-k		. 07302)	; &U-i003+5377;
-    (=gt-pj-k1		. #x6442)	; &U-i003+5377; [68-34]
-    (=ucs-itaiji-003	. #x5377)	; &U-i003+5377;
+    (=gt-k		. 07302)	; &GT-K07302;
+    (=gt-pj-k1		. #x6442)	; &GT-K07302; [68-34]
+    (=ucs-itaiji-003	. #x5377)	; &GT-K07302;
     (<-formed@component
      ((=ucs@jis		  . #x5377)	; &MJ007897;
       (=ucs@ks		  . #x5377)	; &MJ007897;
@@ -1804,7 +1804,7 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((=gt-k		    . 05783)	; &U-i002+386D;
+       ((=gt-k		    . 05783)	; &GT-K05783;
 	)
        ((=ucs		    . #x65A4)	; 斤
 	))
