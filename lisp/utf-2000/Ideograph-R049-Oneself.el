@@ -790,9 +790,9 @@
       )
      ((=ucs		  . #x5DF3)	; 巳
       ))
-    (=gt-k		. 02013)	; &U-i002+5DF3;
-    (=gt-pj-k1		. #x4B49)	; &U-i002+5DF3; [43-41]
-    (=ucs-itaiji-002	. #x5DF3)	; &U-i002+5DF3;
+    (=gt-k		. 02013)	; &GT-K02013;
+    (=gt-pj-k1		. #x4B49)	; &GT-K02013; [43-41]
+    (=ucs-itaiji-002	. #x5DF3)	; &GT-K02013;
     (->subsumptive
      ((==gt-k		  . 02013)	; &g2-U-i002+5DF3;
       (==gt-pj-k1	  . #x4B49)	; &g2-U-i002+5DF3; [43-41]
@@ -1991,7 +1991,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=gt-k		  . 02013)	; &U-i002+5DF3;
+     ((=gt-k		  . 02013)	; &GT-K02013;
       )
      ((=ucs@unicode	  . #x5171)	; &AJ1-01694;
       (=adobe-japan1-0	  . 01694)	; &AJ1-01694;
@@ -2196,7 +2196,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=gt-k		  . 02013)	; &U-i002+5DF3;
+     ((=gt-k		  . 02013)	; &GT-K02013;
       )
      ((=>ucs@component	  . #x5F00)	; &A-compU+5F00;
       (=>iwds-1		  .  0180)	; &A-compU+5F00;
@@ -2216,7 +2216,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=gt-k		  . 02013)	; &U-i002+5DF3;
+     ((=gt-k		  . 02013)	; &GT-K02013;
       )
      ((=ucs		  . #x5E75)	; 幵
       ))
@@ -2270,7 +2270,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=gt-k		  . 02013)	; &U-i002+5DF3;
+     ((=gt-k		  . 02013)	; &GT-K02013;
       )
      ((=ucs		  . #x5F00)	; 开
       ))
@@ -2287,7 +2287,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=gt-k		  . 02013)	; &U-i002+5DF3;
+     ((=gt-k		  . 02013)	; &GT-K02013;
       )
      ((=ucs		  . #x20985)	; 𠦅
       ))
