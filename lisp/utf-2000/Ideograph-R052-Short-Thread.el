@@ -1009,9 +1009,9 @@
       (=cns11643-4	  . #x2267)	; &C4-2267; [02-71]
       (=daikanwa	  . 09196)	; &I-M-09196;
       ))
-    (=gt-k		. 04964)	; &U-i001+386D;
-    (=gt-pj-k1		. #x6123)	; &U-i001+386D; [65-03]
-    (=ucs-itaiji-001	. #x386D)	; &U-i001+386D;
+    (=gt-k		. 04964)	; &GT-K04964;
+    (=gt-pj-k1		. #x6123)	; &GT-K04964; [65-03]
+    (=ucs-itaiji-001	. #x386D)	; &GT-K04964;
     (->subsumptive
      ((==gt-k		  . 04964)	; &g2-U-i001+386D;
       (==gt-pj-k1	  . #x6123)	; &g2-U-i001+386D; [65-03]
@@ -1175,7 +1175,7 @@
       )
      ((=ucs		  . #x4E00)	; 一
       )
-     ((=gt-k		  . 04964)	; &U-i001+386D;
+     ((=gt-k		  . 04964)	; &GT-K04964;
       ))
     (=ucs-itaiji-003	. #x386D)	; &U-i003+386D;
     (->subsumptive
@@ -1189,9 +1189,9 @@
     (ideographic-radical . 52)	; ⼳
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
-    (=gt-k		. 05783)	; &U-i002+386D;
-    (=gt-pj-k1		. #x512B)	; &U-i002+386D; [49-11]
-    (=ucs-itaiji-002	. #x386D)	; &U-i002+386D;
+    (=gt-k		. 05783)	; &GT-K05783;
+    (=gt-pj-k1		. #x512B)	; &GT-K05783; [49-11]
+    (=ucs-itaiji-002	. #x386D)	; &GT-K05783;
     (->subsumptive
      ((==gt-k		  . 05783)	; &g2-U-i002+386D;
       (==gt-pj-k1	  . #x512B)	; &g2-U-i002+386D; [49-11]
