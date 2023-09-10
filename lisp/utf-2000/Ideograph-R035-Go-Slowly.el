@@ -1678,7 +1678,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=gt-k		  . 04903)	; &U-i001+23140;
+     ((=gt-k		  . 04903)	; &GT-K04903;
       )
      ((=>ucs@component	  . #x590A)	; &A-compU+590A;
       (=>iwds-1		  .  0092)	; &A-compU+590A;
@@ -1696,7 +1696,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=gt-k		  . 04903)	; &U-i001+23140;
+     ((=gt-k		  . 04903)	; &GT-K04903;
       )
      ((=ucs		  . #x590A)	; 夊
       ))
@@ -1728,7 +1728,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=gt-k		  . 04903)	; &U-i001+23140;
+     ((=gt-k		  . 04903)	; &GT-K04903;
       )
      ((=ucs		  . #x5902)	; 夂
       ))
