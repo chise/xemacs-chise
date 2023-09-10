@@ -4994,7 +4994,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=gt-k		  . 00810)	; &U-v002+5206;
+     ((=gt-k		  . 00810)	; &GT-K00810;
       )
      ((=ucs		  . #x5FC3)	; 心
       ))
