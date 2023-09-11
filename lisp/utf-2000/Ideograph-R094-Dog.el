@@ -96,9 +96,9 @@
   '((ideographic-radical . 94)	; ⽝
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
-    (=gt-k		. 00762)	; &U-i002+72AD;
-    (=gt-pj-k2		. #x3041)	; &U-i002+72AD; [16-33]
-    (=ucs-itaiji-002	. #x72AD)	; &U-i002+72AD;
+    (=gt-k		. 00762)	; &GT-K00762;
+    (=gt-pj-k2		. #x3041)	; &GT-K00762; [16-33]
+    (=ucs-itaiji-002	. #x72AD)	; &GT-K00762;
     (->subsumptive
      ((==gt-k		  . 00762)	; &g2-GT-K00762;
       (==gt-pj-k2	  . #x3041)	; &g2-GT-K00762; [16-33]
@@ -15129,7 +15129,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=gt-k		  . 09871)	; &U-i001+563C;
+     ((=gt-k		  . 09871)	; &GT-K09871;
       )
      ((=ucs		  . #x72AC)	; 犬
       ))

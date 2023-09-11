@@ -4777,7 +4777,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=gt-k		  . 01189)	; &U-i002+21249;
+     ((=gt-k		  . 01189)	; &GT-K01189;
       )
      ((=ucs@unicode	  . #x6B7B)	; &AJ1-02222;
       (=adobe-japan1-0	  . 02222)	; &AJ1-02222;
@@ -6072,7 +6072,7 @@
       )
      ((=ucs		  . #x6B79)	; 歹
       )
-     ((=gt-k		  . 06148)	; &U-i001+206F1;
+     ((=gt-k		  . 06148)	; &GT-K06148;
       ))
     (=ucs@iso		. #x23A38)	; &C6-537A;
     (=cns11643-6	. #x537A)	; &C6-537A; [51-90]

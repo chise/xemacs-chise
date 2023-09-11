@@ -1440,7 +1440,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=gt-k		  . 07307)	; &U-i005+24514;
+     ((=gt-k		  . 07307)	; &GT-K07307;
       )
      ((=ucs		  . #x74DC)	; 瓜
       ))
@@ -1450,7 +1450,7 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((=gt-k		    . 07307)	; &U-i005+24514;
+       ((=gt-k		    . 07307)	; &GT-K07307;
 	)
        ((=ucs@unicode	    . #x74DC)	; &G0-394F;
 	(=gb2312	    . #x394F)	; &G0-394F; [25-47]
@@ -1473,7 +1473,7 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((=gt-k		    . 07307)	; &U-i005+24514;
+       ((=gt-k		    . 07307)	; &GT-K07307;
 	)
        ((=ucs@jis	    . #x74DC)	; &AJ1-01245;
 	(=ucs@ks	    . #x74DC)	; &AJ1-01245;

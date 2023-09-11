@@ -13441,7 +13441,7 @@
       )
      ((=ucs		  . #x706B)	; 火
       )
-     ((=gt-k		  . 03616)	; &U-i002+81FD;
+     ((=gt-k		  . 03616)	; &GT-K03616;
       ))
     (=ucs@unicode	. #x7114)	; &AJ1-01293;
     (=adobe-japan1-0	. 01293)	; &AJ1-01293;
@@ -17860,7 +17860,7 @@
       )
      ((=ucs		  . #x706B)	; 火
       )
-     ((=gt-k		  . 05976)	; &U-i005+8200;
+     ((=gt-k		  . 05976)	; &GT-K05976;
       ))
     (=mj		. 002286)	; &MJ002286;
     (=hanyo-denshi/ks	. 216430)	; &MJ002286;
@@ -17905,7 +17905,7 @@
       )
      ((=ucs		  . #x706B)	; 火
       )
-     ((=gt-k		  . 06065)	; &U-v001+8200;
+     ((=gt-k		  . 06065)	; &GT-K06065;
       ))
     (=ucs@unicode	. #x3DD4)	; &MJ002287;
     (=mj		. 002287)	; &MJ002287;
@@ -19715,7 +19715,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=gt-k		  . 06148)	; &U-i001+206F1;
+     ((=gt-k		  . 06148)	; &GT-K06148;
       )
      ((=ucs		  . #x706B)	; 火
       ))
@@ -32480,7 +32480,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=gt-k		  . 11083)	; &U-i001+26989;
+     ((=gt-k		  . 11083)	; &GT-K11083;
       )
      ((=ucs		  . #x215DC)	; 𡗜
       ))

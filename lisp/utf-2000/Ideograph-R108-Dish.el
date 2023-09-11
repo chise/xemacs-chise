@@ -6437,7 +6437,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=gt-k		  . 11083)	; &U-i001+26989;
+     ((=gt-k		  . 11083)	; &GT-K11083;
       )
      ((=ucs		  . #x76BF)	; 皿
       ))

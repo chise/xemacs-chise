@@ -106,9 +106,9 @@
       )
      ((=big5-cdp	  . #x8C4E)	; &CDP-8C4E;
       ))
-    (=gt-k		. 00764)	; &CDP-v004-8C4F;
-    (=gt-pj-k1		. #x3756)	; &CDP-v004-8C4F; [23-54]
-    (=big5-cdp-var-004	. #x8C4F)	; &CDP-v004-8C4F;
+    (=gt-k		. 00764)	; &GT-K00764;
+    (=gt-pj-k1		. #x3756)	; &GT-K00764; [23-54]
+    (=big5-cdp-var-004	. #x8C4F)	; &GT-K00764;
     (<-formed@component
      ((=big5-cdp	  . #x8C4F)	; &CDP-8C4F;
       )
@@ -136,9 +136,9 @@
       )
      ((=big5-cdp	  . #x85BF)	; &CDP-85BF;
       ))
-    (=gt-k		. 00765)	; &U-i006+7676;
-    (=gt-pj-k1		. #x6D74)	; &U-i006+7676; [77-84]
-    (=ucs-itaiji-006	. #x7676)	; &U-i006+7676;
+    (=gt-k		. 00765)	; &GT-K00765;
+    (=gt-pj-k1		. #x6D74)	; &GT-K00765; [77-84]
+    (=ucs-itaiji-006	. #x7676)	; &GT-K00765;
     (->subsumptive
      ((==ucs-itaiji-006	  . #x7676)	; &g2-U-i006+7676;
       )
@@ -353,9 +353,9 @@
       )
      ((=big5-cdp	  . #x88D5)	; &CDP-88D5;
       ))
-    (=gt-k		. 01793)	; &U-i004+7676;
-    (=gt-pj-k1		. #x3878)	; &U-i004+7676; [24-88]
-    (=ucs-itaiji-004	. #x7676)	; &U-i004+7676;
+    (=gt-k		. 01793)	; &GT-K01793;
+    (=gt-pj-k1		. #x3878)	; &GT-K01793; [24-88]
+    (=ucs-itaiji-004	. #x7676)	; &GT-K01793;
     (->subsumptive
      ((==gt-k		  . 01793)	; &g2-GT-K01793;
       (==gt-pj-k1	  . #x3878)	; &g2-GT-K01793; [24-88]
@@ -427,7 +427,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=gt-k		  . 00765)	; &U-i006+7676;
+     ((=gt-k		  . 00765)	; &GT-K00765;
       )
      ((=ucs		  . #x53C8)	; 又
       ))
@@ -865,7 +865,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=gt-k		  . 01793)	; &U-i004+7676;
+     ((=gt-k		  . 01793)	; &GT-K01793;
       )
      ((=ucs		  . #x2067C)	; 𠙼
       ))
@@ -1007,7 +1007,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=gt-k		  . 00764)	; &CDP-v004-8C4F;
+     ((=gt-k		  . 00764)	; &GT-K00764;
       )
      ((=ucs		  . #x866B)	; 虫
       ))
@@ -1209,7 +1209,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=gt-k		  . 00764)	; &CDP-v004-8C4F;
+     ((=gt-k		  . 00764)	; &GT-K00764;
       )
      ((=ucs		  . #x2D6A7)	; 𭚧
       ))
@@ -1226,7 +1226,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=gt-k		  . 00764)	; &CDP-v004-8C4F;
+     ((=gt-k		  . 00764)	; &GT-K00764;
       )
      ((=ucs@JP/hanazono	  . #x2D6A7)	; &CDP-8B7D;
       (=big5-cdp	  . #x8B7D)	; &CDP-8B7D;
