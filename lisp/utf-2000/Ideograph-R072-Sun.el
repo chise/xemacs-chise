@@ -2368,11 +2368,11 @@
       )
      ((=ucs		  . #x65E7)	; 旧
       ))
-    (=gt-k		. 03616)	; &U-i002+81FD;
-    (=>>gt-k		. 03318)	; &U-i002+81FD;
-    (=gt-pj-k1		. #x5E44)	; &U-i002+81FD; [62-36]
-    (=ucs-itaiji-002	. #x81FD)	; &U-i002+81FD;
-    (=ucs-itaiji-003	. #x81FD)	; &U-i002+81FD;
+    (=gt-k		. 03616)	; &GT-K03616;
+    (=>>gt-k		. 03318)	; &GT-K03616;
+    (=gt-pj-k1		. #x5E44)	; &GT-K03616; [62-36]
+    (=ucs-itaiji-002	. #x81FD)	; &GT-K03616;
+    (=ucs-itaiji-003	. #x81FD)	; &GT-K03616;
     (<-simplified@component
      ((=ucs		  . #x81FD)	; 臽
       ))
@@ -11134,9 +11134,9 @@
      ((=ucs@unicode	  . #x5171)	; &AJ1-01694;
       (=adobe-japan1-0	  . 01694)	; &AJ1-01694;
       ))
-    (=gt-k		. 07007)	; &U-i007+66B4;
-    (=gt-pj-k1		. #x383A)	; &U-i007+66B4; [24-26]
-    (=ucs-itaiji-007	. #x66B4)	; &U-i007+66B4;
+    (=gt-k		. 07007)	; &GT-K07007;
+    (=gt-pj-k1		. #x383A)	; &GT-K07007; [24-26]
+    (=ucs-itaiji-007	. #x66B4)	; &GT-K07007;
     (->subsumptive
      ((==gt-k		  . 07007)	; &g2-GT-K07007;
       (==gt-pj-k1	  . #x383A)	; &g2-GT-K07007; [24-26]
@@ -20774,7 +20774,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=gt-k		  . 07007)	; &U-i007+66B4;
+     ((=gt-k		  . 07007)	; &GT-K07007;
       )
      ((name		  . "CJK RADICAL HEART TWO")
       (=ucs		  . #x2E97)	; ⺗
@@ -21897,7 +21897,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=gt-k		  . 07007)	; &U-i007+66B4;
+     ((=gt-k		  . 07007)	; &GT-K07007;
       )
      ((=ucs		  . #x6C3A)	; 氺
       ))
@@ -24412,7 +24412,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=gt-k		  . 07007)	; &U-i007+66B4;
+     ((=gt-k		  . 07007)	; &GT-K07007;
       )
      ((=ucs		  . #x20982)	; 𠦂
       ))
@@ -25168,7 +25168,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=gt-k		  . 07007)	; &U-i007+66B4;
+     ((=gt-k		  . 07007)	; &GT-K07007;
       )
      ((=ucs		  . #x7C73)	; 米
       ))
