@@ -2159,7 +2159,7 @@
       )
      ((=ucs		  . #x7531)	; 由
       )
-     ((=gt-k		  . 00277)	; &U-i003+722A;
+     ((=gt-k		  . 00277)	; &GT-K00277;
       ))
     (=ucs@iso		. #x24C23)	; &MJ041349;
     (=mj		. 041349)	; &MJ041349;
@@ -4897,7 +4897,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=gt-k		  . 01085)	; &U-i001+5F01;
+     ((=gt-k		  . 01085)	; &GT-K01085;
       )
      ((=ucs		  . #x7530)	; 田
       ))
@@ -11242,7 +11242,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=gt-k		  . 07307)	; &U-i005+24514;
+     ((=gt-k		  . 07307)	; &GT-K07307;
       )
      ((=ucs		  . #x7530)	; 田
       ))
