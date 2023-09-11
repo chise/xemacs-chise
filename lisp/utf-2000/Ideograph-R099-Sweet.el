@@ -1215,19 +1215,68 @@
     (=cns11643-7	. #x3029)	; &I-C7-3029; [16-09]
     ))
 (define-char
-  '((=>ucs		. #x24BCC)	; 𤯌
-    (ideographic-radical . 99)	; ⽢
+  '((ideographic-radical . 99)	; ⽢
     (ideographic-strokes . 11)
     (total-strokes	 . 16)
-    (=daikanwa		. 21665)	; &M-21665;
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs		  . #x9EBB)	; 麻
+      )
+     ((=ucs		  . #x7518)	; 甘
+      ))
+    (sound@ja/on/go	"kaN" "doN" "koHu")
+    (sound@ja/on/kan	"kaN" "taN" "kAHu")
+    (=ucs		. #x24BCC)	; 𤯌
     ))
 (define-char
-  '((morohashi-daikanwa	21665 0 0)
+  '((<-denotational
+     ((=ucs		  . #x24BCC)	; 𤯌
+      ))
     (ideographic-radical . 99)	; ⽢
     (ideographic-strokes . 11)
     (total-strokes	 . 16)
-    (=ucs		. #x24BCC)	; 𤯌
-    (=cns11643-7	. #x302A)	; &I-C7-302A; [16-10]
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs@cns		  . #x9EBB)	; &GT-65256;
+      (=ucs@ks		  . #x9EBB)	; &GT-65256;
+      (=ks-x1001	  . #x582B)	; &GT-65256; [56-11]
+      (=cns11643-1	  . #x5E28)	; &I-C1-5E28; [62-08]
+      (=daikanwa	  . 47887)	; &I-M-47887;
+      )
+     ((=ucs		  . #x7518)	; 甘
+      ))
+    (=ucs@iso		. #x24BCC)	; &C7-302A;
+    (=cns11643-7	. #x302A)	; &C7-302A; [16-10]
+    (=daikanwa		. 21665)	; &I-M-21665;
+    (<-same
+     ((=ucs@iso		  . #x24BCD)	; &C4-5679;
+      (=cns11643-4	  . #x5679)	; &C4-5679; [54-89]
+      (=daikanwa	  . 21667)	; &I-M-21667;
+      ))
+    (<-same*sources
+     zhonghua-dazidian daikanwa)
+    (->formed@shuowen-zhu
+     ((=ucs@iso		  . #x24BCD)	; &C4-5679;
+      (=cns11643-4	  . #x5679)	; &C4-5679; [54-89]
+      (=daikanwa	  . 21667)	; &I-M-21667;
+      ))
+    (->formed@shuowen-zhu*sources
+     zhonghua-dazidian)
+    (->subsumptive
+     ((==daikanwa	  . 21665)	; &g2-M-21665;
+      )
+     ((==ucs@iso	  . #x24BCC)	; &g2-IU-00024BCC;
+      (==cns11643-7	  . #x302A)	; &g2-IU-00024BCC; [16-10]
+      (->subsumptive
+       ((===cns11643-7	    . #x302A)	; &R-C7-302A; [16-10]
+	)
+       ((===ucs@iso	    . #x24BCC)	; &R-U-00024BCC;
+	))
+      ))
     ))
 (define-char
   '((=>ucs		. #x3F51)	; 㽑
@@ -1248,9 +1297,60 @@
   '((ideographic-radical . 99)	; ⽢
     (ideographic-strokes . 12)
     (total-strokes	 . 17)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs		  . #x53A4)	; 厤
+      )
+     ((=ucs		  . #x7518)	; 甘
+      ))
+    (sound@ja/on	"kaN")
     (=ucs		. #x24BCD)	; 𤯍
-    (=cns11643-4	. #x5679)	; &I-C4-5679; [54-89]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x24BCD)	; 𤯍
+      ))
+    (ideographic-radical . 99)	; ⽢
+    (ideographic-strokes . 12)
+    (total-strokes	 . 17)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs@unicode	  . #x53A4)	; &AJ1-17335;
+      (=adobe-japan1-5	  . 17335)	; &AJ1-17335;
+      )
+     ((=ucs		  . #x7518)	; 甘
+      ))
+    (=ucs@iso		. #x24BCD)	; &C4-5679;
+    (=cns11643-4	. #x5679)	; &C4-5679; [54-89]
     (=daikanwa		. 21667)	; &I-M-21667;
+    (<-formed@shuowen-zhu
+     ((=ucs@iso		  . #x24BCC)	; &C7-302A;
+      (=cns11643-7	  . #x302A)	; &C7-302A; [16-10]
+      (=daikanwa	  . 21665)	; &I-M-21665;
+      ))
+    (<-same
+     ((=ucs@iso		  . #x24BCC)	; &C7-302A;
+      (=cns11643-7	  . #x302A)	; &C7-302A; [16-10]
+      (=daikanwa	  . 21665)	; &I-M-21665;
+      ))
+    (<-same*sources
+     shuowen-wang-zhu daikanwa)
+    (->subsumptive
+     ((==ucs@iso	  . #x24BCD)	; &g2-M-21667;
+      (==cns11643-4	  . #x5679)	; &g2-M-21667; [54-89]
+      (==daikanwa	  . 21667)	; &g2-M-21667;
+      (->subsumptive
+       ((===daikanwa	    . 21667)	; &R-M-21667;
+	)
+       ((===cns11643-4	    . #x5679)	; &R-C4-5679; [54-89]
+	)
+       ((===ucs@iso	    . #x24BCD)	; &R-U-00024BCD;
+	))
+      ))
     ))
 (define-char
   '((=>ucs		. #x24BCE)	; 𤯎
