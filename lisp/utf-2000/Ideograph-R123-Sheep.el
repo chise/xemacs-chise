@@ -568,10 +568,10 @@
       )
      ((=ucs		  . #x4E3F)	; 丿
       ))
-    (=gt-k		. 03607)	; &U-v003+2EB6;
-    (=gt-pj-k2		. #x4355)	; &U-v003+2EB6; [35-53]
-    (=ucs-var-003	. #x2EB6)	; &U-v003+2EB6;
-    (=ucs-var-005	. #x2EB6)	; &U-v003+2EB6;
+    (=gt-k		. 03607)	; &GT-K03607;
+    (=gt-pj-k2		. #x4355)	; &GT-K03607; [35-53]
+    (=ucs-var-003	. #x2EB6)	; &GT-K03607;
+    (=ucs-var-005	. #x2EB6)	; &GT-K03607;
     (->subsumptive
      ((==gt-k		  . 03607)	; &g2-GT-K03607;
       (==gt-pj-k2	  . #x4355)	; &g2-GT-K03607; [35-53]
@@ -4941,7 +4941,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=gt-k		  . 04903)	; &U-i001+23140;
+     ((=gt-k		  . 04903)	; &GT-K04903;
       )
      ((name		  . "CJK RADICAL EWE")
       (=ucs		  . #x2EB8)	; ⺸

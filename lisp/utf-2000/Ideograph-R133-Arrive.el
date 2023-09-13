@@ -779,7 +779,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=gt-k		  . 04191)	; &U-i006+9AD8;
+     ((=gt-k		  . 04191)	; &GT-K04191;
       )
      ((=ucs@unicode	  . #x81F3)	; &AJ1-02232;
       (=adobe-japan1-0	  . 02232)	; &AJ1-02232;

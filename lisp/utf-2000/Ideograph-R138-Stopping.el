@@ -103,9 +103,9 @@
     (ideographic-radical . 138)	; ⾉
     (ideographic-strokes . 0)
     (total-strokes	 . 6)
-    (=gt-k		. 02400)	; &CDP-v001-8B7C;
-    (=gt-pj-k1		. #x3439)	; &CDP-v001-8B7C; [20-25]
-    (=big5-cdp-var-001	. #x8B7C)	; &CDP-v001-8B7C;
+    (=gt-k		. 02400)	; &GT-K02400;
+    (=gt-pj-k1		. #x3439)	; &GT-K02400; [20-25]
+    (=big5-cdp-var-001	. #x8B7C)	; &GT-K02400;
     (->subsumptive
      ((==gt-k		  . 02400)	; &g2-GT-K02400;
       (==gt-pj-k1	  . #x3439)	; &g2-GT-K02400; [20-25]
