@@ -848,7 +848,7 @@
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
     (ideographic-structure
-     ((=ucs-itaiji-001	  . #x2FF6)	; &U-i001+2FF6;
+     ((=ucs		  . #x2FFD)	; ⿽
       )
      ((=>ucs@iwds-1	  . #x5341)	; &A-IWDSU+5341;
       (=>iwds-1		  .  0037)	; &A-IWDSU+5341;
@@ -867,7 +867,7 @@
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
     (ideographic-structure
-     ((=ucs-itaiji-001	  . #x2FF6)	; &U-i001+2FF6;
+     ((=ucs		  . #x2FFD)	; ⿽
       )
      ((=ucs		  . #x5341)	; 十
       )
@@ -2524,7 +2524,7 @@
 	(=ucs		    . #x2FF9)	; ⿹
 	)
        ((ideographic-structure
-	 ((=ucs-itaiji-001    . #x2FF6)	; &U-i001+2FF6;
+	 ((=ucs		      . #x2FFD)	; ⿽
 	  )
 	 ((=ucs		      . #x5341)	; 十
 	  )
@@ -2532,7 +2532,7 @@
 	  ))
 	)
        ((ideographic-structure
-	 ((=ucs-itaiji-001    . #x2FF6)	; &U-i001+2FF6;
+	 ((=ucs		      . #x2FFD)	; ⿽
 	  )
 	 ((=ucs		      . #x4EBA)	; 人
 	  )
@@ -3348,7 +3348,7 @@
      ((ideographic-strokes . 5)
       (total-strokes	   . 7)
       (ideographic-structure
-       ((=ucs-itaiji-001    . #x2FF9)	; &U-i001+2FF9;
+       ((=ucs		    . #x2FFC)	; ⿼
 	)
        ((=big5-cdp	    . #x8BD9)	; &CDP-8BD9;
 	)
