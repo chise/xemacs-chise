@@ -1,3 +1,13 @@
+2023-09-13  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`=ucs-itaiji-001-additional-idc'.
+
+	* mule/mule-conf.el (=ucs-itaiji-001-additional-idc): New
+	coded-charset for XEmacs CHISE.
+	(=ucs-radicals): Temporarily narrowed the code range.
+	(=ucs-radicals@unicode): Likewise.
+
 2023-09-09  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* mule/mule-coding.el (coded-charset-entity-reference-alist):
