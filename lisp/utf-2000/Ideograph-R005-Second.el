@@ -3444,7 +3444,7 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 7)
     (ideographic-structure
-     ((=ucs-itaiji-001	  . #x2FF6)	; &U-i001+2FF6;
+     ((=ucs		  . #x2FFD)	; ⿽
       )
      ((=gt-k		  . 00383)	; &GT-K00383;
       )
@@ -3462,7 +3462,7 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 7)
     (ideographic-structure
-     ((=ucs-itaiji-001	  . #x2FF6)	; &U-i001+2FF6;
+     ((=ucs		  . #x2FFD)	; ⿽
       )
      ((=gt-k		  . 00383)	; &GT-K00383;
       )
