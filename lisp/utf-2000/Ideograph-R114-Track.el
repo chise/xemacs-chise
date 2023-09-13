@@ -1272,7 +1272,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=gt-k		  . 11083)	; &U-i001+26989;
+     ((=gt-k		  . 11083)	; &GT-K11083;
       )
      ((=ucs@unicode	  . #x79B8)	; &JX1-7944;
       (=jis-x0212	  . #x5072)	; &JX1-7944; [48-82]
@@ -1353,7 +1353,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=gt-k		  . 11083)	; &U-i001+26989;
+     ((=gt-k		  . 11083)	; &GT-K11083;
       )
      ((=ucs@cns		  . #x79B8)	; &HD-KS-278790;
       (=cns11643-2	  . #x2167)	; &HD-KS-278790; [01-71]
