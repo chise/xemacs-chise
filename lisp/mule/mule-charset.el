@@ -281,6 +281,7 @@ DESCRIPTION (string) is the description string of the charset."
 	  =jis-x0208
 	  =ucs-radicals
 	  =ucs-radicals@unicode
+	  =ucs-itaiji-001-additional-idc
 	  ;; =ucs-bmp-cjk@JP
 	  =mj-0
 	  =mj-1
