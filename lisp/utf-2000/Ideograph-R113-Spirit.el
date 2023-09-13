@@ -5559,7 +5559,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=gt-k		  . 00764)	; &CDP-v004-8C4F;
+     ((=gt-k		  . 00764)	; &GT-K00764;
       )
      ((=ucs		  . #x793A)	; 示
       ))
@@ -7044,7 +7044,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=gt-k		  . 01793)	; &U-i004+7676;
+     ((=gt-k		  . 01793)	; &GT-K01793;
       )
      ((=ucs		  . #x793A)	; 示
       ))
