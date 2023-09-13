@@ -5360,6 +5360,19 @@
 		  direction	l2r
                   ;; =>iso-ir	177
 		  mother	=ucs))
+  (make-charset '=ucs-itaiji-001-additional-idc
+		"uXXXX-itaiji-001 glyph-images for additional IDC"
+		'(long-name	"UCS-BMP-itaiji-001 additional IDC"
+		  chars		256
+		  dimension	2
+		  columns	2
+		  graphic	2
+		  direction	l2r
+                  ;; =>iso-ir	177
+		  mother	=ucs-itaiji-001
+		  min-code #x2FF1
+		  max-code #x2FFB
+		  registry "ucs\\.itaiji001-0"))
   (make-charset '=ucs-bmp-itaiji-001
 		"uXXXX-itaiji-001 glyph-images in BMP"
 		'(long-name	"UCS-BMP-itaiji-001"
@@ -6625,7 +6638,7 @@
 	       direction l2r
 	       registry "-zhRadicals-.*-ucs-0"
 	       mother ucs-bmp
-	       min-code #x2E00 max-code #x2FFF))
+	       min-code #x2E00 max-code #x2FFB))
   (make-charset
    '=ucs-radicals@unicode
    "CJK Radicals of UCS"
@@ -6637,7 +6650,7 @@
 	       direction l2r
 	       registry "-zhRadicals-.*-ucs-0"
 	       mother =ucs@unicode
-	       min-code #x2E00 max-code #x2FFF))
+	       min-code #x2E00 max-code #x2FFB))
   (make-charset
    '==ucs-radicals@unicode
    "CJK Radicals of UCS"
