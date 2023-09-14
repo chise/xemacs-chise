@@ -333,7 +333,7 @@
 	))
       )
      ((ideographic-structure@apparent
-       ((=ucs-itaiji-001    . #x2FF6)	; &U-i001+2FF6;
+       ((=ucs		    . #x2FFD)	; ⿽
 	)
        ((=ucs		    . #x4E3F)	; 丿
 	)
