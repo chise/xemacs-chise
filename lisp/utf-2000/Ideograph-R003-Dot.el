@@ -1155,8 +1155,10 @@
   '((ideographic-radical . 3)	; ⼂
     (ideographic-strokes . 4)
     (total-strokes	 . 5)
-    (=gt		. 00141)	; &GT-00141;
-    (=gt-pj-11		. #x4A5B)	; &GT-00141; [42-59]
+    (=ucs		. #x2EBF1)	; 𮯱
+    (=gt		. 00141)	; &I-GT-00141;
+    (=gt-pj-11		. #x4A5B)	; &I-GT-00141; [42-59]
+    (=cbeta		. 09274)	; &I-CB09274;
     (<-formed
      ((=ucs		  . #x4E39)	; 丹
       )
@@ -1165,9 +1167,20 @@
     (->subsumptive
      ((==gt		  . 00141)	; &g2-GT-00141;
       )
-     ((===hng-ink	  . 00010)	; &HNG033-00010;
-      )
-     ((===hng-nto	  . 00020)	; &HNG034-00020;
+     ((==cbeta		  . 09274)	; &g2-CB09274;
+      (->subsumptive
+       ((===cbeta	    . 09274)	; &R-CB09274;
+	)
+       ((===hng-ink	    . 00010)	; &HNG033-00010;
+	(<-HNG@chise
+	 ((=ucs		      . #x2EBF1)	; 𮯱
+	  ))
+	)
+       ((===hng-nto	    . 00020)	; &HNG034-00020;
+	(<-HNG@chise
+	 ((=ucs		      . #x2EBF1)	; 𮯱
+	  ))
+	))
       ))
     ))
 (define-char
