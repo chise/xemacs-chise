@@ -2154,7 +2154,7 @@
     (daijiten-pages	28)
     (hanyu-dazidian	1 5 3)
     (ideographic-structure
-     ((=ucs-itaiji-001	  . #x2FF9)	; &U-i001+2FF9;
+     ((=ucs		  . #x2FFC)	; ⿼
       )
      ((=big5-cdp	  . #x8BBF)	; &CDP-8BBF;
       )

@@ -3562,7 +3562,7 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 5)
     (ideographic-structure
-     ((=ucs-itaiji-001	  . #x2FF6)	; &U-i001+2FF6;
+     ((=ucs		  . #x2FFD)	; ⿽
       )
      ((=ucs@unicode	  . #x6B62)	; &MJ014823;
       (=mj		  . 014823)	; &MJ014823;
