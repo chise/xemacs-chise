@@ -24261,7 +24261,7 @@
     (ideographic-strokes . 13)
     (total-strokes	 . 16)
     (ideographic-structure
-     ((=ucs-itaiji-001	  . #x2FF6)	; &U-i001+2FF6;
+     ((=ucs		  . #x2FFD)	; ⿽
       )
      ((=ucs		  . #x8F9F)	; 辟
       )
@@ -24278,7 +24278,7 @@
     (ideographic-strokes . 13)
     (total-strokes	 . 16)
     (ideographic-structure
-     ((=ucs-itaiji-001	  . #x2FF6)	; &U-i001+2FF6;
+     ((=ucs		  . #x2FFD)	; ⿽
       )
      ((=ucs		  . #x8F9F)	; 辟
       )
@@ -26648,7 +26648,7 @@
 (define-char
   '((ideographic-radical . 46)	; ⼭
     (ideographic-structure
-     ((=ucs-itaiji-001	  . #x2FF6)	; &U-i001+2FF6;
+     ((=ucs		  . #x2FFD)	; ⿽
       )
      ((=ucs		  . #x229F5)	; 𢧵
       )
@@ -26664,7 +26664,7 @@
     (ideographic-strokes . 15)
     (total-strokes	 . 18)
     (ideographic-structure
-     ((=ucs-itaiji-001	  . #x2FF6)	; &U-i001+2FF6;
+     ((=ucs		  . #x2FFD)	; ⿽
       )
      ((=ucs@iso		  . #x229F5)	; &C4-4974;
       (=cns11643-4	  . #x4974)	; &C4-4974; [41-84]
