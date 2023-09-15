@@ -5611,7 +5611,7 @@
     (ideographic-strokes . 3)
     (total-strokes	 . 5)
     (ideographic-structure
-     ((=ucs-itaiji-001	  . #x2FF9)	; &U-i001+2FF9;
+     ((=ucs		  . #x2FFC)	; ⿼
       )
      ((=ucs		  . #x30001)	; 𰀁
       )
@@ -5628,7 +5628,7 @@
     (ideographic-strokes . 3)
     (total-strokes	 . 5)
     (ideographic-structure
-     ((=ucs-itaiji-001	  . #x2FF9)	; &U-i001+2FF9;
+     ((=ucs		  . #x2FFC)	; ⿼
       )
      ((=ucs		  . #x30001)	; 𰀁
       )
@@ -34489,32 +34489,11 @@
     (ideographic-strokes . 7)
     (total-strokes	 . 9)
     (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
-      (=ucs		  . #x2FFA)	; ⿺
+     ((=ucs-itaiji-002	  . #x2FF1)	; &U-i002+2FF1;
       )
-     ((ideographic-structure
-       ((=ucs-itaiji-001    . #x2FF6)	; &U-i001+2FF6;
-	)
-       ((=ucs		    . #x4EBA)	; 人
-	)
-       ((ideographic-structure
-	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	  (=ucs		      . #x2FF0)	; ⿰
-	  )
-	 ((=ucs		      . #x531A)	; 匚
-	  )
-	 ((=ucs		      . #x4E28)	; 丨
-	  ))
-	))
+     ((=ucs-itaiji-002	  . #x536F)	; &U-i002+536F;
       )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	(=ucs		    . #x2FF0)	; ⿰
-	)
-       ((=ucs		    . #x4E28)	; 丨
-	)
-       ((=big5-cdp	    . #x8C78)	; &CDP-8C78;
-	))
+     ((=ucs		  . #x4EBA)	; 人
       ))
     (=ucs-itaiji-001	. #x2D5B2)	; &U-i001+2D5B2;
     (->subsumptive
@@ -39203,7 +39182,7 @@
     (ideographic-strokes . 10)
     (total-strokes	 . 12)
     (ideographic-structure
-     ((=ucs-itaiji-001	  . #x2FF9)	; &U-i001+2FF9;
+     ((=ucs		  . #x2FFC)	; ⿼
       )
      ((=>ucs-itaiji-001	  . #x2D928)	; &A-U-i001+2D928;
       )
@@ -39257,7 +39236,7 @@
     (ideographic-strokes . 10)
     (total-strokes	 . 12)
     (ideographic-structure
-     ((=ucs-itaiji-001	  . #x2FF9)	; &U-i001+2FF9;
+     ((=ucs		  . #x2FFC)	; ⿼
       )
      ((=ucs-itaiji-001	  . #x2D928)	; &U-i001+2D928;
       )
@@ -85801,7 +85780,7 @@
     (ideographic-strokes . 17)
     (total-strokes	 . 19)
     (ideographic-structure
-     ((=ucs-itaiji-001	  . #x2FF9)	; &U-i001+2FF9;
+     ((=ucs		  . #x2FFC)	; ⿼
       )
      ((=>ucs-itaiji-002	  . #x2D928)	; &A-U-i002+2D928;
       )
@@ -85855,7 +85834,7 @@
     (ideographic-strokes . 17)
     (total-strokes	 . 19)
     (ideographic-structure
-     ((=ucs-itaiji-001	  . #x2FF9)	; &U-i001+2FF9;
+     ((=ucs		  . #x2FFC)	; ⿼
       )
      ((=ucs-itaiji-002	  . #x2D928)	; &U-i002+2D928;
       )
