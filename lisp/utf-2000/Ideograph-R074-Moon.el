@@ -5703,7 +5703,8 @@
     (ideographic-strokes@cns . 10)
     (total-strokes	 . 14)
     (ideographic-structure
-     ((=ucs		  . #x2FFD)	; ⿽
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER RIGHT")
+      (=ucs		  . #x2FFD)	; ⿽
       )
      ((=ucs		  . #x6719)	; 朙
       )
@@ -5724,7 +5725,8 @@
      daikanwa cns11643)
     (total-strokes	 . 14)
     (ideographic-structure
-     ((=ucs		  . #x2FFD)	; ⿽
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER RIGHT")
+      (=ucs		  . #x2FFD)	; ⿽
       )
      ((=ucs		  . #x6719)	; 朙
       )
