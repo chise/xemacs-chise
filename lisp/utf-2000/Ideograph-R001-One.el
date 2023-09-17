@@ -2154,7 +2154,8 @@
     (daijiten-pages	28)
     (hanyu-dazidian	1 5 3)
     (ideographic-structure
-     ((=ucs		  . #x2FFC)	; ⿼
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM RIGHT")
+      (=ucs		  . #x2FFC)	; ⿼
       )
      ((=big5-cdp	  . #x8BBF)	; &CDP-8BBF;
       )
