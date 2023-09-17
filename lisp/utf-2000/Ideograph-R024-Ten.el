@@ -848,7 +848,8 @@
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
     (ideographic-structure
-     ((=ucs		  . #x2FFD)	; ⿽
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER RIGHT")
+      (=ucs		  . #x2FFD)	; ⿽
       )
      ((=>ucs@iwds-1	  . #x5341)	; &A-IWDSU+5341;
       (=>iwds-1		  .  0037)	; &A-IWDSU+5341;
@@ -867,7 +868,8 @@
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
     (ideographic-structure
-     ((=ucs		  . #x2FFD)	; ⿽
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER RIGHT")
+      (=ucs		  . #x2FFD)	; ⿽
       )
      ((=ucs		  . #x5341)	; 十
       )
@@ -2524,7 +2526,8 @@
 	(=ucs		    . #x2FF9)	; ⿹
 	)
        ((ideographic-structure
-	 ((=ucs		      . #x2FFD)	; ⿽
+	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER RIGHT")
+	  (=ucs		      . #x2FFD)	; ⿽
 	  )
 	 ((=ucs		      . #x5341)	; 十
 	  )
@@ -2532,7 +2535,8 @@
 	  ))
 	)
        ((ideographic-structure
-	 ((=ucs		      . #x2FFD)	; ⿽
+	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER RIGHT")
+	  (=ucs		      . #x2FFD)	; ⿽
 	  )
 	 ((=ucs		      . #x4EBA)	; 人
 	  )
@@ -3348,7 +3352,8 @@
      ((ideographic-strokes . 5)
       (total-strokes	   . 7)
       (ideographic-structure
-       ((=ucs		    . #x2FFC)	; ⿼
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM RIGHT")
+	(=ucs		    . #x2FFC)	; ⿼
 	)
        ((=big5-cdp	    . #x8BD9)	; &CDP-8BD9;
 	)
