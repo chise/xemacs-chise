@@ -5703,7 +5703,7 @@
     (ideographic-strokes@cns . 10)
     (total-strokes	 . 14)
     (ideographic-structure
-     ((=ucs-itaiji-001	  . #x2FF6)	; &U-i001+2FF6;
+     ((=ucs		  . #x2FFD)	; ⿽
       )
      ((=ucs		  . #x6719)	; 朙
       )
@@ -5724,7 +5724,7 @@
      daikanwa cns11643)
     (total-strokes	 . 14)
     (ideographic-structure
-     ((=ucs-itaiji-001	  . #x2FF6)	; &U-i001+2FF6;
+     ((=ucs		  . #x2FFD)	; ⿽
       )
      ((=ucs		  . #x6719)	; 朙
       )

@@ -1134,7 +1134,7 @@
       ))
     (ideographic-radical . 57)	; ⼸
     (ideographic-structure
-     ((=ucs-itaiji-001	  . #x2FF9)	; &U-i001+2FF9;
+     ((=ucs		  . #x2FFC)	; ⿼
       )
      ((=ucs		  . #x5F13)	; 弓
       )
@@ -1150,7 +1150,7 @@
     (ideographic-strokes . 2)
     (total-strokes	 . 5)
     (ideographic-structure
-     ((=ucs-itaiji-001	  . #x2FF9)	; &U-i001+2FF9;
+     ((=ucs		  . #x2FFC)	; ⿼
       )
      ((=ucs		  . #x5F13)	; 弓
       )
@@ -4341,7 +4341,7 @@
 	(=ucs		    . #x2FF7)	; ⿷
 	)
        ((ideographic-structure
-	 ((=ucs-itaiji-001    . #x2FF9)	; &U-i001+2FF9;
+	 ((=ucs		      . #x2FFC)	; ⿼
 	  )
 	 ((=ucs-var-010	      . #x5F13)	; &U-v010+5F13;
 	  )
@@ -4384,7 +4384,7 @@
       (=ucs		  . #x2FF7)	; ⿷
       )
      ((ideographic-structure
-       ((=ucs-itaiji-001    . #x2FF9)	; &U-i001+2FF9;
+       ((=ucs		    . #x2FFC)	; ⿼
 	)
        ((=ucs		    . #x5F13)	; 弓
 	)
@@ -6660,7 +6660,7 @@
 	(=ucs		    . #x2FF7)	; ⿷
 	)
        ((ideographic-structure
-	 ((=ucs-itaiji-001    . #x2FF9)	; &U-i001+2FF9;
+	 ((=ucs		      . #x2FFC)	; ⿼
 	  )
 	 ((=ucs		      . #x5F13)	; 弓
 	  )

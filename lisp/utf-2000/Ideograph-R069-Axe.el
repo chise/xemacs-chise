@@ -77,7 +77,7 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 3)
     (ideographic-structure
-     ((=ucs-itaiji-001	  . #x2FF6)	; &U-i001+2FF6;
+     ((=ucs		  . #x2FFD)	; ⿽
       )
      ((=ucs		  . #x5341)	; 十
       )

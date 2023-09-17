@@ -79,13 +79,27 @@
   '((<-denotational
      ((=ucs		  . #x5C38)	; 尸
       ))
+    (<-denotational@component
+     ((=>ucs@component	  . #x5369)	; &A-compU+5369;
+      ))
     (ideographic-radical . 44)	; ⼫
     (ideographic-strokes . 0)
     (total-strokes	 . 3)
     (=gt-k		. 00304)	; &GT-K00304;
     (=gt-pj-k1		. #x367C)	; &GT-K00304; [22-92]
+    (=ucs-var-003	. #x5369)	; &GT-K00304;
     (<-formed@component
      ((=ucs		  . #x5C38)	; 尸
+      )
+     ((=ucs		  . #x5369)	; 卩
+      ))
+    (<-formed@flipped-horizontally
+     ((=ucs-itaiji-001	  . #x353F)	; &U-i001+353F;
+      ))
+    (->subsumptive
+     ((==gt-k		  . 00304)	; &g2-U-v003+5369;
+      (==gt-pj-k1	  . #x367C)	; &g2-U-v003+5369; [22-92]
+      (==ucs-var-003	  . #x5369)	; &g2-U-v003+5369;
       ))
     ))
 (define-char
