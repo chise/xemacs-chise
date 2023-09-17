@@ -8637,7 +8637,8 @@
     (ideographic-strokes . 12)
     (total-strokes	 . 14)
     (ideographic-structure
-     ((=ucs		  . #x2FFD)	; ⿽
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER RIGHT")
+      (=ucs		  . #x2FFD)	; ⿽
       )
      ((=ucs		  . #x96BB)	; 隻
       )
