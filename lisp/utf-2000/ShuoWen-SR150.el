@@ -31,6 +31,8 @@
   '((shuowen-radical	. 150)	; 甘
     (=shuowen-jiguge	. 15501)	; &SW-JIGUGE-15501;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x24BCC)	; 𤯌
+      )
      ((=ucs		  . #x24BCD)	; 𤯍
       ))
     (->subsumptive

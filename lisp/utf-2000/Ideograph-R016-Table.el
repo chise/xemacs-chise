@@ -2518,6 +2518,26 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=ucs		  . #x20482)	; 𠒂
+      ))
+    (ideographic-radical . 16)	; ⼏
+    (ideographic-strokes . 5)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs-itaiji-002	  . #x26951)	; &U-i002+26951;
+      )
+     ((=ucs		  . #x51E0)	; 几
+      ))
+    (=ucs-var-001	. #x20482)	; &U-v001+20482;
+    (->subsumptive
+     ((==ucs-var-001	  . #x20482)	; &g2-U-v001+20482;
+      ))
+    ))
+(define-char
   '((ideographic-radical . 16)	; ⼏
     (ideographic-strokes . 5)
     (total-strokes	 . 7)
@@ -4014,6 +4034,26 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=ucs		  . #x515C)	; 兜
+      ))
+    (ideographic-radical . 16)	; ⼏
+    (ideographic-strokes . 9)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM BELOW")
+      (=ucs		  . #x2FF6)	; ⿶
+      )
+     ((=ucs-var-001	  . #x20482)	; &U-v001+20482;
+      )
+     ((=ucs		  . #x767D)	; 白
+      ))
+    (=ucs-var-001	. #x515C)	; &U-v001+515C;
+    (->subsumptive
+     ((==ucs-var-001	  . #x515C)	; &g2-U-v001+515C;
+      ))
+    ))
+(define-char
   '((ideographic-radical . 16)	; ⼏
     (ideographic-strokes . 9)
     (total-strokes	 . 11)
@@ -4476,6 +4516,40 @@
     (=hanziku-1		. #xA97C)	; &I-HZK01-A97C;
     ))
 (define-char
+  '((<-denotational
+     ((=>ucs@cognate	  . #x2EC0B)	; &A-cgnU+2EC0B;
+      ))
+    (ideographic-radical . 16)	; ⼏
+    (ideographic-strokes . 10)
+    (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM BELOW")
+      (=ucs		  . #x2FF6)	; ⿶
+      )
+     ((=>ucs-itaiji-001	  . #x221BB)	; &A-U-i001+221BB;
+      )
+     ((=ucs		  . #x767D)	; 白
+      ))
+    (=ucs		. #x20661)	; 𠙡
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x20661)	; 𠙡
+      ))
+    (ideographic-radical . 16)	; ⼏
+    (ideographic-strokes . 10)
+    (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM BELOW")
+      (=ucs		  . #x2FF6)	; ⿶
+      )
+     ((=ucs-itaiji-001	  . #x221BB)	; &U-i001+221BB;
+      )
+     ((=ucs		  . #x767D)	; 白
+      ))
+    (=ucs@iso		. #x20661)	; &U-00020661;
+    ))
+(define-char
   '((ideographic-radical . 16)	; ⼏
     (ideographic-strokes . 10)
     (total-strokes	 . 12)
@@ -4509,6 +4583,23 @@
 (define-char
   '((ideographic-radical . 16)	; ⼏
     (ideographic-strokes . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x4020)	; 䀠
+      )
+     ((=>ucs@component	  . #x51E0)	; &A-compU+51E0;
+      (=>iwds-1		  .  0119)	; &A-compU+51E0;
+      ))
+    (=ucs		. #x2D0B7)	; 𭂷
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2D0B7)	; 𭂷
+      ))
+    (ideographic-radical . 16)	; ⼏
+    (ideographic-strokes . 10)
     (total-strokes	 . 12)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -4518,13 +4609,17 @@
       )
      ((=ucs		  . #x51E0)	; 几
       ))
-    (=ucs		. #x2D0B7)	; 𭂷
-    (=cbeta		. 07544)	; &I-CB07544;
+    (=ucs@JP/hanazono	. #x2D0B7)	; &CB07544;
+    (=cbeta		. 07544)	; &CB07544;
     (->subsumptive
      ((==ucs@JP/hanazono  . #x2D0B7)	; &g2-hanaJU+2D0B7;
       )
      ((==cbeta		  . 07544)	; &g2-CB07544;
       ))
+    ))
+(define-char
+  '((ideographic-radical . 16)	; ⼏
+    (=>ucs@cognate	. #x2EC0B)	; &A-cgnU+2EC0B;
     ))
 (define-char
   '((ideographic-radical . 16)	; ⼏
@@ -4612,6 +4707,75 @@
       (=adobe-japan1-0	  . 03724)	; &AJ1-03724;
       ))
     (=ucs@iso		. #x20666)	; &U-00020666;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@cognate	  . #x515C)	; &A-cgnU+515C;
+      ))
+    (ideographic-radical . 16)	; ⼏
+    (ideographic-strokes . 11)
+    (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM BELOW")
+      (=ucs		  . #x2FF6)	; ⿶
+      )
+     ((=>ucs-itaiji-001	  . #x20482)	; &A-U-i001+20482;
+      )
+     ((=ucs		  . #x767D)	; 白
+      ))
+    (=ucs		. #x20667)	; 𠙧
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x20667)	; 𠙧
+      ))
+    (ideographic-radical . 16)	; ⼏
+    (ideographic-strokes . 11)
+    (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM BELOW")
+      (=ucs		  . #x2FF6)	; ⿶
+      )
+     ((=ucs-itaiji-001	  . #x20482)	; &U-i001+20482;
+      )
+     ((=ucs		  . #x767D)	; 白
+      ))
+    (=ucs@iso		. #x20667)	; &U-00020667;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@cognate	  . #x2EC0B)	; &A-cgnU+2EC0B;
+      ))
+    (ideographic-radical . 16)	; ⼏
+    (ideographic-strokes . 11)
+    (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM BELOW")
+      (=ucs		  . #x2FF6)	; ⿶
+      )
+     ((=ucs		  . #x221BB)	; 𢆻
+      )
+     ((=ucs		  . #x767D)	; 白
+      ))
+    (=ucs		. #x2EC0B)	; 𮰋
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2EC0B)	; 𮰋
+      ))
+    (ideographic-radical . 16)	; ⼏
+    (ideographic-strokes . 11)
+    (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM BELOW")
+      (=ucs		  . #x2FF6)	; ⿶
+      )
+     ((=ucs@iso		  . #x221BB)	; &C6-295E;
+      (=cns11643-6	  . #x295E)	; &C6-295E; [09-62]
+      )
+     ((=ucs		  . #x767D)	; 白
+      ))
+    (=ucs@JP/hanazono	. #x2EC0B)	; &hanaJU+2EC0B;
     ))
 (define-char
   '((ideographic-radical . 16)	; ⼏
@@ -4784,6 +4948,36 @@
       ))
     ))
 (define-char
+  '((ideographic-radical . 16)	; ⼏
+    (ideographic-strokes . 12)
+    (total-strokes	 . 14)
+    (=ucs		. #x20668)	; 𠙨
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x20668)	; 𠙨
+      ))
+    (ideographic-radical . 16)	; ⼏
+    (ideographic-strokes . 12)
+    (total-strokes	 . 14)
+    (=ucs@iso		. #x20668)	; &U-00020668;
+    ))
+(define-char
+  '((ideographic-radical . 16)	; ⼏
+    (ideographic-strokes . 12)
+    (total-strokes	 . 14)
+    (=ucs		. #x20669)	; 𠙩
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x20669)	; 𠙩
+      ))
+    (ideographic-radical . 16)	; ⼏
+    (ideographic-strokes . 12)
+    (total-strokes	 . 14)
+    (=ucs@iso		. #x20669)	; &U-00020669;
+    ))
+(define-char
   '((<-denotational@component
      ((=>ucs@iwds-1	  . #x2066A)	; &A-IWDSU+2066A;
       ))
@@ -4818,6 +5012,37 @@
     (=ucs@iso		. #x2066A)	; &U-0002066A;
     (->subsumptive
      ((==ucs@iso	  . #x2066A)	; &g2-IU-0002066A;
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@cognate	  . #x515C)	; &A-cgnU+515C;
+      ))
+    (ideographic-radical . 16)	; ⼏
+    (ideographic-strokes . 12)
+    (total-strokes	 . 14)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM BELOW")
+      (=ucs		  . #x2FF6)	; ⿶
+      )
+     ((=ucs-itaiji-004	  . #x5152)	; &U-i004+5152;
+      )
+     ((=ucs		  . #x767D)	; 白
+      ))
+    (=mj		. 057036)	; &MJ057036;
+    (=koseki		. 021230)	; &MJ057036;
+    (<-formed
+     ((=ucs@unicode	  . #x515C)	; &MJ007251;
+      (=mj		  . 007251)	; &MJ007251;
+      (=koseki		  . 016210)	; &MJ007251;
+      ))
+    (<-formed$_1*sources
+     koseki mj)
+    (<-formed*sources
+     koseki mj)
+    (->subsumptive
+     ((==mj		  . 057036)	; &g2-MJ057036;
+      (==koseki		  . 021230)	; &g2-MJ057036;
       ))
     ))
 (define-char
@@ -4868,6 +5093,21 @@
     (->subsumptive
      ((==ucs@iso	  . #x2066E)	; &g2-IU-0002066E;
       ))
+    ))
+(define-char
+  '((ideographic-radical . 16)	; ⼏
+    (ideographic-strokes . 14)
+    (total-strokes	 . 16)
+    (=ucs		. #x2066F)	; 𠙯
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2066F)	; 𠙯
+      ))
+    (ideographic-radical . 16)	; ⼏
+    (ideographic-strokes . 14)
+    (total-strokes	 . 16)
+    (=ucs@iso		. #x2066F)	; &U-0002066F;
     ))
 (define-char
   '((ideographic-radical . 16)	; ⼏

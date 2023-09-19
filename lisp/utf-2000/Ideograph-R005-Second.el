@@ -3444,7 +3444,8 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 7)
     (ideographic-structure
-     ((=ucs		  . #x2FFD)	; ⿽
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER RIGHT")
+      (=ucs		  . #x2FFD)	; ⿽
       )
      ((=gt-k		  . 00383)	; &GT-K00383;
       )
@@ -3462,7 +3463,8 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 7)
     (ideographic-structure
-     ((=ucs		  . #x2FFD)	; ⿽
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER RIGHT")
+      (=ucs		  . #x2FFD)	; ⿽
       )
      ((=gt-k		  . 00383)	; &GT-K00383;
       )

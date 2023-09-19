@@ -240,15 +240,49 @@
     (=ucs-itaiji-003	. #x2A7FD)	; &U-i003+2A7FD;
     ))
 (define-char
-  '((ideographic-radical . 25)	; ⼘
+  '((<-denotational@usage
+     ((==>ucs@bucs	  . #x4E31)	; &BUCS+4E31;
+      )
+     ((==>daijiten	  . 01020)	; &A2-DJT-01020;
+      ))
+    (ideographic-radical . 25)	; ⼘
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
     (hanyu-dazidian	1 92 2)
+    (sound@ja/on/go	"kWaN" "WAu")
+    (sound@ja/on/kan	"kWaN" "kWAu")
     (=ucs		. #x535D)	; 卝
     (=cns11643-3	. #x215A)	; &I-C3-215A; [01-58]
     (=big5-cdp		. #x8BF9)	; &I-CDP-8BF9;
     (=daikanwa		. 02777)	; &I-M-02777;
+    (=daijiten		. 01020)	; &I-DJT-01020;
     (=cbeta		. 01453)	; &I-CB01453;
+    (<-ancient
+     ((=ucs		  . #x78FA)	; 磺
+      ))
+    (<-ancient$_1*sources
+     shuowen)
+    (<-formed
+     ((=ucs@jis		  . #x78FA)	; &AJ1-18227;
+      (=adobe-japan1-5	  . 18227)	; &AJ1-18227;
+      ))
+    (<-formed$_1*sources
+     jiyun)
+    (<-same
+     ((=ucs@jis		  . #x78FA)	; &AJ1-18227;
+      (=adobe-japan1-5	  . 18227)	; &AJ1-18227;
+      (=daikanwa	  . 24487)	; &I-M-24487;
+      )
+     ((=ucs@jis		  . #x7926)	; &AJ1-05853;
+      (=adobe-japan1-0	  . 05853)	; &AJ1-05853;
+      (=daikanwa	  . 24564)	; &I-M-24564;
+      ))
+    (<-same$_1*sources
+     shuowen jiyun daikanwa)
+    (<-same$_2*sources
+     zhouli-zhu daikanwa)
+    (<-same*sources
+     daikanwa)
     (->mistakable
      ((name		  . "CJK RADICAL GRASS THREE")
       (=ucs		  . #x2EC0)	; ⻀
@@ -258,9 +292,12 @@
       (==cns11643-3	  . #x215A)	; &g2-CDP-8BF9; [01-58]
       (==big5-cdp	  . #x8BF9)	; &g2-CDP-8BF9;
       (==daikanwa	  . 02777)	; &g2-CDP-8BF9;
+      (==daijiten	  . 01020)	; &g2-CDP-8BF9;
       (==cbeta		  . 01453)	; &g2-CDP-8BF9;
       (->subsumptive
        ((===daikanwa	    . 02777)	; &R-M-02777;
+	)
+       ((===daijiten	    . 01020)	; &R-DJT-01020;
 	)
        ((===big5-cdp	    . #x8BF9)	; &R-CDP-8BF9;
 	)
@@ -2080,11 +2117,12 @@
     (ideographic-strokes . 7)
     (total-strokes	 . 9)
     (ideographic-structure
-     ((=ucs-itaiji-001	  . #x2FF6)	; &U-i001+2FF6;
-      )
-     ((=ucs-itaiji-002	  . #x5364)	; &U-i002+5364;
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER RIGHT")
+      (=ucs		  . #x2FFD)	; ⿽
       )
      ((=gt-k		  . 00383)	; &GT-K00383;
+      )
+     ((=ucs-itaiji-002	  . #x5364)	; &U-i002+5364;
       ))
     (=ucs		. #x30184)	; 𰆄
     (<-ancient
@@ -2989,6 +3027,10 @@
     (ideographic-radical . 25)	; ⼘
     (=>ucs@iwds-1	. #x209E2)	; &A-IWDSU+209E2;
     (=>iwds-1		.  0356)	; &A-IWDSU+209E2;
+    ))
+(define-char
+  '((ideographic-radical . 25)	; ⼘
+    (==>daijiten	. 01020)	; &A2-DJT-01020;
     ))
 (define-char
   '((ideographic-radical . 25)	; ⼘

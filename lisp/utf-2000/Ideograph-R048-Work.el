@@ -1323,7 +1323,8 @@
       ))
     (ideographic-radical . 48)	; ⼯
     (ideographic-structure
-     ((=ucs-itaiji-001	  . #x2FF9)	; &U-i001+2FF9;
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM RIGHT")
+      (=ucs		  . #x2FFC)	; ⿼
       )
      ((=ucs		  . #x5F13)	; 弓
       )
@@ -1339,7 +1340,8 @@
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
     (ideographic-structure
-     ((=ucs-itaiji-001	  . #x2FF9)	; &U-i001+2FF9;
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM RIGHT")
+      (=ucs		  . #x2FFC)	; ⿼
       )
      ((=ucs		  . #x5F13)	; 弓
       )
@@ -2132,7 +2134,8 @@
       (=ucs		  . #x2FF1)	; ⿱
       )
      ((ideographic-structure
-       ((=ucs-itaiji-001    . #x2FF9)	; &U-i001+2FF9;
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM RIGHT")
+	(=ucs		    . #x2FFC)	; ⿼
 	)
        ((=big5-cdp	    . #x8C78)	; &CDP-8C78;
 	)
@@ -2140,7 +2143,8 @@
 	))
       )
      ((ideographic-structure
-       ((=ucs-itaiji-001    . #x2FF9)	; &U-i001+2FF9;
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM RIGHT")
+	(=ucs		    . #x2FFC)	; ⿼
 	)
        ((=big5-cdp	    . #x8C78)	; &CDP-8C78;
 	)
@@ -2162,7 +2166,8 @@
       (=ucs		  . #x2FF1)	; ⿱
       )
      ((ideographic-structure
-       ((=ucs-itaiji-001    . #x2FF9)	; &U-i001+2FF9;
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM RIGHT")
+	(=ucs		    . #x2FFC)	; ⿼
 	)
        ((=big5-cdp	    . #x8C78)	; &CDP-8C78;
 	)
@@ -2171,7 +2176,8 @@
 	))
       )
      ((ideographic-structure
-       ((=ucs-itaiji-001    . #x2FF9)	; &U-i001+2FF9;
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM RIGHT")
+	(=ucs		    . #x2FFC)	; ⿼
 	)
        ((=big5-cdp	    . #x8C78)	; &CDP-8C78;
 	)
@@ -2423,33 +2429,25 @@
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
     (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
-      (=ucs		  . #x2FF7)	; ⿷
+     ((=ucs-itaiji-001	  . #x2FFB)	; &U-i001+2FFB;
+      )
+     ((=ucs		  . #x5DEB)	; 巫
+      )
+     ((=>ucs@iwds-1	  . #x5405)	; &A-IWDSU+5405;
+      (=>iwds-1		  .  0398)	; &A-IWDSU+5405;
+      ))
+    (ideographic-structure@apparent/rightmost
+     ((=ucs-itaiji-001	  . #x2FFB)	; &U-i001+2FFB;
+      )
+     ((=ucs		  . #x5DE5)	; 工
       )
      ((ideographic-structure
-       ((=ucs-itaiji-001    . #x2FF9)	; &U-i001+2FF9;
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((=ucs		    . #x5DE5)	; 工
+       ((=ucs		    . #x2D1B9)	; 𭆹
 	)
-       ((ideographic-structure
-	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	  (=ucs		      . #x2FF1)	; ⿱
-	  )
-	 ((=>ucs@iwds-1	      . #x4EBA)	; &A-IWDSU+4EBA;
-	  (=>iwds-1	      .	 14623)	; &A-IWDSU+4EBA;
-	  )
-	 ((=ucs		      . #x53E3)	; 口
-	  ))
-	))
-      )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	(=ucs		    . #x2FF1)	; ⿱
-	)
-       ((=>ucs@iwds-1	    . #x4EBA)	; &A-IWDSU+4EBA;
-	(=>iwds-1	    .  14623)	; &A-IWDSU+4EBA;
-	)
-       ((=ucs		    . #x53E3)	; 口
+       ((=ucs		    . #x2D1B9)	; 𭆹
 	))
       ))
     (=>big5-cdp		. #x85AB)	; &A-CDP-85AB;
@@ -2462,33 +2460,12 @@
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
     (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
-      (=ucs		  . #x2FF7)	; ⿷
+     ((=ucs-itaiji-001	  . #x2FFB)	; &U-i001+2FFB;
       )
-     ((ideographic-structure
-       ((=ucs-itaiji-001    . #x2FF9)	; &U-i001+2FF9;
-	)
-       ((=ucs@unicode	    . #x5DE5)	; &AJ1-01979;
-	(=adobe-japan1-0    . 01979)	; &AJ1-01979;
-	)
-       ((ideographic-structure
-	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	  (=ucs		      . #x2FF1)	; ⿱
-	  )
-	 ((=ucs		      . #x4EBA)	; 人
-	  )
-	 ((=ucs		      . #x53E3)	; 口
-	  ))
-	))
+     ((=ucs@unicode	  . #x5DEB)	; &AJ1-04717;
+      (=adobe-japan1-0	  . 04717)	; &AJ1-04717;
       )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	(=ucs		    . #x2FF1)	; ⿱
-	)
-       ((=ucs		    . #x4EBA)	; 人
-	)
-       ((=ucs		    . #x53E3)	; 口
-	))
+     ((=ucs		  . #x5405)	; 吅
       ))
     (=big5-cdp		. #x85AB)	; &CDP-85AB;
     ))

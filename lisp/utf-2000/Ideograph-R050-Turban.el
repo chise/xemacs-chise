@@ -584,7 +584,8 @@
      ((==ucs-itaiji-005	  . #x22053)	; &g2-U-i005+22053;
       )
      ((ideographic-structure
-       ((=ucs		    . #x2FFD)	; ⿽
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER RIGHT")
+	(=ucs		    . #x2FFD)	; ⿽
 	)
        ((=ucs		    . #x5DFE)	; 巾
 	)
@@ -678,7 +679,8 @@
     (ideographic-strokes . 2)
     (total-strokes	 . 5)
     (ideographic-structure
-     ((=ucs		  . #x2FFD)	; ⿽
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER RIGHT")
+      (=ucs		  . #x2FFD)	; ⿽
       )
      ((=ucs		  . #x5DFE)	; 巾
       )
@@ -694,7 +696,8 @@
     (ideographic-strokes . 2)
     (total-strokes	 . 5)
     (ideographic-structure
-     ((=ucs		  . #x2FFD)	; ⿽
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER RIGHT")
+      (=ucs		  . #x2FFD)	; ⿽
       )
      ((=ucs		  . #x5DFE)	; 巾
       )
