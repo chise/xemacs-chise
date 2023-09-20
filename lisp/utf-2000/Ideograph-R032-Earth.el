@@ -1879,7 +1879,8 @@
     ))
 (define-char
   '((<-denotational@component
-     ((=>ucs@iwds-1	  . #x2124A)	; &A-IWDSU+2124A;
+     ((=>ucs@iwds-1	  . #x21264)	; &A-IWDSU+21264;
+      (=>ucs@component	  . #x2124A)	; &A-IWDSU+21264;
       ))
     (ideographic-radical . 32)	; ⼟
     (ideographic-strokes . 3)
@@ -2799,7 +2800,8 @@
     ))
 (define-char
   '((<-denotational@component
-     ((=>ucs@iwds-1	  . #x2124A)	; &A-IWDSU+2124A;
+     ((=>ucs@iwds-1	  . #x21264)	; &A-IWDSU+21264;
+      (=>ucs@component	  . #x2124A)	; &A-IWDSU+21264;
       ))
     (ideographic-radical . 32)	; ⼟
     (ideographic-strokes . 4)
@@ -45378,7 +45380,8 @@
      ((=>ucs@iwds-1	  . #x21240)	; &A-IWDSU+21240;
       ))
     (ideographic-radical . 32)	; ⼟
-    (=>ucs@iwds-1	. #x2124A)	; &A-IWDSU+2124A;
+    (=>ucs@iwds-1	. #x21264)	; &A-IWDSU+21264;
+    (=>ucs@component	. #x2124A)	; &A-IWDSU+21264;
     ))
 (define-char
   '((ideographic-radical . 32)	; ⼟
@@ -45749,11 +45752,6 @@
   '((ideographic-radical . 32)	; ⼟
     (==>ucs@bucs	. #x58DC)	; &BUCS+58DC;
     (==>daijiten	. 01893)	; &BUCS+58DC;
-    ))
-(define-char
-  '((ideographic-radical . 32)	; ⼟
-    (=>ucs@iwds-1	. #x21264)	; &A-IWDSU+21264;
-    (=>ucs@component	. #x2124A)	; &A-IWDSU+21264;
     ))
 (define-char
   '((<-denotational
