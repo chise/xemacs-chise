@@ -8768,7 +8768,8 @@
     (ideographic-strokes . 11)
     (total-strokes	 . 15)
     (ideographic-structure
-     ((=ucs-itaiji-001	  . #x2FF6)	; &U-i001+2FF6;
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER RIGHT")
+      (=ucs		  . #x2FFD)	; ⿽
       )
      ((=ucs		  . #x28805)	; 𨠅
       )
@@ -8784,7 +8785,8 @@
     (ideographic-strokes . 11)
     (total-strokes	 . 15)
     (ideographic-structure
-     ((=ucs-itaiji-001	  . #x2FF6)	; &U-i001+2FF6;
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER RIGHT")
+      (=ucs		  . #x2FFD)	; ⿽
       )
      ((=ucs@iso		  . #x28805)	; &U-00028805;
       )
@@ -10299,7 +10301,8 @@
     (ideographic-strokes . 15)
     (total-strokes	 . 19)
     (ideographic-structure
-     ((=ucs-itaiji-001	  . #x2FF6)	; &U-i001+2FF6;
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER RIGHT")
+      (=ucs		  . #x2FFD)	; ⿽
       )
      ((=ucs		  . #x28805)	; 𨠅
       )

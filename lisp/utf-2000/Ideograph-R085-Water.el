@@ -32470,7 +32470,8 @@
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
     (ideographic-structure
-     ((=ucs-itaiji-001	  . #x2FF6)	; &U-i001+2FF6;
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER RIGHT")
+      (=ucs		  . #x2FFD)	; ⿽
       )
      ((=ucs@unicode	  . #x5C03)	; &AJ1-17537;
       (=adobe-japan1-5	  . 17537)	; &AJ1-17537;
@@ -51876,7 +51877,8 @@
     (ideographic-strokes . 13)
     (total-strokes	 . 16)
     (ideographic-structure
-     ((=ucs-itaiji-001	  . #x2FF6)	; &U-i001+2FF6;
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER RIGHT")
+      (=ucs		  . #x2FFD)	; ⿽
       )
      ((=ucs-itaiji-001	  . #x23FE1)	; &U-i001+23FE1;
       )

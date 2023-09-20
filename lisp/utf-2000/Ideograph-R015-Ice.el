@@ -4177,7 +4177,8 @@
     (ideographic-strokes . 8)
     (total-strokes	 . 10)
     (ideographic-structure
-     ((=ucs		  . #x2FFD)	; ⿽
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER RIGHT")
+      (=ucs		  . #x2FFD)	; ⿽
       )
      ((=gt-k		  . 04948)	; &GT-K04948;
       )
@@ -6401,6 +6402,7 @@
       )
      ((=ucs		  . #x7188)	; 熈
       ))
+    (sound@ja/on	"ki")
     (=ucs		. #x51DE)	; 凞
     (=big5		. #xE8F9)	; &I-B-E8F9;
     ))
@@ -6412,7 +6414,8 @@
     (ideographic-strokes . 14)
     (total-strokes	 . 16)
     (ideographic-structure
-     ((=ucs		  . #x2FFD)	; ⿽
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER RIGHT")
+      (=ucs		  . #x2FFD)	; ⿽
       )
      ((=daijiten	  . 06937)	; &DJT-06937;
       )
@@ -6526,7 +6529,8 @@
     (ideographic-strokes . 14)
     (total-strokes	 . 16)
     (ideographic-structure
-     ((=ucs		  . #x2FFD)	; ⿽
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER RIGHT")
+      (=ucs		  . #x2FFD)	; ⿽
       )
      ((=hanyo-denshi/tk	  . 01055590)	; &HD-TK-01055590;
       )
@@ -6551,7 +6555,8 @@
     (total-strokes	 . 16)
     (hanyu-dazidian	1 301 16)
     (ideographic-structure
-     ((=ucs		  . #x2FFD)	; ⿽
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER RIGHT")
+      (=ucs		  . #x2FFD)	; ⿽
       )
      ((=ucs@unicode	  . #x7188)	; &MJ016545;
       (=mj		  . 016545)	; &MJ016545;
@@ -6741,7 +6746,8 @@
     (ideographic-strokes . 13)
     (total-strokes	 . 15)
     (ideographic-structure
-     ((=ucs		  . #x2FFD)	; ⿽
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER RIGHT")
+      (=ucs		  . #x2FFD)	; ⿽
       )
      ((=ucs		  . #xFA6C)	; 𤋮
       )
