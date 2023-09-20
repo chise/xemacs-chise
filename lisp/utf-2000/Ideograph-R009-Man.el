@@ -5611,7 +5611,8 @@
     (ideographic-strokes . 3)
     (total-strokes	 . 5)
     (ideographic-structure
-     ((=ucs		  . #x2FFC)	; ⿼
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM RIGHT")
+      (=ucs		  . #x2FFC)	; ⿼
       )
      ((=ucs		  . #x30001)	; 𰀁
       )
@@ -5628,7 +5629,8 @@
     (ideographic-strokes . 3)
     (total-strokes	 . 5)
     (ideographic-structure
-     ((=ucs		  . #x2FFC)	; ⿼
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM RIGHT")
+      (=ucs		  . #x2FFC)	; ⿼
       )
      ((=ucs		  . #x30001)	; 𰀁
       )
@@ -39182,7 +39184,8 @@
     (ideographic-strokes . 10)
     (total-strokes	 . 12)
     (ideographic-structure
-     ((=ucs		  . #x2FFC)	; ⿼
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM RIGHT")
+      (=ucs		  . #x2FFC)	; ⿼
       )
      ((=>ucs-itaiji-001	  . #x2D928)	; &A-U-i001+2D928;
       )
@@ -39236,7 +39239,8 @@
     (ideographic-strokes . 10)
     (total-strokes	 . 12)
     (ideographic-structure
-     ((=ucs		  . #x2FFC)	; ⿼
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM RIGHT")
+      (=ucs		  . #x2FFC)	; ⿼
       )
      ((=ucs-itaiji-001	  . #x2D928)	; &U-i001+2D928;
       )
@@ -74840,7 +74844,8 @@
     (<-vulgar*sources
      zhengzitong daikanwa)
     (->ancient
-     ((=ucs		  . #x22678)	; 𢙸
+     ((=ucs@iso		  . #x22678)	; &C6-3F70;
+      (=cns11643-6	  . #x3F70)	; &C6-3F70; [31-80]
       (=daikanwa	  . 10648)	; &I-M-10648;
       ))
     (->ancient$_1*sources
@@ -85780,7 +85785,8 @@
     (ideographic-strokes . 17)
     (total-strokes	 . 19)
     (ideographic-structure
-     ((=ucs		  . #x2FFC)	; ⿼
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM RIGHT")
+      (=ucs		  . #x2FFC)	; ⿼
       )
      ((=>ucs-itaiji-002	  . #x2D928)	; &A-U-i002+2D928;
       )
@@ -85834,7 +85840,8 @@
     (ideographic-strokes . 17)
     (total-strokes	 . 19)
     (ideographic-structure
-     ((=ucs		  . #x2FFC)	; ⿼
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM RIGHT")
+      (=ucs		  . #x2FFC)	; ⿼
       )
      ((=ucs-itaiji-002	  . #x2D928)	; &U-i002+2D928;
       )

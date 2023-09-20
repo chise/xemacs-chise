@@ -903,7 +903,7 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 6)
     (hanyu-dazidian	1 282 1)
-    (ideographic-structure
+    (ideographic-structure@apparent/rightmost
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
@@ -911,9 +911,6 @@
       )
      ((=ucs		  . #x7236)	; 父
       ))
-    (sound@ja/kun	"ma-zi+r5" "ma-z+eru" "mazi-Ha+r5" "mazi-H+eru"
-			"ka-Ha+s5" "komogomo")
-    (sound@ja/on	"kAu")
     (=ucs@unicode	. #x4EA4)	; &MJ006467;
     (=mj		. 006467)	; &MJ006467;
     (=adobe-japan1-0	. 01958)	; &I-AJ1-01958;
@@ -1029,12 +1026,44 @@
 	)
        ((===cns11643-1	    . #x4728)	; &R-C1-4728; [39-08]
 	))
+      )
+     ((=gt-k		  . 01604)	; &GT-K01604;
+      (=gt-pj-k1	  . #x3458)	; &GT-K01604; [20-56]
+      (<-formed@component/connect-right
+       ((=ucs@unicode	    . #x4EA4)	; &MJ006467;
+	(=mj		    . 006467)	; &MJ006467;
+	))
+      (->subsumptive
+       ((==gt-k		    . 01604)	; &g2-GT-K01604;
+	(==gt-pj-k1	    . #x3458)	; &g2-GT-K01604; [20-56]
+	))
       ))
     ))
 (define-char
   '((<-denotational
      ((=ucs		  . #x4EA4)	; 交
       ))
+    (ideographic-radical . 8)	; ⼇
+    (ideographic-strokes . 4)
+    (total-strokes	 . 6)
+    (ideographic-structure@apparent
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=mj		  . 056886)	; &MJ056886;
+      )
+     ((=ucs		  . #x4E42)	; 乂
+      ))
+    (=ucs-var-003	. #x4EA4)	; &U-v003+4EA4;
+    (->subsumptive
+     ((==ucs-var-003	  . #x4EA4)	; &g2-U-v003+4EA4;
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x4EA4)	; 交
+      ))
+    (ideographic-radical . 8)	; ⼇
     (ideographic-strokes . 4)
     (total-strokes	 . 6)
     (=mj		. 006468)	; &MJ006468;
@@ -1052,26 +1081,6 @@
 	(=hanyo-denshi/ks/mf . #x0169)	; &R-HD-KS-003610;
 	)
        ((===mj		    . 006468)	; &R-MJ006468;
-	))
-      ))
-    ))
-(define-char
-  '((<-denotational
-     ((=ucs		  . #x4EA4)	; 交
-      ))
-    (ideographic-radical . 8)	; ⼇
-    (ideographic-strokes . 4)
-    (total-strokes	 . 6)
-    (=gt-k		. 01604)	; &GT-K01604;
-    (=gt-pj-k1		. #x3458)	; &GT-K01604; [20-56]
-    (<-formed@component/connect-right
-     ((=ucs@unicode	  . #x4EA4)	; &MJ006467;
-      (=mj		  . 006467)	; &MJ006467;
-      ))
-    (->subsumptive
-     ((==gt-k		  . 01604)	; &g2-GT-K01604;
-      (->subsumptive
-       ((===gt-k	    . 01604)	; &R-GT-K01604;
 	))
       ))
     ))
