@@ -1,11 +1,7 @@
 ;;; chise-subr.el --- basic lisp subroutines for XEmacs CHISE
 
 ;; Copyright (C) 1999, 2001, 2002, 2003, 2004, 2005, 2007, 2008, 2009,
-<<<<<<< HEAD
-;;   2010, 2011, 2012, 2013, 2014, 2015, 2016, 2020, 2021 MORIOKA Tomohiko.
-=======
-;;   2010, 2011, 2012, 2013, 2014, 2015, 2020, 2021, 2022 MORIOKA Tomohiko.
->>>>>>> master
+;;   2010, 2011, 2012, 2013, 2014, 2015, 2020, 2021, 2022, 2023 MORIOKA Tomohiko.
 
 ;; Author: MORIOKA Tomohiko <tomo@kanji.zinbun.kyoto-u.ac.jp>
 ;; Keywords: CHISE, Character Database, ISO/IEC 10646, UCS, Unicode, MULE.
@@ -44,7 +40,7 @@
   ;;   (sort dest #'string<))
   '(ucs ucs/compat daikanwa cns gt jis jis/a jis/b
 	jis-x0212 jis-x0213 cdp shinjigen mj
-	r030 r053 r055 r074 r130 r140 misc unknown))
+	r001 r007 r030 r053 r055 r074 r130 r140 misc unknown))
 
 (defconst charset-id-=adobe-japan1-0 (charset-id '=adobe-japan1-0))
 (defconst charset-id-=adobe-japan1-6 (charset-id '=adobe-japan1-6))
