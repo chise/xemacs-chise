@@ -279,6 +279,23 @@
     (ideographic-radical . 45)	; ⼬
     (ideographic-strokes . 1)
     (total-strokes	 . 3)
+    (=big5-cdp		. #x8A43)	; &CDP-8A43;
+    (=gt-k		. 00288)	; &I-GT-K00288;
+    (=gt-pj-k2		. #x4073)	; &CDP-8A43; [32-83]
+    (->subsumptive
+     ((==big5-cdp	  . #x8A43)	; &g2-CDP-8A43;
+      )
+     ((==gt-k		  . 00288)	; &g2-GT-K00288;
+      (==gt-pj-k2	  . #x4073)	; &g2-GT-K00288; [32-83]
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@cognate	  . #x5C6F)	; &A-cgnU+5C6F;
+      ))
+    (ideographic-radical . 45)	; ⼬
+    (ideographic-strokes . 1)
+    (total-strokes	 . 3)
     (=big5-cdp		. #x8AF0)	; &CDP-8AF0;
     (=cbeta		. 04490)	; &I-CB04490;
     (->subsumptive
