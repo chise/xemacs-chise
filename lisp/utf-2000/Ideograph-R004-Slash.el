@@ -4773,6 +4773,20 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
+     ((=ucs		  . #x3405)	; 㐅
+      )
+     ((=ucs-itaiji-001	  . #x723B)	; &U-i001+723B;
+      ))
+    (=ucs-itaiji-002	. #x53D2)	; &U-i002+53D2;
+    ))
+(define-char
+  '((ideographic-radical . 4)	; ⼃
+    (ideographic-strokes . 5)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
      ((name*		  . "ideographic component person for top")
       (=ucs		  . #x20089)	; 𠂉
       )
