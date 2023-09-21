@@ -44946,6 +44946,16 @@
     ))
 (define-char
   '((ideographic-radical . 9)	; ⼈
+    (=>ucs@cognate	. #x5043)	; &A-cgnU+5043;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@cognate	  . #x5043)	; &A-cgnU+5043;
+      ))
+    (<-denotational@usage
+     ((==>ucs@bucs	  . #x5043)	; &BUCS+5043;
+      ))
+    (ideographic-radical . 9)	; ⼈
     (ideographic-strokes . 9)
     (total-strokes	 . 11)
     (hanyu-dazidian	1 187 1)
@@ -44990,6 +45000,7 @@
     (=gt-k		. 07903)	; &I-GT-K07903;
     (=gt-pj-1		. #x5070)	; &I-GT-01063; [48-80]
     (=daikanwa		. 00830)	; &I-M-00830;
+    (=daijiten		. 00402)	; &I-DJT-00402;
     (=shinjigen		.  0329)	; &AJ1-04169;
     (<-interchangeable
      ((=ucs@cns		  . #x533D)	; &C2-2936;
@@ -45052,9 +45063,12 @@
       (==gt		  . 01063)	; &g2-AJ1-04169;
       (==gt-k		  . 07903)	; &g2-AJ1-04169;
       (==daikanwa	  . 00830)	; &g2-AJ1-04169;
+      (==daijiten	  . 00402)	; &g2-AJ1-04169;
       (==shinjigen	  .  0329)	; &g2-AJ1-04169;
       (->subsumptive
        ((===daikanwa	    . 00830)	; &R-M-00830;
+	)
+       ((===daijiten	    . 00402)	; &R-DJT-00402;
 	)
        ((===jis-x0208	    . #x5070)	; &R-J0-5070; [48-80]
 	(===jis-x0213-1	    . #x5070)	; &R-J0-5070; [48-80]
@@ -45096,6 +45110,41 @@
       )
      ((===hng-kar	  . 05530)	; &HNG018-05530;
       ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@cognate	  . #x5043)	; &A-cgnU+5043;
+      ))
+    (ideographic-radical . 9)	; ⼈
+    (ideographic-strokes . 10)
+    (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=big5-cdp	  . #x8B7A)	; &CDP-8B7A;
+      )
+     ((=ucs		  . #x533D)	; 匽
+      ))
+    (=>ucs-itaiji-003	. #x5043)	; &A-U-i003+5043;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs-itaiji-003	  . #x5043)	; &A-U-i003+5043;
+      ))
+    (ideographic-radical . 9)	; ⼈
+    (ideographic-strokes . 10)
+    (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=big5-cdp	  . #x8B7A)	; &CDP-8B7A;
+      )
+     ((=ucs@unicode	  . #x533D)	; &AJ1-19206;
+      (=adobe-japan1-5	  . 19206)	; &AJ1-19206;
+      ))
+    (=ucs-itaiji-003	. #x5043)	; &U-i003+5043;
     ))
 (define-char
   '((ideographic-radical . 9)	; ⼈
@@ -91832,6 +91881,11 @@
 (define-char
   '((ideographic-radical . 9)	; ⼈
     (==>ucs@bucs	. #x50BE)	; &BUCS+50BE;
+    ))
+(define-char
+  '((ideographic-radical . 9)	; ⼈
+    (==>ucs@bucs	. #x5043)	; &BUCS+5043;
+    (==>daijiten	. 00402)	; &BUCS+5043;
     ))
 (define-char
   '((ideographic-radical . 9)	; ⼈
