@@ -3181,6 +3181,14 @@
     (=ucs		. #x2CEB9)	; 𬺹
     ))
 (define-char
+  '((ideographic-radical@r001 . 1)	; ⼀
+    (ideographic-strokes@r001 . 3)
+    (ideographic-radical@r007 . 7)	; ⼆
+    (ideographic-strokes@r007 . 2)
+    (total-strokes	 . 4)
+    (=ucs		. #x2EBF0)	; 𮯰
+    ))
+(define-char
   '((<-denotational@component
      ((=>ucs@component	  . #x7ACB)	; &A-compU+7ACB;
       ))
