@@ -19510,6 +19510,37 @@
       )
      ((=ucs		  . #x5B80)	; 宀
       )
+     ((=ucs		  . #x2E2BF)	; 𮊿
+      ))
+    (=ucs		. #x21AB9)	; 𡪹
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x21AB9)	; 𡪹
+      ))
+    (ideographic-radical . 40)	; ⼧
+    (ideographic-strokes . 12)
+    (total-strokes	 . 15)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5B80)	; 宀
+      )
+     ((=ucs-var-003	  . #x2E2BF)	; &U-v003+2E2BF;
+      ))
+    (=ucs@iso		. #x21AB9)	; &U-00021AB9;
+    ))
+(define-char
+  '((ideographic-radical . 40)	; ⼧
+    (ideographic-strokes . 12)
+    (total-strokes	 . 15)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5B80)	; 宀
+      )
      ((=ucs		  . #x767B)	; 登
       ))
     (=ucs		. #x21ABA)	; 𡪺
