@@ -115,7 +115,11 @@
   '((shuowen-radical	. 389)	; 大
     (=shuowen-jiguge	. 35411)	; &SW-JIGUGE-35411;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x229E4)	; 𢧤
+      )
      ((=ucs		  . #x229DC)	; 𢧜
+      )
+     ((=ucs		  . #x2166E)	; 𡙮
       ))
     (->subsumptive
      ((===shuowen-jiguge-A30 . 35911)	; &SW-JIGUGE30-35911;
