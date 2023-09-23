@@ -5051,6 +5051,36 @@
     (=ucs@iso		. #x211D9)	; &U-000211D9;
     ))
 (define-char
+  '((ideographic-radical . 31)	; ⼞
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
+      (=ucs		  . #x2FF4)	; ⿴
+      )
+     ((=ucs		  . #x56D7)	; 囗
+      )
+     ((=ucs		  . #x5404)	; 各
+      ))
+    (=ucs		. #x2EC18)	; 𮰘
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2EC18)	; 𮰘
+      ))
+    (ideographic-radical . 31)	; ⼞
+    (ideographic-strokes . 6)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
+      (=ucs		  . #x2FF4)	; ⿴
+      )
+     ((=ucs		  . #x56D7)	; 囗
+      )
+     ((=ucs@unicode	  . #x5404)	; &AJ1-01444;
+      (=adobe-japan1-0	  . 01444)	; &AJ1-01444;
+      ))
+    (=ucs@JP/hanazono	. #x2EC18)	; &hanaJU+2EC18;
+    ))
+(define-char
   '((<-denotational
      ((=>ucs@cognate	  . #x2055A)	; &A-cgnU+2055A;
       ))
