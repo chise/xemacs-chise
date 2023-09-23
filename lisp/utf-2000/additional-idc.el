@@ -26,18 +26,24 @@
   '((=ucs-itaiji-002	. #x2FF1)	; &U-i002+2FF1;
     ))
 (define-char
-  '((=ucs-itaiji-001	. #x2FF6)	; &U-i001+2FF6;
+  '((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER RIGHT")
+    (general-category	symbol other) ; Informative Category
+    (bidi-category	. "ON")
+    (mirrored		. nil)
+    (=ucs		. #x2FFD)	; ⿽
+    (=ucs-itaiji-001	. #x2FF6)	; ⿽
     (<-denotational@arg-reversed
      ((=>ucs@component	  . #x2FF0)	; &U-v001+2FF0;
       (=ucs-var-001	  . #x2FF0)	; &U-v001+2FF0;
       ))
     ))
 (define-char
-  '((<-denotational
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
-      (=ucs		  . #x2FF9)	; ⿹
-      ))
-    (=ucs-itaiji-001	. #x2FF9)	; &U-i001+2FF9;
+  '((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM RIGHT")
+    (general-category	symbol other) ; Informative Category
+    (bidi-category	. "ON")
+    (mirrored		. nil)
+    (=ucs		. #x2FFC)	; ⿼
+    (=ucs-itaiji-001	. #x2FF9)	; ⿼
     ))
 (define-char
   '((=ucs-itaiji-001	. #x2FFB)	; &U-i001+2FFB;

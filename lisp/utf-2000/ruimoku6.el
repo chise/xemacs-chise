@@ -5360,7 +5360,8 @@
     (ideographic-strokes . 2)
     (total-strokes	 . 6)
     (ideographic-structure
-     ((=ucs-itaiji-001	  . #x2FF6)	; &U-i001+2FF6;
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER RIGHT")
+      (=ucs		  . #x2FFD)	; ⿽
       )
      ((=ucs		  . #x6208)	; 戈
       )
