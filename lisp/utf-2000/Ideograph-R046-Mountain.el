@@ -14054,9 +14054,8 @@
       )
      ((=ucs		  . #x5C71)	; 山
       )
-     ((=ucs@unicode	  . #x9EFE)	; &C3-2772;
-      (=gb2312		  . #x763C)	; &C3-2772; [86-28]
-      (=cns11643-3	  . #x2772)	; &I-C3-2772; [07-82]
+     ((name		  . "CJK RADICAL C-SIMPLIFIED FROG")
+      (=ucs		  . #x2EEA)	; ⻪
       ))
     (=ucs@iso		. #x21E3E)	; &U-00021E3E;
     ))
