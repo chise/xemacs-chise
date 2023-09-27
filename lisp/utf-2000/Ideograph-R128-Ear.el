@@ -1295,6 +1295,20 @@
     ))
 (define-char
   '((ideographic-radical . 128)	; ⽿
+    (ideographic-strokes . 4)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x8033)	; 耳
+      )
+     ((=ucs		  . #x65A4)	; 斤
+      ))
+    (=ucs		. #x26544)	; 𦕄
+    ))
+(define-char
+  '((ideographic-radical . 128)	; ⽿
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰

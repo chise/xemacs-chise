@@ -17560,7 +17560,10 @@
     (=hanziku-2		. #xCDFE)	; &I-HZK02-CDFE;
     ))
 (define-char
-  '((ideographic-radical@ucs . 205)	; ⿌
+  '((<-denotational
+     ((=>ucs@cognate	  . #x9EFE)	; &A-cgnU+9EFE;
+      ))
+    (ideographic-radical@ucs . 205)	; ⿌
     (ideographic-strokes@ucs . 0)
     (ideographic-radical@cns . 30)	; ⼝
     (ideographic-strokes@cns . 5)
@@ -17584,17 +17587,6 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (=ucs		. #x2EEA)	; ⻪
-    (<-identical@component
-     ((=ucs@unicode	  . #x9EFE)	; &C3-2772;
-      (=gb2312		  . #x763C)	; &C3-2772; [86-28]
-      (=cns11643-3	  . #x2772)	; &I-C3-2772; [07-82]
-      ))
-    ))
-(define-char
-  '((<-denotational
-     ((=ucs		  . #x9EFE)	; 黾
-      ))
     (ideographic-radical@ucs . 205)	; ⿌
     (ideographic-strokes@ucs . 0)
     (ideographic-radical@cns . 30)	; ⼝
@@ -17609,8 +17601,9 @@
      ((=ucs@unicode	  . #x7535)	; &G0-3567;
       (=gb2312		  . #x3567)	; &G0-3567; [21-71]
       ))
-    (=ucs@unicode	. #x9EFE)	; &C3-2772;
-    (=gb2312		. #x763C)	; &C3-2772; [86-28]
+    (=ucs		. #x2EEA)	; ⻪
+    (=ucs@unicode	. #x9EFE)	; ⻪
+    (=gb2312		. #x763C)	; &I-G0-763C; [86-28]
     (=cns11643-3	. #x2772)	; &I-C3-2772; [07-82]
     (=big5-cdp		. #x8A59)	; &I-CDP-8A59;
     (<-simplified@CN
@@ -94052,7 +94045,7 @@
       )
      ((=ucs-itaiji-003	  . #x55A6)	; &U-i003+55A6;
       )
-     ((=daikanwa	  . 13287)	; &M-13287;
+     ((=mj		  . 037322)	; &MJ037322;
       ))
     (=mj		. 032790)	; &MJ032790;
     (=koseki		. 053250)	; &MJ032790;
