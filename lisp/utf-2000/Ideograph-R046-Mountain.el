@@ -29207,8 +29207,8 @@
       )
      ((=ucs		  . #x5C71)	; 山
       )
-     ((=ucs@unicode	  . #x9761)	; &GT-57205;
-      (=gb2312		  . #x4352)	; &GT-57205; [35-50]
+     ((=ucs@unicode	  . #x9761)	; &HD-FT-3B4A;
+      (=gb2312		  . #x4352)	; &HD-FT-3B4A; [35-50]
       ))
     (=ucs@unicode	. #x3827)	; &UU+3827;
     (=ucs@JP/hanazono	. nil)
@@ -29304,8 +29304,8 @@
       )
      ((=ucs		  . #x5C71)	; 山
       )
-     ((=ucs@unicode	  . #x9761)	; &GT-57205;
-      (=gb2312		  . #x4352)	; &GT-57205; [35-50]
+     ((=ucs@unicode	  . #x9761)	; &HD-FT-3B4A;
+      (=gb2312		  . #x4352)	; &HD-FT-3B4A; [35-50]
       ))
     (=ucs@iso		. #x21FD0)	; &U-00021FD0;
     ))
