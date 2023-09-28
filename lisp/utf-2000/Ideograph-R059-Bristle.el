@@ -3007,8 +3007,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=ucs@unicode	  . #x9761)	; &GT-57205;
-      (=gb2312		  . #x4352)	; &GT-57205; [35-50]
+     ((=ucs@unicode	  . #x9761)	; &HD-FT-3B4A;
+      (=gb2312		  . #x4352)	; &HD-FT-3B4A; [35-50]
       )
      ((=ucs		  . #x5F61)	; 彡
       ))
