@@ -5043,7 +5043,7 @@
       )
      ((=ucs		  . #x7FBD)	; 羽
       )
-     ((=>big5-cdp	  . #x8D71)	; &A-CDP-8D71;
+     ((=ucs		  . #x3196F)	; 𱥯
       ))
     (=>ucs-itaiji-004	. #x7FCF)	; &A-U-i004+7FCF;
     ))
@@ -5060,7 +5060,8 @@
       )
      ((=ucs		  . #xFA1E)	; 羽
       )
-     ((=big5-cdp	  . #x8D71)	; &CDP-8D71;
+     ((=ucs@JP/hanazono	  . #x3196F)	; &CDP-8D71;
+      (=big5-cdp	  . #x8D71)	; &CDP-8D71;
       ))
     (=ucs-itaiji-004	. #x7FCF)	; &U-i004+7FCF;
     ))
