@@ -6724,19 +6724,37 @@
     ))
 (define-char
   '((ideographic-radical . 57)	; ⼸
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>ucs@iwds-1	  . #x4E1A)	; &A-IWDSU+4E1A;
+      (=>big5-cdp	  . #x8D6B)	; &A-IWDSU+4E1A;
+      )
+     ((=>ucs@iwds-1	  . #x38AD)	; &A-IWDSU+38AD;
+      ))
+    (=ucs		. #x2D6C1)	; 𭛁
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2D6C1)	; 𭛁
+      ))
+    (ideographic-radical . 57)	; ⼸
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=ucs		  . #x4E1A)	; 业
+     ((=ucs@unicode	  . #x4E1A)	; &G0-5235;
+      (=gb2312		  . #x5235)	; &G0-5235; [50-21]
       )
-     ((=ucs		  . #x223BF)	; 𢎿
+     ((=ucs@iso		  . #x223BF)	; &CB07145;
+      (=cbeta		  . 07145)	; &CB07145;
       ))
-    (=ucs		. #x2D6C1)	; 𭛁
-    (=mj		. 057470)	; &I-MJ057470;
-    (=koseki		. 111200)	; 𭛁
+    (=ucs@JP/hanazono	. #x2D6C1)	; &MJ057470;
+    (=mj		. 057470)	; &MJ057470;
+    (=koseki		. 111200)	; &MJ057470;
     (<-formed
      ((=ucs		  . #x5F42)	; 彂
       )
@@ -6746,6 +6764,9 @@
      ((==ucs@JP/hanazono  . #x2D6C1)	; &g2-MJ057470;
       (==mj		  . 057470)	; &g2-MJ057470;
       (==koseki		  . 111200)	; &g2-MJ057470;
+      (->subsumptive
+       ((===mj		    . 057470)	; &R-MJ057470;
+	))
       ))
     ))
 (define-char
