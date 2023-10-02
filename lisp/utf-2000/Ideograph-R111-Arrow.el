@@ -2714,6 +2714,36 @@
     (=cns11643-2	. #x6947)	; &C2-6947; [73-39]
     ))
 (define-char
+  '((ideographic-radical . 111)	; ⽮
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x77ED)	; 短
+      )
+     ((=ucs		  . #x9AA8)	; 骨
+      ))
+    (=ucs		. #x25412)	; 𥐒
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x25412)	; 𥐒
+      ))
+    (ideographic-radical . 111)	; ⽮
+    (ideographic-strokes . 16)
+    (total-strokes	 . 21)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x77ED)	; 短
+      )
+     ((=ucs@unicode	  . #x9AA8)	; &G0-3947;
+      (=gb2312		  . #x3947)	; &G0-3947; [25-39]
+      ))
+    (=ucs@iso		. #x25412)	; &U-00025412;
+    ))
+(define-char
   '((=>ucs		. #x25411)	; 𥐑
     (ideographic-radical . 111)	; ⽮
     (ideographic-strokes . 17)
