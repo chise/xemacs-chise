@@ -1017,6 +1017,9 @@
      ((=>ucs@component	  . #x81FF)	; &A-compU+81FF;
       (=>iwds-1		  .  0098)	; &A-compU+81FF;
       ))
+    (<-denotational@usage
+     ((==>daijiten	  . 09623)	; &A2-DJT-09623;
+      ))
     (ideographic-radical . 51)	; ⼲
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
