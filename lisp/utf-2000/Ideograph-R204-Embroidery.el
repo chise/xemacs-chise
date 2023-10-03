@@ -1,8 +1,20 @@
 ;; -*- coding: utf-8-mcs-er -*-
 (define-char
-  '((ideographic-radical . 204)	; ⿋
+  '((<-denotational@usage
+     ((==>ucs@bucs	  . #x9EF9)	; &BUCS+9EF9;
+      ))
+    (ideographic-radical . 204)	; ⿋
     (ideographic-strokes . 0)
     (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>ucs@iwds-1	  . #x4E1A)	; &A-IWDSU+4E1A;
+      (=>big5-cdp	  . #x8D6B)	; &A-IWDSU+4E1A;
+      )
+     ((=ucs		  . #x3840)	; 㡀
+      ))
     (=ucs		. #x9EF9)	; 黹
     ))
 (define-char
@@ -12,6 +24,16 @@
     (ideographic-radical . 204)	; ⿋
     (ideographic-strokes . 0)
     (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs@unicode	  . #x4E1A)	; &G0-5235;
+      (=gb2312		  . #x5235)	; &G0-5235; [50-21]
+      )
+     ((=ucs@jis		  . #x3840)	; &AJ1-17590;
+      (=adobe-japan1-5	  . 17590)	; &AJ1-17590;
+      ))
     (=ucs@jis		. #x9EF9)	; &AJ1-07446;
     (=adobe-japan1-0	. 07446)	; &AJ1-07446;
     (=jis-x0208		. #x7363)	; &I-J90-7363; [83-67]
@@ -52,6 +74,34 @@
     (ideographic-radical . 204)	; ⿋
     (ideographic-strokes . 0)
     (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs-var-001	  . #x4E1A)	; &U-v001+4E1A;
+      )
+     ((=ucs@jis		  . #x3840)	; &AJ1-17590;
+      (=adobe-japan1-5	  . 17590)	; &AJ1-17590;
+      ))
+    (=daijiten		. 14744)	; &DJT-14744;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x9EF9)	; 黹
+      ))
+    (ideographic-radical . 204)	; ⿋
+    (ideographic-strokes . 0)
+    (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs@unicode	  . #x4E1A)	; &G0-5235;
+      (=gb2312		  . #x5235)	; &G0-5235; [50-21]
+      )
+     ((=ucs@unicode	  . #x3840)	; &C4-2425;
+      (=cns11643-4	  . #x2425)	; &C4-2425; [04-05]
+      ))
     (=ucs@unicode	. #x9EF9)	; &G0-6D69;
     (=ucs@JP/hanazono	. nil)
     (=gb2312		. #x6D69)	; &G0-6D69; [77-73]
@@ -62,12 +112,61 @@
       ))
     ))
 (define-char
-  '((=>ucs*		. #x9EF9)	; 黹
+  '((<-denotational
+     ((=ucs		  . #x9EF9)	; 黹
+      ))
+    (=>ucs*		. #x9EF9)	; 黹
     (ideographic-radical . 204)	; ⿋
     (ideographic-strokes . 1)
     (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=big5-cdp	  . #x8D6B)	; &CDP-8D6B;
+      )
+     ((=ucs@jis		  . #x3840)	; &AJ1-17590;
+      (=adobe-japan1-5	  . 17590)	; &AJ1-17590;
+      ))
     (=ucs		. #x2FA17)	; 黹
     (=cns11643-6	. #x5A60)	; &I-C6-5A60; [58-64]
+    (->subsumptive
+     ((==ucs@cns	  . #x2FA17)	; &g2-CU+2FA17;
+      (==cns11643-6	  . #x5A60)	; &g2-CU+2FA17; [58-64]
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 204)	; ⿋
+    (ideographic-strokes . 0)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x9FB7)	; 龷
+      )
+     ((=ucs		  . #x3840)	; 㡀
+      ))
+    (=ucs		. #x2EBA0)	; 𮮠
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2EBA0)	; 𮮠
+      ))
+    (ideographic-radical . 204)	; ⿋
+    (ideographic-strokes . 0)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs@unicode	  . #x9FB7)	; &CDP-8B5C;
+      (=big5-cdp	  . #x8B5C)	; &CDP-8B5C;
+      )
+     ((=ucs@unicode	  . #x3840)	; &C4-2425;
+      (=cns11643-4	  . #x2425)	; &C4-2425; [04-05]
+      ))
+    (=ucs@JP/hanazono	. #x2EBA0)	; &hanaJU+2EBA0;
     ))
 (define-char
   '((ideographic-radical . 204)	; ⿋
@@ -292,4 +391,9 @@
       )
      ((=cns11643-5	  . #x7749)	; &C5-7749; [87-41]
       ))
+    ))
+(define-char
+  '((ideographic-radical . 204)	; ⿋
+    (==>ucs@bucs	. #x9EF9)	; &BUCS+9EF9;
+    (==>daijiten	. 14744)	; &BUCS+9EF9;
     ))
