@@ -3770,6 +3770,41 @@
     (ideographic-strokes . 11)
     (total-strokes	 . 15)
     (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=>ucs@component	  . #x66FE)	; &A-compU+66FE;
+      (=>iwds-1		  .  0187)	; &A-compU+66FE;
+      )
+     ((=ucs		  . #x624D)	; 才
+      ))
+    (=ucs		. #x2DA1F)	; 𭨟
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2DA1F)	; 𭨟
+      ))
+    (ideographic-radical . 73)	; ⽈
+    (ideographic-strokes . 11)
+    (total-strokes	 . 15)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs@jis		  . #x66FE)	; &MJ013501;
+      (=ucs@ks		  . #x66FE)	; &MJ013501;
+      (=mj		  . 013501)	; &MJ013501;
+      )
+     ((=ucs@jis		  . #x624D)	; &AJ1-02109;
+      (=adobe-japan1-0	  . 02109)	; &AJ1-02109;
+      ))
+    (=ucs@JP/hanazono	. #x2DA1F)	; &hanaJU+2DA1F;
+    ))
+(define-char
+  '((ideographic-radical . 73)	; ⽈
+    (ideographic-strokes . 11)
+    (total-strokes	 . 15)
+    (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
