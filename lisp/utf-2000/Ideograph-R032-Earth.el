@@ -20940,7 +20940,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=ucs		  . #x4E1A)	; 业
+     ((=ucs@unicode	  . #x4E1A)	; &G0-5235;
       )
      ((name		  . "CJK RADICAL RAM")
       (=ucs		  . #x2EB7)	; ⺷

@@ -1255,6 +1255,44 @@
     ))
 (define-char
   '((ideographic-radical . 14)	; ⼍
+    (ideographic-strokes . 5)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5196)	; 冖
+      )
+     ((=ucs		  . #x4E1A)	; 业
+      ))
+    (=>ucs-itaiji-001	. #x4E9A)	; &A-U-i001+4E9A;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs-itaiji-001	  . #x4E9A)	; &A-U-i001+4E9A;
+      ))
+    (ideographic-radical . 14)	; ⼍
+    (ideographic-strokes . 5)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5196)	; 冖
+      )
+     ((=ucs@unicode	  . #x4E1A)	; &G0-5235;
+      (=gb2312		  . #x5235)	; &G0-5235; [50-21]
+      ))
+    (=ucs-itaiji-001	. #x4E9A)	; &U-i001+4E9A;
+    (<-simplified@CN/component
+     ((=big5-cdp	  . #x8DE8)	; &CDP-8DE8;
+      ))
+    (->subsumptive
+     ((==ucs-itaiji-001	  . #x4E9A)	; &g2-U-i001+4E9A;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 14)	; ⼍
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
     (hanyu-dazidian	1 303 15)
