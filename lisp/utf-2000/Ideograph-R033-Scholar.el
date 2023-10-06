@@ -2178,15 +2178,21 @@
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
     (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
-      (=ucs		  . #x2FF3)	; ⿳
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
       )
      ((=>ucs@iwds-1	  . #x571F)	; &A-IWDSU+571F;
       (=>iwds-1		  .  0312)	; &A-IWDSU+571F;
       )
-     ((=ucs		  . #x5196)	; 冖
+     ((=>ucs-itaiji-001	  . #x4E9A)	; &A-U-i001+4E9A;
+      ))
+    (ideographic-structure@apparent
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=ucs		  . #x4E1A)	; 业
+     ((=>gt-k		  . 01189)	; &A-GT-K01189;
+      )
+     ((=>ucs@iwds-1	  . #x4E1A)	; &A-IWDSU+4E1A;
       ))
     (=ucs		. #x58F6)	; 壶
     ))
@@ -2199,14 +2205,20 @@
     (total-strokes	 . 10)
     (hanyu-dazidian	1 447 6)
     (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
-      (=ucs		  . #x2FF3)	; ⿳
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
       )
      ((=ucs		  . #x58EB)	; 士
       )
-     ((=ucs		  . #x5196)	; 冖
+     ((=ucs-itaiji-001	  . #x4E9A)	; &U-i001+4E9A;
+      ))
+    (ideographic-structure@apparent
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=ucs		  . #x4E1A)	; 业
+     ((=gt-k		  . 01189)	; &GT-K01189;
+      )
+     ((=ucs@unicode	  . #x4E1A)	; &G0-5235;
       ))
     (=ucs@unicode	. #x58F6)	; &G0-3A78;
     (=gb2312		. #x3A78)	; &G0-3A78; [26-88]
