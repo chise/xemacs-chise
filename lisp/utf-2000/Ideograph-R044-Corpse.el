@@ -3840,7 +3840,10 @@
     (=hanziku-3		. #xDFB2)	; &I-HZK03-DFB2;
     ))
 (define-char
-  '((<-denotational@usage
+  '((<-denotational@component
+     ((=>ucs@iwds-1	  . #x663C)	; &A-IWDSU+663C;
+      ))
+    (<-denotational@usage
      ((==>daijiten	  . 04542)	; &A2-DJT-04542;
       ))
     (ideographic-radical@r044 . 44)	; ⼫
@@ -3848,6 +3851,14 @@
     (ideographic-radical@r072 . 72)	; ⽇
     (ideographic-strokes@r072 . 5)
     (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
+      (=ucs		  . #x2FF5)	; ⿵
+      )
+     ((=ucs		  . #x5C3A)	; 尺
+      )
+     ((=ucs		  . #x65E6)	; 旦
+      ))
     (=ucs		. #x663C)	; 昼
     (=adobe-japan1-0	. 02985)	; &I-AJ1-02985;
     (=jis-x0208		. #x436B)	; &I-J90-436B; [35-75]
@@ -3868,15 +3879,15 @@
       (=adobe-japan1-0	  . 05105)	; &AJ1-05105;
       (=jis-x0208	  . #x5A6C)	; &I-J90-5A6C; [58-76]
       ))
+    (<-vulgar
+     ((=ucs@unicode	  . #x665D)	; &AJ1-05105;
+      (=adobe-japan1-0	  . 05105)	; &AJ1-05105;
+      (=daikanwa	  . 13948)	; &I-M-13948;
+      ))
+    (<-vulgar*sources
+     songyuan-yilai-suzipu daikanwa)
     (->subsumptive
      ((==gt		  . 17517)	; &g2-GT-17517;
-      (<-vulgar
-       ((=ucs@unicode	    . #x665D)	; &AJ1-05105;
-	(=adobe-japan1-0    . 05105)	; &AJ1-05105;
-	(=daikanwa	    . 13948)	; &I-M-13948;
-	))
-      (<-vulgar*sources
-       songyuan-yilai-suzipu daikanwa)
       (->subsumptive
        ((ideographic-radical . 44)	; ⼫
 	(ideographic-strokes . 6)
@@ -3917,6 +3928,23 @@
       (==ucs@cns	  . #x663C)	; &g2-CU+663C;
       (==cns11643-3	  . #x2C37)	; &g2-CU+663C; [12-23]
       ))
+    ))
+(define-char
+  '((<-denotational@component
+     ((=>ucs@iwds-1	  . #x663C)	; &A-IWDSU+663C;
+      ))
+    (ideographic-radical . 44)	; ⼫
+    (ideographic-strokes . 6)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5C3A)	; 尺
+      )
+     ((=ucs		  . #x4E14)	; 且
+      ))
+    (=ucs		. #x316B9)	; 𱚹
     ))
 (define-char
   '((ideographic-radical . 44)	; ⼫
@@ -8569,6 +8597,19 @@
       ))
     (=>ucs@iwds-1	. #x5C3F)	; &A-IWDSU+5C3F;
     (=>iwds-1		.  0060)	; &A-IWDSU+5C3F;
+    ))
+(define-char
+  '((ideographic-radical . 44)	; ⼫
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
+      (=ucs		  . #x2FF5)	; ⿵
+      )
+     ((=ucs		  . #x5C3A)	; 尺
+      )
+     ((=>ucs@component	  . #x4E14)	; &A-compU+4E14;
+      (=>iwds-1		  .  0114)	; &A-compU+4E14;
+      ))
+    (=>ucs@iwds-1	. #x663C)	; &A-IWDSU+663C;
     ))
 (define-char
   '((ideographic-radical . 44)	; ⼫
