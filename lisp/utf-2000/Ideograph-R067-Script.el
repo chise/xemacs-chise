@@ -329,10 +329,11 @@
     (=daikanwa		. 13453)	; &I-M-13453;
     (=shinjigen		.  1786)	; 斈
     (<-vulgar
-     ((=ucs		  . #x5B78)	; 學
+     ((=ucs@unicode	  . #x5B78)	; &AJ1-04619;
+      (=adobe-japan1-0	  . 04619)	; &AJ1-04619;
       (=jis-x0208	  . #x555C)	; &I-J90-555C; [53-60]
       (=daikanwa	  . 07033)	; &I-M-07033;
-      (=shinjigen	  .  1783)	; 學
+      (=shinjigen	  .  1783)	; &AJ1-04619;
       ))
     (<-vulgar*sources
      pianhai daikanwa shinjigen)
