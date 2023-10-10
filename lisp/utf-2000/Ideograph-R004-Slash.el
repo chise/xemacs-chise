@@ -6307,6 +6307,20 @@
     ))
 (define-char
   '((<-denotational
+     ((=ucs		  . #x200B9)	; 𠂹
+      ))
+    (ideographic-radical . 4)	; ⼃
+    (ideographic-strokes . 9)
+    (total-strokes	 . 10)
+    (=hanyo-denshi/tk	. 01000770)	; &HD-TK-01000770;
+    (=hanyo-denshi/tk/mf-01 . #x004D)	; &HD-TK-01000770;
+    (->subsumptive
+     ((==hanyo-denshi/tk  . 01000770)	; &g2-HD-TK-01000770;
+      (==hanyo-denshi/tk/mf-01 . #x004D)	; &g2-HD-TK-01000770;
+      ))
+    ))
+(define-char
+  '((<-denotational
      ((=>ucs@cognate	  . #x200B9)	; &A-cgnU+200B9;
       ))
     (ideographic-radical . 4)	; ⼃
