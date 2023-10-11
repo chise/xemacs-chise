@@ -6309,6 +6309,7 @@
      ((=>ucs@component	  . #x6797)	; &A-compU+6797;
       (=>iwds-1		  .  0229)	; &A-compU+6797;
       ))
+    (sound@ja/on	"koku")
     (=ucs		. #x23AD3)	; 𣫓
     ))
 (define-char
@@ -6327,7 +6328,17 @@
       )
      ((=ucs		  . #x233DF)	; 𣏟
       ))
-    (=daikanwa		. 16697)	; &M-16697;
+    (=mj		. 038941)	; &MJ038941;
+    (=koseki		. 189310)	; &MJ038941;
+    (=daikanwa		. 16697)	; &I-M-16697;
+    (<-formed
+     ((=mj		  . 006187)	; &MJ006187;
+      (=koseki		  . 542130)	; &MJ006187;
+      ))
+    (<-formed$_1*sources
+     jiyun koseki)
+    (<-formed*sources
+     jiyun koseki)
     (<-same
      ((=mj		  . 006187)	; &MJ006187;
       (=daikanwa	  . 47917)	; &I-M-47917;
@@ -6335,7 +6346,14 @@
     (<-same*sources
      jiyun daikanwa)
     (->subsumptive
-     ((==daikanwa	  . 16697)	; &g2-M-16697;
+     ((==mj		  . 038941)	; &g2-MJ038941;
+      (==koseki		  . 189310)	; &g2-MJ038941;
+      (==daikanwa	  . 16697)	; &g2-MJ038941;
+      (->subsumptive
+       ((===daikanwa	    . 16697)	; &R-M-16697;
+	)
+       ((===mj		    . 038941)	; &R-MJ038941;
+	))
       ))
     ))
 (define-char
@@ -7024,7 +7042,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=ucs		  . #x5B78)	; 學
+     ((=ucs@unicode	  . #x5B78)	; &AJ1-04619;
+      (=adobe-japan1-0	  . 04619)	; &AJ1-04619;
       )
      ((=ucs@unicode	  . #x6BB3)	; &MJ014908;
       (=mj		  . 014908)	; &MJ014908;
