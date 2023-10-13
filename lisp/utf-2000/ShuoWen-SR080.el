@@ -75,7 +75,16 @@
   '((shuowen-radical	. 80)	; 𦘒
     (=shuowen-jiguge	. 09212)	; &SW-JIGUGE-09212;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x2661B)	; 𦘛
+      )
+     ((=ucs		  . #x43CB)	; 䏋
+      )
      ((=ucs		  . #x2661C)	; 𦘜
+      ))
+    (<-ancient@shuowen
+     ((=shuowen-jiguge	  . 09211)	; &SW-JIGUGE-09211;
+      )
+     ((=ucs		  . #x8085)	; 肅
       ))
     (->subsumptive
      ((===shuowen-jiguge-A30 . 09712)	; &SW-JIGUGE30-09712;
