@@ -16497,12 +16497,32 @@
     (sound@ja/on/go	"gEu" "gaku")
     (sound@ja/on/kan	"kAu" "kaku")
     (=ucs		. #x6585)	; 斅
-    (=ks-x1001		. #x7C7A)	; &I-K0-7C7A; [92-90]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x6585)	; 斅
+      ))
+    (ideographic-radical . 66)	; ⽁
+    (ideographic-strokes . 16)
+    (total-strokes	 . 20)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs@unicode	  . #x5B78)	; &AJ1-04619;
+      (=adobe-japan1-0	  . 04619)	; &AJ1-04619;
+      )
+     ((=ucs@unicode	  . #x6534)	; &AJ1-05058;
+      (=adobe-japan1-0	  . 05058)	; &AJ1-05058;
+      ))
+    (=ucs@unicode	. #x6585)	; &JX2-2D68;
+    (=ks-x1001		. #x7C7A)	; &JX2-2D68; [92-90]
     (=jis-x0212		. #x4157)	; &I-JSP-4157; [33-55]
     (=cns11643-3	. #x5C41)	; &I-C3-5C41; [60-33]
     (=jis-x0213-2	. #x2D68)	; &I-JX2-2D68; [13-72]
     (=daikanwa		. 13431)	; &I-M-13431;
-    (=shinjigen		.  1784)	; 斅
+    (=daijiten		. 04315)	; &I-DJT-04315;
+    (=shinjigen		.  1784)	; &JX2-2D68;
     (=cbeta		. 00577)	; &I-CB00577;
     (=jef-china3	. #x49F8)	; &I-JC3-49F8;
     (<-ancient
@@ -16512,15 +16532,17 @@
     (<-ancient*sources
      zhengzitong)
     (<-original
-     ((=ucs		  . #x5B78)	; 學
+     ((=ucs@unicode	  . #x5B78)	; &AJ1-04619;
+      (=adobe-japan1-0	  . 04619)	; &AJ1-04619;
       (=jis-x0208	  . #x555C)	; &I-J90-555C; [53-60]
       (=daikanwa	  . 07033)	; &I-M-07033;
-      (=shinjigen	  .  1783)	; 學
+      (=shinjigen	  .  1783)	; &AJ1-04619;
       ))
     (<-original*sources
      shuowen yunhai daikanwa shinjigen)
     (<-same
-     ((=ucs		  . #x5B78)	; 學
+     ((=ucs@unicode	  . #x5B78)	; &AJ1-04619;
+      (=adobe-japan1-0	  . 04619)	; &AJ1-04619;
       (=daikanwa	  . 07033)	; &I-M-07033;
       )
      ((=ucs@unicode	  . #x654E)	; &AJ1-08471;
@@ -16562,6 +16584,8 @@
 	)
        ((===cbeta	    . 00577)	; &R-CB00577;
 	))
+      )
+     ((==daijiten	  . 04315)	; &g2-DJT-04315;
       ))
     ))
 (define-char
@@ -16595,7 +16619,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=ucs		  . #x5B78)	; 學
+     ((=ucs@unicode	  . #x5B78)	; &AJ1-04619;
+      (=adobe-japan1-0	  . 04619)	; &AJ1-04619;
       )
      ((=ucs		  . #x6535)	; 攵
       ))
@@ -17215,10 +17240,6 @@
     ))
 (define-char
   '((ideographic-radical . 66)	; ⽁
-    (==>ucs@bucs	. #x6585)	; &BUCS+6585;
-    ))
-(define-char
-  '((ideographic-radical . 66)	; ⽁
     (==>daijiten	. 04316)	; &A2-DJT-04316;
     ))
 (define-char
@@ -17234,4 +17255,11 @@
       ))
     (ideographic-radical . 66)	; ⽁
     (==>ucs@bucs	. #x656D)	; &BUCS+656D;
+    ))
+(define-char
+  '((<-denotational
+     ((==>daijiten	  . 02293)	; &A2-DJT-02293;
+      ))
+    (ideographic-radical . 66)	; ⽁
+    (==>ucs@bucs	. #x6585)	; &BUCS+6585;
     ))
