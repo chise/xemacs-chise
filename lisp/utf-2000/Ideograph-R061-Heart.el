@@ -22460,12 +22460,34 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=ucs		  . #x26612)	; 𦘒
+     ((=>ucs@component	  . #x26612)	; &A-compU+26612;
       )
      ((=gt-k		  . 02966)	; &GT-K02966;
       ))
     (=ucs		. #x2661B)	; 𦘛
-    (=cns11643-6	. #x486A)	; &I-C6-486A; [40-74]
+    (<-ancient
+     ((=ucs		  . #x8085)	; 肅
+      ))
+    (<-ancient$_1*sources
+     shuowen)
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2661B)	; 𦘛
+      ))
+    (ideographic-radical . 61)	; ⼼
+    (ideographic-strokes . 8)
+    (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x26612)	; 𦘒
+      )
+     ((=gt-k		  . 02966)	; &GT-K02966;
+      ))
+    (=ucs@iso		. #x2661B)	; &C6-486A;
+    (=cns11643-6	. #x486A)	; &C6-486A; [40-74]
     (=daikanwa		. 49103)	; &I-M-49103;
     (<-ancient
      ((=ucs@unicode	  . #x8085)	; &AJ1-06230;
