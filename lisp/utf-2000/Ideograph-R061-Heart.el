@@ -15632,13 +15632,30 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=ucs		  . #x26612)	; 𦘒
+     ((=>ucs@component	  . #x26612)	; &A-compU+26612;
       )
      ((=gt-k		  . 01944)	; &GT-K01944;
       ))
     (sound@ja/on	"syuku")
     (=ucs		. #x2267B)	; 𢙻
-    (=cns11643-6	. #x3F69)	; &I-C6-3F69; [31-73]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2267B)	; 𢙻
+      ))
+    (ideographic-radical . 61)	; ⼼
+    (ideographic-strokes . 7)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x26612)	; 𦘒
+      )
+     ((=gt-k		  . 01944)	; &GT-K01944;
+      ))
+    (=ucs@iso		. #x2267B)	; &C6-3F69;
+    (=cns11643-6	. #x3F69)	; &C6-3F69; [31-73]
     (=daikanwa		. 10656)	; &I-M-10656;
     (<-ancient
      ((=ucs@unicode	  . #x8085)	; &AJ1-06230;
