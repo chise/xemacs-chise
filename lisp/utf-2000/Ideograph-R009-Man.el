@@ -616,7 +616,10 @@
     (=ucs		. #x2B885)	; 𫢅
     ))
 (define-char
-  '((ideographic-radical . 9)	; ⼈
+  '((<-denotational@component
+     ((=>ucs@component	  . #x4E87)	; &A-compU+4E87;
+      ))
+    (ideographic-radical . 9)	; ⼈
     (ideographic-strokes . 1)
     (total-strokes	 . 3)
     (=+>big5-cdp	. #x8C74)	; &o-CDP-8C74;
