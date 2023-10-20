@@ -1265,6 +1265,39 @@
       ))
     ))
 (define-char
+  '((ideographic-radical . 79)	; ⽎
+    (ideographic-strokes . 6)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x200A4)	; 𠂤
+      )
+     ((=>ucs@iwds-1	  . #x6BB3)	; &A-IWDSU+6BB3;
+      (=>iwds-1		  .  22001)	; &A-IWDSU+6BB3;
+      ))
+    (=ucs		. #x2DBAB)	; 𭮫
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2DBAB)	; 𭮫
+      ))
+    (ideographic-radical . 79)	; ⽎
+    (ideographic-strokes . 6)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x200A4)	; 𠂤
+      )
+     ((=ucs@unicode	  . #x6BB3)	; &MJ014908;
+      (=mj		  . 014908)	; &MJ014908;
+      ))
+    (=ucs@iso		. #x2DBAB)	; &U-0002DBAB;
+    ))
+(define-char
   '((<-denotational
      ((=>ucs@cognate	  . #x2DBAD)	; &A-cgnU+2DBAD;
       ))
@@ -7071,6 +7104,7 @@
      ((=>ucs@iwds-1	  . #x6BB3)	; &A-IWDSU+6BB3;
       (=>iwds-1		  .  22001)	; &A-IWDSU+6BB3;
       ))
+    (sound@ja/on	"kaN")
     (=ucs		. #x23AE1)	; 𣫡
     ))
 (define-char
@@ -7090,18 +7124,36 @@
      ((=ucs@unicode	  . #x6BB3)	; &MJ014908;
       (=mj		  . 014908)	; &MJ014908;
       ))
-    (=ucs@iso		. #x23AE1)	; &C7-5350;
-    (=cns11643-7	. #x5350)	; &C7-5350; [51-48]
+    (=ucs@iso		. #x23AE1)	; &MJ038950;
+    (=mj		. 038950)	; &MJ038950;
+    (=cns11643-7	. #x5350)	; &I-C7-5350; [51-48]
+    (=koseki		. 189420)	; &MJ038950;
     (=daikanwa		. 16709)	; &I-M-16709;
+    (<-formed
+     ((=ucs@unicode	  . #x7AF7)	; &MJ019364;
+      (=mj		  . 019364)	; &MJ019364;
+      (=koseki		  . 289030)	; &MJ019364;
+      ))
+    (<-formed$_1*sources
+     jiyun koseki)
+    (<-formed*sources
+     jiyun koseki)
     (<-same
-     ((=ucs@unicode	  . #x7AF7)	; &C2-6952;
-      (=cns11643-2	  . #x6952)	; &C2-6952; [73-50]
+     ((=ucs@unicode	  . #x7AF7)	; &MJ019364;
+      (=mj		  . 019364)	; &MJ019364;
       (=daikanwa	  . 25834)	; &I-M-25834;
       ))
     (<-same*sources
      jiyun daikanwa)
     (->subsumptive
-     ((==daikanwa	  . 16709)	; &g2-M-16709;
+     ((==mj		  . 038950)	; &g2-MJ038950;
+      (==koseki		  . 189420)	; &g2-MJ038950;
+      (==daikanwa	  . 16709)	; &g2-MJ038950;
+      (->subsumptive
+       ((===daikanwa	    . 16709)	; &R-M-16709;
+	)
+       ((===mj		    . 038950)	; &R-MJ038950;
+	))
       )
      ((==ucs@iso	  . #x23AE1)	; &g2-IU-00023AE1;
       )
