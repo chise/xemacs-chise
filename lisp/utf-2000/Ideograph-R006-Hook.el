@@ -357,7 +357,10 @@
     (=hanziku-1		. #xAEA3)	; &I-HZK01-AEA3;
     ))
 (define-char
-  '((ideographic-radical@ucs . 6)	; ⼅
+  '((<-denotational@component
+     ((=>ucs@component	  . #x4E87)	; &A-compU+4E87;
+      ))
+    (ideographic-radical@ucs . 6)	; ⼅
     (ideographic-strokes@ucs . 2)
     (ideographic-radical@cns . 4)	; ⼃
     (ideographic-strokes@cns . 2)
