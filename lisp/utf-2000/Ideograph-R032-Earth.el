@@ -4350,6 +4350,23 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=ucs		  . #x2125A)	; 𡉚
+      ))
+    (ideographic-radical . 32)	; ⼟
+    (ideographic-strokes . 4)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x21CFF)	; 𡳿
+      )
+     ((=ucs		  . #x571F)	; 土
+      ))
+    (=ucs-itaiji-001	. #x2125A)	; &U-i001+2125A;
+    ))
+(define-char
   '((<-denotational@usage
      ((==>ucs@bucs	  . #x574F)	; &BUCS+574F;
       )
