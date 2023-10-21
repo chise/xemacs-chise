@@ -1575,6 +1575,23 @@
     (=ucs		. #x250EF)	; 𥃯
     ))
 (define-char
+  '((<-denotational@component
+     ((=>ucs@iwds-1	  . #x250EF)	; &A-IWDSU+250EF;
+      ))
+    (ideographic-radical . 109)	; ⽬
+    (ideographic-strokes . 3)
+    (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x76EE)	; 目
+      )
+     ((=ucs		  . #x4E0C)	; 丌
+      ))
+    (=ucs-itaiji-007	. #x5177)	; &U-i007+5177;
+    ))
+(define-char
   '((ideographic-radical . 109)	; ⽬
     (ideographic-strokes . 3)
     (total-strokes	 . 8)

@@ -4183,14 +4183,17 @@
      ((=ucs@cns		  . #x61A8)	; &AJ1-14554;
       (=ucs@jis		  . #x61A8)	; &AJ1-14554;
       (=adobe-japan1-4	  . 14554)	; &AJ1-14554;
+      )
+     ((=ucs@unicode	  . #x7AF7)	; &MJ019364;
+      (=mj		  . 019364)	; &MJ019364;
       ))
     (<-interchangeable
      ((=ucs@unicode	  . #x60C2)	; &AJ1-21562;
       (=adobe-japan1-6	  . 21562)	; &AJ1-21562;
       (=daikanwa	  . 10751)	; &I-M-10751;
       )
-     ((=ucs@unicode	  . #x7AF7)	; &C2-6952;
-      (=cns11643-2	  . #x6952)	; &C2-6952; [73-50]
+     ((=ucs@unicode	  . #x7AF7)	; &MJ019364;
+      (=mj		  . 019364)	; &MJ019364;
       (=daikanwa	  . 25834)	; &I-M-25834;
       )
      ((=ucs@unicode	  . #x6B3F)	; &AJ1-19475;

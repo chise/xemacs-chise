@@ -1778,7 +1778,10 @@
     (=gb12345		. #x7D6B)	; 乊 [93-75]
     ))
 (define-char
-  '((ideographic-radical@ucs . 6)	; ⼅
+  '((<-denotational@component
+     ((=>ucs@component	  . #x4E87)	; &A-compU+4E87;
+      ))
+    (ideographic-radical@ucs . 6)	; ⼅
     (ideographic-strokes@ucs . 2)
     (ideographic-radical@cns . 4)	; ⼃
     (ideographic-strokes@cns . 2)
@@ -1811,6 +1814,27 @@
     (=ucs-var-002	. #x4E87)	; &U-v002+4E87;
     (->subsumptive
      ((==ucs-var-002	  . #x4E87)	; &g2-U-v002+4E87;
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x4E87)	; 亇
+      ))
+    (ideographic-radical . 4)	; ⼃
+    (ideographic-strokes . 2)
+    (total-strokes	 . 3)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((name*		  . "ideographic component person for top")
+      (=ucs		  . #x20089)	; 𠂉
+      )
+     ((=ucs		  . #x4E28)	; 丨
+      ))
+    (=ucs-var-001	. #x4E87)	; &U-v001+4E87;
+    (->subsumptive
+     ((==ucs-var-001	  . #x4E87)	; &g2-U-v001+4E87;
       ))
     ))
 (define-char
@@ -2051,6 +2075,12 @@
     (->subsumptive
      ((==big5-cdp	  . #x89CA)	; &g2-CDP-89CA;
       ))
+    ))
+(define-char
+  '((ideographic-radical . 4)	; ⼃
+    (ideographic-strokes . 2)
+    (total-strokes	 . 3)
+    (=>ucs@component	. #x4E87)	; &A-compU+4E87;
     ))
 (define-char
   '((<-denotational

@@ -1034,10 +1034,13 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 132)	; ⾃
+  '((<-denotational
+     ((=>ucs@cognate	  . #x2E35B)	; &A-cgnU+2E35B;
+      ))
+    (ideographic-radical . 132)	; ⾃
     (ideographic-strokes . 7)
     (total-strokes	 . 13)
-    (ideographic-structure
+    (ideographic-structure@apparent
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
       (=ucs		  . #x2FF3)	; ⿳
       )
@@ -1056,7 +1059,7 @@
     (ideographic-radical . 132)	; ⾃
     (ideographic-strokes . 7)
     (total-strokes	 . 13)
-    (ideographic-structure
+    (ideographic-structure@apparent
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
       (=ucs		  . #x2FF3)	; ⿳
       )
@@ -1086,6 +1089,10 @@
        ((===mj		    . 058410)	; &R-MJ058410;
 	))
       ))
+    ))
+(define-char
+  '((ideographic-radical . 132)	; ⾃
+    (=>ucs@cognate	. #x2E35B)	; &A-cgnU+2E35B;
     ))
 (define-char
   '((ideographic-radical . 132)	; ⾃
