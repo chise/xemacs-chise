@@ -2372,14 +2372,24 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 52)	; ⼳
+  '((<-denotational@component
+     ((=>ucs@iwds-1	  . #x221D5)	; &A-IWDSU+221D5;
+      ))
+    (ideographic-radical . 52)	; ⼳
     (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-      (=ucs		  . #x2FF1)	; ⿱
+     ((name		  . "IDEOGRAPHIC DESCRIPTION CHARACTER OVERLAID")
+      (=ucs		  . #x2FFB)	; ⿻
       )
-     ((=ucs		  . #x5E7D)	; 幽
+     ((=ucs		  . #x20677)	; 𠙷
       )
-     ((=ucs		  . #x5E7D)	; 幽
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((=ucs		    . #x221B6)	; 𢆶
+	)
+       ((=ucs		    . #x221B6)	; 𢆶
+	))
       ))
     (=>ucs-itaiji-004	. #x386D)	; &A-U-i004+386D;
     ))
