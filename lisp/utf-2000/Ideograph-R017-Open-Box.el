@@ -2728,7 +2728,10 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 17)	; ⼐
+  '((<-denotational@component
+     ((=>ucs@iwds-1	  . #x221D5)	; &A-IWDSU+221D5;
+      ))
+    (ideographic-radical . 17)	; ⼐
     (ideographic-strokes . 16)
     (total-strokes	 . 18)
     (ideographic-structure
@@ -2887,6 +2890,10 @@
   '((ideographic-radical . 17)	; ⼐
     (=>ucs@iwds-1	. #x51FA)	; &A-IWDSU+51FA;
     (=>big5-cdp@iwds-1	. #x88C6)	; &A-IWDSU+51FA;
+    ))
+(define-char
+  '((ideographic-radical . 17)	; ⼐
+    (=>ucs@iwds-1	. #x221D5)	; &A-IWDSU+221D5;
     ))
 (define-char
   '((ideographic-radical . 17)	; ⼐
