@@ -1595,7 +1595,7 @@
     (<-denotational@usage
      ((==>ucs@bucs	  . #x95DC)	; &BUCS+95DC;
       )
-     ((==>daijiten	  . 08396)	; &A2-DJT-08396;
+     ((==>ucs@bucs	  . #x7B11)	; &BUCS+7B11;
       ))
     (ideographic-radical . 12)	; ⼋
     (ideographic-strokes . 4)
