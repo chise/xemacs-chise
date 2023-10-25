@@ -380,6 +380,7 @@
 	  ( =ucs-itaiji-010		      "U-i010+" 4 X)
 	  ( =ucs-itaiji-011		      "U-i011+" 4 X)
 	  ( =ucs-itaiji-012		      "U-i012+" 4 X)
+	  ( =ucs-itaiji-013		      "U-i013+" 4 X)
 	  ( =ucs-itaiji-014		      "U-i014+" 4 X)
 	  ( =ucs-itaiji-016		      "U-i016+" 4 X)
 	  ( =ucs-itaiji-018		      "U-i018+" 4 X)

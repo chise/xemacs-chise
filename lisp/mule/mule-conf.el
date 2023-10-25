@@ -6541,6 +6541,17 @@
 		  min-code #x2E00
 		  max-code #x9FCC
 		  registry "ucs\\.itaiji014-0"))
+  (make-charset '=ucs-sip-itaiji-014
+		"uXXXX-itaiji-014 glyphs in SIP"
+		'(long-name	"UCS-SIP-itaiji-014"
+		  chars		256
+		  dimension	2
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  mother	=ucs-itaiji-014
+		  min-code #x20000 max-code #x2FFFF
+		  registry "ucs00\\.itaiji014-2"))
   (make-charset '=>ucs-itaiji-014
 		"Abstract characters corresponding with uXXXX-itaiji-014 of GlyphWiki"
 		'(long-name	"UCS-itaiji-014"
