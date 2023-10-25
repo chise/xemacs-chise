@@ -359,6 +359,24 @@
       ))
     ))
 (define-char
+  '((<-denotational@usage
+     ((==>ucs@bucs	  . #x7B49)	; &BUCS+7B49;
+      ))
+    (ideographic-radical . 64)	; ⼿
+    (ideographic-strokes . 1)
+    (total-strokes	 . 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
+      (=ucs		  . #x2FFA)	; ⿺
+      )
+     ((=ucs@jis		  . #x624D)	; &AJ1-02109;
+      (=adobe-japan1-0	  . 02109)	; &AJ1-02109;
+      )
+     ((=ucs		  . #x4E36)	; 丶
+      ))
+    (=daijiten		. 03662)	; &DJT-03662;
+    ))
+(define-char
   '((ideographic-radical . 64)	; ⼿
     (ideographic-strokes . 2)
     (total-strokes	 . 5)
@@ -6733,7 +6751,8 @@
       (=daikanwa	  . 12389)	; &I-M-12389;
       ))
     (<-same
-     ((=ucs		  . #x7B2A)	; 笪
+     ((=ucs@unicode	  . #x7B2A)	; &AJ1-18280;
+      (=adobe-japan1-5	  . 18280)	; &AJ1-18280;
       (=daikanwa	  . 25941)	; &I-M-25941;
       )
      ((=ucs@unicode	  . #x63ED)	; &JX1-7473;
