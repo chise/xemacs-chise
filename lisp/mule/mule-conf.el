@@ -6496,6 +6496,28 @@
 		  min-code #x20000 max-code #x2FFFF
 		  registry "ucs00\\.itaiji012-2"))
 
+  (make-charset '=ucs-itaiji-013
+		"uXXXX-itaiji-013 glyphs of GlyphWiki"
+		'(long-name	"UCS-itaiji-013"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+                  ;; =>iso-ir	177
+		  mother	=ucs))
+  (make-charset '=ucs-sip-itaiji-013
+		"uXXXX-itaiji-013 glyphs in SIP"
+		'(long-name	"UCS-SIP-itaiji-013"
+		  chars		256
+		  dimension	2
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  mother	=ucs-itaiji-013
+		  min-code #x20000 max-code #x2FFFF
+		  registry "ucs00\\.itaiji013-2"))
+
   (make-charset '=ucs-itaiji-014
 		"uXXXX-itaiji-014 glyphs of GlyphWiki"
 		'(long-name	"UCS-itaiji-014"
