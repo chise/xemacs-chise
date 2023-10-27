@@ -29608,6 +29608,7 @@
       )
      ((=ucs		  . #x8200)	; 舀
       ))
+    (sound@ja/on	"kaN")
     (=ucs		. #x586A)	; 塪
     ))
 (define-char
@@ -29623,10 +29624,17 @@
       )
      ((=gt-k		  . 00199)	; &GT-K00199;
       )
-     ((=adobe-japan1-5	  . 19722)	; &AJ1-19722;
+     ((=mj		  . 021324)	; &MJ021324;
       ))
     (=daikanwa		. 05384)	; &M-05384;
     (=cbeta		. 00693)	; &I-CB00693;
+    (<-wrong
+     ((=ucs@unicode	  . #x57F3)	; &C2-343C;
+      (=cns11643-2	  . #x343C)	; &C2-343C; [20-28]
+      (=daikanwa	  . 05186)	; &I-M-05186;
+      ))
+    (<-wrong*sources
+     daikanwa)
     (->subsumptive
      ((==daikanwa	  . 05384)	; &g2-M-05384;
       (==cbeta		  . 00693)	; &g2-M-05384;
@@ -29651,9 +29659,8 @@
       )
      ((=gt-k		  . 00199)	; &GT-K00199;
       )
-     ((=ucs@unicode	  . #x8200)	; &C1-576A;
-      (=gb2312		  . #x5228)	; &C1-576A; [50-08]
-      (=cns11643-1	  . #x576A)	; &I-C1-576A; [55-74]
+     ((=ucs@unicode	  . #x8200)	; &MJ021325;
+      (=mj		  . 021325)	; &MJ021325;
       ))
     (=ucs@unicode	. #x586A)	; &C3-4059;
     (=ucs@JP/hanazono	. nil)
