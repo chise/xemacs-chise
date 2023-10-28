@@ -47739,8 +47739,8 @@
       )
      ((=ucs		  . #x4EBB)	; 亻
       )
-     ((=ucs@unicode	  . #x81FF)	; &DJT-09623;
-      (=daijiten	  . 09623)	; &DJT-09623;
+     ((=ucs@unicode	  . #x81FF)	; &MJ021322;
+      (=mj		  . 021322)	; &MJ021322;
       ))
     (=ucs@unicode	. #x505B)	; &MJ006921;
     (=mj		. 006921)	; &MJ006921;
@@ -48052,6 +48052,8 @@
     (<-formed
      ((=ucs@cns		  . #x50F7)	; &MJ007118;
       (=mj		  . 007118)	; &MJ007118;
+      )
+     ((=mj		  . 035874)	; &MJ035874;
       ))
     (<-formed$_1*sources
      shuowen-zhu)
@@ -58103,6 +58105,8 @@
       )
      ((=ucs		  . #x8200)	; 舀
       ))
+    (sound@ja/on/go	"biti")
+    (sound@ja/on/kan	"hitu")
     (=ucs		. #x202EF)	; 𠋯
     ))
 (define-char
@@ -58118,11 +58122,20 @@
       )
      ((=ucs		  . #x4EBB)	; 亻
       )
-     ((=adobe-japan1-5	  . 19722)	; &AJ1-19722;
+     ((=mj		  . 021324)	; &MJ021324;
       ))
-    (=daikanwa		. 00988)	; &M-00988;
+    (=mj		. 030710)	; &MJ030710;
+    (=koseki		. 011470)	; &MJ030710;
+    (=daikanwa		. 00988)	; &I-M-00988;
     (->subsumptive
-     ((==daikanwa	  . 00988)	; &g2-M-00988;
+     ((==mj		  . 030710)	; &g2-MJ030710;
+      (==koseki		  . 011470)	; &g2-MJ030710;
+      (==daikanwa	  . 00988)	; &g2-MJ030710;
+      (->subsumptive
+       ((===daikanwa	    . 00988)	; &R-M-00988;
+	)
+       ((===mj		    . 030710)	; &R-MJ030710;
+	))
       ))
     ))
 (define-char
@@ -58139,9 +58152,8 @@
       )
      ((=ucs		  . #x4EBB)	; 亻
       )
-     ((=ucs@unicode	  . #x8200)	; &C1-576A;
-      (=gb2312		  . #x5228)	; &C1-576A; [50-08]
-      (=cns11643-1	  . #x576A)	; &I-C1-576A; [55-74]
+     ((=ucs@unicode	  . #x8200)	; &MJ021325;
+      (=mj		  . 021325)	; &MJ021325;
       ))
     (=ucs@iso		. #x202EF)	; &C5-3656;
     (=cns11643-5	. #x3656)	; &C5-3656; [22-54]
