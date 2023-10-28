@@ -10987,8 +10987,9 @@
       (=cns11643-6	  . #x2F22)	; &C6-2F22; [15-02]
       (=daikanwa	  . 02005)	; &I-M-02005;
       (<-vulgar
-       ((=ucs@iso	    . #x2075E)	; &M-02079;
-	(=daikanwa	    . 02079)	; &M-02079;
+       ((=ucs@iso	    . #x2075E)	; &MJ031361;
+	(=mj		    . 031361)	; &MJ031361;
+	(=daikanwa	    . 02079)	; &I-M-02079;
 	))
       (<-vulgar*sources
        zhengzitong daikanwa)
@@ -15433,18 +15434,24 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=ucs@unicode	  . #x81FF)	; &DJT-09623;
-      (=daijiten	  . 09623)	; &DJT-09623;
+     ((=ucs@unicode	  . #x81FF)	; &MJ021322;
+      (=mj		  . 021322)	; &MJ021322;
       )
      ((=ucs		  . #x5202)	; 刂
       ))
-    (=ucs@iso		. #x2075E)	; &M-02079;
-    (=daikanwa		. 02079)	; &M-02079;
+    (=ucs@iso		. #x2075E)	; &MJ031361;
+    (=mj		. 031361)	; &MJ031361;
+    (=koseki		. 024380)	; &MJ031361;
+    (=daikanwa		. 02079)	; &I-M-02079;
     (->subsumptive
-     ((==ucs@iso	  . #x2075E)	; &g2-M-02079;
-      (==daikanwa	  . 02079)	; &g2-M-02079;
+     ((==ucs@iso	  . #x2075E)	; &g2-MJ031361;
+      (==mj		  . 031361)	; &g2-MJ031361;
+      (==koseki		  . 024380)	; &g2-MJ031361;
+      (==daikanwa	  . 02079)	; &g2-MJ031361;
       (->subsumptive
        ((===daikanwa	    . 02079)	; &R-M-02079;
+	)
+       ((===mj		    . 031361)	; &R-MJ031361;
 	)
        ((===ucs@iso	    . #x2075E)	; &R-U-0002075E;
 	))
