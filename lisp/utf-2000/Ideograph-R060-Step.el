@@ -11206,6 +11206,8 @@
       )
      ((=ucs		  . #x81FF)	; 臿
       ))
+    (sound@ja/on/go	"sEHu" "zEHu")
+    (sound@ja/on/kan	"sAHu" "zAHu")
     (=ucs		. #x22523)	; 𢔣
     ))
 (define-char
@@ -11221,12 +11223,28 @@
       )
      ((=ucs		  . #x5F73)	; 彳
       )
-     ((=ucs@unicode	  . #x81FF)	; &DJT-09623;
-      (=daijiten	  . 09623)	; &DJT-09623;
+     ((=ucs@unicode	  . #x81FF)	; &MJ021322;
+      (=mj		  . 021322)	; &MJ021322;
       ))
     (=mj		. 035874)	; &MJ035874;
     (=koseki		. 114990)	; &MJ035874;
     (=daikanwa		. 10180)	; &I-M-10180;
+    (->formed
+     ((=daikanwa	  . 39007)	; &M-39007;
+      )
+     ((=daikanwa	  . 37232)	; &M-37232;
+      )
+     ((=ucs		  . #x505E)	; 偞
+      (=daikanwa	  . 00867)	; &I-M-00867;
+      ))
+    (->formed$_1*sources
+     jiyun daikanwa)
+    (->formed$_2*sources
+     jiyun daikanwa)
+    (->formed$_3*sources
+     jiyun daikanwa)
+    (->formed*sources
+     jiyun daikanwa)
     (->subsumptive
      ((==mj		  . 035874)	; &g2-MJ035874;
       (==koseki		  . 114990)	; &g2-MJ035874;
