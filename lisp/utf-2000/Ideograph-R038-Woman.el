@@ -29608,6 +29608,8 @@
      ((=>ucs@component	  . #x81FF)	; &A-compU+81FF;
       (=>iwds-1		  .  0098)	; &A-compU+81FF;
       ))
+    (sound@ja/on/go	"tEHu" "sEHu")
+    (sound@ja/on/kan	"tEHu" "sAHu")
     (=ucs		. #x36FC)	; 㛼
     ))
 (define-char
@@ -29623,8 +29625,8 @@
       )
      ((=ucs		  . #x5973)	; 女
       )
-     ((=ucs@unicode	  . #x81FF)	; &DJT-09623;
-      (=daijiten	  . 09623)	; &DJT-09623;
+     ((=ucs@unicode	  . #x81FF)	; &MJ021322;
+      (=mj		  . 021322)	; &MJ021322;
       ))
     (=ucs@unicode	. #x36FC)	; &MJ000663;
     (=mj		. 000663)	; &MJ000663;
@@ -35404,6 +35406,8 @@
       )
      ((=ucs		  . #x8200)	; 舀
       ))
+    (sound@ja/on/go	"tou" "Eu")
+    (sound@ja/on/kan	"tAu" "Eu")
     (=ucs		. #x5ACD)	; 嫍
     (=big5		. #xDD45)	; &I-B-DD45;
     ))
@@ -35420,7 +35424,7 @@
       )
      ((=ucs		  . #x5973)	; 女
       )
-     ((=adobe-japan1-5	  . 19722)	; &AJ1-19722;
+     ((=mj		  . 021324)	; &MJ021324;
       ))
     (=mj		. 009911)	; &MJ009911;
     (=koseki		. 075430)	; &MJ009911;
@@ -35449,9 +35453,8 @@
       )
      ((=ucs		  . #x5973)	; 女
       )
-     ((=ucs@unicode	  . #x8200)	; &C1-576A;
-      (=gb2312		  . #x5228)	; &C1-576A; [50-08]
-      (=cns11643-1	  . #x576A)	; &I-C1-576A; [55-74]
+     ((=ucs@unicode	  . #x8200)	; &MJ021325;
+      (=mj		  . 021325)	; &MJ021325;
       ))
     (=ucs@unicode	. #x5ACD)	; &C2-424B;
     (=ucs@JP/hanazono	. nil)
@@ -42373,6 +42376,16 @@
   '((ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 12)
     (total-strokes	 . 15)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5973)	; 女
+      )
+     ((=ucs		  . #x5C0B)	; 尋
+      ))
+    (sound@ja/on/go	"ziN")
+    (sound@ja/on/kan	"siN")
     (=ucs		. #x3726)	; 㜦
     ))
 (define-char
@@ -48156,6 +48169,8 @@
       )
      ((=ucs		  . #x9EBC)	; 麼
       ))
+    (sound@ja/on/go	"ma")
+    (sound@ja/on/kan	"ba")
     (=ucs		. #x5B24)	; 嬤
     ))
 (define-char
