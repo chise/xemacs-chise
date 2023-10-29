@@ -48168,9 +48168,8 @@
       )
      ((=ucs		  . #x5FC4)	; 忄
       )
-     ((=ucs@iso		  . #x26977)	; &C6-6074;
-      (=cns11643-6	  . #x6074)	; &C6-6074; [64-84]
-      (=daikanwa	  . 30215)	; &I-M-30215;
+     ((=ucs@iso		  . #x26977)	; &MJ045995;
+      (=mj		  . 045995)	; &MJ045995;
       ))
     (=ucs@iso		. #x228F9)	; &U-000228F9;
     ))
@@ -48686,7 +48685,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=hanyo-denshi/ks	  . 337400)	; &HD-KS-337400;
+     ((=hanyo-denshi/ks	  . 337400)	; &MJ058419;
       )
      ((=ucs		  . #x5FC3)	; 心
       ))
@@ -53678,6 +53677,11 @@
     (==>daijiten	. 03245)	; &BUCS+6028;
     ))
 (define-char
+  '((ideographic-radical . 61)	; ⼼
+    (==>ucs@bucs	. #x6168)	; &BUCS+6168;
+    (==>daijiten	. 03463)	; &BUCS+6168;
+    ))
+(define-char
   '((ideographic-radical@r040 . 40)	; ⼧
     (ideographic-radical@r061 . 61)	; ⼼
     (==>ucs@bucs	. #x61B2)	; &BUCS+61B2;
@@ -53827,11 +53831,6 @@
   '((ideographic-radical . 61)	; ⼼
     (==>ucs@bucs	. #x6137)	; &BUCS+6137;
     (==>daijiten	. 03425)	; &BUCS+6137;
-    ))
-(define-char
-  '((ideographic-radical . 61)	; ⼼
-    (==>ucs@bucs	. #x6168)	; &BUCS+6168;
-    (==>daijiten	. 03463)	; &BUCS+6168;
     ))
 (define-char
   '((ideographic-radical . 61)	; ⼼
