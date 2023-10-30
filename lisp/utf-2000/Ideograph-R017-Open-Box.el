@@ -2498,6 +2498,8 @@
       )
      ((=ucs		  . #x8200)	; 舀
       ))
+    (sound@ja/on/go	"tou")
+    (sound@ja/on/kan	"tAu")
     (=ucs		. #x20698)	; 𠚘
     ))
 (define-char
@@ -2515,9 +2517,33 @@
      ((=ucs@unicode	  . #x51F5)	; &AJ1-04248;
       (=adobe-japan1-0	  . 04248)	; &AJ1-04248;
       )
-     ((=adobe-japan1-5	  . 19722)	; &AJ1-19722;
+     ((=mj		  . 021324)	; &MJ021324;
       ))
-    (=daikanwa		. 01836)	; &M-01836;
+    (=mj		. 031227)	; &MJ031227;
+    (=koseki		. 021650)	; &MJ031227;
+    (=daikanwa		. 01836)	; &I-M-01836;
+    (->formed
+     ((=mj		  . 031693)	; &MJ031693;
+      (=daikanwa	  . 02642)	; &I-M-02642;
+      )
+     ((=mj		  . 031234)	; &MJ031234;
+      (=daikanwa	  . 49274)	; &I-M-49274;
+      ))
+    (->formed$_1*sources
+     daikanwa)
+    (->formed*sources
+     daikanwa)
+    (->formed@jiyun
+     ((=daikanwa	  . 19708)	; &M-19708;
+      ))
+    (->formed@jiyun*sources
+     daikanwa)
+    (->formed@shuowen
+     ((=mj		  . 031234)	; &MJ031234;
+      (=daikanwa	  . 49274)	; &I-M-49274;
+      ))
+    (->formed@shuowen*sources
+     daikanwa)
     (->subsumptive
      ((==daikanwa	  . 01836)	; &g2-M-01836;
       (->subsumptive
@@ -2525,6 +2551,9 @@
 	)
        ((=hanziku-1	    . #xE5DF)	; &HZK01-E5DF;
 	))
+      )
+     ((==mj		  . 031227)	; &g2-MJ031227;
+      (==koseki		  . 021650)	; &g2-MJ031227;
       ))
     ))
 (define-char
@@ -2541,9 +2570,8 @@
      ((=ucs@unicode	  . #x51F5)	; &AJ1-04248;
       (=adobe-japan1-0	  . 04248)	; &AJ1-04248;
       )
-     ((=ucs@unicode	  . #x8200)	; &C1-576A;
-      (=gb2312		  . #x5228)	; &C1-576A; [50-08]
-      (=cns11643-1	  . #x576A)	; &I-C1-576A; [55-74]
+     ((=ucs@unicode	  . #x8200)	; &MJ021325;
+      (=mj		  . 021325)	; &MJ021325;
       ))
     (=ucs@iso		. #x20698)	; &C5-365D;
     (=cns11643-5	. #x365D)	; &C5-365D; [22-61]
@@ -2873,9 +2901,8 @@
       )
      ((=big5-cdp	  . #x867A)	; &CDP-867A;
       )
-     ((=ucs@unicode	  . #x8200)	; &C1-576A;
-      (=gb2312		  . #x5228)	; &C1-576A; [50-08]
-      (=cns11643-1	  . #x576A)	; &I-C1-576A; [55-74]
+     ((=ucs@unicode	  . #x8200)	; &MJ021325;
+      (=mj		  . 021325)	; &MJ021325;
       ))
     (=ucs@iso		. #x206A1)	; &C7-4E3E;
     (=cns11643-7	. #x4E3E)	; &C7-4E3E; [46-30]
