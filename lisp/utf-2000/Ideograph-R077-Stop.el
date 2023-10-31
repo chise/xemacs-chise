@@ -4864,6 +4864,14 @@
     (ideographic-radical . 77)	; ⽌
     (ideographic-strokes . 8)
     (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs		  . #x6B6C)	; 歬
+      )
+     ((=ucs		  . #x5202)	; 刂
+      ))
+    (ideographic-structure@apparent
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
@@ -4881,6 +4889,15 @@
     (ideographic-strokes . 8)
     (total-strokes	 . 12)
     (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs@unicode	  . #x6B6C)	; &AJ1-17891;
+      (=adobe-japan1-5	  . 17891)	; &AJ1-17891;
+      )
+     ((=ucs		  . #x5202)	; 刂
+      ))
+    (ideographic-structure@apparent
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
