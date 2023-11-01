@@ -5243,6 +5243,8 @@
       )
      ((=ucs		  . #x7FD2)	; 習
       ))
+    (sound@ja/on/go	"ZIHu")
+    (sound@ja/on/kan	"sIHu")
     (=ucs		. #x4481)	; 䒁
     ))
 (define-char
@@ -5262,19 +5264,32 @@
       (=ks-x1001	  . #x6327)	; &GT-36924; [67-07]
       (=daikanwa	  . 28672)	; &I-M-28672;
       ))
-    (=daikanwa		. 30521)	; &M-30521;
+    (=mj		. 003946)	; &MJ003946;
+    (=koseki		. 340660)	; &MJ003946;
+    (=daikanwa		. 30521)	; &I-M-30521;
     (<-formed
-     ((=daikanwa	  . 26395)	; &M-26395;
+     ((=mj		  . 043887)	; &MJ043887;
+      (=koseki		  . 295100)	; &MJ043887;
       ))
+    (<-formed$_1*sources
+     jiyun koseki)
     (<-formed*sources
-     jiyun)
+     jiyun koseki)
     (<-same
-     ((=daikanwa	  . 26395)	; &M-26395;
+     ((=mj		  . 043887)	; &MJ043887;
+      (=daikanwa	  . 26395)	; &I-M-26395;
       ))
     (<-same*sources
      jiyun daikanwa)
     (->subsumptive
-     ((==daikanwa	  . 30521)	; &g2-M-30521;
+     ((==mj		  . 003946)	; &g2-MJ003946;
+      (==koseki		  . 340660)	; &g2-MJ003946;
+      (==daikanwa	  . 30521)	; &g2-MJ003946;
+      (->subsumptive
+       ((===daikanwa	    . 30521)	; &R-M-30521;
+	)
+       ((===mj		    . 003946)	; &R-MJ003946;
+	))
       ))
     ))
 (define-char
@@ -7358,21 +7373,34 @@
       )
      ((=ucs		  . #x821F)	; 舟
       ))
-    (=ucs@iso		. #x26ABF)	; &C4-6932;
-    (=cns11643-4	. #x6932)	; &C4-6932; [73-18]
+    (=ucs@iso		. #x26ABF)	; &MJ046236;
+    (=mj		. 046236)	; &MJ046236;
+    (=cns11643-4	. #x6932)	; &I-C4-6932; [73-18]
+    (=koseki		. 341370)	; &MJ046236;
     (=daikanwa		. 30584)	; &I-M-30584;
     (<-formed
-     ((=daikanwa	  . 26395)	; &M-26395;
+     ((=mj		  . 043887)	; &MJ043887;
+      (=koseki		  . 295100)	; &MJ043887;
       ))
+    (<-formed$_1*sources
+     jiyun koseki mj)
     (<-formed*sources
-     jiyun)
+     jiyun koseki mj)
     (<-same
-     ((=daikanwa	  . 26395)	; &M-26395;
+     ((=mj		  . 043887)	; &MJ043887;
+      (=daikanwa	  . 26395)	; &I-M-26395;
       ))
     (<-same*sources
      jiyun daikanwa)
     (->subsumptive
-     ((==daikanwa	  . 30584)	; &g2-M-30584;
+     ((==mj		  . 046236)	; &g2-MJ046236;
+      (==koseki		  . 341370)	; &g2-MJ046236;
+      (==daikanwa	  . 30584)	; &g2-MJ046236;
+      (->subsumptive
+       ((===daikanwa	    . 30584)	; &R-M-30584;
+	)
+       ((===mj		    . 046236)	; &R-MJ046236;
+	))
       )
      ((==ucs@iso	  . #x26ABF)	; &g2-IU-00026ABF;
       )
