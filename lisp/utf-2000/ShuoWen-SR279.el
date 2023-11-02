@@ -668,6 +668,8 @@
   '((shuowen-radical	. 279)	; 网
     (=shuowen-jiguge	. 25828)	; &SW-JIGUGE-25828;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x26331)	; 𦌱
+      )
      ((=ucs		  . #x2632D)	; 𦌭
       ))
     (->subsumptive
@@ -682,7 +684,18 @@
   '((shuowen-radical	. 279)	; 网
     (=shuowen-jiguge	. 25829)	; &SW-JIGUGE-25829;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x2634A)	; 𦍊
+      )
+     ((=ucs		  . #x26348)	; 𦍈
+      )
      ((=ucs		  . #x7F88)	; 羈
+      ))
+    (<-formed@shuowen
+     ((=shuowen-jiguge	  . 25828)	; &SW-JIGUGE-25828;
+      )
+     ((=ucs		  . #x26331)	; 𦌱
+      )
+     ((=ucs		  . #x2632D)	; 𦌭
       ))
     (->subsumptive
      ((===shuowen-jiguge-A30 . 26329)	; &SW-JIGUGE30-26329;

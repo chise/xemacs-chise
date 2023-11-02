@@ -1580,6 +1580,11 @@
       )
      ((=ucs		  . #x27037)	; 𧀷
       ))
+    (<-formed@shuowen
+     ((=shuowen-jiguge	  . 01900)	; &SW-JIGUGE-01900;
+      )
+     ((=ucs		  . #x8541)	; 蕁
+      ))
     (->subsumptive
      ((===shuowen-jiguge-A30 . 01901)	; &SW-JIGUGE30-01901;
       )

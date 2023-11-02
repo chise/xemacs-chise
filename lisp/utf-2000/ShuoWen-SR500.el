@@ -859,6 +859,8 @@
     (<-Small-Seal@shuowen
      ((=ucs		  . #x28EAB)	; 𨺫
       )
+     ((=ucs		  . #x26973)	; 𦥳
+      )
      ((=ucs		  . #x20CCB)	; 𠳋
       ))
     (->subsumptive

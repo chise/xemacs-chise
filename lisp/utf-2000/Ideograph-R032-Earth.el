@@ -2122,11 +2122,53 @@
   '((ideographic-radical . 32)	; ⼟
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
-    (hanyu-dazidian	1 419 2)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>ucs@component	  . #x72AC)	; &A-compU+72AC;
+      (=>iwds-1		  .  0239)	; &A-compU+72AC;
+      )
+     ((=>ucs@iwds-1	  . #x571F)	; &A-IWDSU+571F;
+      (=>iwds-1		  .  0312)	; &A-IWDSU+571F;
+      ))
+    (sound@ja/on/go	"kEHu")
+    (sound@ja/on/kan	"kAHu")
     (=ucs		. #x5736)	; 圶
-    (=cns11643-3	. #x2340)	; &I-C3-2340; [03-32]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5736)	; 圶
+      ))
+    (ideographic-radical . 32)	; ⼟
+    (ideographic-strokes . 3)
+    (total-strokes	 . 6)
+    (hanyu-dazidian	1 419 2)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5927)	; 大
+      )
+     ((=ucs		  . #x571F)	; 土
+      ))
+    (=ucs@unicode	. #x5736)	; &C3-2340;
+    (=cns11643-3	. #x2340)	; &C3-2340; [03-32]
     (=daikanwa		. 04897)	; &I-M-04897;
-    (=hanziku-2		. #xA66A)	; &I-HZK02-A66A;
+    (->subsumptive
+     ((==ucs@unicode	  . #x5736)	; &g2-M-04897;
+      (==cns11643-3	  . #x2340)	; &g2-M-04897; [03-32]
+      (==daikanwa	  . 04897)	; &g2-M-04897;
+      (->subsumptive
+       ((===daikanwa	    . 04897)	; &R-M-04897;
+	)
+       ((===cns11643-3	    . #x2340)	; &R-C3-2340; [03-32]
+	)
+       ((===ucs@unicode	    . #x5736)	; &R-UU+5736;
+	)
+       ((=hanziku-2	    . #xA66A)	; &HZK02-A66A;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 32)	; ⼟
