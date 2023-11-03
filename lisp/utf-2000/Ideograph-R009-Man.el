@@ -42553,8 +42553,8 @@
      ((=ucs@unicode	  . #x9F8D)	; &AJ1-03966;
       (=adobe-japan1-0	  . 03966)	; &AJ1-03966;
       )
-     ((=ucs@unicode	  . #x7ADC)	; &AJ1-03965;
-      (=adobe-japan1-0	  . 03965)	; &AJ1-03965;
+     ((name		  . "CJK RADICAL J-SIMPLIFIED DRAGON")
+      (=ucs		  . #x2EEF)	; ⻯
       ))
     (<-formed$_1*sources
      koseki mj)
