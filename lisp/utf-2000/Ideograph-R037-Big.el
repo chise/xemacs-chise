@@ -7660,6 +7660,39 @@
     (=>big5-cdp-itaiji-002 . #x88BA)	; &A-CDP-i001-88BA;
     ))
 (define-char
+  '((ideographic-radical . 37)	; ⼤
+    (ideographic-strokes . 7)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x3694)	; 㚔
+      )
+     ((=>ucs@iwds-1	  . #x4EBA)	; &A-IWDSU+4EBA;
+      (=>iwds-1		  .  14623)	; &A-IWDSU+4EBA;
+      ))
+    (=>ucs-itaiji-003	. #x21673)	; &A-U-i003+21673;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs-itaiji-003	  . #x21673)	; &A-U-i003+21673;
+      ))
+    (ideographic-radical . 37)	; ⼤
+    (ideographic-strokes . 7)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs@unicode	  . #x3694)	; &MJ000571;
+      (=mj		  . 000571)	; &MJ000571;
+      )
+     ((=ucs		  . #x4EBA)	; 人
+      ))
+    (=ucs-itaiji-003	. #x21673)	; &U-i003+21673;
+    ))
+(define-char
   '((<-denotational
      ((=>big5-cdp-itaiji-001 . #x88BA)	; &A-CDP-i001-88BA;
       ))
