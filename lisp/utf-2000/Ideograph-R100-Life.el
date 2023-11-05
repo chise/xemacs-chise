@@ -947,6 +947,38 @@
       ))
     ))
 (define-char
+  '((ideographic-radical . 100)	; ⽣
+    (ideographic-strokes . 8)
+    (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x751F)	; 生
+      )
+     ((=ucs		  . #x5E95)	; 底
+      ))
+    (=ucs		. #x24BF0)	; 𤯰
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x24BF0)	; 𤯰
+      ))
+    (ideographic-radical . 100)	; ⽣
+    (ideographic-strokes . 8)
+    (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x751F)	; 生
+      )
+     ((=ucs@unicode	  . #x5E95)	; &G0-3557;
+      (=gb2312		  . #x3557)	; &G0-3557; [21-55]
+      ))
+    (=ucs@iso		. #x24BF0)	; &U-00024BF0;
+    ))
+(define-char
   '((<-denotational
      ((=>ucs@iwds-1	  . #x28F07)	; &A-IWDSU+28F07;
       ))
@@ -1230,16 +1262,98 @@
     ))
 (define-char
   '((ideographic-radical . 100)	; ⽣
+    (ideographic-strokes . 14)
+    (total-strokes	 . 19)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5E95)	; 底
+      )
+     ((=>ucs@iwds-1	  . #x7522)	; &J97-3B3A;
+      (=>jis-x0208	  . #x3B3A)	; &J97-3B3A; [27-26]
+      ))
+    (=ucs		. #x24BFF)	; 𤯿
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x24BFF)	; 𤯿
+      ))
+    (ideographic-radical . 100)	; ⽣
+    (ideographic-strokes . 14)
+    (total-strokes	 . 19)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs@unicode	  . #x5E95)	; &G0-3557;
+      (=gb2312		  . #x3557)	; &G0-3557; [21-55]
+      )
+     ((=ucs		  . #x7523)	; 産
+      ))
+    (=ucs@iso		. #x24BFF)	; &U-00024BFF;
+    ))
+(define-char
+  '((ideographic-radical . 100)	; ⽣
     (ideographic-strokes . 16)
     (total-strokes	 . 21)
-    (=ucs		. #x24C00)	; 𤰀
-    (->subsumptive
-     ((=ucs@iso		  . #x24C00)	; &M-21701;
-      (=daikanwa	  . 21701)	; &M-21701;
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
       )
-     ((ideographic-radical@cns . 101)	; ⽤
-      (ideographic-radical@cns*note "bug?")
-      (=cns11643-7	  . #x5374)	; &C7-5374; [51-84]
+     ((=ucs		  . #x445E)	; 䑞
+      )
+     ((=ucs		  . #x24BD3)	; 𤯓
+      ))
+    (sound@ja/on	"kWAu")
+    (=ucs		. #x24C00)	; 𤰀
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x24C00)	; 𤰀
+      ))
+    (ideographic-radical . 100)	; ⽣
+    (ideographic-radical@cns . 101)	; ⽤
+    (ideographic-strokes . 16)
+    (total-strokes	 . 21)
+    (ideographic-radical@cns*note "bug?")
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs@unicode	  . #x445E)	; &MJ003915;
+      (=mj		  . 003915)	; &MJ003915;
+      )
+     ((=ucs@iso		  . #x24BD3)	; &C6-2335;
+      (=cns11643-6	  . #x2335)	; &C6-2335; [03-21]
+      (=daikanwa	  . 21671)	; &I-M-21671;
+      ))
+    (=ucs@iso		. #x24C00)	; &C7-5374;
+    (=cns11643-7	. #x5374)	; &C7-5374; [51-84]
+    (=daikanwa		. 21701)	; &I-M-21701;
+    (<-ancient
+     ((=ucs@iso		  . #x24BF7)	; &C4-567A;
+      (=cns11643-4	  . #x567A)	; &C4-567A; [54-90]
+      (=daikanwa	  . 21699)	; &I-M-21699;
+      ))
+    (<-ancient*sources
+     jiyun daikanwa)
+    (<-formed@jiyun
+     ((=ucs@iso		  . #x26A04)	; &C7-5F3F;
+      (=cns11643-7	  . #x5F3F)	; &C7-5F3F; [63-31]
+      (=daikanwa	  . 30348)	; &I-M-30348;
+      ))
+    (->subsumptive
+     ((==ucs@iso	  . #x24C00)	; &g2-M-21701;
+      (==daikanwa	  . 21701)	; &g2-M-21701;
+      (->subsumptive
+       ((===daikanwa	    . 21701)	; &R-M-21701;
+	)
+       ((===ucs@iso	    . #x24C00)	; &R-U-00024C00;
+	))
+      )
+     ((==ucs@cns	  . #x24C00)	; &g2-CU+24C00;
+      (==cns11643-7	  . #x5374)	; &g2-CU+24C00; [51-84]
       ))
     ))
 (define-char
