@@ -196,7 +196,7 @@
       )
      ((=ucs		  . #x20763)	; 𠝣
       )
-     ((=ucs		  . #x524D)	; 前
+     ((=ucs		  . #x526A)	; 剪
       ))
     (->subsumptive
      ((===shuowen-jiguge-A30 . 14103)	; &SW-JIGUGE30-14103;

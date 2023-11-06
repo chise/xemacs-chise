@@ -620,7 +620,10 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 214)	; ⿕
+  '((<-denotational@usage
+     ((==>ucs@bucs	  . #x7BEA)	; &BUCS+7BEA;
+      ))
+    (ideographic-radical . 214)	; ⿕
     (ideographic-strokes . 14)
     (total-strokes	 . 31)
     (ideographic-structure
@@ -691,6 +694,25 @@
       )
      ((==mj		  . 056815)	; &g2-MJ056815;
       ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2A6D4)	; 𪛔
+      ))
+    (ideographic-radical . 214)	; ⿕
+    (ideographic-strokes . 14)
+    (total-strokes	 . 31)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs@unicode	  . #x7C65)	; &AJ1-06033;
+      (=adobe-japan1-0	  . 06033)	; &AJ1-06033;
+      )
+     ((=ucs@unicode	  . #x864E)	; &G0-3B22;
+      (=gb2312		  . #x3B22)	; &G0-3B22; [27-02]
+      ))
+    (=daijiten		. 14905)	; &DJT-14905;
     ))
 (define-char
   '((ideographic-radical . 214)	; ⿕

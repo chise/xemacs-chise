@@ -2085,9 +2085,8 @@
       )
      ((=ucs		  . #x8D70)	; 走
       )
-     ((=ucs@iso		  . #x20CCB)	; &C5-2C47;
-      (=cns11643-5	  . #x2C47)	; &C5-2C47; [12-39]
-      (=daikanwa	  . 03718)	; &I-M-03718;
+     ((=ucs@iso		  . #x20CCB)	; &MJ032285;
+      (=mj		  . 032285)	; &MJ032285;
       ))
     (=ucs@JP/hanazono	. #x2E6BE)	; &RUI6-E083;
     (=ruimoku-v6	. #xE083)	; &RUI6-E083;

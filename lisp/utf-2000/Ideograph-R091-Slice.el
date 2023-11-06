@@ -1881,7 +1881,21 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 91)	; ⽚
+  '((<-denotational@usage
+     ((==>daijiten	  . 07059)	; &A2-DJT-07059;
+      ))
+    (ideographic-radical . 91)	; ⽚
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x7247)	; 片
+      )
+     ((=>ucs@component	  . #x81FF)	; &A-compU+81FF;
+      (=>iwds-1		  .  0098)	; &A-compU+81FF;
+      ))
+    (sound@ja/on/go	"zEHu")
+    (sound@ja/on/kan	"sAHu")
     (=ucs		. #x7250)	; 牐
     ))
 (define-char
@@ -1915,18 +1929,36 @@
       )
      ((=ucs		  . #x7247)	; 片
       )
-     ((=ucs@unicode	  . #x81FF)	; &DJT-09623;
-      (=daijiten	  . 09623)	; &DJT-09623;
+     ((=ucs@unicode	  . #x81FF)	; &MJ021322;
+      (=mj		  . 021322)	; &MJ021322;
       ))
     (=ucs@unicode	. #x7250)	; &JSP-4A53;
     (=jis-x0212		. #x4A53)	; &JSP-4A53; [42-51]
     (=daikanwa		. 19869)	; &I-M-19869;
+    (=daijiten		. 07059)	; &I-DJT-07059;
+    (<-same
+     ((=ucs@iso		  . #x245EE)	; &C7-2522;
+      (=cns11643-7	  . #x2522)	; &C7-2522; [05-02]
+      (=daikanwa	  . 19889)	; &I-M-19889;
+      )
+     ((=ucs		  . #x9598)	; 閘
+      (=daikanwa	  . 41263)	; &I-M-41263;
+      ))
+    (<-same$_1*sources
+     zhengzitong daikanwa)
+    (<-same$_2*sources
+     zhengzitong daikanwa)
+    (<-same*sources
+     zhengzitong daikanwa)
     (->subsumptive
      ((==ucs@unicode	  . #x7250)	; &g2-JSP-4A53;
       (==jis-x0212	  . #x4A53)	; &g2-JSP-4A53; [42-51]
       (==daikanwa	  . 19869)	; &g2-JSP-4A53;
+      (==daijiten	  . 07059)	; &g2-JSP-4A53;
       (->subsumptive
        ((===daikanwa	    . 19869)	; &R-M-19869;
+	)
+       ((===daijiten	    . 07059)	; &R-DJT-07059;
 	)
        ((===jis-x0212	    . #x4A53)	; &R-JSP-4A53; [42-51]
 	)
@@ -2789,16 +2821,47 @@
   '((ideographic-radical . 91)	; ⽚
     (ideographic-strokes . 11)
     (total-strokes	 . 15)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x7247)	; 片
+      )
+     ((=ucs		  . #x8CAC)	; 責
+      ))
     (=ucs		. #x245EE)	; 𤗮
-    (=daikanwa		. 19889)	; &I-M-19889;
     ))
 (define-char
-  '((=>ucs		. #x245EE)	; 𤗮
-    (morohashi-daikanwa	19889 0 1)
+  '((<-denotational
+     ((=ucs		  . #x245EE)	; 𤗮
+      ))
     (ideographic-radical . 91)	; ⽚
     (ideographic-strokes . 11)
     (total-strokes	 . 15)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x7247)	; 片
+      )
+     ((=ucs@unicode	  . #x8CAC)	; &AJ1-02681;
+      (=adobe-japan1-0	  . 02681)	; &AJ1-02681;
+      ))
+    (=ucs@iso		. #x245EE)	; &C7-2522;
     (=cns11643-7	. #x2522)	; &C7-2522; [05-02]
+    (=daikanwa		. 19889)	; &I-M-19889;
+    (->subsumptive
+     ((==ucs@iso	  . #x245EE)	; &g2-M-19889;
+      (==daikanwa	  . 19889)	; &g2-M-19889;
+      (->subsumptive
+       ((===daikanwa	    . 19889)	; &R-M-19889;
+	)
+       ((===ucs@iso	    . #x245EE)	; &R-U-000245EE;
+	))
+      )
+     ((==ucs@cns	  . #x245EE)	; &g2-CU+245EE;
+      (==cns11643-7	  . #x2522)	; &g2-CU+245EE; [05-02]
+      ))
     ))
 (define-char
   '((ideographic-radical . 91)	; ⽚
@@ -3587,6 +3650,10 @@
   '((ideographic-radical . 91)	; ⽚
     (==>ucs@bucs	. #x7258)	; &BUCS+7258;
     (==>daijiten	. 07064)	; &BUCS+7258;
+    ))
+(define-char
+  '((ideographic-radical . 91)	; ⽚
+    (==>daijiten	. 07059)	; &A2-DJT-07059;
     ))
 (define-char
   '((ideographic-radical . 91)	; ⽚
