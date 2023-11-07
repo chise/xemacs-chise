@@ -472,6 +472,9 @@
   '((<-denotational
      ((=>ucs@iwds-1	  . #x5166)	; &A-IWDSU+5166;
       ))
+    (<-denotational@usage
+     ((==>ucs@bucs	  . #x4EA1)	; &BUCS+4EA1;
+      ))
     (ideographic-radical . 9)	; ⼈
     (ideographic-strokes . 1)
     (total-strokes	 . 3)
@@ -495,42 +498,16 @@
     (<-original*sources
      shinjigen@rev)
     (->subsumptive
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
-	(=ucs		    . #x2FFA)	; ⿺
-	)
-       ((==gt-k		    . 00027)	; &g2-GT-K00027;
-	)
-       ((==ucs@unicode	    . #x4EBA)	; &g2-AJ1-02579;
-	(==adobe-japan1-0   . 02579)	; &g2-AJ1-02579;
-	))
-      (==ucs@cns	  . #x4EBE)	; &g2-CU+4EBE;
+     ((==ucs@cns	  . #x4EBE)	; &g2-CU+4EBE;
       (==cns11643-3	  . #x2133)	; &g2-CU+4EBE; [01-19]
       (==shinjigen@rev	  .  0091)	; &g2-CU+4EBE;
       )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
-	(=ucs		    . #x2FFA)	; ⿺
-	)
-       ((==ucs@iso	    . #x200CA)	; &g2-CDP-8C7B;
-	)
-       ((==ucs@unicode	    . #x4EBA)	; &g2-AJ1-02579;
-	(==adobe-japan1-0   . 02579)	; &g2-AJ1-02579;
-	))
-      (==ucs@unicode	  . #x4EBE)	; &g2-UU+4EBE;
+     ((==ucs@unicode	  . #x4EBE)	; &g2-UU+4EBE;
       (->subsumptive
        ((===ucs@unicode	    . #x4EBE)	; &R-UU+4EBE;
 	))
       )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
-	(=ucs		    . #x2FFA)	; ⿺
-	)
-       ((==ucs@iso	    . #x200CA)	; &g2-CDP-8C7B;
-	)
-       ((=gt-k		    . 00049)	; &GT-K00049;
-	))
-      (==big5-cdp	  . #x8CA1)	; &g2-CDP-8CA1;
+     ((==big5-cdp	  . #x8CA1)	; &g2-CDP-8CA1;
       ))
     ))
 (define-char
@@ -625,8 +602,8 @@
     (=+>big5-cdp	. #x8C74)	; &o-CDP-8C74;
     ))
 (define-char
-  '((<-denotational@usage
-     ((==>ucs@bucs	  . #x4EA1)	; &BUCS+4EA1;
+  '((<-denotational
+     ((=>ucs@component	  . #x5166)	; &A-compU+5166;
       ))
     (ideographic-radical . 9)	; ⼈
     (ideographic-strokes . 1)
@@ -659,6 +636,10 @@
      ((=ucs		  . #x4E3F)	; 丿
       ))
     (=>ucs@iwds-1	. #x201A5)	; &A-IWDSU+201A5;
+    ))
+(define-char
+  '((ideographic-radical . 9)	; ⼈
+    (=>ucs@component	. #x5166)	; &A-compU+5166;
     ))
 (define-char
   '((ideographic-radical . 9)	; ⼈
