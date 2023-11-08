@@ -910,19 +910,60 @@
     ))
 (define-char
   '((ideographic-radical . 117)	; ⽴
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x7ACB)	; 立
+      )
+     ((=>ucs@iwds-1	  . #x7535)	; &A-IWDSU+7535;
+      (=>iwds-1		  .  17197)	; &A-IWDSU+7535;
+      ))
+    (=>ucs@iwds-1	. #x7ADC)	; &A-IWDSU+7ADC;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@iwds-1	  . #x7ADC)	; &A-IWDSU+7ADC;
+      ))
+    (<-denotational@usage
+     ((==>ucs@bucs	  . #x9F8D)	; &BUCS+9F8D;
+      ))
+    (ideographic-radical . 117)	; ⽴
     (ideographic-strokes . 5)
     (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x7ACB)	; 立
+      )
+     ((=ucs		  . #x7535)	; 电
+      ))
     (=ucs		. #x7ADC)	; 竜
     ))
 (define-char
   '((<-denotational
      ((=ucs		  . #x7ADC)	; 竜
       ))
+    (name		. "CJK RADICAL J-SIMPLIFIED DRAGON")
+    (general-category	symbol other) ; Informative Category
+    (bidi-category	. "ON")
+    (mirrored		. nil)
     (ideographic-radical . 117)	; ⽴
     (ideographic-strokes . 5)
     (total-strokes	 . 10)
-    (=ucs@unicode	. #x7ADC)	; &AJ1-03965;
-    (=adobe-japan1-0	. 03965)	; &AJ1-03965;
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x7ACB)	; 立
+      )
+     ((=big5-cdp	  . #x8BE8)	; &CDP-8BE8;
+      ))
+    (sound@ja/on	"ryuu")
+    (=ucs		. #x2EEF)	; ⻯
+    (=ucs@unicode	. #x7ADC)	; ⻯
+    (=adobe-japan1-0	. 03965)	; &I-AJ1-03965;
     (=jis-x0208		. #x4E35)	; &I-J90-4E35; [46-21]
     (=iso-ir165		. #x2E6B)	; &I-EGB-2E6B; [14-75]
     (=cns11643-3	. #x3327)	; &I-C3-3327; [19-07]
@@ -931,7 +972,15 @@
     (=gt-k		. 06559)	; &I-GT-K06559;
     (=gt-pj-1		. #x4E35)	; &I-GT-33220; [46-21]
     (=daikanwa		. 25751)	; &I-M-25751;
-    (=shinjigen		.  9912)	; &AJ1-03965;
+    (=daijiten		. 08360)	; &I-DJT-08360;
+    (=shinjigen		.  9912)	; ⻯
+    (<-ancient
+     ((=ucs@unicode	  . #x9F8D)	; &AJ1-03966;
+      (=adobe-japan1-0	  . 03966)	; &AJ1-03966;
+      (=daikanwa	  . 48818)	; &I-M-48818;
+      ))
+    (<-ancient*sources
+     jiyun daikanwa)
     (<-simplified@JP/Jouyou
      ((=ucs@unicode	  . #x9F8D)	; &AJ1-03966;
       (=adobe-japan1-0	  . 03966)	; &AJ1-03966;
@@ -947,9 +996,12 @@
       (==gt		  . 33220)	; &g2-AJ1-03965;
       (==gt-k		  . 06559)	; &g2-AJ1-03965;
       (==daikanwa	  . 25751)	; &g2-AJ1-03965;
+      (==daijiten	  . 08360)	; &g2-AJ1-03965;
       (==shinjigen	  .  9912)	; &g2-AJ1-03965;
       (->subsumptive
        ((===daikanwa	    . 25751)	; &R-M-25751;
+	)
+       ((===daijiten	    . 08360)	; &R-DJT-08360;
 	)
        ((===jis-x0208	    . #x4E35)	; &R-J0-4E35; [46-21]
 	(===jis-x0213-1	    . #x4E35)	; &R-J0-4E35; [46-21]
@@ -969,13 +1021,21 @@
   '((<-denotational
      ((=ucs		  . #x7ADC)	; 竜
       ))
-    (name		. "CJK RADICAL J-SIMPLIFIED DRAGON")
-    (general-category	symbol other) ; Informative Category
-    (bidi-category	. "ON")
-    (mirrored		. nil)
-    (=ucs		. #x2EEF)	; ⻯
-    (<-identical@component
-     ((=ucs		  . #x7ADC)	; 竜
+    (ideographic-radical . 117)	; ⽴
+    (ideographic-strokes . 5)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x7ACB)	; 立
+      )
+     ((=ucs@unicode	  . #x7535)	; &G0-3567;
+      (=gb2312		  . #x3567)	; &G0-3567; [21-71]
+      ))
+    (=ucs-itaiji-001	. #x7ADC)	; &U-i001+7ADC;
+    (->subsumptive
+     ((==ucs-itaiji-001	  . #x7ADC)	; &g2-U-i001+7ADC;
       ))
     ))
 (define-char
@@ -3269,8 +3329,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
       (=ucs		  . #x2FFA)	; ⿺
       )
-     ((=ucs@unicode	  . #x7ADC)	; &AJ1-03965;
-      (=adobe-japan1-0	  . 03965)	; &AJ1-03965;
+     ((name		  . "CJK RADICAL J-SIMPLIFIED DRAGON")
+      (=ucs		  . #x2EEF)	; ⻯
       )
      ((=ucs		  . #x4E2D)	; 中
       ))
