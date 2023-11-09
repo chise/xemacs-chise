@@ -156,6 +156,9 @@
   '((<-denotational
      ((=>ucs@iwds-1	  . #x5166)	; &A-IWDSU+5166;
       ))
+    (<-denotational@usage
+     ((==>ucs@bucs	  . #x4EA1)	; &BUCS+4EA1;
+      ))
     (ideographic-radical . 11)	; ⼊
     (ideographic-strokes . 1)
     (total-strokes	 . 3)
