@@ -3034,6 +3034,38 @@
   '((ideographic-radical . 24)	; ⼗
     (ideographic-strokes . 5)
     (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>ucs@iwds-1	  . #x215DC)	; &A-IWDSU+215DC;
+      )
+     ((=>ucs@iwds-1	  . #x5341)	; &A-IWDSU+5341;
+      (=>iwds-1		  .  0037)	; &A-IWDSU+5341;
+      ))
+    (=ucs		. #x30173)	; 𰅳
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x30173)	; 𰅳
+      ))
+    (ideographic-radical . 24)	; ⼗
+    (ideographic-strokes . 5)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x215DC)	; 𡗜
+      )
+     ((=ucs		  . #x5341)	; 十
+      ))
+    (=ucs@JP/hanazono	. #x30173)	; &hanaJU+30173;
+    ))
+(define-char
+  '((ideographic-radical . 24)	; ⼗
+    (ideographic-strokes . 5)
+    (total-strokes	 . 7)
     (=ucs		. #x30174)	; 𰅴
     ))
 (define-char
