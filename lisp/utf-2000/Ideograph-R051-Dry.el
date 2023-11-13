@@ -45,7 +45,8 @@
       (=mj		  . 036578)	; &MJ036578;
       (=daikanwa	  . 11597)	; &I-M-11597;
       )
-     ((=ucs		  . #x7AFF)	; 竿
+     ((=ucs@unicode	  . #x7AFF)	; &AJ1-01540;
+      (=adobe-japan1-0	  . 01540)	; &AJ1-01540;
       (=daikanwa	  . 25854)	; &I-M-25854;
       )
      ((=ucs@unicode	  . #x5CB8)	; &AJ1-01563;
