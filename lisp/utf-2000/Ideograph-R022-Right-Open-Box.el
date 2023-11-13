@@ -3837,12 +3837,14 @@
     (=koseki		. 031170)	; &MJ031708;
     (=daikanwa		. 02668)	; &I-M-02668;
     (<-Zhouwen
-     ((=daikanwa	  . 19708)	; &M-19708;
+     ((=mj		  . 040256)	; &MJ040256;
+      (=daikanwa	  . 19708)	; &I-M-19708;
       ))
     (<-Zhouwen*sources
      jiyun daikanwa)
     (<-formed
-     ((=daikanwa	  . 19708)	; &M-19708;
+     ((=mj		  . 040256)	; &MJ040256;
+      (=koseki		  . 221980)	; &MJ040256;
       ))
     (<-formed$_1*sources
      koseki)

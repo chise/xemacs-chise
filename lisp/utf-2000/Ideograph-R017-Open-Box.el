@@ -2534,7 +2534,8 @@
     (->formed*sources
      daikanwa)
     (->formed@jiyun
-     ((=daikanwa	  . 19708)	; &M-19708;
+     ((=mj		  . 040256)	; &MJ040256;
+      (=daikanwa	  . 19708)	; &I-M-19708;
       ))
     (->formed@jiyun*sources
      daikanwa)
