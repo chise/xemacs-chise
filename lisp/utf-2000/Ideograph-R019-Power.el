@@ -9057,8 +9057,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=gt		  . 35296)	; &GT-35296;
-      (=daikanwa	  . 27442)	; &I-M-27442;
+     ((=mj		  . 020102)	; &MJ020102;
       )
      ((=ucs		  . #x529B)	; 力
       ))
