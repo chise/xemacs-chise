@@ -242,21 +242,20 @@
 ;;;###autoload
 (defun char-ucs-chars (character)
   "Return list of UCS abstract characters unified by CHARACTER."
-  (let (ret)
-    (union
-     (if (setq ret (encode-char character '=ucs 'defined-only))
-	 (list character))
-     (if (or (encode-char character '=>ucs@component 'defined-only)
-	     (encode-char character '=>ucs@iwds-1 'defined-only)
-	     (encode-char character '=>iwds-1 'defined-only))
-	 (union
-	  (mapcan #'char-ucs-chars
-		  (get-char-attribute character '->subsumptive))
-	  (union
-	   (mapcan #'char-ucs-chars
-		   (get-char-attribute character '->denotational))
-	   (mapcan #'char-ucs-chars
-		   (get-char-attribute character '->denotational@component))))))))
+  (let (ucs dest)
+    (if (and (setq ucs (encode-char character '=ucs 'defined-only))
+	     (not (and (<= #x2E80 ucs)(<= ucs #x2EF3))))
+	(setq dest (list character)))
+    (dolist (c (mapcan #'char-ucs-chars
+		       (get-char-attribute character '->subsumptive)))
+      (setq dest (adjoin c dest)))
+    (dolist (c (mapcan #'char-ucs-chars
+		       (get-char-attribute character '->denotational)))
+      (setq dest (adjoin c dest)))
+    (dolist (c (mapcan #'char-ucs-chars
+		       (get-char-attribute character '->denotational@component)))
+      (setq dest (adjoin c dest)))
+    dest))
 
 
 ;;;###autoload
