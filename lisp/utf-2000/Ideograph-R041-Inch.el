@@ -2090,7 +2090,10 @@
       ))
     ))
 (define-char
-  '((<-denotational@usage
+  '((<-denotational
+     ((=>ucs@iwds-1	  . #x8FB1)	; &A-IWDSU+8FB1;
+      ))
+    (<-denotational@usage
      ((==>ucs@bucs	  . #x8FB1)	; &BUCS+8FB1;
       ))
     (ideographic-radical . 41)	; ⼨
@@ -2776,8 +2779,43 @@
       ))
     ))
 (define-char
+  '((ideographic-radical . 41)	; ⼨
+    (ideographic-strokes . 8)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x4E29)	; 丩
+      )
+     ((=ucs		  . #x2A9F7)	; 𪧷
+      ))
+    (=ucs		. #x2D52C)	; 𭔬
+    ))
+(define-char
   '((<-denotational
-     ((=ucs		  . #x8FB1)	; 辱
+     ((=ucs		  . #x2D52C)	; 𭔬
+      ))
+    (ideographic-radical . 41)	; ⼨
+    (ideographic-strokes . 8)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs@unicode	  . #x4E29)	; &AJ1-17237;
+      (=adobe-japan1-5	  . 17237)	; &AJ1-17237;
+      )
+     ((=ucs		  . #x2A9F7)	; 𪧷
+      ))
+    (=ucs@JP/hanazono	. #x2D52C)	; &hanaJU+2D52C;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@iwds-1	  . #x8FB1)	; &A-IWDSU+8FB1;
+      ))
+    (<-denotational@usage
+     ((==>ucs@bucs	  . #x8FB1)	; &BUCS+8FB1;
       ))
     (ideographic-radical . 41)	; ⼨
     (ideographic-strokes . 8)
@@ -2828,38 +2866,6 @@
       )
      ((===hng-kar	  . 13300)	; &HNG018-13300;
       ))
-    ))
-(define-char
-  '((ideographic-radical . 41)	; ⼨
-    (ideographic-strokes . 8)
-    (total-strokes	 . 11)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((=ucs		  . #x4E29)	; 丩
-      )
-     ((=ucs		  . #x2A9F7)	; 𪧷
-      ))
-    (=ucs		. #x2D52C)	; 𭔬
-    ))
-(define-char
-  '((<-denotational
-     ((=ucs		  . #x2D52C)	; 𭔬
-      ))
-    (ideographic-radical . 41)	; ⼨
-    (ideographic-strokes . 8)
-    (total-strokes	 . 11)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((=ucs@unicode	  . #x4E29)	; &AJ1-17237;
-      (=adobe-japan1-5	  . 17237)	; &AJ1-17237;
-      )
-     ((=ucs		  . #x2A9F7)	; 𪧷
-      ))
-    (=ucs@JP/hanazono	. #x2D52C)	; &hanaJU+2D52C;
     ))
 (define-char
   '((<-denotational@usage

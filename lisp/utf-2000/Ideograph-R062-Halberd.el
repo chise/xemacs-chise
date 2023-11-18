@@ -2266,6 +2266,20 @@
     (ideographic-strokes . 5)
     (total-strokes	 . 9)
     (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x6208)	; 戈
+      )
+     ((=ucs		  . #x76BF)	; 皿
+      ))
+    (=ucs		. #x2AB4C)	; 𪭌
+    ))
+(define-char
+  '((ideographic-radical . 62)	; ⼽
+    (ideographic-strokes . 5)
+    (total-strokes	 . 9)
+    (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
       (=ucs		  . #x2FF9)	; ⿹
       )

@@ -4851,7 +4851,8 @@
      ((=mj		  . 031708)	; &MJ031708;
       (=daikanwa	  . 02668)	; &I-M-02668;
       )
-     ((=daikanwa	  . 30258)	; &M-30258;
+     ((=mj		  . 046035)	; &MJ046035;
+      (=daikanwa	  . 30258)	; &I-M-30258;
       ))
     (<-same$_1*sources
      jiyun daikanwa)
@@ -4867,7 +4868,7 @@
     (->Zhouwen*sources
      jiyun)
     (->formed
-     ((=daikanwa	  . 30258)	; &M-30258;
+     ((=mj		  . 046035)	; &MJ046035;
       ))
     (->formed$_1*sources
      jiyun)

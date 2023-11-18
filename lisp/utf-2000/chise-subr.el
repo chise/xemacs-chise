@@ -240,6 +240,26 @@
 ;;;
 
 ;;;###autoload
+(defun char-ucs-chars (character)
+  "Return list of UCS abstract characters unified by CHARACTER."
+  (let (ret)
+    (union
+     (if (setq ret (encode-char character '=ucs 'defined-only))
+	 (list character))
+     (if (or (encode-char character '=>ucs@component 'defined-only)
+	     (encode-char character '=>ucs@iwds-1 'defined-only)
+	     (encode-char character '=>iwds-1 'defined-only))
+	 (union
+	  (mapcan #'char-ucs-chars
+		  (get-char-attribute character '->subsumptive))
+	  (union
+	   (mapcan #'char-ucs-chars
+		   (get-char-attribute character '->denotational))
+	   (mapcan #'char-ucs-chars
+		   (get-char-attribute character '->denotational@component))))))))
+
+
+;;;###autoload
 (defun map-char-family (function char &optional ignore-sisters)
   (let ((rest (list char))
 	ret checked)
