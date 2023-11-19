@@ -847,9 +847,9 @@
     (=shinjigen		.  2157)	; &AJ1-04738;
     (<-vulgar
      ((=ucs@unicode	  . #x5E77)	; &AJ1-19346;
-      (=adobe-japan1-5	  . 19346)	; &I-AJ1-19346;
+      (=adobe-japan1-5	  . 19346)	; &AJ1-19346;
       (=jis-x0213-1@2004  . #x7E7C)	; &I-JX3-7E7C; [94-92]
-      (=daikanwa	  . 09175)	; &AJ1-19346;
+      (=daikanwa	  . 09175)	; &I-M-09175;
       (=shinjigen	  .  2156)	; &AJ1-19346;
       ))
     (<-vulgar*sources
@@ -1159,12 +1159,12 @@
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
     (=ucs@unicode	. #x5E77)	; &AJ1-19346;
-    (=adobe-japan1-5	. 19346)	; &I-AJ1-19346;
+    (=adobe-japan1-5	. 19346)	; &AJ1-19346;
     (=ks-x1001		. #x5C34)	; &I-K0-5C34; [60-20]
     (=cns11643-3	. #x2863)	; &I-C3-2863; [08-67]
     (=jis-x0213-1@2004	. #x7E7C)	; &I-JX3-7E7C; [94-92]
     (=big5-cdp		. #x88EB)	; &I-CDP-88EB;
-    (=daikanwa		. 09175)	; &AJ1-19346;
+    (=daikanwa		. 09175)	; &I-M-09175;
     (=daijiten		. 02902)	; &I-DJT-02902;
     (=shinjigen		.  2156)	; &AJ1-19346;
     (=jef-china3	. #x4CB2)	; &I-JC3-4CB2;
