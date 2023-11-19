@@ -11861,7 +11861,7 @@
       (=ucs		  . #x2FF0)	; ⿰
       )
      ((=ucs@unicode	  . #x5E77)	; &AJ1-19346;
-      (=adobe-japan1-5	  . 19346)	; &I-AJ1-19346;
+      (=adobe-japan1-5	  . 19346)	; &AJ1-19346;
       )
      ((=ucs@unicode	  . #x5203)	; &MJ007450;
       (=mj		  . 007450)	; &MJ007450;
