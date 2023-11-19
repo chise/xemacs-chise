@@ -846,10 +846,11 @@
     (=daijiten		. 03014)	; &I-DJT-03014;
     (=shinjigen		.  2157)	; &AJ1-04738;
     (<-vulgar
-     ((=ucs		  . #x5E77)	; 幷
+     ((=ucs@unicode	  . #x5E77)	; &AJ1-19346;
+      (=adobe-japan1-5	  . 19346)	; &I-AJ1-19346;
       (=jis-x0213-1@2004  . #x7E7C)	; &I-JX3-7E7C; [94-92]
-      (=daikanwa	  . 09175)	; &I-M-09175;
-      (=shinjigen	  .  2156)	; 幷
+      (=daikanwa	  . 09175)	; &AJ1-19346;
+      (=shinjigen	  .  2156)	; &AJ1-19346;
       ))
     (<-vulgar*sources
      zhengzitong daikanwa shinjigen)
@@ -1149,14 +1150,23 @@
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
     (=ucs		. #x5E77)	; 幷
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5E77)	; 幷
+      ))
+    (ideographic-radical . 51)	; ⼲
+    (ideographic-strokes . 5)
+    (total-strokes	 . 8)
+    (=ucs@unicode	. #x5E77)	; &AJ1-19346;
     (=adobe-japan1-5	. 19346)	; &I-AJ1-19346;
     (=ks-x1001		. #x5C34)	; &I-K0-5C34; [60-20]
     (=cns11643-3	. #x2863)	; &I-C3-2863; [08-67]
     (=jis-x0213-1@2004	. #x7E7C)	; &I-JX3-7E7C; [94-92]
     (=big5-cdp		. #x88EB)	; &I-CDP-88EB;
-    (=daikanwa		. 09175)	; &I-M-09175;
+    (=daikanwa		. 09175)	; &AJ1-19346;
     (=daijiten		. 02902)	; &I-DJT-02902;
-    (=shinjigen		.  2156)	; 幷
+    (=shinjigen		.  2156)	; &AJ1-19346;
     (=jef-china3	. #x4CB2)	; &I-JC3-4CB2;
     (->subsumptive
      ((=decomposition@cid
