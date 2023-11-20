@@ -2383,6 +2383,40 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=ucs		  . #x5E77)	; 幷
+      ))
+    (ideographic-radical . 64)	; ⼿
+    (ideographic-strokes . 3)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x624C)	; 扌
+      )
+     ((=ucs		  . #x20006)	; 𠀆
+      ))
+    (=>ucs-itaiji-001	. #x5E77)	; &A-U-i001+5E77;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs-itaiji-001	  . #x5E77)	; &A-U-i001+5E77;
+      ))
+    (ideographic-radical . 64)	; ⼿
+    (ideographic-strokes . 3)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x624C)	; 扌
+      )
+     ((=ucs		  . #x30001)	; 𰀁
+      ))
+    (=ucs-itaiji-001	. #x5E77)	; &U-i001+5E77;
+    ))
+(define-char
   '((ideographic-radical . 64)	; ⼿
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
@@ -2457,44 +2491,6 @@
     (->subsumptive
      ((==ucs@iso	  . #x22A76)	; &g2-IU-00022A76;
       ))
-    ))
-(define-char
-  '((<-denotational
-     ((=>ucs@iwds-1	  . #x5E77)	; &J97-5675;
-      (=>jis-x0208@1997	  . #x5675)	; &J97-5675; [54-85]
-      ))
-    (<-denotational@usage
-     ((==>ucs@bucs	  . #x5E77)	; &BUCS+5E77;
-      ))
-    (ideographic-radical . 64)	; ⼿
-    (ideographic-strokes . 3)
-    (total-strokes	 . 6)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((=ucs		  . #x624C)	; 扌
-      )
-     ((=ucs		  . #x20006)	; 𠀆
-      ))
-    (=>ucs-itaiji-001	. #x5E77)	; &A-U-i001+5E77;
-    ))
-(define-char
-  '((<-denotational
-     ((=>ucs-itaiji-001	  . #x5E77)	; &A-U-i001+5E77;
-      ))
-    (ideographic-radical . 64)	; ⼿
-    (ideographic-strokes . 3)
-    (total-strokes	 . 6)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((=ucs		  . #x624C)	; 扌
-      )
-     ((=ucs		  . #x30001)	; 𰀁
-      ))
-    (=ucs-itaiji-001	. #x5E77)	; &U-i001+5E77;
     ))
 (define-char
   '((=>ucs		. #x22A83)	; 𢪃
@@ -50626,9 +50622,9 @@
 	(==cns11643-5	    . #x6C2E)	; &g2-CU+22E2D; [76-14]
 	))
       )
-     ((=mj		  . 145920)	; &MJ145920;
-      (=hanyo-denshi/ks	  . 145920)	; &MJ145920;
-      (=koseki		  . 145920)	; &MJ145920;
+     ((=mj		  . 037128)	; &MJ037128;
+      (=hanyo-denshi/ks	  . 145920)	; &MJ037128;
+      (=koseki		  . 145920)	; &MJ037128;
       (<-formed
        ((=ucs@iso	    . #x22E2D)	; &MJ037127;
 	(=mj		    . 037127)	; &MJ037127;
@@ -50639,13 +50635,13 @@
       (<-formed*sources
        koseki)
       (->subsumptive
-       ((==mj		    . 145920)	; &MJ145920;
-	(==hanyo-denshi/ks  . 145920)	; &g2-MJ145920;
+       ((==mj		    . 037128)	; &g2-MJ037128;
+	(==hanyo-denshi/ks  . 145920)	; &g2-MJ037128;
 	(->subsumptive
 	 ((===hanyo-denshi/ks . 145920)	; &R-HD-KS-145920;
 	  (=hanyo-denshi/ks/mf . #x3900)	; &R-HD-KS-145920;
 	  )
-	 ((===mj	      . 145920)	; &MJ145920;
+	 ((===mj	      . 037128)	; &R-MJ037128;
 	  ))
 	))
       ))
