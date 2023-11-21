@@ -7836,6 +7836,35 @@
     ))
 (define-char
   '((ideographic-radical . 27)	; ⼚
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs		  . #x5382)	; 厂
+      )
+     ((=ucs		  . #x52E4)	; 勤
+      ))
+    (=ucs		. #x20AB2)	; 𠪲
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x20AB2)	; 𠪲
+      ))
+    (ideographic-radical . 27)	; ⼚
+    (ideographic-strokes . 13)
+    (total-strokes	 . 15)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs		  . #x5382)	; 厂
+      )
+     ((=ucs		  . #xFA34)	; 勤
+      ))
+    (=ucs@iso		. #x20AB2)	; &U-00020AB2;
+    ))
+(define-char
+  '((ideographic-radical . 27)	; ⼚
     (ideographic-strokes . 13)
     (total-strokes	 . 15)
     (ideographic-structure
