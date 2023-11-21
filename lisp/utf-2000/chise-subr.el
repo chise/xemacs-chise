@@ -243,8 +243,9 @@
 (defun char-ucs-chars (character)
   "Return list of UCS abstract characters unified by CHARACTER."
   (let (ucs dest)
-    (if (and (setq ucs (encode-char character '=ucs 'defined-only))
-	     (not (and (<= #x2E80 ucs)(<= ucs #x2EF3))))
+    (if (and (setq ucs (encode-char character '=ucs))
+	     (not (and (<= #x2E80 ucs)(<= ucs #x2EF3)))
+	     (null (get-char-attribute character '=>ucs*)))
 	(setq dest (list character)))
     (dolist (c (mapcan #'char-ucs-chars
 		       (get-char-attribute character '->subsumptive)))
