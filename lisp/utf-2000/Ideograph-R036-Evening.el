@@ -3387,7 +3387,7 @@
       (=ucs		  . #x2FF0)	; ⿰
       )
      ((=ucs@unicode	  . #x5E77)	; &AJ1-19346;
-      (=adobe-japan1-5	  . 19346)	; &I-AJ1-19346;
+      (=adobe-japan1-5	  . 19346)	; &AJ1-19346;
       )
      ((=daikanwa	  . 05763)	; &M-05763;
       ))
@@ -3416,7 +3416,7 @@
       (=ucs		  . #x2FF0)	; ⿰
       )
      ((=ucs@unicode	  . #x5E77)	; &AJ1-19346;
-      (=adobe-japan1-5	  . 19346)	; &I-AJ1-19346;
+      (=adobe-japan1-5	  . 19346)	; &AJ1-19346;
       )
      ((=ucs@unicode	  . #x591C)	; &AJ1-03831;
       (=adobe-japan1-0	  . 03831)	; &AJ1-03831;

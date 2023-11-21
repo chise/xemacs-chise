@@ -19503,7 +19503,7 @@
      ((=ucs		  . #x5973)	; 女
       )
      ((=ucs@unicode	  . #x5E77)	; &AJ1-19346;
-      (=adobe-japan1-5	  . 19346)	; &I-AJ1-19346;
+      (=adobe-japan1-5	  . 19346)	; &AJ1-19346;
       ))
     (sound@ja/on/go	"hIyAu")
     (sound@ja/on/kan	"hAu" "hei")
