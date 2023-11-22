@@ -26238,19 +26238,75 @@
     (=daikanwa		. 08584)	; &I-M-08584;
     ))
 (define-char
-  '((=>ucs		. #x21F87)	; 𡾇
-    (ideographic-radical . 46)	; ⼭
-    (ideographic-strokes . 15)
-    (total-strokes	 . 18)
-    (=daikanwa		. 08585)	; &M-08585;
+  '((ideographic-radical . 46)	; ⼭
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5C71)	; 山
+      )
+     ((=ucs		  . #x5EE3)	; 廣
+      ))
+    (=ucs		. #x21F87)	; 𡾇
     ))
 (define-char
-  '((morohashi-daikanwa	8585 0 0)
+  '((<-denotational
+     ((=ucs		  . #x21F87)	; 𡾇
+      ))
     (ideographic-radical . 46)	; ⼭
     (ideographic-strokes . 15)
     (total-strokes	 . 18)
-    (=ucs		. #x21F87)	; 𡾇
-    (=cns11643-4	. #x5A7E)	; &I-C4-5A7E; [58-94]
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5C71)	; 山
+      )
+     ((=ucs@jis		  . #x5EE3)	; &MJ011077;
+      (=ucs@ks		  . #x5EE3)	; &MJ011077;
+      (=mj		  . 011077)	; &MJ011077;
+      ))
+    (=mj		. 034838)	; &MJ034838;
+    (=koseki		. 097040)	; &MJ034838;
+    (=daikanwa		. 08585)	; &I-M-08585;
+    (->subsumptive
+     ((==mj		  . 034838)	; &g2-MJ034838;
+      (==koseki		  . 097040)	; &g2-MJ034838;
+      (==daikanwa	  . 08585)	; &g2-MJ034838;
+      (->subsumptive
+       ((===daikanwa	    . 08585)	; &R-M-08585;
+	)
+       ((===mj		    . 034838)	; &R-MJ034838;
+	))
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x21F87)	; 𡾇
+      ))
+    (ideographic-radical . 46)	; ⼭
+    (ideographic-strokes . 15)
+    (total-strokes	 . 18)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5C71)	; 山
+      )
+     ((=ucs@cns		  . #x5EE3)	; &C1-6C5D;
+      (=cns11643-1	  . #x6C5D)	; &C1-6C5D; [76-61]
+      ))
+    (=ucs@iso		. #x21F87)	; &C4-5A7E;
+    (=cns11643-4	. #x5A7E)	; &C4-5A7E; [58-94]
+    (->subsumptive
+     ((==ucs@iso	  . #x21F87)	; &g2-IU-00021F87;
+      (==cns11643-4	  . #x5A7E)	; &g2-IU-00021F87; [58-94]
+      (->subsumptive
+       ((===cns11643-4	    . #x5A7E)	; &R-C4-5A7E; [58-94]
+	)
+       ((===ucs@iso	    . #x21F87)	; &R-U-00021F87;
+	))
+      ))
     ))
 (define-char
   '((=>ucs		. #x21F88)	; 𡾈
