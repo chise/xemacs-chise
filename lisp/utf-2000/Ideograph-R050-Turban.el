@@ -3416,9 +3416,47 @@
   '((ideographic-radical . 50)	; ⼱
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5DFE)	; 巾
+      )
+     ((=ucs		  . #x5938)	; 夸
+      ))
     (=ucs		. #x3841)	; 㡁
-    (=cns11643-4	. #x2922)	; &I-C4-2922; [09-02]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x3841)	; 㡁
+      ))
+    (ideographic-radical . 50)	; ⼱
+    (ideographic-strokes . 6)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5DFE)	; 巾
+      )
+     ((=ucs@unicode	  . #x5938)	; &MJ009468;
+      (=mj		  . 009468)	; &MJ009468;
+      ))
+    (=ucs@unicode	. #x3841)	; &C4-2922;
+    (=cns11643-4	. #x2922)	; &C4-2922; [09-02]
     (=daikanwa		. 08866)	; &I-M-08866;
+    (->subsumptive
+     ((==ucs@unicode	  . #x3841)	; &g2-M-08866;
+      (==cns11643-4	  . #x2922)	; &g2-M-08866; [09-02]
+      (==daikanwa	  . 08866)	; &g2-M-08866;
+      (->subsumptive
+       ((===daikanwa	    . 08866)	; &R-M-08866;
+	)
+       ((===cns11643-4	    . #x2922)	; &R-C4-2922; [09-02]
+	)
+       ((===ucs@unicode	    . #x3841)	; &R-UU+3841;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 50)	; ⼱
@@ -14964,7 +15002,8 @@
     (=daikanwa		. 09127)	; &I-M-09127;
     (=jef-china3	. #x4CAB)	; &I-JC3-4CAB;
     (<-interchangeable
-     ((=daikanwa	  . 28799)	; &M-28799;
+     ((=mj		  . 045204)	; &MJ045204;
+      (=daikanwa	  . 28799)	; &I-M-28799;
       )
      ((=ucs@jis		  . #x88EF)	; &JSP-5C50;
       (=jis-x0212	  . #x5C50)	; &JSP-5C50; [60-48]
