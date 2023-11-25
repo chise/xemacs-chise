@@ -1,6 +1,16 @@
 ;; -*- coding: utf-8-mcs-er -*-
 (define-char
   '((ideographic-radical . 214)	; ⿕
+    (=>ucs@cognate	. #x9FA0)	; &A-cgnU+9FA0;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@cognate	  . #x9FA0)	; &A-cgnU+9FA0;
+      ))
+    (<-denotational@usage
+     ((==>ucs@bucs	  . #x9FA0)	; &BUCS+9FA0;
+      ))
+    (ideographic-radical . 214)	; ⿕
     (ideographic-strokes . 0)
     (total-strokes	 . 17)
     (ideographic-structure
@@ -81,6 +91,70 @@
        ((===ucs@unicode	    . #x9FA0)	; &R-UU+9FA0;
 	))
       ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@cognate	  . #x9FA0)	; &A-cgnU+9FA0;
+      ))
+    (<-denotational@usage
+     ((==>ucs@bucs	  . #x9FA0)	; &BUCS+9FA0;
+      ))
+    (ideographic-radical . 214)	; ⿕
+    (ideographic-strokes . 0)
+    (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
+      (=ucs		  . #x2FF3)	; ⿳
+      )
+     ((=>ucs@iwds-1	  . #x4EBC)	; &A-IWDSU+4EBC;
+      (=>iwds-1		  .  64146)	; &A-IWDSU+4EBC;
+      )
+     ((=ucs		  . #x7F52)	; 罒
+      )
+     ((=>ucs@iwds-1	  . #x518A)	; &A-IWDSU+518A;
+      (=>iwds-1		  .  0176)	; &A-IWDSU+518A;
+      ))
+    (=>ucs-itaiji-004	. #x9FA0)	; &A-U-i004+9FA0;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs-itaiji-004	  . #x9FA0)	; &A-U-i004+9FA0;
+      ))
+    (ideographic-radical . 214)	; ⿕
+    (ideographic-strokes . 0)
+    (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
+      (=ucs		  . #x2FF3)	; ⿳
+      )
+     ((=big5-cdp	  . #x8AFC)	; &CDP-8AFC;
+      )
+     ((name		  . "CJK RADICAL EYE")
+      (=ucs		  . #x2EAB)	; ⺫
+      )
+     ((=ucs		  . #x518C)	; 册
+      ))
+    (=ucs-itaiji-004	. #x9FA0)	; &U-i004+9FA0;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs-itaiji-004	  . #x9FA0)	; &A-U-i004+9FA0;
+      ))
+    (ideographic-radical . 214)	; ⿕
+    (ideographic-strokes . 0)
+    (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
+      (=ucs		  . #x2FF3)	; ⿳
+      )
+     ((=big5-cdp	  . #x8AFC)	; &CDP-8AFC;
+      )
+     ((name		  . "CJK RADICAL NET TWO")
+      (=ucs		  . #x2EB2)	; ⺲
+      )
+     ((=ucs		  . #x20541)	; 𠕁
+      ))
+    (=daijiten		. 00486)	; &DJT-00486;
     ))
 (define-char
   '((=>ucs		. #x4DB3)	; 䶳
@@ -739,6 +813,11 @@
       )
      ((=cns11643-7	  . #x664C)	; &C7-664C; [70-44]
       ))
+    ))
+(define-char
+  '((ideographic-radical . 214)	; ⿕
+    (==>ucs@bucs	. #x9FA0)	; &BUCS+9FA0;
+    (==>daijiten	. 14895)	; &BUCS+9FA0;
     ))
 (define-char
   '((<-denotational
