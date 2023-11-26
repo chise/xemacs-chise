@@ -33046,7 +33046,8 @@
      ((=>ucs@iwds-1	  . #x4ECE)	; &A-IWDSU+4ECE;
       (=>ucs@iwds-1/normalized . #x4ECE)	; &A-IWDSU+4ECE;
       )
-     ((=>iwds-1		  .  0097)	; 电
+     ((=>ucs@iwds-1	  . #x7535)	; &A-IWDSU+7535;
+      (=>iwds-1		  .  17197)	; &A-IWDSU+7535;
       ))
     (sound@ja/on	"ryou")
     (=ucs		. #x20252)	; 𠉒

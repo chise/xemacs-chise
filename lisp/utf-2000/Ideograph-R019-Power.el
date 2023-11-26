@@ -2095,6 +2095,37 @@
     (=daikanwa		. 48942)	; &I-M-48942;
     ))
 (define-char
+  '((ideographic-radical . 19)	; ⼒
+    (ideographic-strokes . 5)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=>ucs@iwds-1	  . #x53E4)	; &A-IWDSU+53E4;
+      )
+     ((=ucs		  . #x529B)	; 力
+      ))
+    (=ucs		. #x20849)	; 𠡉
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x20849)	; 𠡉
+      ))
+    (ideographic-radical . 19)	; ⼒
+    (ideographic-strokes . 5)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x53E4)	; 古
+      )
+     ((=ucs		  . #x529B)	; 力
+      ))
+    (=ucs@iso		. #x20849)	; &U-00020849;
+    ))
+(define-char
   '((ideographic-radical@ucs . 19)	; ⼒
     (ideographic-strokes@ucs . 5)
     (ideographic-radical@gt . 1)	; ⼀
