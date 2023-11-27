@@ -186,6 +186,55 @@
     (=ucs-itaiji-001	. #x3774)	; &U-i001+3774;
     ))
 (define-char
+  '((ideographic-radical . 41)	; ⼨
+    (ideographic-strokes . 2)
+    (total-strokes	 . 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=>ucs@iwds-1	  . #x5203)	; &A-IWDSU+5203;
+      (=>iwds-1		  .  0106)	; &A-IWDSU+5203;
+      )
+     ((=ucs		  . #x5BF8)	; 寸
+      ))
+    (=>ucs-itaiji-001@iwds-1 . #x5BF9)	; &A-IWDSU-i001+5BF9;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs-itaiji-001@iwds-1 . #x5BF9)	; &A-IWDSU-i001+5BF9;
+      ))
+    (ideographic-radical . 41)	; ⼨
+    (ideographic-strokes . 2)
+    (total-strokes	 . 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5203)	; 刃
+      )
+     ((=ucs		  . #x5BF8)	; 寸
+      ))
+    (=>ucs-itaiji-001	. #x5BF9)	; &A-U-i001+5BF9;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs-itaiji-001	  . #x5BF9)	; &A-U-i001+5BF9;
+      ))
+    (ideographic-radical . 41)	; ⼨
+    (ideographic-strokes . 2)
+    (total-strokes	 . 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x2F81E)	; 刃
+      )
+     ((=ucs		  . #x5BF8)	; 寸
+      ))
+    (=ucs-itaiji-001	. #x5BF9)	; &U-i001+5BF9;
+    ))
+(define-char
   '((<-denotational@usage
      ((==>daijiten	  . 02415)	; &A2-DJT-02415;
       ))
