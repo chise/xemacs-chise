@@ -84,6 +84,12 @@
     ))
 (define-char
   '((ideographic-radical . 56)	; ⼷
+    (ideographic-strokes . 0)
+    (total-strokes	 . 2)
+    (=ucs		. #x2B820)	; 𫠠
+    ))
+(define-char
+  '((ideographic-radical . 56)	; ⼷
     (ideographic-strokes . 1)
     (total-strokes	 . 4)
     (=ucs		. #x5F0C)	; 弌
