@@ -120,6 +120,29 @@
     ))
 (define-char
   '((ideographic-radical . 93)	; ⽜
+    (ideographic-strokes . 0)
+    (total-strokes	 . 4)
+    (ideographic-structure@apparent
+     ((name		  . "IDEOGRAPHIC DESCRIPTION CHARACTER OVERLAID")
+      (=ucs		  . #x2FFB)	; ⿻
+      )
+     ((name*		  . "ideographic component person for top")
+      (=ucs		  . #x20089)	; 𠂉
+      )
+     ((=ucs		  . #x4E03)	; 七
+      ))
+    (ideographic-structure@apparent/rightmost
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER RIGHT")
+      (=ucs		  . #x2FFD)	; ⿽
+      )
+     ((=big5-cdp	  . #x8A43)	; &CDP-8A43;
+      )
+     ((=ucs		  . #x4E3F)	; 丿
+      ))
+    (=ucs-itaiji-003	. #x4E47)	; &U-i003+4E47;
+    ))
+(define-char
+  '((ideographic-radical . 93)	; ⽜
     (ideographic-strokes . 1)
     (total-strokes	 . 5)
     (=ucs		. #x24614)	; 𤘔
