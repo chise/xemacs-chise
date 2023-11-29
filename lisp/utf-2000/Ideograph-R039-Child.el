@@ -228,11 +228,17 @@
     ))
 (define-char
   '((ideographic-radical . 39)	; ⼦
+    (=>ucs@cognate	. #x21940)	; &A-cgnU+21940;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@cognate	  . #x21940)	; &A-cgnU+21940;
+      ))
+    (ideographic-radical . 39)	; ⼦
     (ideographic-strokes . 2)
     (total-strokes	 . 5)
     (ideographic-structure
-     ((name		  . "IDEOGRAPHIC DESCRIPTION CHARACTER OVERLAID")
-      (=ucs		  . #x2FFB)	; ⿻
+     ((=ucs-itaiji-001	  . #x2FF1)	; &U-i001+2FF1;
       )
      ((=ucs		  . #x5B50)	; 子
       )
@@ -297,6 +303,25 @@
 	(==ucs@iso	    . #x21940)	; &g2-IU-00021940;
 	))
       ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@cognate	  . #x21940)	; &A-cgnU+21940;
+      ))
+    (ideographic-radical . 39)	; ⼦
+    (ideographic-strokes . 2)
+    (total-strokes	 . 5)
+    (ideographic-structure@apparent
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
+      (=ucs		  . #x2FF3)	; ⿳
+      )
+     ((=ucs		  . #x9FB4)	; 龴
+      )
+     ((=ucs		  . #x4E5B)	; 乛
+      )
+     ((=big5-cdp	  . #x85C0)	; &CDP-85C0;
+      ))
+    (=ucs-itaiji-001	. #x21940)	; &U-i001+21940;
     ))
 (define-char
   '((ideographic-radical . 39)	; ⼦
