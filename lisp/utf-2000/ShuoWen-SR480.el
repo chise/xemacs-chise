@@ -2311,6 +2311,8 @@
   '((shuowen-radical	. 480)	; 土
     (=shuowen-jiguge	. 47602)	; &SW-JIGUGE-47602;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x2150A)	; 𡔊
+      )
      ((=ucs		  . #x587E)	; 塾
       ))
     (->subsumptive
