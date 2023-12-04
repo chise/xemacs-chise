@@ -2798,6 +2798,8 @@
   '((shuowen-radical	. 467)	; 糸
     (=shuowen-jiguge	. 45508)	; &SW-JIGUGE-45508;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x28919)	; 𨤙
+      )
      ((=ucs		  . #x7D6D)	; 絭
       ))
     (->subsumptive
