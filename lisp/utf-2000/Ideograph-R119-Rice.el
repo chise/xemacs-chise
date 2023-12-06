@@ -4060,6 +4060,23 @@
   '((ideographic-radical . 119)	; ⽶
     (ideographic-strokes . 6)
     (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5A04)	; 娄
+      )
+     ((=ucs		  . #x4E45)	; 久
+      ))
+    (=ucs		. #x25E70)	; 𥹰
+    (->subsumptive
+     ((==ucs@iso	  . #x25E70)	; &g2-IU-00025E70;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 119)	; ⽶
+    (ideographic-strokes . 6)
+    (total-strokes	 . 12)
     (=ucs		. #x2B0BE)	; 𫂾
     (=cbeta		. 06759)	; &I-CB06759;
     ))

@@ -731,6 +731,7 @@ DESCRIPTION (string) is the description string of the charset."
 	  =+>ucs-tip-var-003
 	  =+>jis-x0208@1978
 	  =+>big5-cdp
+	  =+>hanyo-denshi/jt
 	  )))
 
 ;;; mule-charset.el ends here
