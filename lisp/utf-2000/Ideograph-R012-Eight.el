@@ -1273,7 +1273,10 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 12)	; ⼋
+  '((<-denotational@usage
+     ((==>ucs@bucs	  . #x862D)	; &BUCS+862D;
+      ))
+    (ideographic-radical . 12)	; ⼋
     (ideographic-strokes . 3)
     (total-strokes	 . 5)
     (ideographic-structure
@@ -1301,7 +1304,8 @@
       )
      ((=ucs		  . #x4E37)	; 丷
       )
-     ((=ucs		  . #x4E09)	; 三
+     ((=ucs@unicode	  . #x4E09)	; &AJ1-02174;
+      (=adobe-japan1-0	  . 02174)	; &AJ1-02174;
       ))
     (=ucs@unicode	. #x5170)	; &G0-403C;
     (=gb2312		. #x403C)	; &G0-403C; [32-28]
