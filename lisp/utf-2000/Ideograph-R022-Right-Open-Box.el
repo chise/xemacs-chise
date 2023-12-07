@@ -270,7 +270,23 @@
       ))
     ))
 (define-char
-  '((<-denotational@usage
+  '((ideographic-radical . 22)	; ⼕
+    (=>ucs@cognate	. #x531D)	; &A-cgnU+531D;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@cognate	  . #x531D)	; &A-cgnU+531D;
+      ))
+    (ideographic-radical . 22)	; ⼕
+    (=>ucs@iwds-1	. #x531D)	; &A-IWDSU+531D;
+    (=>iwds-1		.  12298)	; &A-IWDSU+531D;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@iwds-1	  . #x531D)	; &A-IWDSU+531D;
+      (=>iwds-1		  .  12298)	; &A-IWDSU+531D;
+      ))
+    (<-denotational@usage
      ((==>ucs@bucs	  . #x531D)	; &BUCS+531D;
       )
      ((==>daijiten	  . 00951)	; &A2-DJT-00951;
@@ -384,6 +400,77 @@
      ((=ucs		  . #x5DFE)	; 巾
       ))
     (=ucs-var-002	. #x531D)	; &U-v002+531D;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@iwds-1	  . #x531D)	; &A-IWDSU+531D;
+      (=>iwds-1		  .  12298)	; &A-IWDSU+531D;
+      ))
+    (ideographic-radical . 22)	; ⼕
+    (ideographic-strokes . 4)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
+      (=ucs		  . #x2FF7)	; ⿷
+      )
+     ((=>ucs@component	  . #x531A)	; &A-compU+531A;
+      (=>iwds-1		  .  0209)	; &A-compU+531A;
+      )
+     ((=ucs		  . #x5E00)	; 帀
+      ))
+    (=>ucs-itaiji-001	. #x531D)	; &A-U-i001+531D;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs-itaiji-001	  . #x531D)	; &A-U-i001+531D;
+      ))
+    (ideographic-radical . 22)	; ⼕
+    (ideographic-strokes . 4)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
+      (=ucs		  . #x2FF7)	; ⿷
+      )
+     ((=ucs		  . #x531A)	; 匚
+      )
+     ((=ucs		  . #x5E00)	; 帀
+      ))
+    (=ucs-itaiji-001	. #x531D)	; &U-i001+531D;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@cognate	  . #x531D)	; &A-cgnU+531D;
+      ))
+    (ideographic-radical . 22)	; ⼕
+    (ideographic-strokes . 4)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x4E00)	; 一
+      )
+     ((=ucs		  . #x531D)	; 匝
+      ))
+    (=>ucs-itaiji-002	. #x531D)	; &A-U-i002+531D;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs-itaiji-002	  . #x531D)	; &A-U-i002+531D;
+      ))
+    (ideographic-radical . 22)	; ⼕
+    (ideographic-strokes . 4)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x4E00)	; 一
+      )
+     ((=ucs@unicode	  . #x531D)	; &AJ1-02779;
+      (=adobe-japan1-0	  . 02779)	; &AJ1-02779;
+      ))
+    (=ucs-itaiji-002	. #x531D)	; &U-i002+531D;
     ))
 (define-char
   '((ideographic-radical . 22)	; ⼕
@@ -877,8 +964,43 @@
 (define-char
   '((ideographic-radical . 22)	; ⼕
     (ideographic-strokes . 4)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
+      (=ucs		  . #x2FF7)	; ⿷
+      )
+     ((=>ucs@component	  . #x531A)	; &A-compU+531A;
+      (=>iwds-1		  .  0209)	; &A-compU+531A;
+      )
+     ((=>ucs@component	  . #x65E5)	; &A-compU+65E5;
+      (=>iwds-1		  .  0118)	; &A-compU+65E5;
+      ))
     (=ucs		. #x2B9CD)	; 𫧍
-    (=cbeta		. 09871)	; &I-CB09871;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2B9CD)	; 𫧍
+      ))
+    (ideographic-radical . 22)	; ⼕
+    (ideographic-strokes . 4)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
+      (=ucs		  . #x2FF7)	; ⿷
+      )
+     ((=ucs		  . #x531A)	; 匚
+      )
+     ((=ucs		  . #x65E5)	; 日
+      ))
+    (=ucs@JP/hanazono	. #x2B9CD)	; &CB09871;
+    (=cbeta		. 09871)	; &CB09871;
+    (->subsumptive
+     ((==ucs@JP/hanazono  . #x2B9CD)	; &g2-CB09871;
+      (==cbeta		  . 09871)	; &g2-CB09871;
+      (->subsumptive
+       ((===cbeta	    . 09871)	; &R-CB09871;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 22)	; ⼕
