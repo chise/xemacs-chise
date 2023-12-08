@@ -328,7 +328,10 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 56)	; ⼷
+  '((<-denotational@usage
+     ((==>ucs@bucs	  . #x4E09)	; &BUCS+4E09;
+      ))
+    (ideographic-radical . 56)	; ⼷
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
     (ideographic-structure
@@ -340,7 +343,25 @@
      ((=ucs		  . #x4E09)	; 三
       ))
     (=ucs		. #x5F0E)	; 弎
-    (=adobe-japan1-4	. 14513)	; &I-AJ1-14513;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5F0E)	; 弎
+      ))
+    (ideographic-radical . 56)	; ⼷
+    (ideographic-strokes . 3)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
+      (=ucs		  . #x2FF9)	; ⿹
+      )
+     ((=ucs		  . #x5F0B)	; 弋
+      )
+     ((=ucs@unicode	  . #x4E09)	; &AJ1-02174;
+      (=adobe-japan1-0	  . 02174)	; &AJ1-02174;
+      ))
+    (=ucs@unicode	. #x5F0E)	; &AJ1-14513;
+    (=adobe-japan1-4	. 14513)	; &AJ1-14513;
     (=jis-x0212		. #x3C60)	; &I-JSP-3C60; [28-64]
     (=iso-ir165		. #x2E38)	; &I-EGB-2E38; [14-24]
     (=cns11643-3	. #x2362)	; &I-C3-2362; [03-66]
@@ -348,12 +369,14 @@
     (=hanyo-denshi/jb	. #x3C60)	; &I-HD-JB-3C60; [28-64]
     (=hanyo-denshi/ib	. #x3223)	; &I-HD-IB-3223; [18-03]
     (=daikanwa		. 09662)	; &I-M-09662;
-    (=shinjigen		.  0007)	; 弎
+    (=daijiten		. 03036)	; &I-DJT-03036;
+    (=shinjigen		.  0007)	; &AJ1-14513;
     (=jef-china3	. #x41A7)	; &I-JC3-41A7;
     (<-ancient
-     ((=ucs		  . #x4E09)	; 三
+     ((=ucs@unicode	  . #x4E09)	; &AJ1-02174;
+      (=adobe-japan1-0	  . 02174)	; &AJ1-02174;
       (=jis-x0208	  . #x3B30)	; &I-J90-3B30; [27-16]
-      (=shinjigen	  .  0006)	; 三
+      (=shinjigen	  .  0006)	; &AJ1-02174;
       ))
     (<-ancient*sources
      shinjigen)
@@ -367,15 +390,6 @@
        ((=ucs		    . #x5F0E)	; 弎
 	)
        ((=ucs		    . #xE0101)	; 󠄁
-	))
-      (ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
-	(=ucs		    . #x2FF9)	; ⿹
-	)
-       ((=gt-k		    . 00233)	; &GT-K00233;
-	)
-       ((==ucs@unicode	    . #x4E09)	; &g2-AJ1-02174;
-	(==adobe-japan1-0   . 02174)	; &g2-AJ1-02174;
 	))
       (==ucs@unicode	  . #x5F0E)	; &g2-AJ1-14513;
       (==adobe-japan1-4	  . 14513)	; &g2-AJ1-14513;
@@ -399,6 +413,8 @@
 	)
        ((===ucs@unicode	    . #x5F0E)	; &R-UU+5F0E;
 	))
+      )
+     ((==daijiten	  . 03036)	; &g2-DJT-03036;
       )
      ((=decomposition@hanyo-denshi
        ((=ucs		    . #x5F0E)	; 弎

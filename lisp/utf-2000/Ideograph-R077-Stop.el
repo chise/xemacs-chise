@@ -493,6 +493,7 @@
      ((=>big5-cdp	  . #x87F9)	; &A-CDP-87F9;
       ))
     (=>ucs-itaiji-001	. #x23944)	; &A-U-i001+23944;
+    (=>ucs-itaiji-003	. #x23944)	; &A-U-i001+23944;
     ))
 (define-char
   '((<-denotational
@@ -519,6 +520,15 @@
     (->subsumptive
      ((==ucs-itaiji-001	  . #x23944)	; &g2-U-i001+23944;
       ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs-itaiji-001	  . #x23944)	; &A-U-i001+23944;
+      ))
+    (ideographic-radical . 77)	; ⽌
+    (ideographic-strokes . 1)
+    (total-strokes	 . 5)
+    (=ucs-itaiji-003	. #x23944)	; &U-i003+23944;
     ))
 (define-char
   '((ideographic-radical . 77)	; ⽌
