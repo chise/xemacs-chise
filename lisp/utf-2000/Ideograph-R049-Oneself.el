@@ -1103,7 +1103,8 @@
      ((=>ucs@iwds-1	  . #x268DD)	; &A-IWDSU+268DD;
       (=>iwds-1		  .  0162)	; &A-IWDSU+268DD;
       )
-     ((=ucs		  . #x5DF3)	; 巳
+     ((=>ucs@component	  . #x5DF1)	; &A-compU+5DF1;
+      (=>iwds-1		  .  0120)	; &A-compU+5DF1;
       ))
     (sound@ja/on	"i" "ki")
     (=ucs		. #x5DF8)	; 巸
@@ -1190,17 +1191,17 @@
      ((=ucs		  . #x5DF8)	; 巸
       ))
     (ideographic-radical . 49)	; ⼰
-    (ideographic-strokes . 6)
-    (total-strokes	 . 9)
+    (ideographic-strokes . 7)
+    (total-strokes	 . 10)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=ucs		  . #x81E3)	; 臣
+     ((=ucs		  . #x268DE)	; 𦣞
       )
-     ((=ucs		  . #x5DF3)	; 巳
+     ((=ucs		  . #x5DF1)	; 己
       ))
-    (=ucs-var-001	. #x5DF8)	; &U-v001+5DF8;
+    (=ucs-var-006	. #x5DF8)	; &U-v006+5DF8;
     ))
 (define-char
   '((<-denotational
@@ -1381,11 +1382,46 @@
       )
      ((=ucs		  . #x81E3)	; 臣
       )
-     ((=ucs		  . #x5DF1)	; 己
+     ((=>ucs@component	  . #x5DF1)	; &A-compU+5DF1;
+      (=>iwds-1		  .  0120)	; &A-compU+5DF1;
       ))
     (sound@ja/on	"i" "ki")
     (=ucs		. #x2D60D)	; 𭘍
-    (=mj		. 010793)	; &I-MJ010793;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2D60D)	; 𭘍
+      ))
+    (ideographic-radical . 49)	; ⼰
+    (ideographic-strokes . 6)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x81E3)	; 臣
+      )
+     ((=ucs		  . #x5DF3)	; 巳
+      ))
+    (=ucs-var-001	. #x5DF8)	; &U-v001+5DF8;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2D60D)	; 𭘍
+      ))
+    (ideographic-radical . 49)	; ⼰
+    (ideographic-strokes . 6)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x81E3)	; 臣
+      )
+     ((=ucs		  . #x5DF1)	; 己
+      ))
+    (=ucs@JP/hanazono	. #x2D60D)	; &MJ010793;
+    (=mj		. 010793)	; &MJ010793;
     (->subsumptive
      ((==ucs@JP/hanazono  . #x2D60D)	; &g2-MJ010793;
       (==mj		  . 010793)	; &g2-MJ010793;
