@@ -1429,6 +1429,14 @@
       )
      ((=ucs		  . #x5E72)	; 干
       ))
+    (ideographic-structure@apparent/leftmost
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x3400)	; 㐀
+      )
+     ((=ucs		  . #x5341)	; 十
+      ))
     (=ucs		. #x2EB8)	; ⺸
     (=cbeta		. 06151)	; &I-CB06151;
     (<-s/female
@@ -2882,17 +2890,6 @@
     (ideographic-radical . 201)	; ⿈
     (ideographic-strokes . 0)
     (total-strokes	 . 11)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
-      (=ucs		  . #x2FF3)	; ⿳
-      )
-     ((=ucs@unicode	  . #x9FB7)	; &CDP-8B5C;
-      (=big5-cdp	  . #x8B5C)	; &CDP-8B5C;
-      )
-     ((=ucs		  . #x7531)	; 由
-      )
-     ((=gt-k		  . 00059)	; &GT-K00059;
-      ))
     (ideographic-structure@apparent
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
       (=ucs		  . #x2FF3)	; ⿳
