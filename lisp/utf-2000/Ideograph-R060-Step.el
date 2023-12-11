@@ -13156,8 +13156,7 @@
     (<-interchangeable*sources
      shuowen-tongxun-dingsheng daikanwa)
     (->formed
-     ((=ucs@iso		  . #x275EC)	; &C6-4E53;
-      (=cns11643-6	  . #x4E53)	; &C6-4E53; [46-51]
+     ((=cns11643-6	  . #x4E53)	; &C6-4E53; [46-51]
       (=daikanwa	  . 34053)	; &I-M-34053;
       )
      ((=ucs@iso		  . #x22567)	; &MJ035916;
