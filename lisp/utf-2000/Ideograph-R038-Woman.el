@@ -19186,6 +19186,37 @@
       )
      ((=ucs		  . #x5973)	; 女
       )
+     ((=ucs		  . #x20027)	; 𠀧
+      ))
+    (=ucs		. #x21755)	; 𡝕
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x21755)	; 𡝕
+      ))
+    (ideographic-radical . 38)	; ⼥
+    (ideographic-strokes . 7)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5973)	; 女
+      )
+     ((=ucs-var-003	  . #x20027)	; &U-v003+20027;
+      ))
+    (=ucs@iso		. #x21755)	; &U-00021755;
+    ))
+(define-char
+  '((ideographic-radical . 38)	; ⼥
+    (ideographic-strokes . 7)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5973)	; 女
+      )
      ((=ucs		  . #x5FCD)	; 忍
       ))
     (=ucs		. #x21756)	; 𡝖
