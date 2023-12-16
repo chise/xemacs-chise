@@ -651,8 +651,8 @@
     (=daikanwa		. 34664)	; &M-34664;
     (<-same
      ((=ucs@iso		  . #x27793)	; &C4-6445;
-      (=cns11643-4	  . #x6445)	; &I-C4-6445; [68-37]
-      (=daikanwa	  . 34665)	; &C4-6445;
+      (=cns11643-4	  . #x6445)	; &C4-6445; [68-37]
+      (=daikanwa	  . 34665)	; &I-M-34665;
       ))
     (<-same$_1*sources
      jiyun daikanwa)
@@ -660,8 +660,8 @@
      jiyun daikanwa)
     (->formed
      ((=ucs@iso		  . #x27793)	; &C4-6445;
-      (=cns11643-4	  . #x6445)	; &I-C4-6445; [68-37]
-      (=daikanwa	  . 34665)	; &C4-6445;
+      (=cns11643-4	  . #x6445)	; &C4-6445; [68-37]
+      (=daikanwa	  . 34665)	; &I-M-34665;
       ))
     (->formed$_1*sources
      jiyun)
