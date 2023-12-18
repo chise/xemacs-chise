@@ -3958,7 +3958,8 @@
       (=adobe-japan1-0	  . 05722)	; &AJ1-05722;
       (=daikanwa	  . 21893)	; &I-M-21893;
       )
-     ((=ucs@jis		  . #x89ED)	; &JSP-5D3C;
+     ((=ucs@cns		  . #x89ED)	; &JSP-5D3C;
+      (=ucs@jis		  . #x89ED)	; &JSP-5D3C;
       (=jis-x0212	  . #x5D3C)	; &JSP-5D3C; [61-28]
       (=cns11643-2	  . #x543A)	; &I-C2-543A; [52-26]
       (=daikanwa	  . 35105)	; &I-M-35105;
@@ -3995,7 +3996,8 @@
     (<-same*sources
      daikanwa)
     (->formed
-     ((=ucs@jis		  . #x89ED)	; &JSP-5D3C;
+     ((=ucs@cns		  . #x89ED)	; &JSP-5D3C;
+      (=ucs@jis		  . #x89ED)	; &JSP-5D3C;
       (=jis-x0212	  . #x5D3C)	; &JSP-5D3C; [61-28]
       (=cns11643-2	  . #x543A)	; &I-C2-543A; [52-26]
       (=daikanwa	  . 35105)	; &I-M-35105;
@@ -4018,7 +4020,8 @@
     (->formed*sources
      jiyun daikanwa)
     (->interchangeable
-     ((=ucs@jis		  . #x89ED)	; &JSP-5D3C;
+     ((=ucs@cns		  . #x89ED)	; &JSP-5D3C;
+      (=ucs@jis		  . #x89ED)	; &JSP-5D3C;
       (=jis-x0212	  . #x5D3C)	; &JSP-5D3C; [61-28]
       (=cns11643-2	  . #x543A)	; &I-C2-543A; [52-26]
       (=daikanwa	  . 35105)	; &I-M-35105;
@@ -5582,7 +5585,8 @@
       (=mj		  . 012328)	; &MJ012328;
       (=daikanwa	  . 12035)	; &I-M-12035;
       )
-     ((=cns11643-2	  . #x4748)	; &C2-4748; [39-40]
+     ((=ucs@cns		  . #x89E2)	; &C2-4748;
+      (=cns11643-2	  . #x4748)	; &C2-4748; [39-40]
       (=daikanwa	  . 35066)	; &I-M-35066;
       )
      ((=ucs@jis		  . #x5070)	; &MJ006945;
