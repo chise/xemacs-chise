@@ -2672,6 +2672,20 @@
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
     (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x4EBB)	; 亻
+      )
+     ((=ucs		  . #x2B820)	; 𫠠
+      ))
+    (=ucs-itaiji-002	. #x4EE3)	; &U-i002+4EE3;
+    ))
+(define-char
+  '((ideographic-radical . 9)	; ⼈
+    (ideographic-strokes . 2)
+    (total-strokes	 . 4)
+    (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
@@ -12318,9 +12332,27 @@
       )
      ((=ucs		  . #x4EBB)	; 亻
       )
-     ((=ucs		  . #x65E5)	; 日
+     ((=>ucs@component	  . #x65E5)	; &A-compU+65E5;
+      (=>iwds-1		  .  0118)	; &A-compU+65E5;
       ))
     (=ucs		. #x2CF6A)	; 𬽪
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2CF6A)	; 𬽪
+      ))
+    (ideographic-radical . 9)	; ⼈
+    (ideographic-strokes . 4)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x4EBB)	; 亻
+      )
+     ((=ucs		  . #x65E5)	; 日
+      ))
+    (=ucs@JP/hanazono	. #x2CF6A)	; &hanaJU+2CF6A;
     (->subsumptive
      ((==ucs@JP/hanazono  . #x2CF6A)	; &g2-hanaJU+2CF6A;
       ))
@@ -38884,7 +38916,8 @@
     (<-same*sources
      jiyun daikanwa)
     (->interchangeable
-     ((=ucs@jis		  . #x89ED)	; &JSP-5D3C;
+     ((=ucs@cns		  . #x89ED)	; &JSP-5D3C;
+      (=ucs@jis		  . #x89ED)	; &JSP-5D3C;
       (=jis-x0212	  . #x5D3C)	; &JSP-5D3C; [61-28]
       (=cns11643-2	  . #x543A)	; &I-C2-543A; [52-26]
       (=daikanwa	  . 35105)	; &I-M-35105;
