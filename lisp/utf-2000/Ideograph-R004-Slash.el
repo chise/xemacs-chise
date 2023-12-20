@@ -1249,6 +1249,26 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=ucs		  . #x4E46)	; 乆
+      ))
+    (ideographic-radical . 4)	; ⼃
+    (ideographic-strokes . 2)
+    (total-strokes	 . 3)
+    (ideographic-structure@apparent
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x4E36)	; 丶
+      )
+     ((=ucs		  . #x4EBA)	; 人
+      ))
+    (=ucs-itaiji-001	. #x4E46)	; &U-i001+4E46;
+    (->subsumptive
+     ((==ucs-itaiji-001	  . #x4E46)	; &g2-U-i001+4E46;
+      ))
+    ))
+(define-char
   '((ideographic-radical . 4)	; ⼃
     (ideographic-strokes . 2)
     (total-strokes	 . 3)
