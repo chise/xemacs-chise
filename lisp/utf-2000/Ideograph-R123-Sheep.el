@@ -7036,6 +7036,24 @@
      ((=ucs		  . #x4E2E)	; 丮
       ))
     (=>ucs-itaiji-001	. #x263E7)	; &A-U-i001+263E7;
+    (=>ucs-itaiji-002	. #x263E7)	; &A-U-i001+263E7;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs-itaiji-001	  . #x263E7)	; &A-U-i001+263E7;
+      ))
+    (ideographic-radical . 123)	; ⽺
+    (ideographic-strokes . 12)
+    (total-strokes	 . 19)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs-var-008	  . #x263A7)	; &U-v008+263A7;
+      )
+     ((=gt-k		  . 00604)	; &DJT-00054;
+      ))
+    (=ucs-itaiji-002	. #x263E7)	; &U-i002+263E7;
     ))
 (define-char
   '((<-denotational
