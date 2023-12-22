@@ -2891,15 +2891,13 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 11)
     (ideographic-structure@apparent
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
-      (=ucs		  . #x2FF3)	; ⿳
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
       )
      ((=ucs@unicode	  . #x9FB7)	; &CDP-8B5C;
       (=big5-cdp	  . #x8B5C)	; &CDP-8B5C;
       )
-     ((=ucs		  . #x7531)	; 由
-      )
-     ((=gt-k		  . 00059)	; &GT-K00059;
+     ((=big5-cdp-itaiji-001 . #x8CE6)	; &CDP-i001-8CE6;
       ))
     (=ucs		. #x2EE9)	; ⻩
     (=ucs@unicode	. #x9EC4)	; ⻩
