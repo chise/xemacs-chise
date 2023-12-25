@@ -3432,6 +3432,23 @@
      ((=ucs		  . #x21B36)	; 𡬶
       ))
     (ideographic-radical . 41)	; ⼨
+    (ideographic-strokes . 9)
+    (total-strokes	 . 12)
+    (ideographic-structure@apparent/rightmost
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=adobe-japan1-4	  . 15391)	; &AJ1-15391;
+      )
+     ((=ucs-itaiji-001	  . #x2D52B)	; &U-i001+2D52B;
+      ))
+    (=ucs@JP/hanazono	. #x21B36)	; &hanaJU+21B36;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x21B36)	; 𡬶
+      ))
+    (ideographic-radical . 41)	; ⼨
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
     (ideographic-structure@apparent/rightmost
