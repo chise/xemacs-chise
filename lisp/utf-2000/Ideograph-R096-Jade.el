@@ -7351,6 +7351,24 @@
     (=ucs@JP/hanazono	. #x2C35E)	; &hanaJU+2C35E;
     ))
 (define-char
+  '((<-denotational
+     ((=ucs		  . #x2C35E)	; 𬍞
+      ))
+    (ideographic-radical . 96)	; ⽟
+    (ideographic-strokes . 7)
+    (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
+      (=ucs		  . #x2FFA)	; ⿺
+      )
+     ((=ucs@cns		  . #x9EA6)	; &C3-2547;
+      (=cns11643-3	  . #x2547)	; &C3-2547; [05-39]
+      )
+     ((=ucs		  . #x7389)	; 玉
+      ))
+    (=ucs-var-003	. #x2C35E)	; &U-v003+2C35E;
+    ))
+(define-char
   '((ideographic-radical . 96)	; ⽟
     (ideographic-strokes . 7)
     (total-strokes	 . 11)

@@ -317,7 +317,10 @@
     (=daikanwa/ho	.  0006)	; 𠃌
     ))
 (define-char
-  '((name		. "CJK STROKE HP")
+  '((<-denotational
+     ((=ucs		  . #x200CD)	; 𠃍
+      ))
+    (name		. "CJK STROKE HP")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
@@ -427,11 +430,30 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 1)
     (=ucs		. #x200CD)	; 𠃍
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x200CD)	; 𠃍
+      ))
+    (ideographic-radical . 5)	; ⼄
+    (ideographic-strokes . 0)
+    (total-strokes	 . 1)
+    (=ucs@iso		. #x200CD)	; &CDP-89C8;
+    (=big5-cdp		. #x89C8)	; &CDP-89C8;
     (=gt-k		. 00020)	; &I-GT-K00020;
-    (=gt-pj-k1		. #x3025)	; 𠃍 [16-05]
+    (=gt-pj-k1		. #x3025)	; &CDP-89C8; [16-05]
     (->subsumptive
-     ((==ucs@iso	  . #x200CD)	; &g2-GT-K00020;
-      (==gt-k		  . 00020)	; &g2-GT-K00020;
+     ((==ucs@iso	  . #x200CD)	; &g2-CDP-89C8;
+      (==big5-cdp	  . #x89C8)	; &g2-CDP-89C8;
+      (==gt-k		  . 00020)	; &g2-CDP-89C8;
+      (==gt-pj-k1	  . #x3025)	; &g2-CDP-89C8; [16-05]
+      (->subsumptive
+       ((===big5-cdp	    . #x89C8)	; &R-CDP-89C8;
+	)
+       ((===gt-k	    . 00020)	; &R-GT-K00020;
+	)
+       ((===ucs@iso	    . #x200CD)	; &R-U-000200CD;
+	))
       ))
     ))
 (define-char
