@@ -674,7 +674,16 @@
       ))
     ))
 (define-char
-  '((<-denotational@component
+  '((ideographic-radical . 43)	; ⼪
+    (ideographic-strokes . 1)
+    (total-strokes	 . 4)
+    (=>ucs@cognate	. #x5C24)	; &A-cgnU+5C24;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@cognate	  . #x5C24)	; &A-cgnU+5C24;
+      ))
+    (<-denotational@component
      ((=>ucs@component	  . #x5C24)	; &A-compU+5C24;
       (=>iwds-1		  .  0250)	; &A-compU+5C24;
       ))
@@ -786,6 +795,30 @@
      ((==ucs@unicode	  . #x5C24)	; &g2-UU+5C24;
       (==ucs@JP/hanazono  . nil)
       (==gb2312		  . #x5348)	; &g2-UU+5C24; [51-40]
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@cognate	  . #x5C24)	; &A-cgnU+5C24;
+      ))
+    (<-denotational@component
+     ((=>ucs@component	  . #x5C24)	; &A-compU+5C24;
+      (=>iwds-1		  .  0250)	; &A-compU+5C24;
+      ))
+    (ideographic-radical . 43)	; ⼪
+    (ideographic-strokes . 1)
+    (total-strokes	 . 4)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
+      (=ucs		  . #x2FF7)	; ⿷
+      )
+     ((=ucs		  . #x5C22)	; 尢
+      )
+     ((=ucs		  . #x4E36)	; 丶
+      ))
+    (=ucs-itaiji-002	. #x5C24)	; &U-i002+5C24;
+    (->subsumptive
+     ((==ucs-itaiji-002	  . #x5C24)	; &g2-U-i002+5C24;
       ))
     ))
 (define-char
