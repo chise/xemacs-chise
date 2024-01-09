@@ -21879,8 +21879,8 @@
       (=cns11643-2	  . #x322E)	; &I-C2-322E; [18-14]
       (=daikanwa	  . 29433)	; &I-M-29433;
       )
-     ((=ucs@unicode	  . #x8CC5)	; &JSP-5F2C;
-      (=jis-x0212	  . #x5F2C)	; &JSP-5F2C; [63-12]
+     ((=ucs@unicode	  . #x8CC5)	; &HD-KS-417080;
+      (=jis-x0212	  . #x5F2C)	; &HD-KS-417080; [63-12]
       (=cns11643-1	  . #x6677)	; &I-C1-6677; [70-87]
       (=daikanwa	  . 36746)	; &I-M-36746;
       )
@@ -21897,8 +21897,8 @@
     (<-interchangeable*sources
      zhengzitong daikanwa)
     (->interchangeable
-     ((=ucs@unicode	  . #x8CC5)	; &JSP-5F2C;
-      (=jis-x0212	  . #x5F2C)	; &JSP-5F2C; [63-12]
+     ((=ucs@unicode	  . #x8CC5)	; &HD-KS-417080;
+      (=jis-x0212	  . #x5F2C)	; &HD-KS-417080; [63-12]
       (=cns11643-1	  . #x6677)	; &I-C1-6677; [70-87]
       (=daikanwa	  . 36746)	; &I-M-36746;
       ))
