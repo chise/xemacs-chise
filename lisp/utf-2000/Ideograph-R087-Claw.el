@@ -322,15 +322,19 @@
     (=big5-cdp		. #x89E3)	; &I-CDP-89E3;
     (=gt-k		. 00278)	; &I-GT-K00278;
     (=gt-pj-k1		. #x3573)	; 𰀄 [21-83]
+    (=cbeta		. 08601)	; &I-CB08601;
     (->subsumptive
      ((==ucs@JP/hanazono  . #x30004)	; &g2-CDP-89E3;
       (==big5-cdp	  . #x89E3)	; &g2-CDP-89E3;
       (==gt-k		  . 00278)	; &g2-CDP-89E3;
       (==gt-pj-k1	  . #x3573)	; &g2-CDP-89E3; [21-83]
+      (==cbeta		  . 08601)	; &g2-CDP-89E3;
       (->subsumptive
        ((===big5-cdp	    . #x89E3)	; &R-CDP-89E3;
 	)
        ((===gt-k	    . 00278)	; &R-GT-K00278;
+	)
+       ((===cbeta	    . 08601)	; &R-CB08601;
 	))
       ))
     ))
