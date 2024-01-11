@@ -6259,7 +6259,7 @@
      ((=>ucs@component	  . #x6708)	; &A-compU+6708;
       (=>iwds-1		  .  0053)	; &A-compU+6708;
       )
-     ((=>ucs-itaiji-002	  . #x66E9)	; &A-U-i002+66E9;
+     ((=ucs		  . #x31892)	; 𱢒
       ))
     (=ucs		. #x233A6)	; 𣎦
     ))
@@ -6277,7 +6277,8 @@
      ((=ucs@unicode	  . #x6708)	; &MJ013520;
       (=mj		  . 013520)	; &MJ013520;
       )
-     ((=ucs-itaiji-002	  . #x66E9)	; &U-i002+66E9;
+     ((=ucs@JP/hanazono	  . #x31892)	; &U-i002+66E9;
+      (=ucs-itaiji-002	  . #x66E9)	; &U-i002+66E9;
       ))
     (=ucs@iso		. #x233A6)	; &U-000233A6;
     ))
