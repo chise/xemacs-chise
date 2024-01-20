@@ -838,9 +838,7 @@
        shuowen-tongxun-dingsheng daikanwa)
       (->formed
        ((=ucs@cns	    . #x846B)	; &C1-6633;
-	(=ucs@ks	    . #x846B)	; &C1-6633;
-	(=ks-x1001	    . #x7B59)	; &C1-6633; [91-57]
-	(=cns11643-1	    . #x6633)	; &I-C1-6633; [70-19]
+	(=cns11643-1	    . #x6633)	; &C1-6633; [70-19]
 	(=daikanwa	    . 31443)	; &I-M-31443;
 	))
       (->formed$_1*sources
