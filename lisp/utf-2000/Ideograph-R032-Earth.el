@@ -6430,6 +6430,15 @@
   '((ideographic-radical . 32)	; ⼟
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
+    (ideographic-structure
+     ((=ucs-itaiji-001	  . #x2FFB)	; &U-i001+2FFB;
+      )
+     ((=>ucs@iwds-1	  . #x58EB)	; &A-IWDSU+58EB;
+      (=>iwds-1		  .  31272)	; &A-IWDSU+58EB;
+      )
+     ((=>ucs@iwds-1	  . #x4ECE)	; &A-IWDSU+4ECE;
+      (=>ucs@iwds-1/normalized . #x4ECE)	; &A-IWDSU+4ECE;
+      ))
     (=>big5-cdp		. #x8D5B)	; &A-GT-K03011;
     (=>gt-k		. 03011)	; &A-GT-K03011;
     ))
@@ -6440,6 +6449,13 @@
     (ideographic-radical . 32)	; ⼟
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
+    (ideographic-structure
+     ((=ucs-itaiji-001	  . #x2FFB)	; &U-i001+2FFB;
+      )
+     ((=ucs		  . #x571F)	; 土
+      )
+     ((=ucs		  . #x204DC)	; 𠓜
+      ))
     (=big5-cdp-var-003	. #x8D5B)	; &CDP-v003-8D5B;
     ))
 (define-char
