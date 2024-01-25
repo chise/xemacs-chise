@@ -145,14 +145,6 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 2)
     (hanyu-dazidian	1 2 2)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-      (=ucs		  . #x2FF1)	; ⿱
-      )
-     ((=ucs		  . #x4E00)	; 一
-      )
-     ((=ucs		  . #x4E00)	; 一
-      ))
     (=ucs		. #x2011E)	; 𠄞
     (=cns11643-6	. #x2127)	; &I-C6-2127; [01-07]
     (=gt		. 00328)	; &I-GT-00328;
@@ -214,6 +206,14 @@
     (ideographic-radical . 7)	; ⼆
     (ideographic-strokes . 0)
     (total-strokes	 . 2)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x4E00)	; 一
+      )
+     ((=ucs		  . #x4E00)	; 一
+      ))
     (=ucs		. #x20120)	; 𠄠
     (=cns11643-6	. #x2129)	; &I-C6-2129; [01-09]
     (=gt		. 00329)	; &I-GT-00329;
