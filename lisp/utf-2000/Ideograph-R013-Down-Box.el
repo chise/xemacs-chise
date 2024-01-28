@@ -241,6 +241,16 @@
       (->subsumptive
        ((===big5-cdp	    . #x8BD6)	; &R-CDP-8BD6;
 	))
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((=ucs		    . #x4E3F)	; 丿
+	)
+       ((=big5-cdp	    . #x8BC0)	; &CDP-8BC0;
+	))
+      (=big5-cdp-var-007  . #x8BD6)	; &CDP-v007-8BD6;
       ))
     ))
 (define-char
