@@ -1,6 +1,8 @@
 ;; -*- coding: utf-8-mcs-er -*-
 (define-char
   '((<-denotational@component
+     ((=>ucs@component	  . #x4E3F)	; &A-compU+4E3F;
+      )
      ((=>ucs@component	  . #x4E00)	; &A-compU+4E00;
       ))
     (<-denotational@usage
@@ -7046,6 +7048,10 @@
     (hanyu-dazidian	8 7 12)
     (=ucs		. #x200C8)	; 𠃈
     (=hanziku-12	. #xEB4B)	; &I-HZK12-EB4B;
+    ))
+(define-char
+  '((ideographic-radical . 4)	; ⼃
+    (=>ucs@component	. #x4E3F)	; &A-compU+4E3F;
     ))
 (define-char
   '((ideographic-radical . 4)	; ⼃
