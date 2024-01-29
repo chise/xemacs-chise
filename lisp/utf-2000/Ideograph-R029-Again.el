@@ -296,40 +296,6 @@
       ))
     ))
 (define-char
-  '((<-denotational@usage
-     ((==>daijiten	  . 01116)	; &A2-DJT-01116;
-      ))
-    (ideographic-radical . 29)	; ⼜
-    (ideographic-strokes . 1)
-    (total-strokes	 . 3)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((name		  . "CJK STROKE HP")
-      (=ucs		  . #x31C7)	; ㇇
-      )
-     ((=ucs		  . #x53C8)	; 又
-      ))
-    (=ucs		. #x2D1A5)	; 𭆥
-    (=mj		. 057133)	; &I-MJ057133;
-    (=koseki		. 036250)	; 𭆥
-    (<-formed
-     ((=ucs@unicode	  . #x53CD)	; &AJ1-03411;
-      (=adobe-japan1-0	  . 03411)	; &AJ1-03411;
-      ))
-    (<-formed*sources
-     koseki)
-    (->subsumptive
-     ((==ucs@JP/hanazono  . #x2D1A5)	; &g2-MJ057133;
-      (==mj		  . 057133)	; &g2-MJ057133;
-      (==koseki		  . 036250)	; &g2-MJ057133;
-      (->subsumptive
-       ((===mj		    . 057133)	; &R-MJ057133;
-	))
-      ))
-    ))
-(define-char
   '((<-denotational@component
      ((=>ucs@component	  . #x355A)	; &A-compU+355A;
       (=>iwds-1		  .  0247)	; &A-compU+355A;
@@ -1347,8 +1313,18 @@
     (=ucs-itaiji-002	. #x20B1E)	; &U-i002+20B1E;
     ))
 (define-char
-  '((<-denotational@usage
-     ((==>daijiten	  . 01116)	; &A2-DJT-01116;
+  '((<-denotational@component
+     ((=>ucs@component	  . #x53CD)	; &A-compU+53CD;
+      ))
+    (ideographic-radical . 29)	; ⼜
+    (=>ucs@cognate	. #x53CD)	; &A-cgnU+53CD;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@cognate	  . #x53CD)	; &A-cgnU+53CD;
+      ))
+    (<-denotational@usage
+     ((==>ucs@bucs	  . #x53CD)	; &BUCS+53CD;
       ))
     (ideographic-radical . 29)	; ⼜
     (ideographic-strokes . 2)
@@ -1497,6 +1473,43 @@
     (=ucs-var-002	. #x53CD)	; &U-v002+53CD;
     (->subsumptive
      ((==ucs-var-002	  . #x53CD)	; &g2-U-v002+53CD;
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@cognate	  . #x53CD)	; &A-cgnU+53CD;
+      ))
+    (<-denotational@usage
+     ((==>ucs@bucs	  . #x53CD)	; &BUCS+53CD;
+      ))
+    (ideographic-radical . 29)	; ⼜
+    (ideographic-strokes . 1)
+    (total-strokes	 . 3)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((name		  . "CJK STROKE HP")
+      (=ucs		  . #x31C7)	; ㇇
+      )
+     ((=ucs		  . #x53C8)	; 又
+      ))
+    (=ucs		. #x2D1A5)	; 𭆥
+    (=mj		. 057133)	; &I-MJ057133;
+    (=koseki		. 036250)	; 𭆥
+    (<-formed
+     ((=ucs@unicode	  . #x53CD)	; &AJ1-03411;
+      (=adobe-japan1-0	  . 03411)	; &AJ1-03411;
+      ))
+    (<-formed*sources
+     koseki)
+    (->subsumptive
+     ((==ucs@JP/hanazono  . #x2D1A5)	; &g2-MJ057133;
+      (==mj		  . 057133)	; &g2-MJ057133;
+      (==koseki		  . 036250)	; &g2-MJ057133;
+      (->subsumptive
+       ((===mj		    . 057133)	; &R-MJ057133;
+	))
       ))
     ))
 (define-char
@@ -9772,6 +9785,10 @@
     ))
 (define-char
   '((ideographic-radical . 29)	; ⼜
+    (=>ucs@component	. #x53CD)	; &A-compU+53CD;
+    ))
+(define-char
+  '((ideographic-radical . 29)	; ⼜
     (hanyu-dazidian	1 394 5)
     (=ucs		. #x20B30)	; 𠬰
     (=hanziku-1		. #xF6F4)	; &I-HZK01-F6F4;
@@ -9804,10 +9821,6 @@
     ))
 (define-char
   '((ideographic-radical . 29)	; ⼜
-    (==>daijiten	. 01116)	; &A2-DJT-01116;
-    ))
-(define-char
-  '((ideographic-radical . 29)	; ⼜
     (==>daijiten	. 01110)	; &A2-DJT-01110;
     ))
 (define-char
@@ -9825,6 +9838,11 @@
 (define-char
   '((ideographic-radical . 29)	; ⼜
     (==>daijiten	. 01114)	; &A2-DJT-01114;
+    ))
+(define-char
+  '((ideographic-radical . 29)	; ⼜
+    (==>ucs@bucs	. #x53CD)	; &BUCS+53CD;
+    (==>daijiten	. 01116)	; &BUCS+53CD;
     ))
 (define-char
   '((ideographic-radical . 29)	; ⼜
