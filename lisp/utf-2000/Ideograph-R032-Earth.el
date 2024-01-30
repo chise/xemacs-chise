@@ -6463,6 +6463,36 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
     (ideographic-structure
+     ((=ucs-itaiji-001	  . #x2FFB)	; &U-i001+2FFB;
+      )
+     ((=>ucs@iwds-1	  . #x571F)	; &A-IWDSU+571F;
+      (=>iwds-1		  .  0312)	; &A-IWDSU+571F;
+      )
+     ((=ucs-itaiji-001	  . #x723B)	; &U-i001+723B;
+      ))
+    (=>big5-cdp-itaiji-001 . #x8D5B)	; &A-CDP-i001-8D5B;
+    ))
+(define-char
+  '((<-denotational
+     ((=>big5-cdp-itaiji-001 . #x8D5B)	; &A-CDP-i001-8D5B;
+      ))
+    (ideographic-radical . 32)	; ⼟
+    (ideographic-strokes . 4)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((=ucs-itaiji-001	  . #x2FFB)	; &U-i001+2FFB;
+      )
+     ((=ucs		  . #x571F)	; 土
+      )
+     ((=ucs-itaiji-001	  . #x723B)	; &U-i001+723B;
+      ))
+    (=big5-cdp-itaiji-001 . #x8D5B)	; &CDP-i001-8D5B;
+    ))
+(define-char
+  '((ideographic-radical . 32)	; ⼟
+    (ideographic-strokes . 4)
+    (total-strokes	 . 7)
+    (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
@@ -45873,6 +45903,14 @@
     (ideographic-strokes . 27)
     (total-strokes	 . 30)
     (ideographic-structure
+     ((=ucs-itaiji-002	  . #x2FF1)	; &U-i002+2FF1;
+      )
+     ((=>ucs@iwds-1	  . #x2A8B4)	; &A-IWDSU+2A8B4;
+      (=>ucs@iwds-1/normalized . #x2A8B4)	; &A-IWDSU+2A8B4;
+      )
+     ((=>ucs-itaiji-001	  . #x9EA4)	; &A-U-i001+9EA4;
+      ))
+    (ideographic-structure@apparent
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
@@ -45909,6 +45947,14 @@
     (ideographic-strokes . 27)
     (total-strokes	 . 30)
     (ideographic-structure
+     ((=ucs-itaiji-002	  . #x2FF1)	; &U-i002+2FF1;
+      )
+     ((=ucs@JP/hanazono	  . #x2A8B4)	; &GT-K02372;
+      (=gt-k		  . 02372)	; &GT-K02372;
+      )
+     ((=ucs-itaiji-001	  . #x9EA4)	; &U-i001+9EA4;
+      ))
+    (ideographic-structure@apparent
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
