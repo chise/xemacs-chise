@@ -2545,7 +2545,8 @@
     (<-vulgar*sources
      shinjigen)
     (->ancient
-     ((=ucs		  . #x209E1)	; 𠧡
+     ((=ucs@iso		  . #x209E1)	; &C6-297B;
+      (=cns11643-6	  . #x297B)	; &C6-297B; [09-91]
       (=daikanwa	  . 02801)	; &I-M-02801;
       ))
     (->ancient*sources
