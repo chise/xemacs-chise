@@ -84,6 +84,11 @@
   '((<-denotational
      ((=ucs		  . #x6B79)	; 歹
       ))
+    (<-denotational@component
+     ((=ucs-var-002	  . #x53CD)	; &U-v002+53CD;
+      )
+     ((=>ucs@component	  . #x53CD)	; &A-compU+53CD;
+      ))
     (=>ucs*		. #x6B79)	; 歹
     (ideographic-radical . 78)	; ⽍
     (ideographic-strokes . 0)
