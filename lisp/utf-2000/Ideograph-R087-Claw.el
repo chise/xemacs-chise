@@ -3942,6 +3942,22 @@
     (ideographic-radical . 87)	; ⽖
     (ideographic-strokes . 8)
     (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((name		  . "CJK RADICAL PAW ONE")
+      (=ucs		  . #x2EA4)	; ⺤
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
+	(=ucs		    . #x2FF5)	; ⿵
+	)
+       ((=ucs-itaiji-002    . #x5E7A)	; &U-i002+5E7A;
+	)
+       ((=ucs		    . #x4E05)	; 丅
+	))
+      ))
     (=ucs-itaiji-011	. #x24514)	; &U-i011+24514;
     ))
 (define-char
