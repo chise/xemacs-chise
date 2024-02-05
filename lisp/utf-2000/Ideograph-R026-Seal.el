@@ -492,6 +492,23 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
       (=ucs		  . #x2FF4)	; ⿴
       )
+     ((=ucs-itaiji-001	  . #x22398)	; &U-i001+22398;
+      )
+     ((=ucs		  . #x4E36)	; 丶
+      ))
+    (=ucs-itaiji-001	. #x2D172)	; &U-i001+2D172;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2D172)	; 𭅲
+      ))
+    (ideographic-radical . 26)	; ⼙
+    (ideographic-strokes . 1)
+    (total-strokes	 . 3)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
+      (=ucs		  . #x2FF4)	; ⿴
+      )
      ((=ucs		  . #x353E)	; 㔾
       )
      ((=ucs		  . #x4E36)	; 丶
