@@ -7436,8 +7436,7 @@
 	)
        ((=big5-cdp	    . #x8D56)	; &CDP-8D56;
 	)
-       ((name		    . "CJK RADICAL SECOND ONE")
-	(=ucs		    . #x2E82)	; ⺂
+       ((=ucs		    . #x4E5B)	; 乛
 	))
       )
      ((=>ucs@component	  . #x590A)	; &A-compU+590A;
@@ -7463,8 +7462,7 @@
 	)
        ((=big5-cdp	    . #x8D56)	; &CDP-8D56;
 	)
-       ((name		    . "CJK RADICAL SECOND ONE")
-	(=ucs		    . #x2E82)	; ⺂
+       ((=ucs		    . #x4E5B)	; 乛
 	))
       )
      ((=ucs		  . #x590A)	; 夊
@@ -7491,8 +7489,7 @@
 	)
        ((=big5-cdp	    . #x8D56)	; &CDP-8D56;
 	)
-       ((name		    . "CJK RADICAL SECOND ONE")
-	(=ucs		    . #x2E82)	; ⺂
+       ((=ucs		    . #x4E5B)	; 乛
 	))
       )
      ((=ucs		  . #x5902)	; 夂
