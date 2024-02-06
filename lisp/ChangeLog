@@ -1,5 +1,8 @@
 2024-02-06  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
+	setting for `=ucs-itaiji-015' and `=>ucs-itaiji-015'.
+
 	* mule/mule-charset.el (default-coded-charset-priority-list): Add
 	`=ucs-sip-itaiji-015' and `=>ucs-sip-itaiji-015'.
 

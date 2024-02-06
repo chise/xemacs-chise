@@ -6,7 +6,7 @@
 ;; Copyright (C) 1995 Sun Microsystems.
 ;; Copyright (C) 1997, 1999, 2002, 2003, 2004, 2005, 2006, 2008, 2009,
 ;;   2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020,
-;;   2021, 2022, 2023 MORIOKA Tomohiko
+;;   2021, 2022, 2023, 2024 MORIOKA Tomohiko
 
 ;; This file is part of XEmacs.
 
@@ -382,6 +382,7 @@
 	  ( =ucs-itaiji-012		      "U-i012+" 4 X)
 	  ( =ucs-itaiji-013		      "U-i013+" 4 X)
 	  ( =ucs-itaiji-014		      "U-i014+" 4 X)
+	  ( =ucs-itaiji-015		      "U-i015+" 4 X)
 	  ( =ucs-itaiji-016		      "U-i016+" 4 X)
 	  ( =ucs-itaiji-018		      "U-i018+" 4 X)
 	  ( =ucs-itaiji-084		      "U-i084+" 4 X)
@@ -674,6 +675,7 @@
 	  (=>ucs-itaiji-011		    "A-U-i011+" 4 X)
 	  (=>ucs-itaiji-012		    "A-U-i012+" 4 X)
 	  (=>ucs-itaiji-014		    "A-U-i014+" 4 X)
+	  (=>ucs-itaiji-015		    "A-U-i015+" 4 X)
 	  (=>ucs-itaiji-016		    "A-U-i016+" 4 X)
 	  (=>big5-cdp-itaiji-001	  "A-CDP-i001-" 4 X)
 	  (=>big5-cdp-itaiji-002	  "A-CDP-i002-" 4 X)
