@@ -4,7 +4,7 @@
 ;; Licensed to the Free Software Foundation.
 ;; Copyright (C) 1997, 1999, 2000, 2002, 2003, 2004, 2005, 2006, 2008,
 ;;   2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019,
-;;   2020, 2021, 2022, 2023 MORIOKA Tomohiko
+;;   2020, 2021, 2022, 2023, 2024 MORIOKA Tomohiko
 
 ;; Keywords: mule, multilingual, character set, coding system
 
