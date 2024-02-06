@@ -1,3 +1,14 @@
+2024-02-06  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`=ucs-sip-itaiji-015' and `=>ucs-sip-itaiji-015'.
+
+	* mule/mule-conf.el (=ucs-itaiji-015): New coded-charset for
+	XEmacs CHISE.
+	(=ucs-sip-itaiji-015): Ditto.
+	(=>ucs-itaiji-015): Ditto.
+	(=>ucs-sip-itaiji-015): Ditto.
+
 2023-12-05  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* mule/mule-charset.el (default-coded-charset-priority-list): Add
