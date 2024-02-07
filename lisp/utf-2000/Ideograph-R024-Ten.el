@@ -2369,6 +2369,21 @@
     ))
 (define-char
   '((ideographic-radical . 24)	; ⼗
+    (ideographic-strokes . 4)
+    (total-strokes	 . 6)
+    (=>ucs-itaiji-015	. #x20992)	; &A-U-i015+20992;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs-itaiji-015	  . #x20992)	; &A-U-i015+20992;
+      ))
+    (ideographic-radical . 24)	; ⼗
+    (ideographic-strokes . 4)
+    (total-strokes	 . 6)
+    (=ucs-itaiji-015	. #x20992)	; &U-i015+20992;
+    ))
+(define-char
+  '((ideographic-radical . 24)	; ⼗
     (=>gt-k		. 03433)	; &A-GT-K03433;
     ))
 (define-char
