@@ -9155,7 +9155,10 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 29)	; ⼜
+  '((<-denotational
+     ((=>ucs@iwds-1	  . #x26996)	; &A-IWDSU+26996;
+      ))
+    (ideographic-radical . 29)	; ⼜
     (ideographic-strokes . 14)
     (total-strokes	 . 16)
     (ideographic-structure
@@ -9164,7 +9167,7 @@
       )
      ((=ucs		  . #x53D5)	; 叕
       )
-     ((=ucs		  . #x81FD)	; 臽
+     ((=>ucs@unicode	  . #x81FD)	; &A-UU+81FD;
       ))
     (=ucs		. #x20B8C)	; 𠮌
     ))
