@@ -947,15 +947,122 @@
     ))
 (define-char
   '((ideographic-radical . 19)	; ⼒
+    (ideographic-structure
+     ((=>ucs@iwds-1	  . #x2FFA)	; &A-IWDSU+2FFA;
+      (=>iwds-1		  .  0307)	; &A-IWDSU+2FFA;
+      )
+     ((=>ucs@component	  . #x53CD)	; &A-compU+53CD;
+      )
+     ((=ucs		  . #x529B)	; 力
+      ))
+    (=>ucs@component	. #x2083B)	; &A-compU+2083B;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@component	  . #x2083B)	; &A-compU+2083B;
+      ))
+    (ideographic-radical . 19)	; ⼒
     (ideographic-strokes . 4)
     (total-strokes	 . 6)
-    (=ucs		. #x2083B)	; 𠠻
-    (->subsumptive
-     ((=daikanwa	  . 02310)	; &M-02310;
+    (ideographic-structure
+     ((=>ucs@iwds-1	  . #x2FFA)	; &A-IWDSU+2FFA;
+      (=>iwds-1		  .  0307)	; &A-IWDSU+2FFA;
       )
-     ((=ucs@iso		  . #x2083B)	; &C5-2232;
-      (=cns11643-5	  . #x2232)	; &C5-2232; [02-18]
+     ((=ucs		  . #x53CD)	; 反
+      )
+     ((=ucs		  . #x529B)	; 力
       ))
+    (sound@ja/on	"ka")
+    (=ucs		. #x2083B)	; 𠠻
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2083B)	; 𠠻
+      ))
+    (ideographic-radical . 19)	; ⼒
+    (ideographic-strokes . 4)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
+      (=ucs		  . #x2FFA)	; ⿺
+      )
+     ((=ucs@unicode	  . #x53CD)	; &AJ1-03411;
+      (=adobe-japan1-0	  . 03411)	; &AJ1-03411;
+      )
+     ((=ucs		  . #x529B)	; 力
+      ))
+    (=mj		. 031503)	; &MJ031503;
+    (=koseki		. 026830)	; &MJ031503;
+    (=daikanwa		. 02310)	; &I-M-02310;
+    (->subsumptive
+     ((==mj		  . 031503)	; &g2-MJ031503;
+      (==koseki		  . 026830)	; &g2-MJ031503;
+      (==daikanwa	  . 02310)	; &g2-MJ031503;
+      (->subsumptive
+       ((===daikanwa	    . 02310)	; &R-M-02310;
+	)
+       ((===mj		    . 031503)	; &R-MJ031503;
+	))
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2083B)	; 𠠻
+      ))
+    (ideographic-radical . 19)	; ⼒
+    (ideographic-strokes . 4)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs@unicode	  . #x53CD)	; &AJ1-03411;
+      (=adobe-japan1-0	  . 03411)	; &AJ1-03411;
+      )
+     ((=ucs		  . #x529B)	; 力
+      ))
+    (=ucs@iso		. #x2083B)	; &C5-2232;
+    (=cns11643-5	. #x2232)	; &C5-2232; [02-18]
+    (->subsumptive
+     ((==ucs@cns	  . #x2083B)	; &g2-CU+2083B;
+      (==cns11643-5	  . #x2232)	; &g2-CU+2083B; [02-18]
+      )
+     ((==ucs@iso	  . #x2083B)	; &g2-IU-0002083B;
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@component	  . #x2083B)	; &A-compU+2083B;
+      ))
+    (ideographic-radical . 19)	; ⼒
+    (ideographic-strokes . 4)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((=>ucs@iwds-1	  . #x2FFA)	; &A-IWDSU+2FFA;
+      (=>iwds-1		  .  0307)	; &A-IWDSU+2FFA;
+      )
+     ((=ucs-var-002	  . #x53CD)	; &U-v002+53CD;
+      )
+     ((=ucs		  . #x529B)	; 力
+      ))
+    (=ucs		. #x20840)	; 𠡀
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x20840)	; 𠡀
+      ))
+    (ideographic-radical . 19)	; ⼒
+    (ideographic-strokes . 4)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
+      (=ucs		  . #x2FFA)	; ⿺
+      )
+     ((=ucs-var-002	  . #x53CD)	; &U-v002+53CD;
+      )
+     ((=ucs		  . #x529B)	; 力
+      ))
+    (=ucs@iso		. #x20840)	; &U-00020840;
     ))
 (define-char
   '((ideographic-radical . 19)	; ⼒
@@ -7522,6 +7629,21 @@
      ((=ucs		  . #x529B)	; 力
       ))
     (=ucs-itaiji-003	. #x52E4)	; &U-i003+52E4;
+    ))
+(define-char
+  '((ideographic-radical . 19)	; ⼒
+    (ideographic-strokes . 10)
+    (total-strokes	 . 12)
+    (=ucs		. #x2088A)	; 𠢊
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2088A)	; 𠢊
+      ))
+    (ideographic-radical . 19)	; ⼒
+    (ideographic-strokes . 10)
+    (total-strokes	 . 12)
+    (=ucs@iso		. #x2088A)	; &U-0002088A;
     ))
 (define-char
   '((ideographic-radical . 19)	; ⼒
