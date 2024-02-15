@@ -1223,6 +1223,15 @@
     (ideographic-radical . 2)	; ⼁
     (ideographic-strokes . 3)
     (total-strokes	 . 4)
+    (=big5-cdp		. #x897D)	; &CDP-897D;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x4E30)	; 丰
+      ))
+    (ideographic-radical . 2)	; ⼁
+    (ideographic-strokes . 3)
+    (total-strokes	 . 4)
     (=+>ucs@cns		. #x4E30)	; &o-AJ1-15386;
     (=+>adobe-japan1-4	. 15386)	; &o-AJ1-15386;
     (->subsumptive
