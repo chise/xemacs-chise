@@ -158,6 +158,16 @@
       ))
     ))
 (define-char
+  '((<-denotational@component
+     ((=>ucs@component	  . #x4E00)	; &A-compU+4E00;
+      ))
+    (ideographic-radical . 1)	; ⼀
+    (ideographic-strokes . 0)
+    (total-strokes	 . 1)
+    (=gt-k		. 00003)	; &GT-K00003;
+    (=gt-pj-k1		. #x3033)	; &GT-K00003; [16-19]
+    ))
+(define-char
   '((<-denotational@usage
      ((==>daijiten	  . 00002)	; &A2-DJT-00002;
       ))
