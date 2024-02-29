@@ -6423,6 +6423,20 @@
     ))
 (define-char
   '((ideographic-radical . 62)	; ⼽
+    (ideographic-strokes . 12)
+    (total-strokes	 . 16)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=big5-cdp	  . #x8CD4)	; &CDP-8CD4;
+      )
+     ((=ucs		  . #x6214)	; 戔
+      ))
+    (=ucs		. #x2AB54)	; 𪭔
+    ))
+(define-char
+  '((ideographic-radical . 62)	; ⼽
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
