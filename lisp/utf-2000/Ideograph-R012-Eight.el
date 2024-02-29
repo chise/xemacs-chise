@@ -3310,6 +3310,37 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
+     ((=big5-cdp	  . #x89AE)	; &CDP-89AE;
+      )
+     ((=ucs		  . #x5140)	; 兀
+      ))
+    (=>big5-cdp-itaiji-001 . #x8BA8)	; &A-CDP-i001-8BA8;
+    ))
+(define-char
+  '((<-denotational
+     ((=>big5-cdp-itaiji-001 . #x8BA8)	; &A-CDP-i001-8BA8;
+      ))
+    (ideographic-radical . 12)	; ⼋
+    (ideographic-strokes . 5)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=big5-cdp	  . #x89AE)	; &CDP-89AE;
+      )
+     ((=gt-k		  . 00264)	; &GT-K00264;
+      ))
+    (=big5-cdp-itaiji-001 . #x8BA8)	; &CDP-i001-8BA8;
+    ))
+(define-char
+  '((ideographic-radical . 12)	; ⼋
+    (ideographic-strokes . 5)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
      ((=ucs@unicode	  . #x4491)	; &AJ1-18467;
       (=adobe-japan1-5	  . 18467)	; &AJ1-18467;
       )
@@ -7294,6 +7325,36 @@
      ((=ucs		  . #x516D)	; 六
       ))
     (=ucs@JP/hanazono	. #x2D058)	; &hanaJU+2D058;
+    ))
+(define-char
+  '((ideographic-radical . 12)	; ⼋
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM BELOW")
+      (=ucs		  . #x2FF6)	; ⿶
+      )
+     ((=>big5-cdp-itaiji-001 . #x8BA8)	; &A-CDP-i001-8BA8;
+      )
+     ((=ucs		  . #x540C)	; 同
+      ))
+    (=ucs		. #x313F5)	; 𱏵
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x313F5)	; 𱏵
+      ))
+    (ideographic-radical . 12)	; ⼋
+    (ideographic-strokes . 11)
+    (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM BELOW")
+      (=ucs		  . #x2FF6)	; ⿶
+      )
+     ((=big5-cdp-itaiji-001 . #x8BA8)	; &CDP-i001-8BA8;
+      )
+     ((=ucs@unicode	  . #x540C)	; &AJ1-03209;
+      (=adobe-japan1-0	  . 03209)	; &AJ1-03209;
+      ))
+    (=ucs@JP/hanazono	. #x313F5)	; &hanaJU+313F5;
     ))
 (define-char
   '((<-denotational@component
