@@ -493,6 +493,38 @@
       ))
     ))
 (define-char
+  '((ideographic-radical . 35)	; ⼢
+    (ideographic-strokes . 5)
+    (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x215D7)	; 𡗗
+      )
+     ((=>ucs@component	  . #x590A)	; &A-compU+590A;
+      (=>iwds-1		  .  0092)	; &A-compU+590A;
+      ))
+    (=ucs		. #x21564)	; 𡕤
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x21564)	; 𡕤
+      ))
+    (ideographic-radical . 35)	; ⼢
+    (ideographic-strokes . 5)
+    (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=big5-cdp	  . #x8BE9)	; &CDP-8BE9;
+      )
+     ((=ucs		  . #x590A)	; 夊
+      ))
+    (=ucs@iso		. #x21564)	; &U-00021564;
+    ))
+(define-char
   '((ideographic-radical@ucs . 35)	; ⼢
     (ideographic-radical@misc . 109)	; ⽬
     (ideographic-structure
@@ -2229,6 +2261,50 @@
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
     (=cns11643-6	. #x4753)	; &C6-4753; [39-51]
+    ))
+(define-char
+  '((ideographic-radical . 35)	; ⼢
+    (ideographic-strokes . 9)
+    (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>ucs-itaiji-003	  . #x268FB)	; &A-U-i003+268FB;
+      )
+     ((=>ucs@component	  . #x5902)	; &A-compU+5902;
+      (=>iwds-1		  .  19492)	; &A-compU+5902;
+      ))
+    (sound@ja/on	"ka")
+    (=ucs		. #x2156D)	; 𡕭
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2156D)	; 𡕭
+      ))
+    (ideographic-radical . 35)	; ⼢
+    (ideographic-strokes . 9)
+    (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs-itaiji-003	  . #x268FB)	; &U-i003+268FB;
+      )
+     ((=ucs		  . #x590A)	; 夊
+      ))
+    (=ucs@iso		. #x2156D)	; &MJ033341;
+    (=mj		. 033341)	; &MJ033341;
+    (=koseki		. 065630)	; &MJ033341;
+    (=daikanwa		. 05727)	; &I-M-05727;
+    (->subsumptive
+     ((==koseki		  . 065630)	; &g2-M-05727;
+      (==daikanwa	  . 05727)	; &g2-M-05727;
+      )
+     ((==mj		  . 033341)	; &g2-MJ033341;
+      )
+     ((==ucs@iso	  . #x2156D)	; &g2-IU-0002156D;
+      ))
     ))
 (define-char
   '((ideographic-radical . 35)	; ⼢
