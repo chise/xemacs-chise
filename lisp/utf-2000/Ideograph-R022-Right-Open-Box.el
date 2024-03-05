@@ -1027,6 +1027,24 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
       (=ucs		  . #x2FF7)	; ⿷
       )
+     ((=ucs@unicode	  . #x5338)	; &AJ1-04307;
+      (=adobe-japan1-0	  . 04307)	; &AJ1-04307;
+      )
+     ((=ucs		  . #x65E5)	; 日
+      ))
+    (=ucs-var-001	. #x2B9CD)	; &U-v001+2B9CD;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2B9CD)	; 𫧍
+      ))
+    (ideographic-radical . 22)	; ⼕
+    (ideographic-strokes . 4)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
+      (=ucs		  . #x2FF7)	; ⿷
+      )
      ((=ucs		  . #x531A)	; 匚
       )
      ((=ucs		  . #x65E5)	; 日
