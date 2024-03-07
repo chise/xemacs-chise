@@ -4800,6 +4800,48 @@
   '((ideographic-radical . 8)	; ⼇
     (ideographic-strokes . 9)
     (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x4EA0)	; 亠
+      )
+     ((=ucs		  . #x601D)	; 思
+      ))
+    (=ucs		. #x20164)	; 𠅤
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x20164)	; 𠅤
+      ))
+    (ideographic-radical . 8)	; ⼇
+    (ideographic-strokes . 9)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x4EA0)	; 亠
+      )
+     ((=ucs@unicode	  . #x601D)	; &AJ1-02213;
+      (=adobe-japan1-0	  . 02213)	; &AJ1-02213;
+      ))
+    (=ucs@iso		. #x20164)	; &CB16702;
+    (=cbeta		. 16702)	; &CB16702;
+    (->subsumptive
+     ((==ucs@iso	  . #x20164)	; &g2-CB16702;
+      (==cbeta		  . 16702)	; &g2-CB16702;
+      (->subsumptive
+       ((===cbeta	    . 16702)	; &R-CB16702;
+	)
+       ((===ucs@iso	    . #x20164)	; &R-U-00020164;
+	))
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 8)	; ⼇
+    (ideographic-strokes . 9)
+    (total-strokes	 . 11)
     (hanyu-dazidian	1 290 7)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
