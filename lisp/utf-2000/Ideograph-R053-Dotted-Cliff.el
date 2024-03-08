@@ -9670,6 +9670,38 @@
       )
      ((=ucs		  . #x5E7F)	; 广
       )
+     ((=ucs		  . #x21624)	; 𡘤
+      ))
+    (=ucs		. #x2228A)	; 𢊊
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2228A)	; 𢊊
+      ))
+    (ideographic-radical . 53)	; ⼴
+    (ideographic-strokes . 10)
+    (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs		  . #x5E7F)	; 广
+      )
+     ((=ucs@iso		  . #x21624)	; &DJT-01991;
+      (=daijiten	  . 01991)	; &DJT-01991;
+      ))
+    (=ucs@iso		. #x2228A)	; &U-0002228A;
+    ))
+(define-char
+  '((ideographic-radical . 53)	; ⼴
+    (ideographic-strokes . 10)
+    (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs		  . #x5E7F)	; 广
+      )
      ((=ucs		  . #x2D530)	; 𭔰
       ))
     (=ucs		. #x2228D)	; 𢊍
