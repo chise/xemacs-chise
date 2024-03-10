@@ -1734,6 +1734,41 @@
     (=>ucs-itaiji-005	. #x21562)	; &A-GT-K04019;
     ))
 (define-char
+  '((<-denotational@component
+     ((=>ucs-itaiji-003@iwds-1 . #x590C)	; &A-IWDSU-i003+590C;
+      ))
+    (ideographic-radical . 36)	; ⼣
+    (ideographic-strokes . 5)
+    (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5725)	; 圥
+      )
+     ((=ucs		  . #x5915)	; 夕
+      ))
+    (=>ucs-itaiji-003	. #x590C)	; &A-U-i003+590C;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs-itaiji-003	  . #x590C)	; &A-U-i003+590C;
+      ))
+    (ideographic-radical . 36)	; ⼣
+    (ideographic-strokes . 5)
+    (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs@unicode	  . #x5725)	; &AJ1-21323;
+      (=adobe-japan1-6	  . 21323)	; &AJ1-21323;
+      )
+     ((=ucs		  . #x5915)	; 夕
+      ))
+    (=ucs-itaiji-003	. #x590C)	; &U-i003+590C;
+    ))
+(define-char
   '((<-denotational
      ((=>gt-k		  . 04019)	; &A-GT-K04019;
       ))
@@ -3746,4 +3781,16 @@
   '((ideographic-radical . 36)	; ⼣
     (==>ucs@bucs	. #x591C)	; &BUCS+591C;
     (==>daijiten	. 01939)	; &BUCS+591C;
+    ))
+(define-char
+  '((ideographic-radical . 36)	; ⼣
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>ucs@iwds-1	  . #x592B)	; &A-IWDSU+592B;
+      )
+     ((=ucs		  . #x5915)	; 夕
+      ))
+    (=>ucs-itaiji-003@iwds-1 . #x590C)	; &A-IWDSU-i003+590C;
     ))
