@@ -48599,16 +48599,6 @@
 	)
        ((=ucs		    . #xE0100)	; 󠄀
 	))
-      (ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	(=ucs		    . #x2FF0)	; ⿰
-	)
-       ((==ucs@unicode	    . #x53E3)	; &g2-AJ1-01969;
-	(==adobe-japan1-0   . 01969)	; &g2-AJ1-01969;
-	)
-       ((==ucs@unicode	    . #x5F65)	; &g2-AJ1-13996;
-	(==adobe-japan1-4   . 13996)	; &g2-AJ1-13996;
-	))
       (==ucs@jis	  . #x55AD)	; &g2-AJ1-16808;
       (==adobe-japan1-5	  . 16808)	; &g2-AJ1-16808;
       (==jis-x0212	  . #x3573)	; &g2-AJ1-16808; [21-83]
@@ -48626,17 +48616,7 @@
        ((===jef-china3	    . #x46ED)	; &R-JC3-46ED;
 	))
       )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	(=ucs		    . #x2FF0)	; ⿰
-	)
-       ((==ucs@unicode	    . #x53E3)	; &g2-AJ1-01969;
-	(==adobe-japan1-0   . 01969)	; &g2-AJ1-01969;
-	)
-       ((==ucs@unicode	    . #x5F65)	; &g2-AJ1-13996;
-	(==adobe-japan1-4   . 13996)	; &g2-AJ1-13996;
-	))
-      (==ucs@cns	  . #x55AD)	; &g2-CU+55AD;
+     ((==ucs@cns	  . #x55AD)	; &g2-CU+55AD;
       (==cns11643-2	  . #x3A4D)	; &g2-CU+55AD; [26-45]
       ))
     ))
@@ -48658,17 +48638,7 @@
     (=ucs@unicode	. #x55AD)	; &UU+55AD;
     (=ucs@JP/hanazono	. nil)
     (->subsumptive
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	(=ucs		    . #x2FF0)	; ⿰
-	)
-       ((==ucs@unicode	    . #x53E3)	; &g2-AJ1-01969;
-	(==adobe-japan1-0   . 01969)	; &g2-AJ1-01969;
-	)
-       ((==ucs@unicode	    . #x5F66)	; &g2-AJ1-03481;
-	(==adobe-japan1-0   . 03481)	; &g2-AJ1-03481;
-	))
-      (==ucs@unicode	  . #x55AD)	; &g2-UU+55AD;
+     ((==ucs@unicode	  . #x55AD)	; &g2-UU+55AD;
       (==ucs@JP/hanazono  . nil)
       )
      ((===hng-kar	  . 00680)	; &HNG018-00680;
