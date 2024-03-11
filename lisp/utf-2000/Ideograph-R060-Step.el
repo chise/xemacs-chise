@@ -1885,7 +1885,10 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 60)	; ⼻
+  '((<-denotational@usage
+     ((==>ucs@bucs	  . #x5FB9)	; &BUCS+5FB9;
+      ))
+    (ideographic-radical . 60)	; ⼻
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
     (ideographic-structure
@@ -1916,6 +1919,11 @@
       ))
     (=ucs@unicode	. #x5F7B)	; &G0-3339;
     (=gb2312		. #x3339)	; &G0-3339; [19-25]
+    (<-simplified@CN
+     ((=ucs@unicode	  . #x5FB9)	; &MJ011359;
+      (=mj		  . 011359)	; &MJ011359;
+      (=gb12345		  . #x3339)	; &MJ011359; [19-25]
+      ))
     (->subsumptive
      ((==ucs@unicode	  . #x5F7B)	; &g2-UU+5F7B;
       (==ucs@JP/hanazono  . nil)
@@ -21161,6 +21169,10 @@
 (define-char
   '((ideographic-radical . 60)	; ⼻
     (==>daijiten	. 03123)	; &A2-DJT-03123;
+    ))
+(define-char
+  '((ideographic-radical . 60)	; ⼻
+    (==>ucs@bucs	. #x5FB9)	; &BUCS+5FB9;
     ))
 (define-char
   '((ideographic-radical . 60)	; ⼻
