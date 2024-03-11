@@ -5119,6 +5119,14 @@
       )
      ((=ucs		  . #x513F)	; 儿
       ))
+    (ideographic-structure@apparent
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x4E3F)	; 丿
+      )
+     ((=big5-cdp	  . #x877A)	; &CDP-877A;
+      ))
     (=ucs		. #x2B918)	; 𫤘
     (->subsumptive
      ((==ucs@JP/hanazono  . #x2B918)	; &g2-hanaJU+2B918;
