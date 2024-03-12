@@ -4249,6 +4249,27 @@
     (=ucs@JP/hanazono	. #x2A828)	; &hanaJU+2A828;
     ))
 (define-char
+  '((<-denotational
+     ((=ucs		  . #x2A828)	; 𪠨
+      ))
+    (ideographic-radical . 29)	; ⼜
+    (ideographic-strokes . 6)
+    (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs-itaiji-008	  . #x81FC)	; &U-i008+81FC;
+      )
+     ((=ucs		  . #x53C8)	; 又
+      ))
+    (=chise-hdic-tsj	. #x5253)	; &CHISE-HDIC-TSJ5253;
+    (->subsumptive
+     ((hdic-tsj-word-id	  . s1135b303a)
+      (===chise-hdic-tsj  . #x5253)	; &R-CHISE-HDIC-TSJ5253;
+      ))
+    ))
+(define-char
   '((ideographic-radical . 29)	; ⼜
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
