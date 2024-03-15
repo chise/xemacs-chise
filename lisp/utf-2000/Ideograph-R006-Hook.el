@@ -403,6 +403,20 @@
   '((ideographic-radical . 6)	; ⼅
     (ideographic-strokes . 2)
     (total-strokes	 . 3)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x4E86)	; 了
+      )
+     ((=ucs		  . #x4E00)	; 一
+      ))
+    (=ucs		. #x2CF36)	; 𬼶
+    ))
+(define-char
+  '((ideographic-radical . 6)	; ⼅
+    (ideographic-strokes . 2)
+    (total-strokes	 . 3)
     (=>ucs-itaiji-005	. #x624D)	; &A-U-i005+624D;
     ))
 (define-char
