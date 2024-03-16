@@ -127,7 +127,14 @@
   '((shuowen-radical	. 17)	; 釆
     (=shuowen-jiguge	. 03407)	; &SW-JIGUGE-03407;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x22755)	; 𢝕
+      )
      ((=ucs		  . #x2268A)	; 𢚊
+      ))
+    (<-ancient@shuowen
+     ((=shuowen-jiguge	  . 03406)	; &SW-JIGUGE-03406;
+      )
+     ((=ucs		  . #x6089)	; 悉
       ))
     (->subsumptive
      ((===shuowen-jiguge-A30 . 03407)	; &SW-JIGUGE30-03407;
