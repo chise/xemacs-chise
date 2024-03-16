@@ -910,6 +910,15 @@
 (define-char
   '((ideographic-radical . 213)	; ⿔
     (ideographic-strokes . 0)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>ucs@component	  . #x5200)	; &A-compU+5200;
+      (=>iwds-1		  .  0149)	; &A-compU+5200;
+      )
+     ((=>ucs-itaiji-002	  . #x5B83)	; &A-U-i002+5B83;
+      ))
     (=>big5-cdp-itaiji-001 . #x88CB)	; &A-CDP-i001-88CB;
     ))
 (define-char
@@ -919,6 +928,14 @@
     (ideographic-radical . 213)	; ⿔
     (ideographic-strokes . 0)
     (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x2008A)	; 𠂊
+      )
+     ((=ucs-itaiji-002	  . #x5B83)	; &U-i002+5B83;
+      ))
     (=big5-cdp-itaiji-001 . #x88CB)	; &CDP-i001-88CB;
     (<-unknown
      ((=big5-cdp	  . #x88CB)	; &CDP-88CB;
@@ -1458,6 +1475,47 @@
        ((===ucs@iso	    . #x2A6B1)	; &R-U-0002A6B1;
 	))
       ))
+    ))
+(define-char
+  '((ideographic-radical . 213)	; ⿔
+    (ideographic-strokes . 4)
+    (total-strokes	 . 16)
+    (=ucs		. #x2A6B4)	; 𪚴
+    (=>ucs-itaiji-005	. #x9EFD)	; 𪚴
+    (=>ucs-itaiji-006	. #x9EFD)	; 𪚴
+    (<-formed@component
+     ((=ucs		  . #x9EFD)	; 黽
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2A6B4)	; 𪚴
+      ))
+    (ideographic-radical . 213)	; ⿔
+    (ideographic-strokes . 4)
+    (total-strokes	 . 16)
+    (=ucs-itaiji-005	. #x9EFD)	; &U-i005+9EFD;
+    (->subsumptive
+     ((==ucs-itaiji-005	  . #x9EFD)	; &g2-U-i005+9EFD;
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2A6B4)	; 𪚴
+      ))
+    (ideographic-radical . 213)	; ⿔
+    (ideographic-strokes . 4)
+    (total-strokes	 . 16)
+    (=ucs@iso		. #x2A6B4)	; &U-0002A6B4;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2A6B4)	; 𪚴
+      ))
+    (ideographic-radical . 213)	; ⿔
+    (ideographic-strokes . 4)
+    (total-strokes	 . 16)
+    (=ucs-itaiji-006	. #x9EFD)	; &U-i006+9EFD;
     ))
 (define-char
   '((ideographic-radical . 213)	; ⿔
