@@ -3585,7 +3585,7 @@
       (=>iwds-1		  .  0287)	; &A-compU+5351;
       ))
     (<-denotational@component
-     ((=>big5-cdp	  . #x8BD9)	; &A-CDP-8BD9;
+     ((=>big5-cdp@component . #x8BD9)	; &A-compCDP-8BD9;
       ))
     (<-denotational@usage
      ((==>ucs@bucs	  . #x5351)	; &BUCS+5351;
@@ -6771,6 +6771,13 @@
     ))
 (define-char
   '((ideographic-radical . 24)	; ⼗
+    (=>big5-cdp@component . #x8BD9)	; &A-compCDP-8BD9;
+    ))
+(define-char
+  '((<-denotational@component
+     ((=>big5-cdp@component . #x8BD9)	; &A-compCDP-8BD9;
+      ))
+    (ideographic-radical . 24)	; ⼗
     (=>big5-cdp		. #x8BD9)	; &A-CDP-8BD9;
     ))
 (define-char
