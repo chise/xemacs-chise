@@ -280,6 +280,11 @@
     (<-Small-Seal@shuowen
      ((=ucs		  . #x2A4E8)	; 𪓨
       ))
+    (<-Zhuanwen@shuowen
+     ((=shuowen-jiguge	  . 46919)	; &SW-JIGUGE-46919;
+      )
+     ((=ucs		  . #x9F02)	; 鼂
+      ))
     (->subsumptive
      ((===shuowen-jiguge-A30 . 47820)	; &SW-JIGUGE30-47820;
       )

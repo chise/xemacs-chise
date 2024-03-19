@@ -3715,7 +3715,10 @@
   '((=ruimoku-v6	. #xE0F0)	; &RUI6-E0F0;
     ))
 (define-char
-  '((ideographic-radical . 154)	; ⾙
+  '((<-denotational
+     ((=>ruimoku-v6	  . #xE0F1)	; &A-RUI6-E0F1;
+      ))
+    (ideographic-radical . 154)	; ⾙
     (ideographic-strokes . 15)
     (total-strokes	 . 22)
     (ideographic-structure

@@ -11175,6 +11175,23 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=ucs		  . #x34B2)	; 㒲
+      ))
+    (ideographic-radical . 9)	; ⼈
+    (ideographic-strokes . 4)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x4EBA)	; 人
+      )
+     ((=ucs		  . #x65E5)	; 日
+      ))
+    (=ucs-var-001	. #x34B2)	; &U-v001+34B2;
+    ))
+(define-char
   '((<-denotational@usage
      ((==>ucs@bucs	  . #x5098)	; &BUCS+5098;
       ))
