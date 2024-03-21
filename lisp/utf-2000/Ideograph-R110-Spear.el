@@ -948,6 +948,36 @@
     (=cns11643-5	. #x476A)	; &I-C5-476A; [39-74]
     ))
 (define-char
+  '((ideographic-radical . 110)	; ⽭
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x77E2)	; 矢
+      )
+     ((=ucs		  . #x5DEE)	; 差
+      ))
+    (=ucs		. #x253FA)	; 𥏺
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x253FA)	; 𥏺
+      ))
+    (ideographic-radical . 110)	; ⽭
+    (ideographic-strokes . 9)
+    (total-strokes	 . 14)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x77E2)	; 矢
+      )
+     ((=ucs@unicode	  . #x5DEE)	; &G0-326E;
+      (=gb2312		  . #x326E)	; &G0-326E; [18-78]
+      ))
+    (=ucs@iso		. #x253FA)	; &U-000253FA;
+    ))
+(define-char
   '((=>ucs		. #x25382)	; 𥎂
     (ideographic-radical . 110)	; ⽭
     (ideographic-strokes . 10)
