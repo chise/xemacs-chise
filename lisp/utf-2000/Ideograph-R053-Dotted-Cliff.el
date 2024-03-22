@@ -9484,7 +9484,27 @@
       ))
     (sound@ja/on	"reki")
     (=ucs		. #x22286)	; 𢊆
-    (=cns11643-6	. #x5247)	; &I-C6-5247; [50-39]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x22286)	; 𢊆
+      ))
+    (ideographic-radical . 53)	; ⼴
+    (ideographic-strokes . 10)
+    (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs		  . #x5E7F)	; 广
+      )
+     ((=ucs@unicode	  . #x79DD)	; &JSP-507D;
+      (=jis-x0212	  . #x507D)	; &JSP-507D; [48-93]
+      (=cns11643-2	  . #x3158)	; &I-C2-3158; [17-56]
+      (=daikanwa	  . 24983)	; &I-M-24983;
+      ))
+    (=ucs@iso		. #x22286)	; &C6-5247;
+    (=cns11643-6	. #x5247)	; &C6-5247; [50-39]
     (=daikanwa		. 09443)	; &I-M-09443;
     (=cbeta		. 03188)	; &I-CB03188;
     (<-same
