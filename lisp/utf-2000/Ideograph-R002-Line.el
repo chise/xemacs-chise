@@ -266,6 +266,9 @@
   '((<-denotational
      ((=>big5-cdp	  . #x8BF5)	; &A-CDP-8BF5;
       ))
+    (<-denotational@component
+     ((=>ucs@component	  . #x5202)	; &A-compU+5202;
+      ))
     (ideographic-radical . 2)	; ⼁
     (ideographic-strokes . 1)
     (total-strokes	 . 2)
