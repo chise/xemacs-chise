@@ -721,7 +721,8 @@
     (=gt		. 00311)	; &I-GT-00311;
     (=gt-pj-9		. #x3B77)	; &I-GT-00311; [27-87]
     (<-simplified@JP/misc
-     ((=ucs		  . #x7B2C)	; 第
+     ((=ucs@unicode	  . #x7B2C)	; &AJ1-02888;
+      (=adobe-japan1-0	  . 02888)	; &AJ1-02888;
       (=jis-x0208	  . #x4268)	; &I-J90-4268; [34-72]
       ))
     (->subsumptive
