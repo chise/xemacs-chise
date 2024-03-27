@@ -66118,7 +66118,32 @@
      ((=ucs		  . #x7B2C)	; 第
       ))
     (=ucs		. #x2D297)	; 𭊗
-    (=cbeta		. 02741)	; &I-CB02741;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2D297)	; 𭊗
+      ))
+    (ideographic-radical . 30)	; ⼝
+    (ideographic-strokes . 11)
+    (total-strokes	 . 14)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x53E3)	; 口
+      )
+     ((=ucs@unicode	  . #x7B2C)	; &AJ1-02888;
+      (=adobe-japan1-0	  . 02888)	; &AJ1-02888;
+      ))
+    (=ucs@JP/hanazono	. #x2D297)	; &CB02741;
+    (=cbeta		. 02741)	; &CB02741;
+    (->subsumptive
+     ((==ucs@JP/hanazono  . #x2D297)	; &g2-CB02741;
+      (==cbeta		  . 02741)	; &g2-CB02741;
+      (->subsumptive
+       ((===cbeta	    . 02741)	; &R-CB02741;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 30)	; ⼝

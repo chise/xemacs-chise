@@ -2250,7 +2250,8 @@
     (<-formed$_1*sources
      shuowen-tongxun-dingsheng jiyun)
     (<-interchangeable
-     ((=ucs		  . #x7B2C)	; 第
+     ((=ucs@unicode	  . #x7B2C)	; &AJ1-02888;
+      (=adobe-japan1-0	  . 02888)	; &AJ1-02888;
       (=daikanwa	  . 25943)	; &I-M-25943;
       )
      ((=ucs		  . #x4F46)	; 但
@@ -2285,7 +2286,8 @@
     (<-wrong*sources
      shuowen-tongxun-dingsheng daikanwa)
     (->formed
-     ((=ucs		  . #x7B2C)	; 第
+     ((=ucs@unicode	  . #x7B2C)	; &AJ1-02888;
+      (=adobe-japan1-0	  . 02888)	; &AJ1-02888;
       (=daikanwa	  . 25943)	; &I-M-25943;
       ))
     (->formed$_1*sources
