@@ -1,7 +1,10 @@
 ;; -*- coding: utf-8-mcs-er -*-
 (define-char
-  '((<-denotational@usage
-     ((==>daijiten	  . 00123)	; &A2-DJT-00123;
+  '((<-denotational@component
+     ((=>ucs@component	  . #x4E28)	; &A-compU+4E28;
+      ))
+    (<-denotational@usage
+     ((==>ucs@bucs	  . #x4E85)	; &BUCS+4E85;
       ))
     (ideographic-radical . 6)	; ⼅
     (ideographic-strokes . 0)
@@ -1316,7 +1319,8 @@
     ))
 (define-char
   '((ideographic-radical . 6)	; ⼅
-    (==>daijiten	. 00123)	; &A2-DJT-00123;
+    (==>ucs@bucs	. #x4E85)	; &BUCS+4E85;
+    (==>daijiten	. 00123)	; &BUCS+4E85;
     ))
 (define-char
   '((ideographic-radical . 6)	; ⼅

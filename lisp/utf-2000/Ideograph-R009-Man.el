@@ -427,7 +427,10 @@
     (=hanziku-1		. #xB8E1)	; &I-HZK01-B8E1;
     ))
 (define-char
-  '((ideographic-radical . 9)	; ⼈
+  '((<-denotational@component
+     ((=>ucs@component	  . #x4E2A)	; &A-compU+4E2A;
+      ))
+    (ideographic-radical . 9)	; ⼈
     (=ucs		. #x201A4)	; 𠆤
     ))
 (define-char
@@ -54567,7 +54570,8 @@
      ((=ucs		  . #x4ED8)	; 付
       (=daikanwa	  . 00373)	; &I-M-00373;
       )
-     ((=ucs		  . #x7B26)	; 符
+     ((=ucs@unicode	  . #x7B26)	; &AJ1-03542;
+      (=adobe-japan1-0	  . 03542)	; &AJ1-03542;
       (=daikanwa	  . 25935)	; &I-M-25935;
       )
      ((=ucs@unicode	  . #x6B28)	; &JSP-4569;
