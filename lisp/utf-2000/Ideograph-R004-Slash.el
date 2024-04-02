@@ -4041,10 +4041,7 @@
       ))
     ))
 (define-char
-  '((<-denotational@usage
-     ((==>daijiten	  . 00095)	; &A2-DJT-00095;
-      ))
-    (ideographic-radical . 4)	; ⼃
+  '((ideographic-radical . 4)	; ⼃
     (ideographic-strokes . 5)
     (total-strokes	 . 6)
     (=>ucs@iwds-1	. #x4E51)	; &A-IWDSU+4E51;
@@ -4055,14 +4052,14 @@
      ((=>ucs@iwds-1	  . #x4E51)	; &A-IWDSU+4E51;
       (=>iwds-1		  .  0328)	; &A-IWDSU+4E51;
       ))
+    (<-denotational@usage
+     ((==>daijiten	  . 00095)	; &A2-DJT-00095;
+      ))
     (ideographic-radical . 4)	; ⼃
     (ideographic-strokes . 5)
     (total-strokes	 . 6)
-    (sound@ja/on/go/p=yin2 "goN")
-    (sound@ja/on/go/p=zhong4 "syu" "su")
-    (sound@ja/on/kan/p=yin2 "giN")
-    (sound@ja/on/kan/p=zhong4 "syuu")
-    (sound@ja/on/p=pan1 "haN")
+    (sound@ja/on/go	"goN" "haN" "syuu")
+    (sound@ja/on/kan	"giN" "haN" "syuu" "su")
     (=ucs		. #x4E51)	; 乑
     ))
 (define-char
@@ -4085,26 +4082,37 @@
     (=daikanwa		. 00139)	; &I-M-00139;
     (=daijiten		. 00095)	; &I-DJT-00095;
     (=jef-china3	. #x41B9)	; &I-JC3-41B9;
-    (<-ancient@p=pan1
+    (<-ancient
      ((=ucs		  . #x6500)	; 攀
       (=daikanwa	  . 12926)	; &I-M-12926;
       ))
-    (<-ancient@p=pan1*sources
+    (<-ancient$_1*sources
      hanshu-zhu daikanwa)
-    (<-same@p=yin2
+    (<-ancient*sources
+     hanshu-zhu daikanwa)
+    (<-same
      ((=ucs@unicode	  . #x343A)	; &C4-2231;
       (=cns11643-4	  . #x2231)	; &C4-2231; [02-17]
       (=daikanwa	  . 00437)	; &I-M-00437;
-      ))
-    (<-same@p=yin2*sources
-     zhengzitong daikanwa)
-    (<-same@p=zhong4
+      )
      ((=ucs@jis		  . #x773E)	; &MJ018210;
       (=mj		  . 018210)	; &MJ018210;
       (=daikanwa	  . 23321)	; &I-M-23321;
       ))
-    (<-same@p=zhong4*sources
+    (<-same$_1*sources
      zhengzitong daikanwa)
+    (<-same$_2*sources
+     zhengzitong daikanwa)
+    (<-same*sources
+     zhengzitong daikanwa)
+    (->Liwen
+     ((=ucs@jis		  . #x773E)	; &MJ018210;
+      (=mj		  . 018210)	; &MJ018210;
+      ))
+    (->Liwen$_1*sources
+     zhengzitong)
+    (->Liwen*sources
+     zhengzitong)
     (->subsumptive
      ((==gt		  . 00188)	; &g2-GT-00188;
       (==gt-k		  . 01781)	; &g2-GT-00188;
@@ -4147,6 +4155,24 @@
      ((==ucs@unicode	  . #x4E51)	; &g2-UU+4E51;
       (==ucs@JP/hanazono  . nil)
       ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x4E51)	; 乑
+      ))
+    (ideographic-radical . 4)	; ⼃
+    (ideographic-strokes . 5)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs@JP/hanazono	  . #x3002A)	; &CB13223;
+      (=cbeta		  . 13223)	; &CB13223;
+      )
+     ((=ucs-var-010	  . #x27607)	; &U-v010+27607;
+      ))
+    (=ucs-var-007	. #x4E51)	; &U-v007+4E51;
     ))
 (define-char
   '((<-denotational
@@ -4225,6 +4251,9 @@
   '((<-denotational
      ((=>ucs@iwds-1	  . #x4E51)	; &A-IWDSU+4E51;
       (=>iwds-1		  .  0328)	; &A-IWDSU+4E51;
+      ))
+    (<-denotational@usage
+     ((==>daijiten	  . 00095)	; &A2-DJT-00095;
       ))
     (ideographic-radical . 4)	; ⼃
     (ideographic-strokes . 5)
