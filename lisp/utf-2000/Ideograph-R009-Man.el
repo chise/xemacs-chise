@@ -92251,3 +92251,7 @@
   '((ideographic-radical . 9)	; ⼈
     (==>daijiten	. 00550)	; &A2-DJT-00550;
     ))
+(define-char
+  '((ideographic-radical . 9)	; ⼈
+    (==>daijiten	. 00312)	; &A2-DJT-00312;
+    ))
