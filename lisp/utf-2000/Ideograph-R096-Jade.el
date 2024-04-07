@@ -11244,7 +11244,10 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 96)	; ⽟
+  '((<-denotational@usage
+     ((==>ucs@bucs	  . #x745A)	; &BUCS+745A;
+      ))
+    (ideographic-radical . 96)	; ⽟
     (ideographic-strokes . 9)
     (total-strokes	 . 13)
     (ideographic-structure
@@ -11256,7 +11259,25 @@
      ((=ucs		  . #x80E1)	; 胡
       ))
     (=ucs		. #x745A)	; 瑚
-    (=adobe-japan1-0	. 01950)	; &I-AJ1-01950;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x745A)	; 瑚
+      ))
+    (ideographic-radical . 96)	; ⽟
+    (ideographic-strokes . 9)
+    (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x248E9)	; 𤣩
+      )
+     ((=ucs@unicode	  . #x80E1)	; &AJ1-01929;
+      (=adobe-japan1-0	  . 01929)	; &AJ1-01929;
+      ))
+    (=ucs@unicode	. #x745A)	; &AJ1-01950;
+    (=adobe-japan1-0	. 01950)	; &AJ1-01950;
     (=jis-x0208		. #x386A)	; &I-J90-386A; [24-74]
     (=gb2312		. #x3A77)	; &I-G0-3A77; [26-87]
     (=ks-x1001		. #x7B51)	; &I-K0-7B51; [91-49]
@@ -11266,23 +11287,14 @@
     (=gt		. 27016)	; &I-GT-27016;
     (=gt-pj-1		. #x386A)	; &I-GT-27016; [24-74]
     (=daikanwa		. 21126)	; &I-M-21126;
-    (=shinjigen@1ed	.  4937)	; 瑚
-    (=shinjigen@rev	.  4934)	; 瑚
+    (=daijiten		. 07343)	; &I-DJT-07343;
+    (=shinjigen@1ed	.  4937)	; &AJ1-01950;
+    (=shinjigen@rev	.  4934)	; &AJ1-01950;
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x745A)	; 瑚
 	)
        ((=ucs		    . #xE0100)	; 󠄀
-	))
-      (ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	(=ucs		    . #x2FF0)	; ⿰
-	)
-       ((name		    . "CJK RADICAL JADE")
-	(=ucs		    . #x2EA9)	; ⺩
-	)
-       ((==ucs@unicode	    . #x80E1)	; &g2-AJ1-01929;
-	(==adobe-japan1-0   . 01929)	; &g2-AJ1-01929;
 	))
       (==ucs@unicode	  . #x745A)	; &g2-AJ1-01950;
       (==adobe-japan1-0	  . 01950)	; &g2-AJ1-01950;
@@ -11310,19 +11322,11 @@
        ((===ucs@unicode	    . #x745A)	; &R-UU+745A;
 	))
       )
+     ((==daijiten	  . 07343)	; &g2-DJT-07343;
+      )
      ((===hng-kar	  . 02430)	; &HNG018-02430;
       )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	(=ucs		    . #x2FF0)	; ⿰
-	)
-       ((name		    . "CJK RADICAL JADE")
-	(=ucs		    . #x2EA9)	; ⺩
-	)
-       ((==ucs@cns	    . #x80E1)	; &g2-CU+80E1;
-	(==cns11643-1	    . #x532D)	; &g2-CU+80E1; [51-13]
-	))
-      (==ucs@cns	  . #x745A)	; &g2-CU+745A;
+     ((==ucs@cns	  . #x745A)	; &g2-CU+745A;
       (==cns11643-1	  . #x652C)	; &g2-CU+745A; [69-12]
       ))
     ))
@@ -23316,6 +23320,11 @@
 (define-char
   '((ideographic-radical . 96)	; ⽟
     (==>daijiten	. 07341)	; &A2-DJT-07341;
+    ))
+(define-char
+  '((ideographic-radical . 96)	; ⽟
+    (==>ucs@bucs	. #x745A)	; &BUCS+745A;
+    (==>daijiten	. 07343)	; &BUCS+745A;
     ))
 (define-char
   '((ideographic-radical . 96)	; ⽟
