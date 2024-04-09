@@ -245,6 +245,32 @@
   '((ideographic-radical . 99)	; ⽢
     (ideographic-strokes . 1)
     (total-strokes	 . 6)
+    (=>big5-cdp		. #x8B72)	; &A-CDP-8B72;
+    ))
+(define-char
+  '((<-denotational
+     ((=>big5-cdp	  . #x8B72)	; &A-CDP-8B72;
+      ))
+    (ideographic-radical . 99)	; ⽢
+    (ideographic-strokes . 1)
+    (total-strokes	 . 6)
+    (ideographic-structure@apparent
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x7518)	; 甘
+      )
+     ((=ucs		  . #x4E00)	; 一
+      ))
+    (=big5-cdp-itaiji-002 . #x8B72)	; &CDP-i002-8B72;
+    ))
+(define-char
+  '((<-denotational
+     ((=>big5-cdp	  . #x8B72)	; &A-CDP-8B72;
+      ))
+    (ideographic-radical . 99)	; ⽢
+    (ideographic-strokes . 1)
+    (total-strokes	 . 6)
     (ideographic-structure@apparent
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
