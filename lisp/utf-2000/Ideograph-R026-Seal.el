@@ -3872,7 +3872,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=gt-k		  . 03222)	; &GT-K03222;
+     ((=ucs@JP/hanazono	  . #x31F27)	; &GT-K03222;
+      (=gt-k		  . 03222)	; &GT-K03222;
       )
      ((=ucs		  . #x353E)	; 㔾
       ))
