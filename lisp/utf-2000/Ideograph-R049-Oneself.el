@@ -1245,7 +1245,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=gt-k		  . 03222)	; &GT-K03222;
+     ((=ucs		  . #x31F27)	; 𱼧
       )
      ((=>ucs@component	  . #x5DF1)	; &A-compU+5DF1;
       (=>iwds-1		  .  0120)	; &A-compU+5DF1;
@@ -1277,7 +1277,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=gt-k		  . 03222)	; &GT-K03222;
+     ((=ucs@JP/hanazono	  . #x31F27)	; &GT-K03222;
+      (=gt-k		  . 03222)	; &GT-K03222;
       )
      ((=ucs		  . #x5DF3)	; 巳
       ))
@@ -1304,7 +1305,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=gt-k		  . 03222)	; &GT-K03222;
+     ((=ucs@JP/hanazono	  . #x31F27)	; &GT-K03222;
+      (=gt-k		  . 03222)	; &GT-K03222;
       )
      ((=ucs		  . #x5DF2)	; 已
       ))
@@ -1350,7 +1352,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=gt-k		  . 03222)	; &GT-K03222;
+     ((=ucs@JP/hanazono	  . #x31F27)	; &GT-K03222;
+      (=gt-k		  . 03222)	; &GT-K03222;
       )
      ((=ucs		  . #x5DF1)	; 己
       ))
