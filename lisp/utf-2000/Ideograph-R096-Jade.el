@@ -16038,9 +16038,69 @@
       )
      ((=ucs		  . #x248E9)	; 𤣩
       )
+     ((=ucs		  . #x2EBFF)	; 𮯿
+      ))
+    (=ucs		. #x2AF14)	; 𪼔
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2AF14)	; 𪼔
+      ))
+    (ideographic-radical . 96)	; ⽟
+    (ideographic-strokes . 11)
+    (total-strokes	 . 15)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x248E9)	; 𤣩
+      )
+     ((=ucs@JP/hanazono	  . #x2EBFF)	; &hanaJU+2EBFF;
+      ))
+    (=ucs@JP/hanazono	. #x2AF14)	; &hanaJU+2AF14;
+    ))
+(define-char
+  '((ideographic-radical . 96)	; ⽟
+    (ideographic-strokes . 11)
+    (total-strokes	 . 15)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x248E9)	; 𤣩
+      )
      ((=ucs		  . #x65CF)	; 族
       ))
     (=ucs		. #x2AF15)	; 𪼕
+    ))
+(define-char
+  '((ideographic-radical . 96)	; ⽟
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x248E9)	; 𤣩
+      )
+     ((=>ucs-itaiji-001@iwds-1 . #x21A5F)	; &A-IWDSU-i001+21A5F;
+      ))
+    (=ucs		. #x2AF16)	; 𪼖
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2AF16)	; 𪼖
+      ))
+    (ideographic-radical . 96)	; ⽟
+    (ideographic-strokes . 11)
+    (total-strokes	 . 15)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x248E9)	; 𤣩
+      )
+     ((=cbeta		  . 10982)	; &CB10982;
+      ))
+    (=ucs@JP/hanazono	. #x2AF16)	; &hanaJU+2AF16;
     ))
 (define-char
   '((ideographic-radical . 96)	; ⽟
