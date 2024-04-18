@@ -2295,13 +2295,21 @@
       ))
     (=ucs@unicode	. #x8054)	; &G0-412A;
     (=gb2312		. #x412A)	; &G0-412A; [33-10]
+    (=cbeta		. 06402)	; &I-CB06402;
     (<-simplified@CN
      ((=ucs@unicode	  . #x806F)	; &AJ1-04038;
       (=adobe-japan1-0	  . 04038)	; &AJ1-04038;
       (=gb12345		  . #x412A)	; &AJ1-04038; [33-10]
       ))
     (->subsumptive
+     ((==ucs@JP/hanazono  . #x8054)	; &g2-CB06402;
+      (==cbeta		  . 06402)	; &g2-CB06402;
+      (->subsumptive
+       ((===cbeta	    . 06402)	; &R-CB06402;
+	))
+      )
      ((==ucs@unicode	  . #x8054)	; &g2-UU+8054;
+      (==ucs@JP/hanazono  . nil)
       (==gb2312		  . #x412A)	; &g2-UU+8054; [33-10]
       (->subsumptive
        ((===ucs@unicode	    . #x8054)	; &R-UU+8054;
