@@ -14620,18 +14620,27 @@
      ((=ucs		  . #x5E9A)	; 庚
       ))
     (=ucs		. #x713F)	; 焿
-    (=cbeta		. 00200)	; &I-CB00200;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x713F)	; 焿
+      ))
+    (ideographic-radical . 86)	; ⽕
+    (ideographic-strokes . 8)
+    (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x706B)	; 火
+      )
+     ((=ucs@unicode	  . #x5E9A)	; &AJ1-01984;
+      (=adobe-japan1-0	  . 01984)	; &AJ1-01984;
+      ))
+    (=ucs@unicode	. #x713F)	; &CB00200;
+    (=cbeta		. 00200)	; &CB00200;
     (->subsumptive
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	(=ucs		    . #x2FF0)	; ⿰
-	)
-       ((=gt-k		    . 00405)	; &GT-K00405;
-	)
-       ((==ucs@unicode	    . #x5E9A)	; &g2-AJ1-01984;
-	(==adobe-japan1-0   . 01984)	; &g2-AJ1-01984;
-	))
-      (==ucs@unicode	  . #x713F)	; &g2-CB00200;
+     ((==ucs@unicode	  . #x713F)	; &g2-CB00200;
       (==cbeta		  . 00200)	; &g2-CB00200;
       (->subsumptive
        ((===cbeta	    . 00200)	; &R-CB00200;
