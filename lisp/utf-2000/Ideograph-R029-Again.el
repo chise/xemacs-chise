@@ -5614,7 +5614,8 @@
       ))
     (=big5-cdp		. #x85C8)	; &CDP-85C8;
     (<-original
-     ((=ucs		  . #x5E9A)	; 庚
+     ((=ucs@unicode	  . #x5E9A)	; &AJ1-01984;
+      (=adobe-japan1-0	  . 01984)	; &AJ1-01984;
       ))
     ))
 (define-char
