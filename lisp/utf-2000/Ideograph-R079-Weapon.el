@@ -1295,7 +1295,7 @@
      ((=ucs@unicode	  . #x6BB3)	; &MJ014908;
       (=mj		  . 014908)	; &MJ014908;
       ))
-    (=ucs@iso		. #x2DBAB)	; &U-0002DBAB;
+    (=ucs@JP/hanazono	. #x2DBAB)	; &hanaJU+2DBAB;
     ))
 (define-char
   '((<-denotational
