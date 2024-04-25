@@ -13503,7 +13503,8 @@
     (<-interchangeable*sources
      shuowen-tongxun-dingsheng daikanwa)
     (->formed
-     ((=cns11643-4	  . #x5A30)	; &C4-5A30; [58-16]
+     ((=ucs@cns		  . #x4BD8)	; &C4-5A30;
+      (=cns11643-4	  . #x5A30)	; &C4-5A30; [58-16]
       (=daikanwa	  . 45189)	; &I-M-45189;
       ))
     (->formed$_1*sources
