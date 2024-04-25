@@ -1750,6 +1750,40 @@
       ))
     ))
 (define-char
+  '((ideographic-radical . 7)	; ⼆
+    (ideographic-strokes . 4)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
+      (=ucs		  . #x2FF4)	; ⿴
+      )
+     ((=ucs		  . #x4E92)	; 互
+      )
+     ((=>ucs@iwds-1	  . #x51AB)	; &A-IWDSU+51AB;
+      (=>iwds-1		  .  47219)	; &A-IWDSU+51AB;
+      ))
+    (=>ucs-itaiji-004	. #x4E99)	; &A-U-i004+4E99;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs-itaiji-004	  . #x4E99)	; &A-U-i004+4E99;
+      ))
+    (ideographic-radical . 7)	; ⼆
+    (ideographic-strokes . 4)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
+      (=ucs		  . #x2FF4)	; ⿴
+      )
+     ((=ucs@unicode	  . #x4E92)	; &AJ1-01939;
+      (=adobe-japan1-0	  . 01939)	; &AJ1-01939;
+      )
+     ((name		  . "CJK RADICAL REPEAT")
+      (=ucs		  . #x2E80)	; ⺀
+      ))
+    (=ucs-itaiji-004	. #x4E99)	; &U-i004+4E99;
+    ))
+(define-char
   '((<-denotational@usage
      ((==>daijiten	  . 00143)	; &A2-DJT-00143;
       )
