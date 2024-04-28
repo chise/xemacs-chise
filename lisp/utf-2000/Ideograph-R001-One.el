@@ -2034,7 +2034,8 @@
     (->ancient*sources
      zihui-bei daikanwa)
     (->formed
-     ((=ucs		  . #x9D00)	; 鴀
+     ((=ucs@unicode	  . #x9D00)	; &C2-5635;
+      (=cns11643-2	  . #x5635)	; &C2-5635; [54-21]
       (=daikanwa	  . 46719)	; &I-M-46719;
       )
      ((=ucs@iso		  . #x20650)	; &MJ031183;
