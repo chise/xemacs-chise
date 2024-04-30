@@ -1566,11 +1566,40 @@
     (=jef-china3	. #x97E6)	; &I-JC3-97E6;
     ))
 (define-char
-  '((ideographic-radical . 39)	; ⼦
+  '((<-denotational@usage
+     ((==>ucs@bucs	  . #x5B63)	; &BUCS+5B63;
+      ))
+    (ideographic-radical . 39)	; ⼦
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x79BE)	; 禾
+      )
+     ((=ucs		  . #x5B50)	; 子
+      ))
     (=ucs		. #x5B63)	; 季
-    (=adobe-japan1-0	. 01602)	; &I-AJ1-01602;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5B63)	; 季
+      ))
+    (ideographic-radical . 39)	; ⼦
+    (ideographic-strokes . 5)
+    (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs@unicode	  . #x79BE)	; &AJ1-01363;
+      (=adobe-japan1-0	  . 01363)	; &AJ1-01363;
+      )
+     ((=ucs		  . #x5B50)	; 子
+      ))
+    (=ucs@unicode	. #x5B63)	; &AJ1-01602;
+    (=adobe-japan1-0	. 01602)	; &AJ1-01602;
     (=jis-x0208		. #x3528)	; &I-J90-3528; [21-08]
     (=gb2312		. #x3C3E)	; &I-G0-3C3E; [28-30]
     (=ks-x1001		. #x4C79)	; &I-K0-4C79; [44-89]
@@ -1581,6 +1610,7 @@
     (=gt-k		. 03665)	; &I-GT-K03665;
     (=gt-pj-1		. #x3528)	; &I-GT-08754; [21-08]
     (=daikanwa		. 06965)	; &I-M-06965;
+    (=daijiten		. 02276)	; &I-DJT-02276;
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x5B63)	; 季
@@ -1596,8 +1626,11 @@
       (==gt		  . 08754)	; &g2-AJ1-01602;
       (==gt-k		  . 03665)	; &g2-AJ1-01602;
       (==daikanwa	  . 06965)	; &g2-AJ1-01602;
+      (==daijiten	  . 02276)	; &g2-AJ1-01602;
       (->subsumptive
        ((===daikanwa	    . 06965)	; &R-M-06965;
+	)
+       ((===daijiten	    . 02276)	; &R-DJT-02276;
 	)
        ((===jis-x0208	    . #x3528)	; &R-J0-3528; [21-08]
 	(===jis-x0213-1	    . #x3528)	; &R-J0-3528; [21-08]
@@ -5552,6 +5585,11 @@
     (total-strokes	 . 25)
     (=ucs		. #x3748)	; 㝈
     (=cns11643-3	. #x613D)	; &I-C3-613D; [65-29]
+    ))
+(define-char
+  '((ideographic-radical . 39)	; ⼦
+    (==>ucs@bucs	. #x5B63)	; &BUCS+5B63;
+    (==>daijiten	. 02276)	; &BUCS+5B63;
     ))
 (define-char
   '((ideographic-radical . 39)	; ⼦
