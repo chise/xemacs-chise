@@ -2778,10 +2778,35 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (ideographic-radical . 195)	; ⿂
+    (ideographic-strokes . 0)
+    (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs-itaiji-006	  . #x89D2)	; &U-i006+89D2;
+      )
+     ((=ucs		  . #x4E00)	; 一
+      ))
     (=ucs		. #x2EE5)	; ⻥
+    (=ucs@unicode	. #x9C7C)	; ⻥
+    (=gb2312		. #x5363)	; &I-G0-5363; [51-67]
     (=big5-cdp		. #x8A5B)	; &I-CDP-8A5B;
-    (<-identical@component
-     ((=ucs		  . #x9C7C)	; 鱼
+    (<-simplified@CN
+     ((=ucs@unicode	  . #x9B5A)	; &AJ1-01685;
+      (=adobe-japan1-0	  . 01685)	; &AJ1-01685;
+      (=gb12345		  . #x5363)	; &AJ1-01685; [51-67]
+      ))
+    (->subsumptive
+     ((==ucs@unicode	  . #x9C7C)	; &g2-CDP-8A5B;
+      (==gb2312		  . #x5363)	; &g2-CDP-8A5B; [51-67]
+      (==big5-cdp	  . #x8A5B)	; &g2-CDP-8A5B;
+      (->subsumptive
+       ((===ucs@unicode	    . #x9C7C)	; &R-UU+9C7C;
+	)
+       ((===big5-cdp	    . #x8A5B)	; &R-CDP-8A5B;
+	))
       ))
     ))
 (define-char
@@ -2792,9 +2817,27 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (ideographic-radical . 196)	; ⿃
+    (ideographic-strokes . 0)
+    (total-strokes	 . 5)
     (=ucs		. #x2EE6)	; ⻦
-    (<-identical@component
-     ((=ucs		  . #x9E1F)	; 鸟
+    (=ucs@unicode	. #x9E1F)	; ⻦
+    (=gb2312		. #x4471)	; &I-G0-4471; [36-81]
+    (=big5-cdp		. #x8A52)	; &I-CDP-8A52;
+    (<-simplified@CN
+     ((=ucs@unicode	  . #x9CE5)	; &AJ1-03031;
+      (=adobe-japan1-0	  . 03031)	; &AJ1-03031;
+      (=gb12345		  . #x4471)	; &AJ1-03031; [36-81]
+      ))
+    (->subsumptive
+     ((==ucs@unicode	  . #x9E1F)	; &g2-CDP-8A52;
+      (==gb2312		  . #x4471)	; &g2-CDP-8A52; [36-81]
+      (==big5-cdp	  . #x8A52)	; &g2-CDP-8A52;
+      (->subsumptive
+       ((===big5-cdp	    . #x8A52)	; &R-CDP-8A52;
+	)
+       ((===ucs@unicode	    . #x9E1F)	; &R-UU+9E1F;
+	))
       ))
     ))
 (define-char
