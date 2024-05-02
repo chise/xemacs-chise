@@ -2222,8 +2222,73 @@
 (define-char
   '((ideographic-radical . 28)	; ⼛
     (ideographic-strokes . 7)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>ucs@component	  . #x593E)	; &A-compU+593E;
+      (=>iwds-1		  .  0147)	; &A-compU+593E;
+      )
+     ((=ucs		  . #x53B6)	; 厶
+      ))
     (=ucs		. #x2D19C)	; 𭆜
-    (=cbeta		. 07259)	; &I-CB07259;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2D19C)	; 𭆜
+      ))
+    (ideographic-radical . 28)	; ⼛
+    (ideographic-strokes . 7)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x593E)	; 夾
+      )
+     ((=ucs		  . #x53B6)	; 厶
+      ))
+    (=ucs@JP/hanazono	. #x2D19C)	; &CB07259;
+    (=cbeta		. 07259)	; &CB07259;
+    (->subsumptive
+     ((==ucs@JP/hanazono  . #x2D19C)	; &g2-CB07259;
+      (==cbeta		  . 07259)	; &g2-CB07259;
+      (->subsumptive
+       ((===cbeta	    . 07259)	; &R-CB07259;
+	))
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 28)	; ⼛
+    (ideographic-strokes . 7)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x53B8)	; 厸
+      )
+     ((=>ucs@component	  . #x2000E)	; &A-compU+2000E;
+      ))
+    (=>ucs-itaiji-002	. #x20DAC)	; &A-U-i002+20DAC;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs-itaiji-002	  . #x20DAC)	; &A-U-i002+20DAC;
+      ))
+    (ideographic-radical . 28)	; ⼛
+    (ideographic-strokes . 7)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x53B8)	; 厸
+      )
+     ((=ucs		  . #x2000E)	; 𠀎
+      ))
+    (=ucs-itaiji-002	. #x20DAC)	; &U-i002+20DAC;
     ))
 (define-char
   '((<-denotational
