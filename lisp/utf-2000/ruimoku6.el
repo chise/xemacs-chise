@@ -1781,7 +1781,8 @@
      ((=ucs@unicode	  . #x65BC)	; &AJ1-01305;
       (=adobe-japan1-0	  . 01305)	; &AJ1-01305;
       )
-     ((=ucs		  . #x9CE5)	; 鳥
+     ((=ucs@unicode	  . #x9CE5)	; &AJ1-03031;
+      (=adobe-japan1-0	  . 03031)	; &AJ1-03031;
       ))
     (=ruimoku-v6	. #xE06E)	; &RUI6-E06E;
     (->subsumptive
@@ -2599,7 +2600,10 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 170)	; ⾩
+  '((<-denotational
+     ((=>ruimoku-v6	  . #xE09F)	; &A-RUI6-E09F;
+      ))
+    (ideographic-radical . 170)	; ⾩
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
     (ideographic-structure
@@ -4019,7 +4023,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=ucs		  . #x9E1F)	; 鸟
+     ((name		  . "CJK RADICAL C-SIMPLIFIED BIRD")
+      (=ucs		  . #x2EE6)	; ⻦
       )
      ((=ucs@unicode	  . #x548E)	; &MJ057147;
       (=mj		  . 057147)	; &MJ057147;
@@ -4251,13 +4256,14 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=ucs		  . #x9CE5)	; 鳥
+     ((=ucs@unicode	  . #x9CE5)	; &AJ1-03031;
+      (=adobe-japan1-0	  . 03031)	; &AJ1-03031;
       )
      ((=ucs@jis		  . #x548E)	; &AJ1-04352;
       (=adobe-japan1-0	  . 04352)	; &AJ1-04352;
       ))
     (=ucs@JP/hanazono	. #x31230)	; &RUI6-E115;
-    (=ruimoku-v6	. #xE115)	; &I-RUI6-E115;
+    (=ruimoku-v6	. #xE115)	; &RUI6-E115;
     (->subsumptive
      ((==ucs@JP/hanazono  . #x31230)	; &g2-hanaJU+31230;
       (==ruimoku-v6	  . #xE115)	; &g2-hanaJU+31230;
@@ -5074,11 +5080,19 @@
     ))
 (define-char
   '((<-denotational
-     ((=ucs		  . #x2C8C6)	; 𬣆
+     ((=>ruimoku-v6	  . #xE152)	; &A-RUI6-E152;
       ))
     (ideographic-radical . 149)	; ⾔
     (ideographic-strokes . 12)
     (total-strokes	 . 19)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x8A00)	; 言
+      )
+     ((=ucs-itaiji-001	  . #x9028)	; &U-i001+9028;
+      ))
     (=ruimoku-v6	. #xE152)	; &RUI6-E152;
     (->subsumptive
      ((==ruimoku-v6	  . #xE152)	; &g2-RUI6-E152;
