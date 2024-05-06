@@ -2741,6 +2741,38 @@
     ))
 (define-char
   '((ideographic-radical . 27)	; ⼚
+    (ideographic-strokes . 6)
+    (total-strokes	 . 8)
+    (ideographic-structure
+     ((=>ucs@iwds-1	  . #x2FF8)	; &U-v002+2FF1;
+      (=>iwds-1		  .  0305)	; &U-v002+2FF1;
+      )
+     ((=>ucs-itaiji-002@iwds-1 . #x5DE6)	; &A-IWDSU-i002+5DE6;
+      )
+     ((=>ucs@iwds-1	  . #x4E8F)	; &A-IWDSU+4E8F;
+      (=>iwds-1		  .  0093)	; &A-IWDSU+4E8F;
+      ))
+    (=>ucs-itaiji-001	. #x96E9)	; &A-U-i001+96E9;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs-itaiji-001	  . #x96E9)	; &A-U-i001+96E9;
+      ))
+    (ideographic-radical . 27)	; ⼚
+    (ideographic-strokes . 6)
+    (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs-itaiji-005	  . #x5DE6)	; &U-i005+5DE6;
+      )
+     ((=ucs		  . #x4E8F)	; 亏
+      ))
+    (=ucs-itaiji-001	. #x96E9)	; &U-i001+96E9;
+    ))
+(define-char
+  '((ideographic-radical . 27)	; ⼚
     (ideographic-strokes . 7)
     (total-strokes	 . 9)
     (=ucs		. #x20A57)	; 𠩗
