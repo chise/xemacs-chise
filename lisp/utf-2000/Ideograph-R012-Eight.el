@@ -2191,7 +2191,8 @@
      ((=>ucs@component	  . #x4E37)	; &A-compU+4E37;
       (=>iwds-1		  .  0022)	; &A-compU+4E37;
       )
-     ((=ucs		  . #x6BCC)	; 毌
+     ((=>ucs@component	  . #x6BCB)	; &A-compU+6BCB;
+      (=>iwds-1		  .  0182)	; &A-compU+6BCB;
       ))
     (=ucs		. #x2A788)	; 𪞈
     ))
@@ -2208,7 +2209,8 @@
       )
      ((=ucs		  . #x516B)	; 八
       )
-     ((=ucs		  . #x6BCC)	; 毌
+     ((=ucs@unicode	  . #x6BCC)	; &AJ1-14148;
+      (=adobe-japan1-4	  . 14148)	; &AJ1-14148;
       ))
     (=ucs@JP/hanazono	. #x2A788)	; &hanaJU+2A788;
     ))

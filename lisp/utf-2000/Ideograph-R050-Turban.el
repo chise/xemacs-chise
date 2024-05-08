@@ -13250,7 +13250,10 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 50)	; ⼱
+  '((<-denotational@usage
+     ((==>ucs@bucs	  . #x5E63)	; &BUCS+5E63;
+      ))
+    (ideographic-radical . 50)	; ⼱
     (ideographic-strokes . 12)
     (total-strokes	 . 15)
     (ideographic-structure
@@ -13288,6 +13291,7 @@
     (=ks-x1001		. #x7847)	; &I-K0-7847; [88-39]
     (=hanyo-denshi/jt	. #xB0B8)	; &I-HD-JT-B0B8;
     (=daikanwa		. 09088)	; &I-M-09088;
+    (=daijiten		. 02883)	; &I-DJT-02883;
     (=jef-china3	. #x4BFE)	; &I-JC3-4BFE;
     (<-interchangeable
      ((=ucs@jis		  . #x655D)	; &AJ1-05070;
@@ -13345,6 +13349,8 @@
 	)
        ((===mj		    . 010916)	; &R-MJ010916;
 	))
+      )
+     ((==daijiten	  . 02883)	; &g2-DJT-02883;
       )
      ((==jef-china3	  . #x4BFE)	; &g2-JC3-4BFE;
       ))
@@ -16683,6 +16689,11 @@
 (define-char
   '((ideographic-radical . 50)	; ⼱
     (==>daijiten	. 02878)	; &A2-DJT-02878;
+    ))
+(define-char
+  '((ideographic-radical . 50)	; ⼱
+    (==>ucs@bucs	. #x5E63)	; &BUCS+5E63;
+    (==>daijiten	. 02883)	; &BUCS+5E63;
     ))
 (define-char
   '((ideographic-radical . 50)	; ⼱
