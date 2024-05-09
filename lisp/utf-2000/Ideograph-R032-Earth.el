@@ -10315,6 +10315,29 @@
     ))
 (define-char
   '((<-denotational
+     ((=>ucs@cognate	  . #x315AF)	; &A-cgnU+315AF;
+      ))
+    (ideographic-radical . 32)	; ⼟
+    (ideographic-strokes . 5)
+    (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>ucs@iwds-1	  . #x571F)	; &A-IWDSU+571F;
+      (=>iwds-1		  .  0312)	; &A-IWDSU+571F;
+      )
+     ((=ucs@unicode	  . #x56DB)	; &AJ1-02203;
+      (=adobe-japan1-0	  . 02203)	; &AJ1-02203;
+      ))
+    (=>ucs-itaiji-001	. #x315AF)	; &A-U-i001+315AF;
+    ))
+(define-char
+  '((ideographic-radical . 32)	; ⼟
+    (=>ucs@cognate	. #x315AF)	; &A-cgnU+315AF;
+    ))
+(define-char
+  '((<-denotational
      ((=>cbeta		  . 01513)	; &A-CB01513;
       ))
     (ideographic-radical . 32)	; ⼟
@@ -16086,6 +16109,42 @@
       (=gb2312		  . #x4C6E)	; &C1-6358; [44-78]
       (=cns11643-1	  . #x6358)	; &I-C1-6358; [67-56]
       ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@cognate	  . #x315AF)	; &A-cgnU+315AF;
+      ))
+    (ideographic-radical . 32)	; ⼟
+    (ideographic-strokes . 7)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>ucs@iwds-1	  . #x571F)	; &A-IWDSU+571F;
+      (=>iwds-1		  .  0312)	; &A-IWDSU+571F;
+      )
+     ((=ucs		  . #x56E7)	; 囧
+      ))
+    (=ucs		. #x315AF)	; 𱖯
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x315AF)	; 𱖯
+      ))
+    (ideographic-radical . 32)	; ⼟
+    (ideographic-strokes . 7)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x571F)	; 土
+      )
+     ((=ucs@unicode	  . #x56E7)	; &AJ1-21316;
+      (=adobe-japan1-6	  . 21316)	; &AJ1-21316;
+      ))
+    (=ucs@JP/hanazono	. #x315AF)	; &hanaJU+315AF;
     ))
 (define-char
   '((ideographic-radical . 32)	; ⼟
