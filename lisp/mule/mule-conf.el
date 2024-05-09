@@ -5038,7 +5038,7 @@
 		  registry "ucs00\\.var002-2"))
 
   (make-charset '=ucs-var-003
-		"uXXXX-var-003 glyph-images of GlyphWiki"
+		"uXXXX-var-003 glyphs of GlyphWiki"
 		'(long-name	"UCS-var-003"
 		  chars		256
 		  dimension	3
@@ -5048,7 +5048,7 @@
                   ;; =>iso-ir	177
 		  mother	=ucs))
   (make-charset '=ucs-bmp-var-003
-		"uXXXX-var-003 glyph-images in BMP"
+		"uXXXX-var-003 glyphs in BMP"
 		'(long-name	"UCS-BMP-var-003"
 		  chars		256
 		  dimension	2
@@ -5061,7 +5061,7 @@
 		  max-code #x9FCC
 		  registry "ucs\\.var003-0"))
   (make-charset '=ucs-sip-var-003
-		"uXXXX-var-003 glyph-images in SIP"
+		"uXXXX-var-003 glyphs in SIP"
 		'(long-name	"UCS-SIP-var-003"
 		  chars		256
 		  dimension	2
@@ -5072,7 +5072,7 @@
 		  min-code #x20000 max-code #x2FFFF
 		  registry "ucs00\\.var003-2"))
   (make-charset '=ucs-tip-var-003
-		"uXXXX-var-003 glyph-images in TIP"
+		"uXXXX-var-003 glyphs in TIP"
 		'(long-name	"UCS-TIP-var-003"
 		  chars		256
 		  dimension	2
@@ -5139,6 +5139,17 @@
 		  min-code #x2E00
 		  max-code #x9FCC
 		  registry "ucs\\.var003-0"))
+  (make-charset '==ucs-sip-var-003
+		"uXXXX-var-003's abstract glyph-forms in SIP"
+		'(long-name	"UCS-SIP-var-003"
+		  chars		256
+		  dimension	2
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  mother	==ucs-var-003
+		  min-code #x20000 max-code #x2FFFF
+		  registry "ucs00\\.var003-2"))
 
   (make-charset '=ucs-var-004
 		"uXXXX-var-004 glyph-images of GlyphWiki"
