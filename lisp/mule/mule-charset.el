@@ -484,6 +484,7 @@ DESCRIPTION (string) is the description string of the charset."
 	  ==ucs-bmp-var-002
 	  ==ucs-sip-var-002
 	  ==ucs-bmp-var-003
+	  ==ucs-sip-var-003
 	  ==ucs-bmp-var-007
 	  ==hanyo-denshi/ja
 	  ==hanyo-denshi/jb

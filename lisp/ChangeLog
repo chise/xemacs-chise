@@ -1,3 +1,14 @@
+2024-05-09  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`==ucs-sip-var-003'.
+
+	* mule/mule-conf.el (=ucs-var-003): Fix DOC.
+	(=ucs-bmp-var-003): Likewise.
+	(=ucs-sip-var-003): Likewise.
+	(=ucs-tip-var-003): Likewise.
+	(==ucs-sip-var-003): New coded-charset for XEmacs CHISE.
+
 2024-02-06  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
