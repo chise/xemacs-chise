@@ -2820,6 +2820,14 @@
     (ideographic-radical . 196)	; ⿃
     (ideographic-strokes . 0)
     (total-strokes	 . 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
+      (=ucs		  . #x2FF9)	; ⿹
+      )
+     ((=big5-cdp	  . #x8964)	; &CDP-8964;
+      )
+     ((=ucs		  . #x4E00)	; 一
+      ))
     (=ucs		. #x2EE6)	; ⻦
     (=ucs@unicode	. #x9E1F)	; ⻦
     (=gb2312		. #x4471)	; &I-G0-4471; [36-81]
