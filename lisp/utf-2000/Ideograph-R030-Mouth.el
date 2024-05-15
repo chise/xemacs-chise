@@ -93920,6 +93920,13 @@
     ))
 (define-char
   '((ideographic-radical . 30)	; ⼝
+    (=>ucs@cognate	. #x2116E)	; &A-cgnU+2116E;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@cognate	  . #x2116E)	; &A-cgnU+2116E;
+      ))
+    (ideographic-radical . 30)	; ⼝
     (ideographic-strokes . 19)
     (total-strokes	 . 22)
     (ideographic-structure
@@ -94010,6 +94017,57 @@
        ((===ucs@iso	    . #x2116E)	; &R-U-0002116E;
 	))
       ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@cognate	  . #x2116E)	; &A-cgnU+2116E;
+      ))
+    (ideographic-radical . 30)	; ⼝
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=>ucs-itaiji-001	  . #x4E25)	; &A-U-i001+4E25;
+      )
+     ((=ucs		  . #x20B56)	; 𠭖
+      ))
+    (=>ucs-itaiji-001	. #x2116E)	; &A-U-i001+2116E;
+    (=>ucs-itaiji-002	. #x2116E)	; &A-U-i001+2116E;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs-itaiji-001	  . #x2116E)	; &A-U-i001+2116E;
+      ))
+    (ideographic-radical . 30)	; ⼝
+    (ideographic-strokes . 16)
+    (total-strokes	 . 19)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs-itaiji-001	  . #x4E25)	; &U-i001+4E25;
+      )
+     ((=daikanwa	  . 03182)	; &M-03182;
+      ))
+    (=ucs-itaiji-001	. #x2116E)	; &U-i001+2116E;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs-itaiji-001	  . #x2116E)	; &A-U-i001+2116E;
+      ))
+    (ideographic-radical . 30)	; ⼝
+    (ideographic-strokes . 16)
+    (total-strokes	 . 19)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs-itaiji-001	  . #x4E25)	; &U-i001+4E25;
+      )
+     ((=ucs@iso		  . #x20B56)	; &C6-3D68;
+      (=cns11643-6	  . #x3D68)	; &C6-3D68; [29-72]
+      ))
+    (=ucs-itaiji-002	. #x2116E)	; &U-i002+2116E;
     ))
 (define-char
   '((ideographic-radical . 30)	; ⼝
