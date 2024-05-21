@@ -1947,7 +1947,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
       (=ucs		  . #x2FF8)	; ⿸
       )
-     ((=ucs		  . #x21C3B)	; 𡰻
+     ((=ucs-itaiji-001	  . #x21C3B)	; &U-i001+21C3B;
       )
      ((=ucs		  . #x53C8)	; 又
       ))
