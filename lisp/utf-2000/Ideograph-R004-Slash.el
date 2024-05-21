@@ -6786,7 +6786,6 @@
   '((ideographic-radical . 4)	; ⼃
     (ideographic-strokes . 10)
     (total-strokes	 . 11)
-    (hanyu-dazidian	1 41 7)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
@@ -6796,8 +6795,63 @@
      ((=ucs		  . #x200CC)	; 𠃌
       ))
     (=ucs		. #x200C0)	; 𠃀
-    (=daikanwa/ho	.  0005)	; 𠃀
-    (=hanziku-1		. #xAC7E)	; &I-HZK01-AC7E;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x200C0)	; 𠃀
+      ))
+    (ideographic-radical . 4)	; ⼃
+    (ideographic-strokes . 10)
+    (total-strokes	 . 11)
+    (hanyu-dazidian	1 41 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs@iso		  . #x200B9)	; &HD-KS-001860;
+      (=cns11643-5	  . #x2B67)	; &HD-KS-001860; [11-71]
+      (=daikanwa	  . 00155)	; &I-M-00155;
+      )
+     ((=ucs		  . #x200CC)	; 𠃌
+      ))
+    (=ucs@iso		. #x200C0)	; &M-H0005;
+    (=daikanwa/ho	.  0005)	; &M-H0005;
+    (->subsumptive
+     ((==ucs@iso	  . #x200C0)	; &g2-M-H0005;
+      (==daikanwa/ho	  .  0005)	; &g2-M-H0005;
+      (->subsumptive
+       ((===daikanwa/ho	    .  0005)	; &R-M-H0005;
+	)
+       ((===ucs@iso	    . #x200C0)	; &R-U-000200C0;
+	)
+       ((=hanziku-1	    . #xAC7E)	; &HZK01-AC7E;
+	))
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x200C0)	; 𠃀
+      ))
+    (ideographic-radical . 4)	; ⼃
+    (ideographic-strokes . 10)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((=ucs-itaiji-001	  . #x2FFB)	; &U-i001+2FFB;
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((=ucs		    . #x4E3F)	; 丿
+	)
+       ((=big5-cdp	    . #x88CD)	; &CDP-88CD;
+	))
+      )
+     ((=ucs@iso		  . #x2020C)	; &C4-2535;
+      (=cns11643-4	  . #x2535)	; &C4-2535; [05-21]
+      (=daikanwa	  . 00611)	; &I-M-00611;
+      ))
+    (=ucs-itaiji-002	. #x200C0)	; &U-i002+200C0;
     ))
 (define-char
   '((ideographic-radical . 4)	; ⼃
