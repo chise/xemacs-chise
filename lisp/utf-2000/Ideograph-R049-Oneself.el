@@ -800,10 +800,12 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 49)	; ⼰
+  '((<-denotational@usage
+     ((==>ucs@bucs	  . #x536E)	; &BUCS+536E;
+      ))
+    (ideographic-radical . 49)	; ⼰
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
-    (hanyu-dazidian	1 69 27)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
       (=ucs		  . #x2FF8)	; ⿸
@@ -813,7 +815,26 @@
      ((=ucs		  . #x5DF4)	; 巴
       ))
     (=ucs		. #x5DF5)	; 巵
-    (=adobe-japan1-0	. 04719)	; &I-AJ1-04719;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5DF5)	; 巵
+      ))
+    (ideographic-radical . 49)	; ⼰
+    (ideographic-strokes . 4)
+    (total-strokes	 . 7)
+    (hanyu-dazidian	1 69 27)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs		  . #x2008B)	; 𠂋
+      )
+     ((=ucs@unicode	  . #x5DF4)	; &AJ1-03321;
+      (=adobe-japan1-0	  . 03321)	; &AJ1-03321;
+      ))
+    (=ucs@unicode	. #x5DF5)	; &AJ1-04719;
+    (=adobe-japan1-0	. 04719)	; &AJ1-04719;
     (=jis-x0208		. #x5662)	; &I-J90-5662; [54-66]
     (=cns11643-3	. #x2567)	; &I-C3-2567; [05-71]
     (=jis-x0213-1	. #x5662)	; &I-JX1-5662; [54-66]
@@ -822,7 +843,8 @@
     (=gt-k		. 02703)	; &I-GT-K02703;
     (=gt-pj-1		. #x5662)	; &I-GT-11033; [54-66]
     (=daikanwa		. 08751)	; &I-M-08751;
-    (=shinjigen		.  0847)	; 巵
+    (=daijiten		. 02789)	; &I-DJT-02789;
+    (=shinjigen		.  0847)	; &AJ1-04719;
     (=cbeta		. 01682)	; &I-CB01682;
     (<-vulgar
      ((=ucs@unicode	  . #x536E)	; &AJ1-04317;
@@ -842,10 +864,13 @@
       (==gt		  . 11033)	; &g2-AJ1-04719;
       (==gt-k		  . 02703)	; &g2-AJ1-04719;
       (==daikanwa	  . 08751)	; &g2-AJ1-04719;
+      (==daijiten	  . 02789)	; &g2-AJ1-04719;
       (==shinjigen	  .  0847)	; &g2-AJ1-04719;
       (==cbeta		  . 01682)	; &g2-AJ1-04719;
       (->subsumptive
        ((===daikanwa	    . 08751)	; &R-M-08751;
+	)
+       ((===daijiten	    . 02789)	; &R-DJT-02789;
 	)
        ((===jis-x0208	    . #x5662)	; &R-J0-5662; [54-66]
 	(===jis-x0213-1	    . #x5662)	; &R-J0-5662; [54-66]
