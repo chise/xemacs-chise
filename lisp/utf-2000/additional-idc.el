@@ -21,9 +21,15 @@
     ))
 (define-char
   '((=ucs-itaiji-001	. #x2FF1)	; &U-i001+2FF1;
+    (<-denotational@arg-reversed
+     ((=>ucs@component	  . #x2FF6)	; &A-compU+2FF6;
+      ))
     ))
 (define-char
   '((=ucs-itaiji-002	. #x2FF1)	; &U-i002+2FF1;
+    ))
+(define-char
+  '((=>ucs@component	. #x2FF6)	; &A-compU+2FF6;
     ))
 (define-char
   '((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER RIGHT")
