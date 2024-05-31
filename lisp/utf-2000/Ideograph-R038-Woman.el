@@ -32001,7 +32001,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=ucs@jis		  . #x52D9)	; &AJ1-03775;
+     ((=ucs@cns		  . #x52D9)	; &AJ1-03775;
+      (=ucs@jis		  . #x52D9)	; &AJ1-03775;
       (=ucs@ks		  . #x52D9)	; &AJ1-03775;
       (=adobe-japan1-0	  . 03775)	; &AJ1-03775;
       )
