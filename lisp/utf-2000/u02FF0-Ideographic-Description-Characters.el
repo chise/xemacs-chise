@@ -62,7 +62,10 @@
     (=ucs		. #x2FF5)	; ⿵
     ))
 (define-char
-  '((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM BELOW")
+  '((<-denotational
+     ((=>ucs@component	  . #x2FF6)	; &A-compU+2FF6;
+      ))
+    (name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM BELOW")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
