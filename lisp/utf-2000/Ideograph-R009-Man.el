@@ -27140,7 +27140,8 @@
     (->ancient*sources
      jiyun daikanwa)
     (->formed
-     ((=ucs@jis		  . #x52D9)	; &AJ1-03775;
+     ((=ucs@cns		  . #x52D9)	; &AJ1-03775;
+      (=ucs@jis		  . #x52D9)	; &AJ1-03775;
       (=ucs@ks		  . #x52D9)	; &AJ1-03775;
       (=adobe-japan1-0	  . 03775)	; &AJ1-03775;
       (=daikanwa	  . 02394)	; &I-M-02394;
