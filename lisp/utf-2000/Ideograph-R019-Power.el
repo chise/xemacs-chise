@@ -6399,9 +6399,8 @@
     (=daijiten		. 00890)	; &I-DJT-00890;
     (=shinjigen		.  0742)	; &AJ1-03775;
     (<-formed
-     ((=ucs@unicode	  . #x5D4D)	; &C3-3B2E;
-      (=cns11643-3	  . #x3B2E)	; &C3-3B2E; [27-14]
-      (=daikanwa	  . 08280)	; &I-M-08280;
+     ((=ucs@unicode	  . #x5D4D)	; &MJ010609;
+      (=mj		  . 010609)	; &MJ010609;
       )
      ((=ucs		  . #xFA30)	; 侮
       ))
@@ -6442,8 +6441,8 @@
     (<-interchangeable*sources
      daikanwa)
     (<-same
-     ((=ucs@unicode	  . #x5D4D)	; &C3-3B2E;
-      (=cns11643-3	  . #x3B2E)	; &C3-3B2E; [27-14]
+     ((=ucs@unicode	  . #x5D4D)	; &MJ010609;
+      (=mj		  . 010609)	; &MJ010609;
       (=daikanwa	  . 08280)	; &I-M-08280;
       ))
     (<-same$_1*sources
