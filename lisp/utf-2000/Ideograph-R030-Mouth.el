@@ -1699,7 +1699,9 @@
      ((=ucs		  . #x4F55)	; 何
       (=daikanwa	  . 00511)	; &I-M-00511;
       )
-     ((=ucs		  . #x9B90)	; 鮐
+     ((=ucs@unicode	  . #x9B90)	; &JSP-6A5C;
+      (=jis-x0212	  . #x6A5C)	; &JSP-6A5C; [74-60]
+      (=cns11643-2	  . #x5C2A)	; &I-C2-5C2A; [60-10]
       (=daikanwa	  . 46073)	; &I-M-46073;
       )
      ((=ucs		  . #x80CE)	; 胎
