@@ -2772,8 +2772,7 @@
     (<-interchangeable*sources
      daikanwa)
     (<-same
-     ((=ucs@cns		  . #x20B3B)	; &C6-2A32;
-      (=cns11643-6	  . #x2A32)	; &C6-2A32; [10-18]
+     ((=mj		  . 032033)	; &MJ032033;
       (=daikanwa	  . 03155)	; &I-M-03155;
       ))
     (<-same$_1*sources
@@ -2781,9 +2780,7 @@
     (<-same*sources
      zhengzitong daikanwa)
     (->Small-Seal
-     ((=ucs@cns		  . #x20B3B)	; &C6-2A32;
-      (=cns11643-6	  . #x2A32)	; &C6-2A32; [10-18]
-      (=daikanwa	  . 03155)	; &I-M-03155;
+     ((=mj		  . 032033)	; &MJ032033;
       ))
     (->Small-Seal$_1*sources
      zhengzitong)
