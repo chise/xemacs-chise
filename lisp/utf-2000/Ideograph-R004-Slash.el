@@ -316,6 +316,12 @@
      daikanwa)
     ))
 (define-char
+  '((ideographic-radical . 4)	; ⼃
+    (ideographic-strokes . 0)
+    (total-strokes	 . 1)
+    (=ucs-itaiji-001	. #x4E42)	; &U-i001+4E42;
+    ))
+(define-char
   '((<-denotational@component
      ((=>ucs@component	  . #x53C8)	; &A-compU+53C8;
       ))
