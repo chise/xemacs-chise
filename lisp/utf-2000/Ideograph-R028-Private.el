@@ -330,6 +330,20 @@
       ))
     ))
 (define-char
+  '((ideographic-radical . 28)	; ⼛
+    (ideographic-strokes . 1)
+    (total-strokes	 . 3)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x53B6)	; 厶
+      )
+     ((=ucs		  . #x4E28)	; 丨
+      ))
+    (=ucs-itaiji-002	. #x9F50)	; &U-i002+9F50;
+    ))
+(define-char
   '((<-denotational@component
      ((=>ucs@iwds-1	  . #x20AD3)	; &A-IWDSU+20AD3;
       ))
