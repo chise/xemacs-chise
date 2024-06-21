@@ -533,6 +533,21 @@
     ))
 (define-char
   '((ideographic-radical . 83)	; ⽒
+    (ideographic-strokes . 6)
+    (total-strokes	 . 10)
+    (=>big5-cdp-itaiji-005 . #x8851)	; &A-CDP-i005-8851;
+    ))
+(define-char
+  '((<-denotational
+     ((=>big5-cdp-itaiji-005 . #x8851)	; &A-CDP-i005-8851;
+      ))
+    (ideographic-radical . 83)	; ⽒
+    (ideographic-strokes . 6)
+    (total-strokes	 . 10)
+    (=big5-cdp-itaiji-005 . #x8851)	; &CDP-i005-8851;
+    ))
+(define-char
+  '((ideographic-radical . 83)	; ⽒
     (ideographic-strokes . 7)
     (total-strokes	 . 11)
     (=ucs		. #x23C4B)	; 𣱋
