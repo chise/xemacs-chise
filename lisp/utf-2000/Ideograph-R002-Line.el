@@ -757,6 +757,12 @@
   '((ideographic-radical . 2)	; ⼁
     (ideographic-strokes . 2)
     (total-strokes	 . 3)
+    (=ucs-itaiji-003	. #x9F50)	; &U-i003+9F50;
+    ))
+(define-char
+  '((ideographic-radical . 2)	; ⼁
+    (ideographic-strokes . 2)
+    (total-strokes	 . 3)
     (=>big5-cdp		. #x89B3)	; &A-CDP-89B3;
     ))
 (define-char
