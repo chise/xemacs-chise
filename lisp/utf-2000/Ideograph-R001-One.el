@@ -353,20 +353,35 @@
     (total-strokes@gt	    . 4)
     (hanyu-dazidian	1 11 7)
     (=ucs		. #x20000)	; 𠀀
+    (=cns11643-5	. #x2125)	; &I-C5-2125; [01-05]
+    (=big5-cdp		. #x87F6)	; &I-CDP-87F6;
+    (=gt		. 00026)	; &I-GT-00026;
+    (=gt-pj-2		. #x3022)	; &I-GT-00026; [16-02]
+    (=daikanwa		. 00004)	; &I-M-00004;
+    (<-formed@flipped-horizontally
+     ((=ucs		  . #x4E02)	; 丂
+      ))
     (->Bopomofo
      ((name		  . "BOPOMOFO LETTER O")
       (=ucs		  . #x311B)	; ㄛ
       ))
     (->subsumptive
-     ((=gt		  . 00026)	; &GT-00026;
-      (=gt-pj-2		  . #x3022)	; &GT-00026; [16-02]
-      (=daikanwa	  . 00004)	; &I-M-00004;
-      )
      ((hanyu-dazidian	  1 11 1)
-      (=big5-cdp	  . #x87F6)	; &CDP-87F6;
+      (==big5-cdp	  . #x87F6)	; &g2-GT-00026;
+      (==gt		  . 00026)	; &g2-GT-00026;
+      (==daikanwa	  . 00004)	; &g2-GT-00026;
+      (->subsumptive
+       ((===daikanwa	    . 00004)	; &R-M-00004;
+	)
+       ((===gt		    . 00026)	; &R-GT-00026;
+	)
+       ((===big5-cdp	    . #x87F6)	; &R-CDP-87F6;
+	))
       )
-     ((=ucs@iso		  . #x20000)	; &C5-2125;
-      (=cns11643-5	  . #x2125)	; &C5-2125; [01-05]
+     ((==ucs@iso	  . #x20000)	; &g2-IU-00020000;
+      )
+     ((==ucs@cns	  . #x20000)	; &g2-CU+20000;
+      (==cns11643-5	  . #x2125)	; &g2-CU+20000; [01-05]
       ))
     ))
 (define-char
@@ -7755,6 +7770,17 @@
     (=gt-pj-k2		. #x303D)	; &GT-K03084; [16-29]
     (<-unknown
      ((=ucs		  . #x4E1E)	; 丞
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 1)	; ⼀
+    (ideographic-strokes . 6)
+    (total-strokes	 . 7)
+    (=gt-k		. 03596)	; &GT-K03596;
+    (=gt-pj-k1		. #x4162)	; &GT-K03596; [33-66]
+    (->subsumptive
+     ((==gt-k		  . 03596)	; &g2-GT-K03596;
+      (==gt-pj-k1	  . #x4162)	; &g2-GT-K03596; [33-66]
       ))
     ))
 (define-char
