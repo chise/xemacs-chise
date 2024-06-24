@@ -784,6 +784,25 @@
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
     (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
+      (=ucs		  . #x2FF5)	; ⿵
+      )
+     ((=ucs		  . #x4E43)	; 乃
+      )
+     ((=ucs		  . #x53B6)	; 厶
+      ))
+    (=gt-k		. 00701)	; &GT-K00701;
+    (=gt-pj-k1		. #x427E)	; &GT-K00701; [34-94]
+    (->subsumptive
+     ((==gt-k		  . 00701)	; &g2-GT-K00701;
+      (==gt-pj-k1	  . #x427E)	; &g2-GT-K00701; [34-94]
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 28)	; ⼛
+    (ideographic-strokes . 2)
+    (total-strokes	 . 4)
+    (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
