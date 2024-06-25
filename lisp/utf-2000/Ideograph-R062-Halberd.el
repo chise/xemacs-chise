@@ -2667,6 +2667,38 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 10)
     (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER RIGHT")
+      (=ucs		  . #x2FFD)	; ⿽
+      )
+     ((=ucs		  . #x6208)	; 戈
+      )
+     ((=ucs		  . #x7AF9)	; 竹
+      ))
+    (=>ucs-itaiji-001	. #x41DD)	; &A-U-i001+41DD;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs-itaiji-001	  . #x41DD)	; &A-U-i001+41DD;
+      ))
+    (ideographic-radical . 62)	; ⼽
+    (ideographic-strokes . 6)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER RIGHT")
+      (=ucs		  . #x2FFD)	; ⿽
+      )
+     ((=ucs		  . #x6208)	; 戈
+      )
+     ((name		  . "CJK RADICAL BAMBOO")
+      (=ucs		  . #x2EAE)	; ⺮
+      ))
+    (=ucs-itaiji-001	. #x41DD)	; &U-i001+41DD;
+    ))
+(define-char
+  '((ideographic-radical . 62)	; ⼽
+    (ideographic-strokes . 6)
+    (total-strokes	 . 10)
+    (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )

@@ -17664,7 +17664,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=ucs@JP/hanazono	  . #x2ABDF)	; &hanaJU+2ABDF;
+     ((=ucs@JP/hanazono	  . #x2BB32)	; &hanaJU+2BB32;
       )
      ((=ucs		  . #x6535)	; 攵
       ))
