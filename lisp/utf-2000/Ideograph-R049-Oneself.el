@@ -253,6 +253,12 @@
       ))
     ))
 (define-char
+  '((ideographic-radical . 49)	; ⼰
+    (ideographic-strokes . 0)
+    (total-strokes	 . 1)
+    (=ucs-itaiji-002	. #x382F)	; &U-i002+382F;
+    ))
+(define-char
   '((<-denotational@usage
      ((==>ucs@bucs	  . #x5DF4)	; &BUCS+5DF4;
       ))
