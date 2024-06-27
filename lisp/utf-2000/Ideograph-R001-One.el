@@ -5040,6 +5040,28 @@
   '((ideographic-radical . 1)	; ⼀
     (ideographic-strokes . 4)
     (total-strokes	 . 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
+      (=ucs		  . #x2FFA)	; ⿺
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER OVERLAID")
+	(=ucs		    . #x2FFB)	; ⿻
+	)
+       ((=ucs@unicode	    . #x4E09)	; &AJ1-02174;
+	(=adobe-japan1-0    . 02174)	; &AJ1-02174;
+	)
+       ((=big5-cdp	    . #x88CD)	; &CDP-88CD;
+	))
+      )
+     ((=ucs		  . #x4E36)	; 丶
+      ))
+    (=ucs-itaiji-006	. #x4E13)	; &U-i006+4E13;
+    ))
+(define-char
+  '((ideographic-radical . 1)	; ⼀
+    (ideographic-strokes . 4)
+    (total-strokes	 . 5)
     (=ucs-itaiji-001	. #x4E1A)	; &U-i001+4E1A;
     (<-unknown
      ((=ucs		  . #x4E1A)	; 业
