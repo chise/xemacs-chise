@@ -866,6 +866,38 @@
     ))
 (define-char
   '((ideographic-radical . 37)	; ⼤
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((name		  . "IDEOGRAPHIC CLOSING MARK")
+      (=ucs		  . #x3006)	; 〆
+      )
+     ((=>ucs@component	  . #x72AC)	; &A-compU+72AC;
+      (=>iwds-1		  .  0239)	; &A-compU+72AC;
+      ))
+    (=>ucs-itaiji-001	. #x5934)	; &A-U-i001+5934;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs-itaiji-001	  . #x5934)	; &A-U-i001+5934;
+      ))
+    (ideographic-radical . 37)	; ⼤
+    (ideographic-strokes . 1)
+    (total-strokes	 . 4)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((name		  . "IDEOGRAPHIC CLOSING MARK")
+      (=ucs		  . #x3006)	; 〆
+      )
+     ((=ucs		  . #x5927)	; 大
+      ))
+    (=ucs-itaiji-001	. #x5934)	; &U-i001+5934;
+    ))
+(define-char
+  '((ideographic-radical . 37)	; ⼤
     (sound@ja/on/go	"Au" "yAu")
     (sound@ja/on/kan	"yAu" "ei")
     (=ucs		. #x592E)	; 央
@@ -1492,18 +1524,47 @@
     (=cns11643-3	. #x223A)	; &I-C3-223A; [02-26]
     ))
 (define-char
-  '((ideographic-radical . 37)	; ⼤
+  '((<-denotational@usage
+     ((==>ucs@bucs	  . #x982D)	; &BUCS+982D;
+      ))
+    (ideographic-radical . 37)	; ⼤
+    (=ucs		. #x5934)	; 头
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5934)	; 头
+      ))
+    (ideographic-radical . 37)	; ⼤
     (ideographic-strokes . 2)
     (total-strokes	 . 5)
     (hanyu-dazidian	1 526 2)
-    (=ucs		. #x5934)	; 头
+    (=ucs@unicode	. #x5934)	; &C3-2239;
+    (=gb2312		. #x4D37)	; &C3-2239; [45-23]
+    (=cns11643-3	. #x2239)	; &I-C3-2239; [02-25]
+    (=big5-cdp		. #x8A62)	; &I-CDP-8A62;
+    (=jef-china3	. #x81E3)	; &I-JC3-81E3;
+    (<-simplified@CN
+     ((=ucs@unicode	  . #x982D)	; &AJ1-03204;
+      (=adobe-japan1-0	  . 03204)	; &AJ1-03204;
+      (=gb12345		  . #x4D37)	; &AJ1-03204; [45-23]
+      ))
     (->subsumptive
-     ((=ucs@unicode	  . #x5934)	; &C3-2239;
-      (=gb2312		  . #x4D37)	; &C3-2239; [45-23]
-      (=cns11643-3	  . #x2239)	; &I-C3-2239; [02-25]
+     ((==ucs@unicode	  . #x5934)	; &g2-UU+5934;
+      (==gb2312		  . #x4D37)	; &g2-UU+5934; [45-23]
+      (==cns11643-3	  . #x2239)	; &g2-UU+5934; [02-25]
+      (->subsumptive
+       ((===cns11643-3	    . #x2239)	; &R-C3-2239; [02-25]
+	)
+       ((===ucs@unicode	    . #x5934)	; &R-UU+5934;
+	))
       )
-     ((=big5-cdp	  . #x8A62)	; &CDP-8A62;
-      (=jef-china3	  . #x81E3)	; &I-JC3-81E3;
+     ((==big5-cdp	  . #x8A62)	; &g2-CDP-8A62;
+      (==jef-china3	  . #x81E3)	; &g2-CDP-8A62;
+      (->subsumptive
+       ((===big5-cdp	    . #x8A62)	; &R-CDP-8A62;
+	)
+       ((===jef-china3	    . #x81E3)	; &R-JC3-81E3;
+	))
       ))
     ))
 (define-char
