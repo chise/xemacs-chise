@@ -361,6 +361,8 @@
     (<-formed@flipped-horizontally
      ((=ucs		  . #x4E02)	; 丂
       ))
+    (<-formed@flipped-horizontally*sources
+     shuowen)
     (->Bopomofo
      ((name		  . "BOPOMOFO LETTER O")
       (=ucs		  . #x311B)	; ㄛ
