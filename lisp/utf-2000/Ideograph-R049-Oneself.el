@@ -361,6 +361,8 @@
       ))
     (=ucs-itaiji-002	. #x5DF4)	; &U-i002+5DF4;
     (<-formed
+     ((=ucs		  . #x2239F)	; 𢎟
+      )
      ((=ucs@JP/hanazono	  . #x2D172)	; &MJ057105;
       (=mj		  . 057105)	; &MJ057105;
       )
