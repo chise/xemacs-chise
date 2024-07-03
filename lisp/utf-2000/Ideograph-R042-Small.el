@@ -3210,6 +3210,21 @@
     ))
 (define-char
   '((ideographic-radical . 42)	; ⼩
+    (ideographic-strokes . 14)
+    (total-strokes	 . 17)
+    (=ucs		. #x21BB4)	; 𡮴
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x21BB4)	; 𡮴
+      ))
+    (ideographic-radical . 42)	; ⼩
+    (ideographic-strokes . 14)
+    (total-strokes	 . 17)
+    (=ucs@iso		. #x21BB4)	; &U-00021BB4;
+    ))
+(define-char
+  '((ideographic-radical . 42)	; ⼩
     (ideographic-strokes . 15)
     (total-strokes	 . 18)
     (ideographic-structure

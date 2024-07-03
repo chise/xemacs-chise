@@ -1261,6 +1261,41 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
+     ((=ucs		  . #x34C1)	; 㓁
+      )
+     ((=ucs		  . #x5B50)	; 子
+      ))
+    (=ucs		. #x2A790)	; 𪞐
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2A790)	; 𪞐
+      ))
+    (ideographic-radical . 14)	; ⼍
+    (ideographic-strokes . 5)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((name		  . "CJK RADICAL NET THREE")
+      (=ucs		  . #x2EB3)	; ⺳
+      )
+     ((=ucs		  . #x5B50)	; 子
+      ))
+    (=ucs@JP/hanazono	. #x2A790)	; &hanaJU+2A790;
+    (->subsumptive
+     ((==ucs@JP/hanazono  . #x2A790)	; &g2-hanaJU+2A790;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 14)	; ⼍
+    (ideographic-strokes . 5)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
      ((=ucs		  . #x5196)	; 冖
       )
      ((=ucs		  . #x76EE)	; 目
