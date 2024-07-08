@@ -1206,9 +1206,6 @@
     (total-strokes	 . 4)
     (=ucs		. #x2EB1)	; ⺱
     (=ucs@unicode	. #x7F53)	; ⺱
-    (<-identical@component/connect-below
-     ((=ucs		  . #x7F53)	; 罓
-      ))
     ))
 (define-char
   '((<-denotational
@@ -1281,7 +1278,24 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (ideographic-radical . 122)	; ⽹
+    (ideographic-strokes . 0)
+    (total-strokes	 . 4)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5196)	; 冖
+      )
+     ((=>ucs@component	  . #x513F)	; &A-compU+513F;
+      (=>iwds-1		  .  0222)	; &A-compU+513F;
+      ))
     (=ucs		. #x2EB3)	; ⺳
+    (=ucs@unicode	. #x34C1)	; ⺳
+    (=ucs@JP/hanazono	. #x34C1)	; ⺳
+    (=adobe-japan1-5	. 18384)	; &I-AJ1-18384;
+    (=jis-x0213-2	. #x7468)	; &I-JX2-7468; [84-72]
+    (=big5-cdp		. #x8C7E)	; &I-CDP-8C7E;
     (<-formed@component/connect-below
      ((=ucs		  . #x7F51)	; 网
       )
@@ -1291,6 +1305,48 @@
      ((=ucs		  . #x2626A)	; 𦉪
       )
      ((=ucs		  . #x34C1)	; 㓁
+      ))
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((=ucs		    . #x5196)	; 冖
+	)
+       ((=ucs		    . #x513F)	; 儿
+	))
+      (=>>ucs@unicode	  . #x34C1)	; &G-AJ1-18384;
+      (=>>adobe-japan1-5  . 18384)	; &G-AJ1-18384;
+      (=>>jis-x0213-2	  . #x7468)	; &G-AJ1-18384; [84-72]
+      (=>>big5-cdp	  . #x8C7E)	; &G-AJ1-18384;
+      (->subsumptive
+       ((==ucs@unicode	    . #x34C1)	; &g2-AJ1-18384;
+	(==adobe-japan1-5   . 18384)	; &g2-AJ1-18384;
+	(==jis-x0213-2	    . #x7468)	; &g2-AJ1-18384; [84-72]
+	(==big5-cdp	    . #x8C7E)	; &g2-AJ1-18384;
+	(->subsumptive
+	 ((===jis-x0213-2     . #x7468)	; &R-JX2-7468; [84-72]
+	  )
+	 ((===adobe-japan1-5  . 18384)	; &R-AJ1-18384;
+	  )
+	 ((===big5-cdp	      . #x8C7E)	; &R-CDP-8C7E;
+	  )
+	 ((===ucs@unicode     . #x34C1)	; &R-UU+34C1;
+	  ))
+	))
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((=ucs		    . #x5196)	; 冖
+	)
+       ((=ucs		    . #x516B)	; 八
+	))
+      (=ucs-var-002	  . #x34C1)	; &U-v002+34C1;
+      (->subsumptive
+       ((==ucs-var-002	    . #x34C1)	; &g2-U-v002+34C1;
+	))
       ))
     ))
 (define-char
@@ -1307,6 +1363,9 @@
       ))
     (<-same@component
      ((=ucs		  . #x2626A)	; 𦉪
+      ))
+    (->mistakable
+     ((=ucs		  . #x2F817)	; 冗
       ))
     ))
 (define-char

@@ -16791,7 +16791,8 @@
       )
      ((=ucs		  . #x793A)	; 示
       )
-     ((=ucs		  . #x8C4A)	; 豊
+     ((=ucs@unicode	  . #x8C4A)	; &AJ1-03675;
+      (=adobe-japan1-0	  . 03675)	; &AJ1-03675;
       ))
     (=ucs@jis		. #x79AE)	; &MJ018965;
     (=ucs@ks		. #x79AE)	; &MJ018965;
@@ -16863,7 +16864,8 @@
       )
      ((=ucs		  . #x793B)	; 礻
       )
-     ((=ucs		  . #x8C4A)	; 豊
+     ((=ucs@unicode	  . #x8C4A)	; &AJ1-03675;
+      (=adobe-japan1-0	  . 03675)	; &AJ1-03675;
       ))
     (=ucs@unicode	. #x79AE)	; &MJ018964;
     (=ucs@JP/hanazono	. nil)
