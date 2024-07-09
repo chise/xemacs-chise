@@ -381,6 +381,14 @@
   '((ideographic-radical . 44)	; ⼫
     (ideographic-strokes . 1)
     (total-strokes	 . 4)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs		  . #x5C38)	; 尸
+      )
+     ((=ucs		  . #x200CC)	; 𠃌
+      ))
     (=ucs-itaiji-002	. #x5C3A)	; &U-i002+5C3A;
     (<-formed@component
      ((=ucs		  . #x5C3A)	; 尺
@@ -3111,6 +3119,20 @@
       )
      ((=ucs		  . #x5C38)	; 尸
       )
+     ((=ucs-itaiji-006	  . #x4E13)	; &U-i006+4E13;
+      ))
+    (=ucs		. #x21C44)	; 𡱄
+    ))
+(define-char
+  '((ideographic-radical . 44)	; ⼫
+    (ideographic-strokes . 5)
+    (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs		  . #x5C38)	; 尸
+      )
      ((=ucs		  . #x53E5)	; 句
       ))
     (=ucs		. #x21C48)	; 𡱈
@@ -3130,6 +3152,20 @@
        ((===cbeta	    . 04645)	; &R-CB04645;
 	))
       ))
+    ))
+(define-char
+  '((ideographic-radical . 44)	; ⼫
+    (ideographic-strokes . 5)
+    (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
+      (=ucs		  . #x2FF5)	; ⿵
+      )
+     ((=ucs-itaiji-002	  . #x5C3A)	; &U-i002+5C3A;
+      )
+     ((=ucs		  . #x6C34)	; 水
+      ))
+    (=ucs		. #x21C4A)	; 𡱊
     ))
 (define-char
   '((ideographic-radical . 44)	; ⼫
@@ -3187,27 +3223,6 @@
      ((==ucs@JP/hanazono  . #x2D558)	; &g2-MJ057369;
       (==mj		  . 057369)	; &g2-MJ057369;
       (==koseki		  . 087280)	; &g2-MJ057369;
-      ))
-    ))
-(define-char
-  '((ideographic-radical . 44)	; ⼫
-    (ideographic-strokes . 5)
-    (total-strokes	 . 8)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
-      (=ucs		  . #x2FF5)	; ⿵
-      )
-     ((=ucs-itaiji-002	  . #x5C3A)	; &U-i002+5C3A;
-      )
-     ((=ucs@iso		  . #x20B9B)	; &C4-2147;
-      (=cns11643-4	  . #x2147)	; &C4-2147; [01-39]
-      (=daikanwa	  . 03230)	; &I-M-03230;
-      ))
-    (=gt-k		. 04467)	; &GT-K04467;
-    (=gt-pj-k1		. #x434D)	; &GT-K04467; [35-45]
-    (->subsumptive
-     ((==gt-k		  . 04467)	; &g2-GT-K04467;
-      (==gt-pj-k1	  . #x434D)	; &g2-GT-K04467; [35-45]
       ))
     ))
 (define-char
@@ -5533,6 +5548,68 @@
        ((===ucs@unicode	    . #x3799)	; &R-UU+3799;
 	))
       ))
+    ))
+(define-char
+  '((ideographic-radical . 44)	; ⼫
+    (ideographic-strokes . 8)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs		  . #x5C38)	; 尸
+      )
+     ((=>ucs@component	  . #x22A92)	; &A-compU+22A92;
+      ))
+    (=ucs		. #x21C84)	; 𡲄
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x21C84)	; 𡲄
+      ))
+    (ideographic-radical . 44)	; ⼫
+    (ideographic-strokes . 8)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs		  . #x5C38)	; 尸
+      )
+     ((=ucs-itaiji-001	  . #x22A99)	; &U-i001+22A99;
+      ))
+    (=ucs@iso		. #x21C84)	; &U-00021C84;
+    ))
+(define-char
+  '((ideographic-radical . 44)	; ⼫
+    (ideographic-strokes . 8)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs		  . #x5C38)	; 尸
+      )
+     ((=>ucs-itaiji-001	  . #x79B9)	; &A-U-i001+79B9;
+      ))
+    (=ucs		. #x21C87)	; 𡲇
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x21C87)	; 𡲇
+      ))
+    (ideographic-radical . 44)	; ⼫
+    (ideographic-strokes . 8)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs		  . #x5C38)	; 尸
+      )
+     ((=ucs-itaiji-001	  . #x79B9)	; &U-i001+79B9;
+      ))
+    (=ucs@iso		. #x21C87)	; &U-00021C87;
     ))
 (define-char
   '((ideographic-radical . 44)	; ⼫
