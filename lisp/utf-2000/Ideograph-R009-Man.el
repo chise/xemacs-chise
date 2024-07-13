@@ -33872,10 +33872,29 @@
       )
      ((=ucs		  . #x4EBB)	; 亻
       )
-     ((=ucs		  . #x8099)	; 肙
+     ((=>ucs@iwds-1	  . #x8099)	; &A-IWDSU+8099;
+      (=>iwds-1		  .  0289)	; &A-IWDSU+8099;
       ))
     (=ucs		. #x2024C)	; 𠉌
-    (=cbeta		. 00783)	; &I-CB00783;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2024C)	; 𠉌
+      ))
+    (ideographic-radical . 9)	; ⼈
+    (ideographic-strokes . 7)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x4EBB)	; 亻
+      )
+     ((=ucs@unicode	  . #x8099)	; &MJ020931;
+      (=mj		  . 020931)	; &MJ020931;
+      ))
+    (=ucs@iso		. #x2024C)	; &CB00783;
+    (=cbeta		. 00783)	; &CB00783;
     (->subsumptive
      ((==cbeta		  . 00783)	; &g2-CB00783;
       )
