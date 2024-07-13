@@ -3385,7 +3385,10 @@
     (=ucs@JP/hanazono	. #x2BEF6)	; &hanaJU+2BEF6;
     ))
 (define-char
-  '((ideographic-radical . 62)	; ⼽
+  '((<-denotational
+     ((=>ucs@cognate	  . #x97F1)	; &A-cgnU+97F1;
+      ))
+    (ideographic-radical . 62)	; ⼽
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
       (=ucs		  . #x2FF9)	; ⿹
@@ -3396,10 +3399,11 @@
       (=>big5-cdp	  . #x8D6B)	; &A-IWDSU+4E1A;
       ))
     (=>ucs-var-001	. #x97F1)	; &A-U-v001+97F1;
+    (=>ucs-itaiji-004	. #x97F1)	; &A-U-v001+97F1;
     ))
 (define-char
   '((<-denotational
-     ((=>ucs-var-001	  . #x97F1)	; &A-U-v001+97F1;
+     ((=>ucs-itaiji-004	  . #x97F1)	; &A-U-v001+97F1;
       ))
     (ideographic-radical . 62)	; ⼽
     (ideographic-strokes . 7)
@@ -3414,6 +3418,11 @@
       (=gb2312		  . #x5235)	; &G0-5235; [50-21]
       ))
     (=ucs-var-001	. #x97F1)	; &U-v001+97F1;
+    (=ucs-itaiji-004	. #x97F1)	; &U-v001+97F1;
+    (->subsumptive
+     ((==ucs-var-001	  . #x97F1)	; &g2-U-v001+97F1;
+      (==ucs-itaiji-004	  . #x97F1)	; &g2-U-v001+97F1;
+      ))
     ))
 (define-char
   '((<-denotational
