@@ -1759,8 +1759,6 @@
      ((=ucs		  . #x534B)	; 卋
       ))
     (ideographic-radical . 24)	; ⼗
-    (ideographic-strokes . 4)
-    (total-strokes	 . 6)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
@@ -1769,11 +1767,30 @@
       )
      ((=ucs		  . #x9FB7)	; 龷
       ))
-    (=>ucs-itaiji-001	. #x534B)	; &A-U-i001+534B;
+    (=>ucs-var-001	. #x534B)	; &A-U-v001+534B;
+    (=>ucs-itaiji-001	. #x534B)	; &A-U-v001+534B;
+    (=>ucs-itaiji-002	. #x534B)	; &A-U-v001+534B;
     ))
 (define-char
   '((<-denotational
-     ((=>ucs-itaiji-001	  . #x534B)	; &A-U-i001+534B;
+     ((=>ucs-itaiji-001	  . #x534B)	; &A-U-v001+534B;
+      ))
+    (ideographic-radical . 24)	; ⼗
+    (ideographic-strokes . 5)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5341)	; 十
+      )
+     ((=ucs-var-001	  . #x9FB7)	; &U-v001+9FB7;
+      ))
+    (=ucs-itaiji-002	. #x534B)	; &U-i002+534B;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs-itaiji-001	  . #x534B)	; &A-U-v001+534B;
       ))
     (ideographic-radical . 24)	; ⼗
     (ideographic-strokes . 4)
@@ -1787,8 +1804,11 @@
      ((=ucs@unicode	  . #x9FB7)	; &CDP-8B5C;
       (=big5-cdp	  . #x8B5C)	; &CDP-8B5C;
       ))
-    (=ucs-itaiji-001	. #x534B)	; &U-i001+534B;
+    (=ucs-var-001	. #x534B)	; &U-v001+534B;
+    (=ucs-itaiji-001	. #x534B)	; &U-v001+534B;
     (->subsumptive
+     ((==ucs-var-001	  . #x534B)	; &g2-U-v001+534B;
+      )
      ((==ucs-itaiji-001	  . #x534B)	; &g2-U-i001+534B;
       ))
     ))
