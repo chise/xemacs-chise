@@ -9208,7 +9208,7 @@
       (=daikanwa	  . 05911)	; &I-M-05911;
       ))
     (<-same*sources
-     peixiji daikanwa)
+     peixi-ji daikanwa)
     (->mistakable
      ((=ucs@unicode	  . #x595E)	; &AJ1-21384;
       (=adobe-japan1-6	  . 21384)	; &AJ1-21384;
