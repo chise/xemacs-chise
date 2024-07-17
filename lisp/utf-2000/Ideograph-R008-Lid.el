@@ -102,11 +102,11 @@
       (=daikanwa	  . 10333)	; &I-M-10333;
       ))
     (<-interchangeable$_1*sources
-     shuowen-tongxun-dingsheng maoshi-zhu yili-zhu daikanwa)
+     shuowen-tongxundingsheng maoshi-zhu yili-zhu daikanwa)
     (<-interchangeable$_2*sources
-     shuowen-tongxun-dingsheng maoshi-zhu shiwen daikanwa)
+     shuowen-tongxundingsheng maoshi-zhu shiwen daikanwa)
     (<-interchangeable*sources
-     shuowen-tongxun-dingsheng maoshi-zhu daikanwa)
+     shuowen-tongxundingsheng maoshi-zhu daikanwa)
     (<-same
      ((=ucs@unicode	  . #x7121)	; &AJ1-03777;
       (=adobe-japan1-0	  . 03777)	; &AJ1-03777;
