@@ -2489,7 +2489,7 @@
       (=daikanwa	  . 19711)	; &I-M-19711;
       ))
     (<-ancient*sources
-     shuowen-tongxun-dingsheng daikanwa)
+     shuowen-tongxundingsheng daikanwa)
     (->subsumptive
      ((==daikanwa	  . 07516)	; &g2-M-07516;
       (->subsumptive
