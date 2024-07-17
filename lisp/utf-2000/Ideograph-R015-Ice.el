@@ -6130,7 +6130,7 @@
       (=daikanwa	  . 01731)	; &I-M-01731;
       ))
     (->formed$_1*sources
-     shuowen-tongxun-dingsheng daikanwa)
+     shuowen-tongxundingsheng daikanwa)
     (->formed$_2*sources
      jiyun)
     (->formed*sources
@@ -7305,15 +7305,15 @@
       (=daikanwa	  . 01717)	; &I-M-01717;
       ))
     (<-same*sources
-     shuowen-tongxun-dingsheng daikanwa)
+     shuowen-tongxundingsheng daikanwa)
     (->formed
      ((=ucs@unicode	  . #x51DC)	; &AJ1-08284;
       (=adobe-japan1-1	  . 08284)	; &AJ1-08284;
       ))
     (->formed$_1*sources
-     shuowen-tongxun-dingsheng)
+     shuowen-tongxundingsheng)
     (->formed*sources
-     shuowen-tongxun-dingsheng)
+     shuowen-tongxundingsheng)
     (->subsumptive
      ((==ucs@iso	  . #x20621)	; &g2-M-01731;
       (==daikanwa	  . 01731)	; &g2-M-01731;

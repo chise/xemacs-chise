@@ -2198,9 +2198,9 @@
       (=daikanwa	  . 11742)	; &I-M-11742;
       ))
     (<-interchangeable$_1*sources
-     shuowen-tongxun-dingsheng daikanwa)
+     shuowen-tongxundingsheng daikanwa)
     (<-interchangeable*sources
-     shuowen-tongxun-dingsheng daikanwa)
+     shuowen-tongxundingsheng daikanwa)
     (->formed
      ((=ucs@unicode	  . #x5EA1)	; &C3-2C48;
       (=cns11643-3	  . #x2C48)	; &C3-2C48; [12-40]

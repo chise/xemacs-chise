@@ -565,7 +565,7 @@
       (=daikanwa	  . 05915)	; &I-M-05915;
       ))
     (<-same*sources
-     shuowen-tongxun-dingsheng zhengzitong daikanwa)
+     shuowen-tongxundingsheng zhengzitong daikanwa)
     (->formed
      ((=ucs@unicode	  . #x353F)	; &C6-213B;
       (=cns11643-6	  . #x213B)	; &C6-213B; [01-27]

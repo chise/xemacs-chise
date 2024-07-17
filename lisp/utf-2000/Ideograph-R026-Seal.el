@@ -369,7 +369,7 @@
       (=daikanwa	  . 05915)	; &I-M-05915;
       ))
     (<-same*sources
-     shuowen-tongxun-dingsheng zhengzitong daikanwa)
+     shuowen-tongxundingsheng zhengzitong daikanwa)
     (->formed
      ((=ucs@unicode	  . #x353F)	; &C6-213B;
       (=cns11643-6	  . #x213B)	; &C6-213B; [01-27]
@@ -3699,7 +3699,7 @@
     (<-formed$_1*sources
      shinjigen)
     (<-formed$_3*sources
-     shuowen-tongxun-dingsheng)
+     shuowen-tongxundingsheng)
     (<-formed*sources
      shinjigen)
     (<-interchangeable
@@ -3722,9 +3722,9 @@
     (<-interchangeable$_1*sources
      jiyun)
     (<-interchangeable$_2*sources
-     shuowen-tongxun-dingsheng daikanwa)
+     shuowen-tongxundingsheng daikanwa)
     (<-interchangeable$_3*sources
-     shuowen-tongxun-dingsheng daikanwa)
+     shuowen-tongxundingsheng daikanwa)
     (<-interchangeable$_4*sources
      hanshu-zhu daikanwa)
     (<-interchangeable*sources
