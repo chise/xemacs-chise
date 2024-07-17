@@ -75,9 +75,9 @@
       (=daikanwa	  . 11462)	; &I-M-11462;
       ))
     (<-interchangeable$_1*sources
-     shuowen-tongxun-dingsheng huangdi-neijing-suwen-zhu daikanwa)
+     shuowen-tongxundingsheng huangdi-neijing-suwen-zhu daikanwa)
     (<-interchangeable$_2*sources
-     shuowen-tongxun-dingsheng xunzi-zhu daikanwa)
+     shuowen-tongxundingsheng xunzi-zhu daikanwa)
     (<-interchangeable$_3*sources
      wenxuan-lishan-zhu daikanwa)
     (<-interchangeable*sources
