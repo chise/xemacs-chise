@@ -436,7 +436,7 @@
     (<-interchangeable$_1*sources
      yunhai daikanwa)
     (<-interchangeable$_2*sources
-     shuowen-tongxun-dingsheng daikanwa)
+     shuowen-tongxundingsheng daikanwa)
     (<-interchangeable*sources
      daikanwa)
     (->mistakable
@@ -4275,7 +4275,7 @@
       (=daikanwa	  . 00587)	; &I-M-00587;
       ))
     (<-interchangeable$_1*sources
-     shuowen-tongxun-dingsheng daikanwa)
+     shuowen-tongxundingsheng daikanwa)
     (<-interchangeable$_2*sources
      guanzi-zhu daikanwa)
     (<-interchangeable$_3*sources
@@ -6278,9 +6278,9 @@
       (=daikanwa	  . 36861)	; &I-M-36861;
       ))
     (<-interchangeable$_1*sources
-     shuowen-tongxun-dingsheng daikanwa)
+     shuowen-tongxundingsheng daikanwa)
     (<-interchangeable*sources
-     shuowen-tongxun-dingsheng daikanwa)
+     shuowen-tongxundingsheng daikanwa)
     (<-same
      ((=ucs@unicode	  . #x96E2)	; &AJ1-03949;
       (=adobe-japan1-0	  . 03949)	; &AJ1-03949;
@@ -7790,7 +7790,7 @@
     (<-interchangeable$_1*sources
      guangya-shuzheng daikanwa)
     (<-interchangeable$_2*sources
-     shuowen-tongxun-dingsheng daikanwa)
+     shuowen-tongxundingsheng daikanwa)
     (<-interchangeable*sources
      daikanwa)
     (<-same
@@ -12398,7 +12398,7 @@
       (=daikanwa	  . 45462)	; &I-M-45462;
       ))
     (<-formed$_1*sources
-     shuowen-tongxun-dingsheng)
+     shuowen-tongxundingsheng)
     (<-formed$_2*sources
      jiyun)
     (<-interchangeable
@@ -12426,7 +12426,7 @@
       (=daikanwa	  . 45462)	; &I-M-45462;
       ))
     (<-same$_1*sources
-     shuowen-tongxun-dingsheng shuowen-zhu daikanwa)
+     shuowen-tongxundingsheng shuowen-zhu daikanwa)
     (<-same$_2*sources
      zhengzitong houhanshu-zhu daikanwa)
     (<-same$_3*sources
@@ -12754,9 +12754,9 @@
       (=daikanwa	  . 10369)	; &I-M-10369;
       ))
     (<-interchangeable$_1*sources
-     shuowen-tongxun-dingsheng daikanwa)
+     shuowen-tongxundingsheng daikanwa)
     (<-interchangeable*sources
-     shuowen-tongxun-dingsheng daikanwa)
+     shuowen-tongxundingsheng daikanwa)
     (->subsumptive
      ((==daikanwa	  . 02038)	; &g2-M-02038;
       )
@@ -13056,7 +13056,7 @@
       (=daikanwa	  . 28429)	; &I-M-28429;
       ))
     (<-interchangeable$_1*sources
-     shuowen-tongxun-dingsheng daikanwa)
+     shuowen-tongxundingsheng daikanwa)
     (<-interchangeable$_2*sources
      daikanwa)
     (<-interchangeable$_3*sources
@@ -13556,9 +13556,9 @@
       (=daikanwa	  . 13108)	; &I-M-13108;
       ))
     (<-interchangeable$_1*sources
-     shuowen-tongxun-dingsheng jiyun daikanwa)
+     shuowen-tongxundingsheng jiyun daikanwa)
     (<-interchangeable*sources
-     shuowen-tongxun-dingsheng jiyun daikanwa)
+     shuowen-tongxundingsheng jiyun daikanwa)
     (->ancient
      ((=ucs@iso		  . #x206AA)	; &MJ031242;
       (=mj		  . 031242)	; &MJ031242;
@@ -17528,11 +17528,11 @@
       (=daikanwa	  . 31652)	; &I-M-31652;
       ))
     (<-interchangeable$_1*sources
-     shuowen-tongxun-dingsheng daikanwa)
+     shuowen-tongxundingsheng daikanwa)
     (<-interchangeable$_2*sources
-     shuowen-tongxun-dingsheng liji-zhu liji-shu daikanwa)
+     shuowen-tongxundingsheng liji-zhu liji-shu daikanwa)
     (<-interchangeable*sources
-     shuowen-tongxun-dingsheng daikanwa)
+     shuowen-tongxundingsheng daikanwa)
     (->ancient
      ((=ucs@unicode	  . #x34E3)	; &C4-2548;
       (=cns11643-4	  . #x2548)	; &C4-2548; [05-40]
@@ -20117,15 +20117,15 @@
     (<-formed$_1*sources
      shinjigen)
     (<-formed$_2*sources
-     shuowen-tongxun-dingsheng)
+     shuowen-tongxundingsheng)
     (<-formed*sources
-     shuowen-tongxun-dingsheng shinjigen)
+     shuowen-tongxundingsheng shinjigen)
     (<-same
      ((=ucs		  . #x207B0)	; 𠞰
       (=daikanwa	  . 02164)	; &I-M-02164;
       ))
     (<-same*sources
-     shuowen-tongxun-dingsheng daikanwa)
+     shuowen-tongxundingsheng daikanwa)
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x527F)	; 剿
@@ -20275,7 +20275,7 @@
       (=daikanwa	  . 02193)	; &I-M-02193;
       ))
     (<-ancient*sources
-     shuowen-tongxun-dingsheng daikanwa)
+     shuowen-tongxundingsheng daikanwa)
     (->subsumptive
      ((==ucs@iso	  . #x207B7)	; &g2-M-02172;
       (==cns11643-6	  . #x506A)	; &g2-M-02172; [48-74]
@@ -21132,7 +21132,7 @@
     (->ancient$_1*sources
      yupian daikanwa)
     (->ancient$_2*sources
-     shuowen-tongxun-dingsheng daikanwa)
+     shuowen-tongxundingsheng daikanwa)
     (->ancient*sources
      daikanwa)
     (->formed
@@ -22487,7 +22487,7 @@
       (=daikanwa	  . 02165)	; &I-M-02165;
       ))
     (<-same*sources
-     shuowen-tongxun-dingsheng daikanwa)
+     shuowen-tongxundingsheng daikanwa)
     (->subsumptive
      ((==ucs@unicode	  . #x528B)	; &g2-M-02226;
       (==daikanwa	  . 02226)	; &g2-M-02226;
