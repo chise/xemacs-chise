@@ -10,7 +10,7 @@
      ((=>ucs@component	  . #x53C8)	; &A-compU+53C8;
       ))
     (<-denotational@usage
-     ((==>daijiten	  . 01108)	; &A2-DJT-01108;
+     ((==>ucs@bucs	  . #x53C8)	; &BUCS+53C8;
       ))
     (ideographic-radical . 29)	; ⼜
     (ideographic-strokes . 0)
@@ -44,7 +44,7 @@
     (<-interchangeable$_1*sources
      shiwen daikanwa)
     (<-interchangeable$_2*sources
-     shuowen-tongxun-dingsheng liji-zhu shiwen daikanwa)
+     shuowen-tongxundingsheng liji-zhu shiwen daikanwa)
     (<-interchangeable*sources
      shiwen daikanwa)
     (<-same
@@ -2138,9 +2138,9 @@
       (=daikanwa	  . 12055)	; &I-M-12055;
       ))
     (<-interchangeable$_1*sources
-     shuowen-tongxun-dingsheng daikanwa)
+     shuowen-tongxundingsheng daikanwa)
     (<-interchangeable*sources
-     shuowen-tongxun-dingsheng daikanwa)
+     shuowen-tongxundingsheng daikanwa)
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -2605,27 +2605,27 @@
       (=daikanwa	  . 16464)	; &I-M-16464;
       ))
     (->formed$_1*sources
-     jiyun shuowen-tongxun-dingsheng daikanwa)
+     jiyun shuowen-tongxundingsheng daikanwa)
     (->formed$_2*sources
      jiyun daikanwa)
     (->formed$_3*sources
-     shuowen-tongxun-dingsheng daikanwa)
+     shuowen-tongxundingsheng daikanwa)
     (->formed*sources
      daikanwa)
     (->vulgar
      ((=daikanwa	  . 31076)	; &M-31076;
       ))
     (->vulgar$_1*sources
-     shuowen-tongxun-dingsheng)
+     shuowen-tongxundingsheng)
     (->vulgar*sources
-     shuowen-tongxun-dingsheng)
+     shuowen-tongxundingsheng)
     (->wrong
      ((=daikanwa	  . 31076)	; &M-31076;
       ))
     (->wrong$_1*sources
-     shuowen-tongxun-dingsheng)
+     shuowen-tongxundingsheng)
     (->wrong*sources
-     shuowen-tongxun-dingsheng)
+     shuowen-tongxundingsheng)
     (->subsumptive
      ((==koseki		  . 036400)	; &g2-M-03141;
       (==daikanwa	  . 03141)	; &g2-M-03141;
@@ -6876,7 +6876,7 @@
     ))
 (define-char
   '((<-denotational@usage
-     ((==>daijiten	  . 04660)	; &A2-DJT-04660;
+     ((==>ucs@bucs	  . #x66FC)	; &BUCS+66FC;
       ))
     (ideographic-radical@ucs . 73)	; ⽈
     (ideographic-strokes@ucs . 7)
@@ -6949,11 +6949,11 @@
       (=daikanwa	  . 19113)	; &I-M-19113;
       ))
     (<-interchangeable$_1*sources
-     shuowen-tongxun-dingsheng daikanwa)
+     shuowen-tongxundingsheng daikanwa)
     (<-interchangeable$_2*sources
-     shuowen-tongxun-dingsheng daikanwa)
+     shuowen-tongxundingsheng daikanwa)
     (<-interchangeable$_3*sources
-     shuowen-tongxun-dingsheng daikanwa)
+     shuowen-tongxundingsheng daikanwa)
     (<-interchangeable$_4*sources
      chuci-zhu daikanwa)
     (<-interchangeable$_5*sources
@@ -9953,7 +9953,8 @@
     ))
 (define-char
   '((ideographic-radical . 29)	; ⼜
-    (==>daijiten	. 01108)	; &A2-DJT-01108;
+    (==>ucs@bucs	. #x53C8)	; &BUCS+53C8;
+    (==>daijiten	. 01108)	; &BUCS+53C8;
     ))
 (define-char
   '((ideographic-radical . 29)	; ⼜
