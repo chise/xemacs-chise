@@ -833,9 +833,9 @@
 	(=daikanwa	    . 05662)	; &I-M-05662;
 	))
       (<-interchangeable$_1*sources
-       shuowen-tongxun-dingsheng daikanwa)
+       shuowen-tongxundingsheng daikanwa)
       (<-interchangeable*sources
-       shuowen-tongxun-dingsheng daikanwa)
+       shuowen-tongxundingsheng daikanwa)
       (->formed
        ((=ucs@cns	    . #x846B)	; &C1-6633;
 	(=cns11643-1	    . #x6633)	; &C1-6633; [70-19]
