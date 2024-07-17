@@ -2024,9 +2024,9 @@
       (=daikanwa	  . 00030)	; &I-M-00030;
       ))
     (<-interchangeable$_1*sources
-     shuowen-tongxun-dingsheng zhongyong-jizhu daikanwa)
+     shuowen-tongxundingsheng zhongyong-jizhu daikanwa)
     (<-interchangeable$_2*sources
-     shuowen-tongxun-dingsheng daikanwa)
+     shuowen-tongxundingsheng daikanwa)
     (<-interchangeable$_3*sources
      guangya jiyun daikanwa)
     (<-interchangeable$_4*sources
@@ -2034,7 +2034,7 @@
     (<-interchangeable$_5*sources
      jiyun maoshi-jian daikanwa)
     (<-interchangeable$_6*sources
-     shuowen-tongxun-dingsheng shangshu-shu daikanwa)
+     shuowen-tongxundingsheng shangshu-shu daikanwa)
     (<-interchangeable*sources
      daikanwa)
     (->ancient
@@ -5359,7 +5359,7 @@
     ))
 (define-char
   '((<-denotational@usage
-     ((==>daijiten	  . 00029)	; &A2-DJT-00029;
+     ((==>ucs@bucs	  . #x4E1E)	; &BUCS+4E1E;
       ))
     (ideographic-radical . 1)	; ⼀
     (ideographic-strokes . 5)
@@ -5444,7 +5444,7 @@
       (=daikanwa	  . 11879)	; &I-M-11879;
       ))
     (<-interchangeable$_1*sources
-     shuowen-tongxun-dingsheng daikanwa)
+     shuowen-tongxundingsheng daikanwa)
     (<-interchangeable$_2*sources
      shiwen daikanwa)
     (<-interchangeable$_3*sources
@@ -10596,7 +10596,8 @@
 (define-char
   '((ideographic-radical . 1)	; ⼀
     (daijiten-pages	35)
-    (==>daijiten	. 00029)	; &A2-DJT-00029;
+    (==>ucs@bucs	. #x4E1E)	; &BUCS+4E1E;
+    (==>daijiten	. 00029)	; &BUCS+4E1E;
     ))
 (define-char
   '((ideographic-radical . 1)	; ⼀
