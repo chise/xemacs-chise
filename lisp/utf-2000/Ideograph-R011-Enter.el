@@ -1872,9 +1872,9 @@
       (=daikanwa	  . 34356)	; &I-M-34356;
       ))
     (<-interchangeable$_1*sources
-     shuowen-zhu shuowen-tongxun-dingsheng daikanwa)
+     shuowen-zhu shuowen-tongxundingsheng daikanwa)
     (<-interchangeable$_2*sources
-     shuowen-tongxun-dingsheng daikanwa)
+     shuowen-tongxundingsheng daikanwa)
     (<-interchangeable$_3*sources
      guangya-shuzheng daikanwa)
     (<-interchangeable*sources
