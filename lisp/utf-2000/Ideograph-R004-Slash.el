@@ -412,7 +412,7 @@
      ((=>ucs@component	  . #x20087)	; &A-compU+20087;
       ))
     (<-denotational@usage
-     ((==>daijiten	  . 02774)	; &A2-DJT-02774;
+     ((==>ucs@bucs	  . #x5DE6)	; &BUCS+5DE6;
       ))
     (ideographic-radical . 4)	; ⼃
     (ideographic-strokes . 1)
