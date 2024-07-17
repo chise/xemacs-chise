@@ -2990,7 +2990,7 @@
       (=mj		  . 007355)	; &MJ007355;
       ))
     (<-formed$_1*sources
-     shuowen-tongxun-dingsheng)
+     shuowen-tongxundingsheng)
     (<-interchangeable
      ((=ucs@cns		  . #x5E55)	; &MJ010898;
       (=mj		  . 010898)	; &MJ010898;
@@ -3001,14 +3001,14 @@
       (=daikanwa	  . 09024)	; &I-M-09024;
       ))
     (->formed*sources
-     shuowen-tongxun-dingsheng daikanwa)
+     shuowen-tongxundingsheng daikanwa)
     (->wrong
      ((=ucs@cns		  . #x51AA)	; &MJ007355;
       (=mj		  . 007355)	; &MJ007355;
       (=daikanwa	  . 01601)	; &I-M-01601;
       ))
     (->wrong*sources
-     shuowen-tongxun-dingsheng daikanwa)
+     shuowen-tongxundingsheng daikanwa)
     (->subsumptive
      ((==mj		  . 010874)	; &g2-MJ010874;
       (==hanyo-denshi/ks  . 019080)	; &g2-MJ010874;
@@ -3698,7 +3698,7 @@
     (<-same$_3*sources
      jiyun zhengyun daikanwa)
     (<-same$_4*sources
-     shuowen-tongxun-dingsheng daikanwa)
+     shuowen-tongxundingsheng daikanwa)
     (<-same$_5*sources
      daikanwa)
     (<-same*sources
@@ -3709,7 +3709,7 @@
      ((=mj		  . 010874)	; &MJ010874;
       ))
     (<-wrong$_1*sources
-     shuowen-tongxun-dingsheng)
+     shuowen-tongxundingsheng)
     (->formed
      ((=mj		  . 010874)	; &MJ010874;
       )
