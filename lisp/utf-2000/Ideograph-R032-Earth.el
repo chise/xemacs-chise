@@ -9675,19 +9675,54 @@
     (=ucs		. #x578A)	; 垊
     ))
 (define-char
-  '((ideographic-radical@ucs . 43)	; ⼪
+  '((<-denotational
+     ((=>ucs@iwds-1	  . #x5C2D)	; &A-IWDSU+5C2D;
+      ))
+    (ideographic-radical@ucs . 43)	; ⼪
+    (ideographic-radical@jis . 32)	; ⼟
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x20984)	; 𠦄
+      )
+     ((=ucs		  . #x5140)	; 兀
+      ))
+    (ideographic-structure@apparent
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x534B)	; 卋
+      )
+     ((=>ucs@iwds-1	  . #x4E37)	; &A-IWDSU+4E37;
+      ))
+    (=ucs		. #x5C2D)	; 尭
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5C2D)	; 尭
+      ))
+    (ideographic-radical@ucs . 43)	; ⼪
     (ideographic-radical@jis . 32)	; ⼟
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
-    (=ucs		. #x5C2D)	; 尭
-    (=adobe-japan1-0	. 01726)	; &I-AJ1-01726;
+    (ideographic-structure@apparent
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs-itaiji-001	  . #x534B)	; &U-v001+534B;
+      )
+     ((=>ucs@component	  . #x513F)	; &A-compU+513F;
+      ))
+    (=ucs@unicode	. #x5C2D)	; &AJ1-01726;
+    (=adobe-japan1-0	. 01726)	; &AJ1-01726;
     (=jis-x0208@1983	. #x3646)	; &I-J83-3646; [22-38]
     (=jis-x0208@1990	. #x3646)	; &I-J90-3646; [22-38]
     (=jis-x0213-1	. #x3646)	; &I-JX1-3646; [22-38]
     (=gt		. 01770)	; &I-GT-01770;
     (=gt-k		. 03674)	; &I-GT-K03674;
     (=gt-pj-1		. #x3646)	; &I-GT-01770; [22-38]
-    (=shinjigen@rev	.  1428)	; 尭
+    (=shinjigen@rev	.  1428)	; &AJ1-01726;
     (=jef-china3	. #x47C8)	; &I-JC3-47C8;
     (<-simplified@JP/jis
      ((=ucs@unicode	  . #x582F)	; &AJ1-07474;
@@ -21153,6 +21188,20 @@
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
     (=ucs@JP/hanazono	. #x2D3B3)	; &hanaJU+2D3B3;
+    ))
+(define-char
+  '((ideographic-radical@ucs . 43)	; ⼪
+    (ideographic-radical@jis . 32)	; ⼟
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x534B)	; 卋
+      )
+     ((=>ucs@component	  . #x5140)	; &A-compU+5140;
+      (=>iwds-1		  .  0214)	; &A-compU+5140;
+      ))
+    (=>ucs@iwds-1	. #x5C2D)	; &A-IWDSU+5C2D;
     ))
 (define-char
   '((<-denotational@usage

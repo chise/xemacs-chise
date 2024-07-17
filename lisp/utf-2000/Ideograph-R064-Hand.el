@@ -52414,7 +52414,7 @@
       (=daikanwa	  . 15889)	; &I-M-15889;
       ))
     (<-interchangeable$_1*sources
-     shuowen-wangzhu daikanwa)
+     shuowen-wang-zhu daikanwa)
     (<-interchangeable$_2*sources
      shuowen-tongxun-dingsheng daikanwa)
     (<-interchangeable*sources
