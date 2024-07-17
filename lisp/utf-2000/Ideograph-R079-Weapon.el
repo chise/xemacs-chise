@@ -2117,15 +2117,15 @@
     (<-interchangeable$_1*sources
      jiyun shiwen daikanwa)
     (<-interchangeable$_2*sources
-     shuowen-tongxun-dingsheng chunqiu-gongyang-zhu daikanwa)
+     shuowen-tongxundingsheng chunqiu-gongyang-zhu daikanwa)
     (<-interchangeable$_3*sources
-     shuowen-tongxun-dingsheng yili-zhu daikanwa)
+     shuowen-tongxundingsheng yili-zhu daikanwa)
     (<-interchangeable$_4*sources
-     shuowen-tongxun-dingsheng liji-zhu daikanwa)
+     shuowen-tongxundingsheng liji-zhu daikanwa)
     (<-interchangeable$_5*sources
-     shuowen-tongxun-dingsheng daikanwa)
+     shuowen-tongxundingsheng daikanwa)
     (<-interchangeable$_6*sources
-     shuowen-tongxun-dingsheng hanshu-zhu daikanwa)
+     shuowen-tongxundingsheng hanshu-zhu daikanwa)
     (<-interchangeable*sources
      daikanwa)
     (->Zhouwen
