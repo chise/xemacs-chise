@@ -1531,9 +1531,9 @@
       (=daikanwa	  . 36283)	; &I-M-36283;
       ))
     (<-interchangeable$_1*sources
-     shuowen-tongxun-dingsheng daikanwa)
+     shuowen-tongxundingsheng daikanwa)
     (<-interchangeable*sources
-     shuowen-tongxun-dingsheng daikanwa)
+     shuowen-tongxundingsheng daikanwa)
     (->subsumptive
      ((==ucs@unicode	  . #x5DF9)	; &g2-AJ1-19339;
       (==adobe-japan1-5	  . 19339)	; &g2-AJ1-19339;
@@ -1887,7 +1887,7 @@
     (<-interchangeable$_1*sources
      yupian daikanwa)
     (<-interchangeable$_2*sources
-     shuowen-tongxun-dingsheng zihui daikanwa)
+     shuowen-tongxundingsheng zihui daikanwa)
     (<-interchangeable*sources
      daikanwa)
     (<-same
