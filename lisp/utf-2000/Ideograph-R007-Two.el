@@ -2619,7 +2619,7 @@
     ))
 (define-char
   '((<-denotational@usage
-     ((==>daijiten	  . 00148)	; &A2-DJT-00148;
+     ((==>ucs@bucs	  . #x4E9F)	; &BUCS+4E9F;
       ))
     (ideographic-radical . 7)	; ⼆
     (hanyu-dazidian	1 55 7)
@@ -2650,7 +2650,7 @@
      ((=daikanwa	  . 14132)	; &M-14132;
       ))
     (->synonyms*sources
-     shuowen-tongxun-dingsheng hougen daikanwa)
+     shuowen-tongxundingsheng hougen daikanwa)
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x4E9F)	; 亟
@@ -3120,7 +3120,8 @@
     ))
 (define-char
   '((ideographic-radical . 7)	; ⼆
-    (==>daijiten	. 00148)	; &A2-DJT-00148;
+    (==>ucs@bucs	. #x4E9F)	; &BUCS+4E9F;
+    (==>daijiten	. 00148)	; &BUCS+4E9F;
     ))
 (define-char
   '((ideographic-radical . 7)	; ⼆
