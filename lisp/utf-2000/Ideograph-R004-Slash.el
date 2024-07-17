@@ -2989,7 +2989,7 @@
       (=daikanwa	  . 13628)	; &I-M-13628;
       ))
     (<-interchangeable$_1*sources
-     shuowen-tongxun-dingsheng daikanwa)
+     shuowen-tongxundingsheng daikanwa)
     (<-interchangeable$_2*sources
      lushichunqiu-zhu daikanwa)
     (<-interchangeable*sources
