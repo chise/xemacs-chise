@@ -1951,7 +1951,10 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 25)	; ⼘
+  '((<-denotational@usage
+     ((==>daijiten	  . 01026)	; &A2-DJT-01026;
+      ))
+    (ideographic-radical . 25)	; ⼘
     (ideographic-strokes . 7)
     (total-strokes	 . 9)
     (ideographic-structure
@@ -1987,6 +1990,7 @@
     (=cns11643-4	. #x2851)	; &C4-2851; [08-49]
     (=big5-cdp		. #x8AA6)	; &I-CDP-8AA6;
     (=daikanwa		. 02810)	; &I-M-02810;
+    (=daijiten		. 01026)	; &I-DJT-01026;
     (=shinjigen		.  0840)	; &C4-2851;
     (<-ancient
      ((=ucs		  . #x5363)	; 卣
@@ -1994,7 +1998,7 @@
       (=daikanwa	  . 02791)	; &I-M-02791;
       (=shinjigen	  .  0839)	; 卣
       ))
-    (<-ancient*denied	shuowen-tongxun-dingsheng daikanwa)
+    (<-ancient*denied	shuowen-tongxundingsheng daikanwa)
     (<-ancient*sources
      shuowen-zhu yunhai daikanwa shinjigen)
     (->Zhouwen
@@ -2023,9 +2027,12 @@
       (==cns11643-4	  . #x2851)	; &g2-CDP-8AA6; [08-49]
       (==big5-cdp	  . #x8AA6)	; &g2-CDP-8AA6;
       (==daikanwa	  . 02810)	; &g2-CDP-8AA6;
+      (==daijiten	  . 01026)	; &g2-CDP-8AA6;
       (==shinjigen	  .  0840)	; &g2-CDP-8AA6;
       (->subsumptive
        ((===daikanwa	    . 02810)	; &R-M-02810;
+	)
+       ((===daijiten	    . 01026)	; &R-DJT-01026;
 	)
        ((===big5-cdp	    . #x8AA6)	; &R-CDP-8AA6;
 	)
@@ -3126,4 +3133,8 @@
 (define-char
   '((ideographic-radical . 25)	; ⼘
     (==>daijiten	. 01024)	; &A2-DJT-01024;
+    ))
+(define-char
+  '((ideographic-radical . 25)	; ⼘
+    (==>daijiten	. 01026)	; &A2-DJT-01026;
     ))
