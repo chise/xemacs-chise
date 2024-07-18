@@ -387,6 +387,9 @@
   '((<-denotational
      ((=>ucs@component	  . #x5DE6)	; &A-compU+5DE6;
       ))
+    (<-denotational@usage
+     ((==>ucs@bucs	  . #x5DE6)	; &BUCS+5DE6;
+      ))
     (ideographic-radical . 48)	; ⼯
     (ideographic-strokes . 2)
     (total-strokes	 . 5)
@@ -430,6 +433,7 @@
     (=gt-k		. 00933)	; &I-GT-K00933;
     (=gt-pj-1		. #x3A38)	; &I-GT-11000; [26-24]
     (=daikanwa		. 08720)	; &I-M-08720;
+    (=daijiten		. 02774)	; &I-DJT-02774;
     (=shinjigen		.  2063)	; &MJ010774;
     (<-formed
      ((=ucs		  . #x20087)	; 𠂇
@@ -441,7 +445,7 @@
       (=daikanwa	  . 00112)	; &I-M-00112;
       ))
     (<-interchangeable*sources
-     shuowen-tongxun-dingsheng daikanwa)
+     shuowen-tongxundingsheng daikanwa)
     (<-same
      ((=ucs@unicode	  . #x4F50)	; &AJ1-02084;
       (=adobe-japan1-0	  . 02084)	; &AJ1-02084;
@@ -472,9 +476,12 @@
       (==gt		  . 11000)	; &g2-MJ010774;
       (==gt-k		  . 00933)	; &g2-MJ010774;
       (==daikanwa	  . 08720)	; &g2-MJ010774;
+      (==daijiten	  . 02774)	; &g2-MJ010774;
       (==shinjigen	  .  2063)	; &g2-MJ010774;
       (->subsumptive
        ((===daikanwa	    . 08720)	; &R-M-08720;
+	)
+       ((===daijiten	    . 02774)	; &R-DJT-02774;
 	)
        ((===jis-x0208	    . #x3A38)	; &R-J0-3A38; [26-24]
 	(===jis-x0213-1	    . #x3A38)	; &R-J0-3A38; [26-24]
@@ -710,11 +717,11 @@
 	(=daikanwa	    . 35370)	; &I-M-35370;
 	))
       (<-interchangeable$_1*sources
-       shuowen-tongxun-dingsheng daikanwa)
+       shuowen-tongxundingsheng daikanwa)
       (<-interchangeable$_2*sources
-       shuowen-tongxun-dingsheng hanshu-zhu daikanwa)
+       shuowen-tongxundingsheng hanshu-zhu daikanwa)
       (<-interchangeable*sources
-       shuowen-tongxun-dingsheng daikanwa)
+       shuowen-tongxundingsheng daikanwa)
       (<-original
        ((=ucs@cns	    . #x77E9)	; &AJ1-13732;
 	(=adobe-japan1-4    . 13732)	; &AJ1-13732;
@@ -2880,6 +2887,11 @@
       (=>iwds-1		  .  0221)	; &A-IWDSU+4E0C;
       ))
     (=>ucs@iwds-1	. #x22018)	; &A-IWDSU+22018;
+    ))
+(define-char
+  '((ideographic-radical . 48)	; ⼯
+    (==>ucs@bucs	. #x5DE6)	; &BUCS+5DE6;
+    (==>daijiten	. 02774)	; &BUCS+5DE6;
     ))
 (define-char
   '((ideographic-radical . 48)	; ⼯
