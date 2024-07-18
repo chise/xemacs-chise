@@ -20,7 +20,7 @@
       (=>jis-x0208	  . #x5238)	; &J97-5238; [50-24]
       ))
     (<-denotational@usage
-     ((==>daijiten	  . 00935)	; &A2-DJT-00935;
+     ((==>ucs@bucs	  . #x5315)	; &BUCS+5315;
       ))
     (ideographic-radical . 21)	; ⼔
     (ideographic-strokes . 0)
@@ -49,11 +49,11 @@
       (=daikanwa	  . 14528)	; &I-M-14528;
       ))
     (<-interchangeable$_1*sources
-     shuowen-tongxun-dingsheng zhengzitong daikanwa)
+     shuowen-tongxundingsheng zhengzitong daikanwa)
     (<-interchangeable$_2*sources
-     shuowen-tongxun-dingsheng daikanwa)
+     shuowen-tongxundingsheng daikanwa)
     (<-interchangeable*sources
-     shuowen-tongxun-dingsheng daikanwa)
+     shuowen-tongxundingsheng daikanwa)
     (->subsumptive
      ((=>>ucs@unicode	  . #x5315)	; &G-AJ1-04301;
       (=>>adobe-japan1-0  . 04301)	; &G-AJ1-04301;
@@ -532,7 +532,7 @@
       (=>ucs@iwds-1/normalized . #x21BC3)	; &A-IWDSU+352B;
       ))
     (<-denotational@usage
-     ((==>daijiten	  . 02774)	; &A2-DJT-02774;
+     ((==>ucs@bucs	  . #x5DE6)	; &BUCS+5DE6;
       ))
     (ideographic-radical . 21)	; ⼔
     (ideographic-strokes . 2)
@@ -3233,7 +3233,8 @@
     ))
 (define-char
   '((ideographic-radical . 21)	; ⼔
-    (==>daijiten	. 00935)	; &A2-DJT-00935;
+    (==>ucs@bucs	. #x5315)	; &BUCS+5315;
+    (==>daijiten	. 00935)	; &BUCS+5315;
     ))
 (define-char
   '((ideographic-radical . 21)	; ⼔
