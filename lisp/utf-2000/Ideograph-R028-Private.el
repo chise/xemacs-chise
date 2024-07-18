@@ -521,6 +521,9 @@
      ((=>ucs@iwds-1	  . #x516C)	; &A-IWDSU+516C;
       (=>ucs@iwds-1/normalized . #x516C)	; &A-IWDSU+516C;
       ))
+    (<-denotational@usage
+     ((==>daijiten	  . 01099)	; &A2-DJT-01099;
+      ))
     (ideographic-radical . 28)	; ⼛
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
@@ -539,6 +542,7 @@
     (=cns11643-2	. #x2138)	; &I-C2-2138; [01-24]
     (=big5		. #xC958)	; &I-B-C958;
     (=daikanwa		. 03065)	; &I-M-03065;
+    (=daijiten		. 01099)	; &I-DJT-01099;
     (=jef-china3	. #x8EAF)	; &I-JC3-8EAF;
     (<-formed
      ((=ucs		  . #x8E42)	; 蹂
@@ -561,7 +565,7 @@
     (<-same$_1*sources
      shuowen jiyun daikanwa)
     (<-same$_2*sources
-     shuowen-tongxun-dingsheng daikanwa)
+     shuowen-tongxundingsheng daikanwa)
     (<-same$_3*sources
      guangyun daikanwa)
     (<-same*sources
@@ -603,6 +607,8 @@
 	)
        ((===jef-china3	    . #x8EAF)	; &R-JC3-8EAF;
 	))
+      )
+     ((==daijiten	  . 01099)	; &g2-DJT-01099;
       ))
     ))
 (define-char
@@ -2932,15 +2938,15 @@
       (=daikanwa	  . 27101)	; &I-M-27101;
       ))
     (<-interchangeable$_1*sources
-     shuowen-tongxun-dingsheng lunyu-huangshu shiwen daikanwa)
+     shuowen-tongxundingsheng lunyu-huangshu shiwen daikanwa)
     (<-interchangeable$_2*sources
-     shuowen-tongxun-dingsheng shiwen daikanwa)
+     shuowen-tongxundingsheng shiwen daikanwa)
     (<-interchangeable$_3*sources
-     shuowen-tongxun-dingsheng shiwen daikanwa)
+     shuowen-tongxundingsheng shiwen daikanwa)
     (<-interchangeable$_4*sources
-     shuowen-tongxun-dingsheng daikanwa)
+     shuowen-tongxundingsheng daikanwa)
     (<-interchangeable$_5*sources
-     shuowen-tongxun-dingsheng daikanwa)
+     shuowen-tongxundingsheng daikanwa)
     (<-interchangeable$_6*sources
      jiujingziyang shuowen-zhu daikanwa)
     (<-interchangeable$_7*sources
@@ -4361,6 +4367,10 @@
     (hanyu-dazidian	1 387 19)
     (=ucs		. #x20AFD)	; 𠫽
     (=hanziku-1		. #xF5BF)	; &I-HZK01-F5BF;
+    ))
+(define-char
+  '((ideographic-radical . 28)	; ⼛
+    (==>daijiten	. 01099)	; &A2-DJT-01099;
     ))
 (define-char
   '((ideographic-radical . 28)	; ⼛

@@ -1086,7 +1086,10 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 23)	; ⼖
+  '((<-denotational@usage
+     ((==>daijiten	  . 00980)	; &A2-DJT-00980;
+      ))
+    (ideographic-radical . 23)	; ⼖
     (ideographic-strokes . 7)
     (total-strokes	 . 9)
     (hanyu-dazidian	1 85 19)
@@ -1122,6 +1125,7 @@
     (=ucs@cns		. #x533D)	; &C2-2936;
     (=cns11643-2	. #x2936)	; &C2-2936; [09-22]
     (=daikanwa		. 02684)	; &I-M-02684;
+    (=daijiten		. 00980)	; &I-DJT-00980;
     (<-ancient
      ((=ucs@unicode	  . #x5043)	; &AJ1-04169;
       (=adobe-japan1-0	  . 04169)	; &AJ1-04169;
@@ -1136,11 +1140,11 @@
       (=daikanwa	  . 33268)	; &I-M-33268;
       ))
     (<-interchangeable$_1*sources
-     shuowen-tongxun-dingsheng hanshu-zhu daikanwa)
+     shuowen-tongxundingsheng hanshu-zhu daikanwa)
     (<-interchangeable$_2*sources
-     shuowen-tongxun-dingsheng daikanwa)
+     shuowen-tongxundingsheng daikanwa)
     (<-interchangeable*sources
-     shuowen-tongxun-dingsheng daikanwa)
+     shuowen-tongxundingsheng daikanwa)
     (->formed
      ((=ucs@unicode	  . #x5830)	; &AJ1-01283;
       (=adobe-japan1-0	  . 01283)	; &AJ1-01283;
@@ -1152,6 +1156,12 @@
      zhengzitong daikanwa)
     (->subsumptive
      ((==daikanwa	  . 02684)	; &g2-M-02684;
+      (==daijiten	  . 00980)	; &g2-M-02684;
+      (->subsumptive
+       ((===daikanwa	    . 02684)	; &R-M-02684;
+	)
+       ((===daijiten	    . 00980)	; &R-DJT-00980;
+	))
       )
      ((==ucs@cns	  . #x533D)	; &g2-CU+533D;
       (==cns11643-2	  . #x2936)	; &g2-CU+533D; [09-22]
@@ -2260,6 +2270,10 @@
     (=ucs		. #x2097A)	; 𠥺
     (=cns11643-7	. #x5750)	; &I-C7-5750; [55-48]
     (=daikanwa		. 02694)	; &I-M-02694;
+    ))
+(define-char
+  '((ideographic-radical . 23)	; ⼖
+    (==>daijiten	. 00980)	; &A2-DJT-00980;
     ))
 (define-char
   '((ideographic-radical . 23)	; ⼖

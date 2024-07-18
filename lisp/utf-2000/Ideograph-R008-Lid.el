@@ -1597,19 +1597,7 @@
     (<-vulgar*sources
      pianhai-leibian daikanwa)
     (->subsumptive
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	(=ucs		    . #x2FF1)	; ⿱
-	)
-       ((=+>ucs@unicode	    . #x4EA0)	; &o-J0-5035;
-	(=+>jis-x0208	    . #x5035)	; &o-J0-5035; [48-21]
-	)
-       ((==ucs@cns	    . #x51F6)	; &g2-AJ1-01695;
-	(==ucs@jis	    . #x51F6)	; &g2-AJ1-01695;
-	(==ucs@ks	    . #x51F6)	; &g2-AJ1-01695;
-	(==adobe-japan1-0   . 01695)	; &g2-AJ1-01695;
-	))
-      (==big5-cdp	  . #x8C5E)	; &g2-CDP-8C5E;
+     ((==big5-cdp	  . #x8C5E)	; &g2-CDP-8C5E;
       (==daikanwa/ho	  .  0008)	; &g2-CDP-8C5E;
       (==cbeta		  . 04846)	; &g2-CDP-8C5E;
       (==jef-china3	  . #x8DCD)	; &g2-CDP-8C5E;
@@ -1626,16 +1614,7 @@
      ((==ucs@cns	  . #x342B)	; &g2-CU+342B;
       (==cns11643-3	  . #x2323)	; &g2-CU+342B; [03-03]
       )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	(=ucs		    . #x2FF1)	; ⿱
-	)
-       ((=+>ucs@unicode	    . #x4EA0)	; &o-J0-5035;
-	(=+>jis-x0208	    . #x5035)	; &o-J0-5035; [48-21]
-	)
-       ((==ucs@unicode	    . #x51F6)	; &g2-UU+51F6;
-	))
-      (==ucs@unicode	  . #x342B)	; &g2-UU+342B;
+     ((==ucs@unicode	  . #x342B)	; &g2-UU+342B;
       (==ucs@JP/hanazono  . nil)
       ))
     ))
