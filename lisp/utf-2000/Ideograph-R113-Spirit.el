@@ -6058,6 +6058,38 @@
     (=>ucs@cognate	. #x2B004)	; &A-cgnU+2B004;
     ))
 (define-char
+  '((ideographic-radical . 113)	; ⽰
+    (ideographic-strokes . 5)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=>ucs@iwds-1	  . #x793A)	; &A-IWDSU+793A;
+      (=>iwds-1		  .  0362)	; &A-IWDSU+793A;
+      )
+     ((=ucs		  . #x77E2)	; 矢
+      ))
+    (=>ucs-itaiji-001	. #x7951)	; &A-U-i001+7951;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs-itaiji-001	  . #x7951)	; &A-U-i001+7951;
+      ))
+    (ideographic-radical . 113)	; ⽰
+    (ideographic-strokes . 5)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x793B)	; 礻
+      )
+     ((=ucs		  . #x77E2)	; 矢
+      ))
+    (=ucs-itaiji-001	. #x7951)	; &U-i001+7951;
+    ))
+(define-char
   '((<-denotational@usage
      ((==>daijiten	  . 08129)	; &A2-DJT-08129;
       ))
@@ -9737,9 +9769,9 @@
       (=daikanwa	  . 25221)	; &I-M-25221;
       ))
     (<-interchangeable$_1*sources
-     shuowen-tongxun-dingsheng daikanwa)
+     shuowen-tongxundingsheng daikanwa)
     (<-interchangeable*sources
-     shuowen-tongxun-dingsheng daikanwa)
+     shuowen-tongxundingsheng daikanwa)
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x797F)	; 祿
@@ -10051,6 +10083,7 @@
        ((=ucs		    . #x4491)	; 䒑
 	)
        ((=>ucs@iwds-1	    . #x56DE)	; &A-IWDSU+56DE;
+	(=>iwds-1	    .  0317)	; &A-IWDSU+56DE;
 	))
       )
      ((=ucs		  . #x793A)	; 示
