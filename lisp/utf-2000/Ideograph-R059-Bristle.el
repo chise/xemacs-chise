@@ -3161,6 +3161,13 @@
       ))
     (sound@ja/on	"syoku")
     (=ucs		. #x224B8)	; 𢒸
+    (<-ancient
+     ((=ucs		  . #x8272)	; 色
+      ))
+    (<-ancient$_1*sources
+     shuowen)
+    (<-ancient*sources
+     shuowen)
     ))
 (define-char
   '((<-denotational
