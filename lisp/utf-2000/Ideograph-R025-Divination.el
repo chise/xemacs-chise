@@ -1634,6 +1634,7 @@
       (=ucs		  . #x2E8A)	; ⺊
       )
      ((=>ucs@iwds-1	  . #x56DE)	; &A-IWDSU+56DE;
+      (=>iwds-1		  .  0317)	; &A-IWDSU+56DE;
       ))
     (sound@ja/on	"Iu")
     (=ucs		. #x353D)	; 㔽
