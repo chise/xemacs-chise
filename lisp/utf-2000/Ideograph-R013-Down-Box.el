@@ -1989,7 +1989,10 @@
     (=daikanwa		. 01520)	; &I-M-01520;
     ))
 (define-char
-  '((<-denotational@usage
+  '((<-denotational
+     ((=>ucs@component	  . #x56DE)	; &A-compU+56DE;
+      ))
+    (<-denotational@usage
      ((==>ucs@bucs	  . #x56DE)	; &BUCS+56DE;
       ))
     (ideographic-radical@ucs . 31)	; ⼞

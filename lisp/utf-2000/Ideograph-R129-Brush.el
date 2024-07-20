@@ -1257,9 +1257,9 @@
       (=daikanwa	  . 07195)	; &I-M-07195;
       ))
     (<-interchangeable$_1*sources
-     shuowen-tongxun-dingsheng daikanwa)
+     shuowen-tongxundingsheng daikanwa)
     (<-interchangeable$_2*sources
-     shuowen-tongxun-dingsheng daikanwa)
+     shuowen-tongxundingsheng daikanwa)
     (<-interchangeable$_3*sources
      yili-zhu daikanwa)
     (<-interchangeable*sources

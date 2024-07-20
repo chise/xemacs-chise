@@ -2016,9 +2016,9 @@
       (=daikanwa	  . 29001)	; &I-M-29001;
       ))
     (<-interchangeable$_1*sources
-     shuowen-tongxun-dingsheng daikanwa)
+     shuowen-tongxundingsheng daikanwa)
     (<-interchangeable*sources
-     shuowen-tongxun-dingsheng daikanwa)
+     shuowen-tongxundingsheng daikanwa)
     (<-same
      ((=ucs@iso		  . #x265D1)	; &C5-5D51;
       (=cns11643-5	  . #x5D51)	; &C5-5D51; [61-49]

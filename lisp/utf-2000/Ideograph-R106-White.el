@@ -954,7 +954,7 @@
       (=daikanwa	  . 00855)	; &I-M-00855;
       ))
     (<-interchangeable$_1*sources
-     shuowen-tongxun-dingsheng daikanwa)
+     shuowen-tongxundingsheng daikanwa)
     (<-interchangeable$_2*sources
      zhengzitong daikanwa)
     (<-interchangeable*sources
