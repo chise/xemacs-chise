@@ -19,6 +19,9 @@
   '((<-denotational@component
      ((=>ucs@iwds-1	  . #x6BD4)	; &A-IWDSU+6BD4;
       ))
+    (<-denotational@usage
+     ((==>ucs@bucs	  . #x6BD4)	; &BUCS+6BD4;
+      ))
     (ideographic-radical . 81)	; ⽐
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
@@ -63,6 +66,7 @@
     (=gt-k		. 00477)	; &I-GT-K00477;
     (=gt-pj-1		. #x4866)	; &I-GT-21460; [40-70]
     (=daikanwa		. 16743)	; &I-M-16743;
+    (=daijiten		. 05841)	; &I-DJT-05841;
     (=shinjigen		.  4012)	; &AJ1-03450;
     (<-formed
      ((=ucs@unicode	  . #x5E80)	; &AJ1-19347;
@@ -82,11 +86,11 @@
       (=daikanwa	  . 14528)	; &I-M-14528;
       ))
     (<-interchangeable$_1*sources
-     shuowen-tongxun-dingsheng daikanwa)
+     shuowen-tongxundingsheng daikanwa)
     (<-interchangeable$_2*sources
-     shuowen-tongxun-dingsheng shiwen daikanwa)
+     shuowen-tongxundingsheng shiwen daikanwa)
     (<-interchangeable*sources
-     shuowen-tongxun-dingsheng daikanwa)
+     shuowen-tongxundingsheng daikanwa)
     (<-same
      ((=ucs@unicode	  . #x5E80)	; &AJ1-19347;
       (=adobe-japan1-5	  . 19347)	; &AJ1-19347;
@@ -144,9 +148,12 @@
 	(==gt		    . 21460)	; &g2-AJ1-03450;
 	(==gt-k		    . 00477)	; &g2-AJ1-03450;
 	(==daikanwa	    . 16743)	; &g2-AJ1-03450;
+	(==daijiten	    . 05841)	; &g2-AJ1-03450;
 	(==shinjigen	    .  4012)	; &g2-AJ1-03450;
 	(->subsumptive
 	 ((===daikanwa	      . 16743)	; &R-M-16743;
+	  )
+	 ((===daijiten	      . 05841)	; &R-DJT-05841;
 	  )
 	 ((===jis-x0208	      . #x4866)	; &R-J0-4866; [40-70]
 	  (===jis-x0213-1     . #x4866)	; &R-J0-4866; [40-70]
@@ -1914,4 +1921,9 @@
 (define-char
   '((ideographic-radical . 81)	; ⽐
     (=>ucs@component	. #x3C8B)	; &A-compU+3C8B;
+    ))
+(define-char
+  '((ideographic-radical . 81)	; ⽐
+    (==>ucs@bucs	. #x6BD4)	; &BUCS+6BD4;
+    (==>daijiten	. 05841)	; &BUCS+6BD4;
     ))
