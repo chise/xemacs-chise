@@ -2547,6 +2547,7 @@
      ((=ucs		  . #x4EA0)	; 亠
       )
      ((=>ucs@iwds-1	  . #x56DE)	; &A-IWDSU+56DE;
+      (=>iwds-1		  .  0317)	; &A-IWDSU+56DE;
       ))
     (sound@ja/on	"riN")
     (=ucs		. #x342D)	; 㐭
