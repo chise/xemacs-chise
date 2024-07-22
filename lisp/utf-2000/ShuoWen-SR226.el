@@ -93,7 +93,7 @@
     (<-Small-Seal@shuowen
      ((=ucs		  . #x56DE)	; 回
       )
-     ((=>ucs@iwds-1	  . #x56DE)	; &A-IWDSU+56DE;
+     ((=>ucs@component	  . #x56DE)	; &A-compU+56DE;
       ))
     (->subsumptive
      ((===shuowen-jiguge-A30 . 21110)	; &SW-JIGUGE30-21110;

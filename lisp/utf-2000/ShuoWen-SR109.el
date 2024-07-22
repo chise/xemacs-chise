@@ -217,6 +217,11 @@
       )
      ((=ucs		  . #x9D8F)	; 鶏
       ))
+    (<-Zhouwen@shuowen
+     ((=shuowen-jiguge	  . 11705)	; &SW-JIGUGE-11705;
+      )
+     ((=ucs		  . #x96DE)	; 雞
+      ))
     (->subsumptive
      ((===shuowen-jiguge-A30 . 11706)	; &SW-JIGUGE30-11706;
       )
