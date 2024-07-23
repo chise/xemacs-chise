@@ -159,7 +159,10 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 126)	; ⽽
+  '((<-denotational@usage
+     ((==>daijiten	  . 09265)	; &A2-DJT-09265;
+      ))
+    (ideographic-radical . 126)	; ⽽
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
@@ -194,6 +197,7 @@
     (=jis-x0213-2	. #x7525)	; &I-JX2-7525; [85-05]
     (=big5		. #xD052)	; &I-B-D052;
     (=daikanwa		. 28877)	; &I-M-28877;
+    (=daijiten		. 09265)	; &I-DJT-09265;
     (=jef-china3	. #x60BB)	; &I-JC3-60BB;
     (<-formed
      ((=ucs@unicode	  . #x5044)	; &C3-343F;
@@ -207,17 +211,20 @@
       (=daikanwa	  . 33290)	; &I-M-33290;
       ))
     (<-interchangeable$_1*sources
-     shuowen-tongxun-dingsheng daikanwa)
+     shuowen-tongxundingsheng daikanwa)
     (<-interchangeable*sources
-     shuowen-tongxun-dingsheng daikanwa)
+     shuowen-tongxundingsheng daikanwa)
     (->subsumptive
      ((==ucs@unicode	  . #x800E)	; &g2-JSP-554C;
       (==jis-x0212	  . #x554C)	; &g2-JSP-554C; [53-44]
       (==jis-x0213-2	  . #x7525)	; &g2-JSP-554C; [85-05]
       (==daikanwa	  . 28877)	; &g2-JSP-554C;
+      (==daijiten	  . 09265)	; &g2-JSP-554C;
       (==jef-china3	  . #x60BB)	; &g2-JSP-554C;
       (->subsumptive
        ((===daikanwa	    . 28877)	; &R-M-28877;
+	)
+       ((===daijiten	    . 09265)	; &R-DJT-09265;
 	)
        ((===jis-x0212	    . #x554C)	; &R-JX2-7525; [53-44]
 	(===jis-x0213-2	    . #x7525)	; &R-JX2-7525; [85-05]
@@ -873,6 +880,10 @@
       )
      ((=ucs@iso		  . #x264E0)	; &U-000264E0;
       ))
+    ))
+(define-char
+  '((ideographic-radical . 126)	; ⽽
+    (==>daijiten	. 09265)	; &A2-DJT-09265;
     ))
 (define-char
   '((ideographic-radical . 126)	; ⽽
