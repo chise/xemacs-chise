@@ -2193,7 +2193,10 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 82)	; ⽑
+  '((<-denotational@usage
+     ((==>ucs@bucs	  . #x6BF3)	; &BUCS+6BF3;
+      ))
+    (ideographic-radical . 82)	; ⽑
     (ideographic-strokes . 8)
     (total-strokes	 . 12)
     (ideographic-structure
@@ -2215,6 +2218,7 @@
     (=gt-k		. 09206)	; &I-GT-K09206;
     (=gt-pj-1		. #x5D5E)	; &I-GT-21610; [61-62]
     (=daikanwa		. 16872)	; &I-M-16872;
+    (=daijiten		. 05878)	; &I-DJT-05878;
     (=shinjigen		.  4024)	; 毳
     (<-formed
      ((=ucs		  . #x6A47)	; 橇
@@ -2250,17 +2254,17 @@
       (=daikanwa	  . 15517)	; &I-M-15517;
       ))
     (<-interchangeable$_1*sources
-     shuowen-tongxun-dingsheng daikanwa)
+     shuowen-tongxundingsheng daikanwa)
     (<-interchangeable$_2*sources
      shiming daikanwa)
     (<-interchangeable$_3*sources
-     shuowen-tongxun-dingsheng daikanwa)
+     shuowen-tongxundingsheng daikanwa)
     (<-interchangeable$_4*sources
-     shuowen-tongxun-dingsheng daikanwa)
+     shuowen-tongxundingsheng daikanwa)
     (<-interchangeable$_5*sources
      shiwen shiji-sanjiazhu hanshu-zhu xunzi-zhu daikanwa)
     (<-interchangeable$_6*sources
-     shuowen-tongxun-dingsheng jiyun daikanwa)
+     shuowen-tongxundingsheng jiyun daikanwa)
     (<-interchangeable$_7*sources
      jiyun daikanwa)
     (<-interchangeable*sources
@@ -2273,9 +2277,12 @@
       (==gt		  . 21610)	; &g2-AJ1-05373;
       (==gt-k		  . 09206)	; &g2-AJ1-05373;
       (==daikanwa	  . 16872)	; &g2-AJ1-05373;
+      (==daijiten	  . 05878)	; &g2-AJ1-05373;
       (==shinjigen	  .  4024)	; &g2-AJ1-05373;
       (->subsumptive
        ((===daikanwa	    . 16872)	; &R-M-16872;
+	)
+       ((===daijiten	    . 05878)	; &R-DJT-05878;
 	)
        ((===jis-x0208	    . #x5D5E)	; &R-J0-5D5E; [61-62]
 	(===jis-x0213-1	    . #x5D5E)	; &R-J0-5D5E; [61-62]
@@ -6043,6 +6050,11 @@
   '((ideographic-radical . 82)	; ⽑
     (==>ucs@bucs	. #x6BDF)	; &BUCS+6BDF;
     (==>daijiten	. 05852)	; &BUCS+6BDF;
+    ))
+(define-char
+  '((ideographic-radical . 82)	; ⽑
+    (==>ucs@bucs	. #x6BF3)	; &BUCS+6BF3;
+    (==>daijiten	. 05878)	; &BUCS+6BF3;
     ))
 (define-char
   '((ideographic-radical . 82)	; ⽑

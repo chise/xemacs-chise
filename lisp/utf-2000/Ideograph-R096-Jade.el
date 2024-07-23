@@ -2001,7 +2001,7 @@
       (=daikanwa	  . 28766)	; &I-M-28766;
       ))
     (<-interchangeable$_1*sources
-     shuowen-tongxun-dingsheng daikanwa)
+     shuowen-tongxundingsheng daikanwa)
     (<-interchangeable$_2*sources
      shiwen daikanwa)
     (<-interchangeable*sources
@@ -2232,7 +2232,7 @@
     (->formed$_3*sources
      shuowen dadaili-zhu daikanwa)
     (->formed$_4*sources
-     shuowen-tongxun-dingsheng daikanwa)
+     shuowen-tongxundingsheng daikanwa)
     (->formed*sources
      daikanwa)
     (->subsumptive
@@ -4730,6 +4730,7 @@
      ((=ucs		  . #x248E9)	; 𤣩
       )
      ((=>ucs@iwds-1	  . #x56DE)	; &A-IWDSU+56DE;
+      (=>iwds-1		  .  0317)	; &A-IWDSU+56DE;
       ))
     (=ucs		. #x3EC1)	; 㻁
     ))
@@ -23436,8 +23437,8 @@
      ((=>ucs@component	  . #x7389)	; &A-compU+7389;
       (=>iwds-1		  .  0252)	; &A-compU+7389;
       )
-     ((=>ucs@component	  . #x56D9)	; &A-compU+56D9;
-      (=>iwds-1		  .  2317)	; &A-compU+56D9;
+     ((=>ucs@iwds-1	  . #x56DE)	; &A-IWDSU+56DE;
+      (=>iwds-1		  .  0317)	; &A-IWDSU+56DE;
       ))
     (=>ucs@iwds-1	. #x3EC1)	; &A-IWDSU+3EC1;
     ))

@@ -3071,6 +3071,7 @@
 	(=>iwds-1	    .  39295)	; &A-IWDSU+7F36;
 	)
        ((=>ucs@iwds-1	    . #x56DE)	; &A-IWDSU+56DE;
+	(=>iwds-1	    .  0317)	; &A-IWDSU+56DE;
 	))
       ))
     (sound@ja/on	"rai")
