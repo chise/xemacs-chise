@@ -412,6 +412,28 @@
     (=daikanwa		. 21681)	; &I-M-21681;
     ))
 (define-char
+  '((<-denotational@usage
+     ((==>ucs@bucs	  . #x7522)	; &BUCS+7522;
+      ))
+    (ideographic-radical . 100)	; ⽣
+    (ideographic-strokes . 5)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x7ACB)	; 立
+      )
+     ((=ucs		  . #x9FB6)	; 龶
+      ))
+    (=ucs-itaiji-002	. #x7523)	; &U-i002+7523;
+    (<-formed
+     ((=ucs		  . #x7523)	; 産
+      )
+     ((=ucs		  . #x7522)	; 產
+      ))
+    ))
+(define-char
   '((ideographic-radical . 100)	; ⽣
     (ideographic-strokes . 6)
     (total-strokes	 . 11)
@@ -477,15 +499,6 @@
   '((ideographic-radical . 100)	; ⽣
     (ideographic-strokes . 6)
     (total-strokes	 . 11)
-    (==>ucs@bucs	. #x7522)	; &BUCS+7522;
-    ))
-(define-char
-  '((<-denotational
-     ((==>ucs@bucs	  . #x7522)	; &BUCS+7522;
-      ))
-    (ideographic-radical . 100)	; ⽣
-    (ideographic-strokes . 6)
-    (total-strokes	 . 11)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
@@ -505,6 +518,9 @@
      ((=>ucs@iwds-1	  . #x7522)	; &J97-3B3A;
       (=>jis-x0208	  . #x3B3A)	; &J97-3B3A; [27-26]
       ))
+    (<-denotational@usage
+     ((==>ucs@bucs	  . #x7522)	; &BUCS+7522;
+      ))
     (ideographic-radical . 100)	; ⽣
     (ideographic-strokes . 6)
     (total-strokes	 . 11)
@@ -521,6 +537,7 @@
     (=ucs		. #x7522)	; 產
     (=cns11643-1	. #x5C28)	; &I-C1-5C28; [60-08]
     (=daikanwa		. 21684)	; &I-M-21684;
+    (=daijiten		. 07464)	; &I-DJT-07464;
     (=shinjigen		.  5010)	; 產
     (=jef-china3	. #x5ABF)	; &I-JC3-5ABF;
     (<-interchangeable
@@ -542,7 +559,7 @@
       (=daikanwa	  . 26435)	; &I-M-26435;
       ))
     (<-interchangeable$_1*sources
-     shuowen-tongxun-dingsheng daikanwa)
+     shuowen-tongxundingsheng daikanwa)
     (<-interchangeable$_2*sources
      kangxi daikanwa)
     (<-interchangeable$_3*sources
@@ -575,9 +592,12 @@
      daikanwa)
     (->subsumptive
      ((==daikanwa	  . 21684)	; &g2-M-21684;
+      (==daijiten	  . 07464)	; &g2-M-21684;
       (==jef-china3	  . #x5ABF)	; &g2-M-21684;
       (->subsumptive
        ((===daikanwa	    . 21684)	; &R-M-21684;
+	)
+       ((===daijiten	    . 07464)	; &R-DJT-07464;
 	)
        ((===jef-china3	    . #x5ABF)	; &R-JC3-5ABF;
 	))
@@ -593,30 +613,11 @@
     ))
 (define-char
   '((<-denotational
-     ((==>ucs@bucs	  . #x7522)	; &BUCS+7522;
-      ))
-    (ideographic-radical . 100)	; ⽣
-    (ideographic-strokes . 5)
-    (total-strokes	 . 9)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-      (=ucs		  . #x2FF1)	; ⿱
-      )
-     ((=ucs		  . #x7ACB)	; 立
-      )
-     ((=ucs		  . #x9FB6)	; 龶
-      ))
-    (=ucs-itaiji-002	. #x7523)	; &U-i002+7523;
-    (<-formed
-     ((=ucs		  . #x7523)	; 産
-      )
-     ((=ucs		  . #x7522)	; 產
-      ))
-    ))
-(define-char
-  '((<-denotational
      ((=>ucs@iwds-1	  . #x7522)	; &J97-3B3A;
       (=>jis-x0208	  . #x3B3A)	; &J97-3B3A; [27-26]
+      ))
+    (<-denotational@usage
+     ((==>ucs@bucs	  . #x7522)	; &BUCS+7522;
       ))
     (ideographic-radical . 100)	; ⽣
     (ideographic-strokes . 6)
@@ -703,6 +704,13 @@
     (=ucs		. #x24BE3)	; 𤯣
     (=cns11643-6	. #x4227)	; &I-C6-4227; [34-07]
     (=daikanwa		. 21686)	; &I-M-21686;
+    ))
+(define-char
+  '((ideographic-radical . 100)	; ⽣
+    (ideographic-strokes . 6)
+    (total-strokes	 . 11)
+    (==>ucs@bucs	. #x7522)	; &BUCS+7522;
+    (==>daijiten	. 07464)	; &BUCS+7522;
     ))
 (define-char
   '((ideographic-radical . 100)	; ⽣
