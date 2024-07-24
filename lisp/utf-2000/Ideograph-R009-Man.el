@@ -19429,6 +19429,9 @@
      ((=>ucs@iwds-1	  . #x2A72D)	; &A-IWDSU+2A72D;
       (=>ucs@iwds-1/normalized . #x2A72D)	; &A-IWDSU+2A72D;
       ))
+    (<-denotational@usage
+     ((==>daijiten	  . 00264)	; &A2-DJT-00264;
+      ))
     (ideographic-radical . 9)	; ⼈
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -19436,7 +19439,7 @@
       )
      ((=ucs		  . #x4EBB)	; 亻
       )
-     ((=>ucs@iwds-1	  . #x56DE)	; &A-IWDSU+56DE;
+     ((=>ucs@component	  . #x56DE)	; &A-compU+56DE;
       ))
     (sound@ja/on/go	"We")
     (sound@ja/on/kan	"kWai")
@@ -19465,6 +19468,7 @@
     (=jis-x0213-1	. #x2E32)	; &I-JX1-2E32; [14-18]
     (=big5		. #xCBBF)	; &I-B-CBBF;
     (=daikanwa		. 00545)	; &I-M-00545;
+    (=daijiten		. 00264)	; &I-DJT-00264;
     (->formed
      ((=ucs@unicode	  . #x5F8A)	; &MJ011300;
       (=mj		  . 011300)	; &MJ011300;
@@ -19494,8 +19498,11 @@
       (==cns11643-2	  . #x253F)	; &g2-AJ1-16781; [05-31]
       (==jis-x0213-1	  . #x2E32)	; &g2-AJ1-16781; [14-18]
       (==daikanwa	  . 00545)	; &g2-AJ1-16781;
+      (==daijiten	  . 00264)	; &g2-AJ1-16781;
       (->subsumptive
        ((===daikanwa	    . 00545)	; &R-M-00545;
+	)
+       ((===daijiten	    . 00264)	; &R-DJT-00264;
 	)
        ((===jis-x0212	    . #x3072)	; &R-JX1-2E32; [16-82]
 	(===jis-x0213-1	    . #x2E32)	; &R-JX1-2E32; [14-18]
@@ -27139,8 +27146,8 @@
      ((=mj		  . 000583)	; &MJ000583;
       (=daikanwa	  . 00395)	; &I-M-00395;
       )
-     ((=ucs@iso		  . #x22603)	; &C4-264B;
-      (=cns11643-4	  . #x264B)	; &C4-264B; [06-43]
+     ((=ucs@iso		  . #x22603)	; &MJ036014;
+      (=mj		  . 036014)	; &MJ036014;
       (=daikanwa	  . 10442)	; &I-M-10442;
       ))
     (->ancient$_1*sources
@@ -91171,8 +91178,8 @@
       )
      ((=ucs		  . #x4EBB)	; 亻
       )
-     ((=>ucs@component	  . #x56D9)	; &A-compU+56D9;
-      (=>iwds-1		  .  2317)	; &A-compU+56D9;
+     ((=>ucs@iwds-1	  . #x56DE)	; &A-IWDSU+56DE;
+      (=>iwds-1		  .  0317)	; &A-IWDSU+56DE;
       ))
     (=>ucs@iwds-1	. #x2A72D)	; &A-IWDSU+2A72D;
     (=>ucs@iwds-1/normalized . #x2A72D)	; &A-IWDSU+2A72D;
@@ -92132,6 +92139,10 @@
 (define-char
   '((ideographic-radical . 9)	; ⼈
     (==>ucs@bucs	. #x50C9)	; &BUCS+50C9;
+    ))
+(define-char
+  '((ideographic-radical . 9)	; ⼈
+    (==>daijiten	. 00264)	; &A2-DJT-00264;
     ))
 (define-char
   '((ideographic-radical . 9)	; ⼈
