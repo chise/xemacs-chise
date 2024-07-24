@@ -11932,7 +11932,10 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 104)	; ⽧
+  '((<-denotational@usage
+     ((==>ucs@bucs	  . #x763C)	; &BUCS+763C;
+      ))
+    (ideographic-radical . 104)	; ⽧
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
       (=ucs		  . #x2FF8)	; ⿸
@@ -11973,7 +11976,7 @@
       (=daikanwa	  . 13359)	; &I-M-13359;
       ))
     (<-interchangeable*sources
-     shuowen-tongxun-dingsheng daikanwa)
+     shuowen-tongxundingsheng daikanwa)
     (->subsumptive
      ((==hanyo-denshi/ks  . 251690)	; &g2-HD-KS-251690;
       (==daikanwa	  . 22469)	; &g2-HD-KS-251690;
@@ -12010,6 +12013,7 @@
     (=jis-x0212		. #x4E22)	; &I-JSP-4E22; [46-02]
     (=jis-x0213-2	. #x7164)	; &I-JX2-7164; [81-68]
     (=hanyo-denshi/jb	. #x4E22)	; &I-HD-JB-4E22; [46-02]
+    (=daijiten		. 07666)	; &I-DJT-07666;
     (->subsumptive
      ((=decomposition@hanyo-denshi
        ((=ucs		    . #x763C)	; 瘼
@@ -12022,7 +12026,10 @@
       (==jis-x0212	  . #x4E22)	; &g2-AJ1-18165; [46-02]
       (==jis-x0213-2	  . #x7164)	; &g2-AJ1-18165; [81-68]
       (==hanyo-denshi/jb  . #x4E22)	; &g2-AJ1-18165; [46-02]
+      (==daijiten	  . 07666)	; &g2-AJ1-18165;
       (->subsumptive
+       ((===daijiten	    . 07666)	; &R-DJT-07666;
+	)
        ((===jis-x0212	    . #x4E22)	; &R-HD-JB-4E22; [46-02]
 	(===jis-x0213-2	    . #x7164)	; &R-HD-JB-4E22; [81-68]
 	(===hanyo-denshi/jb . #x4E22)	; &R-HD-JB-4E22; [46-02]
@@ -17089,6 +17096,11 @@
   '((ideographic-radical . 104)	; ⽧
     (==>ucs@bucs	. #x7621)	; &BUCS+7621;
     (==>daijiten	. 07649)	; &BUCS+7621;
+    ))
+(define-char
+  '((ideographic-radical . 104)	; ⽧
+    (==>ucs@bucs	. #x763C)	; &BUCS+763C;
+    (==>daijiten	. 07666)	; &BUCS+763C;
     ))
 (define-char
   '((ideographic-radical . 104)	; ⽧
