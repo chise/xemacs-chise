@@ -11841,7 +11841,12 @@
     (=cbeta		. 03879)	; &I-CB03879;
     ))
 (define-char
-  '((ideographic-radical . 64)	; ⼿
+  '((<-denotational@usage
+     ((==>daijiten	  . 03786)	; &A2-DJT-03786;
+      )
+     ((==>ucs@bucs	  . #x5F04)	; &BUCS+5F04;
+      ))
+    (ideographic-radical . 64)	; ⼿
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
     (ideographic-structure
@@ -11858,6 +11863,7 @@
     (=cns11643-4	. #x2959)	; &I-C4-2959; [09-57]
     (=jis-x0213-1	. #x746C)	; &I-JX1-746C; [84-76]
     (=daikanwa		. 12041)	; &I-M-12041;
+    (=daijiten		. 03786)	; &I-DJT-03786;
     (=shinjigen		.  2251)	; 挊
     (=cbeta		. 02416)	; &I-CB02416;
     (=jef-china3	. #x4FC4)	; &I-JC3-4FC4;
@@ -11876,11 +11882,14 @@
       (==cns11643-4	  . #x2959)	; &g2-JSP-3F5D; [09-57]
       (==jis-x0213-1	  . #x746C)	; &g2-JSP-3F5D; [84-76]
       (==daikanwa	  . 12041)	; &g2-JSP-3F5D;
+      (==daijiten	  . 03786)	; &g2-JSP-3F5D;
       (==shinjigen	  .  2251)	; &g2-JSP-3F5D;
       (==cbeta		  . 02416)	; &g2-JSP-3F5D;
       (==jef-china3	  . #x4FC4)	; &g2-JSP-3F5D;
       (->subsumptive
        ((===daikanwa	    . 12041)	; &R-M-12041;
+	)
+       ((===daijiten	    . 03786)	; &R-DJT-03786;
 	)
        ((===jis-x0212	    . #x3F5D)	; &R-JX1-746C; [31-61]
 	(===jis-x0213-1	    . #x746C)	; &R-JX1-746C; [84-76]
@@ -57110,6 +57119,13 @@
       ))
     (ideographic-radical . 64)	; ⼿
     (==>daijiten	. 03767)	; &A2-DJT-03767;
+    ))
+(define-char
+  '((<-denotational
+     ((==>ucs@bucs	  . #x5F04)	; &BUCS+5F04;
+      ))
+    (ideographic-radical . 64)	; ⼿
+    (==>daijiten	. 03786)	; &A2-DJT-03786;
     ))
 (define-char
   '((<-denotational
