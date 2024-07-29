@@ -1933,10 +1933,7 @@
       ))
     ))
 (define-char
-  '((<-denotational@usage
-     ((==>ucs@bucs	  . #x516A)	; &BUCS+516A;
-      ))
-    (ideographic-radical@r009 . 9)	; ⼈
+  '((ideographic-radical@r009 . 9)	; ⼈
     (ideographic-radical@r011 . 11)	; ⼊
     (ideographic-strokes . 7)
     (total-strokes	 . 9)
@@ -1949,7 +1946,7 @@
      ((=>jis-x0208	  . #x5141)	; &J97-5141; [49-33]
       ))
     (<-denotational@usage
-     ((==>daijiten	  . 00593)	; &A2-DJT-00593;
+     ((==>ucs@bucs	  . #x516A)	; &BUCS+516A;
       ))
     (ideographic-radical . 11)	; ⼊
     (ideographic-strokes . 7)
@@ -3034,4 +3031,5 @@
   '((ideographic-radical@r009 . 9)	; ⼈
     (ideographic-radical@r011 . 11)	; ⼊
     (==>ucs@bucs	. #x516A)	; &BUCS+516A;
+    (==>daijiten	. 00593)	; &BUCS+516A;
     ))
