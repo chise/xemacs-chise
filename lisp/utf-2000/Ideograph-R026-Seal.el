@@ -3533,7 +3533,7 @@
     ))
 (define-char
   '((<-denotational@usage
-     ((==>daijiten	  . 03153)	; &A2-DJT-03153;
+     ((==>ucs@bucs	  . #x5FA1)	; &BUCS+5FA1;
       ))
     (ideographic-radical . 26)	; ⼙
     (ideographic-strokes . 7)
