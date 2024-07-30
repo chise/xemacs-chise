@@ -597,6 +597,20 @@
     ))
 (define-char
   '((ideographic-radical . 19)	; ⼒
+    (ideographic-strokes . 3)
+    (total-strokes	 . 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x529B)	; 力
+      )
+     ((=ucs		  . #x21CFE)	; 𡳾
+      ))
+    (=ucs-itaiji-001	. #x529C)	; &U-i001+529C;
+    ))
+(define-char
+  '((ideographic-radical . 19)	; ⼒
     (=>ucs@cognate	. #x52A3)	; &A-cgnU+52A3;
     ))
 (define-char
