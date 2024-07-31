@@ -2545,6 +2545,38 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
+     ((=ucs-itaiji-001	  . #x529C)	; &U-i001+529C;
+      )
+     ((=>ucs@component	  . #x51E0)	; &A-compU+51E0;
+      (=>iwds-1		  .  0119)	; &A-compU+51E0;
+      ))
+    (=ucs		. #x2063F)	; 𠘿
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2063F)	; 𠘿
+      ))
+    (ideographic-radical . 16)	; ⼏
+    (ideographic-strokes . 5)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs-itaiji-001	  . #x529C)	; &U-i001+529C;
+      )
+     ((=ucs		  . #x51E0)	; 几
+      ))
+    (=ucs@iso		. #x2063F)	; &U-0002063F;
+    ))
+(define-char
+  '((ideographic-radical . 16)	; ⼏
+    (ideographic-strokes . 5)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
      ((=>cbeta		  . 10451)	; &A-CB10451;
       )
      ((=>ucs@iwds-1	  . #x513F)	; &A-IWDSU+513F;
