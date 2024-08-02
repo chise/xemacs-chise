@@ -5912,6 +5912,21 @@
     ))
 (define-char
   '((ideographic-radical . 8)	; ⼇
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>big5-cdp	  . #x8C4D)	; &A-GT-K02791;
+      )
+     ((=ucs		  . #x8001)	; 老
+      ))
+    (=ucs		. #x20178)	; 𠅸
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x20178)	; 𠅸
+      ))
+    (ideographic-radical . 8)	; ⼇
     (ideographic-strokes . 11)
     (total-strokes	 . 13)
     (hanyu-dazidian	1 291 3)
@@ -5919,21 +5934,20 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
-	(=ucs		    . #x2FF3)	; ⿳
-	)
-       ((=ucs		    . #x4EA0)	; 亠
-	)
-       ((=ucs		    . #x53E3)	; 口
-	)
-       ((=ucs		    . #x5196)	; 冖
-	))
+     ((=big5-cdp	  . #x8C4D)	; &CDP-8C4D;
       )
-     ((=ucs		  . #x8001)	; 老
+     ((=ucs@unicode	  . #x8001)	; &AJ1-04061;
+      (=adobe-japan1-0	  . 04061)	; &AJ1-04061;
       ))
-    (=ucs		. #x20178)	; 𠅸
-    (=hanziku-1		. #xE1F3)	; &I-HZK01-E1F3;
+    (=ucs@iso		. #x20178)	; &U-00020178;
+    (->subsumptive
+     ((==ucs@iso	  . #x20178)	; &g2-IU-00020178;
+      (->subsumptive
+       ((===ucs@iso	    . #x20178)	; &R-U-00020178;
+	)
+       ((=hanziku-1	    . #xE1F3)	; &HZK01-E1F3;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 8)	; ⼇
@@ -6025,6 +6039,24 @@
      ((==gt-k		  . 11026)	; &g2-GT-K11026;
       (==gt-pj-k1	  . #x487D)	; &g2-GT-K11026; [40-93]
       ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x20178)	; 𠅸
+      ))
+    (ideographic-radical . 8)	; ⼇
+    (ideographic-strokes . 12)
+    (total-strokes	 . 14)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=gt-k		  . 04733)	; &GT-K04733;
+      )
+     ((=ucs@unicode	  . #x8001)	; &AJ1-04061;
+      (=adobe-japan1-0	  . 04061)	; &AJ1-04061;
+      ))
+    (=cbeta		. 07952)	; &CB07952;
     ))
 (define-char
   '((ideographic-radical . 8)	; ⼇

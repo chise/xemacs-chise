@@ -3327,7 +3327,27 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 27)	; ⼚
+  '((<-denotational@usage
+     ((==>ucs@bucs	  . #x539A)	; &BUCS+539A;
+      ))
+    (ideographic-radical . 27)	; ⼚
+    (ideographic-strokes . 7)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=>ucs@component	  . #x4E06)	; &A-compU+4E06;
+      )
+     ((=ucs		  . #x3AD7)	; 㫗
+      ))
+    (=ucs		. #x539A)	; 厚
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x539A)	; 厚
+      ))
+    (ideographic-radical . 27)	; ⼚
     (ideographic-strokes . 7)
     (total-strokes	 . 9)
     (hanyu-dazidian	1 72 6)
@@ -3337,10 +3357,11 @@
       )
      ((=ucs		  . #x5382)	; 厂
       )
-     ((=ucs		  . #x3AD7)	; 㫗
+     ((=ucs@unicode	  . #x3AD7)	; &AJ1-17758;
+      (=adobe-japan1-5	  . 17758)	; &AJ1-17758;
       ))
-    (=ucs		. #x539A)	; 厚
-    (=adobe-japan1-0	. 01968)	; &I-AJ1-01968;
+    (=ucs@unicode	. #x539A)	; &AJ1-01968;
+    (=adobe-japan1-0	. 01968)	; &AJ1-01968;
     (=jis-x0208		. #x387C)	; &I-J90-387C; [24-92]
     (=gb2312		. #x3A71)	; &I-G0-3A71; [26-81]
     (=ks-x1001		. #x7D27)	; &I-K0-7D27; [93-07]
@@ -3351,7 +3372,8 @@
     (=gt-k		. 05073)	; &I-GT-K05073;
     (=gt-pj-1		. #x387C)	; &I-GT-03737; [24-92]
     (=daikanwa		. 02949)	; &I-M-02949;
-    (=shinjigen		.  0878)	; 厚
+    (=daijiten		. 01068)	; &I-DJT-01068;
+    (=shinjigen		.  0878)	; &AJ1-01968;
     (->subsumptive
      ((==ucs@unicode	  . #x539A)	; &g2-AJ1-01968;
       (==adobe-japan1-0	  . 01968)	; &g2-AJ1-01968;
@@ -3363,9 +3385,12 @@
       (==gt		  . 03737)	; &g2-AJ1-01968;
       (==gt-k		  . 05073)	; &g2-AJ1-01968;
       (==daikanwa	  . 02949)	; &g2-AJ1-01968;
+      (==daijiten	  . 01068)	; &g2-AJ1-01968;
       (==shinjigen	  .  0878)	; &g2-AJ1-01968;
       (->subsumptive
        ((===daikanwa	    . 02949)	; &R-M-02949;
+	)
+       ((===daijiten	    . 01068)	; &R-DJT-01068;
 	)
        ((===jis-x0208	    . #x387C)	; &R-J0-387C; [24-92]
 	(===jis-x0213-1	    . #x387C)	; &R-J0-387C; [24-92]
@@ -9160,6 +9185,11 @@
 (define-char
   '((ideographic-radical . 27)	; ⼚
     (==>daijiten	. 01063)	; &A2-DJT-01063;
+    ))
+(define-char
+  '((ideographic-radical . 27)	; ⼚
+    (==>ucs@bucs	. #x539A)	; &BUCS+539A;
+    (==>daijiten	. 01068)	; &BUCS+539A;
     ))
 (define-char
   '((ideographic-radical . 27)	; ⼚
