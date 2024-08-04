@@ -2792,7 +2792,7 @@
       (=daikanwa	  . 00416)	; &I-M-00416;
       ))
     (<-interchangeable$_1*sources
-     shuowen-tongxun-dingsheng lushichunqiu-zhu daikanwa)
+     shuowen-tongxundingsheng lushichunqiu-zhu daikanwa)
     (<-interchangeable$_2*sources
      liji-shu daikanwa)
     (<-interchangeable*sources
@@ -4528,7 +4528,7 @@
     ))
 (define-char
   '((<-denotational@usage
-     ((==>daijiten	  . 03136)	; &A2-DJT-03136;
+     ((==>ucs@bucs	  . #x5F8A)	; &BUCS+5F8A;
       ))
     (ideographic-radical . 60)	; ⼻
     (ideographic-structure
@@ -4538,6 +4538,7 @@
      ((=ucs		  . #x5F73)	; 彳
       )
      ((=>ucs@iwds-1	  . #x56DE)	; &A-IWDSU+56DE;
+      (=>iwds-1		  .  0317)	; &A-IWDSU+56DE;
       ))
     (=ucs		. #x5F8A)	; 徊
     ))
@@ -6185,7 +6186,7 @@
     ))
 (define-char
   '((<-denotational@usage
-     ((==>daijiten	  . 03142)	; &A2-DJT-03142;
+     ((==>ucs@bucs	  . #x5F91)	; &BUCS+5F91;
       ))
     (ideographic-radical . 60)	; ⼻
     (ideographic-structure
@@ -6258,11 +6259,11 @@
       (=daikanwa	  . 41650)	; &I-M-41650;
       ))
     (<-interchangeable$_1*sources
-     shuowen-tongxun-dingsheng daikanwa)
+     shuowen-tongxundingsheng daikanwa)
     (<-interchangeable$_2*sources
-     shuowen-tongxun-dingsheng daikanwa)
+     shuowen-tongxundingsheng daikanwa)
     (<-interchangeable$_3*sources
-     shuowen-tongxun-dingsheng daikanwa)
+     shuowen-tongxundingsheng daikanwa)
     (<-interchangeable$_4*sources
      shiwen daikanwa)
     (<-interchangeable$_5*sources
@@ -8059,7 +8060,7 @@
     ))
 (define-char
   '((<-denotational@usage
-     ((==>daijiten	  . 03148)	; &A2-DJT-03148;
+     ((==>ucs@bucs	  . #x5F99)	; &BUCS+5F99;
       ))
     (ideographic-radical . 60)	; ⼻
     (ideographic-structure
@@ -8139,9 +8140,9 @@
      ((=daikanwa	  . 38757)	; &M-38757;
       ))
     (->original$_1*sources
-     zhonghua-dazidian shuowen-tongxun-dingsheng daikanwa)
+     zhonghua-dazidian shuowen-tongxundingsheng daikanwa)
     (->original*sources
-     zhonghua-dazidian shuowen-tongxun-dingsheng daikanwa)
+     zhonghua-dazidian shuowen-tongxundingsheng daikanwa)
     (->subsumptive
      ((==ucs@unicode	  . #x5F99)	; &g2-MJ011317;
       (==mj		  . 011317)	; &g2-MJ011317;
@@ -9121,7 +9122,9 @@
     ))
 (define-char
   '((<-denotational@usage
-     ((==>daijiten	  . 03153)	; &A2-DJT-03153;
+     ((==>ucs@bucs	  . #x5FA1)	; &BUCS+5FA1;
+      )
+     ((==>ucs@bucs	  . #x79A6)	; &BUCS+79A6;
       ))
     (ideographic-radical . 60)	; ⼻
     (ideographic-strokes . 8)
@@ -9197,9 +9200,9 @@
     (<-interchangeable$_1*sources
      shiwen daikanwa)
     (<-interchangeable$_2*sources
-     shuowen-tongxun-dingsheng jiyun shiwen daikanwa)
+     shuowen-tongxundingsheng jiyun shiwen daikanwa)
     (<-interchangeable$_3*sources
-     shuowen-tongxun-dingsheng shiwen daikanwa)
+     shuowen-tongxundingsheng shiwen daikanwa)
     (<-interchangeable*sources
      shiwen daikanwa)
     (<-same
@@ -9285,8 +9288,15 @@
      ((=ucs		  . #x7F37)	; 缷
       ))
     (=adobe-japan1-5	. 20117)	; &AJ1-20117;
+    (=daijiten		. 09089)	; &I-DJT-09089;
     (->subsumptive
      ((==adobe-japan1-5	  . 20117)	; &g2-AJ1-20117;
+      (==daijiten	  . 09089)	; &g2-AJ1-20117;
+      (->subsumptive
+       ((===daijiten	    . 09089)	; &R-DJT-09089;
+	)
+       ((===adobe-japan1-5  . 20117)	; &R-AJ1-20117;
+	))
       ))
     ))
 (define-char
@@ -10533,7 +10543,7 @@
     (<-interchangeable$_1*sources
      shuowen-zhu daikanwa)
     (<-interchangeable$_2*sources
-     shuowen-tongxun-dingsheng daikanwa)
+     shuowen-tongxundingsheng daikanwa)
     (<-interchangeable*sources
      daikanwa)
     (->subsumptive
@@ -10712,7 +10722,7 @@
       (=daikanwa	  . 39005)	; &I-M-39005;
       ))
     (<-interchangeable$_1*sources
-     shuowen-tongxun-dingsheng daikanwa)
+     shuowen-tongxundingsheng daikanwa)
     (<-interchangeable$_2*sources
      jiyun daikanwa)
     (<-interchangeable*sources
@@ -13146,25 +13156,25 @@
       (=daikanwa	  . 19113)	; &I-M-19113;
       ))
     (<-interchangeable$_1*sources
-     shuowen-tongxun-dingsheng daikanwa)
+     shuowen-tongxundingsheng daikanwa)
     (<-interchangeable$_2*sources
-     shuowen-tongxun-dingsheng daikanwa)
+     shuowen-tongxundingsheng daikanwa)
     (<-interchangeable$_3*sources
-     shuowen-tongxun-dingsheng daikanwa)
+     shuowen-tongxundingsheng daikanwa)
     (<-interchangeable$_4*sources
-     shuowen-tongxun-dingsheng shiwen maoshi-zhuan daikanwa)
+     shuowen-tongxundingsheng shiwen maoshi-zhuan daikanwa)
     (<-interchangeable$_5*sources
-     shuowen-tongxun-dingsheng daikanwa)
+     shuowen-tongxundingsheng daikanwa)
     (<-interchangeable$_6*sources
-     shuowen-tongxun-dingsheng daikanwa)
+     shuowen-tongxundingsheng daikanwa)
     (<-interchangeable$_7*sources
-     shuowen-tongxun-dingsheng daikanwa)
+     shuowen-tongxundingsheng daikanwa)
     (<-interchangeable$_8*sources
-     shuowen-tongxun-dingsheng daikanwa)
+     shuowen-tongxundingsheng daikanwa)
     (<-interchangeable$_9*sources
-     shuowen-tongxun-dingsheng daikanwa)
+     shuowen-tongxundingsheng daikanwa)
     (<-interchangeable*sources
-     shuowen-tongxun-dingsheng daikanwa)
+     shuowen-tongxundingsheng daikanwa)
     (->formed
      ((=ucs@cns		  . #x275EC)	; &C6-4E53;
       (=cns11643-6	  . #x4E53)	; &C6-4E53; [46-51]
@@ -16912,7 +16922,7 @@
     ))
 (define-char
   '((<-denotational@usage
-     ((==>daijiten	  . 03173)	; &A2-DJT-03173;
+     ((==>ucs@bucs	  . #x5FB9)	; &BUCS+5FB9;
       ))
     (ideographic-radical . 60)	; ⼻
     (ideographic-structure
@@ -16966,11 +16976,11 @@
 	(=daikanwa	    . 12726)	; &I-M-12726;
 	))
       (<-interchangeable$_1*sources
-       shuowen-tongxun-dingsheng daikanwa)
+       shuowen-tongxundingsheng daikanwa)
       (<-interchangeable$_2*sources
-       shuowen-tongxun-dingsheng daikanwa)
+       shuowen-tongxundingsheng daikanwa)
       (<-interchangeable*sources
-       shuowen-tongxun-dingsheng daikanwa)
+       shuowen-tongxundingsheng daikanwa)
       (->ancient
        ((=ucs@cns	    . #x22589)	; &MJ035937;
 	(=mj		    . 035937)	; &MJ035937;
@@ -18126,7 +18136,7 @@
     ))
 (define-char
   '((<-denotational@usage
-     ((==>daijiten	  . 03175)	; &A2-DJT-03175;
+     ((==>ucs@bucs	  . #x5FBC)	; &BUCS+5FBC;
       ))
     (ideographic-radical . 60)	; ⼻
     (ideographic-structure
@@ -18202,15 +18212,15 @@
       (=daikanwa	  . 12777)	; &I-M-12777;
       ))
     (<-interchangeable$_1*sources
-     shuowen-tongxun-dingsheng daikanwa)
+     shuowen-tongxundingsheng daikanwa)
     (<-interchangeable$_2*sources
      lunyu-zhu shiwen daikanwa)
     (<-interchangeable$_3*sources
-     shuowen-tongxun-dingsheng daikanwa)
+     shuowen-tongxundingsheng daikanwa)
     (<-interchangeable$_4*sources
-     shuowen-tongxun-dingsheng daikanwa)
+     shuowen-tongxundingsheng daikanwa)
     (<-interchangeable$_5*sources
-     shuowen-tongxun-dingsheng daikanwa)
+     shuowen-tongxundingsheng daikanwa)
     (<-interchangeable*sources
      daikanwa)
     (<-same
@@ -18655,7 +18665,7 @@
     ))
 (define-char
   '((<-denotational@usage
-     ((==>daijiten	  . 03177)	; &A2-DJT-03177;
+     ((==>ucs@bucs	  . #x5FBD)	; &BUCS+5FBD;
       ))
     (ideographic-radical . 60)	; ⼻
     (ideographic-structure
@@ -18721,11 +18731,11 @@
       (=daikanwa	  . 34453)	; &I-M-34453;
       ))
     (<-interchangeable$_1*sources
-     shuowen-tongxun-dingsheng daikanwa)
+     shuowen-tongxundingsheng daikanwa)
     (<-interchangeable$_2*sources
-     shuowen-tongxun-dingsheng wenxuan-lishan-zhu daikanwa)
+     shuowen-tongxundingsheng wenxuan-lishan-zhu daikanwa)
     (<-interchangeable$_3*sources
-     shuowen-tongxun-dingsheng daikanwa)
+     shuowen-tongxundingsheng daikanwa)
     (<-interchangeable$_4*sources
      erya daikanwa)
     (<-interchangeable*sources
@@ -19164,9 +19174,9 @@
       (=daikanwa	  . 00484)	; &I-M-00484;
       ))
     (<-same$_1*sources
-     shuowen-tongxun-dingsheng daikanwa)
+     shuowen-tongxundingsheng daikanwa)
     (<-same*sources
-     shuowen-tongxun-dingsheng daikanwa)
+     shuowen-tongxundingsheng daikanwa)
     (->formed
      ((=ucs@iso		  . #x25A81)	; &MJ043595;
       (=mj		  . 043595)	; &MJ043595;
@@ -21150,7 +21160,8 @@
     ))
 (define-char
   '((ideographic-radical . 60)	; ⼻
-    (==>daijiten	. 03153)	; &A2-DJT-03153;
+    (==>ucs@bucs	. #x5FA1)	; &BUCS+5FA1;
+    (==>daijiten	. 03153)	; &BUCS+5FA1;
     ))
 (define-char
   '((ideographic-radical . 60)	; ⼻
@@ -21175,6 +21186,7 @@
 (define-char
   '((ideographic-radical . 60)	; ⼻
     (==>ucs@bucs	. #x5FB9)	; &BUCS+5FB9;
+    (==>daijiten	. 03173)	; &BUCS+5FB9;
     ))
 (define-char
   '((ideographic-radical . 60)	; ⼻
@@ -21200,6 +21212,7 @@
 (define-char
   '((ideographic-radical . 60)	; ⼻
     (==>ucs@bucs	. #x5F91)	; &BUCS+5F91;
+    (==>daijiten	. 03142)	; &BUCS+5F91;
     ))
 (define-char
   '((ideographic-radical . 60)	; ⼻
@@ -21223,7 +21236,8 @@
     ))
 (define-char
   '((ideographic-radical . 60)	; ⼻
-    (==>daijiten	. 03136)	; &A2-DJT-03136;
+    (==>ucs@bucs	. #x5F8A)	; &BUCS+5F8A;
+    (==>daijiten	. 03136)	; &BUCS+5F8A;
     ))
 (define-char
   '((ideographic-radical . 60)	; ⼻
@@ -21236,10 +21250,6 @@
 (define-char
   '((ideographic-radical . 60)	; ⼻
     (==>daijiten	. 03141)	; &A2-DJT-03141;
-    ))
-(define-char
-  '((ideographic-radical . 60)	; ⼻
-    (==>daijiten	. 03142)	; &A2-DJT-03142;
     ))
 (define-char
   '((ideographic-radical . 60)	; ⼻
@@ -21259,7 +21269,8 @@
     ))
 (define-char
   '((ideographic-radical . 60)	; ⼻
-    (==>daijiten	. 03148)	; &A2-DJT-03148;
+    (==>ucs@bucs	. #x5F99)	; &BUCS+5F99;
+    (==>daijiten	. 03148)	; &BUCS+5F99;
     ))
 (define-char
   '((ideographic-radical . 60)	; ⼻
@@ -21336,11 +21347,13 @@
     ))
 (define-char
   '((ideographic-radical . 60)	; ⼻
-    (==>daijiten	. 03175)	; &A2-DJT-03175;
+    (==>ucs@bucs	. #x5FBC)	; &BUCS+5FBC;
+    (==>daijiten	. 03175)	; &BUCS+5FBC;
     ))
 (define-char
   '((ideographic-radical . 60)	; ⼻
-    (==>daijiten	. 03177)	; &A2-DJT-03177;
+    (==>ucs@bucs	. #x5FBD)	; &BUCS+5FBD;
+    (==>daijiten	. 03177)	; &BUCS+5FBD;
     ))
 (define-char
   '((ideographic-radical . 60)	; ⼻
