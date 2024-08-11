@@ -18640,6 +18640,25 @@
     (=ucs@JP/hanazono	. #x30359)	; &hanaJU+30359;
     ))
 (define-char
+  '((<-denotational
+     ((=ucs		  . #x30359)	; 𰍙
+      ))
+    (ideographic-radical . 40)	; ⼧
+    (ideographic-strokes . 11)
+    (total-strokes	 . 14)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5B80)	; 宀
+      )
+     ((=ucs@iso		  . #x27623)	; &C6-3C26;
+      (=cns11643-6	  . #x3C26)	; &C6-3C26; [28-06]
+      (=daikanwa	  . 34137)	; &I-M-34137;
+      ))
+    (=ucs-itaiji-001	. #x30359)	; &U-i001+30359;
+    ))
+(define-char
   '((ideographic-radical . 40)	; ⼧
     (ideographic-strokes . 11)
     (total-strokes	 . 14)
