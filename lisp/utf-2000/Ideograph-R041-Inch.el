@@ -1111,6 +1111,25 @@
      ((=ucs		  . #x21B20)	; 𡬠
       ))
     (ideographic-radical . 41)	; ⼨
+    (ideographic-strokes . 6)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs@unicode	  . #x3AD0)	; &C4-2278;
+      (=cns11643-4	  . #x2278)	; &C4-2278; [02-88]
+      (=daikanwa	  . 13741)	; &I-M-13741;
+      )
+     ((=ucs		  . #x5BF8)	; 寸
+      ))
+    (=ucs-itaiji-003	. #x21B20)	; &U-i003+21B20;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x21B20)	; 𡬠
+      ))
+    (ideographic-radical . 41)	; ⼨
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
     (ideographic-structure
