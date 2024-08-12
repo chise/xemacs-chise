@@ -279,6 +279,24 @@
     (ideographic-radical . 45)	; ⼬
     (ideographic-strokes . 1)
     (total-strokes	 . 3)
+    (ideographic-structure@apparent
+     ((name		  . "IDEOGRAPHIC DESCRIPTION CHARACTER OVERLAID")
+      (=ucs		  . #x2FFB)	; ⿻
+      )
+     ((=ucs		  . #x2B820)	; 𫠠
+      )
+     ((=ucs		  . #x4E00)	; 一
+      ))
+    (=>big5-cdp		. #x8AF0)	; &A-CB04490;
+    (=>cbeta		. 04490)	; &A-CB04490;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@cognate	  . #x5C6F)	; &A-cgnU+5C6F;
+      ))
+    (ideographic-radical . 45)	; ⼬
+    (ideographic-strokes . 1)
+    (total-strokes	 . 3)
     (=big5-cdp		. #x8A43)	; &CDP-8A43;
     (=gt-k		. 00288)	; &I-GT-K00288;
     (=gt-pj-k2		. #x4073)	; &CDP-8A43; [32-83]
@@ -291,7 +309,16 @@
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@cognate	  . #x5C6F)	; &A-cgnU+5C6F;
+     ((=>big5-cdp	  . #x8AF0)	; &A-CB04490;
+      ))
+    (ideographic-radical . 45)	; ⼬
+    (ideographic-strokes . 1)
+    (total-strokes	 . 3)
+    (=big5-cdp-var-003	. #x8A43)	; &CDP-v003-8A43;
+    ))
+(define-char
+  '((<-denotational
+     ((=>big5-cdp	  . #x8AF0)	; &A-CB04490;
       ))
     (ideographic-radical . 45)	; ⼬
     (ideographic-strokes . 1)
