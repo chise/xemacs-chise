@@ -1,6 +1,11 @@
 ;; -*- coding: utf-8-mcs-er -*-
 (define-char
-  '((ideographic-radical . 68)	; ⽃
+  '((<-denotational@usage
+     ((==>ucs@bucs	  . #x6597)	; &BUCS+6597;
+      )
+     ((==>ucs@bucs	  . #x9B25)	; &BUCS+9B25;
+      ))
+    (ideographic-radical . 68)	; ⽃
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
     (=ucs		. #x6597)	; 斗
@@ -15,6 +20,7 @@
     (=gt-k		. 00469)	; &I-GT-K00469;
     (=gt-pj-1		. #x454D)	; &I-GT-17057; [37-45]
     (=daikanwa		. 13489)	; &I-M-13489;
+    (=daijiten		. 04339)	; &I-DJT-04339;
     (=shinjigen		.  3210)	; 斗
     (->subsumptive
      ((=decomposition@cid
@@ -32,9 +38,12 @@
       (==gt		  . 17057)	; &g2-AJ1-03143;
       (==gt-k		  . 00469)	; &g2-AJ1-03143;
       (==daikanwa	  . 13489)	; &g2-AJ1-03143;
+      (==daijiten	  . 04339)	; &g2-AJ1-03143;
       (==shinjigen	  .  3210)	; &g2-AJ1-03143;
       (->subsumptive
        ((===daikanwa	    . 13489)	; &R-M-13489;
+	)
+       ((===daijiten	    . 04339)	; &R-DJT-04339;
 	)
        ((===jis-x0208	    . #x454D)	; &R-J0-454D; [37-45]
 	(===jis-x0213-1	    . #x454D)	; &R-J0-454D; [37-45]
@@ -468,7 +477,30 @@
       ))
     ))
 (define-char
-  '((ideographic-radical@ucs . 68)	; ⽃
+  '((<-denotational@usage
+     ((==>ucs@bucs	  . #x6597)	; &BUCS+6597;
+      ))
+    (ideographic-radical@ucs . 68)	; ⽃
+    (ideographic-strokes@ucs . 7)
+    (ideographic-radical@cns . 151)	; ⾖
+    (ideographic-strokes@cns . 4)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x8C46)	; 豆
+      )
+     ((=ucs		  . #x6597)	; 斗
+      ))
+    (sound@ja/on	"tou")
+    (=ucs		. #x3AB7)	; 㪷
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x3AB7)	; 㪷
+      ))
+    (ideographic-radical@ucs . 68)	; ⽃
     (ideographic-strokes@ucs . 7)
     (ideographic-radical@ucs*sources
      daikanwa cbeta)
@@ -483,17 +515,38 @@
       )
      ((=ucs		  . #x6597)	; 斗
       ))
-    (=ucs		. #x3AB7)	; 㪷
+    (=ucs@unicode	. #x3AB7)	; &C3-392B;
+    (=cns11643-3	. #x392B)	; &C3-392B; [25-11]
+    (=daikanwa		. 13507)	; &I-M-13507;
+    (=daijiten		. 04348)	; &I-DJT-04348;
+    (=cbeta		. 00356)	; &I-CB00356;
+    (<-vulgar
+     ((=ucs		  . #x6597)	; 斗
+      (=daikanwa	  . 13489)	; &I-M-13489;
+      ))
+    (<-vulgar*sources
+     yupian daikanwa)
     (->subsumptive
      ((ideographic-radical . 68)	; ⽃
       (ideographic-strokes . 7)
-      (=ucs@unicode	  . #x3AB7)	; &M-13507;
-      (=daikanwa	  . 13507)	; &M-13507;
-      (=cbeta		  . 00356)	; &I-CB00356;
+      (==ucs@unicode	  . #x3AB7)	; &g2-M-13507;
+      (==daikanwa	  . 13507)	; &g2-M-13507;
+      (==daijiten	  . 04348)	; &g2-M-13507;
+      (==cbeta		  . 00356)	; &g2-M-13507;
+      (->subsumptive
+       ((===daikanwa	    . 13507)	; &R-M-13507;
+	)
+       ((===daijiten	    . 04348)	; &R-DJT-04348;
+	)
+       ((===ucs@unicode	    . #x3AB7)	; &R-UU+3AB7;
+	)
+       ((===cbeta	    . 00356)	; &R-CB00356;
+	))
       )
      ((ideographic-radical . 151)	; ⾖
       (ideographic-strokes . 4)
-      (=cns11643-3	  . #x392B)	; &C3-392B; [25-11]
+      (==ucs@cns	  . #x3AB7)	; &g2-CU+3AB7;
+      (==cns11643-3	  . #x392B)	; &g2-CU+3AB7; [25-11]
       ))
     ))
 (define-char
@@ -1046,7 +1099,10 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 68)	; ⽃
+  '((<-denotational@usage
+     ((==>daijiten	  . 04354)	; &A2-DJT-04354;
+      ))
+    (ideographic-radical . 68)	; ⽃
     (ideographic-strokes . 9)
     (total-strokes	 . 13)
     (ideographic-structure
@@ -1063,6 +1119,7 @@
     (=cns11643-4	. #x3D61)	; &I-C4-3D61; [29-65]
     (=koseki		. 151560)	; 𣂁
     (=daikanwa		. 13518)	; &I-M-13518;
+    (=daijiten		. 04354)	; &I-DJT-04354;
     (<-interchangeable
      ((=ucs@unicode	  . #x8D92)	; &GT-49697;
       (=cns11643-2	  . #x476C)	; &GT-49697; [39-76]
@@ -1073,17 +1130,20 @@
       (=daikanwa	  . 40387)	; &I-M-40387;
       ))
     (<-interchangeable$_1*sources
-     shuowen-tongxun-dingsheng daikanwa)
+     shuowen-tongxundingsheng daikanwa)
     (<-interchangeable$_2*sources
-     shuowen-zhu shuowen-tongxun-dingsheng daikanwa)
+     shuowen-zhu shuowen-tongxundingsheng daikanwa)
     (<-interchangeable*sources
-     shuowen-tongxun-dingsheng daikanwa)
+     shuowen-tongxundingsheng daikanwa)
     (->subsumptive
      ((==mj		  . 037477)	; &g2-MJ037477;
       (==koseki		  . 151560)	; &g2-MJ037477;
       (==daikanwa	  . 13518)	; &g2-MJ037477;
+      (==daijiten	  . 04354)	; &g2-MJ037477;
       (->subsumptive
        ((===daikanwa	    . 13518)	; &R-M-13518;
+	)
+       ((===daijiten	    . 04354)	; &R-DJT-04354;
 	)
        ((===mj		    . 037477)	; &R-MJ037477;
 	))
@@ -1656,6 +1716,38 @@
     ))
 (define-char
   '((ideographic-radical . 68)	; ⽃
+    (ideographic-strokes . 13)
+    (total-strokes	 . 17)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x3193D)	; 𱤽
+      )
+     ((=ucs		  . #x659C)	; 斜
+      ))
+    (=ucs		. #x2ABEF)	; 𪯯
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2ABEF)	; 𪯯
+      ))
+    (ideographic-radical . 68)	; ⽃
+    (ideographic-strokes . 13)
+    (total-strokes	 . 17)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs@JP/hanazono	  . #x3193D)	; &hanaJU+3193D;
+      )
+     ((=ucs@unicode	  . #x659C)	; &AJ1-02300;
+      (=adobe-japan1-0	  . 02300)	; &AJ1-02300;
+      ))
+    (=ucs@JP/hanazono	. #x2ABEF)	; &hanaJU+2ABEF;
+    ))
+(define-char
+  '((ideographic-radical . 68)	; ⽃
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
@@ -1768,4 +1860,13 @@
 	(==ucs@JP/hanazono  . nil)
 	))
       ))
+    ))
+(define-char
+  '((ideographic-radical . 68)	; ⽃
+    (==>ucs@bucs	. #x6597)	; &BUCS+6597;
+    (==>daijiten	. 04339)	; &BUCS+6597;
+    ))
+(define-char
+  '((ideographic-radical . 68)	; ⽃
+    (==>daijiten	. 04354)	; &A2-DJT-04354;
     ))
