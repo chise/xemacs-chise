@@ -153,6 +153,15 @@
     (=ucs-var-002	. #x706C)	; &U-v002+706C;
     ))
 (define-char
+  '((<-denotational
+     ((=ucs		  . #x706C)	; 灬
+      ))
+    (ideographic-radical . 86)	; ⽕
+    (ideographic-strokes . 0)
+    (total-strokes	 . 4)
+    (=big5-cdp		. #x8CB5)	; &CDP-8CB5;
+    ))
+(define-char
   '((ideographic-radical . 86)	; ⽕
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
@@ -18118,7 +18127,7 @@
       )
      ((=ucs		  . #x706B)	; 火
       )
-     ((=>gt-k		  . 06065)	; &A-GT-K06065;
+     ((=ucs		  . #x31B39)	; 𱬹
       ))
     (sound@ja/on	"eN")
     (=ucs		. #x3DD4)	; 㷔
@@ -18136,7 +18145,8 @@
       )
      ((=ucs		  . #x706B)	; 火
       )
-     ((=gt-k		  . 05976)	; &GT-K05976;
+     ((=ucs@JP/hanazono	  . #x31B39)	; &GT-K05976;
+      (=gt-k		  . 05976)	; &GT-K05976;
       ))
     (=mj		. 002286)	; &MJ002286;
     (=hanyo-denshi/ks	. 216430)	; &MJ002286;
