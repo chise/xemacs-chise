@@ -3457,7 +3457,7 @@
     ))
 (define-char
   '((<-denotational@usage
-     ((==>daijiten	  . 06230)	; &A2-DJT-06230;
+     ((==>ucs@bucs	  . #x6DBC)	; &BUCS+6DBC;
       ))
     (ideographic-radical . 15)	; ⼎
     (ideographic-strokes . 8)
@@ -3484,7 +3484,6 @@
     (=daijiten		. 00680)	; &I-DJT-00680;
     (=shinjigen@1ed	.  4309)	; 凉
     (=shinjigen@rev	.  4310)	; 凉
-    (=hanziku-1		. #xE3BF)	; &I-HZK01-E3BF;
     (=cbeta		. 00289)	; &I-CB00289;
     (<-vulgar
      ((=ucs		  . #x6DBC)	; 涼
@@ -3533,6 +3532,8 @@
        ((===ucs@unicode	    . #x51C9)	; &R-UU+51C9;
 	)
        ((===cns11643-3	    . #x2F5F)	; &R-C3-2F5F; [15-63]
+	)
+       ((=hanziku-1	    . #xE3BF)	; &HZK01-E3BF;
 	))
       ))
     ))
