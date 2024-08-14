@@ -1,3 +1,11 @@
+2024-08-13  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* JC3-to-UCS.txt (JC3-44D4): Map to U+FA76 instead of U+52C7.
+
+	* C1-to-UCS.txt (C1-502D): Map to CU+52C7 instead of U+52C7.
+
+	* G0-to-UCS.txt (G0-5342): Map to GU+52C7 instead of U+52C7.
+
 2024-01-05  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* C4-to-UCS.txt (C4-4734): Map to CU-000277F1 instead of
