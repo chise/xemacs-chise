@@ -212,7 +212,16 @@
       ))
     ))
 (define-char
-  '((<-denotational@usage
+  '((ideographic-radical . 4)	; ⼃
+    (ideographic-strokes . 0)
+    (total-strokes	 . 1)
+    (=>ucs@component	. #x4E41)	; &A-compU+4E41;
+    ))
+(define-char
+  '((<-denotational@component
+     ((=>ucs@component	  . #x4E41)	; &A-compU+4E41;
+      ))
+    (<-denotational@usage
      ((==>daijiten	  . 00074)	; &A2-DJT-00074;
       ))
     (ideographic-radical . 4)	; ⼃

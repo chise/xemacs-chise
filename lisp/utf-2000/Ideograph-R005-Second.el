@@ -317,6 +317,37 @@
     (=daikanwa/ho	.  0006)	; 𠃌
     ))
 (define-char
+  '((<-denotational@component
+     ((=>ucs@component	  . #x4E41)	; &A-compU+4E41;
+      ))
+    (name		. "CJK RADICAL SECOND THREE")
+    (general-category	symbol other) ; Informative Category
+    (bidi-category	. "ON")
+    (mirrored		. nil)
+    (ideographic-radical . 5)	; ⼄
+    (ideographic-strokes . 0)
+    (total-strokes	 . 1)
+    (=ucs		. #x2E84)	; ⺄
+    (=big5-cdp		. #x8D43)	; &I-CDP-8D43;
+    (=gt-k		. 00008)	; &I-GT-K00008;
+    (=gt-pj-k1		. #x302E)	; ⺄ [16-14]
+    (<-formed@component
+     ((=ucs		  . #x4E59)	; 乙
+      ))
+    (->subsumptive
+     ((==big5-cdp	  . #x8D43)	; &g2-CDP-8D43;
+      (==gt-k		  . 00008)	; &g2-CDP-8D43;
+      (==gt-pj-k1	  . #x302E)	; &g2-CDP-8D43; [16-14]
+      )
+     ((=gt-k		  . 00007)	; &GT-K00007;
+      (=gt-pj-k1	  . #x302D)	; &GT-K00007; [16-13]
+      (->subsumptive
+       ((==gt-k		    . 00007)	; &g2-GT-K00007;
+	(==gt-pj-k1	    . #x302D)	; &g2-GT-K00007; [16-13]
+	))
+      ))
+    ))
+(define-char
   '((<-denotational
      ((=ucs		  . #x200CD)	; 𠃍
       ))
