@@ -500,6 +500,45 @@
     (=ucs-itaiji-005	. #x752C)	; &U-i005+752C;
     ))
 (define-char
+  '((<-denotational
+     ((=>ucs@cognate	  . #x752C)	; &A-cgnU+752C;
+      ))
+    (<-denotational@usage
+     ((==>ucs@bucs	  . #x752C)	; &BUCS+752C;
+      ))
+    (ideographic-radical . 101)	; ⽤
+    (ideographic-strokes . 2)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>ucs@component	  . #x5200)	; &A-compU+5200;
+      (=>iwds-1		  .  0149)	; &A-compU+5200;
+      )
+     ((=>ucs@iwds-1	  . #x7528)	; &A-IWDSU+7528;
+      ))
+    (=ucs		. #x24C04)	; 𤰄
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x24C04)	; 𤰄
+      ))
+    (ideographic-radical . 101)	; ⽤
+    (ideographic-strokes . 2)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5200)	; 刀
+      )
+     ((=ucs@unicode	  . #x7528)	; &AJ1-03899;
+      (=adobe-japan1-0	  . 03899)	; &AJ1-03899;
+      ))
+    (=ucs@iso		. #x24C04)	; &U-00024C04;
+    ))
+(define-char
   '((<-denotational@usage
      ((==>ucs@bucs	  . #x752C)	; &BUCS+752C;
       ))
