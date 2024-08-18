@@ -416,6 +416,12 @@
     ))
 (define-char
   '((ideographic-radical . 210)	; ⿑
+    (ideographic-strokes . 0)
+    (total-strokes	 . 6)
+    (=ucs-itaiji-002	. #x20137)	; &U-i002+20137;
+    ))
+(define-char
+  '((ideographic-radical . 210)	; ⿑
     (ideographic-strokes . 2)
     (total-strokes	 . 16)
     (=ucs		. #x2A5C5)	; 𪗅
