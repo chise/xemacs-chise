@@ -2702,15 +2702,7 @@
     (<-original*sources
      zhengzitong daikanwa shinjigen)
     (->subsumptive
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	(=ucs		    . #x2FF1)	; ⿱
-	)
-       ((=ucs		    . #x4EA0)	; 亠
-	)
-       ((=ucs		    . #x56DE)	; 回
-	))
-      (==ucs@unicode	  . #x342D)	; &g2-CDP-8BE5;
+     ((==ucs@unicode	  . #x342D)	; &g2-CDP-8BE5;
       (==cns11643-4	  . #x2534)	; &g2-CDP-8BE5; [05-20]
       (==big5-cdp	  . #x8BE5)	; &g2-CDP-8BE5;
       (==daikanwa	  . 00300)	; &g2-CDP-8BE5;
@@ -5249,6 +5241,38 @@
     (->subsumptive
      ((==ucs-itaiji-002	  . #x5D14)	; &g2-U-i002+5D14;
       ))
+    ))
+(define-char
+  '((ideographic-radical . 8)	; ⼇
+    (ideographic-strokes . 9)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x4EA6)	; 亦
+      )
+     ((=>ucs@component	  . #x7530)	; &A-compU+7530;
+      (=>iwds-1		  .  0083)	; &A-compU+7530;
+      ))
+    (=>ucs-itaiji-008	. #x342D)	; &A-U-i008+342D;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs-itaiji-008	  . #x342D)	; &A-U-i008+342D;
+      ))
+    (ideographic-radical . 8)	; ⼇
+    (ideographic-strokes . 9)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs-itaiji-002	  . #x4EA6)	; &U-i002+4EA6;
+      )
+     ((=ucs		  . #x7530)	; 田
+      ))
+    (=ucs-itaiji-008	. #x342D)	; &U-i008+342D;
     ))
 (define-char
   '((ideographic-radical . 8)	; ⼇
