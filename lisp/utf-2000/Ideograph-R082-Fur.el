@@ -5542,6 +5542,37 @@
     ))
 (define-char
   '((ideographic-radical . 82)	; ⽑
+    (ideographic-strokes . 14)
+    (total-strokes	 . 18)
+    (ideographic-structure
+     ((=>ucs@iwds-1	  . #x2FFA)	; &A-IWDSU+2FFA;
+      (=>iwds-1		  .  0307)	; &A-IWDSU+2FFA;
+      )
+     ((=ucs		  . #x6BDB)	; 毛
+      )
+     ((=ucs-itaiji-012	  . #x9B2F)	; &U-i012+9B2F;
+      ))
+    (=ucs		. #x2C1C8)	; 𬇈
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2C1C8)	; 𬇈
+      ))
+    (ideographic-radical . 82)	; ⽑
+    (ideographic-strokes . 14)
+    (total-strokes	 . 18)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
+      (=ucs		  . #x2FFA)	; ⿺
+      )
+     ((=ucs		  . #x6BDB)	; 毛
+      )
+     ((=ucs-itaiji-012	  . #x9B2F)	; &U-i012+9B2F;
+      ))
+    (=ucs@JP/hanazono	. #x2C1C8)	; &hanaJU+2C1C8;
+    ))
+(define-char
+  '((ideographic-radical . 82)	; ⽑
     (ideographic-strokes . 15)
     (total-strokes	 . 19)
     (=ucs		. #x23C2B)	; 𣰫
