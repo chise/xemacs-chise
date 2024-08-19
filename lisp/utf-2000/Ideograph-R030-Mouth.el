@@ -86997,6 +86997,20 @@
   '((ideographic-radical . 30)	; ⼝
     (ideographic-strokes . 15)
     (total-strokes	 . 18)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x54A0)	; 咠
+      )
+     ((=ucs		  . #x54A0)	; 咠
+      ))
+    (=ucs		. #x2D2F7)	; 𭋷
+    ))
+(define-char
+  '((ideographic-radical . 30)	; ⼝
+    (ideographic-strokes . 15)
+    (total-strokes	 . 18)
     (=ucs		. #x2D2F8)	; 𭋸
     ))
 (define-char
