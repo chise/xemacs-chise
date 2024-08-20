@@ -2556,13 +2556,68 @@
     ))
 (define-char
   '((ideographic-radical . 47)	; ⼮
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>ucs@iwds-1	  . #x5DDB)	; &A-IWDSU+5DDB;
+      (=>iwds-1		  .  0270)	; &A-IWDSU+5DDB;
+      )
+     ((=>ucs@component	  . #x7535)	; &A-compU+7535;
+      (=>iwds-1		  .  0171)	; &A-compU+7535;
+      ))
+    (=ucs		. #x22000)	; 𢀀
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x22000)	; 𢀀
+      ))
+    (ideographic-radical . 47)	; ⼮
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
     (hanyu-dazidian	2 1098 10)
-    (=ucs		. #x22000)	; 𢀀
-    (=cns11643-6	. #x3F2D)	; &I-C6-3F2D; [31-13]
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5DDB)	; 巛
+      )
+     ((=big5-cdp	  . #x88E5)	; &CDP-88E5;
+      ))
+    (=ucs@iso		. #x22000)	; &C6-3F2D;
+    (=cns11643-6	. #x3F2D)	; &C6-3F2D; [31-13]
     (=daikanwa		. 08698)	; &I-M-08698;
-    (=hanziku-3		. #xE05B)	; &I-HZK03-E05B;
+    (->subsumptive
+     ((==ucs@iso	  . #x22000)	; &g2-M-08698;
+      (==cns11643-6	  . #x3F2D)	; &g2-M-08698; [31-13]
+      (==daikanwa	  . 08698)	; &g2-M-08698;
+      (->subsumptive
+       ((===daikanwa	    . 08698)	; &R-M-08698;
+	)
+       ((===cns11643-6	    . #x3F2D)	; &R-C6-3F2D; [31-13]
+	)
+       ((===ucs@iso	    . #x22000)	; &R-U-00022000;
+	)
+       ((=hanziku-3	    . #xE05B)	; &HZK03-E05B;
+	))
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x22000)	; 𢀀
+      ))
+    (ideographic-radical . 47)	; ⼮
+    (ideographic-strokes . 5)
+    (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5DDB)	; 巛
+      )
+     ((=big5-cdp	  . #x8BE8)	; &CDP-8BE8;
+      ))
+    (=ucs-itaiji-002	. #x22000)	; &U-i002+22000;
     ))
 (define-char
   '((ideographic-radical . 47)	; ⼮
