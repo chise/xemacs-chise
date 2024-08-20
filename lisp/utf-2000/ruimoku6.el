@@ -1218,7 +1218,8 @@
       )
      ((=ucs-var-001	  . #x23FE1)	; &U-v001+23FE1;
       )
-     ((=ucs		  . #x821F)	; 舟
+     ((=ucs@unicode	  . #x821F)	; &AJ1-02360;
+      (=adobe-japan1-0	  . 02360)	; &AJ1-02360;
       ))
     (ideographic-structure@apparent
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -1231,7 +1232,8 @@
        ((=ucs@unicode	    . #x6F01)	; &MJ015800;
 	(=mj		    . 015800)	; &MJ015800;
 	)
-       ((=ucs		    . #x821F)	; 舟
+       ((=ucs@unicode	    . #x821F)	; &AJ1-02360;
+	(=adobe-japan1-0    . 02360)	; &AJ1-02360;
 	))
       )
      ((=ucs		  . #x53C8)	; 又
@@ -2293,7 +2295,8 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((=ucs		    . #x821F)	; 舟
+       ((=ucs@unicode	    . #x821F)	; &AJ1-02360;
+	(=adobe-japan1-0    . 02360)	; &AJ1-02360;
 	)
        ((=ucs		    . #x706B)	; 火
 	))
@@ -3738,14 +3741,18 @@
     (=ruimoku-v6	. #xE0F1)	; &RUI6-E0F1;
     ))
 (define-char
-  '((ideographic-radical . 137)	; ⾈
+  '((<-denotational
+     ((=>ruimoku-v6	  . #xE0F2)	; &A-RUI6-E0F2;
+      ))
+    (ideographic-radical . 137)	; ⾈
     (ideographic-strokes . 5)
     (total-strokes	 . 11)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=ucs		  . #x821F)	; 舟
+     ((=ucs@unicode	  . #x821F)	; &AJ1-02360;
+      (=adobe-japan1-0	  . 02360)	; &AJ1-02360;
       )
      ((=ucs		  . #x4E3B)	; 主
       ))
