@@ -9607,6 +9607,14 @@
   '((ideographic-radical . 19)	; ⼒
     (ideographic-strokes . 12)
     (total-strokes	 . 14)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=>ucs-itaiji-001@iwds-1 . #x26A36)	; &A-IWDSU-i001+26A36;
+      )
+     ((=ucs		  . #x529B)	; 力
+      ))
     (=ucs		. #x208A7)	; 𠢧
     ))
 (define-char
@@ -9617,13 +9625,12 @@
     (ideographic-strokes . 12)
     (total-strokes	 . 14)
     (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
       )
-     ((=ucs		  . #x821F)	; 舟
+     ((=ucs-itaiji-002	  . #x26A36)	; &U-i002+26A36;
       )
-     ((=ucs@jis		  . #x52B5)	; &MJ007645;
-      (=mj		  . 007645)	; &MJ007645;
+     ((=ucs		  . #x529B)	; 力
       ))
     (=mj		. 031568)	; &MJ031568;
     (=hanyo-denshi/ks	. 028480)	; &MJ031568;
@@ -9671,13 +9678,12 @@
     (ideographic-strokes . 12)
     (total-strokes	 . 14)
     (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
       )
-     ((=ucs		  . #x821F)	; 舟
+     ((=cbeta		  . 11298)	; &U-i001+26A36;
       )
-     ((=ucs@unicode	  . #x52B5)	; &C3-2761;
-      (=cns11643-3	  . #x2761)	; &C3-2761; [07-65]
+     ((=ucs		  . #x529B)	; 力
       ))
     (=ucs@iso		. #x208A7)	; &C6-5B2E;
     (=cns11643-6	. #x5B2E)	; &C6-5B2E; [59-14]

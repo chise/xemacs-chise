@@ -4753,7 +4753,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=ucs		  . #x53D0)	; 叐
+     ((=>mj		  . 056861)	; &A-MJ056861;
       ))
     (ideographic-radical . 4)	; ⼃
     (ideographic-strokes . 5)
