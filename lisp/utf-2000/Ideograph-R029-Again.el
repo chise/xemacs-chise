@@ -2005,6 +2005,23 @@
     (ideographic-radical . 29)	; ⼜
     (ideographic-strokes . 3)
     (total-strokes	 . 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x4E3F)	; 丿
+      )
+     ((=ucs		  . #x53CB)	; 友
+      ))
+    (=>ucs@unicode	. #x53D0)	; &A-UU+53D0;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@unicode	  . #x53D0)	; &A-UU+53D0;
+      ))
+    (ideographic-radical . 29)	; ⼜
+    (ideographic-strokes . 3)
+    (total-strokes	 . 5)
     (hanyu-dazidian	1 393 15)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -2043,7 +2060,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=ucs		  . #x53D0)	; 叐
+     ((=>ucs@unicode	  . #x53D0)	; &A-UU+53D0;
       ))
     (ideographic-radical . 29)	; ⼜
     (ideographic-strokes . 3)
@@ -2072,6 +2089,23 @@
 (define-char
   '((<-denotational
      ((=ucs		  . #x53D0)	; 叐
+      ))
+    (ideographic-radical . 29)	; ⼜
+    (ideographic-strokes . 4)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x4E3F)	; 丿
+      )
+     ((=ucs		  . #x72AE)	; 犮
+      ))
+    (=>mj		. 056861)	; &A-MJ056861;
+    ))
+(define-char
+  '((<-denotational
+     ((=>mj		  . 056861)	; &A-MJ056861;
       ))
     (ideographic-radical . 29)	; ⼜
     (ideographic-strokes . 4)
@@ -9809,7 +9843,8 @@
       )
      ((=ucs-var-001	  . #x23FE1)	; &U-v001+23FE1;
       )
-     ((=ucs		  . #x821F)	; 舟
+     ((=ucs@unicode	  . #x821F)	; &AJ1-02360;
+      (=adobe-japan1-0	  . 02360)	; &AJ1-02360;
       ))
     (ideographic-structure@apparent
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -9822,7 +9857,8 @@
        ((=ucs@unicode	    . #x6F01)	; &MJ015800;
 	(=mj		    . 015800)	; &MJ015800;
 	)
-       ((=ucs		    . #x821F)	; 舟
+       ((=ucs@unicode	    . #x821F)	; &AJ1-02360;
+	(=adobe-japan1-0    . 02360)	; &AJ1-02360;
 	))
       )
      ((=ucs		  . #x53C8)	; 又

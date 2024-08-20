@@ -23155,7 +23155,8 @@
     (<-formed$_1*sources
      jiyun)
     (<-interchangeable
-     ((=ucs		  . #x4F9C)	; 侜
+     ((=ucs@unicode	  . #x4F9C)	; &C2-2545;
+      (=cns11643-2	  . #x2545)	; &C2-2545; [05-37]
       (=daikanwa	  . 00606)	; &I-M-00606;
       )
      ((=ucs		  . #x6731)	; 朱
@@ -24201,9 +24202,6 @@
      ((==>daijiten	  . 00300)	; &A2-DJT-00300;
       ))
     (ideographic-radical . 9)	; ⼈
-    (ideographic-strokes . 6)
-    (total-strokes	 . 8)
-    (hanyu-dazidian	1 149 11)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -24213,7 +24211,26 @@
      ((=ucs		  . #x821F)	; 舟
       ))
     (=ucs		. #x4F9C)	; 侜
-    (=cns11643-2	. #x2545)	; &I-C2-2545; [05-37]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x4F9C)	; 侜
+      ))
+    (ideographic-radical . 9)	; ⼈
+    (ideographic-strokes . 6)
+    (total-strokes	 . 8)
+    (hanyu-dazidian	1 149 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x4EBB)	; 亻
+      )
+     ((=ucs@unicode	  . #x821F)	; &AJ1-02360;
+      (=adobe-japan1-0	  . 02360)	; &AJ1-02360;
+      ))
+    (=ucs@unicode	. #x4F9C)	; &C2-2545;
+    (=cns11643-2	. #x2545)	; &C2-2545; [05-37]
     (=big5		. #xCBC5)	; &I-B-CBC5;
     (=daikanwa		. 00606)	; &I-M-00606;
     (=daijiten		. 00300)	; &I-DJT-00300;
@@ -39412,7 +39429,9 @@
      ((=ucs@unicode	  . #x4FF6)	; &AJ1-04161;
       (=adobe-japan1-0	  . 04161)	; &AJ1-04161;
       )
-     ((=ucs		  . #x4F9C)	; 侜
+     ((=ucs@unicode	  . #x4F9C)	; &C2-2545;
+      (=cns11643-2	  . #x2545)	; &C2-2545; [05-37]
+      (=daikanwa	  . 00606)	; &I-M-00606;
       ))
     (<-formed$_1*sources
      jiyun)
@@ -39423,7 +39442,8 @@
       (=adobe-japan1-0	  . 04161)	; &AJ1-04161;
       (=daikanwa	  . 00732)	; &I-M-00732;
       )
-     ((=ucs		  . #x4F9C)	; 侜
+     ((=ucs@unicode	  . #x4F9C)	; &C2-2545;
+      (=cns11643-2	  . #x2545)	; &C2-2545; [05-37]
       (=daikanwa	  . 00606)	; &I-M-00606;
       ))
     (<-same$_1*sources
