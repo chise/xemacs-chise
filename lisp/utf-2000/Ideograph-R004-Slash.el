@@ -4194,6 +4194,25 @@
      ((=ucs		  . #x4E51)	; 乑
       ))
     (ideographic-radical . 4)	; ⼃
+    (ideographic-strokes . 5)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
+      (=ucs		  . #x2FF9)	; ⿹
+      )
+     ((=ucs@iso		  . #x27607)	; &CDP-8B67;
+      (=big5-cdp	  . #x8B67)	; &CDP-8B67;
+      )
+     ((=ucs@JP/hanazono	  . #x3002A)	; &CB13223;
+      (=cbeta		  . 13223)	; &CB13223;
+      ))
+    (=ucs-var-004	. #x4E51)	; &U-v004+4E51;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x4E51)	; 乑
+      ))
+    (ideographic-radical . 4)	; ⼃
     (ideographic-strokes . 4)
     (total-strokes	 . 5)
     (ideographic-structure
