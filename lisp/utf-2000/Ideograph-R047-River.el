@@ -1856,6 +1856,23 @@
       )
      ((=gt-k		  . 00633)	; &GT-K00633;
       )
+     ((=ucs		  . #x738B)	; 王
+      ))
+    (=ucs-var-001	. #x21FF1)	; &U-v001+21FF1;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x21FF1)	; 𡿱
+      ))
+    (ideographic-radical . 47)	; ⼮
+    (ideographic-strokes . 5)
+    (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=gt-k		  . 00633)	; &GT-K00633;
+      )
      ((=ucs@unicode	  . #x58EC)	; &AJ1-02583;
       (=adobe-japan1-0	  . 02583)	; &AJ1-02583;
       ))
