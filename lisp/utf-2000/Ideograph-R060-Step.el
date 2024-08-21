@@ -7840,7 +7840,7 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((=>ucs@cognate	    . #x821F)	; &A-cgnU+821F;
+       ((=ucs		    . #x821F)	; 舟
 	)
        ((=>ucs@component    . #x590A)	; &A-compU+590A;
 	(=>iwds-1	    .  0092)	; &A-compU+590A;
@@ -7921,7 +7921,8 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((=ucs		    . #x821F)	; 舟
+       ((=ucs@unicode	    . #x821F)	; &AJ1-02360;
+	(=adobe-japan1-0    . 02360)	; &AJ1-02360;
 	)
        ((=ucs		    . #x5902)	; 夂
 	))
@@ -7948,7 +7949,8 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((=ucs		    . #x821F)	; 舟
+       ((=ucs@unicode	    . #x821F)	; &AJ1-02360;
+	(=adobe-japan1-0    . 02360)	; &AJ1-02360;
 	)
        ((=ucs		    . #x590A)	; 夊
 	))
