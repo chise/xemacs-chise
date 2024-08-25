@@ -129,7 +129,8 @@
     (<-original@zhuangzi*sources
      shiwen)
     (<-same
-     ((=ucs		  . #x822B)	; 舫
+     ((=ucs@unicode	  . #x822B)	; &AJ1-06305;
+      (=adobe-japan1-0	  . 06305)	; &AJ1-06305;
       (=daikanwa	  . 30386)	; &I-M-30386;
       )
      ((=ucs@cns		  . #x86E7)	; &JSP-5A6C;
@@ -145,7 +146,8 @@
     (<-same*sources
      daikanwa)
     (->vulgar
-     ((=ucs		  . #x822B)	; 舫
+     ((=ucs@unicode	  . #x822B)	; &AJ1-06305;
+      (=adobe-japan1-0	  . 06305)	; &AJ1-06305;
       )
      ((=ucs		  . #x2D927)	; 𭤧
       (=daijiten	  . 04386)	; &I-DJT-04386;

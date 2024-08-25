@@ -433,7 +433,34 @@
   '((ideographic-radical . 25)	; ⼘
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((name		  . "CJK RADICAL DIVINATION")
+      (=ucs		  . #x2E8A)	; ⺊
+      )
+     ((=>ucs@component	  . #x4E86)	; &A-compU+4E86;
+      ))
     (=>ucs@component	. #x2A7FD)	; &A-compU+2A7FD;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@component	  . #x2A7FD)	; &A-compU+2A7FD;
+      ))
+    (ideographic-radical . 25)	; ⼘
+    (ideographic-strokes . 2)
+    (total-strokes	 . 4)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((name		  . "CJK RADICAL DIVINATION")
+      (=ucs		  . #x2E8A)	; ⺊
+      )
+     ((=ucs		  . #x2010E)	; 𠄎
+      ))
+    (=ucs-itaiji-004	. #x2A7FD)	; &U-i004+2A7FD;
     ))
 (define-char
   '((ideographic-radical . 25)	; ⼘
