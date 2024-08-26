@@ -6402,6 +6402,17 @@
 		  min-code #x2E00
 		  max-code #x9FCC
 		  registry "ucs\\.itaiji010-0"))
+  (make-charset '=>ucs-sip-itaiji-010
+		"uXXXX-itaiji-010 abstract characters in SIP"
+		'(long-name	"UCS-SIP-itaiji-010"
+		  chars		256
+		  dimension	2
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  mother	=>ucs-itaiji-010
+		  min-code #x20000 max-code #x2FFFF
+		  registry "ucs00\\.itaiji010-2"))
 
   (make-charset '=ucs-itaiji-011
 		"uXXXX-itaiji-011 glyphs of GlyphWiki"
