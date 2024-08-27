@@ -707,6 +707,22 @@
     (ideographic-radical . 17)	; ⼐
     (ideographic-strokes . 3)
     (total-strokes	 . 5)
+    (=gt-k		. 01275)	; &GT-K01275;
+    (=gt-pj-k2		. #x4125)	; &GT-K01275; [33-05]
+    (=ucs-var-001	. #x20679)	; &GT-K01275;
+    (->subsumptive
+     ((==gt-k		  . 01275)	; &g2-U-v001+20679;
+      (==gt-pj-k2	  . #x4125)	; &g2-U-v001+20679; [33-05]
+      (==ucs-var-001	  . #x20679)	; &g2-U-v001+20679;
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x20679)	; 𠙹
+      ))
+    (ideographic-radical . 17)	; ⼐
+    (ideographic-strokes . 3)
+    (total-strokes	 . 5)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM BELOW")
       (=ucs		  . #x2FF6)	; ⿶
@@ -717,24 +733,12 @@
       ))
     (=gt-k		. 01134)	; &GT-K01134;
     (=gt-pj-k1		. #x404B)	; &GT-K01134; [32-43]
+    (=ucs-var-002	. #x20679)	; &GT-K01134;
     (->subsumptive
      ((==gt-k		  . 01134)	; &g2-GT-K01134;
       (==gt-pj-k1	  . #x404B)	; &g2-GT-K01134; [32-43]
-      ))
-    ))
-(define-char
-  '((<-denotational
-     ((=ucs		  . #x20679)	; 𠙹
-      ))
-    (ideographic-radical . 17)	; ⼐
-    (ideographic-strokes . 3)
-    (total-strokes	 . 5)
-    (=gt-k		. 01275)	; &GT-K01275;
-    (=gt-pj-k2		. #x4125)	; &GT-K01275; [33-05]
-    (=ucs-var-001	. #x20679)	; &GT-K01275;
-    (->subsumptive
-     ((==gt-k		  . 01275)	; &g2-GT-K01275;
-      (==gt-pj-k2	  . #x4125)	; &g2-GT-K01275; [33-05]
+      )
+     ((==ucs-var-002	  . #x20679)	; &g2-U-v002+20679;
       ))
     ))
 (define-char
