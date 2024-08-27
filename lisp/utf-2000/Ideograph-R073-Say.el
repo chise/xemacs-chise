@@ -1366,7 +1366,7 @@
     ))
 (define-char
   '((<-denotational@usage
-     ((==>daijiten	  . 04667)	; &A2-DJT-04667;
+     ((==>ucs@bucs	  . #x6703)	; &BUCS+6703;
       ))
     (ideographic-radical . 73)	; ⽈
     (ideographic-strokes . 6)
@@ -2919,7 +2919,7 @@
     ))
 (define-char
   '((<-denotational@usage
-     ((==>daijiten	  . 04667)	; &A2-DJT-04667;
+     ((==>ucs@bucs	  . #x6703)	; &BUCS+6703;
       ))
     (ideographic-radical . 73)	; ⽈
     (ideographic-strokes . 8)
@@ -3274,15 +3274,15 @@
       ))
     ))
 (define-char
-  '((<-denotational@usage
-     ((==>daijiten	  . 04667)	; &A2-DJT-04667;
-      ))
-    (ideographic-radical . 73)	; ⽈
+  '((ideographic-radical . 73)	; ⽈
     (=>ucs@cognate	. #x6703)	; &A-cgnU+6703;
     ))
 (define-char
   '((<-denotational
      ((=>ucs@cognate	  . #x6703)	; &A-cgnU+6703;
+      ))
+    (<-denotational@usage
+     ((==>ucs@bucs	  . #x6703)	; &BUCS+6703;
       ))
     (ideographic-radical . 73)	; ⽈
     (ideographic-strokes . 9)
@@ -3369,6 +3369,23 @@
     (ideographic-radical . 73)	; ⽈
     (ideographic-strokes . 9)
     (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs-var-001	  . #x204DB)	; &U-v001+204DB;
+      )
+     ((=big5-cdp	  . #x8B63)	; &CDP-8B63;
+      ))
+    (=ucs-var-002	. #x6703)	; &U-v002+6703;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x6703)	; 會
+      ))
+    (ideographic-radical . 73)	; ⽈
+    (ideographic-strokes . 9)
+    (total-strokes	 . 13)
     (=mj		. 013512)	; &MJ013512;
     (=hanyo-denshi/jt	. #xAD98)	; &I-HD-JT-AD98;
     (->subsumptive
@@ -3384,6 +3401,9 @@
 (define-char
   '((<-denotational
      ((=>ucs@cognate	  . #x6703)	; &A-cgnU+6703;
+      ))
+    (<-denotational@usage
+     ((==>ucs@bucs	  . #x6703)	; &BUCS+6703;
       ))
     (ideographic-radical@mj . 9)	; ⼈
     (ideographic-strokes@mj . 10)
@@ -4498,6 +4518,11 @@
     ))
 (define-char
   '((ideographic-radical . 73)	; ⽈
+    (==>ucs@bucs	. #x6703)	; &BUCS+6703;
+    (==>daijiten	. 04667)	; &BUCS+6703;
+    ))
+(define-char
+  '((ideographic-radical . 73)	; ⽈
     (==>daijiten	. 04664)	; &A2-DJT-04664;
     ))
 (define-char
@@ -4529,10 +4554,6 @@
 (define-char
   '((ideographic-radical . 73)	; ⽈
     (==>daijiten	. 04657)	; &A2-DJT-04657;
-    ))
-(define-char
-  '((ideographic-radical . 73)	; ⽈
-    (==>daijiten	. 04667)	; &A2-DJT-04667;
     ))
 (define-char
   '((ideographic-radical . 73)	; ⽈
