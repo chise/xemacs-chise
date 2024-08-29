@@ -503,7 +503,6 @@
   '((ideographic-radical . 27)	; ⼚
     (ideographic-strokes . 3)
     (total-strokes	 . 5)
-    (hanyu-dazidian	1 68 11)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
       (=ucs		  . #x2FF8)	; ⿸
@@ -513,11 +512,29 @@
      ((=ucs		  . #x4E47)	; 乇
       ))
     (=ucs		. #x5387)	; 厇
-    (=adobe-japan1-6	. 21237)	; &I-AJ1-21237;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5387)	; 厇
+      ))
+    (ideographic-radical . 27)	; ⼚
+    (ideographic-strokes . 3)
+    (total-strokes	 . 5)
+    (hanyu-dazidian	1 68 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs		  . #x5382)	; 厂
+      )
+     ((=ucs@unicode	  . #x4E47)	; &MJ006381;
+      (=mj		  . 006381)	; &MJ006381;
+      ))
+    (=ucs@unicode	. #x5387)	; &AJ1-21237;
+    (=adobe-japan1-6	. 21237)	; &AJ1-21237;
     (=jis-x0212		. #x3444)	; &I-JSP-3444; [20-36]
     (=cns11643-4	. #x2167)	; &I-C4-2167; [01-71]
     (=daikanwa		. 02895)	; &I-M-02895;
-    (=hanziku-1		. #xB1F3)	; &I-HZK01-B1F3;
     (=cbeta		. 01400)	; &I-CB01400;
     (=jef-china3	. #x45D8)	; &I-JC3-45D8;
     (->subsumptive
@@ -526,19 +543,9 @@
 	)
        ((=ucs		    . #xE0100)	; 󠄀
 	))
-      (ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
-	(=ucs		    . #x2FF8)	; ⿸
-	)
-       ((=ucs		    . #x5382)	; 厂
-	)
-       ((==ucs@unicode	    . #x4E47)	; &g2-AJ1-17239;
-	(==adobe-japan1-5   . 17239)	; &g2-AJ1-17239;
-	))
       (==ucs@unicode	  . #x5387)	; &g2-AJ1-21237;
       (==adobe-japan1-6	  . 21237)	; &g2-AJ1-21237;
       (==jis-x0212	  . #x3444)	; &g2-AJ1-21237; [20-36]
-      (==cns11643-4	  . #x2167)	; &g2-AJ1-21237; [01-71]
       (==daikanwa	  . 02895)	; &g2-AJ1-21237;
       (==jef-china3	  . #x45D8)	; &g2-AJ1-21237;
       (->subsumptive
@@ -552,8 +559,11 @@
 	)
        ((===ucs@unicode	    . #x5387)	; &R-UU+5387;
 	)
-       ((===cns11643-4	    . #x2167)	; &R-C4-2167; [01-71]
+       ((=hanziku-1	    . #xB1F3)	; &HZK01-B1F3;
 	))
+      )
+     ((==ucs@cns	  . #x5387)	; &g2-CU+5387;
+      (==cns11643-4	  . #x2167)	; &g2-CU+5387; [01-71]
       ))
     ))
 (define-char
