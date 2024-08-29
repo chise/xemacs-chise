@@ -3137,6 +3137,14 @@
       )
      ((=ucs		  . #x5C0F)	; 小
       ))
+    (ideographic-structure@apparent
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x53BD)	; 厽
+      )
+     ((=>ucs@iwds-1	  . #x5C12)	; &A-IWDSU+5C12;
+      ))
     (=ucs		. #x3558)	; 㕘
     (<-formed
      ((=ucs		  . #x53C3)	; 參
@@ -3159,6 +3167,14 @@
       (=mj		  . 031984)	; &MJ031984;
       )
      ((=ucs		  . #x5C0F)	; 小
+      ))
+    (ideographic-structure@apparent
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x53BD)	; 厽
+      )
+     ((=ucs		  . #x5C12)	; 尒
       ))
     (=ucs@unicode	. #x3558)	; &C3-3456;
     (=cns11643-3	. #x3456)	; &C3-3456; [20-54]

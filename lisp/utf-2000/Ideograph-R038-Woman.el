@@ -42216,7 +42216,10 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 38)	; ⼥
+  '((<-denotational@usage
+     ((==>daijiten	  . 02227)	; &A2-DJT-02227;
+      ))
+    (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 12)
     (total-strokes	 . 15)
     (ideographic-structure
@@ -42228,13 +42231,32 @@
      ((=ucs		  . #x5C1E)	; 尞
       ))
     (=ucs		. #x5AFD)	; 嫽
-    (=mj		. 009961)	; &I-MJ009961;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5AFD)	; 嫽
+      ))
+    (ideographic-radical . 38)	; ⼥
+    (ideographic-strokes . 12)
+    (total-strokes	 . 15)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5973)	; 女
+      )
+     ((=ucs@unicode	  . #x5C1E)	; &AJ1-08437;
+      (=adobe-japan1-2	  . 08437)	; &AJ1-08437;
+      ))
+    (=ucs@unicode	. #x5AFD)	; &MJ009961;
+    (=mj		. 009961)	; &MJ009961;
     (=adobe-japan1-6	. 21425)	; &I-AJ1-21425;
     (=jis-x0212		. #x3A2D)	; &I-JSP-3A2D; [26-13]
     (=cns11643-2	. #x4F7D)	; &I-C2-4F7D; [47-93]
     (=big5		. #xE556)	; &I-B-E556;
-    (=koseki		. 076490)	; 嫽
+    (=koseki		. 076490)	; &MJ009961;
     (=daikanwa		. 06717)	; &I-M-06717;
+    (=daijiten		. 02227)	; &I-DJT-02227;
     (=jef-china3	. #x49E1)	; &I-JC3-49E1;
     (->subsumptive
      ((=decomposition@cid
@@ -42248,9 +42270,12 @@
       (==jis-x0212	  . #x3A2D)	; &g2-MJ009961; [26-13]
       (==koseki		  . 076490)	; &g2-MJ009961;
       (==daikanwa	  . 06717)	; &g2-MJ009961;
+      (==daijiten	  . 02227)	; &g2-MJ009961;
       (==jef-china3	  . #x49E1)	; &g2-MJ009961;
       (->subsumptive
        ((===daikanwa	    . 06717)	; &R-M-06717;
+	)
+       ((===daijiten	    . 02227)	; &R-DJT-02227;
 	)
        ((===jis-x0212	    . #x3A2D)	; &R-JSP-3A2D; [26-13]
 	)
@@ -57055,6 +57080,10 @@
 (define-char
   '((ideographic-radical . 38)	; ⼥
     (==>daijiten	. 02219)	; &A2-DJT-02219;
+    ))
+(define-char
+  '((ideographic-radical . 38)	; ⼥
+    (==>daijiten	. 02227)	; &A2-DJT-02227;
     ))
 (define-char
   '((ideographic-radical . 38)	; ⼥
