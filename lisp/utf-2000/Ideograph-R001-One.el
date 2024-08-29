@@ -7650,6 +7650,14 @@
   '((ideographic-radical . 1)	; ⼀
     (ideographic-strokes . 6)
     (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x4E00)	; 一
+      )
+     ((=big5-cdp	  . #x88A1)	; &CDP-88A1;
+      ))
     (=ucs-itaiji-001	. #x4E23)	; &U-i001+4E23;
     ))
 (define-char
