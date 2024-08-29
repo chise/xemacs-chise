@@ -1940,6 +1940,41 @@
     (=ucs@JP/hanazono	. #x2BFA8)	; &hanaJU+2BFA8;
     ))
 (define-char
+  '((<-denotational
+     ((=>ucs@iwds-1	  . #x239CF)	; &A-IWDSU+239CF;
+      ))
+    (ideographic-radical . 66)	; ⽁
+    (ideographic-strokes . 4)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x6B79)	; 歹
+      )
+     ((=>ucs@component	  . #x6535)	; &A-compU+6535;
+      (=>iwds-1		  .  0194)	; &A-compU+6535;
+      ))
+    (=ucs		. #x2D8E4)	; 𭣤
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2D8E4)	; 𭣤
+      ))
+    (ideographic-radical . 66)	; ⽁
+    (ideographic-strokes . 4)
+    (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs@unicode	  . #x6B79)	; &AJ1-05349;
+      (=adobe-japan1-0	  . 05349)	; &AJ1-05349;
+      )
+     ((=ucs		  . #x6535)	; 攵
+      ))
+    (=ucs@iso		. #x2D8E4)	; &U-0002D8E4;
+    ))
+(define-char
   '((<-denotational@component
      ((=>ucs@iwds-1	  . #x2DDC1)	; &A-IWDSU+2DDC1;
       ))
