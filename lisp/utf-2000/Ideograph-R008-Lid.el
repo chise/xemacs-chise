@@ -2219,6 +2219,24 @@
     (ideographic-radical . 8)	; ⼇
     (ideographic-strokes . 5)
     (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x4EA0)	; 亠
+      )
+     ((=>ucs@component	  . #x7530)	; &A-compU+7530;
+      (=>iwds-1		  .  0083)	; &A-compU+7530;
+      ))
+    (=ucs		. #x4EA9)	; 亩
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x4EA9)	; 亩
+      ))
+    (ideographic-radical . 8)	; ⼇
+    (ideographic-strokes . 5)
+    (total-strokes	 . 7)
     (hanyu-dazidian	1 284 2)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -2228,12 +2246,13 @@
       )
      ((=ucs		  . #x7530)	; 田
       ))
-    (=ucs		. #x4EA9)	; 亩
-    (=gb2312		. #x4436)	; &I-G0-4436; [36-22]
+    (=ucs@unicode	. #x4EA9)	; &G0-4436;
+    (=gb2312		. #x4436)	; &G0-4436; [36-22]
     (=big5-cdp		. #x8DCA)	; &I-CDP-8DCA;
     (<-simplified@CN
-     ((=ucs		  . #x755D)	; 畝
-      (=gb12345		  . #x4436)	; 畝 [36-22]
+     ((=ucs@unicode	  . #x755D)	; &AJ1-02634;
+      (=adobe-japan1-0	  . 02634)	; &AJ1-02634;
+      (=gb12345		  . #x4436)	; &AJ1-02634; [36-22]
       ))
     (->subsumptive
      ((==ucs@unicode	  . #x4EA9)	; &g2-CDP-8DCA;
@@ -6371,33 +6390,57 @@
       ))
     (sound@ja/on	"ra")
     (=ucs		. #x20181)	; 𠆁
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x20181)	; 𠆁
+      ))
+    (ideographic-radical . 8)	; ⼇
+    (ideographic-strokes . 13)
+    (total-strokes	 . 15)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs@unicode	  . #x4EA9)	; &G0-4436;
+      (=gb2312		  . #x4436)	; &G0-4436; [36-22]
+      )
+     ((=ucs-itaiji-001	  . #x3F0C)	; &U-i001+3F0C;
+      ))
+    (=ucs@iso		. #x20181)	; &MJ030511;
+    (=mj		. 030511)	; &MJ030511;
+    (=cns11643-5	. #x4B71)	; &I-C5-4B71; [43-81]
+    (=koseki		. 004110)	; &MJ030511;
+    (=gt		. 00441)	; &I-GT-00441;
+    (=gt-pj-2		. #x3268)	; &I-GT-00441; [18-72]
+    (=daikanwa		. 00330)	; &I-M-00330;
+    (<-same
+     ((=mj		  . 022559)	; &MJ022559;
+      (=daikanwa	  . 31658)	; &I-M-31658;
+      ))
+    (<-same$_1*sources
+     pianhai daikanwa)
+    (<-same*sources
+     pianhai daikanwa)
     (->subsumptive
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	(=ucs		    . #x2FF1)	; ⿱
-	)
-       ((=ucs		    . #x4EA9)	; 亩
-	)
-       ((=ucs-itaiji-001    . #x3F0C)	; &U-i001+3F0C;
-	))
-      (=ucs@iso		  . #x20181)	; &C5-4B71;
-      (=cns11643-5	  . #x4B71)	; &C5-4B71; [43-81]
-      (=daikanwa	  . 00330)	; &I-M-00330;
-      (<-same
-       ((=mj		    . 022559)	; &MJ022559;
-	(=daikanwa	    . 31658)	; &I-M-31658;
-	))
-      (<-same$_1*sources
-       pianhai daikanwa)
-      (<-same*sources
-       pianhai daikanwa)
+     ((==koseki		  . 004110)	; &g2-GT-00441;
+      (==gt		  . 00441)	; &g2-GT-00441;
+      (==daikanwa	  . 00330)	; &g2-GT-00441;
       (->subsumptive
-       ((==daikanwa	    . 00330)	; &g2-M-00330;
+       ((===daikanwa	    . 00330)	; &R-M-00330;
 	)
-       ((==ucs@cns	    . #x20181)	; &g2-CU+20181;
-	(==cns11643-5	    . #x4B71)	; &g2-CU+20181; [43-81]
+       ((===gt		    . 00441)	; &R-GT-00441;
+	))
+      )
+     ((==ucs@cns	  . #x20181)	; &g2-CU+20181;
+      (==cns11643-5	  . #x4B71)	; &g2-CU+20181; [43-81]
+      )
+     ((==ucs@iso	  . #x20181)	; &g2-MJ030511;
+      (==mj		  . 030511)	; &g2-MJ030511;
+      (->subsumptive
+       ((===mj		    . 030511)	; &R-MJ030511;
 	)
-       ((==ucs@iso	    . #x20181)	; &g2-IU-00020181;
+       ((===ucs@iso	    . #x20181)	; &R-U-00020181;
 	))
       ))
     ))
@@ -6413,9 +6456,11 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=ucs		  . #x4EA9)	; 亩
+     ((=ucs@unicode	  . #x4EA9)	; &G0-4436;
+      (=gb2312		  . #x4436)	; &G0-4436; [36-22]
       )
-     ((=ucs		  . #x3F0C)	; 㼌
+     ((=ucs@unicode	  . #x3F0C)	; &M-21387;
+      (=daikanwa	  . 21387)	; &M-21387;
       ))
     (=hanziku-1		. #xE255)	; &HZK01-E255;
     ))
