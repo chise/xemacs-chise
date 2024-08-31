@@ -1091,6 +1091,25 @@
      songyuan-yilai-suzipu daikanwa shinjigen@1ed)
     ))
 (define-char
+  '((<-denotational
+     ((=>ucs@cognate	  . #x627F)	; &A-cgnU+627F;
+      ))
+    (ideographic-radical . 6)	; ⼅
+    (ideographic-strokes . 6)
+    (total-strokes	 . 7)
+    (=ucs		. #x20118)	; 𠄘
+    (=big5-cdp		. #x8763)	; &I-CDP-8763;
+    (->subsumptive
+     ((==ucs@iso	  . #x20118)	; &g2-CDP-8763;
+      (==big5-cdp	  . #x8763)	; &g2-CDP-8763;
+      (->subsumptive
+       ((===big5-cdp	    . #x8763)	; &R-CDP-8763;
+	)
+       ((===ucs@iso	    . #x20118)	; &R-U-00020118;
+	))
+      ))
+    ))
+(define-char
   '((<-denotational@usage
      ((==>ucs@bucs	  . #x722D)	; &BUCS+722D;
       ))
