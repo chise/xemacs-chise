@@ -158,6 +158,20 @@
   '((ideographic-radical . 41)	; ⼨
     (ideographic-strokes . 2)
     (total-strokes	 . 5)
+    (ideographic-structure@apparent/rightmost
+     ((name		  . "IDEOGRAPHIC DESCRIPTION CHARACTER OVERLAID")
+      (=ucs		  . #x2FFB)	; ⿻
+      )
+     ((=ucs		  . #x4E00)	; 一
+      )
+     ((=ucs		  . #x38FA)	; 㣺
+      ))
+    (=ucs		. #x3773)	; 㝳
+    ))
+(define-char
+  '((ideographic-radical . 41)	; ⼨
+    (ideographic-strokes . 2)
+    (total-strokes	 . 5)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
       (=ucs		  . #x2FFA)	; ⿺
