@@ -713,7 +713,16 @@
     (ideographic-strokes . 1)
     (total-strokes	 . 5)
     (=ucs		. #x620B)	; 戋
-    (=gb2312		. #x6A27)	; &I-G0-6A27; [74-07]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x620B)	; 戋
+      ))
+    (ideographic-radical . 62)	; ⼽
+    (ideographic-strokes . 1)
+    (total-strokes	 . 5)
+    (=ucs@unicode	. #x620B)	; &G0-6A27;
+    (=gb2312		. #x6A27)	; &G0-6A27; [74-07]
     (=big5-cdp		. #x89DC)	; &I-CDP-89DC;
     (<-simplified@CN
      ((=ucs		  . #x6214)	; 戔
