@@ -448,6 +448,23 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=ucs		  . #x5B83)	; 它
+      ))
+    (ideographic-radical . 40)	; ⼧
+    (ideographic-strokes . 2)
+    (total-strokes	 . 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5B80)	; 宀
+      )
+     ((=ucs		  . #x2090E)	; 𠤎
+      ))
+    (=ucs-var-001	. #x5B83)	; &U-v001+5B83;
+    ))
+(define-char
   '((<-denotational@component
      ((=>ucs@iwds-1	  . #x5B82)	; &A-IWDSU+5B82;
       ))
