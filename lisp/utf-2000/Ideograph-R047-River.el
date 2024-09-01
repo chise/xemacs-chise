@@ -2300,6 +2300,33 @@
      ((=ucs		  . #x5DE2)	; 巢
       ))
     (ideographic-radical . 47)	; ⼮
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x753E)	; 甾
+      )
+     ((=ucs		  . #x6728)	; 木
+      ))
+    (ideographic-structure@apparent
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>ucs@iwds-1	  . #x5DDB)	; &A-IWDSU+5DDB;
+      )
+     ((=ucs		  . #x679C)	; 果
+      ))
+    (=>ucs@unicode	. #x5DE2)	; &A-JX1-7428;
+    (=>cns11643-1	. #x5A25)	; &A-JX1-7428; [58-05]
+    (=>jis-x0213-1	. #x7428)	; &A-JX1-7428; [84-08]
+    (=>mj		. 010769)	; &A-JX1-7428;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@unicode	  . #x5DE2)	; &A-JX1-7428;
+      (=>jis-x0213-1	  . #x7428)	; &A-JX1-7428; [84-08]
+      ))
+    (ideographic-radical . 47)	; ⼮
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
     (ideographic-structure
@@ -2317,7 +2344,7 @@
       )
      ((=ucs		  . #x5DDB)	; 巛
       )
-     ((=ucs		  . #x679C)	; 果
+     ((=ucs@unicode	  . #x679C)	; &AJ1-01356;
       ))
     (=ucs@unicode	. #x5DE2)	; &MJ010769;
     (=mj		. 010769)	; &MJ010769;
@@ -2376,7 +2403,8 @@
     ))
 (define-char
   '((<-denotational
-     ((=ucs		  . #x5DE2)	; 巢
+     ((=>ucs@unicode	  . #x5DE2)	; &A-JX1-7428;
+      (=>jis-x0213-1	  . #x7428)	; &A-JX1-7428; [84-08]
       ))
     (ideographic-radical . 47)	; ⼮
     (ideographic-strokes . 8)
@@ -2394,7 +2422,7 @@
        ((=ucs		    . #x4E37)	; 丷
 	))
       )
-     ((=ucs		  . #x679C)	; 果
+     ((=ucs@unicode	  . #x679C)	; &AJ1-01356;
       ))
     (=mj		. 057404)	; &MJ057404;
     (=hanyo-denshi/jt	. #xB323)	; &I-HD-JT-B323;
