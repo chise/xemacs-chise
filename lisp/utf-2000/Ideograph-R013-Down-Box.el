@@ -269,7 +269,10 @@
     (=big5-cdp-var-004	. #x8BD6)	; &CDP-v004-8BD6;
     ))
 (define-char
-  '((ideographic-radical . 13)	; ⼌
+  '((<-denotational@component
+     ((=>ucs@component	  . #x5DFE)	; &A-compU+5DFE;
+      ))
+    (ideographic-radical . 13)	; ⼌
     (ideographic-strokes . 1)
     (total-strokes	 . 3)
     (ideographic-structure
