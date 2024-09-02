@@ -5381,6 +5381,37 @@
       )
      ((=ucs		  . #x5F13)	; 弓
       )
+     ((=>ucs@iwds-1	  . #x898B)	; &A-IWDSU+898B;
+      ))
+    (=ucs		. #x2BE33)	; 𫸳
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2BE33)	; 𫸳
+      ))
+    (ideographic-radical . 57)	; ⼸
+    (ideographic-strokes . 7)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5F13)	; 弓
+      )
+     ((=ucs		  . #x8C9D)	; 貝
+      ))
+    (=ucs@JP/hanazono	. #x2BE33)	; &hanaJU+2BE33;
+    ))
+(define-char
+  '((ideographic-radical . 57)	; ⼸
+    (ideographic-strokes . 7)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5F13)	; 弓
+      )
      ((=ucs		  . #x301BA)	; 𰆺
       ))
     (=ucs		. #x2BE35)	; 𫸵
