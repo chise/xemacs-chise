@@ -297,7 +297,7 @@
     ))
 (define-char
   '((<-denotational@usage
-     ((==>daijiten	  . 02471)	; &A2-DJT-02471;
+     ((==>ucs@bucs	  . #x5C3A)	; &BUCS+5C3A;
       ))
     (ideographic-radical . 44)	; ⼫
     (ideographic-strokes . 1)
@@ -395,6 +395,28 @@
       ))
     (->subsumptive
      ((==ucs-itaiji-002	  . #x5C3A)	; &g2-U-i002+5C3A;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 44)	; ⼫
+    (ideographic-strokes . 1)
+    (total-strokes	 . 4)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs		  . #x21C23)	; 𡰣
+      )
+     ((=ucs		  . #x200CC)	; 𠃌
+      ))
+    (=gt-k		. 00845)	; &GT-K00845;
+    (=gt-pj-k1		. #x5465)	; &GT-K00845; [52-69]
+    (=ucs-itaiji-001	. #x5C3A)	; &GT-K00845;
+    (->subsumptive
+     ((==ucs-itaiji-001	  . #x5C3A)	; &g2-U-i001+5C3A;
+      )
+     ((==gt-k		  . 00845)	; &g2-GT-K00845;
+      (==gt-pj-k1	  . #x5465)	; &g2-GT-K00845; [52-69]
       ))
     ))
 (define-char
@@ -8948,7 +8970,8 @@
       )
      ((=ucs		  . #x5C38)	; 尸
       )
-     ((=>ucs@cognate	  . #x6C34)	; &A-cgnU+6C34;
+     ((=>ucs@iwds-1	  . #x6C34)	; &A-IWDSU+6C34;
+      (=>iwds-1		  .  32001)	; &A-IWDSU+6C34;
       ))
     (=>ucs@iwds-1	. #x5C3F)	; &A-IWDSU+5C3F;
     (=>iwds-1		.  0060)	; &A-IWDSU+5C3F;
@@ -8982,7 +9005,8 @@
     ))
 (define-char
   '((ideographic-radical . 44)	; ⼫
-    (==>daijiten	. 02471)	; &A2-DJT-02471;
+    (==>ucs@bucs	. #x5C3A)	; &BUCS+5C3A;
+    (==>daijiten	. 02471)	; &BUCS+5C3A;
     ))
 (define-char
   '((ideographic-radical . 44)	; ⼫
