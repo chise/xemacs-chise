@@ -501,6 +501,20 @@
     ))
 (define-char
   '((ideographic-radical . 83)	; ⽒
+    (ideographic-strokes . 4)
+    (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x6C0F)	; 氏
+      )
+     ((=ucs		  . #x6C0F)	; 氏
+      ))
+    (=ucs		. #x2C1CA)	; 𬇊
+    ))
+(define-char
+  '((ideographic-radical . 83)	; ⽒
     (ideographic-strokes . 5)
     (total-strokes	 . 9)
     (=ucs		. #x23C47)	; 𣱇
