@@ -1112,22 +1112,6 @@
     ))
 (define-char
   '((<-denotational
-     ((=>big5-cdp	  . #x89BB)	; &A-CDP-89BB;
-      ))
-    (ideographic-radical . 12)	; ⼋
-    (ideographic-strokes . 2)
-    (total-strokes	 . 4)
-    (ideographic-structure
-     ((=ucs-itaiji-001	  . #x2FFB)	; &U-i001+2FFB;
-      )
-     ((=gt-k		  . 00132)	; &GT-K00132;
-      )
-     ((=ucs		  . #x4E37)	; 丷
-      ))
-    (=big5-cdp-var-003	. #x89BB)	; &CDP-v003-89BB;
-    ))
-(define-char
-  '((<-denotational
      ((=>ucs@component	  . #x4ECB)	; &A-compU+4ECB;
       ))
     (ideographic-radical . 12)	; ⼋
@@ -1212,6 +1196,26 @@
       )
      ((=gt-k		  . 00132)	; &GT-K00132;
       )
+     ((=ucs		  . #x4E37)	; 丷
+      ))
+    (=big5-cdp		. #x85F0)	; &CDP-85F0;
+    (=big5-cdp-var-003	. #x89BB)	; &CDP-85F0;
+    (->subsumptive
+     ((==big5-cdp	  . #x85F0)	; &g2-CDP-85F0;
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>big5-cdp	  . #x89BB)	; &A-CDP-89BB;
+      ))
+    (ideographic-radical . 12)	; ⼋
+    (ideographic-strokes . 2)
+    (total-strokes	 . 4)
+    (ideographic-structure
+     ((=ucs-itaiji-001	  . #x2FFB)	; &U-i001+2FFB;
+      )
+     ((=gt-k		  . 00132)	; &GT-K00132;
+      )
      ((=ucs		  . #x516B)	; 八
       ))
     (ideographic-structure@apparent
@@ -1225,6 +1229,12 @@
      ((=ucs		  . #x4E36)	; 丶
       ))
     (=big5-cdp		. #x89BB)	; &CDP-89BB;
+    (=cbeta		. 08311)	; &I-CB08311;
+    (->subsumptive
+     ((==big5-cdp	  . #x89BB)	; &g2-CDP-89BB;
+      )
+     ((==cbeta		  . 08311)	; &g2-CB08311;
+      ))
     ))
 (define-char
   '((ideographic-radical . 12)	; ⼋
@@ -2500,6 +2510,21 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 6)
     (=big5-cdp-itaiji-003 . #x8CDE)	; &CDP-i003-8CDE;
+    ))
+(define-char
+  '((ideographic-radical . 12)	; ⼋
+    (ideographic-strokes . 4)
+    (total-strokes	 . 6)
+    (=>big5-cdp-itaiji-004 . #x8CDE)	; &A-CDP-i004-8CDE;
+    ))
+(define-char
+  '((<-denotational
+     ((=>big5-cdp-itaiji-004 . #x8CDE)	; &A-CDP-i004-8CDE;
+      ))
+    (ideographic-radical . 12)	; ⼋
+    (ideographic-strokes . 4)
+    (total-strokes	 . 6)
+    (=big5-cdp-itaiji-004 . #x8CDE)	; &CDP-i004-8CDE;
     ))
 (define-char
   '((<-denotational@component
