@@ -2051,6 +2051,39 @@
     (=hanziku-12	. #xECC8)	; &HZK12-ECC8;
     ))
 (define-char
+  '((ideographic-radical . 36)	; ⼣
+    (ideographic-strokes . 7)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5915)	; 夕
+      )
+     ((=ucs		  . #x22073)	; 𢁳
+      ))
+    (=>ucs-itaiji-001	. #x38C7)	; &A-U-i001+38C7;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs-itaiji-001	  . #x38C7)	; &A-U-i001+38C7;
+      ))
+    (ideographic-radical . 36)	; ⼣
+    (ideographic-strokes . 7)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5915)	; 夕
+      )
+     ((=ucs@iso		  . #x22073)	; &C6-2739;
+      (=cns11643-6	  . #x2739)	; &C6-2739; [07-25]
+      (=daikanwa	  . 08833)	; &I-M-08833;
+      ))
+    (=ucs-itaiji-001	. #x38C7)	; &U-i001+38C7;
+    ))
+(define-char
   '((=>ucs		. #x2159D)	; 𡖝
     (ideographic-radical . 36)	; ⼣
     (ideographic-strokes . 8)
@@ -3771,6 +3804,37 @@
      ((=ucs-var-001	  . #x215C9)	; &U-v001+215C9;
       ))
     (=ucs@JP/hanazono	. #x3162B)	; &hanaJU+3162B;
+    ))
+(define-char
+  '((ideographic-radical . 36)	; ⼣
+    (ideographic-strokes . 17)
+    (total-strokes	 . 20)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=>ucs-itaiji-001	  . #x38C7)	; &A-U-i001+38C7;
+      )
+     ((=>ucs-itaiji-001	  . #x38C7)	; &A-U-i001+38C7;
+      ))
+    (=>ucs-itaiji-002	. #x38C8)	; &A-U-i002+38C8;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs-itaiji-002	  . #x38C8)	; &A-U-i002+38C8;
+      ))
+    (ideographic-radical . 36)	; ⼣
+    (ideographic-strokes . 17)
+    (total-strokes	 . 20)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs-itaiji-001	  . #x38C7)	; &U-i001+38C7;
+      )
+     ((=ucs-itaiji-001	  . #x38C7)	; &U-i001+38C7;
+      ))
+    (=ucs-itaiji-002	. #x38C8)	; &U-i002+38C8;
     ))
 (define-char
   '((ideographic-radical . 36)	; ⼣

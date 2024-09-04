@@ -3,6 +3,18 @@
   '((ideographic-radical . 50)	; ⼱
     (ideographic-strokes . 0)
     (total-strokes	 . 3)
+    (=>ucs@component	. #x5DFE)	; &A-compU+5DFE;
+    ))
+(define-char
+  '((<-denotational@component
+     ((=>ucs@component	  . #x5DFE)	; &A-compU+5DFE;
+      ))
+    (<-denotational@usage
+     ((==>ucs@bucs	  . #x5DFE)	; &BUCS+5DFE;
+      ))
+    (ideographic-radical . 50)	; ⼱
+    (ideographic-strokes . 0)
+    (total-strokes	 . 3)
     (=ucs		. #x5DFE)	; 巾
     (=adobe-japan1-0	. 01738)	; &I-AJ1-01738;
     (=jis-x0208		. #x3652)	; &I-J90-3652; [22-50]
@@ -15,6 +27,7 @@
     (=gt-k		. 00166)	; &I-GT-K00166;
     (=gt-pj-1		. #x3652)	; &I-GT-11060; [22-50]
     (=daikanwa		. 08771)	; &I-M-08771;
+    (=daijiten		. 02796)	; &I-DJT-02796;
     (=shinjigen		.  2078)	; 巾
     (->subsumptive
      ((==ucs@unicode	  . #x5DFE)	; &g2-AJ1-01738;
@@ -27,9 +40,12 @@
       (==gt		  . 11060)	; &g2-AJ1-01738;
       (==gt-k		  . 00166)	; &g2-AJ1-01738;
       (==daikanwa	  . 08771)	; &g2-AJ1-01738;
+      (==daijiten	  . 02796)	; &g2-AJ1-01738;
       (==shinjigen	  .  2078)	; &g2-AJ1-01738;
       (->subsumptive
        ((===daikanwa	    . 08771)	; &R-M-08771;
+	)
+       ((===daijiten	    . 02796)	; &R-DJT-02796;
 	)
        ((===jis-x0208	    . #x3652)	; &R-J0-3652; [22-50]
 	(===jis-x0213-1	    . #x3652)	; &R-J0-3652; [22-50]
@@ -2160,9 +2176,47 @@
   '((ideographic-radical . 50)	; ⼱
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x6B79)	; 歹
+      )
+     ((=ucs		  . #x5DFE)	; 巾
+      ))
     (=ucs		. #x22073)	; 𢁳
-    (=cns11643-6	. #x2739)	; &I-C6-2739; [07-25]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x22073)	; 𢁳
+      ))
+    (ideographic-radical . 50)	; ⼱
+    (ideographic-strokes . 4)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs@unicode	  . #x6B79)	; &AJ1-05349;
+      (=adobe-japan1-0	  . 05349)	; &AJ1-05349;
+      )
+     ((=ucs		  . #x5DFE)	; 巾
+      ))
+    (=ucs@iso		. #x22073)	; &C6-2739;
+    (=cns11643-6	. #x2739)	; &C6-2739; [07-25]
     (=daikanwa		. 08833)	; &I-M-08833;
+    (->subsumptive
+     ((==ucs@iso	  . #x22073)	; &g2-M-08833;
+      (==cns11643-6	  . #x2739)	; &g2-M-08833; [07-25]
+      (==daikanwa	  . 08833)	; &g2-M-08833;
+      (->subsumptive
+       ((===daikanwa	    . 08833)	; &R-M-08833;
+	)
+       ((===cns11643-6	    . #x2739)	; &R-C6-2739; [07-25]
+	)
+       ((===ucs@iso	    . #x22073)	; &R-U-00022073;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 50)	; ⼱
@@ -13830,6 +13884,37 @@
     ))
 (define-char
   '((ideographic-radical . 50)	; ⼱
+    (ideographic-strokes . 12)
+    (total-strokes	 . 15)
+    (ideographic-structure
+     ((name		  . "IDEOGRAPHIC DESCRIPTION CHARACTER OVERLAID")
+      (=ucs		  . #x2FFB)	; ⿻
+      )
+     ((=>ucs@component	  . #x5DFE)	; &A-compU+5DFE;
+      )
+     ((=ucs		  . #x2C5CC)	; 𬗌
+      ))
+    (=>big5-cdp		. #x8DDC)	; &A-CDP-8DDC;
+    ))
+(define-char
+  '((<-denotational
+     ((=>big5-cdp	  . #x8DDC)	; &A-CDP-8DDC;
+      ))
+    (ideographic-radical . 50)	; ⼱
+    (ideographic-strokes . 12)
+    (total-strokes	 . 15)
+    (ideographic-structure
+     ((name		  . "IDEOGRAPHIC DESCRIPTION CHARACTER OVERLAID")
+      (=ucs		  . #x2FFB)	; ⿻
+      )
+     ((=big5-cdp	  . #x8A44)	; &CDP-8A44;
+      )
+     ((=ucs		  . #x2C5CC)	; 𬗌
+      ))
+    (=big5-cdp		. #x8DDC)	; &CDP-8DDC;
+    ))
+(define-char
+  '((ideographic-radical . 50)	; ⼱
     (ideographic-strokes . 13)
     (total-strokes	 . 16)
     (=ucs		. #x2214D)	; 𢅍
@@ -16738,6 +16823,11 @@
       (=>iwds-1		  .  0337)	; &A-IWDSU+5EC9;
       ))
     (=>ucs@iwds-1	. #x2214F)	; &A-IWDSU+2214F;
+    ))
+(define-char
+  '((ideographic-radical . 50)	; ⼱
+    (==>ucs@bucs	. #x5DFE)	; &BUCS+5DFE;
+    (==>daijiten	. 02796)	; &BUCS+5DFE;
     ))
 (define-char
   '((<-denotational@usage

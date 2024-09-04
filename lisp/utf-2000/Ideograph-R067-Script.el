@@ -814,11 +814,48 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 67)	; ⽂
+  '((<-denotational@usage
+     ((==>ucs@bucs	  . #x9F4B)	; &BUCS+9F4B;
+      ))
+    (ideographic-radical . 67)	; ⽂
     (ideographic-strokes . 7)
     (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
+      (=ucs		  . #x2FF5)	; ⿵
+      )
+     ((=ucs		  . #x9F50)	; 齐
+      )
+     ((=ucs		  . #x793A)	; 示
+      ))
+    (ideographic-structure@apparent/leftmost
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
+      (=ucs		  . #x2FF5)	; ⿵
+      )
+     ((=ucs		  . #x6589)	; 斉
+      )
+     ((=ucs		  . #x5C0F)	; 小
+      ))
     (=ucs		. #x658E)	; 斎
-    (=adobe-japan1-0	. 02120)	; &I-AJ1-02120;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x658E)	; 斎
+      ))
+    (ideographic-radical . 67)	; ⽂
+    (ideographic-strokes . 7)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
+      (=ucs		  . #x2FF5)	; ⿵
+      )
+     ((name		  . "CJK RADICAL C-SIMPLIFIED EVEN")
+      (=ucs		  . #x2EEC)	; ⻬
+      )
+     ((=ucs		  . #x793A)	; 示
+      ))
+    (=ucs@unicode	. #x658E)	; &AJ1-02120;
+    (=adobe-japan1-0	. 02120)	; &AJ1-02120;
     (=jis-x0208		. #x3A58)	; &I-J90-3A58; [26-56]
     (=cns11643-3	. #x3639)	; &I-C3-3639; [22-25]
     (=jis-x0213-1	. #x3A58)	; &I-JX1-3A58; [26-56]
@@ -826,7 +863,7 @@
     (=gt-k		. 07766)	; &I-GT-K07766;
     (=gt-pj-1		. #x3A58)	; &I-GT-17026; [26-56]
     (=daikanwa		. 13467)	; &I-M-13467;
-    (=shinjigen		.  5545)	; 斎
+    (=shinjigen		.  5545)	; &AJ1-02120;
     (<-simplified@JP/Jouyou
      ((=ucs@unicode	  . #x9F4B)	; &AJ1-05898;
       (=adobe-japan1-0	  . 05898)	; &AJ1-05898;
