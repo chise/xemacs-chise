@@ -24053,7 +24053,7 @@
       (=adobe-japan1-0	  . 03209)	; &AJ1-03209;
       ))
     (=ucs@iso		. #x20039)	; &M-03621;
-    (=daikanwa		. 03621)	; &I-M-03621;
+    (=daikanwa		. 03621)	; &M-03621;
     (->subsumptive
      ((==ucs@iso	  . #x20039)	; &g2-M-03621;
       (==daikanwa	  . 03621)	; &g2-M-03621;
@@ -25686,6 +25686,25 @@
      ((=ucs		  . #x53E3)	; 口
       ))
     (=ucs@JP/hanazono	. #x2D1E5)	; &hanaJU+2D1E5;
+    ))
+(define-char
+  '((<-denotational
+     ((=+>ucs@jis	  . #x2D1E5)	; &o-JU+2D1E5;
+      ))
+    (ideographic-radical . 30)	; ⼝
+    (ideographic-strokes . 6)
+    (total-strokes	 . 9)
+    (ideographic-structure@apparent
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
+      (=ucs		  . #x2FF3)	; ⿳
+      )
+     ((=ucs		  . #x201A2)	; 𠆢
+      )
+     ((=ucs-var-002	  . #x722B)	; &U-v002+722B;
+      )
+     ((=ucs		  . #x53E3)	; 口
+      ))
+    (=ucs-var-001	. #x2D1E5)	; &U-v001+2D1E5;
     ))
 (define-char
   '((ideographic-radical . 30)	; ⼝
@@ -32201,6 +32220,36 @@
       )
      ((=ucs		  . #x53E3)	; 口
       )
+     ((=ucs		  . #x82A5)	; 芥
+      ))
+    (=ucs		. #x20D8B)	; 𠶋
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x20D8B)	; 𠶋
+      ))
+    (ideographic-radical . 30)	; ⼝
+    (ideographic-strokes . 7)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x53E3)	; 口
+      )
+     ((=ucs@unicode	  . #x82A5)	; &MJ021559;
+      (=mj		  . 021559)	; &MJ021559;
+      ))
+    (=ucs@iso		. #x20D8B)	; &U-00020D8B;
+    ))
+(define-char
+  '((ideographic-radical . 30)	; ⼝
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x53E3)	; 口
+      )
      ((=ucs		  . #x82A3)	; 芣
       ))
     (=ucs		. #x20D99)	; 𠶙
@@ -32712,7 +32761,7 @@
 	)
        ((=ucs		    . #x4E00)	; 一
 	)
-       ((=big5-cdp-var-003  . #x89BB)	; &CDP-v003-89BB;
+       ((=big5-cdp	    . #x85F0)	; &CDP-85F0;
 	))
       )
      ((=ucs		  . #x53EF)	; 可

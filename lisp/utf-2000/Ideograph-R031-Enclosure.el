@@ -5241,6 +5241,20 @@
     (=ucs@JP/hanazono	. #x2EC18)	; &hanaJU+2EC18;
     ))
 (define-char
+  '((ideographic-radical . 31)	; ⼞
+    (ideographic-strokes . 6)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
+      (=ucs		  . #x2FF4)	; ⿴
+      )
+     ((=ucs		  . #x56D7)	; 囗
+      )
+     ((=ucs		  . #x866B)	; 虫
+      ))
+    (=ucs		. #x3157A)	; 𱕺
+    ))
+(define-char
   '((<-denotational
      ((=>ucs@cognate	  . #x2055A)	; &A-cgnU+2055A;
       ))
