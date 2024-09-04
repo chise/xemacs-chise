@@ -2982,7 +2982,11 @@
     (=ucs-itaiji-006	. #x5C1E)	; &U-i006+5C1E;
     ))
 (define-char
-  '((<-denotational@usage
+  '((<-denotational
+     ((=>ucs@iwds-1	  . #x5C1E)	; &A-IWDSU+5C1E;
+      (=>iwds-1		  .  0415)	; &A-IWDSU+5C1E;
+      ))
+    (<-denotational@usage
      ((==>daijiten	  . 02452)	; &A2-DJT-02452;
       ))
     (ideographic-radical . 42)	; ⼩
