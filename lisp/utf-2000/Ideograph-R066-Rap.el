@@ -17750,8 +17750,8 @@
       ))
     (=daikanwa		. 13448)	; &M-13448;
     (<-wrong
-     ((=cns11643-5	. #x776C)	; &C5-776C; [87-76]
-      (=daikanwa	  . 22939)	; &C5-776C;
+     ((=cns11643-5	  . #x776C)	; &C5-776C; [87-76]
+      (=daikanwa	  . 22939)	; &I-M-22939;
       ))
     (<-wrong*sources
      zhonghua-dazidian daikanwa)
