@@ -7577,6 +7577,38 @@
     (=ucs@JP/hanazono	. #x2D56E)	; &hanaJU+2D56E;
     ))
 (define-char
+  '((ideographic-radical . 44)	; ⼫
+    (ideographic-strokes . 11)
+    (total-strokes	 . 14)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=>ucs@iwds-1	  . #x5C3F)	; &A-IWDSU+5C3F;
+      (=>iwds-1		  .  0060)	; &A-IWDSU+5C3F;
+      )
+     ((=ucs		  . #x821B)	; 舛
+      ))
+    (=>ucs-itaiji-001	. #x2BD60)	; &A-U-i001+2BD60;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs-itaiji-001	  . #x2BD60)	; &A-U-i001+2BD60;
+      ))
+    (ideographic-radical . 44)	; ⼫
+    (ideographic-strokes . 11)
+    (total-strokes	 . 14)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=gt-k		  . 04055)	; &GT-K04055;
+      )
+     ((=ucs		  . #x821B)	; 舛
+      ))
+    (=ucs-itaiji-001	. #x2BD60)	; &U-i001+2BD60;
+    ))
+(define-char
   '((<-denotational@usage
      ((==>ucs@bucs	  . #x5C64)	; &BUCS+5C64;
       ))
