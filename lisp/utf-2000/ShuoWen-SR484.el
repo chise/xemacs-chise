@@ -159,7 +159,14 @@
   '((shuowen-radical	. 484)	; 田
     (=shuowen-jiguge	. 47714)	; &SW-JIGUGE-47714;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x755E)	; 畞
+      )
      ((=ucs		  . #x755D)	; 畝
+      ))
+    (<-formed@shuowen
+     ((=shuowen-jiguge	  . 47713)	; &SW-JIGUGE-47713;
+      )
+     ((=ucs		  . #x756E)	; 畮
       ))
     (->subsumptive
      ((===shuowen-jiguge-A30 . 48614)	; &SW-JIGUGE30-48614;
