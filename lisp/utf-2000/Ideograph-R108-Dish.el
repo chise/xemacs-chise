@@ -1825,6 +1825,7 @@
     (=daikanwa		. 22979)	; &I-M-22979;
     (=daijiten		. 07761)	; &I-DJT-07761;
     (=shinjigen		.  5247)	; &AJ1-14871;
+    (=cbeta		. 01405)	; &I-CB01405;
     (=jef-china3	. #x9BED)	; &I-JC3-9BED;
     (<-same
      ((=ucs@unicode	  . #x6900)	; &AJ1-04086;
@@ -1865,6 +1866,7 @@
       (==daikanwa	  . 22979)	; &g2-AJ1-14871;
       (==daijiten	  . 07761)	; &g2-AJ1-14871;
       (==shinjigen	  .  5247)	; &g2-AJ1-14871;
+      (==cbeta		  . 01405)	; &g2-AJ1-14871;
       (==jef-china3	  . #x9BED)	; &g2-AJ1-14871;
       (->subsumptive
        ((===daikanwa	    . 22979)	; &R-M-22979;
@@ -1881,6 +1883,8 @@
        ((===ucs@unicode	    . #x76CC)	; &R-UU+76CC;
 	)
        ((===jef-china3	    . #x9BED)	; &R-JC3-9BED;
+	)
+       ((===cbeta	    . 01405)	; &R-CB01405;
 	))
       ))
     ))
@@ -2252,6 +2256,51 @@
        ((===ucs@unicode	    . #x76D1)	; &R-UU+76D1;
 	))
       ))
+    ))
+(define-char
+  '((ideographic-radical . 108)	; ⽫
+    (ideographic-strokes . 5)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5B83)	; 它
+      )
+     ((=ucs		  . #x76BF)	; 皿
+      ))
+    (=ucs		. #x25057)	; 𥁗
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x25057)	; 𥁗
+      ))
+    (ideographic-radical . 108)	; ⽫
+    (ideographic-strokes . 5)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs-var-001	  . #x5B83)	; &U-v001+5B83;
+      )
+     ((=ucs		  . #x76BF)	; 皿
+      ))
+    (=ucs@iso		. #x25057)	; &U-00025057;
+    ))
+(define-char
+  '((ideographic-radical . 108)	; ⽫
+    (ideographic-strokes . 5)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x2298D)	; 𢦍
+      )
+     ((=ucs		  . #x76BF)	; 皿
+      ))
+    (=ucs		. #x25058)	; 𥁘
     ))
 (define-char
   '((ideographic-radical . 108)	; ⽫
