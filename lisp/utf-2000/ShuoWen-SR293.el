@@ -3,6 +3,8 @@
   '((shuowen-radical	. 293)	; 丘
     (=shuowen-jiguge	. 27601)	; &SW-JIGUGE-27601;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x4E20)	; 丠
+      )
      ((=ucs		  . #x4E18)	; 丘
       ))
     (->subsumptive
@@ -17,7 +19,16 @@
   '((shuowen-radical	. 293)	; 丘
     (=shuowen-jiguge	. 27602)	; &SW-JIGUGE-27602;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x24918)	; 𤤘
+      )
+     ((=ucs		  . #x212A3)	; 𡊣
+      )
      ((=ucs		  . #x3633)	; 㘳
+      ))
+    (<-ancient@shuowen
+     ((=shuowen-jiguge	  . 27601)	; &SW-JIGUGE-27601;
+      )
+     ((=ucs		  . #x4E18)	; 丘
       ))
     (->subsumptive
      ((===shuowen-jiguge-A30 . 28102)	; &SW-JIGUGE30-28102;

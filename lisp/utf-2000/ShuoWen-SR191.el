@@ -20,6 +20,13 @@
      ((=ucs		  . #x20160)	; 𠅠
       )
      ((=ucs		  . #x20156)	; 𠅖
+      )
+     ((=ucs		  . #x4EAB)	; 享
+      ))
+    (<-Zhuanwen@shuowen
+     ((=shuowen-jiguge	  . 17600)	; &SW-JIGUGE-17600;
+      )
+     ((=ucs		  . #x4EAF)	; 亯
       ))
     (->subsumptive
      ((===shuowen-jiguge-A30 . 18101)	; &SW-JIGUGE30-18101;
