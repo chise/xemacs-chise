@@ -233,7 +233,8 @@
     (->formed*sources
      daikanwa)
     (->interchangeable
-     ((=daikanwa	  . 26243)	; &M-26243;
+     ((=mj		  . 019577)	; &MJ019577;
+      (=daikanwa	  . 26243)	; &I-M-26243;
       )
      ((=ucs@unicode	  . #x537D)	; &AJ1-13365;
       (=adobe-japan1-4	  . 13365)	; &AJ1-13365;
