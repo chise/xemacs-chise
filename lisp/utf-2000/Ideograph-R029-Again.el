@@ -7150,6 +7150,14 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
+     ((=big5-cdp-itaiji-001 . #x8CBF)	; &CDP-i001-8CBF;
+      )
+     ((=ucs		  . #x53C8)	; 又
+      ))
+    (ideographic-structure@apparent/rightmost
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
      ((=ucs		  . #x66F0)	; 曰
       )
      ((=gt-k		  . 03405)	; &GT-K03405;
