@@ -2936,7 +2936,7 @@
     (=big5		. #xCAC6)	; &I-B-CAC6;
     (=daikanwa		. 07925)	; &I-M-07925;
     (<-formed
-     ((=daikanwa	  . 26243)	; &M-26243;
+     ((=mj		  . 019577)	; &MJ019577;
       )
      ((=ucs@unicode	  . #x5DC0)	; &C2-6150;
       (=cns11643-2	  . #x6150)	; &C2-6150; [65-48]
@@ -2945,7 +2945,8 @@
     (<-formed$_1*sources
      jiyun)
     (<-same
-     ((=daikanwa	  . 26243)	; &M-26243;
+     ((=mj		  . 019577)	; &MJ019577;
+      (=daikanwa	  . 26243)	; &I-M-26243;
       ))
     (<-same$_1*sources
      jiyun daikanwa)
@@ -20075,6 +20076,38 @@
     ))
 (define-char
   '((ideographic-radical . 46)	; ⼭
+    (ideographic-strokes . 10)
+    (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5D07)	; 崇
+      )
+     ((=ucs		  . #x53C8)	; 又
+      ))
+    (=>cbeta		. 10832)	; &A-CB10832;
+    ))
+(define-char
+  '((<-denotational
+     ((=>cbeta		  . 10832)	; &A-CB10832;
+      ))
+    (ideographic-radical . 46)	; ⼭
+    (ideographic-strokes . 10)
+    (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs@unicode	  . #x5D07)	; &AJ1-02616;
+      (=adobe-japan1-0	  . 02616)	; &AJ1-02616;
+      )
+     ((=ucs		  . #x53C8)	; 又
+      ))
+    (=cbeta		. 10832)	; &CB10832;
+    ))
+(define-char
+  '((ideographic-radical . 46)	; ⼭
     (ideographic-strokes . 11)
     (total-strokes	 . 14)
     (=ucs		. #x21EB1)	; 𡺱
@@ -27552,7 +27585,7 @@
     (=big5		. #xEFC4)	; &I-B-EFC4;
     (=daikanwa		. 08581)	; &I-M-08581;
     (<-formed
-     ((=daikanwa	  . 26243)	; &M-26243;
+     ((=mj		  . 019577)	; &MJ019577;
       ))
     (<-formed$_1*sources
      jiyun)
@@ -27570,7 +27603,8 @@
     (<-interchangeable*sources
      zhengzitong daikanwa)
     (<-same
-     ((=daikanwa	  . 26243)	; &M-26243;
+     ((=mj		  . 019577)	; &MJ019577;
+      (=daikanwa	  . 26243)	; &I-M-26243;
       ))
     (<-same$_1*sources
      jiyun daikanwa)
@@ -27588,7 +27622,7 @@
     (->formed*sources
      zengyun zhengzitong)
     (->interchangeable
-     ((=daikanwa	  . 26243)	; &M-26243;
+     ((=mj		  . 019577)	; &MJ019577;
       ))
     (->interchangeable$_1*sources
      zhengzitong)
