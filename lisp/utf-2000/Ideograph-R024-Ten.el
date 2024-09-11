@@ -3356,6 +3356,15 @@
     (=>big5-cdp		. #x866F)	; &A-CDP-866F;
     ))
 (define-char
+  '((<-denotational
+     ((=>big5-cdp	  . #x866F)	; &A-CDP-866F;
+      ))
+    (ideographic-radical . 24)	; ⼗
+    (ideographic-strokes . 5)
+    (total-strokes	 . 9)
+    (=big5-cdp-itaiji-002 . #x866F)	; &CDP-i002-866F;
+    ))
+(define-char
   '((ideographic-radical . 24)	; ⼗
     (ideographic-strokes . 5)
     (total-strokes	 . 7)
