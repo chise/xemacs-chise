@@ -148,6 +148,7 @@
     (->vulgar
      ((=ucs@unicode	  . #x822B)	; &AJ1-06305;
       (=adobe-japan1-0	  . 06305)	; &AJ1-06305;
+      (=daijiten	  . 09664)	; &I-DJT-09664;
       )
      ((=ucs		  . #x2D927)	; 𭤧
       (=daijiten	  . 04386)	; &I-DJT-04386;

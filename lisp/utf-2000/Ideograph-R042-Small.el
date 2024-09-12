@@ -292,7 +292,8 @@
     (=koseki		. 085020)	; &MJ010285;
     (=daikanwa		. 07474)	; &I-M-07474;
     (<-interchangeable
-     ((=daikanwa	  . 26243)	; &M-26243;
+     ((=mj		  . 019577)	; &MJ019577;
+      (=daikanwa	  . 26243)	; &I-M-26243;
       ))
     (<-interchangeable$_1*sources
      liushubenyi zhengzitong daikanwa)
@@ -1438,6 +1439,23 @@
       (=mj		  . 007989)	; &MJ007989;
       ))
     (=ucs@JP/hanazono	. #x2D545)	; &hanaJU+2D545;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x3036A)	; 𰍪
+      ))
+    (ideographic-radical . 42)	; ⼩
+    (ideographic-strokes . 3)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=mj		  . 014824)	; &MJ014824;
+      )
+     ((=ucs		  . #x5C0F)	; 小
+      ))
+    (=cbeta		. 08222)	; &CB08222;
     ))
 (define-char
   '((ideographic-radical . 42)	; ⼩
