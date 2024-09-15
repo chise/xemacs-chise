@@ -4327,6 +4327,15 @@
     (ideographic-radical . 1)	; ⼀
     (ideographic-strokes . 4)
     (total-strokes	 . 5)
+    (=ucs-itaiji-002	. #x4E19)	; &U-i002+4E19;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x4E19)	; 丙
+      ))
+    (ideographic-radical . 1)	; ⼀
+    (ideographic-strokes . 4)
+    (total-strokes	 . 5)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
