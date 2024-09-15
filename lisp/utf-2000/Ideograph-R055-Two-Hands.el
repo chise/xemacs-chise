@@ -3008,6 +3008,11 @@
       ))
     (sound@ja/on	"eN")
     (=ucs		. #x22354)	; 𢍔
+    (<-ancient
+     ((=ucs		  . #x5F07)	; 弇
+      ))
+    (<-ancient$_1*sources
+     shuowen)
     ))
 (define-char
   '((<-denotational
