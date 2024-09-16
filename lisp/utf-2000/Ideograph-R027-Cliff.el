@@ -5169,7 +5169,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
       (=ucs		  . #x2FF8)	; ⿸
       )
-     ((=ucs		  . #x5382)	; 厂
+     ((=>ucs@component	  . #x5382)	; &A-compU+5382;
       )
      ((=ucs		  . #x6241)	; 扁
       ))
@@ -5207,6 +5207,26 @@
        ((===mj		    . 031906)	; &R-MJ031906;
 	))
       ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x20A82)	; 𠪂
+      ))
+    (ideographic-radical . 27)	; ⼚
+    (ideographic-strokes . 9)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs		  . #x20086)	; 𠂆
+      )
+     ((=ucs@cns		  . #x6241)	; &MJ012121;
+      (=ucs@jis/2004	  . #x6241)	; &MJ012121;
+      (=ucs@ks		  . #x6241)	; &MJ012121;
+      (=mj		  . 012121)	; &MJ012121;
+      ))
+    (=ucs-var-001	. #x20A82)	; &U-v001+20A82;
     ))
 (define-char
   '((<-denotational
@@ -6770,19 +6790,39 @@
       ))
     ))
 (define-char
-  '((=>ucs		. #x20A95)	; 𠪕
-    (ideographic-radical . 27)	; ⼚
-    (ideographic-strokes . 11)
-    (total-strokes	 . 13)
-    (=daikanwa		. 03017)	; &M-03017;
-    ))
-(define-char
-  '((morohashi-daikanwa	3017 0 1)
+  '((<-denotational@usage
+     ((==>ucs@bucs	  . #x9E97)	; &BUCS+9E97;
+      ))
     (ideographic-radical . 27)	; ⼚
     (ideographic-strokes . 11)
     (total-strokes	 . 13)
     (=ucs		. #x20A95)	; 𠪕
-    (=cns11643-6	. #x507E)	; &I-C6-507E; [48-94]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x20A95)	; 𠪕
+      ))
+    (ideographic-radical . 27)	; ⼚
+    (ideographic-strokes . 11)
+    (total-strokes	 . 13)
+    (=ucs@iso		. #x20A95)	; &C6-507E;
+    (=cns11643-6	. #x507E)	; &C6-507E; [48-94]
+    (=daikanwa		. 03017)	; &I-M-03017;
+    (=daijiten		. 01087)	; &I-DJT-01087;
+    (->subsumptive
+     ((==daikanwa	  . 03017)	; &g2-M-03017;
+      )
+     ((==ucs@iso	  . #x20A95)	; &g2-DJT-01087;
+      (==cns11643-6	  . #x507E)	; &g2-DJT-01087; [48-94]
+      (==daijiten	  . 01087)	; &g2-DJT-01087;
+      (->subsumptive
+       ((===daijiten	    . 01087)	; &R-DJT-01087;
+	)
+       ((===cns11643-6	    . #x507E)	; &R-C6-507E; [48-94]
+	)
+       ((===ucs@iso	    . #x20A95)	; &R-U-00020A95;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 27)	; ⼚
