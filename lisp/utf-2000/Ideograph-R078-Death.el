@@ -6467,7 +6467,10 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 78)	; ⽍
+  '((<-denotational@usage
+     ((==>daijiten	  . 05750)	; &A2-DJT-05750;
+      ))
+    (ideographic-radical . 78)	; ⽍
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -6502,14 +6505,18 @@
     (=jis-x0212		. #x4626)	; &JSP-4626; [38-06]
     (=cns11643-2	. #x4B2F)	; &I-C2-4B2F; [43-15]
     (=daikanwa		. 16536)	; &I-M-16536;
+    (=daijiten		. 05750)	; &I-DJT-05750;
     (->subsumptive
      ((==ucs@cns	  . #x6B9F)	; &g2-JSP-4626;
       (==ucs@jis	  . #x6B9F)	; &g2-JSP-4626;
       (==jis-x0212	  . #x4626)	; &g2-JSP-4626; [38-06]
       (==cns11643-2	  . #x4B2F)	; &g2-JSP-4626; [43-15]
       (==daikanwa	  . 16536)	; &g2-JSP-4626;
+      (==daijiten	  . 05750)	; &g2-JSP-4626;
       (->subsumptive
        ((===daikanwa	    . 16536)	; &R-M-16536;
+	)
+       ((===daijiten	    . 05750)	; &R-DJT-05750;
 	)
        ((===jis-x0212	    . #x4626)	; &R-JSP-4626; [38-06]
 	)
@@ -6532,7 +6539,8 @@
      ((=ucs@unicode	  . #x6B79)	; &AJ1-05349;
       (=adobe-japan1-0	  . 05349)	; &AJ1-05349;
       )
-     ((=ucs		  . #x6637)	; 昷
+     ((=ucs@unicode	  . #x6637)	; &AJ1-21708;
+      (=adobe-japan1-6	  . 21708)	; &AJ1-21708;
       ))
     (=ucs		. #x2F8F4)	; 殟
     (=ucs@unicode	. #x6B9F)	; 殟
@@ -9415,6 +9423,10 @@
   '((ideographic-radical . 78)	; ⽍
     (==>ucs@bucs	. #x6B8D)	; &BUCS+6B8D;
     (==>daijiten	. 05721)	; &BUCS+6B8D;
+    ))
+(define-char
+  '((ideographic-radical . 78)	; ⽍
+    (==>daijiten	. 05750)	; &A2-DJT-05750;
     ))
 (define-char
   '((ideographic-radical . 78)	; ⽍
