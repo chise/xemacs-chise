@@ -1944,7 +1944,7 @@
       (=>ucs@iwds-1/normalized . #x5195)	; &A-IWDSU+5195;
       ))
     (<-denotational@usage
-     ((==>daijiten	  . 00639)	; &A2-DJT-00639;
+     ((==>ucs@bucs	  . #x5195)	; &BUCS+5195;
       ))
     (ideographic-radical@ucs . 13)	; ⼌
     (ideographic-strokes@ucs . 9)

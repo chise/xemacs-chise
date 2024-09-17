@@ -5585,7 +5585,7 @@
       (=>ucs@iwds-1/normalized . #x5195)	; &A-IWDSU+5195;
       ))
     (<-denotational@usage
-     ((==>daijiten	  . 00639)	; &A2-DJT-00639;
+     ((==>ucs@bucs	  . #x5195)	; &BUCS+5195;
       ))
     (ideographic-radical@ucs . 13)	; ⼌
     (ideographic-strokes@ucs . 9)
@@ -5764,16 +5764,6 @@
        ((=ucs		    . #x5195)	; 冕
 	)
        ((=ucs		    . #xE0102)	; 󠄂
-	))
-      (ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	(=ucs		    . #x2FF1)	; ⿱
-	)
-       ((name		    . "CJK RADICAL SUN")
-	(=ucs		    . #x2E9C)	; ⺜
-	)
-       ((==ucs@jis	    . #x514D)	; &g2-MJ007230;
-	(==mj		    . 007230)	; &g2-MJ007230;
 	))
       (==adobe-japan1-4	  . 14104)	; &g2-AJ1-14104;
       ))
@@ -7196,7 +7186,8 @@
     ))
 (define-char
   '((ideographic-radical . 13)	; ⼌
-    (==>daijiten	. 00639)	; &A2-DJT-00639;
+    (==>ucs@bucs	. #x5195)	; &BUCS+5195;
+    (==>daijiten	. 00639)	; &BUCS+5195;
     ))
 (define-char
   '((ideographic-radical . 13)	; ⼌
