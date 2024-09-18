@@ -959,6 +959,7 @@
     (=jis-x0212		. #x5664)	; &JSP-5664; [54-68]
     (=cns11643-4	. #x3A4C)	; &I-C4-3A4C; [26-44]
     (=daikanwa		. 30120)	; &I-M-30120;
+    (=cbeta		. 00305)	; &I-CB00305;
     (<-vulgar
      ((=ucs@unicode	  . #x81ED)	; &JX1-7A58;
       (=ucs@jis		  . #xFA5C)	; &JX1-7A58;
@@ -974,12 +975,15 @@
      ((==ucs@unicode	  . #x81F0)	; &g2-JSP-5664;
       (==jis-x0212	  . #x5664)	; &g2-JSP-5664; [54-68]
       (==daikanwa	  . 30120)	; &g2-JSP-5664;
+      (==cbeta		  . 00305)	; &g2-JSP-5664;
       (->subsumptive
        ((===daikanwa	    . 30120)	; &R-M-30120;
 	)
        ((===jis-x0212	    . #x5664)	; &R-JSP-5664; [54-68]
 	)
        ((===ucs@unicode	    . #x81F0)	; &R-UU+81F0;
+	)
+       ((===cbeta	    . 00305)	; &R-CB00305;
 	))
       )
      ((==ucs@cns	  . #x81F0)	; &g2-CU+81F0;

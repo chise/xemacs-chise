@@ -31898,7 +31898,25 @@
      ((=ucs		  . #x6637)	; 昷
       ))
     (=ucs		. #x63FE)	; 揾
-    (=iso-ir165		. #x7C4F)	; &I-EGB-7C4F; [92-47]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x63FE)	; 揾
+      ))
+    (ideographic-radical . 64)	; ⼿
+    (ideographic-strokes . 9)
+    (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x624C)	; 扌
+      )
+     ((=ucs@unicode	  . #x6637)	; &AJ1-21708;
+      (=adobe-japan1-6	  . 21708)	; &AJ1-21708;
+      ))
+    (=ucs@unicode	. #x63FE)	; &C3-3B6F;
+    (=iso-ir165		. #x7C4F)	; &C3-3B6F; [92-47]
     (=cns11643-3	. #x3B6F)	; &I-C3-3B6F; [27-79]
     (->subsumptive
      ((==ucs@unicode	  . #x63FE)	; &g2-UU+63FE;
