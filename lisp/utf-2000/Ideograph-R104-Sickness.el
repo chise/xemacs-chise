@@ -10137,7 +10137,8 @@
       )
      ((=ucs		  . #x7592)	; 疒
       )
-     ((=ucs		  . #x6637)	; 昷
+     ((=ucs@unicode	  . #x6637)	; &AJ1-21708;
+      (=adobe-japan1-6	  . 21708)	; &AJ1-21708;
       ))
     (=ucs@unicode	. #x761F)	; &G0-4E41;
     (=ucs@JP/hanazono	. nil)
