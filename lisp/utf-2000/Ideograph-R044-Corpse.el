@@ -6695,6 +6695,37 @@
     ))
 (define-char
   '((ideographic-radical . 44)	; ⼫
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs		  . #x5C38)	; 尸
+      )
+     ((=ucs		  . #x8304)	; 茄
+      ))
+    (=ucs		. #x21CA2)	; 𡲢
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x21CA2)	; 𡲢
+      ))
+    (ideographic-radical . 44)	; ⼫
+    (ideographic-strokes . 9)
+    (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs		  . #x5C38)	; 尸
+      )
+     ((=ucs@cns		  . #x8304)	; &C1-533B;
+      (=cns11643-1	  . #x533B)	; &C1-533B; [51-27]
+      (=daikanwa	  . 30835)	; &I-M-30835;
+      ))
+    (=ucs@iso		. #x21CA2)	; &U-00021CA2;
+    ))
+(define-char
+  '((ideographic-radical . 44)	; ⼫
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
     (ideographic-structure
