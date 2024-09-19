@@ -1816,6 +1816,49 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 6)
     (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x4491)	; 䒑
+      )
+     ((=ucs		  . #x4EA1)	; 亡
+      ))
+    (=ucs		. #x20147)	; 𠅇
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x20147)	; 𠅇
+      ))
+    (ideographic-radical . 8)	; ⼇
+    (ideographic-strokes . 4)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs@unicode	  . #x4491)	; &AJ1-18467;
+      (=adobe-japan1-5	  . 18467)	; &AJ1-18467;
+      )
+     ((=ucs@unicode	  . #x4EA1)	; &MJ006463;
+      (=mj		  . 006463)	; &MJ006463;
+      ))
+    (=ucs@iso		. #x20147)	; &CDP-8D7E;
+    (=big5-cdp		. #x8D7E)	; &CDP-8D7E;
+    (->subsumptive
+     ((==ucs@iso	  . #x20147)	; &g2-CDP-8D7E;
+      (==big5-cdp	  . #x8D7E)	; &g2-CDP-8D7E;
+      (->subsumptive
+       ((===big5-cdp	    . #x8D7E)	; &R-CDP-8D7E;
+	)
+       ((===ucs@iso	    . #x20147)	; &R-U-00020147;
+	))
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 8)	; ⼇
+    (ideographic-strokes . 4)
+    (total-strokes	 . 6)
+    (ideographic-structure
      ((name		  . "IDEOGRAPHIC DESCRIPTION CHARACTER OVERLAID")
       (=ucs		  . #x2FFB)	; ⿻
       )
