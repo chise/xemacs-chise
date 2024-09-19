@@ -23724,12 +23724,13 @@
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
     (ideographic-structure
-     ((name		  . "IDEOGRAPHIC DESCRIPTION CHARACTER OVERLAID")
-      (=ucs		  . #x2FFB)	; ⿻
+     ((=ucs-itaiji-001	  . #x2FFB)	; &U-i001+2FFB;
       )
      ((=ucs		  . #x2123C)	; 𡈼
       )
-     ((=ucs		  . #x2020C)	; 𠈌
+     ((=ucs@iso		  . #x2020C)	; &C4-2535;
+      (=cns11643-4	  . #x2535)	; &C4-2535; [05-21]
+      (=daikanwa	  . 00611)	; &I-M-00611;
       ))
     (=ucs@cns		. #x2136E)	; &C4-3675;
     (=cns11643-4	. #x3675)	; &C4-3675; [22-85]
