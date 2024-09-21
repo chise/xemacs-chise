@@ -2335,7 +2335,8 @@
       )
      ((=ucs		  . #x52F9)	; 勹
       )
-     ((=ucs		  . #x706C)	; 灬
+     ((name		  . "CJK RADICAL FIRE")
+      (=ucs		  . #x2EA3)	; ⺣
       ))
     (=big5-cdp		. #x8C40)	; &CDP-8C40;
     (->subsumptive
