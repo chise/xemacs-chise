@@ -8151,11 +8151,35 @@
   '((ideographic-radical . 31)	; ⼞
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
-    (hanyu-dazidian	1 724 9)
     (=ucs		. #x2120D)	; 𡈍
-    (=cns11643-6	. #x5147)	; &I-C6-5147; [49-39]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2120D)	; 𡈍
+      ))
+    (ideographic-radical . 31)	; ⼞
+    (ideographic-strokes . 10)
+    (total-strokes	 . 13)
+    (hanyu-dazidian	1 724 9)
+    (=ucs@iso		. #x2120D)	; &C6-5147;
+    (=cns11643-6	. #x5147)	; &C6-5147; [49-39]
     (=big5-cdp		. #x8559)	; &I-CDP-8559;
     (=daikanwa		. 04823)	; &I-M-04823;
+    (->subsumptive
+     ((==ucs@iso	  . #x2120D)	; &g2-CDP-8559;
+      (==cns11643-6	  . #x5147)	; &g2-CDP-8559; [49-39]
+      (==big5-cdp	  . #x8559)	; &g2-CDP-8559;
+      (==daikanwa	  . 04823)	; &g2-CDP-8559;
+      (->subsumptive
+       ((===daikanwa	    . 04823)	; &R-M-04823;
+	)
+       ((===big5-cdp	    . #x8559)	; &R-CDP-8559;
+	)
+       ((===cns11643-6	    . #x5147)	; &R-C6-5147; [49-39]
+	)
+       ((===ucs@iso	    . #x2120D)	; &R-U-0002120D;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 31)	; ⼞
