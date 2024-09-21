@@ -1710,6 +1710,9 @@
      ((=>ucs@iwds-1	  . #x6637)	; &A-IWDSU+6637;
       (=>iwds-1		  .  0320)	; &A-IWDSU+6637;
       ))
+    (<-denotational@usage
+     ((==>daijiten	  . 07760)	; &A2-DJT-07760;
+      ))
     (ideographic-radical . 108)	; ⽫
     (ideographic-strokes . 5)
     (total-strokes	 . 10)
@@ -1747,11 +1750,13 @@
     (=gt-k		. 07132)	; &I-GT-K07132;
     (=gt-pj-5		. #x3F25)	; &I-GT-29430; [31-05]
     (=daikanwa		. 22978)	; &I-M-22978;
+    (=daijiten		. 07760)	; &I-DJT-07760;
     (=shinjigen		.  5236)	; &AJ1-18183;
     (<-original
-     ((=ucs		  . #x6637)	; 昷
+     ((=ucs@unicode	  . #x6637)	; &AJ1-21708;
+      (=adobe-japan1-6	  . 21708)	; &AJ1-21708;
       (=jis-x0212	  . #x4230)	; &I-JSP-4230; [34-16]
-      (=shinjigen	  .  5235)	; 昷
+      (=shinjigen	  .  5235)	; &AJ1-21708;
       ))
     (<-original*sources
      shinjigen)
@@ -1764,9 +1769,12 @@
       (==gt		  . 29430)	; &g2-AJ1-18183;
       (==gt-k		  . 07132)	; &g2-AJ1-18183;
       (==daikanwa	  . 22978)	; &g2-AJ1-18183;
+      (==daijiten	  . 07760)	; &g2-AJ1-18183;
       (==shinjigen	  .  5236)	; &g2-AJ1-18183;
       (->subsumptive
        ((===daikanwa	    . 22978)	; &R-M-22978;
+	)
+       ((===daijiten	    . 07760)	; &R-DJT-07760;
 	)
        ((===jis-x0213-2	    . #x7177)	; &R-JX2-7177; [81-87]
 	)
@@ -5843,7 +5851,8 @@
       )
      ((=ucs-itaiji-002	  . #x4EAA)	; &U-i002+4EAA;
       )
-     ((=ucs		  . #x6637)	; 昷
+     ((=ucs@unicode	  . #x6637)	; &AJ1-21708;
+      (=adobe-japan1-6	  . 21708)	; &AJ1-21708;
       ))
     (=ucs@JP/hanazono	. #x31C96)	; &hanaJU+31C96;
     ))
@@ -7482,6 +7491,10 @@
   '((ideographic-radical . 108)	; ⽫
     (==>ucs@bucs	. #x76E7)	; &BUCS+76E7;
     (==>daijiten	. 07785)	; &BUCS+76E7;
+    ))
+(define-char
+  '((ideographic-radical . 108)	; ⽫
+    (==>daijiten	. 07760)	; &A2-DJT-07760;
     ))
 (define-char
   '((ideographic-radical . 108)	; ⽫
