@@ -9373,7 +9373,16 @@
       ))
     ))
 (define-char
-  '((<-denotational@usage
+  '((ideographic-radical . 1)	; ⼀
+    (=>ucs@iwds-1	. #x20041)	; &A-IWDSU+20041;
+    (=>iwds-1		.  0161)	; &A-IWDSU+20041;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@iwds-1	  . #x20041)	; &A-IWDSU+20041;
+      (=>iwds-1		  .  0161)	; &A-IWDSU+20041;
+      ))
+    (<-denotational@usage
      ((==>daijiten	  . 00042)	; &A2-DJT-00042;
       ))
     (ideographic-radical . 1)	; ⼀
@@ -9437,33 +9446,6 @@
     (ideographic-radical . 1)	; ⼀
     (ideographic-strokes . 10)
     (total-strokes	 . 11)
-    (=mj		. 056846)	; &MJ056846;
-    (=hanyo-denshi/ks	. 001000)	; &MJ056846;
-    (<-formed
-     ((=ucs@iso		  . #x20041)	; &GT-00094;
-      (=cns11643-5	  . #x3072)	; &GT-00094; [16-82]
-      (=daikanwa	  . 00063)	; &I-M-00063;
-      ))
-    (<-formed*sources
-     koseki)
-    (->subsumptive
-     ((==mj		  . 056846)	; &g2-MJ056846;
-      (==hanyo-denshi/ks  . 001000)	; &g2-MJ056846;
-      (->subsumptive
-       ((===hanyo-denshi/ks . 001000)	; &R-HD-KS-001000;
-	(=hanyo-denshi/ks/mf . #x0064)	; &R-HD-KS-001000;
-	)
-       ((===mj		    . 056846)	; &R-MJ056846;
-	))
-      ))
-    ))
-(define-char
-  '((<-denotational
-     ((=ucs		  . #x20041)	; 𠁁
-      ))
-    (ideographic-radical . 1)	; ⼀
-    (ideographic-strokes . 10)
-    (total-strokes	 . 11)
     (=big5-cdp		. #x8A41)	; &CDP-8A41;
     (->subsumptive
      ((==big5-cdp	  . #x8A41)	; &g2-CDP-8A41;
@@ -9513,6 +9495,40 @@
 	(=hanyo-denshi/ks/mf . #x0066)	; &R-HD-KS-001020;
 	)
        ((===mj		    . 056847)	; &R-MJ056847;
+	))
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@iwds-1	  . #x20041)	; &A-IWDSU+20041;
+      (=>iwds-1		  .  0161)	; &A-IWDSU+20041;
+      ))
+    (ideographic-radical . 1)	; ⼀
+    (ideographic-strokes@ucs . 9)
+    (total-strokes@ucs	     . 10)
+    (ideographic-strokes@mj . 10)
+    (total-strokes@mj	    . 11)
+    (=ucs		. #x2CEDE)	; 𬻞
+    (=mj		. 056846)	; &I-MJ056846;
+    (=hanyo-denshi/ks	. 001000)	; 𬻞
+    (<-formed
+     ((=ucs@iso		  . #x20041)	; &GT-00094;
+      (=cns11643-5	  . #x3072)	; &GT-00094; [16-82]
+      (=daikanwa	  . 00063)	; &I-M-00063;
+      ))
+    (<-formed$_1*sources
+     koseki)
+    (<-formed*sources
+     koseki)
+    (->subsumptive
+     ((==ucs@JP/hanazono  . #x2CEDE)	; &g2-MJ056846;
+      (==mj		  . 056846)	; &g2-MJ056846;
+      (==hanyo-denshi/ks  . 001000)	; &g2-MJ056846;
+      (->subsumptive
+       ((===hanyo-denshi/ks . 001000)	; &R-HD-KS-001000;
+	(=hanyo-denshi/ks/mf . #x0064)	; &R-HD-KS-001000;
+	)
+       ((===mj		    . 056846)	; &R-MJ056846;
 	))
       ))
     ))
