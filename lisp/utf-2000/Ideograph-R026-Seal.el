@@ -4627,7 +4627,11 @@
     (=daikanwa		. 02885)	; &I-M-02885;
     ))
 (define-char
-  '((ideographic-radical . 26)	; ⼙
+  '((<-denotational
+     ((=>ucs@iwds-1	  . #x20041)	; &A-IWDSU+20041;
+      (=>iwds-1		  .  0161)	; &A-IWDSU+20041;
+      ))
+    (ideographic-radical . 26)	; ⼙
     (ideographic-strokes . 11)
     (total-strokes	 . 13)
     (ideographic-structure
