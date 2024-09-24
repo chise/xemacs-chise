@@ -680,19 +680,87 @@
       ))
     ))
 (define-char
-  '((=>ucs		. #x209D3)	; 𠧓
-    (ideographic-radical . 25)	; ⼘
+  '((ideographic-radical . 25)	; ⼘
     (ideographic-strokes . 3)
     (total-strokes	 . 5)
-    (=daikanwa		. 02782)	; &M-02782;
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x535C)	; 卜
+      )
+     ((=>ucs@iwds-1	  . #x5203)	; &A-IWDSU+5203;
+      (=>iwds-1		  .  0106)	; &A-IWDSU+5203;
+      ))
+    (=ucs		. #x209D3)	; 𠧓
     ))
 (define-char
-  '((morohashi-daikanwa	2782 0 1)
+  '((<-denotational
+     ((=ucs		  . #x209D3)	; 𠧓
+      ))
     (ideographic-radical . 25)	; ⼘
     (ideographic-strokes . 3)
     (total-strokes	 . 5)
-    (=ucs		. #x209D3)	; 𠧓
-    (=cns11643-6	. #x224C)	; &I-C6-224C; [02-44]
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((name		  . "CJK RADICAL DIVINATION")
+      (=ucs		  . #x2E8A)	; ⺊
+      )
+     ((=ucs@unicode	  . #x5203)	; &MJ007450;
+      (=mj		  . 007450)	; &MJ007450;
+      ))
+    (=mj		. 031771)	; &MJ031771;
+    (=koseki		. 032300)	; &MJ031771;
+    (=daikanwa		. 02782)	; &I-M-02782;
+    (<-formed
+     ((=ucs@unicode	  . #x525D)	; &AJ1-07774;
+      (=adobe-japan1-0	  . 07774)	; &AJ1-07774;
+      ))
+    (<-formed$_1*sources
+     koseki mj)
+    (<-formed*sources
+     koseki mj)
+    (->subsumptive
+     ((==mj		  . 031771)	; &g2-MJ031771;
+      (==koseki		  . 032300)	; &g2-MJ031771;
+      (==daikanwa	  . 02782)	; &g2-MJ031771;
+      (->subsumptive
+       ((===daikanwa	    . 02782)	; &R-M-02782;
+	)
+       ((===mj		    . 031771)	; &R-MJ031771;
+	))
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x209D3)	; 𠧓
+      ))
+    (ideographic-radical . 25)	; ⼘
+    (ideographic-strokes . 3)
+    (total-strokes	 . 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs@unicode	  . #x535C)	; &AJ1-03708;
+      (=adobe-japan1-0	  . 03708)	; &AJ1-03708;
+      )
+     ((=ucs@unicode	  . #x5203)	; &MJ007450;
+      (=mj		  . 007450)	; &MJ007450;
+      ))
+    (=ucs@iso		. #x209D3)	; &C6-224C;
+    (=cns11643-6	. #x224C)	; &C6-224C; [02-44]
+    (->subsumptive
+     ((==ucs@iso	  . #x209D3)	; &g2-IU-000209D3;
+      (==cns11643-6	  . #x224C)	; &g2-IU-000209D3; [02-44]
+      (->subsumptive
+       ((===cns11643-6	    . #x224C)	; &R-C6-224C; [02-44]
+	)
+       ((===ucs@iso	    . #x209D3)	; &R-U-000209D3;
+	))
+      ))
     ))
 (define-char
   '((<-denotational@usage
