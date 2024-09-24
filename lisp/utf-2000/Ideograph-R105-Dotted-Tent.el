@@ -1482,12 +1482,11 @@
     (ideographic-strokes . 11)
     (total-strokes	 . 16)
     (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM BELOW")
-      (=ucs		  . #x2FF6)	; ⿶
-      )
-     ((=>ucs@component	  . #x53CE)	; &A-compU+53CE;
+     ((=ucs-itaiji-001	  . #x2FF1)	; &U-i001+2FF1;
       )
      ((=ucs		  . #x767B)	; 登
+      )
+     ((=>ucs@component	  . #x53CE)	; &A-compU+53CE;
       ))
     (=ucs		. #x24F3C)	; 𤼼
     (<-Zhouwen
@@ -1504,12 +1503,12 @@
     (ideographic-strokes . 11)
     (total-strokes	 . 16)
     (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM BELOW")
-      (=ucs		  . #x2FF6)	; ⿶
+     ((=ucs-itaiji-001	  . #x2FF1)	; &U-i001+2FF1;
+      )
+     ((=ucs@unicode	  . #x767B)	; &AJ1-03146;
+      (=adobe-japan1-0	  . 03146)	; &AJ1-03146;
       )
      ((=ucs-var-003	  . #x20B1E)	; &U-v003+20B1E;
-      )
-     ((=ucs		  . #x767B)	; 登
       ))
     (=daikanwa		. 49353)	; &M-49353;
     (->subsumptive
@@ -1524,12 +1523,12 @@
     (ideographic-strokes . 11)
     (total-strokes	 . 16)
     (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM BELOW")
-      (=ucs		  . #x2FF6)	; ⿶
+     ((=ucs-itaiji-001	  . #x2FF1)	; &U-i001+2FF1;
+      )
+     ((=ucs@unicode	  . #x767B)	; &AJ1-03146;
+      (=adobe-japan1-0	  . 03146)	; &AJ1-03146;
       )
      ((=ucs-var-002	  . #x20B1E)	; &U-v002+20B1E;
-      )
-     ((=ucs		  . #x767B)	; 登
       ))
     (=ucs@iso		. #x24F3C)	; &C7-303A;
     (=cns11643-7	. #x303A)	; &C7-303A; [16-26]

@@ -9437,6 +9437,15 @@
     (ideographic-radical . 1)	; ⼀
     (ideographic-strokes . 10)
     (total-strokes	 . 11)
+    (=ucs-var-002	. #x20041)	; &U-v002+20041;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x20041)	; 𠁁
+      ))
+    (ideographic-radical . 1)	; ⼀
+    (ideographic-strokes . 10)
+    (total-strokes	 . 11)
     (=ucs-var-001	. #x20041)	; &U-v001+20041;
     ))
 (define-char

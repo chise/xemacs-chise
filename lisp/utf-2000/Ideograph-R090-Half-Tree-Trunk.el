@@ -687,8 +687,8 @@
     (=cns11643-6	. #x415B)	; &C6-415B; [33-59]
     (=daikanwa		. 19775)	; &I-M-19775;
     (<-wrong
-     ((=ucs		. #x727E)	; 牾
-      (=daikanwa	  . 20028)	; 牾
+     ((=ucs		  . #x727E)	; 牾
+      (=daikanwa	  . 20028)	; &I-M-20028;
       ))
     (<-wrong*sources
      kangxi daikanwa)
