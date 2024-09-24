@@ -11322,7 +11322,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
       (=ucs		  . #x2FFA)	; ⿺
       )
-     ((=>ucs-itaiji-001	  . #x22376)	; &A-U-i001+22376;
+     ((=ucs		  . #x20673)	; 𠙳
       )
      ((=ucs		  . #x529B)	; 力
       ))
@@ -11340,11 +11340,13 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
       (=ucs		  . #x2FFA)	; ⿺
       )
-     ((=ucs-itaiji-001	  . #x22376)	; &U-i001+22376;
+     ((=ucs@iso		  . #x20673)	; &U-i001+22376;
       )
      ((=ucs		  . #x529B)	; 力
       ))
+    (=ucs@iso		. #x208C8)	; &MJ031596;
     (=mj		. 031596)	; &MJ031596;
+    (=cns11643-7	. #x5B46)	; &I-C7-5B46; [59-38]
     (=koseki		. 028900)	; &MJ031596;
     (=daikanwa		. 02489)	; &I-M-02489;
     (<-formed
@@ -11363,34 +11365,19 @@
     (<-same*sources
      jiyun daikanwa)
     (->subsumptive
-     ((==mj		  . 031596)	; &g2-MJ031596;
-      (==koseki		  . 028900)	; &g2-MJ031596;
-      (==daikanwa	  . 02489)	; &g2-MJ031596;
+     ((=>>mj		  . 031596)	; &G-MJ031596;
+      (=>>daikanwa	  . 02489)	; &G-MJ031596;
       (->subsumptive
-       ((===daikanwa	    . 02489)	; &R-M-02489;
-	)
-       ((===mj		    . 031596)	; &R-MJ031596;
+       ((==mj		    . 031596)	; &g2-MJ031596;
+	(==koseki	    . 028900)	; &g2-MJ031596;
+	(==daikanwa	    . 02489)	; &g2-MJ031596;
+	(->subsumptive
+	 ((===daikanwa	      . 02489)	; &R-M-02489;
+	  )
+	 ((===mj	      . 031596)	; &R-MJ031596;
+	  ))
 	))
-      ))
-    ))
-(define-char
-  '((<-denotational
-     ((=ucs		  . #x208C8)	; 𠣈
-      ))
-    (ideographic-radical . 19)	; ⼒
-    (ideographic-strokes . 21)
-    (total-strokes	 . 23)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
-      (=ucs		  . #x2FFA)	; ⿺
       )
-     ((=ucs-itaiji-001	  . #x22376)	; &U-i001+22376;
-      )
-     ((=ucs		  . #x529B)	; 力
-      ))
-    (=ucs@iso		. #x208C8)	; &C7-5B46;
-    (=cns11643-7	. #x5B46)	; &C7-5B46; [59-38]
-    (->subsumptive
      ((=>>ucs@iso	  . #x208C8)	; &G-IU+208C8;
       (->subsumptive
        ((==ucs@cns	    . #x208C8)	; &g2-CU+208C8;
