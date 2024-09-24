@@ -55374,7 +55374,8 @@
     (<-interchangeable*sources
      daikanwa)
     (->formed
-     ((=mj		  . 031596)	; &MJ031596;
+     ((=ucs@iso		  . #x208C8)	; &MJ031596;
+      (=mj		  . 031596)	; &MJ031596;
       (=daikanwa	  . 02489)	; &I-M-02489;
       )
      ((=ucs@unicode	  . #x43C8)	; &C3-5864;
