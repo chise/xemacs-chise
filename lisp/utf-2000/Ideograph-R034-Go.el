@@ -301,7 +301,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
       (=ucs		  . #x2FFA)	; ⿺
       )
-     ((=gt-k		  . 00031)	; &GT-K00031;
+     ((=big5-cdp	  . #x89C7)	; &CDP-89C7;
       )
      ((=ucs		  . #x5915)	; 夕
       ))
@@ -320,7 +320,7 @@
       )
      ((=ucs		  . #x5915)	; 夕
       )
-     ((=gt-k		  . 00031)	; &GT-K00031;
+     ((=big5-cdp	  . #x89C7)	; &CDP-89C7;
       ))
     (ideographic-structure@apparent
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
