@@ -799,7 +799,7 @@
       )
      ((=ucs-itaiji-003	  . #x2CF44)	; &U-i003+2CF44;
       )
-     ((=gt-k		  . 00031)	; &GT-K00031;
+     ((=big5-cdp	  . #x89C7)	; &CDP-89C7;
       ))
     (=ucs-itaiji-002	. #x2CF44)	; &U-i002+2CF44;
     ))

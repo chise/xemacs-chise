@@ -11915,7 +11915,8 @@
      ((=>ucs@component	  . #x72AC)	; &A-compU+72AC;
       (=>iwds-1		  .  0239)	; &A-compU+72AC;
       )
-     ((=ucs		  . #x20041)	; 𠁁
+     ((=>ucs@iwds-1	  . #x20041)	; &A-IWDSU+20041;
+      (=>iwds-1		  .  0161)	; &A-IWDSU+20041;
       ))
     (=ucs		. #x2165E)	; 𡙞
     ))
@@ -11932,9 +11933,26 @@
       )
      ((=ucs		  . #x5927)	; 大
       )
-     ((=mj		  . 056846)	; &MJ056846;
+     ((=ucs		  . #x2CEDE)	; 𬻞
       ))
     (=ucs@iso		. #x2165E)	; &U-0002165E;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2165E)	; 𡙞
+      ))
+    (ideographic-radical . 37)	; ⼤
+    (ideographic-strokes . 10)
+    (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5927)	; 大
+      )
+     ((=ucs-var-002	  . #x20041)	; &U-v002+20041;
+      ))
+    (=cbeta		. 11281)	; &CB11281;
     ))
 (define-char
   '((ideographic-radical . 37)	; ⼤
