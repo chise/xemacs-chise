@@ -10237,9 +10237,9 @@
     (=cns11643-3	. #x2277)	; &I-C3-2277; [02-87]
     (=daikanwa		. 00453)	; &I-M-00453;
     (<-simplified@CN
-     ((=ucs@unicode	  . #x8846)	; &AJ1-02362;
-      (=adobe-japan1-0	  . 02362)	; &AJ1-02362;
-      (=gb12345		  . #x565A)	; &AJ1-02362; [54-58]
+     ((=ucs@unicode	  . #x8846)	; &DJT-10608;
+      (=ks-x1001	  . #x716B)	; &DJT-10608; [81-75]
+      (=gb12345		  . #x565A)	; &DJT-10608; [54-58]
       ))
     (->subsumptive
      ((==ucs@unicode	  . #x4F17)	; &g2-AJ1-21091;
