@@ -815,8 +815,7 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 9)
     (ideographic-structure
-     ((name		  . "IDEOGRAPHIC DESCRIPTION CHARACTER OVERLAID")
-      (=ucs		  . #x2FFB)	; ⿻
+     ((=ucs-itaiji-001	  . #x2FF1)	; &U-i001+2FF1;
       )
      ((=ucs		  . #x26612)	; 𦘒
       )
@@ -832,8 +831,7 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 9)
     (ideographic-structure
-     ((name		  . "IDEOGRAPHIC DESCRIPTION CHARACTER OVERLAID")
-      (=ucs		  . #x2FFB)	; ⿻
+     ((=ucs-itaiji-001	  . #x2FF1)	; &U-i001+2FF1;
       )
      ((=ucs		  . #x26612)	; 𦘒
       )
