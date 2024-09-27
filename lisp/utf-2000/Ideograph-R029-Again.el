@@ -898,35 +898,6 @@
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@cognate	  . #x20B1B)	; &A-cgnU+20B1B;
-      ))
-    (ideographic-radical . 29)	; ⼜
-    (ideographic-strokes . 3)
-    (total-strokes	 . 6)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-      (=ucs		  . #x2FF1)	; ⿱
-      )
-     ((name		  . "CJK RADICAL KNIFE ONE")
-      (=ucs		  . #x2E88)	; ⺈
-      )
-     ((=ucs		  . #x6587)	; 文
-      ))
-    (=ucs-itaiji-003	. #x20B1B)	; &U-i003+20B1B;
-    (<-formed
-     ((=ucs@iso		  . #x20B1B)	; &MJ032008;
-      (=mj		  . 032008)	; &MJ032008;
-      )
-     ((=big5-cdp	  . #x8BA1)	; &CDP-8BA1;
-      )
-     ((=ucs		  . #x6BB3)	; 殳
-      ))
-    (->subsumptive
-     ((==ucs-itaiji-003	  . #x20B1B)	; &g2-U-i003+20B1B;
-      ))
-    ))
-(define-char
-  '((<-denotational
      ((=>big5-cdp@cognate . #x8C79)	; &A-cgnCDP-8C79;
       ))
     (<-denotational@component
@@ -2535,6 +2506,35 @@
       (=adobe-japan1-0	  . 01979)	; &AJ1-01979;
       ))
     (=ucs@JP/hanazono	. #x31471)	; &hanaJU+31471;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs-itaiji-003	  . #x20B1B)	; &A-U-i003+20B1B;
+      ))
+    (ideographic-radical . 29)	; ⼜
+    (ideographic-strokes . 3)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((name		  . "CJK RADICAL KNIFE ONE")
+      (=ucs		  . #x2E88)	; ⺈
+      )
+     ((=ucs		  . #x6587)	; 文
+      ))
+    (=ucs-itaiji-003	. #x20B1B)	; &U-i003+20B1B;
+    (<-formed
+     ((=ucs@iso		  . #x20B1B)	; &MJ032008;
+      (=mj		  . 032008)	; &MJ032008;
+      )
+     ((=big5-cdp	  . #x8BA1)	; &CDP-8BA1;
+      )
+     ((=ucs		  . #x6BB3)	; 殳
+      ))
+    (->subsumptive
+     ((==ucs-itaiji-003	  . #x20B1B)	; &g2-U-i003+20B1B;
+      ))
     ))
 (define-char
   '((ideographic-radical . 29)	; ⼜

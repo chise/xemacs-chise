@@ -4087,6 +4087,15 @@
     (ideographic-radical . 4)	; ⼃
     (ideographic-strokes . 5)
     (total-strokes	 . 6)
+    (=+>ucs@unicode	. #x4E51)	; &o-UU+4E51;
+    ))
+(define-char
+  '((<-denotational
+     ((=+>ucs@unicode	  . #x4E51)	; &o-UU+4E51;
+      ))
+    (ideographic-radical . 4)	; ⼃
+    (ideographic-strokes . 5)
+    (total-strokes	 . 6)
     (hanyu-dazidian	1 38 5)
     (=ucs@unicode	. #x4E51)	; &AJ1-17241;
     (=adobe-japan1-5	. 17241)	; &AJ1-17241;
@@ -4176,7 +4185,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=ucs		  . #x4E51)	; 乑
+     ((=+>ucs@unicode	  . #x4E51)	; &o-UU+4E51;
       ))
     (ideographic-radical . 4)	; ⼃
     (ideographic-strokes . 5)
