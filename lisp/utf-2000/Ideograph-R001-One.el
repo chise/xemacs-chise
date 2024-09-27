@@ -6618,7 +6618,8 @@
     ))
 (define-char
   '((<-denotational
-     ((=>big5-cdp	  . #x88BC)	; &A-GT-K01853;
+     ((=>ucs@cognate	  . #x2CEC9)	; &A-GT-K01853;
+      (=>big5-cdp	  . #x88BC)	; &A-GT-K01853;
       ))
     (ideographic-radical . 1)	; ⼀
     (ideographic-strokes . 5)
@@ -6665,7 +6666,8 @@
     ))
 (define-char
   '((<-denotational
-     ((=>big5-cdp	  . #x88BC)	; &A-GT-K01853;
+     ((=>ucs@cognate	  . #x2CEC9)	; &A-GT-K01853;
+      (=>big5-cdp	  . #x88BC)	; &A-GT-K01853;
       ))
     (ideographic-radical . 1)	; ⼀
     (ideographic-strokes . 5)
@@ -9781,7 +9783,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
       (=ucs		  . #x2FF8)	; ⿸
       )
-     ((=>big5-cdp	  . #x88BC)	; &A-GT-K01853;
+     ((=>ucs@cognate	  . #x2CEC9)	; &A-GT-K01853;
+      (=>big5-cdp	  . #x88BC)	; &A-GT-K01853;
       )
      ((=ucs		  . #x4E18)	; 丘
       ))
