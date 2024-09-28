@@ -216,6 +216,16 @@
        ((=ucs		    . #x4E00)	; 一
 	))
       (=ucs-var-003	  . #x2053C)	; &U-v003+2053C;
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
+	(=ucs		    . #x2FF5)	; ⿵
+	)
+       ((=big5-cdp	    . #x8BF2)	; &CDP-8BF2;
+	)
+       ((=ucs		    . #x4E00)	; 一
+	))
+      (=ucs-var-004	  . #x2053C)	; &U-v004+2053C;
       ))
     ))
 (define-char
