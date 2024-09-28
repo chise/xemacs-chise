@@ -4353,7 +4353,6 @@
     (ideographic-radical . 31)	; ⼞
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
-    (hanyu-dazidian	1 716 7)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
       (=ucs		  . #x2FF4)	; ⿴
@@ -4363,7 +4362,26 @@
      ((=ucs		  . #x7389)	; 玉
       ))
     (=ucs		. #x56FD)	; 国
-    (=adobe-japan1-0	. 02051)	; &I-AJ1-02051;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x56FD)	; 国
+      ))
+    (ideographic-radical . 31)	; ⼞
+    (ideographic-strokes . 5)
+    (total-strokes	 . 8)
+    (hanyu-dazidian	1 716 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
+      (=ucs		  . #x2FF4)	; ⿴
+      )
+     ((=ucs		  . #x56D7)	; 囗
+      )
+     ((=ucs@unicode	  . #x7389)	; &AJ1-01732;
+      (=adobe-japan1-0	  . 01732)	; &AJ1-01732;
+      ))
+    (=ucs@unicode	. #x56FD)	; &AJ1-02051;
+    (=adobe-japan1-0	. 02051)	; &AJ1-02051;
     (=jis-x0208		. #x3971)	; &I-J90-3971; [25-81]
     (=gb2312		. #x397A)	; &I-G0-397A; [25-90]
     (=cns11643-3	. #x277B)	; &I-C3-277B; [07-91]
@@ -4373,7 +4391,7 @@
     (=gt-pj-1		. #x3971)	; &I-GT-05968; [25-81]
     (=daikanwa		. 04752)	; &I-M-04752;
     (=daijiten		. 01628)	; &I-DJT-01628;
-    (=shinjigen		.  1318)	; 国
+    (=shinjigen		.  1318)	; &AJ1-02051;
     (<-simplified@CN
      ((=ucs		  . #x570B)	; 國
       (=gb12345		  . #x397A)	; 國 [25-90]
