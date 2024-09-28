@@ -155,11 +155,40 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 88)	; ⽗
+  '((<-denotational@usage
+     ((==>ucs@bucs	  . #x7238)	; &BUCS+7238;
+      ))
+    (ideographic-radical . 88)	; ⽗
     (ideographic-strokes . 4)
     (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x7236)	; 父
+      )
+     ((=ucs		  . #x5DF4)	; 巴
+      ))
     (=ucs		. #x7238)	; 爸
-    (=gb2312		. #x3056)	; &I-G0-3056; [16-54]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x7238)	; 爸
+      ))
+    (ideographic-radical . 88)	; ⽗
+    (ideographic-strokes . 4)
+    (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x7236)	; 父
+      )
+     ((=ucs@unicode	  . #x5DF4)	; &AJ1-03321;
+      (=adobe-japan1-0	  . 03321)	; &AJ1-03321;
+      ))
+    (=ucs@unicode	. #x7238)	; &JX2-702C;
+    (=gb2312		. #x3056)	; &JX2-702C; [16-54]
     (=jis-x0212		. #x4A4B)	; &I-JSP-4A4B; [42-43]
     (=cns11643-1	. #x4E69)	; &I-C1-4E69; [46-73]
     (=jis-x0213-2	. #x702C)	; &I-JX2-702C; [80-12]
@@ -450,4 +479,8 @@
      ((=ucs@iso		  . #x2455B)	; &C5-5540;
       (=cns11643-5	  . #x5540)	; &C5-5540; [53-32]
       ))
+    ))
+(define-char
+  '((ideographic-radical . 88)	; ⽗
+    (==>ucs@bucs	. #x7238)	; &BUCS+7238;
     ))
