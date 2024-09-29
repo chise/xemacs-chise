@@ -52,7 +52,7 @@
       (=daikanwa	  . 31371)	; &I-M-31371;
       ))
     (<-interchangeable$_1*sources
-     shuowen-tongxundingsheng erya shangshu-zhuan zuoshi-zhu daikanwa)
+     shuowen-tongxundingsheng erya shangshu-zhuan chunqiu-zuoshi-zhu daikanwa)
     (<-interchangeable$_2*sources
      shuowen-tongxundingsheng daikanwa)
     (<-interchangeable$_3*sources
