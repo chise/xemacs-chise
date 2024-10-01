@@ -1702,7 +1702,7 @@
     (<-interchangeable$_3*sources
      shuowen-tongxundingsheng daikanwa)
     (<-interchangeable$_4*sources
-     guliang-zhu daikanwa)
+     chunqiu-guliang-zhu daikanwa)
     (<-interchangeable$_5*sources
      shiwen daikanwa)
     (<-interchangeable*sources

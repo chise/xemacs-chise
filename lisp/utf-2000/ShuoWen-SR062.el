@@ -98,7 +98,14 @@
   '((shuowen-radical	. 62)	; 𠬞
     (=shuowen-jiguge	. 08109)	; &SW-JIGUGE-08109;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x259A6)	; 𥦦
+      )
      ((=ucs		  . #x22354)	; 𢍔
+      ))
+    (<-ancient@shuowen
+     ((=shuowen-jiguge	  . 08108)	; &SW-JIGUGE-08108;
+      )
+     ((=ucs		  . #x5F07)	; 弇
       ))
     (->subsumptive
      ((===shuowen-jiguge-A30 . 08609)	; &SW-JIGUGE30-08609;

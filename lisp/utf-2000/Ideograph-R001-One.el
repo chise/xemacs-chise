@@ -2878,7 +2878,7 @@
       (=daikanwa	  . 00033)	; &I-M-00033;
       ))
     (<-avoiding-taboo*sources
-     cihai shijiazhai-yangxin-lu daikanwa)
+     cihai shijiazhai-yangxinlu daikanwa)
     (->subsumptive
      ((==ucs@iso	  . #x20009)	; &g2-GT-00029;
       (==cns11643-5	  . #x2133)	; &g2-GT-00029; [01-19]
