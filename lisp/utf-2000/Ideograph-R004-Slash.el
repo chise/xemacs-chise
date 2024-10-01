@@ -2633,8 +2633,9 @@
     (=ucs@unicode	. #x4E4C)	; &G0-4E5A;
     (=gb2312		. #x4E5A)	; &G0-4E5A; [46-58]
     (<-simplified@CN
-     ((=ucs		  . #x70CF)	; 烏
-      (=gb12345		  . #x4E5A)	; 烏 [46-58]
+     ((=ucs@unicode	  . #x70CF)	; &AJ1-01226;
+      (=adobe-japan1-0	  . 01226)	; &AJ1-01226;
+      (=gb12345		  . #x4E5A)	; &AJ1-01226; [46-58]
       ))
     (->subsumptive
      ((==ucs@unicode	  . #x4E4C)	; &g2-UU+4E4C;
