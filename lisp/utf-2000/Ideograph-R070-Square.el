@@ -600,7 +600,8 @@
     (<-interchangeable*sources
      shuowen-tongxundingsheng daikanwa)
     (<-same
-     ((=ucs		  . #x70CF)	; 烏
+     ((=ucs@unicode	  . #x70CF)	; &AJ1-01226;
+      (=adobe-japan1-0	  . 01226)	; &AJ1-01226;
       (=daikanwa	  . 18998)	; &I-M-18998;
       ))
     (<-same$_1*sources
