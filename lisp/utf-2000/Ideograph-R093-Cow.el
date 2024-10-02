@@ -3403,7 +3403,7 @@
     (<-interchangeable$_4*sources
      shuowen-tongxundingsheng daikanwa)
     (<-interchangeable$_5*sources
-     chunqiu-zuoshi-zhuan+chunqiu-gongyang-zhuan daikanwa)
+     chunqiu-zuoshi+chunqiu-gongyang daikanwa)
     (<-interchangeable$_6*sources
      shiwen daikanwa)
     (<-interchangeable*sources
