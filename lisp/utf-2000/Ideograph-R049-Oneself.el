@@ -1494,6 +1494,23 @@
       )
      ((=ucs		  . #x81E3)	; 臣
       )
+     ((=ucs		  . #x5DF2)	; 已
+      ))
+    (=ucs-var-001	. #x2D60D)	; &U-v001+2D60D;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2D60D)	; 𭘍
+      ))
+    (ideographic-radical . 49)	; ⼰
+    (ideographic-strokes . 6)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x81E3)	; 臣
+      )
      ((=ucs		  . #x5DF1)	; 己
       ))
     (=ucs@JP/hanazono	. #x2D60D)	; &MJ010793;
