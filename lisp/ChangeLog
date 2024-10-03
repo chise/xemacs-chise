@@ -1,3 +1,11 @@
+2024-10-03  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`=ucs-tip-var-007'.
+
+	* mule/mule-conf.el (=ucs-tip-var-007): New coded-charset for
+	XEmacs CHISE.
+
 2024-08-26  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* mule/mule-charset.el (default-coded-charset-priority-list): Add
