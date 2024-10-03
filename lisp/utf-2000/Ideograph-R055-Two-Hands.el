@@ -1185,7 +1185,6 @@
 (define-char
   '((<-denotational@component
      ((=>ucs@iwds-1	  . #x26B07)	; &A-IWDSU+26B07;
-      (=>ucs@iwds-1/normalized . #x26B07)	; &A-IWDSU+26B07;
       ))
     (<-denotational@usage
      ((==>daijiten	  . 03015)	; &A2-DJT-03015;
