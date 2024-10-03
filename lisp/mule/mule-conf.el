@@ -5290,6 +5290,17 @@
 		  min-code #x2E00
 		  max-code #x9FCC
 		  registry "ucs\\.var007-0"))
+  (make-charset '=ucs-tip-var-007
+		"uXXXX-var-007 glyph-images in TIP"
+		'(long-name	"UCS-TIP-var-007"
+		  chars		256
+		  dimension	2
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  mother	=ucs-var-007
+		  min-code #x30000 max-code #x3FFFF
+		  registry "ucs00\\.var007-3"))
   (make-charset '==ucs-var-007
 		"Abstract glyph-forms corresponding with uXXXX-var-007 of GlyphWiki"
 		'(long-name	"UCS-var-007"
