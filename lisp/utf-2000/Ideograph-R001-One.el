@@ -6452,7 +6452,6 @@
 (define-char
   '((<-denotational@component
      ((=>ucs@iwds-1	  . #x26B07)	; &A-IWDSU+26B07;
-      (=>ucs@iwds-1/normalized . #x26B07)	; &A-IWDSU+26B07;
       ))
     (ideographic-radical . 1)	; ⼀
     (ideographic-strokes . 5)
