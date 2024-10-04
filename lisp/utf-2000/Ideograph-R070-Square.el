@@ -91,7 +91,7 @@
     (<-interchangeable$_1*sources
      shuowen-tongxundingsheng daikanwa)
     (<-interchangeable$_10*sources
-     lunyu-jijie daikanwa)
+     lunyu-zhu daikanwa)
     (<-interchangeable$_11*sources
      shuowen-tongxundingsheng daikanwa)
     (<-interchangeable$_12*sources
