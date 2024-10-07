@@ -8756,7 +8756,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=mj		  . 026238)	; &MJ026238;
+     ((=ucs@ks		  . #x90A3)	; &MJ026238;
+      (=mj		  . 026238)	; &MJ026238;
       )
      ((=ucs		  . #x539A)	; 厚
       ))
