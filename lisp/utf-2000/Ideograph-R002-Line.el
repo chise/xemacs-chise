@@ -3017,7 +3017,7 @@
     ))
 (define-char
   '((<-denotational@usage
-     ((==>daijiten	  . 12176)	; &A2-DJT-12176;
+     ((==>ucs@bucs	  . #x90E8)	; &BUCS+90E8;
       ))
     (ideographic-radical . 2)	; ⼁
     (=daijiten		. 00047)	; &DJT-00047;
