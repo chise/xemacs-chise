@@ -6,7 +6,6 @@
      ((=ucs		  . #x833B)	; 茻
       )
      ((=>ucs@iwds-1	  . #x26B07)	; &A-IWDSU+26B07;
-      (=>ucs@iwds-1/normalized . #x26B07)	; &A-IWDSU+26B07;
       )
      ((=ucs		  . #x26B20)	; 𦬠
       ))

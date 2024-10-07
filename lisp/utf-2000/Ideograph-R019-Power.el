@@ -2141,7 +2141,6 @@
     (=gb2312		. #x404D)	; &C3-2463; [32-45]
     (=cns11643-3	. #x2463)	; &I-C3-2463; [04-67]
     (=daikanwa		. 02328)	; &I-M-02328;
-    (=hanziku-1		. #xF1C1)	; &I-HZK01-F1C1;
     (=jef-china3	. #x82B2)	; &I-JC3-82B2;
     (<-simplified@CN
      ((=ucs		  . #x52DE)	; 勞
@@ -2153,6 +2152,42 @@
       ))
     (<-vulgar*sources
      songyuan-yilai-suzipu daikanwa)
+    (->subsumptive
+     ((==ucs@unicode	  . #x52B3)	; &g2-M-02328;
+      (==gb2312		  . #x404D)	; &g2-M-02328; [32-45]
+      (==cns11643-3	  . #x2463)	; &g2-M-02328; [04-67]
+      (==daikanwa	  . 02328)	; &g2-M-02328;
+      (==jef-china3	  . #x82B2)	; &g2-M-02328;
+      (->subsumptive
+       ((===daikanwa	    . 02328)	; &R-M-02328;
+	)
+       ((===cns11643-3	    . #x2463)	; &R-C3-2463; [04-67]
+	)
+       ((===jef-china3	    . #x82B2)	; &R-JC3-82B2;
+	)
+       ((===ucs@unicode	    . #x52B3)	; &R-UU+52B3;
+	)
+       ((=hanziku-1	    . #xF1C1)	; &HZK01-F1C1;
+	))
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x52B3)	; 劳
+      ))
+    (=>ucs*		. #x52B3)	; 劳
+    (ideographic-radical . 19)	; ⼒
+    (ideographic-strokes . 6)
+    (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs-var-001	  . #x2B1E6)	; &U-v001+2B1E6;
+      )
+     ((=ucs		  . #x529B)	; 力
+      ))
+    (=ucs		. #x2F992)	; 劳
     ))
 (define-char
   '((<-denotational@usage
