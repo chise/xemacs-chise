@@ -705,6 +705,7 @@ DESCRIPTION (string) is the description string of the charset."
           =>ucs-bmp-cjk@iwds-1
           =>ucs-bmp-cjk@iwds-1/normalized
           =>ucs-sip@iwds-1
+          =>ucs-sip@iwds-1/normalized
           =>ucs-tip@iwds-1
           =+>ucs-bmp-cjk@unicode
           =+>ucs-bmp-cjk-compat@jis

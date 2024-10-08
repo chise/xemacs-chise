@@ -1,3 +1,11 @@
+2024-10-05  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`=>ucs-sip@iwds-1/normalized'.
+
+	* mule/mule-conf.el (=>ucs-sip@iwds-1/normalized): New
+	coded-charset for XEmacs CHISE.
+
 2024-10-03  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* mule/mule-charset.el (default-coded-charset-priority-list): Add
