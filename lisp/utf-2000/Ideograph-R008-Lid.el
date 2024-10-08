@@ -5712,6 +5712,37 @@
     (=hanziku-1		. #xE1DA)	; &I-HZK01-E1DA;
     ))
 (define-char
+  '((ideographic-radical . 8)	; ⼇
+    (ideographic-strokes . 10)
+    (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x4EA6)	; 亦
+      )
+     ((=ucs		  . #x211AA)	; 𡆪
+      ))
+    (=>ucs-itaiji-009	. #x342D)	; &A-U-i009+342D;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs-itaiji-009	  . #x342D)	; &A-U-i009+342D;
+      ))
+    (ideographic-radical . 8)	; ⼇
+    (ideographic-strokes . 10)
+    (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs-itaiji-002	  . #x4EA6)	; &U-i002+4EA6;
+      )
+     ((=ucs		  . #x211AA)	; 𡆪
+      ))
+    (=ucs-itaiji-009	. #x342D)	; &U-i009+342D;
+    ))
+(define-char
   '((<-denotational@usage
      ((==>daijiten	  . 00166)	; &A2-DJT-00166;
       ))
