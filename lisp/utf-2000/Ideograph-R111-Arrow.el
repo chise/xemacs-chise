@@ -56,7 +56,7 @@
     (<-interchangeable$_2*sources
      shuowen-tongxundingsheng daikanwa)
     (<-interchangeable$_3*sources
-     shuowen-tongxundingsheng erya maoshi-jichuan lunyu-zhu daikanwa)
+     shuowen-tongxundingsheng erya maoshi-jizhuan lunyu-zhu daikanwa)
     (<-interchangeable$_4*sources
      shuowen-tongxundingsheng daikanwa)
     (<-interchangeable$_5*sources
