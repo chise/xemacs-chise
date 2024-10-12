@@ -11208,8 +11208,8 @@
     (ideographic-strokes . 9)
     (total-strokes	 . 13)
     (ideographic-structure
-     ((=>ucs@iwds-1	  . #x2FFA)	; &A-IWDSU+2FFA;
-      (=>iwds-1		  .  0307)	; &A-IWDSU+2FFA;
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
       )
      ((=ucs		  . #x662C)	; 昬
       )

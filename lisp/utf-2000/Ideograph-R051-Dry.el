@@ -1868,6 +1868,78 @@
     ))
 (define-char
   '((ideographic-radical . 51)	; ⼲
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>ucs-itaiji-001	  . #x23140)	; &A-U-i001+23140;
+      )
+     ((=ucs		  . #x22189)	; 𢆉
+      ))
+    (=>ucs-itaiji-001	. #x2C678)	; &A-U-i001+2C678;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs-itaiji-001	  . #x2C678)	; &A-U-i001+2C678;
+      ))
+    (ideographic-radical . 51)	; ⼲
+    (ideographic-strokes . 10)
+    (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=gt-k		  . 04903)	; &GT-K04903;
+      )
+     ((=ucs@iso		  . #x22189)	; &MJ035213;
+      (=mj		  . 035213)	; &MJ035213;
+      ))
+    (=ucs-itaiji-001	. #x2C678)	; &U-i001+2C678;
+    ))
+(define-char
+  '((ideographic-radical . 51)	; ⼲
+    (ideographic-strokes . 10)
+    (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>ucs-itaiji-002	  . #x4EAF)	; &A-U-i002+4EAF;
+      )
+     ((=ucs		  . #x22189)	; 𢆉
+      ))
+    (=>ucs-itaiji-002	. #x2C678)	; &A-U-i002+2C678;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs-itaiji-002	  . #x2C678)	; &A-U-i002+2C678;
+      ))
+    (ideographic-radical . 51)	; ⼲
+    (ideographic-strokes . 10)
+    (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs-itaiji-002	  . #x4EAF)	; &U-i002+4EAF;
+      )
+     ((=ucs@iso		  . #x22189)	; &MJ035213;
+      (=mj		  . 035213)	; &MJ035213;
+      ))
+    (ideographic-structure@apparent
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
+      (=ucs		  . #x2FF3)	; ⿳
+      )
+     ((=ucs		  . #x53E4)	; 古
+      )
+     ((=ucs		  . #x53E3)	; 口
+      )
+     ((=ucs@iso		  . #x22189)	; &MJ035213;
+      ))
+    (=ucs-itaiji-002	. #x2C678)	; &U-i002+2C678;
+    ))
+(define-char
+  '((ideographic-radical . 51)	; ⼲
     (ideographic-strokes . 12)
     (total-strokes	 . 15)
     (=ucs		. #x207F3)	; 𠟳
@@ -1945,6 +2017,64 @@
       )
      ((==cbeta		  . 08445)	; &g2-CB08445;
       ))
+    ))
+(define-char
+  '((ideographic-radical . 51)	; ⼲
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=>ucs-itaiji-001	  . #x2C678)	; &A-U-i001+2C678;
+      )
+     ((=ucs		  . #x4E38)	; 丸
+      ))
+    (=>ucs-itaiji-001	. #x5B70)	; &A-U-i001+5B70;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs-itaiji-001	  . #x5B70)	; &A-U-i001+5B70;
+      ))
+    (ideographic-radical . 51)	; ⼲
+    (ideographic-strokes . 13)
+    (total-strokes	 . 16)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs-itaiji-001	  . #x2C678)	; &U-i001+2C678;
+      )
+     ((=ucs		  . #x2F801)	; 丸
+      ))
+    (=ucs-itaiji-001	. #x5B70)	; &U-i001+5B70;
+    ))
+(define-char
+  '((ideographic-radical . 51)	; ⼲
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=>ucs-itaiji-002	  . #x2C678)	; &A-U-i002+2C678;
+      )
+     ((=ucs		  . #x4E38)	; 丸
+      ))
+    (=>ucs-itaiji-002	. #x5B70)	; &A-U-i002+5B70;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs-itaiji-002	  . #x5B70)	; &A-U-i002+5B70;
+      ))
+    (ideographic-radical . 51)	; ⼲
+    (ideographic-strokes . 13)
+    (total-strokes	 . 16)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs-itaiji-002	  . #x2C678)	; &U-i002+2C678;
+      )
+     ((=ucs		  . #x2F801)	; 丸
+      ))
+    (=ucs-itaiji-002	. #x5B70)	; &U-i002+5B70;
     ))
 (define-char
   '((ideographic-radical . 51)	; ⼲

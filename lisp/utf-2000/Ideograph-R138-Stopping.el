@@ -112,7 +112,10 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 138)	; ⾉
+  '((<-denotational@component
+     ((=>ucs@component	  . #x7682)	; &A-compU+7682;
+      ))
+    (ideographic-radical . 138)	; ⾉
     (=>ucs@iwds-1	. #x826F)	; &A-IWDSU+826F;
     ))
 (define-char
