@@ -1010,27 +1010,6 @@
       ))
     ))
 (define-char
-  '((<-denotational@component
-     ((=>ucs@iwds-1	  . #x378B)	; &A-IWDSU+378B;
-      (=>iwds-1		  .  0125)	; &A-IWDSU+378B;
-      ))
-    (<-denotational@usage
-     ((==>daijiten	  . 01114)	; &A2-DJT-01114;
-      ))
-    (ideographic-radical . 29)	; ⼜
-    (ideographic-strokes . 2)
-    (total-strokes	 . 4)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
-      (=ucs		  . #x2FF8)	; ⿸
-      )
-     ((=gt-k		  . 00304)	; &GT-K00304;
-      )
-     ((=ucs		  . #x53C8)	; 又
-      ))
-    (=ucs-itaiji-001	. #x20B1D)	; &U-i001+20B1D;
-    ))
-(define-char
   '((<-denotational@usage
      ((==>daijiten	  . 12994)	; &A2-DJT-12994;
       ))
@@ -1850,6 +1829,44 @@
       ))
     (=>gt-k		. 01143)	; &A-GT-K01143;
     (=>ucs-itaiji-003	. #x20B2A)	; &A-GT-K01143;
+    ))
+(define-char
+  '((<-denotational@component
+     ((=>ucs@iwds-1	  . #x378B)	; &A-IWDSU+378B;
+      (=>iwds-1		  .  0125)	; &A-IWDSU+378B;
+      ))
+    (ideographic-radical . 29)	; ⼜
+    (ideographic-strokes . 3)
+    (total-strokes	 . 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=>ucs@component	  . #x5C38)	; &A-compU+5C38;
+      )
+     ((=ucs		  . #x53C8)	; 又
+      ))
+    (=>ucs@component	. #x378B)	; &A-compU+378B;
+    ))
+(define-char
+  '((<-denotational@component
+     ((=>ucs@component	  . #x378B)	; &A-compU+378B;
+      ))
+    (<-denotational@usage
+     ((==>daijiten	  . 01114)	; &A2-DJT-01114;
+      ))
+    (ideographic-radical . 29)	; ⼜
+    (ideographic-strokes . 3)
+    (total-strokes	 . 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=gt-k		  . 00304)	; &GT-K00304;
+      )
+     ((=ucs		  . #x53C8)	; 又
+      ))
+    (=ucs-itaiji-001	. #x20B1D)	; &U-i001+20B1D;
     ))
 (define-char
   '((<-denotational@usage
@@ -7373,7 +7390,7 @@
       )
      ((=>big5-cdp@iwds-1  . #x8CAF)	; &A-GT-K02231;
       )
-     ((=ucs		  . #x378B)	; 㞋
+     ((=>ucs@component	  . #x378B)	; &A-compU+378B;
       ))
     (sound@ja/on	"syuN")
     (=ucs		. #x20B60)	; 𠭠

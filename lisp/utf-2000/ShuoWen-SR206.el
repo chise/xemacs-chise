@@ -3428,6 +3428,8 @@
   '((shuowen-radical	. 206)	; 木
     (=shuowen-jiguge	. 19119)	; &SW-JIGUGE-19119;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x30634)	; 𰘴
+      )
      ((=ucs		  . #x6A51)	; 橑
       ))
     (->subsumptive

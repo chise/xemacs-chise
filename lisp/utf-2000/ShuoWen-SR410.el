@@ -4771,6 +4771,8 @@
   '((shuowen-radical	. 410)	; 水
     (=shuowen-jiguge	. 38527)	; &SW-JIGUGE-38527;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x23FF3)	; 𣿳
+      )
      ((=ucs		  . #x6F66)	; 潦
       ))
     (->subsumptive
