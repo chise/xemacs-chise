@@ -88,7 +88,16 @@
     (=ucs-itaiji-001	. #x21C23)	; &U-i001+21C23;
     ))
 (define-char
-  '((<-denotational@usage
+  '((ideographic-radical . 44)	; ⼫
+    (ideographic-strokes . 0)
+    (total-strokes	 . 3)
+    (=>ucs@component	. #x5C38)	; &A-compU+5C38;
+    ))
+(define-char
+  '((<-denotational@component
+     ((=>ucs@component	  . #x5C38)	; &A-compU+5C38;
+      ))
+    (<-denotational@usage
      ((==>ucs@bucs	  . #x5C38)	; &BUCS+5C38;
       )
      ((==>ucs@bucs	  . #x5C4D)	; &BUCS+5C4D;
@@ -157,10 +166,9 @@
       ))
     ))
 (define-char
-  '((<-denotational
-     ((=ucs		  . #x5C38)	; 尸
-      ))
-    (<-denotational@component
+  '((<-denotational@component
+     ((=>ucs@component	  . #x5C38)	; &A-compU+5C38;
+      )
      ((=>ucs@component	  . #x5369)	; &A-compU+5369;
       ))
     (ideographic-radical . 44)	; ⼫
@@ -788,8 +796,7 @@
     ))
 (define-char
   '((<-denotational@component
-     ((=>ucs@iwds-1	  . #x378B)	; &A-IWDSU+378B;
-      (=>iwds-1		  .  0125)	; &A-IWDSU+378B;
+     ((=>ucs@component	  . #x378B)	; &A-compU+378B;
       ))
     (ideographic-radical . 44)	; ⼫
     (ideographic-strokes . 2)
@@ -802,6 +809,8 @@
       )
      ((=ucs		  . #x53C8)	; 又
       ))
+    (sound@ja/on/go	"siki" "neN")
+    (sound@ja/on/kan	"syoku" "deN")
     (=ucs		. #x378B)	; 㞋
     (=mj		. 000796)	; &I-MJ000796;
     (=cns11643-3	. #x2240)	; &I-C3-2240; [02-32]
