@@ -1110,7 +1110,8 @@
     (=ucs@iso		. #x24D3F)	; &M-22060;
     (=daikanwa		. 22060)	; &M-22060;
     (->Zhouwen
-     ((=ucs		  . #x24D67)	; 𤵧
+     ((=ucs@iso		  . #x24D67)	; &C4-2E3E;
+      (=cns11643-4	  . #x2E3E)	; &C4-2E3E; [14-30]
       (=daikanwa	  . 22080)	; &I-M-22080;
       ))
     (->Zhouwen*sources
@@ -1576,10 +1577,36 @@
       )
      ((=ucs		  . #x7592)	; 疒
       )
-     ((=ucs		  . #x378B)	; 㞋
+     ((=>ucs@component	  . #x378B)	; &A-compU+378B;
       ))
     (=ucs		. #x24D67)	; 𤵧
-    (=cns11643-4	. #x2E3E)	; &I-C4-2E3E; [14-30]
+    (<-Zhouwen
+     ((=ucs		  . #x24D3F)	; 𤴿
+      )
+     ((=ucs		  . #x3F86)	; 㾆
+      ))
+    (<-Zhouwen$_1*sources
+     shuowen)
+    (<-Zhouwen$_2*sources
+     shuowen)
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x24D67)	; 𤵧
+      ))
+    (ideographic-radical . 104)	; ⽧
+    (ideographic-strokes . 5)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs		  . #x7592)	; 疒
+      )
+     ((=ucs-itaiji-001	  . #x20B1D)	; &U-i001+20B1D;
+      ))
+    (=ucs@iso		. #x24D67)	; &C4-2E3E;
+    (=cns11643-4	. #x2E3E)	; &C4-2E3E; [14-30]
     (=daikanwa		. 22080)	; &I-M-22080;
     (<-Zhouwen
      ((=ucs@iso		  . #x24D3F)	; &M-22060;
@@ -1616,6 +1643,15 @@
      ((=ucs		  . #x20B1D)	; 𠬝
       ))
     (=ucs		. #x24D53)	; 𤵓
+    (<-Zhouwen
+     ((=ucs		  . #x24D3F)	; 𤴿
+      )
+     ((=ucs		  . #x3F86)	; 㾆
+      ))
+    (<-Zhouwen$_1*sources
+     shuowen)
+    (<-Zhouwen$_2*sources
+     shuowen)
     (->subsumptive
      ((==ucs@iso	  . #x24D53)	; &g2-IU-00024D53;
       ))
