@@ -31,7 +31,16 @@
   '((shuowen-radical	. 480)	; 土
     (=shuowen-jiguge	. 47012)	; &SW-JIGUGE-47012;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x214EC)	; 𡓬
+      )
      ((=ucs		  . #x58AC)	; 墬
+      )
+     ((=ucs		  . #x214B0)	; 𡒰
+      ))
+    (<-Zhouwen@shuowen
+     ((=shuowen-jiguge	  . 47011)	; &SW-JIGUGE-47011;
+      )
+     ((=ucs		  . #x5730)	; 地
       ))
     (->subsumptive
      ((===shuowen-jiguge-A30 . 47912)	; &SW-JIGUGE30-47912;
