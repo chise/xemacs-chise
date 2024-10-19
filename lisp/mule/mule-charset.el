@@ -299,6 +299,7 @@ DESCRIPTION (string) is the description string of the charset."
 	  chinese-cns11643-5
 	  chinese-cns11643-6
 	  chinese-cns11643-7
+	  =ucs-bmp-cjk@cns/2008
 	  =adobe-japan1-0
 	  =adobe-japan1-1
 	  =adobe-japan1-2
