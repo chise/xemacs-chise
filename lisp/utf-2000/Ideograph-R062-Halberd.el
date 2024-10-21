@@ -6887,6 +6887,10 @@
       (=ucs@ks		  . #x9EBE)	; &AJ1-05375;
       (=adobe-japan1-0	  . 05375)	; &AJ1-05375;
       (=daikanwa	  . 47899)	; &I-M-47899;
+      )
+     ((=ucs@iso		  . #x240EA)	; &C5-6C4A;
+      (=cns11643-5	  . #x6C4A)	; &C5-6C4A; [76-42]
+      (=daikanwa	  . 18698)	; &I-M-18698;
       ))
     (<-interchangeable$_1*sources
      shuowen-tongxundingsheng daikanwa)
