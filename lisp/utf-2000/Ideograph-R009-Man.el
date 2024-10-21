@@ -19395,6 +19395,25 @@
     ))
 (define-char
   '((ideographic-radical . 9)	; ⼈
+    (ideographic-strokes . 5)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x201A2)	; 𠆢
+      )
+     ((=hanyo-denshi/tk	  . 01011780)	; &HD-TK-01011780;
+      ))
+    (=gt-k		. 03310)	; &GT-K03310;
+    (=gt-pj-k1		. #x6A58)	; &GT-K03310; [74-56]
+    (->subsumptive
+     ((==gt-k		  . 03310)	; &g2-GT-K03310;
+      (==gt-pj-k1	  . #x6A58)	; &g2-GT-K03310; [74-56]
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 9)	; ⼈
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰

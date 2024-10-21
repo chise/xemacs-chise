@@ -1355,6 +1355,15 @@
 	      graphic 0))
 
   (make-charset
+   '=cns11643-3@2008
+   "CNS 11643:2008 Plane 3 representative glyph-images."
+   '(registry "CNS11643\\.2008-3$"
+	      dimension 2
+	      chars 94
+	      mother =cns11643-3
+	      =>iso-ir 183
+	      graphic 0))
+  (make-charset
    '==cns11643-1
    "CNS 11643 Plane 1 representative glyph-images."
    '(registry "CNS11643[.-]\\(.*[.-]\\)?1$"
@@ -4350,6 +4359,16 @@
 		  direction	l2r
 		  =>iso-ir	177
 		  mother	=ucs@unicode))
+  (make-charset '=ucs@cns/2008
+		"ISO/IEC 10646 for CNS 11643:2008"
+		'(long-name	"UCS for CNS@2008"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  =>iso-ir	177
+		  mother	=ucs@cns))
   (make-charset
    '=ucs-sip@cns
    "CNS glyphs of UCS SIP"
@@ -6892,6 +6911,22 @@
 	       mother ===ucs@gb
 	       min-code #x2E00
                max-code #x9FA5
+	       ;; max-code #x9FCC
+	       ;; max-code #xA4CF
+	       ))
+  (make-charset
+   '=ucs-bmp-cjk@cns/2008
+   "CJK Characters in BMP with CNS representative glyph-images."
+   '(long-name "CJK in BMP@CNS"
+	       chars 256
+	       dimension 2
+               columns 2
+	       graphic 2
+	       direction l2r
+	       registry "-zh_TW-.*-ucs-0"
+	       mother =ucs@cns/2008
+	       min-code #x2E00
+	       max-code #x9FA5
 	       ;; max-code #x9FCC
 	       ;; max-code #xA4CF
 	       ))

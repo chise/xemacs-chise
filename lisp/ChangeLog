@@ -1,3 +1,13 @@
+2024-10-19  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`=ucs-bmp-cjk@cns/2008'.
+
+	* mule/mule-conf.el (=cns11643-3@2008): New coded-charset for
+	XEmacs CHISE.
+	(=ucs@cns/2008): Likewise.
+	(=ucs-bmp-cjk@cns/2008): Likewise.
+
 2024-10-05  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* mule/mule-charset.el (default-coded-charset-priority-list): Add
