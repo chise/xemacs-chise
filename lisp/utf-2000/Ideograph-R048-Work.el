@@ -2434,12 +2434,54 @@
       ))
     ))
 (define-char
-  '((script		C-Simplified Ideograph)
+  '((<-denotational@usage
+     ((==>ucs@bucs	  . #x5DEF)	; &BUCS+5DEF;
+      ))
     (ideographic-radical . 48)	; ⼯
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=>ucs@component	  . #x5723)	; &A-compU+5723;
+      (=>iwds-1		  .  0087)	; &A-compU+5723;
+      )
+     ((=>ucs@component	  . #x342C)	; &A-compU+342C;
+      (=>iwds-1		  .  0345)	; &A-compU+342C;
+      ))
     (=ucs		. #x5DEF)	; 巯
-    (=gb2312		. #x5B4F)	; &I-G0-5B4F; [59-47]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5DEF)	; 巯
+      ))
+    (script		C-Simplified Ideograph)
+    (ideographic-radical . 48)	; ⼯
+    (ideographic-strokes . 9)
+    (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs@iso		  . #x22016)	; &U-00022016;
+      )
+     ((=ucs@unicode	  . #x342C)	; &AJ1-17246;
+      (=adobe-japan1-5	  . 17246)	; &AJ1-17246;
+      ))
+    (=ucs@unicode	. #x5DEF)	; &G0-5B4F;
+    (=gb2312		. #x5B4F)	; &G0-5B4F; [59-47]
+    (<-simplified@CN
+     ((=ucs@unicode	  . #x5DF0)	; &UU+5DF0;
+      (=gb12345		  . #x5B4F)	; &UU+5DF0; [59-47]
+      ))
+    (->subsumptive
+     ((==ucs@unicode	  . #x5DEF)	; &g2-UU+5DEF;
+      (==gb2312		  . #x5B4F)	; &g2-UU+5DEF; [59-47]
+      (->subsumptive
+       ((===ucs@unicode	    . #x5DEF)	; &R-UU+5DEF;
+	))
+      ))
     ))
 (define-char
   '((<-denotational
@@ -2486,19 +2528,77 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 48)	; ⼯
+  '((<-denotational@usage
+     ((==>ucs@bucs	  . #x5DEF)	; &BUCS+5DEF;
+      ))
+    (ideographic-radical . 48)	; ⼯
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=>ucs@component	  . #x5DE0)	; &A-compU+5DE0;
+      (=>iwds-1		  .  0085)	; &A-compU+5DE0;
+      )
+     ((=>ucs@component	  . #x342C)	; &A-compU+342C;
+      (=>iwds-1		  .  0345)	; &A-compU+342C;
+      ))
     (=ucs		. #x5DF0)	; 巰
-    (=big5		. #xDD57)	; &I-B-DD57;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5DF0)	; 巰
+      ))
+    (ideographic-radical . 48)	; ⼯
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5DE0)	; 巠
+      )
+     ((=ucs		  . #x342C)	; 㐬
+      ))
+    (=+>ucs@unicode	. #x5DF0)	; &o-UU+5DF0;
+    (=big5		. #xDD57)	; &o-UU+5DF0;
     (->subsumptive
      ((ideographic-strokes . 10)
       (total-strokes	   . 13)
+      (ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=ucs@unicode	    . #x5DE0)	; &AJ1-14495;
+	(=adobe-japan1-4    . 14495)	; &AJ1-14495;
+	)
+       ((=mj		    . 057397)	; &MJ057397;
+	))
       (=ucs@cns		  . #x5DF0)	; &C2-425D;
       (=cns11643-2	  . #x425D)	; &C2-425D; [34-61]
+      (->subsumptive
+       ((==ucs@cns	    . #x5DF0)	; &g2-CU+5DF0;
+	(==cns11643-2	    . #x425D)	; &g2-CU+5DF0; [34-61]
+	))
       )
      ((ideographic-strokes . 11)
       (total-strokes	   . 14)
+      (ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=ucs@unicode	    . #x5DE0)	; &AJ1-14495;
+	(=adobe-japan1-4    . 14495)	; &AJ1-14495;
+	)
+       ((=ucs@unicode	    . #x342C)	; &AJ1-17246;
+	(=adobe-japan1-5    . 17246)	; &AJ1-17246;
+	))
       (=ucs@unicode	  . #x5DF0)	; &UU+5DF0;
       (=gb12345		  . #x5B4F)	; &UU+5DF0; [59-47]
+      (->subsumptive
+       ((==ucs@unicode	    . #x5DF0)	; &g2-UU+5DF0;
+	(==gb12345	    . #x5B4F)	; &g2-UU+5DF0; [59-47]
+	(->subsumptive
+	 ((===ucs@unicode     . #x5DF0)	; &R-UU+5DF0;
+	  ))
+	))
       ))
     ))
 (define-char
@@ -2906,4 +3006,8 @@
   '((ideographic-radical . 48)	; ⼯
     (==>ucs@bucs	. #x5DEB)	; &BUCS+5DEB;
     (==>daijiten	. 02779)	; &BUCS+5DEB;
+    ))
+(define-char
+  '((ideographic-radical . 48)	; ⼯
+    (==>ucs@bucs	. #x5DEF)	; &BUCS+5DEF;
     ))
