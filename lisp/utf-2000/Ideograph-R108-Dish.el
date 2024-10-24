@@ -6050,7 +6050,10 @@
       ))
     ))
 (define-char
-  '((<-denotational@component
+  '((<-denotational
+     ((=>ucs@iwds-1	  . #x91A2)	; &A-IWDSU+91A2;
+      ))
+    (<-denotational@component
      ((=>ucs@iwds-1	  . #x250A7)	; &A-IWDSU+250A7;
       ))
     (ideographic-radical . 108)	; ⽫
@@ -6060,7 +6063,9 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER RIGHT")
       (=ucs		  . #x2FFD)	; ⿽
       )
-     ((=ucs		  . #x25053)	; 𥁓
+     ((=ucs@iso		  . #x25053)	; &C6-397E;
+      (=cns11643-6	  . #x397E)	; &C6-397E; [25-94]
+      (=daikanwa	  . 22974)	; &I-M-22974;
       )
      ((=ucs		  . #x9149)	; 酉
       ))
@@ -6069,7 +6074,8 @@
     (=cns11643-7	. #x3954)	; &I-C7-3954; [25-52]
     (=daikanwa		. 23061)	; &I-M-23061;
     (<-same
-     ((=ucs		  . #x91A2)	; 醢
+     ((=ucs@unicode	  . #x91A2)	; &AJ1-06956;
+      (=adobe-japan1-0	  . 06956)	; &AJ1-06956;
       (=daikanwa	  . 39981)	; &I-M-39981;
       ))
     (<-same*sources
@@ -7486,6 +7492,14 @@
     ))
 (define-char
   '((ideographic-radical . 108)	; ⽫
+    (ideographic-structure
+     ((=>ucs@component	  . #x2FF0)	; &U-v001+2FF0;
+      (=ucs-var-001	  . #x2FF0)	; &U-v001+2FF0;
+      )
+     ((=ucs		  . #x9149)	; 酉
+      )
+     ((=ucs		  . #x25053)	; 𥁓
+      ))
     (=>ucs@iwds-1	. #x250A7)	; &A-IWDSU+250A7;
     ))
 (define-char
