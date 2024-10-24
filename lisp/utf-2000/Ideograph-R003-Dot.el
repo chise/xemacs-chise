@@ -398,7 +398,11 @@
       ))
     ))
 (define-char
-  '((<-denotational@usage
+  '((<-denotational@component
+     ((=>ucs@iwds-1	  . #x5342)	; &A-IWDSU+5342;
+      (=>iwds-1		  .  0055)	; &A-IWDSU+5342;
+      ))
+    (<-denotational@usage
      ((==>daijiten	  . 00068)	; &A2-DJT-00068;
       ))
     (ideographic-radical . 3)	; ⼂
