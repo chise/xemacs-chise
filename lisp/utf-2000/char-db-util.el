@@ -328,6 +328,7 @@
     =ucs@iso
     =ucs@unicode
     =ucs@cns
+    =ucs@cns/2008
     ==big5-cdp
     ==cbeta
     =>>big5-cdp
