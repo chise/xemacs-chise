@@ -5287,6 +5287,28 @@
     (=ucs		. #x3157A)	; 𱕺
     ))
 (define-char
+  '((ideographic-radical . 31)	; ⼞
+    (ideographic-strokes . 6)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
+      (=ucs		  . #x2FF4)	; ⿴
+      )
+     ((=ucs		  . #x56D7)	; 囗
+      )
+     ((=ucs		  . #x200AD)	; 𠂭
+      ))
+    (sound@ja/on	"Wi")
+    (=ucs		. #x3157B)	; 𱕻
+    (=gt-k		. 05805)	; &I-GT-K05805;
+    (=gt-pj-k1		. #x6272)	; 𱕻 [66-82]
+    (->subsumptive
+     ((==ucs@JP/hanazono  . #x3157B)	; &g2-GT-K05805;
+      (==gt-k		  . 05805)	; &g2-GT-K05805;
+      (==gt-pj-k1	  . #x6272)	; &g2-GT-K05805; [66-82]
+      ))
+    ))
+(define-char
   '((<-denotational
      ((=>ucs@cognate	  . #x2055A)	; &A-cgnU+2055A;
       ))
@@ -5386,26 +5408,6 @@
      ((=ucs		  . #x5415)	; 吕
       ))
     (=ucs-itaiji-003	. #x268FB)	; &U-i003+268FB;
-    ))
-(define-char
-  '((ideographic-radical . 31)	; ⼞
-    (ideographic-strokes . 6)
-    (total-strokes	 . 9)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
-      (=ucs		  . #x2FF4)	; ⿴
-      )
-     ((=ucs		  . #x56D7)	; 囗
-      )
-     ((=ucs		  . #x200AD)	; 𠂭
-      ))
-    (sound@ja/on	"Wi")
-    (=gt-k		. 05805)	; &GT-K05805;
-    (=gt-pj-k1		. #x6272)	; &GT-K05805; [66-82]
-    (->subsumptive
-     ((==gt-k		  . 05805)	; &g2-GT-K05805;
-      (==gt-pj-k1	  . #x6272)	; &g2-GT-K05805; [66-82]
-      ))
     ))
 (define-char
   '((ideographic-radical . 31)	; ⼞
