@@ -332,7 +332,10 @@
      ((=ucs		  . #x4E02)	; 丂
       ))
     (->subsumptive
-     ((==big5-cdp	  . #x8BBF)	; &g2-CDP-8BBF;
+     ((=>>big5-cdp	  . #x8BBF)	; &G-CDP-8BBF;
+      (->subsumptive
+       ((==big5-cdp	    . #x8BBF)	; &g2-CDP-8BBF;
+	))
       )
      ((=gt-k		  . 00125)	; &GT-K00125;
       (=gt-pj-k1	  . #x6231)	; &GT-K00125; [66-17]
