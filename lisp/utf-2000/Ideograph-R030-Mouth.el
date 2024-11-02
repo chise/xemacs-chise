@@ -20216,7 +20216,10 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 30)	; ⼝
+  '((<-denotational@usage
+     ((==>ucs@bucs	  . #x54A7)	; &BUCS+54A7;
+      ))
+    (ideographic-radical . 30)	; ⼝
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
     (ideographic-structure
@@ -20227,8 +20230,28 @@
       )
      ((=ucs		  . #x5217)	; 列
       ))
+    (sound@ja/on/go	"reti")
+    (sound@ja/on/kan	"retu")
     (=ucs		. #x54A7)	; 咧
-    (=adobe-japan1-5	. 19226)	; &I-AJ1-19226;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x54A7)	; 咧
+      ))
+    (ideographic-radical . 30)	; ⼝
+    (ideographic-strokes . 6)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x53E3)	; 口
+      )
+     ((=ucs@unicode	  . #x5217)	; &AJ1-04027;
+      (=adobe-japan1-0	  . 04027)	; &AJ1-04027;
+      ))
+    (=ucs@unicode	. #x54A7)	; &AJ1-19226;
+    (=adobe-japan1-5	. 19226)	; &AJ1-19226;
     (=gb2312		. #x5F56)	; &I-G0-5F56; [63-54]
     (=jis-x0212		. #x352E)	; &I-JSP-352E; [21-14]
     (=cns11643-1	. #x504A)	; &I-C1-504A; [48-42]
@@ -50129,7 +50152,7 @@
       )
      ((=ucs		  . #x53E3)	; 口
       )
-     ((=gt-k		  . 05805)	; &GT-K05805;
+     ((=ucs		  . #x3157B)	; 𱕻
       ))
     (sound@ja/on	"ki")
     (=ucs		. #x20DDD)	; 𠷝
@@ -99944,6 +99967,10 @@
   '((ideographic-radical . 30)	; ⼝
     (==>ucs@bucs	. #x548F)	; &BUCS+548F;
     (==>daijiten	. 01266)	; &BUCS+548F;
+    ))
+(define-char
+  '((ideographic-radical . 30)	; ⼝
+    (==>ucs@bucs	. #x54A7)	; &BUCS+54A7;
     ))
 (define-char
   '((ideographic-radical . 30)	; ⼝
