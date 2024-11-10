@@ -6148,6 +6148,41 @@
   '((ideographic-radical . 13)	; ⼌
     (ideographic-strokes . 9)
     (total-strokes	 . 11)
+    (=>ucs-itaiji-003	. #x5193)	; &A-U-i003+5193;
+    (=>ucs-itaiji-004	. #x5193)	; &A-U-i003+5193;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs-itaiji-003	  . #x5193)	; &A-U-i003+5193;
+      ))
+    (ideographic-radical . 13)	; ⼌
+    (ideographic-strokes . 9)
+    (total-strokes	 . 11)
+    (=ucs-itaiji-003	. #x5193)	; &U-i003+5193;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs-itaiji-003	  . #x5193)	; &A-U-i003+5193;
+      ))
+    (ideographic-radical . 13)	; ⼌
+    (ideographic-strokes . 9)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x2000E)	; 𠀎
+      )
+     ((=ucs@cns		  . #x2054B)	; &GT-02003;
+      (=cns11643-6	  . #x235A)	; &GT-02003; [03-58]
+      (=daikanwa	  . 01523)	; &I-M-01523;
+      ))
+    (=ucs-itaiji-004	. #x5193)	; &U-i004+5193;
+    ))
+(define-char
+  '((ideographic-radical . 13)	; ⼌
+    (ideographic-strokes . 9)
+    (total-strokes	 . 11)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
