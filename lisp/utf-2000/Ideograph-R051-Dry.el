@@ -1370,7 +1370,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=>ucs-itaiji-004	  . #x343A)	; &A-U-i004+343A;
+     ((=>gt-k		  . 01800)	; &A-GT-K01800;
       )
      ((=ucs		  . #x5E72)	; 干
       ))
@@ -1388,7 +1388,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=ucs-itaiji-004	  . #x343A)	; &U-i004+343A;
+     ((=gt-k		  . 01800)	; &GT-K01800;
       )
      ((=ucs		  . #x5E72)	; 干
       ))
