@@ -5509,6 +5509,15 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
       (=ucs		  . #x2FF8)	; ⿸
       )
+     ((=ucs@iso		  . #x271A8)	; &MJ047381;
+      (=mj		  . 047381)	; &MJ047381;
+      )
+     ((=ucs		  . #x76BF)	; 皿
+      ))
+    (ideographic-structure@apparent
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
      ((=ucs@unicode	  . #x864D)	; &AJ1-06479;
       (=adobe-japan1-0	  . 06479)	; &AJ1-06479;
       )
@@ -7104,15 +7113,32 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
       (=ucs		  . #x2FF8)	; ⿸
       )
-     ((=ucs-itaiji-001	  . #x271A8)	; &U-i001+271A8;
+     ((=>ucs-itaiji-001	  . #x271A8)	; &A-U-i001+271A8;
       )
      ((=ucs		  . #x76BF)	; 皿
       ))
     (sound@ja/on	"ro")
     (=ucs		. #x250C8)	; 𥃈
-    (=mj		. 042145)	; &I-MJ042145;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x250C8)	; 𥃈
+      ))
+    (ideographic-radical . 108)	; ⽫
+    (ideographic-strokes . 15)
+    (total-strokes	 . 20)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs-itaiji-001	  . #x271A8)	; &U-i001+271A8;
+      )
+     ((=ucs		  . #x76BF)	; 皿
+      ))
+    (=ucs@iso		. #x250C8)	; &MJ042145;
+    (=mj		. 042145)	; &MJ042145;
     (=cns11643-7	. #x4E53)	; &I-C7-4E53; [46-51]
-    (=koseki		. 258360)	; 𥃈
+    (=koseki		. 258360)	; &MJ042145;
     (=daikanwa		. 23086)	; &I-M-23086;
     (<-Zhouwen
      ((=ucs@unicode	  . #x76E7)	; &AJ1-05807;
