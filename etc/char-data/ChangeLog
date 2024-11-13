@@ -1,3 +1,7 @@
+2024-11-10  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* JX2-to-UCS.txt (JX2-7522): Map to JU+8002 instead of U+8002.
+
 2024-08-13  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* JC3-to-UCS.txt (JC3-44D4): Map to U+FA76 instead of U+52C7.
