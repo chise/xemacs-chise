@@ -40911,12 +40911,68 @@
   '((ideographic-radical . 32)	; ⼟
     (ideographic-strokes . 13)
     (total-strokes	 . 16)
-    (=ucs		. #x3676)	; 㙶
-    (->subsumptive
-     ((=daikanwa	  . 05534)	; &M-05534;
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=ucs@unicode	  . #x3676)	; &C3-5045;
-      (=cns11643-3	  . #x5045)	; &C3-5045; [48-37]
+     ((=>big5-cdp	  . #x8BAA)	; &A-CDP-8BAA;
+      )
+     ((=ucs		  . #x5802)	; 堂
+      ))
+    (sound@ja/on	"dAu")
+    (=ucs		. #x3676)	; 㙶
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x3676)	; 㙶
+      ))
+    (ideographic-radical . 32)	; ⼟
+    (ideographic-strokes . 13)
+    (total-strokes	 . 16)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=big5-cdp	  . #x8BAA)	; &CDP-8BAA;
+      )
+     ((=ucs@unicode	  . #x5802)	; &AJ1-03210;
+      (=adobe-japan1-0	  . 03210)	; &AJ1-03210;
+      ))
+    (=ucs@unicode	. #x3676)	; &MJ000543;
+    (=mj		. 000543)	; &MJ000543;
+    (=cns11643-3	. #x5045)	; &I-C3-5045; [48-37]
+    (=koseki		. 063300)	; &MJ000543;
+    (=daikanwa		. 05534)	; &I-M-05534;
+    (<-Zhouwen
+     ((=ucs@unicode	  . #x5802)	; &AJ1-03210;
+      (=adobe-japan1-0	  . 03210)	; &AJ1-03210;
+      (=daikanwa	  . 05207)	; &I-M-05207;
+      ))
+    (<-Zhouwen*sources
+     shuowen daikanwa)
+    (<-formed
+     ((=ucs@unicode	  . #x5802)	; &AJ1-03210;
+      (=adobe-japan1-0	  . 03210)	; &AJ1-03210;
+      ))
+    (<-formed$_1*sources
+     koseki mj)
+    (<-formed*sources
+     koseki mj)
+    (->subsumptive
+     ((==ucs@unicode	  . #x3676)	; &g2-MJ000543;
+      (==mj		  . 000543)	; &g2-MJ000543;
+      (==cns11643-3	  . #x5045)	; &g2-MJ000543; [48-37]
+      (==koseki		  . 063300)	; &g2-MJ000543;
+      (==daikanwa	  . 05534)	; &g2-MJ000543;
+      (->subsumptive
+       ((===daikanwa	    . 05534)	; &R-M-05534;
+	)
+       ((===mj		    . 000543)	; &R-MJ000543;
+	)
+       ((===cns11643-3	    . #x5045)	; &R-C3-5045; [48-37]
+	)
+       ((===ucs@unicode	    . #x3676)	; &R-UU+3676;
+	))
       ))
     ))
 (define-char
