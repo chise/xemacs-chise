@@ -3461,19 +3461,23 @@
   '((=ruimoku-v6	. #xE0DF)	; &RUI6-E0DF;
     ))
 (define-char
-  '((ideographic-radical . 125)	; ⽼
+  '((<-denotational
+     ((=ucs		  . #x2C68B)	; 𬚋
+      ))
+    (ideographic-radical . 125)	; ⽼
     (ideographic-strokes . 5)
     (total-strokes	 . 9)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=ucs		  . #x8002)	; 耂
+     ((name		  . "CJK RADICAL OLD")
+      (=ucs		  . #x2EB9)	; ⺹
       )
      ((=ucs		  . #x53E4)	; 古
       ))
-    (=ucs		. #x2C68B)	; 𬚋
-    (=ruimoku-v6	. #xE0E0)	; &I-RUI6-E0E0;
+    (=ucs@JP/hanazono	. #x2C68B)	; &RUI6-E0E0;
+    (=ruimoku-v6	. #xE0E0)	; &RUI6-E0E0;
     (->subsumptive
      ((==ucs@JP/hanazono  . #x2C68B)	; &g2-hanaJU+2C68B;
       )
