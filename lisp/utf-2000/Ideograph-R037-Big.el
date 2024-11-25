@@ -5683,6 +5683,11 @@
     (=gt-k		. 05365)	; &I-GT-K05365;
     (=gt-pj-2		. #x6734)	; &I-GT-07451; [71-20]
     (=daikanwa		. 05915)	; &I-M-05915;
+    (<-formed
+     ((=ucs@ks		  . #x6E4A)	; &M-17822;
+      (=ks-x1001	  . #x713E)	; &M-17822; [81-30]
+      (=daikanwa	  . 17822)	; &I-M-17822;
+      ))
     (<-interchangeable
      ((=ucs		  . #x8D70)	; 走
       (=daikanwa	  . 37034)	; &I-M-37034;
@@ -5708,9 +5713,17 @@
      ((=mj		  . 033507)	; &MJ033507;
       (=daikanwa	  . 06005)	; &I-M-06005;
       )
-     ((=ucs@iso		  . #x21D28)	; &C7-2242;
-      (=cns11643-7	  . #x2242)	; &C7-2242; [02-34]
+     ((=ucs@iso		  . #x21D28)	; &MJ034468;
+      (=mj		  . 034468)	; &MJ034468;
       (=daikanwa	  . 07865)	; &I-M-07865;
+      )
+     ((=ucs@iso		  . #x21CAF)	; &C6-5226;
+      (=cns11643-6	  . #x5226)	; &C6-5226; [50-06]
+      (=daikanwa	  . 07774)	; &I-M-07774;
+      )
+     ((=ucs@iso		  . #x22F65)	; &MJ037306;
+      (=mj		  . 037306)	; &MJ037306;
+      (=daikanwa	  . 13264)	; &I-M-13264;
       ))
     (->ancient$_1*sources
      kangxi daikanwa)
@@ -5719,12 +5732,12 @@
     (->ancient*sources
      kangxi daikanwa)
     (->formed
-     ((=ucs@iso		  . #x20B61)	; &GT-00215;
-      (=cns11643-6	  . #x3C7C)	; &GT-00215; [28-92]
+     ((=ucs@iso		  . #x20B61)	; &MJ032062;
+      (=mj		  . 032062)	; &MJ032062;
       (=daikanwa	  . 48910)	; &I-M-48910;
       )
-     ((=ucs@iso		  . #x22F65)	; &C6-495A;
-      (=cns11643-6	  . #x495A)	; &C6-495A; [41-58]
+     ((=ucs@iso		  . #x22F65)	; &MJ037306;
+      (=mj		  . 037306)	; &MJ037306;
       (=daikanwa	  . 13264)	; &I-M-13264;
       )
      ((=ucs@iso		  . #x21CAF)	; &C6-5226;
@@ -5740,8 +5753,8 @@
     (->formed*sources
      jiyun daikanwa)
     (->original
-     ((=ucs@iso		  . #x21D28)	; &C7-2242;
-      (=cns11643-7	  . #x2242)	; &C7-2242; [02-34]
+     ((=ucs@iso		  . #x21D28)	; &MJ034468;
+      (=mj		  . 034468)	; &MJ034468;
       (=daikanwa	  . 07865)	; &I-M-07865;
       )
      ((=mj		  . 034459)	; &MJ034459;
