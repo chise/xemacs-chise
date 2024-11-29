@@ -1727,7 +1727,10 @@
     (=daikanwa		. 19979)	; &I-M-19979;
     ))
 (define-char
-  '((ideographic-radical . 93)	; ⽜
+  '((<-denotational@usage
+     ((==>ucs@bucs	  . #x726F)	; &BUCS+726F;
+      ))
+    (ideographic-radical . 93)	; ⽜
     (ideographic-strokes . 5)
     (total-strokes	 . 9)
     (ideographic-structure
@@ -1736,16 +1739,54 @@
       )
      ((=ucs		  . #x725B)	; 牛
       )
-     ((=ucs		  . #x53E4)	; 古
+     ((=>ucs@iwds-1	  . #x53E4)	; &A-IWDSU+53E4;
       ))
     (=ucs		. #x726F)	; 牯
-    (=adobe-japan1-5	. 18051)	; &I-AJ1-18051;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x726F)	; 牯
+      ))
+    (ideographic-radical . 93)	; ⽜
+    (ideographic-strokes . 5)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x725C)	; 牜
+      )
+     ((=ucs		  . #x53E4)	; 古
+      ))
+    (=ucs@unicode	. #x726F)	; &AJ1-18051;
+    (=adobe-japan1-5	. 18051)	; &AJ1-18051;
     (=gb2312		. #x6A74)	; &I-G0-6A74; [74-84]
     (=jis-x0212		. #x4A5F)	; &I-JSP-4A5F; [42-63]
     (=cns11643-1	. #x523D)	; &I-C1-523D; [50-29]
     (=jis-x0213-2	. #x7035)	; &I-JX2-7035; [80-21]
     (=big5		. #xACBA)	; &I-B-ACBA;
     (=daikanwa		. 19981)	; &I-M-19981;
+    (->subsumptive
+     ((==ucs@unicode	  . #x726F)	; &g2-AJ1-18051;
+      (==adobe-japan1-5	  . 18051)	; &g2-AJ1-18051;
+      (==gb2312		  . #x6A74)	; &g2-AJ1-18051; [74-84]
+      (==jis-x0212	  . #x4A5F)	; &g2-AJ1-18051; [42-63]
+      (==cns11643-1	  . #x523D)	; &g2-AJ1-18051; [50-29]
+      (==jis-x0213-2	  . #x7035)	; &g2-AJ1-18051; [80-21]
+      (==daikanwa	  . 19981)	; &g2-AJ1-18051;
+      (->subsumptive
+       ((===daikanwa	    . 19981)	; &R-M-19981;
+	)
+       ((===jis-x0212	    . #x4A5F)	; &R-JX2-7035; [42-63]
+	(===jis-x0213-2	    . #x7035)	; &R-JX2-7035; [80-21]
+	)
+       ((===adobe-japan1-5  . 18051)	; &R-AJ1-18051;
+	)
+       ((===cns11643-1	    . #x523D)	; &R-C1-523D; [50-29]
+	)
+       ((===ucs@unicode	    . #x726F)	; &R-UU+726F;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 93)	; ⽜
@@ -8119,6 +8160,10 @@
   '((ideographic-radical . 93)	; ⽜
     (==>ucs@bucs	. #x7269)	; &BUCS+7269;
     (==>daijiten	. 07080)	; &BUCS+7269;
+    ))
+(define-char
+  '((ideographic-radical . 93)	; ⽜
+    (==>ucs@bucs	. #x726F)	; &BUCS+726F;
     ))
 (define-char
   '((ideographic-radical . 93)	; ⽜
