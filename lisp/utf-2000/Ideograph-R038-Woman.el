@@ -51500,7 +51500,8 @@
      ((=ucs		  . #x93A3)	; 鎣
       (=daikanwa	  . 40730)	; &I-M-40730;
       )
-     ((=ucs		  . #x76C8)	; 盈
+     ((=ucs@unicode	  . #x76C8)	; &AJ1-01264;
+      (=adobe-japan1-0	  . 01264)	; &AJ1-01264;
       (=daikanwa	  . 22961)	; &I-M-22961;
       ))
     (<-interchangeable$_1*sources
