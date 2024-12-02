@@ -8855,7 +8855,8 @@
       (=adobe-japan1-4	  . 14436)	; &AJ1-14436;
       (=daikanwa	  . 05400)	; &I-M-05400;
       )
-     ((=ucs		  . #x63E3)	; 揣
+     ((=ucs@unicode	  . #x63E3)	; &AJ1-05004;
+      (=adobe-japan1-0	  . 05004)	; &AJ1-05004;
       (=daikanwa	  . 12371)	; &I-M-12371;
       )
      ((=ucs@unicode	  . #x6566)	; &AJ1-03248;

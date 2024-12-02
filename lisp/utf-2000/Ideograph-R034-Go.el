@@ -464,6 +464,20 @@
     ))
 (define-char
   '((ideographic-radical . 34)	; ⼡
+    (ideographic-strokes . 2)
+    (total-strokes	 . 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
+      (=ucs		  . #x2FF5)	; ⿵
+      )
+     ((=ucs		  . #x4E43)	; 乃
+      )
+     ((=ucs		  . #x5915)	; 夕
+      ))
+    (=ucs-itaiji-001	. #x21554)	; &U-i001+21554;
+    ))
+(define-char
+  '((ideographic-radical . 34)	; ⼡
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
     (=>ucs@cognate	. #x5905)	; &A-cgnU+5905;
