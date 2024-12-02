@@ -1692,9 +1692,22 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 113)	; ⽰
+  '((<-denotational@usage
+     ((==>ucs@bucs	  . #x7946)	; &BUCS+7946;
+      ))
+    (ideographic-radical . 113)	; ⽰
     (ideographic-strokes . 4)
     (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=>ucs@iwds-1	  . #x793A)	; &A-IWDSU+793A;
+      (=>iwds-1		  .  0362)	; &A-IWDSU+793A;
+      )
+     ((=>ucs@iwds-1	  . #x5929)	; &A-IWDSU+5929;
+      (=>iwds-1		  .  0008)	; &A-IWDSU+5929;
+      ))
     (=ucs		. #x7946)	; 祆
     ))
 (define-char
@@ -1704,6 +1717,14 @@
     (ideographic-radical . 113)	; ⽰
     (ideographic-strokes . 4)
     (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x793A)	; 示
+      )
+     ((=ucs		  . #x5929)	; 天
+      ))
     (=ucs@jis		. #x7946)	; &AJ1-17015;
     (=adobe-japan1-5	. 17015)	; &AJ1-17015;
     (=jis-x0212		. #x5050)	; &I-JSP-5050; [48-48]
@@ -1735,6 +1756,14 @@
     (ideographic-radical . 113)	; ⽰
     (ideographic-strokes . 4)
     (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x793B)	; 礻
+      )
+     ((=ucs		  . #x5929)	; 天
+      ))
     (=ucs@unicode	. #x7946)	; &GT-31520;
     (=ucs@JP/hanazono	. nil)
     (=gb2312		. #x6C6C)	; &GT-31520; [76-76]
@@ -19486,6 +19515,10 @@
   '((ideographic-radical . 113)	; ⽰
     (==>ucs@bucs	. #x7941)	; &BUCS+7941;
     (==>daijiten	. 08104)	; &BUCS+7941;
+    ))
+(define-char
+  '((ideographic-radical . 113)	; ⽰
+    (==>ucs@bucs	. #x7946)	; &BUCS+7946;
     ))
 (define-char
   '((ideographic-radical . 113)	; ⽰
