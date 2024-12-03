@@ -17391,9 +17391,42 @@
      ((=ucs		  . #x76C8)	; 盈
       ))
     (=ucs		. #x21EA1)	; 𡺡
-    (=cns11643-6	. #x4830)	; &I-C6-4830; [40-16]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x21EA1)	; 𡺡
+      ))
+    (ideographic-radical . 46)	; ⼭
+    (ideographic-strokes . 9)
+    (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5C71)	; 山
+      )
+     ((=ucs@unicode	  . #x76C8)	; &AJ1-01264;
+      (=adobe-japan1-0	  . 01264)	; &AJ1-01264;
+      ))
+    (=ucs@iso		. #x21EA1)	; &C6-4830;
+    (=cns11643-6	. #x4830)	; &C6-4830; [40-16]
     (=daikanwa		. 08311)	; &I-M-08311;
     (=cbeta		. 06245)	; &I-CB06245;
+    (->subsumptive
+     ((==ucs@iso	  . #x21EA1)	; &g2-M-08311;
+      (==cns11643-6	  . #x4830)	; &g2-M-08311; [40-16]
+      (==daikanwa	  . 08311)	; &g2-M-08311;
+      (==cbeta		  . 06245)	; &g2-M-08311;
+      (->subsumptive
+       ((===daikanwa	    . 08311)	; &R-M-08311;
+	)
+       ((===cns11643-6	    . #x4830)	; &R-C6-4830; [40-16]
+	)
+       ((===ucs@iso	    . #x21EA1)	; &R-U-00021EA1;
+	)
+       ((===cbeta	    . 06245)	; &R-CB06245;
+	))
+      ))
     ))
 (define-char
   '((=>ucs		. #x21E86)	; 𡺆
