@@ -1426,22 +1426,6 @@
       ))
     ))
 (define-char
-  '((<-denotational
-     ((name		  . "CJK RADICAL SHEEP")
-      (=ucs		  . #x2EB6)	; ⺶
-      ))
-    (ideographic-radical . 123)	; ⽺
-    (ideographic-strokes . 0)
-    (total-strokes	 . 7)
-    (=big5-cdp		. #x8CCC)	; &CDP-8CCC;
-    (<-formed@component
-     ((=ucs		  . #x7F8A)	; 羊
-      ))
-    (->subsumptive
-     ((==big5-cdp	  . #x8CCC)	; &g2-CDP-8CCC;
-      ))
-    ))
-(define-char
   '((<-denotational@component
      ((=>ucs@iwds-1	  . #x7F8A)	; &A-IWDSU+7F8A;
       (=>iwds-1		  .  0100)	; &A-IWDSU+7F8A;
@@ -1530,9 +1514,36 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (ideographic-radical . 125)	; ⽼
+    (ideographic-strokes . 0)
+    (total-strokes	 . 4)
     (=ucs		. #x2EB9)	; ⺹
-    (<-identical@component
-     ((=ucs		  . #x8002)	; 耂
+    (=ucs@unicode	. #x8002)	; ⺹
+    (=jis-x0213-2	. #x7522)	; &I-JX2-7522; [85-02]
+    (=big5-cdp		. #x8B52)	; &I-CDP-8B52;
+    (=gt		. 37304)	; &I-GT-37304;
+    (=gt-pj-9		. #x4E52)	; &I-GT-37304; [46-50]
+    (=jef-china3	. #x72FC)	; &I-JC3-72FC;
+    (<-formed@component/connect-below
+     ((=ucs		  . #x8001)	; 老
+      ))
+    (->subsumptive
+     ((==ucs@unicode	  . #x8002)	; &g2-GT-37304;
+      (==jis-x0213-2	  . #x7522)	; &g2-GT-37304; [85-02]
+      (==big5-cdp	  . #x8B52)	; &g2-GT-37304;
+      (==gt		  . 37304)	; &g2-GT-37304;
+      (==jef-china3	  . #x72FC)	; &g2-GT-37304;
+      (->subsumptive
+       ((===jis-x0213-2	    . #x7522)	; &R-JX2-7522; [85-02]
+	)
+       ((===big5-cdp	    . #x8B52)	; &R-CDP-8B52;
+	)
+       ((===gt		    . 37304)	; &R-GT-37304;
+	)
+       ((===jef-china3	    . #x72FC)	; &R-JC3-72FC;
+	)
+       ((===ucs@unicode	    . #x8002)	; &R-UU+8002;
+	))
       ))
     ))
 (define-char
