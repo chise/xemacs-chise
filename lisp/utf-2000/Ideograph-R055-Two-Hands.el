@@ -2837,7 +2837,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=ucs		  . #x91C6)	; 釆
+     ((=ucs@unicode	  . #x91C6)	; &AJ1-03428;
+      (=adobe-japan1-0	  . 03428)	; &AJ1-03428;
       )
      ((=ucs@unicode	  . #x5EFE)	; &MJ011120;
       (=mj		  . 011120)	; &MJ011120;
@@ -2865,6 +2866,24 @@
      ((==ucs@cns	  . #x2234F)	; &g2-CU+2234F;
       (==cns11643-4	  . #x2C6F)	; &g2-CU+2234F; [12-79]
       ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2234F)	; 𢍏
+      ))
+    (ideographic-radical . 55)	; ⼶
+    (ideographic-strokes . 7)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs@unicode	  . #x91C6)	; &AJ1-03428;
+      (=adobe-japan1-0	  . 03428)	; &AJ1-03428;
+      )
+     ((=ucs		  . #x2F890)	; 廾
+      ))
+    (=ucs-var-001	. #x2234F)	; &U-v001+2234F;
     ))
 (define-char
   '((ideographic-radical . 55)	; ⼶

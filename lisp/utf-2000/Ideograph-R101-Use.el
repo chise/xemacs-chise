@@ -894,14 +894,57 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 101)	; ⽤
+  '((<-denotational@usage
+     ((==>ucs@bucs	  . #x752D)	; &BUCS+752D;
+      ))
+    (ideographic-radical . 101)	; ⽤
     (ideographic-strokes . 4)
     (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>ucs@iwds-1	  . #x25605)	; &A-IWDSU+25605;
+      )
+     ((=>ucs@iwds-1	  . #x7528)	; &A-IWDSU+7528;
+      ))
+    (sound@ja/on	"hou")
     (=ucs		. #x752D)	; 甭
-    (=gb2312		. #x3142)	; &I-G0-3142; [17-34]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x752D)	; 甭
+      ))
+    (ideographic-radical . 101)	; ⽤
+    (ideographic-strokes . 4)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x4E0D)	; 不
+      )
+     ((=ucs@unicode	  . #x7528)	; &AJ1-03899;
+      (=adobe-japan1-0	  . 03899)	; &AJ1-03899;
+      ))
+    (=ucs@unicode	. #x752D)	; &C1-524A;
+    (=gb2312		. #x3142)	; &C1-524A; [17-34]
     (=cns11643-1	. #x524A)	; &I-C1-524A; [50-42]
     (=big5		. #xACC7)	; &I-B-ACC7;
     (=daikanwa		. 21713)	; &I-M-21713;
+    (->subsumptive
+     ((==ucs@unicode	  . #x752D)	; &g2-M-21713;
+      (==gb2312		  . #x3142)	; &g2-M-21713; [17-34]
+      (==cns11643-1	  . #x524A)	; &g2-M-21713; [50-42]
+      (==daikanwa	  . 21713)	; &g2-M-21713;
+      (->subsumptive
+       ((===daikanwa	    . 21713)	; &R-M-21713;
+	)
+       ((===cns11643-1	    . #x524A)	; &R-C1-524A; [50-42]
+	)
+       ((===ucs@unicode	    . #x752D)	; &R-UU+752D;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 101)	; ⽤
@@ -1677,6 +1720,10 @@
   '((ideographic-radical . 101)	; ⽤
     (==>ucs@bucs	. #x752C)	; &BUCS+752C;
     (==>daijiten	. 07471)	; &BUCS+752C;
+    ))
+(define-char
+  '((ideographic-radical . 101)	; ⽤
+    (==>ucs@bucs	. #x752D)	; &BUCS+752D;
     ))
 (define-char
   '((ideographic-radical . 101)	; ⽤
