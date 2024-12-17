@@ -2414,6 +2414,20 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
+     ((=ucs		  . #x4E0A)	; 上
+      )
+     ((=ucs		  . #x5973)	; 女
+      ))
+    (=ucs		. #x2A964)	; 𪥤
+    ))
+(define-char
+  '((ideographic-radical . 38)	; ⼥
+    (ideographic-strokes . 3)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
      ((=ucs		  . #x2D544)	; 𭕄
       )
      ((=ucs		  . #x5973)	; 女
