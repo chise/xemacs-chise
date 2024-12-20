@@ -3,6 +3,8 @@
   '((shuowen-radical	. 177)	; 井
     (=shuowen-jiguge	. 16703)	; &SW-JIGUGE-16703;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x4E3C)	; 丼
+      )
      ((=ucs		  . #x4E95)	; 井
       ))
     (->subsumptive
