@@ -536,6 +536,20 @@
       )
      ((=ucs		  . #x4EA0)	; 亠
       )
+     ((=ucs		  . #x4E01)	; 丁
+      ))
+    (=ucs-itaiji-004	. #x4EAD)	; &U-i004+4EAD;
+    ))
+(define-char
+  '((ideographic-radical . 8)	; ⼇
+    (ideographic-strokes . 2)
+    (total-strokes	 . 4)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x4EA0)	; 亠
+      )
      ((=ucs		  . #x4E86)	; 了
       ))
     (=gt-k		. 00823)	; &GT-K00823;
