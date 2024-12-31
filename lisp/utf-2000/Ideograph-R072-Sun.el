@@ -14395,10 +14395,51 @@
       )
      ((=ucs		  . #x65E5)	; 日
       )
-     ((=ucs		  . #x593E)	; 夾
+     ((=ucs		  . #x5426)	; 否
+      ))
+    (=ucs		. #x231CA)	; 𣇊
+    ))
+(define-char
+  '((ideographic-radical . 72)	; ⽇
+    (ideographic-strokes . 7)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x65E5)	; 日
+      )
+     ((=>ucs@component	  . #x593E)	; &A-compU+593E;
+      (=>iwds-1		  .  0147)	; &A-compU+593E;
       ))
     (=ucs		. #x231CD)	; 𣇍
-    (=cbeta		. 05170)	; &I-CB05170;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x231CD)	; 𣇍
+      ))
+    (ideographic-radical . 72)	; ⽇
+    (ideographic-strokes . 7)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x65E5)	; 日
+      )
+     ((=ucs		  . #x593E)	; 夾
+      ))
+    (=ucs@iso		. #x231CD)	; &CB05170;
+    (=cbeta		. 05170)	; &CB05170;
+    (->subsumptive
+     ((==ucs@iso	  . #x231CD)	; &g2-CB05170;
+      (==cbeta		  . 05170)	; &g2-CB05170;
+      (->subsumptive
+       ((===ucs@iso	    . #x231CD)	; &R-U-000231CD;
+	)
+       ((===cbeta	    . 05170)	; &R-CB05170;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 72)	; ⽇
