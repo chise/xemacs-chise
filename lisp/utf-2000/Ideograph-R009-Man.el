@@ -10135,8 +10135,8 @@
     (=daikanwa		. 00450)	; &I-M-00450;
     (<-ancient
      ((=ucs@unicode	  . #x5CA1)	; &AJ1-01324;
-      (=adobe-japan1-0	  . 01324)	; &I-AJ1-01324;
-      (=daikanwa 	  . 07962)	; &AJ1-01324;
+      (=adobe-japan1-0	  . 01324)	; &AJ1-01324;
+      (=daikanwa	  . 07962)	; &I-M-07962;
       ))
     (<-ancient*sources
      jiyun daikanwa)
@@ -53619,7 +53619,7 @@
      ((=ucs		  . #x4EBB)	; 亻
       )
      ((=ucs@unicode	  . #x52C7)	; 勇
-      (=mj		  . 007667)	; 勇
+      (=mj		  . 007667)	; &MJ007667;
       ))
     (=ucs@iso		. #x202C0)	; &U-000202C0;
     ))
