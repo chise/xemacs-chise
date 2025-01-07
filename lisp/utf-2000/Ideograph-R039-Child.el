@@ -2586,6 +2586,20 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
     (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs-itaiji-002	  . #x5364)	; &U-i002+5364;
+      )
+     ((=ucs		  . #x5B50)	; 子
+      ))
+    (=ucs		. #x21963)	; 𡥣
+    ))
+(define-char
+  '((ideographic-radical . 39)	; ⼦
+    (ideographic-strokes . 6)
+    (total-strokes	 . 9)
+    (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
