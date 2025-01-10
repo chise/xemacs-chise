@@ -1,3 +1,14 @@
+2025-01-10  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
+	setting for `===chise-kangxi@kokusho-200014683'.
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`===chise-kangxi@kokusho-200014683'.
+
+	* mule/mule-conf.el (===chise-kangxi@kokusho-200014683): New
+	coded-charset for XEmacs CHISE.
+
 2024-10-19  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* mule/mule-charset.el (default-coded-charset-priority-list): Add

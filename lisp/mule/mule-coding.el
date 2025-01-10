@@ -6,7 +6,7 @@
 ;; Copyright (C) 1995 Sun Microsystems.
 ;; Copyright (C) 1997, 1999, 2002, 2003, 2004, 2005, 2006, 2008, 2009,
 ;;   2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020,
-;;   2021, 2022, 2023, 2024 MORIOKA Tomohiko
+;;   2021, 2022, 2023, 2024, 2025 MORIOKA Tomohiko
 
 ;; This file is part of XEmacs.
 
@@ -494,6 +494,7 @@
 	  (===shuowen-jiguge4		  "SW-JIGUGE4-" 5 d)
 	  (===shuowen-jiguge5		  "SW-JIGUGE5-" 5 d)
 	  (===shuowen-jiguge-A30	 "SW-JIGUGE30-" 5 d)
+	  (===chise-kangxi@kokusho-200014683 "R-CHISE-KX-NK1" 4 X)
 	  ( =hanziku-1			       "HZK01-" 4 X)
 	  ( =hanziku-2			       "HZK02-" 4 X)
 	  ( =hanziku-3			       "HZK03-" 4 X)
