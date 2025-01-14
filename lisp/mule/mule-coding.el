@@ -494,7 +494,7 @@
 	  (===shuowen-jiguge4		  "SW-JIGUGE4-" 5 d)
 	  (===shuowen-jiguge5		  "SW-JIGUGE5-" 5 d)
 	  (===shuowen-jiguge-A30	 "SW-JIGUGE30-" 5 d)
-	  (===chise-kangxi@kokusho-200014683 "R-CHISE-KX-NK1" 4 X)
+	  (===chise-kangxi@kokusho-200014683 "R-CHISE-KX-NK1-" 5 d)
 	  ( =hanziku-1			       "HZK01-" 4 X)
 	  ( =hanziku-2			       "HZK02-" 4 X)
 	  ( =hanziku-3			       "HZK03-" 4 X)
