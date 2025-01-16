@@ -5855,7 +5855,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=>big5-cdp	  . #x89FA)	; &IWDS1-078;
+     ((=ucs		  . #x2D0C2)	; 𭃂
       )
      ((=ucs		  . #x5C39)	; 尹
       ))
@@ -5872,7 +5872,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=gt-k		  . 00688)	; &GT-K00688;
+     ((=ucs@JP/hanazono	  . #x2D0C2)	; &GT-K00688;
+      (=gt-k		  . 00688)	; &GT-K00688;
       )
      ((=ucs@unicode	  . #x5C39)	; &MJ010329;
       (=mj		  . 010329)	; &MJ010329;
