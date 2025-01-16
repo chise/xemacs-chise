@@ -641,16 +641,6 @@
   '((<-denotational
      ((=ucs		  . #x5184)	; 冄
       ))
-    (ideographic-radical . 13)	; ⼌
-    (ideographic-strokes . 2)
-    (total-strokes	 . 4)
-    (=>big5-cdp		. #x89FA)	; &IWDS1-078;
-    (=>iwds-1		.  0078)	; &IWDS1-078;
-    ))
-(define-char
-  '((<-denotational
-     ((=ucs		  . #x5184)	; 冄
-      ))
     (<-denotational@component
      ((=>big5-cdp	  . #x87F0)	; &A-CDP-87F0;
       ))
@@ -660,43 +650,6 @@
     (=big5-cdp		. #x87F0)	; &CDP-87F0;
     (->subsumptive
      ((==big5-cdp	  . #x87F0)	; &g2-CDP-87F0;
-      ))
-    ))
-(define-char
-  '((<-denotational
-     ((=>big5-cdp	  . #x89FA)	; &IWDS1-078;
-      ))
-    (ideographic-radical . 13)	; ⼌
-    (ideographic-strokes . 2)
-    (total-strokes	 . 4)
-    (=big5-cdp		. #x89FA)	; &CDP-89FA;
-    (<-simplified@component
-     ((=gt-k		  . 00688)	; &GT-K00688;
-      ))
-    (->subsumptive
-     ((==big5-cdp	  . #x89FA)	; &g2-CDP-89FA;
-      ))
-    ))
-(define-char
-  '((<-denotational
-     ((=>big5-cdp	  . #x89FA)	; &IWDS1-078;
-      ))
-    (<-denotational@component
-     ((=+>ucs@unicode	  . #x5184)	; &o-AJ1-19173;
-      (=+>adobe-japan1-5  . 19173)	; &o-AJ1-19173;
-      ))
-    (ideographic-radical . 13)	; ⼌
-    (ideographic-strokes . 2)
-    (total-strokes	 . 4)
-    (=gt-k		. 00688)	; &GT-K00688;
-    (=gt-pj-k1		. #x6B72)	; &GT-K00688; [75-82]
-    (<-formed@component/connect-right
-     ((=ucs@unicode	  . #x5184)	; &AJ1-19173;
-      (=adobe-japan1-5	  . 19173)	; &AJ1-19173;
-      ))
-    (->subsumptive
-     ((==gt-k		  . 00688)	; &g2-GT-K00688;
-      (==gt-pj-k1	  . #x6B72)	; &g2-GT-K00688; [75-82]
       ))
     ))
 (define-char
