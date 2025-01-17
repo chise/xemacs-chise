@@ -6187,8 +6187,8 @@
       )
      ((=ucs-itaiji-002	  . #x9FB9)	; &U-i002+9FB9;
       )
-     ((=ucs@unicode	  . #x4E11)	; &GT-00035;
-      (=gb2312		  . #x3373)	; &GT-00035; [19-83]
+     ((=ucs@unicode	  . #x4E11)	; &MJ056824;
+      (=mj		  . 056824)	; &MJ056824;
       ))
     (=ucs@JP/hanazono	. #x300E4)	; &hanaJU+300E4;
     ))
