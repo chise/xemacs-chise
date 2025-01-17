@@ -1230,6 +1230,25 @@
   '((ideographic-radical . 11)	; ⼊
     (ideographic-strokes . 4)
     (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>ucs@iwds-1	  . #x4EBA)	; &A-IWDSU+4EBA;
+      (=>iwds-1		  .  14623)	; &A-IWDSU+4EBA;
+      )
+     ((=>ucs@iwds-1	  . #x4E93)	; &A-IWDSU+4E93;
+      ))
+    (sound@ja/on	"si")
+    (=ucs		. #x204E1)	; 𠓡
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x204E1)	; 𠓡
+      ))
+    (ideographic-radical . 11)	; ⼊
+    (ideographic-strokes . 4)
+    (total-strokes	 . 6)
     (hanyu-dazidian	1 116 1)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -1239,11 +1258,10 @@
       )
      ((=ucs		  . #x4E93)	; 亓
       ))
-    (sound@ja/on	"si")
-    (=ucs		. #x204E1)	; 𠓡
-    (=mj		. 030956)	; &I-MJ030956;
+    (=ucs@iso		. #x204E1)	; &MJ030956;
+    (=mj		. 030956)	; &MJ030956;
     (=cns11643-6	. #x2355)	; &I-C6-2355; [03-53]
-    (=koseki		. 016660)	; 𠓡
+    (=koseki		. 016660)	; &MJ030956;
     (=daikanwa		. 01427)	; &I-M-01427;
     (<-ancient
      ((=ucs		  . #x77E2)	; 矢
@@ -1257,17 +1275,7 @@
     (<-formed*sources
      koseki)
     (->subsumptive
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	(=ucs		    . #x2FF1)	; ⿱
-	)
-       ((==ucs@jis	    . #x5165)	; &g2-AJ1-03286;
-	(==ucs@ks	    . #x5165)	; &g2-AJ1-03286;
-	(==adobe-japan1-0   . 03286)	; &g2-AJ1-03286;
-	)
-       ((=ucs		    . #x4E93)	; 亓
-	))
-      (==ucs@iso	  . #x204E1)	; &g2-MJ030956;
+     ((==ucs@iso	  . #x204E1)	; &g2-MJ030956;
       (==mj		  . 030956)	; &g2-MJ030956;
       (==koseki		  . 016660)	; &g2-MJ030956;
       (==daikanwa	  . 01427)	; &g2-MJ030956;
@@ -1281,15 +1289,7 @@
        ((=hanziku-1	    . #xBBC7)	; &HZK01-BBC7;
 	))
       )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	(=ucs		    . #x2FF1)	; ⿱
-	)
-       ((==ucs@unicode	    . #x5165)	; &g2-UU+5165;
-	)
-       ((=ucs		    . #x4E93)	; 亓
-	))
-      (==ucs@cns	  . #x204E1)	; &g2-CU+204E1;
+     ((==ucs@cns	  . #x204E1)	; &g2-CU+204E1;
       (==cns11643-6	  . #x2355)	; &g2-CU+204E1; [03-53]
       ))
     ))
