@@ -1532,15 +1532,17 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 10)	; ⼉
+  '((<-denotational@usage
+     ((==>ucs@bucs	  . #x5148)	; &BUCS+5148;
+      ))
+    (ideographic-radical . 10)	; ⼉
     (ideographic-strokes . 4)
     (total-strokes	 . 6)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((name		  . "CJK RADICAL COW")
-      (=ucs		  . #x2EA7)	; ⺧
+     ((=>ucs@component	  . #x725B)	; &A-compU+725B;
       )
      ((=>ucs@iwds-1	  . #x513F)	; &A-IWDSU+513F;
       (=>iwds-1		  .  11922)	; &A-IWDSU+513F;
@@ -1580,6 +1582,7 @@
     (=gt-k		. 01654)	; &I-GT-K01654;
     (=gt-pj-1		. #x4068)	; &I-GT-01747; [32-72]
     (=daikanwa		. 01349)	; &I-M-01349;
+    (=daijiten		. 00566)	; &I-DJT-00566;
     (=shinjigen		.  0455)	; &MJ007220;
     (->subsumptive
      ((=decomposition@cid
@@ -1599,9 +1602,12 @@
       (==gt		  . 01747)	; &g2-MJ007220;
       (==gt-k		  . 01654)	; &g2-MJ007220;
       (==daikanwa	  . 01349)	; &g2-MJ007220;
+      (==daijiten	  . 00566)	; &g2-MJ007220;
       (==shinjigen	  .  0455)	; &g2-MJ007220;
       (->subsumptive
        ((===daikanwa	    . 01349)	; &R-M-01349;
+	)
+       ((===daijiten	    . 00566)	; &R-DJT-00566;
 	)
        ((===jis-x0208	    . #x4068)	; &R-J0-4068; [32-72]
 	(===jis-x0213-1	    . #x4068)	; &R-J0-4068; [32-72]
@@ -6786,7 +6792,7 @@
       )
      ((=ucs		  . #x514B)	; 克
       )
-     ((=>big5-cdp	  . #x89FA)	; &IWDS1-078;
+     ((=ucs		  . #x2D0C2)	; 𭃂
       ))
     (sound@ja/kun	"hekuto-guramu")
     (=ucs		. #x20498)	; 𠒘
@@ -9474,6 +9480,11 @@
   '((ideographic-radical . 10)	; ⼉
     (==>ucs@bucs	. #x5147)	; &BUCS+5147;
     (==>daijiten	. 00565)	; &BUCS+5147;
+    ))
+(define-char
+  '((ideographic-radical . 10)	; ⼉
+    (==>ucs@bucs	. #x5148)	; &BUCS+5148;
+    (==>daijiten	. 00566)	; &BUCS+5148;
     ))
 (define-char
   '((ideographic-radical . 10)	; ⼉
