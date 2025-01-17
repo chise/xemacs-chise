@@ -1599,8 +1599,8 @@
     (=cns11643-6	. #x297B)	; &C6-297B; [09-91]
     (=daikanwa		. 02801)	; &I-M-02801;
     (<-ancient
-     ((=ucs@unicode	  . #x5C08)	; &AJ1-04642;
-      (=adobe-japan1-0	  . 04642)	; &AJ1-04642;
+     ((=ucs@unicode	  . #x5C08)	; &MJ010272;
+      (=mj		  . 010272)	; &MJ010272;
       (=daikanwa	  . 07439)	; &I-M-07439;
       ))
     (<-ancient*sources
