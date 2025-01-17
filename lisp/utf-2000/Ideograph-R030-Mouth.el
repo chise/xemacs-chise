@@ -6854,6 +6854,16 @@
     (=ucs@cns		. #x541C)	; &C2-233E;
     (=cns11643-2	. #x233E)	; &C2-233E; [03-30]
     (=daikanwa		. 03324)	; &I-M-03324;
+    (->subsumptive
+     ((==ucs@cns	  . #x541C)	; &g2-M-03324;
+      (==cns11643-2	  . #x233E)	; &g2-M-03324; [03-30]
+      (==daikanwa	  . 03324)	; &g2-M-03324;
+      (->subsumptive
+       ((===daikanwa	    . 03324)	; &R-M-03324;
+	)
+       ((===cns11643-2	    . #x233E)	; &R-C2-233E; [03-30]
+	))
+      ))
     ))
 (define-char
   '((<-denotational
@@ -6868,8 +6878,8 @@
       )
      ((=ucs		  . #x53E3)	; 口
       )
-     ((=ucs@unicode	  . #x4E11)	; &GT-00035;
-      (=gb2312		  . #x3373)	; &GT-00035; [19-83]
+     ((=ucs@unicode	  . #x4E11)	; &MJ056824;
+      (=mj		  . 056824)	; &MJ056824;
       ))
     (=ucs@unicode	. #x541C)	; &UU+541C;
     (=ucs@JP/hanazono	. nil)
@@ -67447,8 +67457,8 @@
       )
      ((=ucs		  . #x53E3)	; 口
       )
-     ((=ucs@unicode	  . #x5C08)	; &AJ1-04642;
-      (=adobe-japan1-0	  . 04642)	; &AJ1-04642;
+     ((=ucs@unicode	  . #x5C08)	; &MJ010272;
+      (=mj		  . 010272)	; &MJ010272;
       ))
     (=ucs@JP/hanazono	. #x2D27E)	; &CB01020;
     (=cbeta		. 01020)	; &CB01020;
