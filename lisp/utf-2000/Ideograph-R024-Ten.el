@@ -6345,8 +6345,8 @@
       )
      ((=ucs		  . #x5341)	; 十
       )
-     ((=ucs@unicode	  . #x5C08)	; &AJ1-04642;
-      (=adobe-japan1-0	  . 04642)	; &AJ1-04642;
+     ((=ucs@unicode	  . #x5C08)	; &MJ010272;
+      (=mj		  . 010272)	; &MJ010272;
       ))
     (=ucs@cns		. #x2B9E4)	; &MJ059400;
     (=ucs@JP/hanazono	. #x2B9E4)	; &MJ059400;
