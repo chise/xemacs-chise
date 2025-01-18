@@ -552,8 +552,6 @@
     ))
 (define-char
   '((ideographic-radical . 89)	; ⽘
-    (ideographic-strokes . 9)
-    (total-strokes	 . 13)
     (ideographic-structure
      ((=ucs-itaiji-001	  . #x2FFB)	; &U-i001+2FFB;
       )
@@ -598,6 +596,18 @@
 	)
        ((===ucs@iso	    . #x24564)	; &R-U-00024564;
 	))
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x24564)	; 𤕤
+      ))
+    (ideographic-radical . 89)	; ⽘
+    (ideographic-strokes . 8)
+    (total-strokes	 . 12)
+    (=big5-cdp		. #x8566)	; &CDP-8566;
+    (->subsumptive
+     ((==big5-cdp	  . #x8566)	; &g2-CDP-8566;
       ))
     ))
 (define-char
