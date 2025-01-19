@@ -20,6 +20,8 @@
      ((=ucs		  . #x201DA)	; 𠇚
       )
      ((=ucs		  . #x24C12)	; 𤰒
+      )
+     ((=ucs		  . #x21D0C)	; 𡴌
       ))
     (->subsumptive
      ((===shuowen-jiguge-A30 . 51306)	; &SW-JIGUGE30-51306;
