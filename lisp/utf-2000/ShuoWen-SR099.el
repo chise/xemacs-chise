@@ -949,7 +949,14 @@
     (<-Small-Seal@shuowen
      ((=ucs		  . #x2136C)	; 𡍬
       )
+     ((=ucs		  . #x21EF2)	; 𡻲
+      )
      ((=ucs		  . #x21411)	; 𡐑
+      ))
+    (<-ancient@shuowen
+     ((=shuowen-jiguge	  . 11014)	; &SW-JIGUGE-11014;
+      )
+     ((=ucs		  . #x7766)	; 睦
       ))
     (->subsumptive
      ((===shuowen-jiguge-A30 . 11015)	; &SW-JIGUGE30-11015;
