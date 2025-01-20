@@ -1295,12 +1295,20 @@
     (=gt-pj-9		. #x4A2F)	; &GT-00144; [42-15]
     ))
 (define-char
-  '((ideographic-radical@ucs . 3)	; ⼂
+  '((<-denotational@usage
+     ((==>ucs@bucs	  . #x9E97)	; &BUCS+9E97;
+      ))
+    (ideographic-radical@ucs . 3)	; ⼂
     (ideographic-radical@ucs*sources
      daikanwa gt ucs)
     (ideographic-radical@cns . 1)	; ⼀
     (=ucs		. #x4E3D)	; 丽
     (=>iwds-1		.  0178)	; 丽
+    (<-ancient
+     ((=ucs		  . #x9E97)	; 麗
+      ))
+    (<-ancient$_1*sources
+     shuowen)
     ))
 (define-char
   '((<-denotational
@@ -1324,9 +1332,11 @@
       )
      ((=gt-k		  . 00616)	; &GT-K00616;
       ))
-    (=ucs@cns		. #x4E3D)	; &GT-00145;
-    (=cns11643-3	. #x2740)	; &GT-00145; [07-32]
+    (=ucs@cns		. #x4E3D)	; &MJ006366;
+    (=mj		. 006366)	; &MJ006366;
+    (=cns11643-3	. #x2740)	; &I-C3-2740; [07-32]
     (=big5-cdp		. #x8CB7)	; &I-CDP-8CB7;
+    (=hanyo-denshi/ks	. 001200)	; &MJ006366;
     (=gt		. 00145)	; &I-GT-00145;
     (=gt-pj-2		. #x3071)	; &I-GT-00145; [16-81]
     (=daikanwa		. 00104)	; &I-M-00104;
@@ -1340,6 +1350,36 @@
     (<-same
      ((=ucs		  . #x2F800)	; 丽
       ))
+    (->subsumptive
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x4E3D)	; 丽
+	)
+       ((=ucs		    . #xE0101)	; 󠄁
+	))
+      (==ucs@cns	  . #x4E3D)	; &g2-MJ006366;
+      (==mj		  . 006366)	; &g2-MJ006366;
+      (==cns11643-3	  . #x2740)	; &g2-MJ006366; [07-32]
+      (==big5-cdp	  . #x8CB7)	; &g2-MJ006366;
+      (==hanyo-denshi/ks  . 001200)	; &g2-MJ006366;
+      (==gt		  . 00145)	; &g2-MJ006366;
+      (==daikanwa	  . 00104)	; &g2-MJ006366;
+      (->subsumptive
+       ((===daikanwa	    . 00104)	; &R-M-00104;
+	)
+       ((===hanyo-denshi/ks . 001200)	; &R-HD-KS-001200;
+	(=hanyo-denshi/ks/mf . #x0078)	; &R-HD-KS-001200;
+	)
+       ((===mj		    . 006366)	; &R-MJ006366;
+	)
+       ((===big5-cdp	    . #x8CB7)	; &R-CDP-8CB7;
+	)
+       ((===cns11643-3	    . #x2740)	; &R-C3-2740; [07-32]
+	)
+       ((===gt		    . 00145)	; &R-GT-00145;
+	)
+       ((===chise-kangxi@kokusho-200014683 . #x0055)	; &R-CHISE-KX-NK1-00085;
+	))
+      ))
     ))
 (define-char
   '((<-denotational
@@ -1351,9 +1391,8 @@
     (=gt-k		. 04581)	; &GT-K04581;
     (=gt-pj-k1		. #x325C)	; &GT-K04581; [18-60]
     (<-formed@component/connect-below
-     ((=ucs@cns		  . #x4E3D)	; &GT-00145;
-      (=cns11643-3	  . #x2740)	; &GT-00145; [07-32]
-      (=daikanwa	  . 00104)	; &I-M-00104;
+     ((=ucs@cns		  . #x4E3D)	; &MJ006366;
+      (=mj		  . 006366)	; &MJ006366;
       ))
     ))
 (define-char
