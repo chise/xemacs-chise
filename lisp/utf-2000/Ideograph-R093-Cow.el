@@ -935,7 +935,7 @@
       )
      ((=ucs		  . #x725C)	; 牜
       )
-     ((=>big5-cdp	  . #x89FA)	; &IWDS1-078;
+     ((=ucs		  . #x2D0C2)	; 𭃂
       ))
     (sound@ja/on/go	"na")
     (sound@ja/on/kan	"da")
@@ -6398,8 +6398,8 @@
       )
      ((=ucs		  . #x725C)	; 牜
       )
-     ((=ucs@unicode	  . #x5C08)	; &AJ1-04642;
-      (=adobe-japan1-0	  . 04642)	; &AJ1-04642;
+     ((=ucs@unicode	  . #x5C08)	; &MJ010272;
+      (=mj		  . 010272)	; &MJ010272;
       ))
     (=ucs@JP/hanazono	. #x2DDF0)	; &MJ058027;
     (=mj		. 058027)	; &MJ058027;
