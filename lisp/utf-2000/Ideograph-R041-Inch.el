@@ -1559,8 +1559,8 @@
     (<-same*sources
      zhengzitong daikanwa)
     (->mistakable
-     ((=ucs@unicode	  . #x5C08)	; &AJ1-04642;
-      (=adobe-japan1-0	  . 04642)	; &AJ1-04642;
+     ((=ucs@unicode	  . #x5C08)	; &MJ010272;
+      (=mj		  . 010272)	; &MJ010272;
       (=daikanwa	  . 07439)	; &I-M-07439;
       ))
     (->mistakable*sources
@@ -2527,13 +2527,14 @@
       )
      ((=ucs		  . #x5BF8)	; 寸
       ))
-    (=ucs@unicode	. #x5C08)	; &AJ1-04642;
-    (=adobe-japan1-0	. 04642)	; &AJ1-04642;
+    (=ucs@unicode	. #x5C08)	; &MJ010272;
+    (=mj		. 010272)	; &MJ010272;
+    (=adobe-japan1-0	. 04642)	; &I-AJ1-04642;
     (=jis-x0208		. #x5573)	; &I-J90-5573; [53-83]
     (=ks-x1001		. #x6E76)	; &I-K0-6E76; [78-86]
     (=cns11643-1	. #x5971)	; &I-C1-5971; [57-81]
     (=jis-x0213-1	. #x5573)	; &I-JX1-5573; [53-83]
-    (=gb12345		. #x5728)	; &AJ1-04642; [55-08]
+    (=gb12345		. #x5728)	; &MJ010272; [55-08]
     (=big5		. #xB14D)	; &I-B-B14D;
     (=hanyo-denshi/ja	. #x5573)	; &I-HD-JA-5573; [53-83]
     (=gt		. 09367)	; &I-GT-09367;
@@ -2541,7 +2542,7 @@
     (=gt-pj-1		. #x5573)	; &I-GT-09367; [53-83]
     (=daikanwa		. 07439)	; &I-M-07439;
     (=daijiten		. 02426)	; &I-DJT-02426;
-    (=shinjigen		.  1885)	; &AJ1-04642;
+    (=shinjigen		.  1885)	; &MJ010272;
     (<-formed
      ((=ucs@unicode	  . #x5718)	; &AJ1-04470;
       (=adobe-japan1-0	  . 04470)	; &AJ1-04470;
@@ -2602,19 +2603,20 @@
 	)
        ((=ucs		    . #xE0101)	; 󠄁
 	))
-      (==ucs@unicode	  . #x5C08)	; &g2-AJ1-04642;
-      (==adobe-japan1-0	  . 04642)	; &g2-AJ1-04642;
-      (==ks-x1001	  . #x6E76)	; &g2-AJ1-04642; [78-86]
-      (==jis-x0208	  . #x5573)	; &g2-AJ1-04642; [53-83]
-      (==cns11643-1	  . #x5971)	; &g2-AJ1-04642; [57-81]
-      (==jis-x0213-1	  . #x5573)	; &g2-AJ1-04642; [53-83]
-      (==gb12345	  . #x5728)	; &g2-AJ1-04642; [55-08]
-      (==hanyo-denshi/ja  . #x5573)	; &g2-AJ1-04642; [53-83]
-      (==gt		  . 09367)	; &g2-AJ1-04642;
-      (==gt-k		  . 07926)	; &g2-AJ1-04642;
-      (==daikanwa	  . 07439)	; &g2-AJ1-04642;
-      (==daijiten	  . 02426)	; &g2-AJ1-04642;
-      (==shinjigen	  .  1885)	; &g2-AJ1-04642;
+      (==ucs@unicode	  . #x5C08)	; &g2-MJ010272;
+      (==mj		  . 010272)	; &g2-MJ010272;
+      (==adobe-japan1-0	  . 04642)	; &g2-MJ010272;
+      (==ks-x1001	  . #x6E76)	; &g2-MJ010272; [78-86]
+      (==jis-x0208	  . #x5573)	; &g2-MJ010272; [53-83]
+      (==cns11643-1	  . #x5971)	; &g2-MJ010272; [57-81]
+      (==jis-x0213-1	  . #x5573)	; &g2-MJ010272; [53-83]
+      (==gb12345	  . #x5728)	; &g2-MJ010272; [55-08]
+      (==hanyo-denshi/ja  . #x5573)	; &g2-MJ010272; [53-83]
+      (==gt		  . 09367)	; &g2-MJ010272;
+      (==gt-k		  . 07926)	; &g2-MJ010272;
+      (==daikanwa	  . 07439)	; &g2-MJ010272;
+      (==daijiten	  . 02426)	; &g2-MJ010272;
+      (==shinjigen	  .  1885)	; &g2-MJ010272;
       (->subsumptive
        ((===daikanwa	    . 07439)	; &R-M-07439;
 	)
@@ -2624,6 +2626,8 @@
 	(===jis-x0213-1	    . #x5573)	; &R-J0-5573; [53-83]
 	)
        ((===adobe-japan1-0  . 04642)	; &R-AJ1-04642;
+	)
+       ((===mj		    . 010272)	; &R-MJ010272;
 	)
        ((===cns11643-1	    . #x5971)	; &R-C1-5971; [57-81]
 	)
@@ -2644,6 +2648,15 @@
     (ideographic-radical . 41)	; ⼨
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs@unicode	  . #x53C0)	; &AJ1-17339;
+      (=adobe-japan1-5	  . 17339)	; &AJ1-17339;
+      )
+     ((=ucs		  . #x5BF8)	; 寸
+      ))
     (=mj		. 010273)	; &MJ010273;
     (=hanyo-denshi/jt	. #xB041)	; &I-HD-JT-B041;
     (=shinjigen		.  1884)	; &MJ010273;
@@ -2731,8 +2744,8 @@
     (=gt-k		. 05353)	; &I-GT-K05353;
     (=gt-pj-1		. #x406C)	; &I-GT-09348; [32-76]
     (<-simplified@JP/Jouyou
-     ((=ucs@unicode	  . #x5C08)	; &AJ1-04642;
-      (=adobe-japan1-0	  . 04642)	; &AJ1-04642;
+     ((=ucs@unicode	  . #x5C08)	; &MJ010272;
+      (=mj		  . 010272)	; &MJ010272;
       (=jis-x0208	  . #x5573)	; &I-J90-5573; [53-83]
       ))
     (->subsumptive
@@ -4877,8 +4890,8 @@
       )
      ((=ucs		  . #x5DF5)	; 巵
       )
-     ((=ucs@unicode	  . #x5C08)	; &AJ1-04642;
-      (=adobe-japan1-0	  . 04642)	; &AJ1-04642;
+     ((=ucs@unicode	  . #x5C08)	; &MJ010272;
+      (=mj		  . 010272)	; &MJ010272;
       ))
     (=ucs@iso		. #x21B50)	; &C5-614F;
     (=cns11643-5	. #x614F)	; &C5-614F; [65-47]

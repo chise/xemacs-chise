@@ -166,6 +166,8 @@
     (=shuowen-jiguge	. 17913)	; &SW-JIGUGE-17913;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x2037A)	; 𠍺
+      )
+     ((=ucs		  . #x280AE)	; 𨂮
       ))
     (<-ancient@shuowen
      ((=shuowen-jiguge	  . 17912)	; &SW-JIGUGE-17912;
