@@ -280,7 +280,14 @@
       ))
     ))
 (define-char
-  '((<-denotational@usage
+  '((ideographic-radical . 14)	; ⼍
+    (=>ucs@cognate	. #x5198)	; &A-cgnU+5198;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@cognate	  . #x5198)	; &A-cgnU+5198;
+      ))
+    (<-denotational@usage
      ((==>daijiten	  . 00644)	; &A2-DJT-00644;
       ))
     (ideographic-radical . 14)	; ⼍
@@ -341,6 +348,26 @@
        ((===ucs@unicode	    . #x5198)	; &R-UU+5198;
 	))
       ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@cognate	  . #x5198)	; &A-cgnU+5198;
+      ))
+    (<-denotational@usage
+     ((==>daijiten	  . 00644)	; &A2-DJT-00644;
+      ))
+    (ideographic-radical . 14)	; ⼍
+    (ideographic-strokes . 3)
+    (total-strokes	 . 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
+      (=ucs		  . #x2FF7)	; ⿷
+      )
+     ((=ucs		  . #x5198)	; 冘
+      )
+     ((=ucs		  . #x4E36)	; 丶
+      ))
+    (=ucs-itaiji-003	. #x5198)	; &U-i003+5198;
     ))
 (define-char
   '((ideographic-radical . 14)	; ⼍
