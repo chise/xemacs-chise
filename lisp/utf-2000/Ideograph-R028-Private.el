@@ -1661,6 +1661,8 @@
   '((ideographic-radical . 28)	; ⼛
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
+    (sound@ja/on/go	"zeN")
+    (sound@ja/on/kan	"seN")
     (=ucs		. #x53C0)	; 叀
     ))
 (define-char
@@ -1675,7 +1677,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=ucs		  . #x24C14)	; 𤰔
+     ((=ucs@iso		  . #x24C14)	; &CDP-8DEE;
+      (=big5-cdp	  . #x8DEE)	; &CDP-8DEE;
       )
      ((=ucs		  . #x53B6)	; 厶
       ))
@@ -1687,9 +1690,39 @@
     (=daikanwa		. 03083)	; &I-M-03083;
     (=jef-china3	. #x8BF1)	; &I-JC3-8BF1;
     (<-formed
-     ((=ucs@unicode	  . #x5C08)	; &AJ1-04642;
-      (=adobe-japan1-0	  . 04642)	; &AJ1-04642;
+     ((=ucs@unicode	  . #x5C08)	; &MJ010272;
+      (=mj		  . 010272)	; &MJ010272;
       ))
+    (<-formed$_1*sources
+     yupian)
+    (<-same
+     ((=ucs@unicode	  . #x5C08)	; &MJ010272;
+      (=mj		  . 010272)	; &MJ010272;
+      (=daikanwa	  . 07439)	; &I-M-07439;
+      ))
+    (<-same$_1*sources
+     yupian zhengzitong daikanwa)
+    (<-same*sources
+     yupian zhengzitong daikanwa)
+    (->ancient
+     ((=ucs@iso		  . #x209E2)	; &C6-297D;
+      (=cns11643-6	  . #x297D)	; &C6-297D; [09-93]
+      (=daikanwa	  . 02802)	; &I-M-02802;
+      )
+     ((=ucs@iso		  . #x21D4F)	; &C6-2458;
+      (=cns11643-6	  . #x2458)	; &C6-2458; [04-56]
+      (=daikanwa	  . 49047)	; &I-M-49047;
+      )
+     ((=ucs@iso		  . #x21D01)	; &C6-2454;
+      (=cns11643-6	  . #x2454)	; &C6-2454; [04-52]
+      (=daikanwa	  . 07834)	; &I-M-07834;
+      ))
+    (->ancient$_1*sources
+     shuowen daikanwa)
+    (->ancient$_2*sources
+     jiyun daikanwa)
+    (->ancient*sources
+     shuowen jiyun daikanwa)
     (->subsumptive
      ((==daikanwa	  . 03083)	; &g2-M-03083;
       (==jef-china3	  . #x8BF1)	; &g2-M-03083;
