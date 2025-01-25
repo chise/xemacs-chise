@@ -18175,16 +18175,51 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
       (=ucs		  . #x2FF8)	; ⿸
       )
-     ((=ucs		  . #x5382)	; 厂
+     ((=>ucs@iwds-1	  . #x4E06)	; &A-IWDSU+4E06;
+      (=>iwds-1		  .  0150)	; &A-IWDSU+4E06;
       )
      ((=ucs		  . #x5261)	; 剡
       ))
-    (=big5-cdp		. #x8AD6)	; &CDP-8AD6;
+    (=>big5-cdp		. #x8AD6)	; &A-CDP-8AD6;
     (<-Zhouwen
      ((=ucs		  . #x92B3)	; 銳
       ))
     (<-Zhouwen$_1*sources
      shuowen)
+    ))
+(define-char
+  '((<-denotational
+     ((=>big5-cdp	  . #x8AD6)	; &A-CDP-8AD6;
+      ))
+    (ideographic-radical . 18)	; ⼑
+    (ideographic-strokes . 10)
+    (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs		  . #x4E06)	; 丆
+      )
+     ((=ucs		  . #x5261)	; 剡
+      ))
+    (=big5-cdp-var-001	. #x8AD6)	; &CDP-v001-8AD6;
+    ))
+(define-char
+  '((<-denotational
+     ((=>big5-cdp	  . #x8AD6)	; &A-CDP-8AD6;
+      ))
+    (ideographic-radical . 18)	; ⼑
+    (ideographic-strokes . 10)
+    (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs		  . #x5382)	; 厂
+      )
+     ((=ucs		  . #x5261)	; 剡
+      ))
+    (=big5-cdp		. #x8AD6)	; &CDP-8AD6;
     ))
 (define-char
   '((=>ucs		. #x20782)	; 𠞂
