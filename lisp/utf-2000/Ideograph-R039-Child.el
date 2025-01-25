@@ -776,6 +776,7 @@
       )
      ((=ucs		  . #x5B50)	; 子
       ))
+    (sound@ja/on	"kAu")
     (=ucs		. #x21946)	; 𡥆
     ))
 (define-char
@@ -796,9 +797,33 @@
       )
      ((=ucs		  . #x5B50)	; 子
       ))
-    (=daikanwa		. 06947)	; &M-06947;
+    (=mj		. 033871)	; &MJ033871;
+    (=koseki		. 079020)	; &MJ033871;
+    (=daikanwa		. 06947)	; &I-M-06947;
+    (<-ancient
+     ((=ucs		  . #x597D)	; 好
+      (=daikanwa	  . 06053)	; &I-M-06053;
+      ))
+    (<-ancient*sources
+     yupian daikanwa)
+    (<-formed
+     ((=ucs		  . #x597D)	; 好
+      (=mj		  . 009553)	; &I-MJ009553;
+      (=koseki		  . 069400)	; 好
+      ))
+    (<-formed$_1*sources
+     koseki mj)
+    (<-formed*sources
+     koseki mj)
     (->subsumptive
-     ((==daikanwa	  . 06947)	; &g2-M-06947;
+     ((==mj		  . 033871)	; &g2-MJ033871;
+      (==koseki		  . 079020)	; &g2-MJ033871;
+      (==daikanwa	  . 06947)	; &g2-MJ033871;
+      (->subsumptive
+       ((===daikanwa	    . 06947)	; &R-M-06947;
+	)
+       ((===mj		    . 033871)	; &R-MJ033871;
+	))
       ))
     ))
 (define-char
@@ -812,8 +837,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=ucs@unicode	  . #x4E11)	; &GT-00035;
-      (=gb2312		  . #x3373)	; &GT-00035; [19-83]
+     ((=ucs@unicode	  . #x4E11)	; &MJ056824;
+      (=mj		  . 056824)	; &MJ056824;
       )
      ((=ucs		  . #x5B50)	; 子
       ))
