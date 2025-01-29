@@ -151,7 +151,8 @@
      ((=ucs		  . #x5C3A)	; 尺
       (=daikanwa	  . 07632)	; &I-M-07632;
       )
-     ((=ucs		  . #x8D64)	; 赤
+     ((=ucs@unicode	  . #x8D64)	; &AJ1-02682;
+      (=adobe-japan1-0	  . 02682)	; &AJ1-02682;
       (=daikanwa	  . 36993)	; &I-M-36993;
       )
      ((=ucs@unicode	  . #x69B1)	; &AJ1-05284;

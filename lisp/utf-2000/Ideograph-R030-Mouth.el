@@ -26865,7 +26865,7 @@
      ((=ucs		  . #x53E3)	; 口
       )
      ((=ucs@unicode	  . #x8D64)	; &AJ1-02682;
-      (=adobe-japan1-0	  . 02682)	; &I-AJ1-02682;
+      (=adobe-japan1-0	  . 02682)	; &AJ1-02682;
       ))
     (=ucs@unicode	. #x54E7)	; &C2-2E37;
     (=gb2312		. #x5F6A)	; &C2-2E37; [63-74]

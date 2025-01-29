@@ -1629,7 +1629,7 @@
   '((shuowen-radical	. 490)	; 金
     (=shuowen-jiguge	. 49126)	; &SW-JIGUGE-49126;
     (<-Small-Seal@shuowen
-     ((=big5-cdp	  . #x8AD6)	; &CDP-8AD6;
+     ((=>big5-cdp	  . #x8AD6)	; &A-CDP-8AD6;
       )
      ((=ucs		  . #x34F9)	; 㓹
       ))
