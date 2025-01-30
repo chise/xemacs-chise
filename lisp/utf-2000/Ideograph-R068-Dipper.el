@@ -63,19 +63,38 @@
       ))
     ))
 (define-char
-  '((=>ucs		. #x2306C)	; 𣁬
-    (ideographic-radical . 68)	; ⽃
+  '((ideographic-radical . 68)	; ⽃
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
-    (=daikanwa		. 13490)	; &M-13490;
-    ))
-(define-char
-  '((morohashi-daikanwa	13490 0 0)
-    (ideographic-radical . 68)	; ⽃
-    (ideographic-strokes . 0)
-    (total-strokes	 . 4)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER RIGHT")
+      (=ucs		  . #x2FFD)	; ⿽
+      )
+     ((=ucs		  . #x5341)	; 十
+      )
+     ((=big5-cdp	  . #x8C78)	; &CDP-8C78;
+      ))
+    (sound@ja/on	"to")
     (=ucs		. #x2306C)	; 𣁬
     (=cns11643-6	. #x2222)	; &I-C6-2222; [02-02]
+    (=daikanwa		. 13490)	; &I-M-13490;
+    (<-original
+     ((=ucs		  . #x6597)	; 斗
+      (=daikanwa	  . 13489)	; &I-M-13489;
+      ))
+    (<-original*sources
+     zhengzitong daikanwa)
+    (->subsumptive
+     ((==daikanwa	  . 13490)	; &g2-M-13490;
+      )
+     ((==ucs@iso	  . #x2306C)	; &g2-IU-0002306C;
+      (==cns11643-6	  . #x2222)	; &g2-IU-0002306C; [02-02]
+      (->subsumptive
+       ((===cns11643-6	    . #x2222)	; &R-C6-2222; [02-02]
+	)
+       ((===ucs@iso	    . #x2306C)	; &R-U-0002306C;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 68)	; ⽃
