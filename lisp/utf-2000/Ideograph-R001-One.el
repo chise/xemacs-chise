@@ -236,7 +236,7 @@
 	)
        ((===ucs@unicode	    . #x4E01)	; &R-UU+4E01;
 	)
-       ((===chise-kangxi@kokusho-200014683 . #x0002)	; &R-CHISE-KX-NK1-00002;
+       ((===chise-kangxi@kokusho-200014683 . #x0003)	; &R-CHISE-KX-NK1-00003;
 	)
        ((===hng-tsu	    . 04320)	; &HNG024-04320;
 	)
@@ -325,7 +325,7 @@
 	)
        ((===ucs@unicode	    . #x4E02)	; &R-UU+4E02;
 	)
-       ((===chise-kangxi@kokusho-200014683 . #x0004)	; &R-CHISE-KX-NK1-00004;
+       ((===chise-kangxi@kokusho-200014683 . #x0005)	; &R-CHISE-KX-NK1-00005;
 	))
       ))
     ))
@@ -391,7 +391,7 @@
 	)
        ((===big5-cdp	    . #x87F6)	; &R-CDP-87F6;
 	)
-       ((===chise-kangxi@kokusho-200014683 . #x0005)	; &R-CHISE-KX-NK1-00005;
+       ((===chise-kangxi@kokusho-200014683 . #x0006)	; &R-CHISE-KX-NK1-00006;
 	))
       )
      ((==ucs@iso	  . #x20000)	; &g2-IU-00020000;
@@ -509,7 +509,7 @@
        ((===gt		    . 00004)	; &R-GT-00004;
 	(===gt-k	    . 00046)	; &R-GT-00004;
 	)
-       ((===chise-kangxi@kokusho-200014683 . #x0006)	; &R-CHISE-KX-NK1-00006;
+       ((===chise-kangxi@kokusho-200014683 . #x0007)	; &R-CHISE-KX-NK1-00007;
 	)
        ((===hng-kbk	    . 03800)	; &HNG043-03800;
 	))
@@ -597,7 +597,7 @@
 	)
        ((===ucs@unicode	    . #x4E04)	; &R-UU+4E04;
 	)
-       ((===chise-kangxi@kokusho-200014683 . #x0007)	; &R-CHISE-KX-NK1-00007;
+       ((===chise-kangxi@kokusho-200014683 . #x0008)	; &R-CHISE-KX-NK1-00008;
 	))
       ))
     ))
@@ -664,7 +664,7 @@
 	)
        ((===ucs@unicode	    . #x4E05)	; &R-UU+4E05;
 	)
-       ((===chise-kangxi@kokusho-200014683 . #x0008)	; &R-CHISE-KX-NK1-00008;
+       ((===chise-kangxi@kokusho-200014683 . #x0009)	; &R-CHISE-KX-NK1-00009;
 	))
       ))
     ))
@@ -948,7 +948,7 @@
 	)
        ((===ucs@unicode	    . #x4E07)	; &R-UU+4E07;
 	)
-       ((===chise-kangxi@kokusho-200014683 . #x0009)	; &R-CHISE-KX-NK1-00009;
+       ((===chise-kangxi@kokusho-200014683 . #x000A)	; &R-CHISE-KX-NK1-00010;
 	)
        ((===hng-khi	    . 02220)	; &HNG010-02220;
 	)
@@ -1038,7 +1038,7 @@
 	  )
 	 ((===jef-china3      . #x41A5)	; &R-JC3-41A5;
 	  )
-	 ((===chise-kangxi@kokusho-200014683 . #x000A)	; &R-CHISE-KX-NK1-00010;
+	 ((===chise-kangxi@kokusho-200014683 . #x000B)	; &R-CHISE-KX-NK1-00011;
 	  )
 	 ((===hng-kar	      . 04730)	; &HNG018-04730;
 	  )
@@ -1161,7 +1161,7 @@
 	)
        ((===ucs@unicode	    . #x4E09)	; &R-UU+4E09;
 	)
-       ((===chise-kangxi@kokusho-200014683 . #x000B)	; &R-CHISE-KX-NK1-00011;
+       ((===chise-kangxi@kokusho-200014683 . #x000C)	; &R-CHISE-KX-NK1-00012;
 	)
        ((===hng-jou	    . 01940)	; &HNG001-01940;
 	)
@@ -1320,7 +1320,7 @@
 	)
        ((===ucs@unicode	    . #x4E0A)	; &R-UU+4E0A;
 	)
-       ((===chise-kangxi@kokusho-200014683 . #x000C)	; &R-CHISE-KX-NK1-00012;
+       ((===chise-kangxi@kokusho-200014683 . #x000E)	; &R-CHISE-KX-NK1-00014;
 	)
        ((===hng-jou	    . 01910)	; &HNG001-01910;
 	)
@@ -1465,7 +1465,7 @@
 	)
        ((===ucs@unicode	    . #x4E0B)	; &R-UU+4E0B;
 	)
-       ((===chise-kangxi@kokusho-200014683 . #x000E)	; &R-CHISE-KX-NK1-00014;
+       ((===chise-kangxi@kokusho-200014683 . #x0011)	; &R-CHISE-KX-NK1-00017;
 	)
        ((===hng-mam	    . 03780)	; &HNG005-03780;
 	)
@@ -1574,7 +1574,7 @@
 	)
        ((===ucs@unicode	    . #x4E0C)	; &R-UU+4E0C;
 	)
-       ((===chise-kangxi@kokusho-200014683 . #x0010)	; &R-CHISE-KX-NK1-00016;
+       ((===chise-kangxi@kokusho-200014683 . #x0014)	; &R-CHISE-KX-NK1-00020;
 	))
       ))
     ))
@@ -1637,9 +1637,9 @@
 	)
        ((===ucs@iso	    . #x20003)	; &R-U-00020003;
 	)
-       ((===chise-kangxi@kokusho-200014683 . #x0011)	; &R-CHISE-KX-NK1-00017;
+       ((===chise-kangxi@kokusho-200014683 . #x0015)	; &R-CHISE-KX-NK1-00021;
 	)
-       ((===chise-kangxi@kokusho-200014683 . #x001B)	; &R-CHISE-KX-NK1-00027;
+       ((===chise-kangxi@kokusho-200014683 . #x0021)	; &R-CHISE-KX-NK1-00033;
 	))
       ))
     ))
@@ -2223,7 +2223,7 @@
 	)
        ((===ucs@unicode	    . #x4E0D)	; &R-UU+4E0D;
 	)
-       ((===chise-kangxi@kokusho-200014683 . #x0012)	; &R-CHISE-KX-NK1-00018;
+       ((===chise-kangxi@kokusho-200014683 . #x0016)	; &R-CHISE-KX-NK1-00022;
 	)
        ((===hng-mam	    . 03720)	; &HNG005-03720;
 	)
@@ -2482,7 +2482,7 @@
        ((===mj		    . 006312)	; &R-MJ006312;
 	))
       )
-     ((===chise-kangxi@kokusho-200014683 . #x0014)	; &R-CHISE-KX-NK1-00020;
+     ((===chise-kangxi@kokusho-200014683 . #x0019)	; &R-CHISE-KX-NK1-00025;
       (<-kangxi
        ((=ucs		    . #x4E0E)	; 与
 	))
@@ -2612,7 +2612,7 @@
 	)
        ((===ucs@unicode	    . #x4E0F)	; &R-UU+4E0F;
 	)
-       ((===chise-kangxi@kokusho-200014683 . #x0015)	; &R-CHISE-KX-NK1-00021;
+       ((===chise-kangxi@kokusho-200014683 . #x001A)	; &R-CHISE-KX-NK1-00026;
 	)
        ((===jef-china3	    . #x97C5)	; &R-JC3-97C5;
 	))
@@ -2693,7 +2693,7 @@
 	)
        ((===ucs@unicode	    . #x4E10)	; &R-UU+4E10;
 	)
-       ((===chise-kangxi@kokusho-200014683 . #x0016)	; &R-CHISE-KX-NK1-00022;
+       ((===chise-kangxi@kokusho-200014683 . #x001B)	; &R-CHISE-KX-NK1-00027;
 	))
       ))
     ))
@@ -2782,7 +2782,7 @@
 	)
        ((===mj		    . 006315)	; &R-MJ006315;
 	)
-       ((===chise-kangxi@kokusho-200014683 . #x0017)	; &R-CHISE-KX-NK1-00023;
+       ((===chise-kangxi@kokusho-200014683 . #x001C)	; &R-CHISE-KX-NK1-00028;
 	))
       ))
     ))
@@ -2933,7 +2933,7 @@
        ((===ucs@iso	    . #x20007)	; &R-U-00020007;
 	))
       )
-     ((===chise-kangxi@kokusho-200014683 . #x0018)	; &R-CHISE-KX-NK1-00024;
+     ((===chise-kangxi@kokusho-200014683 . #x001D)	; &R-CHISE-KX-NK1-00029;
       ))
     ))
 (define-char
@@ -2971,7 +2971,7 @@
 	)
        ((===ucs@iso	    . #x20008)	; &R-U-00020008;
 	)
-       ((===chise-kangxi@kokusho-200014683 . #x0019)	; &R-CHISE-KX-NK1-00025;
+       ((===chise-kangxi@kokusho-200014683 . #x001E)	; &R-CHISE-KX-NK1-00030;
 	))
       ))
     ))
@@ -3839,7 +3839,7 @@
 	)
        ((===ucs@unicode	    . #x4E14)	; &R-UU+4E14;
 	)
-       ((===chise-kangxi@kokusho-200014683 . #x001A)	; &R-CHISE-KX-NK1-00026;
+       ((===chise-kangxi@kokusho-200014683 . #x001F)	; &R-CHISE-KX-NK1-00031;
 	)
        ((===hng-mam	    . 00010)	; &HNG005-00010;
 	)
@@ -3923,7 +3923,7 @@
 	)
        ((===ucs@unicode	    . #x4E15)	; &R-UU+4E15;
 	)
-       ((===chise-kangxi@kokusho-200014683 . #x001C)	; &R-CHISE-KX-NK1-00028;
+       ((===chise-kangxi@kokusho-200014683 . #x0022)	; &R-CHISE-KX-NK1-00034;
 	))
       )
      ((==daijiten	  . 00023)	; &g2-DJT-00023;
@@ -4027,7 +4027,7 @@
       )
      ((===hng-wan	  . 01492)	; &HNG049-01492;
       )
-     ((===chise-kangxi@kokusho-200014683 . #x001D)	; &R-CHISE-KX-NK1-00029;
+     ((===chise-kangxi@kokusho-200014683 . #x0023)	; &R-CHISE-KX-NK1-00035;
       ))
     ))
 (define-char
@@ -4082,7 +4082,7 @@
        ((===gt		    . 00047)	; &R-GT-00047;
 	(===gt-k	    . 00962)	; &R-GT-00047;
 	)
-       ((===chise-kangxi@kokusho-200014683 . #x001E)	; &R-CHISE-KX-NK1-00030;
+       ((===chise-kangxi@kokusho-200014683 . #x0025)	; &R-CHISE-KX-NK1-00037;
 	)
        ((===ucs@iso	    . #x2000D)	; &R-U-0002000D;
 	)
@@ -4314,7 +4314,7 @@
 	)
        ((===ucs@unicode	    . #x4E18)	; &R-UU+4E18;
 	)
-       ((===chise-kangxi@kokusho-200014683 . #x001F)	; &R-CHISE-KX-NK1-00031;
+       ((===chise-kangxi@kokusho-200014683 . #x0026)	; &R-CHISE-KX-NK1-00038;
 	)
        ((===hng-mam	    . 03740)	; &HNG005-03740;
 	)
@@ -4412,7 +4412,7 @@
 	)
        ((===ucs@unicode	    . #x3400)	; &R-UU+3400;
 	)
-       ((===chise-kangxi@kokusho-200014683 . #x0020)	; &R-CHISE-KX-NK1-00032;
+       ((===chise-kangxi@kokusho-200014683 . #x0028)	; &R-CHISE-KX-NK1-00040;
 	)
        ((=hanziku-1	    . #xA74B)	; &HZK01-A74B;
 	))
@@ -4556,7 +4556,7 @@
     (ideographic-radical . 1)	; ⼀
     (ideographic-strokes . 4)
     (total-strokes	 . 5)
-    (===chise-kangxi@kokusho-200014683 . #x0021)	; &R-CHISE-KX-NK1-00033;
+    (===chise-kangxi@kokusho-200014683 . #x0029)	; &R-CHISE-KX-NK1-00041;
     (<-kangxi
      ((=ucs		  . #x4E19)	; 丙
       ))
@@ -5630,7 +5630,7 @@
 	)
        ((===gt		    . 00062)	; &R-GT-00062;
 	)
-       ((===chise-kangxi@kokusho-200014683 . #x0022)	; &R-CHISE-KX-NK1-00034;
+       ((===chise-kangxi@kokusho-200014683 . #x002A)	; &R-CHISE-KX-NK1-00042;
 	))
       )
      ((==ucs@unicode	  . #x3401)	; &g2-CDP-8AA2;
@@ -5786,7 +5786,7 @@
 	)
        ((===ucs@unicode	    . #x4E1E)	; &R-UU+4E1E;
 	)
-       ((===chise-kangxi@kokusho-200014683 . #x0023)	; &R-CHISE-KX-NK1-00035;
+       ((===chise-kangxi@kokusho-200014683 . #x002C)	; &R-CHISE-KX-NK1-00044;
 	)
        ((===hng-kar	    . 00010)	; &HNG018-00010;
 	))
@@ -5868,7 +5868,7 @@
 	)
        ((===ucs@unicode	    . #x4E1F)	; &R-UU+4E1F;
 	)
-       ((===chise-kangxi@kokusho-200014683 . #x0024)	; &R-CHISE-KX-NK1-00036;
+       ((===chise-kangxi@kokusho-200014683 . #x002D)	; &R-CHISE-KX-NK1-00045;
 	))
       ))
     ))
@@ -5916,7 +5916,7 @@
        ((=hanziku-2	    . #xC1A3)	; &HZK02-C1A3;
 	))
       )
-     ((===chise-kangxi@kokusho-200014683 . #x0025)	; &R-CHISE-KX-NK1-00037;
+     ((===chise-kangxi@kokusho-200014683 . #x002E)	; &R-CHISE-KX-NK1-00046;
       )
      ((==daijiten	  . 00032)	; &g2-DJT-00032;
       ))
@@ -5963,7 +5963,7 @@
 	)
        ((=hanziku-1	    . #xA7CC)	; &HZK01-A7CC;
 	)
-       ((===chise-kangxi@kokusho-200014683 . #x0026)	; &R-CHISE-KX-NK1-00038;
+       ((===chise-kangxi@kokusho-200014683 . #x002F)	; &R-CHISE-KX-NK1-00047;
 	))
       ))
     ))
@@ -6024,7 +6024,7 @@
 	)
        ((=hanziku-1	    . #xA7F3)	; &HZK01-A7F3;
 	)
-       ((===chise-kangxi@kokusho-200014683 . #x0027)	; &R-CHISE-KX-NK1-00039;
+       ((===chise-kangxi@kokusho-200014683 . #x0030)	; &R-CHISE-KX-NK1-00048;
 	))
       ))
     ))
@@ -6114,7 +6114,7 @@
 	)
        ((=hanziku-1	    . #xA7B5)	; &HZK01-A7B5;
 	)
-       ((===chise-kangxi@kokusho-200014683 . #x0028)	; &R-CHISE-KX-NK1-00040;
+       ((===chise-kangxi@kokusho-200014683 . #x0031)	; &R-CHISE-KX-NK1-00049;
 	)
        ((===gt		    . 00058)	; &R-GT-00058;
 	(===gt-k	    . 02006)	; &R-GT-00058;
@@ -7187,7 +7187,7 @@
 	)
        ((=hanziku-1	    . #xA7F6)	; &HZK01-A7F6;
 	)
-       ((===chise-kangxi@kokusho-200014683 . #x002B)	; &R-CHISE-KX-NK1-00043;
+       ((===chise-kangxi@kokusho-200014683 . #x0034)	; &R-CHISE-KX-NK1-00052;
 	))
       )
      ((==ucs@iso	  . #x20022)	; &g2-IU-00020022;
@@ -7285,7 +7285,7 @@
 	)
        ((===ucs@unicode	    . #x4E23)	; &R-UU+4E23;
 	)
-       ((===chise-kangxi@kokusho-200014683 . #x0029)	; &R-CHISE-KX-NK1-00041;
+       ((===chise-kangxi@kokusho-200014683 . #x0032)	; &R-CHISE-KX-NK1-00050;
 	))
       ))
     ))
@@ -7363,7 +7363,7 @@
 	)
        ((=hanziku-1	    . #xA870)	; &HZK01-A870;
 	)
-       ((===chise-kangxi@kokusho-200014683 . #x002A)	; &R-CHISE-KX-NK1-00042;
+       ((===chise-kangxi@kokusho-200014683 . #x0033)	; &R-CHISE-KX-NK1-00051;
 	))
       ))
     ))
@@ -8472,7 +8472,7 @@
 	)
        ((===ucs@unicode	    . #x4E26)	; &R-UU+4E26;
 	)
-       ((===chise-kangxi@kokusho-200014683 . #x002C)	; &R-CHISE-KX-NK1-00044;
+       ((===chise-kangxi@kokusho-200014683 . #x0035)	; &R-CHISE-KX-NK1-00053;
 	)
        ((===hng-wan	    . 00910)	; &HNG049-00910;
 	)
@@ -8677,7 +8677,7 @@
 	)
        ((=hanziku-1	    . #xA8F1)	; &HZK01-A8F1;
 	)
-       ((===chise-kangxi@kokusho-200014683 . #x002D)	; &R-CHISE-KX-NK1-00045;
+       ((===chise-kangxi@kokusho-200014683 . #x0036)	; &R-CHISE-KX-NK1-00054;
 	))
       ))
     ))
@@ -8751,7 +8751,7 @@
 	)
        ((=hanziku-1	    . #xA8AF)	; &HZK01-A8AF;
 	)
-       ((===chise-kangxi@kokusho-200014683 . #x002E)	; &R-CHISE-KX-NK1-00046;
+       ((===chise-kangxi@kokusho-200014683 . #x0037)	; &R-CHISE-KX-NK1-00055;
 	))
       ))
     ))
@@ -8830,7 +8830,7 @@
 	)
        ((=hanziku-1	    . #xA950)	; &HZK01-A950;
 	)
-       ((===chise-kangxi@kokusho-200014683 . #x002F)	; &R-CHISE-KX-NK1-00047;
+       ((===chise-kangxi@kokusho-200014683 . #x0038)	; &R-CHISE-KX-NK1-00056;
 	))
       ))
     ))
@@ -9160,7 +9160,7 @@
 	)
        ((===gt		    . 00145)	; &R-GT-00145;
 	)
-       ((===chise-kangxi@kokusho-200014683 . #x0055)	; &R-CHISE-KX-NK1-00085;
+       ((===chise-kangxi@kokusho-200014683 . #x0062)	; &R-CHISE-KX-NK1-00098;
 	))
       ))
     ))
@@ -9901,7 +9901,7 @@
 	)
        ((===cbeta	    . 07403)	; &R-CB07403;
 	)
-       ((===chise-kangxi@kokusho-200014683 . #x0030)	; &R-CHISE-KX-NK1-00048;
+       ((===chise-kangxi@kokusho-200014683 . #x0039)	; &R-CHISE-KX-NK1-00057;
 	))
       ))
     ))
@@ -10925,7 +10925,7 @@
 	)
        ((=hanziku-1	    . #xA9B4)	; &HZK01-A9B4;
 	)
-       ((===chise-kangxi@kokusho-200014683 . #x0031)	; &R-CHISE-KX-NK1-00049;
+       ((===chise-kangxi@kokusho-200014683 . #x003A)	; &R-CHISE-KX-NK1-00058;
 	))
       ))
     ))
