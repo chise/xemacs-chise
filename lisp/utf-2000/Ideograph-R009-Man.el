@@ -53679,8 +53679,7 @@
       )
      ((=ucs		  . #x4EBB)	; 亻
       )
-     ((=ucs@unicode	  . #x52C7)	; 勇
-      (=mj		  . 007667)	; &MJ007667;
+     ((=ucs		  . #xFA76)	; 勇
       ))
     (=ucs@iso		. #x202C0)	; &U-000202C0;
     ))
@@ -60548,6 +60547,14 @@
     ))
 (define-char
   '((ideographic-radical . 9)	; ⼈
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x4EBB)	; 亻
+      )
+     ((=>ucs-itaiji-003	  . #x4674)	; &A-U-i003+4674;
+      ))
     (=ucs		. #x20310)	; 𠌐
     ))
 (define-char
@@ -60557,6 +60564,14 @@
     (ideographic-radical . 9)	; ⼈
     (ideographic-strokes . 10)
     (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x4EBB)	; 亻
+      )
+     ((=ucs-itaiji-003	  . #x4674)	; &U-i003+4674;
+      ))
     (=ucs@iso		. #x20310)	; &U-00020310;
     ))
 (define-char
