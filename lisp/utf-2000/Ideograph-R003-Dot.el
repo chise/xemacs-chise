@@ -1377,7 +1377,7 @@
 	)
        ((===gt		    . 00145)	; &R-GT-00145;
 	)
-       ((===chise-kangxi@kokusho-200014683 . #x0055)	; &R-CHISE-KX-NK1-00085;
+       ((===chise-kangxi@kokusho-200014683 . #x0062)	; &R-CHISE-KX-NK1-00098;
 	))
       ))
     ))
