@@ -4224,13 +4224,14 @@
     (=ucs		. #xFA76)	; 勇
     (=ucs@unicode	. #x52C7)	; 勇
     (=ucs@JP/hanazono	. nil)
-    (=mj		. 007667)	; &MJ007667;
+    (=mj		. 007667)	; &I-MJ007667;
     (=adobe-japan1-4	. 14070)	; &I-AJ1-14070;
     (=gb2312		. #x5342)	; &I-G0-5342; [51-34]
     (=cns11643-1	. #x502D)	; &I-C1-502D; [48-13]
     (=big5		. #xAB69)	; &I-B-AB69;
     (=hanyo-denshi/jt	. #xAE37)	; &I-HD-JT-AE37;
     (=daikanwa		. 02360)	; &I-M-02360;
+    (=daijiten		. 00880)	; &I-DJT-00880;
     (=shinjigen		.  0731)	; 勇
     (=jef-china3	. #x44D4)	; &I-JC3-44D4;
     (->subsumptive
@@ -4269,7 +4270,10 @@
       (==ucs@cns	  . #x52C7)	; &g2-AJ1-14070;
       (==adobe-japan1-4	  . 14070)	; &g2-AJ1-14070;
       (==cns11643-1	  . #x502D)	; &g2-AJ1-14070; [48-13]
+      (==daijiten	  . 00880)	; &g2-AJ1-14070;
       (->subsumptive
+       ((===daijiten	    . 00880)	; &R-DJT-00880;
+	)
        ((===adobe-japan1-4  . 14070)	; &R-AJ1-14070;
 	)
        ((===cns11643-1	    . #x502D)	; &R-C1-502D; [48-13]
@@ -4287,6 +4291,14 @@
     (ideographic-radical . 19)	; ⼒
     (ideographic-strokes . 7)
     (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=gt-k		  . 03342)	; &GT-K03342;
+      )
+     ((=ucs		  . #x529B)	; 力
+      ))
     (=ucs		. #x2F825)	; 勇
     (=ucs@jis		. #x52C7)	; 勇
     (=ucs@ks		. #x52C7)	; 勇
@@ -4301,6 +4313,7 @@
     (=gt-k		. 05197)	; &I-GT-K05197;
     (=gt-pj-1		. #x4D26)	; &I-GT-03030; [45-06]
     (=daikanwa/+p	. 02360)	; 勇
+    (=daijiten		. 00881)	; &I-DJT-00881;
     (=shinjigen		.  0730)	; 勇
     (<-vulgar
      ((=ucs		  . #xFA76)	; 勇
@@ -4333,9 +4346,12 @@
       (==gt		  . 03030)	; &g2-MJ007668;
       (==gt-k		  . 05197)	; &g2-MJ007668;
       (==daikanwa/+p	  . 02360)	; &g2-MJ007668;
+      (==daijiten	  . 00881)	; &g2-MJ007668;
       (==shinjigen	  .  0730)	; &g2-MJ007668;
       (->subsumptive
        ((===daikanwa/+p	    . 02360)	; &R-M-p02360;
+	)
+       ((===daijiten	    . 00881)	; &R-DJT-00881;
 	)
        ((===jis-x0208	    . #x4D26)	; &R-J0-4D26; [45-06]
 	(===jis-x0213-1	    . #x4D26)	; &R-J0-4D26; [45-06]
