@@ -10216,6 +10216,17 @@
      ((=ucs-itaiji-004	  . #x4EAD)	; &U-i004+4EAD;
       ))
     (=ucs-itaiji-001	. #x201BC)	; &U-i001+201BC;
+    (->subsumptive
+     ((==ucs-itaiji-001	  . #x201BC)	; &g2-U-i001+201BC;
+      (->subsumptive
+       ((===chise-kangxi@kokusho-200014683 . #x018D)	; &R-CHISE-KX-NK1-00397;
+	(<-kangxi
+	 ((=ucs-itaiji-001    . #x201BC)	; &U-i001+201BC;
+	  )
+	 ((=ucs		      . #x201BC)	; 𠆼
+	  ))
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 9)	; ⼈
