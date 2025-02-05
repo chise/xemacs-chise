@@ -1890,6 +1890,39 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 10)
     (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs		  . #x2D928)	; 𭤨
+      )
+     ((=>ucs@iwds-1	  . #x2D0AC)	; &A-IWDSU+2D0AC;
+      (=>ucs@iwds-1/normalized . #x2D0AC)	; &A-IWDSU+2D0AC;
+      ))
+    (=ucs		. #x230F2)	; 𣃲
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x230F2)	; 𣃲
+      ))
+    (ideographic-radical . 70)	; ⽅
+    (ideographic-strokes . 6)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs		  . #x2D928)	; 𭤨
+      )
+     ((=ucs@JP/hanazono	  . #x2D0AC)	; &MJ058055;
+      (=mj		  . 058055)	; &MJ058055;
+      ))
+    (=ucs@iso		. #x230F2)	; &U-000230F2;
+    ))
+(define-char
+  '((ideographic-radical . 70)	; ⽅
+    (ideographic-strokes . 6)
+    (total-strokes	 . 10)
+    (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
@@ -2883,6 +2916,76 @@
       )
      ((=ucs		  . #x65B9)	; 方
       )
+     ((=ucs		  . #x542B)	; 含
+      ))
+    (sound@ja/on	"hAu")
+    (=ucs		. #x23105)	; 𣄅
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x23105)	; 𣄅
+      ))
+    (ideographic-radical . 70)	; ⽅
+    (ideographic-strokes . 8)
+    (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x65B9)	; 方
+      )
+     ((=mj		  . 057151)	; &MJ057151;
+      ))
+    (=ucs@iso		. #x23105)	; &MJ037569;
+    (=mj		. 037569)	; &MJ037569;
+    (=koseki		. 153570)	; &MJ037569;
+    (=daikanwa		. 13673)	; &I-M-13673;
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=ucs		    . #x65B9)	; 方
+	)
+       ((=>>mj		    . 057151)	; &G-MJ057151;
+	))
+      (=>>mj		  . 037569)	; &G-MJ037569;
+      (=>>daikanwa	  . 13673)	; &G-MJ037569;
+      (->subsumptive
+       ((==mj		    . 037569)	; &g2-MJ037569;
+	(==koseki	    . 153570)	; &g2-MJ037569;
+	(==daikanwa	    . 13673)	; &g2-MJ037569;
+	(->subsumptive
+	 ((===daikanwa	      . 13673)	; &R-M-13673;
+	  )
+	 ((===mj	      . 037569)	; &R-MJ037569;
+	  ))
+	))
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=ucs		    . #x65B9)	; 方
+	)
+       ((=ucs-itaiji-001    . #x542B)	; &U-i001+542B;
+	))
+      (=>>ucs@iso	  . #x23105)	; &G-IU+23105;
+      (->subsumptive
+       ((==ucs@iso	    . #x23105)	; &g2-IU-00023105;
+	))
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 70)	; ⽅
+    (ideographic-strokes . 8)
+    (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x65B9)	; 方
+      )
      ((=ucs		  . #x5176)	; 其
       ))
     (=ucs		. #x23103)	; 𣄃
@@ -3266,6 +3369,38 @@
     (->subsumptive
      ((==ucs@iso	  . #x2310B)	; &g2-IU-0002310B;
       ))
+    ))
+(define-char
+  '((ideographic-radical . 70)	; ⽅
+    (ideographic-strokes . 9)
+    (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x65B9)	; 方
+      )
+     ((=ucs		  . #x27D26)	; 𧴦
+      ))
+    (=ucs		. #x2310C)	; 𣄌
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2310C)	; 𣄌
+      ))
+    (ideographic-radical . 70)	; ⽅
+    (ideographic-strokes . 9)
+    (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x65B9)	; 方
+      )
+     ((=ucs@cns		  . #x27D26)	; &C6-3456;
+      (=cns11643-6	  . #x3456)	; &C6-3456; [20-54]
+      ))
+    (=ucs@iso		. #x2310C)	; &U-0002310C;
     ))
 (define-char
   '((<-denotational
