@@ -1339,26 +1339,58 @@
       ))
     ))
 (define-char
-  '((=>ucs		. #x21BCD)	; 𡯍
-    (ideographic-radical . 43)	; ⼪
+  '((ideographic-radical . 43)	; ⼪
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
-    (=daikanwa		. 07552)	; &M-07552;
-    ))
-(define-char
-  '((=>ucs		. #x21BCD)	; 𡯍
-    (morohashi-daikanwa	7552 0 0)
-    (ideographic-radical . 43)	; ⼪
-    (ideographic-strokes . 3)
-    (total-strokes	 . 6)
-    (=cns11643-5	. #x224D)	; &C5-224D; [02-45]
-    ))
-(define-char
-  '((morohashi-daikanwa	7552 0 1)
-    (ideographic-radical . 43)	; ⼪
-    (ideographic-strokes . 3)
-    (total-strokes	 . 6)
+    (ideographic-structure
+     ((=>ucs@iwds-1	  . #x2FFA)	; &A-IWDSU+2FFA;
+      (=>iwds-1		  .  0307)	; &A-IWDSU+2FFA;
+      )
+     ((=>ucs@component	  . #x5C22)	; &A-compU+5C22;
+      (=>iwds-1		  .  0099)	; &A-compU+5C22;
+      )
+     ((=ucs		  . #x21552)	; 𡕒
+      ))
+    (sound@ja/on/go	"gWaN")
+    (sound@ja/on/kan	"kWaN")
     (=ucs		. #x21BCD)	; 𡯍
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x21BCD)	; 𡯍
+      ))
+    (ideographic-radical . 43)	; ⼪
+    (ideographic-strokes . 3)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
+      (=ucs		  . #x2FFA)	; ⿺
+      )
+     ((=ucs		  . #x5C22)	; 尢
+      )
+     ((=ucs@iso		  . #x21552)	; &MJ033318;
+      (=mj		  . 033318)	; &MJ033318;
+      ))
+    (=ucs@iso		. #x21BCD)	; &MJ034245;
+    (=mj		. 034245)	; &MJ034245;
+    (=cns11643-5	. #x224D)	; &I-C5-224D; [02-45]
+    (=koseki		. 085800)	; &MJ034245;
+    (=daikanwa		. 07552)	; &I-M-07552;
+    (->subsumptive
+     ((==mj		  . 034245)	; &g2-MJ034245;
+      (==koseki		  . 085800)	; &g2-MJ034245;
+      (==daikanwa	  . 07552)	; &g2-MJ034245;
+      (->subsumptive
+       ((===daikanwa	    . 07552)	; &R-M-07552;
+	)
+       ((===mj		    . 034245)	; &R-MJ034245;
+	))
+      )
+     ((==ucs@cns	  . #x21BCD)	; &g2-CU+21BCD;
+      (==cns11643-5	  . #x224D)	; &g2-CU+21BCD; [02-45]
+      )
+     ((==ucs@iso	  . #x21BCD)	; &g2-IU-00021BCD;
+      ))
     ))
 (define-char
   '((ideographic-radical . 43)	; ⼪
