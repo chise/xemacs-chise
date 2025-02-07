@@ -2437,6 +2437,23 @@
       )
      ((=ucs		  . #x201A2)	; 𠆢
       )
+     ((=ucs		  . #x51AB)	; 冫
+      ))
+    (=ucs-var-001	. #x4ED2)	; &U-v001+4ED2;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x4ED2)	; 仒
+      ))
+    (ideographic-radical . 9)	; ⼈
+    (ideographic-strokes . 2)
+    (total-strokes	 . 4)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x201A2)	; 𠆢
+      )
      ((=big5-cdp	  . #x8971)	; &CDP-8971;
       ))
     (=ucs@unicode	. #x4ED2)	; &CDP-8BAC;
