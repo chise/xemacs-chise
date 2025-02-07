@@ -2431,6 +2431,20 @@
   '((ideographic-radical . 59)	; ⼺
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x6CC9)	; 泉
+      )
+     ((=ucs		  . #x5F61)	; 彡
+      ))
+    (=ucs-itaiji-002	. #x38CE)	; &U-i002+38CE;
+    ))
+(define-char
+  '((ideographic-radical . 59)	; ⼺
+    (ideographic-strokes . 9)
+    (total-strokes	 . 12)
     (ideographic-structure@apparent
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
       (=ucs		  . #x2FF3)	; ⿳
