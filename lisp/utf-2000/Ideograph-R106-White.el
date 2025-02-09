@@ -1424,6 +1424,56 @@
     ))
 (define-char
   '((ideographic-radical . 106)	; ⽩
+    (ideographic-strokes . 4)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x767D)	; 白
+      )
+     ((=>ucs@iwds-1	  . #x4ED2)	; &A-IWDSU+4ED2;
+      ))
+    (=>ucs-itaiji-002	. #x24F56)	; &A-U-i002+24F56;
+    (=>ucs-itaiji-004	. #x24F56)	; &A-U-i002+24F56;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs-itaiji-002	  . #x24F56)	; &A-U-i002+24F56;
+      ))
+    (ideographic-radical . 106)	; ⽩
+    (ideographic-strokes . 4)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x767D)	; 白
+      )
+     ((=ucs-var-001	  . #x4ED2)	; &U-v001+4ED2;
+      ))
+    (=ucs-itaiji-002	. #x24F56)	; &U-i002+24F56;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs-itaiji-002	  . #x24F56)	; &A-U-i002+24F56;
+      ))
+    (ideographic-radical . 106)	; ⽩
+    (ideographic-strokes . 4)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x767D)	; 白
+      )
+     ((=ucs@unicode	  . #x4ED2)	; &CDP-8BAC;
+      (=gb12345		  . #x7D73)	; &CDP-8BAC; [93-83]
+      ))
+    (=ucs-itaiji-004	. #x24F56)	; &U-i004+24F56;
+    ))
+(define-char
+  '((ideographic-radical . 106)	; ⽩
     (=ucs		. #x7689)	; 皉
     (=big5		. #xD6A6)	; &I-B-D6A6;
     (->subsumptive
