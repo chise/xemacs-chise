@@ -6943,7 +6943,10 @@
       ))
     ))
 (define-char
-  '((<-denotational@usage
+  '((<-denotational
+     ((=>ucs@iwds-1	  . #x8FB2)	; &A-IWDSU+8FB2;
+      ))
+    (<-denotational@usage
      ((==>ucs@bucs	  . #x8FB2)	; &BUCS+8FB2;
       ))
     (ideographic-radical@ucs . 27)	; ⼚
