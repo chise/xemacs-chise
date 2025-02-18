@@ -10913,7 +10913,8 @@
       )
      ((=ucs		  . #x5C71)	; 山
       )
-     ((=ucs		  . #x8FB0)	; 辰
+     ((=ucs@unicode	  . #x8FB0)	; &AJ1-02914;
+      (=adobe-japan1-0	  . 02914)	; &AJ1-02914;
       ))
     (=ucs@iso		. #x21DF0)	; &U-00021DF0;
     ))
