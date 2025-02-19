@@ -14020,7 +14020,8 @@
       )
      ((=ucs		  . #x65E5)	; 日
       )
-     ((=ucs		  . #x8FB0)	; 辰
+     ((=ucs@unicode	  . #x8FB0)	; &AJ1-02914;
+      (=adobe-japan1-0	  . 02914)	; &AJ1-02914;
       ))
     (=ucs@unicode	. #x6668)	; &AJ1-05108;
     (=adobe-japan1-0	. 05108)	; &AJ1-05108;
@@ -14076,7 +14077,8 @@
     (->formed*sources
      jiyun daikanwa)
     (->interchangeable
-     ((=ucs		  . #x8FB0)	; 辰
+     ((=ucs@unicode	  . #x8FB0)	; &AJ1-02914;
+      (=adobe-japan1-0	  . 02914)	; &AJ1-02914;
       (=daikanwa	  . 38682)	; &I-M-38682;
       ))
     (->interchangeable$_1*sources
@@ -14170,7 +14172,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=ucs		  . #x8FB0)	; 辰
+     ((=ucs@unicode	  . #x8FB0)	; &AJ1-02914;
+      (=adobe-japan1-0	  . 02914)	; &AJ1-02914;
       )
      ((=ucs		  . #x65E5)	; 日
       ))
@@ -14220,7 +14223,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
       (=ucs		  . #x2FF8)	; ⿸
       )
-     ((=ucs		  . #x8FB0)	; 辰
+     ((=ucs@unicode	  . #x8FB0)	; &AJ1-02914;
+      (=adobe-japan1-0	  . 02914)	; &AJ1-02914;
       )
      ((=ucs		  . #x65E5)	; 日
       ))
@@ -29416,7 +29420,8 @@
      ((=ucs@unicode	  . #x6676)	; &AJ1-02469;
       (=adobe-japan1-0	  . 02469)	; &AJ1-02469;
       )
-     ((=ucs		  . #x8FB0)	; 辰
+     ((=ucs@unicode	  . #x8FB0)	; &AJ1-02914;
+      (=adobe-japan1-0	  . 02914)	; &AJ1-02914;
       ))
     (=ucs@unicode	. #x66DF)	; &AJ1-21728;
     (=adobe-japan1-6	. 21728)	; &AJ1-21728;
