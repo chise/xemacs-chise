@@ -8284,7 +8284,8 @@
      ((=ucs@JP/hanazono	  . #x31350)	; &AJ1-19130;
       (=adobe-japan1-5	  . 19130)	; &AJ1-19130;
       )
-     ((=ucs		  . #x8FB0)	; 辰
+     ((=ucs@unicode	  . #x8FB0)	; &AJ1-02914;
+      (=adobe-japan1-0	  . 02914)	; &AJ1-02914;
       ))
     (=mj		. 018851)	; &MJ018851;
     (=hanyo-denshi/ip	. #x7973)	; &I-HD-IP-7973;
@@ -8337,7 +8338,8 @@
       )
      ((=ucs		  . #x793B)	; 礻
       )
-     ((=ucs		  . #x8FB0)	; 辰
+     ((=ucs@unicode	  . #x8FB0)	; &AJ1-02914;
+      (=adobe-japan1-0	  . 02914)	; &AJ1-02914;
       ))
     (=ucs@unicode	. #x7973)	; &C2-3E57;
     (=ucs@JP/hanazono	. nil)
