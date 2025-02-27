@@ -299,6 +299,37 @@
     (=>big5-cdp-itaiji-002 . #x8CB8)	; &A-CDP-8866;
     ))
 (define-char
+  '((ideographic-radical . 62)	; ⼽
+    (ideographic-strokes . 1)
+    (total-strokes	 . 5)
+    (ideographic-structure@apparent
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=>ucs@iwds-1	  . #x4E06)	; &A-IWDSU+4E06;
+      )
+     ((=ucs		  . #x2237A)	; 𢍺
+      ))
+    (=>ucs-itaiji-002	. #x620A)	; &A-U-i002+620A;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs-itaiji-002	  . #x620A)	; &A-U-i002+620A;
+      ))
+    (ideographic-radical . 62)	; ⼽
+    (ideographic-strokes . 1)
+    (total-strokes	 . 5)
+    (ideographic-structure@apparent
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs		  . #x5382)	; 厂
+      )
+     ((=ucs-itaiji-003	  . #x6208)	; &U-i003+6208;
+      ))
+    (=ucs-itaiji-002	. #x620A)	; &U-i002+620A;
+    ))
+(define-char
   '((<-denotational
      ((=>big5-cdp	  . #x8866)	; &A-CDP-8866;
       ))
@@ -861,6 +892,37 @@
     (=ucs		. #x620F)	; 戏
     (=gb2312		. #x4F37)	; &I-G0-4F37; [47-23]
     (=cns11643-3	. #x236B)	; &I-C3-236B; [03-75]
+    ))
+(define-char
+  '((ideographic-radical . 62)	; ⼽
+    (ideographic-strokes . 2)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
+      (=ucs		  . #x2FF5)	; ⿵
+      )
+     ((=>ucs-itaiji-002	  . #x620A)	; &A-U-i002+620A;
+      )
+     ((=>ucs@component	  . #x4E00)	; &A-compU+4E00;
+      ))
+    (=>ucs-itaiji-001	. #x620C)	; &A-U-i001+620C;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs-itaiji-001	  . #x620C)	; &A-U-i001+620C;
+      ))
+    (ideographic-radical . 62)	; ⼽
+    (ideographic-strokes . 2)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
+      (=ucs		  . #x2FF5)	; ⿵
+      )
+     ((=ucs-itaiji-002	  . #x620A)	; &U-i002+620A;
+      )
+     ((=ucs		  . #x4E00)	; 一
+      ))
+    (=ucs-itaiji-001	. #x620C)	; &U-i001+620C;
     ))
 (define-char
   '((ideographic-radical . 62)	; ⼽
