@@ -1156,8 +1156,8 @@
     (=koseki		. 015630)	; &MJ030906;
     (=daikanwa		. 01346)	; &I-M-01346;
     (->formed
-     ((=ucs@iso		  . #x277E3)	; &C6-2E2C;
-      (=cns11643-6	  . #x2E2C)	; &C6-2E2C; [14-12]
+     ((=ucs@iso		  . #x277E3)	; &MJ048518;
+      (=mj		  . 048518)	; &MJ048518;
       (=daikanwa	  . 34766)	; &I-M-34766;
       ))
     (->formed$_1*sources
