@@ -675,6 +675,7 @@
     (<-interchangeable
      ((=ucs@unicode	  . #x97CC)	; &JX2-7C2B;
       (=jis-x0212	  . #x675E)	; &JX2-7C2B; [71-62]
+      (=cns11643-1	  . #x6279)	; &I-C1-6279; [66-89]
       (=jis-x0213-2	  . #x7C2B)	; &I-JX2-7C2B; [92-11]
       (=daikanwa	  . 43109)	; &I-M-43109;
       )
