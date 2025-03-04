@@ -15576,22 +15576,37 @@
      ((=ucs@unicode	  . #x7389)	; &AJ1-01732;
       (=adobe-japan1-0	  . 01732)	; &AJ1-01732;
       ))
-    (=ucs@unicode	. #x747F)	; &M-21188;
-    (=daikanwa		. 21188)	; &M-21188;
+    (=ucs@unicode	. #x747F)	; &MJ017402;
+    (=mj		. 017402)	; &MJ017402;
+    (=koseki		. 238320)	; &MJ017402;
+    (=daikanwa		. 21188)	; &I-M-21188;
     (<-formed
-     ((=ucs@unicode	  . #x40DC)	; &M-24442;
-      (=daikanwa	  . 24442)	; &M-24442;
+     ((=ucs@unicode	  . #x40DC)	; &MJ003000;
+      (=mj		  . 003000)	; &MJ003000;
+      (=koseki		  . 272900)	; &MJ003000;
       ))
     (<-formed$_1*sources
-     jiyun)
+     jiyun koseki)
+    (<-formed*sources
+     jiyun koseki)
     (<-same
-     ((=ucs@unicode	  . #x40DC)	; &M-24442;
-      (=daikanwa	  . 24442)	; &M-24442;
+     ((=ucs@unicode	  . #x40DC)	; &MJ003000;
+      (=mj		  . 003000)	; &MJ003000;
+      (=daikanwa	  . 24442)	; &I-M-24442;
       ))
     (<-same$_1*sources
      jiyun daikanwa)
+    (<-same*sources
+     jiyun daikanwa)
     (->subsumptive
-     ((==daikanwa	  . 21188)	; &g2-M-21188;
+     ((==mj		  . 017402)	; &g2-MJ017402;
+      (==koseki		  . 238320)	; &g2-MJ017402;
+      (==daikanwa	  . 21188)	; &g2-MJ017402;
+      (->subsumptive
+       ((===daikanwa	    . 21188)	; &R-M-21188;
+	)
+       ((===mj		    . 017402)	; &R-MJ017402;
+	))
       )
      ((==ucs@unicode	  . #x747F)	; &g2-UU+747F;
       (==ucs@JP/hanazono  . nil)
