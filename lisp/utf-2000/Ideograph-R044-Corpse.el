@@ -4619,12 +4619,51 @@
       )
      ((=ucs		  . #x5C38)	; 尸
       )
-     ((=ucs		  . #x8FB0)	; 辰
+     ((=>ucs@iwds-1	  . #x8FB0)	; &A-IWDSU+8FB0;
+      (=>iwds-1		  .  0451)	; &A-IWDSU+8FB0;
       ))
+    (sound@ja/on/go	"tiN" "siN" "ziN")
+    (sound@ja/on/kan	"tiN" "siN" "siN")
     (=ucs		. #x5C52)	; 屒
-    (=cns11643-3	. #x305A)	; &I-C3-305A; [16-58]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5C52)	; 屒
+      ))
+    (ideographic-radical . 44)	; ⼫
+    (ideographic-strokes . 7)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs		  . #x5C38)	; 尸
+      )
+     ((=ucs@unicode	  . #x8FB0)	; &AJ1-02914;
+      (=adobe-japan1-0	  . 02914)	; &AJ1-02914;
+      ))
+    (=ucs@unicode	. #x5C52)	; &C3-305A;
+    (=cns11643-3	. #x305A)	; &C3-305A; [16-58]
     (=daikanwa		. 07710)	; &I-M-07710;
     (=cbeta		. 04704)	; &I-CB04704;
+    (->subsumptive
+     ((==ucs@unicode	  . #x5C52)	; &g2-M-07710;
+      (==daikanwa	  . 07710)	; &g2-M-07710;
+      (->subsumptive
+       ((===daikanwa	    . 07710)	; &R-M-07710;
+	)
+       ((===ucs@unicode	    . #x5C52)	; &R-UU+5C52;
+	))
+      )
+     ((==ucs@cns	  . #x5C52)	; &g2-CB04704;
+      (==cns11643-3	  . #x305A)	; &g2-CB04704; [16-58]
+      (==cbeta		  . 04704)	; &g2-CB04704;
+      (->subsumptive
+       ((===cbeta	    . 04704)	; &R-CB04704;
+	)
+       ((===cns11643-3	    . #x305A)	; &R-C3-305A; [16-58]
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 44)	; ⼫
