@@ -148,6 +148,11 @@
     (<-Small-Seal@shuowen
      ((=ucs		  . #x4AC3)	; 䫃
       ))
+    (<-ancient@shuowen
+     ((=shuowen-jiguge	  . 13511)	; &SW-JIGUGE-13511;
+      )
+     ((=ucs		  . #x8123)	; 脣
+      ))
     (->subsumptive
      ((===shuowen-jiguge-A30 . 13512)	; &SW-JIGUGE30-13512;
       )
