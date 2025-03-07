@@ -8406,11 +8406,57 @@
   '((ideographic-radical . 29)	; ⼜
     (ideographic-strokes . 11)
     (total-strokes	 . 13)
-    (hanyu-dazidian	1 251 1)
+    (ideographic-structure
+     ((=ucs-itaiji-001	  . #x2FF1)	; &U-i001+2FF1;
+      )
+     ((=>big5-cdp	  . #x85C8)	; &A-CDP-85C8;
+      )
+     ((=>ucs-itaiji-003	  . #x4E96)	; &A-U-i003+4E96;
+      ))
+    (sound@ja/on	"kAu")
     (=ucs		. #x20B73)	; 𠭳
-    (=cns11643-6	. #x5126)	; &I-C6-5126; [49-06]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x20B73)	; 𠭳
+      ))
+    (ideographic-radical . 29)	; ⼜
+    (ideographic-strokes . 11)
+    (total-strokes	 . 13)
+    (hanyu-dazidian	1 251 1)
+    (ideographic-structure
+     ((=ucs-itaiji-001	  . #x2FF1)	; &U-i001+2FF1;
+      )
+     ((=big5-cdp	  . #x85C8)	; &CDP-85C8;
+      )
+     ((=ucs-itaiji-003	  . #x4E96)	; &U-i003+4E96;
+      ))
+    (=ucs@iso		. #x20B73)	; &C6-5126;
+    (=cns11643-6	. #x5126)	; &C6-5126; [49-06]
     (=daikanwa		. 03199)	; &I-M-03199;
-    (=hanziku-1		. #xD9D9)	; &I-HZK01-D9D9;
+    (<-ancient
+     ((=ucs		  . #x5EB7)	; 康
+      (=daikanwa	  . 09376)	; &I-M-09376;
+      ))
+    (<-ancient*sources
+     zihui-bu daikanwa)
+    (<-original
+     ((=ucs		  . #x5EB7)	; 康
+      ))
+    (->subsumptive
+     ((==ucs@iso	  . #x20B73)	; &g2-M-03199;
+      (==cns11643-6	  . #x5126)	; &g2-M-03199; [49-06]
+      (==daikanwa	  . 03199)	; &g2-M-03199;
+      (->subsumptive
+       ((===daikanwa	    . 03199)	; &R-M-03199;
+	)
+       ((===cns11643-6	    . #x5126)	; &R-C6-5126; [49-06]
+	)
+       ((===ucs@iso	    . #x20B73)	; &R-U-00020B73;
+	)
+       ((=hanziku-1	    . #xD9D9)	; &HZK01-D9D9;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 29)	; ⼜
