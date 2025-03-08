@@ -3823,7 +3823,10 @@
   '((=ruimoku-v6	. #xE0F9)	; &RUI6-E0F9;
     ))
 (define-char
-  '((ideographic-radical . 193)	; ⿀
+  '((<-denotational
+     ((=>ruimoku-v6	  . #xE0FA)	; &A-RUI6-E0FA;
+      ))
+    (ideographic-radical . 193)	; ⿀
     (ideographic-strokes . 10)
     (total-strokes	 . 20)
     (ideographic-structure
@@ -3834,7 +3837,8 @@
       )
      ((=ucs		  . #x821B)	; 舛
       )
-     ((=ucs		  . #x9B32)	; 鬲
+     ((=ucs@jis		  . #x9B32)	; &AJ1-07300;
+      (=adobe-japan1-0	  . 07300)	; &AJ1-07300;
       ))
     (=ruimoku-v6	. #xE0FA)	; &RUI6-E0FA;
     ))
