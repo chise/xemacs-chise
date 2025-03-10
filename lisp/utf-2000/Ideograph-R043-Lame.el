@@ -1089,6 +1089,36 @@
 (define-char
   '((ideographic-radical . 43)	; ⼪
     (ideographic-structure
+     ((=>ucs@iwds-1	  . #x2FFA)	; &A-IWDSU+2FFA;
+      (=>iwds-1		  .  0307)	; &A-IWDSU+2FFA;
+      )
+     ((=>ucs@component	  . #x5C24)	; &A-compU+5C24;
+      (=>iwds-1		  .  0250)	; &A-compU+5C24;
+      )
+     ((=ucs		  . #x3002A)	; 𰀪
+      ))
+    (=>ucs-itaiji-001	. #x21BCE)	; &A-U-i001+21BCE;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs-itaiji-001	  . #x21BCE)	; &A-U-i001+21BCE;
+      ))
+    (ideographic-radical . 43)	; ⼪
+    (ideographic-strokes . 2)
+    (total-strokes	 . 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
+      (=ucs		  . #x2FFA)	; ⿺
+      )
+     ((=ucs		  . #x5C22)	; 尢
+      )
+     ((=ucs		  . #x3002A)	; 𰀪
+      ))
+    (=ucs-itaiji-001	. #x21BCE)	; &U-i001+21BCE;
+    ))
+(define-char
+  '((ideographic-radical . 43)	; ⼪
+    (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
       (=ucs		  . #x2FF7)	; ⿷
       )
