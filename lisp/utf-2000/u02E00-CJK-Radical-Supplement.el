@@ -2407,9 +2407,26 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (ideographic-radical . 178)	; ⾱
+    (ideographic-strokes . 0)
+    (total-strokes	 . 4)
     (=ucs		. #x2ED9)	; ⻙
-    (<-identical@component
-     ((=ucs		  . #x97E6)	; 韦
+    (=ucs@unicode	. #x97E6)	; ⻙
+    (=gb2312		. #x4E24)	; &I-G0-4E24; [46-04]
+    (=big5-cdp		. #x89D6)	; &I-CDP-89D6;
+    (<-simplified@CN
+     ((=ucs@unicode	  . #x97CB)	; &MJ028060;
+      (=mj		  . 028060)	; &MJ028060;
+      (=gb12345		  . #x4E24)	; &MJ028060; [46-04]
+      ))
+    (->subsumptive
+     ((==ucs@unicode	  . #x97E6)	; &g2-UU+97E6;
+      (==gb2312		  . #x4E24)	; &g2-UU+97E6; [46-04]
+      (->subsumptive
+       ((===ucs@unicode	    . #x97E6)	; &R-UU+97E6;
+	))
+      )
+     ((==big5-cdp	  . #x89D6)	; &g2-CDP-89D6;
       ))
     ))
 (define-char
