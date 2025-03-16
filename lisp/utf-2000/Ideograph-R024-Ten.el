@@ -4971,6 +4971,15 @@
     (=ucs@JP/hanazono	. #x3144E)	; &hanaJU+3144E;
     ))
 (define-char
+  '((<-denotational
+     ((=>big5-cdp	  . #x866F)	; &A-CDP-866F;
+      ))
+    (ideographic-radical . 24)	; ⼗
+    (ideographic-strokes . 6)
+    (total-strokes	 . 10)
+    (=big5-cdp-itaiji-003 . #x866F)	; &CDP-i003-866F;
+    ))
+(define-char
   '((ideographic-radical . 24)	; ⼗
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
