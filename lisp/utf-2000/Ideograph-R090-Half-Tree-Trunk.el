@@ -226,7 +226,10 @@
     (=cns11643-4	. #x272D)	; &C4-272D; [07-13]
     ))
 (define-char
-  '((ideographic-radical . 90)	; ⽙
+  '((<-denotational@usage
+     ((==>ucs@bucs	  . #x7240)	; &BUCS+7240;
+      ))
+    (ideographic-radical . 90)	; ⽙
     (ideographic-strokes . 4)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -264,6 +267,7 @@
     (=gt-k		. 03901)	; &I-GT-K03901;
     (=gt-pj-1		. #x602E)	; &I-GT-25381; [64-14]
     (=daikanwa		. 19763)	; &I-M-19763;
+    (=daijiten		. 07045)	; &I-DJT-07045;
     (=shinjigen		.  4718)	; &AJ1-05607;
     (=cbeta		. 00646)	; &I-CB00646;
     (->subsumptive
@@ -275,10 +279,13 @@
       (==gt		  . 25381)	; &g2-AJ1-05607;
       (==gt-k		  . 03901)	; &g2-AJ1-05607;
       (==daikanwa	  . 19763)	; &g2-AJ1-05607;
+      (==daijiten	  . 07045)	; &g2-AJ1-05607;
       (==shinjigen	  .  4718)	; &g2-AJ1-05607;
       (==cbeta		  . 00646)	; &g2-AJ1-05607;
       (->subsumptive
        ((===daikanwa	    . 19763)	; &R-M-19763;
+	)
+       ((===daijiten	    . 07045)	; &R-DJT-07045;
 	)
        ((===jis-x0208	    . #x602E)	; &R-J0-602E; [64-14]
 	(===jis-x0213-1	    . #x602E)	; &R-J0-602E; [64-14]
@@ -525,11 +532,12 @@
       )
      ((=ucs		  . #x672A)	; 未
       ))
-    (=>cbeta		. 08615)	; &A-CB08615;
+    (=ucs		. #x31B4F)	; 𱭏
+    (=>cbeta		. 08615)	; 𱭏
     ))
 (define-char
   '((<-denotational
-     ((=>cbeta		  . 08615)	; &A-CB08615;
+     ((=ucs		  . #x31B4F)	; 𱭏
       ))
     (ideographic-radical . 90)	; ⽙
     (ideographic-strokes . 5)
@@ -542,7 +550,13 @@
       )
      ((=ucs		  . #x672A)	; 未
       ))
+    (=ucs@JP/hanazono	. #x31B4F)	; &CB08615;
     (=cbeta		. 08615)	; &CB08615;
+    (->subsumptive
+     ((==ucs@JP/hanazono  . #x31B4F)	; &g2-hanaJU+31B4F;
+      )
+     ((==cbeta		  . 08615)	; &g2-CB08615;
+      ))
     ))
 (define-char
   '((ideographic-radical . 90)	; ⽙
@@ -2039,6 +2053,11 @@
      ((==ucs@cns	  . #x245A7)	; &g2-CU+245A7;
       (==cns11643-7	  . #x644F)	; &g2-CU+245A7; [68-47]
       ))
+    ))
+(define-char
+  '((ideographic-radical . 90)	; ⽙
+    (==>ucs@bucs	. #x7240)	; &BUCS+7240;
+    (==>daijiten	. 07045)	; &BUCS+7240;
     ))
 (define-char
   '((ideographic-radical . 90)	; ⽙
