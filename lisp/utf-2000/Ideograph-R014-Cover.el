@@ -2490,6 +2490,29 @@
     (=ucs@JP/hanazono	. #x2D077)	; &hanaJU+2D077;
     ))
 (define-char
+  '((<-denotational
+     ((=ucs		  . #x2D077)	; 𭁷
+      ))
+    (ideographic-radical . 14)	; ⼍
+    (ideographic-strokes . 8)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5196)	; 冖
+      )
+     ((=ucs@unicode	  . #x5177)	; &MJ007289;
+      (=mj		  . 007289)	; &MJ007289;
+      ))
+    (=mj		. 057029)	; &MJ057029;
+    (=koseki		. 019010)	; &MJ057029;
+    (->subsumptive
+     ((==mj		  . 057029)	; &g2-MJ057029;
+      (==koseki		  . 019010)	; &g2-MJ057029;
+      ))
+    ))
+(define-char
   '((ideographic-radical . 14)	; ⼍
     (ideographic-strokes . 8)
     (total-strokes	 . 10)
