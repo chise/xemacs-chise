@@ -336,6 +336,15 @@
     (ideographic-radical . 1)	; ⼀
     (ideographic-strokes . 1)
     (total-strokes	 . 2)
+    (=>big5-cdp		. #x8BBF)	; &A-CDP-8BBF;
+    ))
+(define-char
+  '((<-denotational
+     ((=>big5-cdp	  . #x8BBF)	; &A-CDP-8BBF;
+      ))
+    (ideographic-radical . 1)	; ⼀
+    (ideographic-strokes . 1)
+    (total-strokes	 . 2)
     (=big5-cdp		. #x8BBF)	; &CDP-8BBF;
     (<-formed@component
      ((=ucs		  . #x4E02)	; 丂
