@@ -240,6 +240,24 @@
     (=ucs-itaiji-003	. #x2A7FD)	; &U-i003+2A7FD;
     ))
 (define-char
+  '((<-denotational
+     ((=>big5-cdp	  . #x8BBF)	; &A-CDP-8BBF;
+      ))
+    (ideographic-radical . 25)	; ⼘
+    (ideographic-strokes . 1)
+    (total-strokes	 . 3)
+    (ideographic-structure@apparent
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((name		  . "CJK RADICAL DIVINATION")
+      (=ucs		  . #x2E8A)	; ⺊
+      )
+     ((=ucs		  . #x200CC)	; 𠃌
+      ))
+    (=big5-cdp-itaiji-001 . #x8BBF)	; &CDP-i001-8BBF;
+    ))
+(define-char
   '((<-denotational@usage
      ((==>ucs@bucs	  . #x4E31)	; &BUCS+4E31;
       )
