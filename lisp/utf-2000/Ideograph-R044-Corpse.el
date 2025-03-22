@@ -1112,7 +1112,7 @@
     ))
 (define-char
   '((<-denotational@usage
-     ((==>daijiten	  . 07779)	; &A2-DJT-07779;
+     ((==>ucs@bucs	  . #x76E1)	; &BUCS+76E1;
       ))
     (ideographic-radical . 44)	; ⼫
     (ideographic-strokes . 3)

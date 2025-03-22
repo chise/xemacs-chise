@@ -10447,6 +10447,54 @@
     (=ucs@iso		. #x2392A)	; &U-0002392A;
     ))
 (define-char
+  '((ideographic-radical . 76)	; ⽋
+    (ideographic-strokes . 14)
+    (total-strokes	 . 18)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x6B21)	; 次
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=ucs		    . #x6B21)	; 次
+	)
+       ((=ucs		    . #x6B21)	; 次
+	))
+      ))
+    (=ucs		. #x3193A)	; 𱤺
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x3193A)	; 𱤺
+      ))
+    (ideographic-radical . 76)	; ⽋
+    (ideographic-strokes . 14)
+    (total-strokes	 . 18)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs@ks		  . #x6B21)	; &MJ014748;
+      (=mj		  . 014748)	; &MJ014748;
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=ucs@ks	    . #x6B21)	; &MJ014748;
+	(=mj		    . 014748)	; &MJ014748;
+	)
+       ((=ucs@ks	    . #x6B21)	; &MJ014748;
+	(=mj		    . 014748)	; &MJ014748;
+	))
+      ))
+    (=ucs@JP/hanazono	. #x3193A)	; &hanaJU+3193A;
+    ))
+(define-char
   '((<-denotational@usage
      ((==>daijiten	  . 05634)	; &A2-DJT-05634;
       ))
