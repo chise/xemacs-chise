@@ -947,7 +947,10 @@
     (=daikanwa		. 02788)	; &I-M-02788;
     ))
 (define-char
-  '((ideographic-radical . 25)	; ⼘
+  '((<-denotational
+     ((=>ucs-itaiji-002	  . #x5364)	; &A-U-i002+5364;
+      ))
+    (ideographic-radical . 25)	; ⼘
     (ideographic-strokes . 4)
     (total-strokes	 . 6)
     (ideographic-structure
@@ -966,6 +969,21 @@
     (->subsumptive
      ((==ucs-itaiji-002	  . #x5364)	; &g2-U-i002+5364;
       ))
+    ))
+(define-char
+  '((ideographic-radical . 25)	; ⼘
+    (ideographic-strokes . 4)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x535C)	; 卜
+      )
+     ((=>ucs@component	  . #x65E5)	; &A-compU+65E5;
+      (=>iwds-1		  .  0118)	; &A-compU+65E5;
+      ))
+    (=>ucs-itaiji-002	. #x5364)	; &A-U-i002+5364;
     ))
 (define-char
   '((ideographic-radical . 25)	; ⼘
