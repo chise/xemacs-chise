@@ -392,6 +392,23 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
+     ((=adobe-japan1-4	  . 15391)	; &AJ1-15391;
+      )
+     ((=ucs		  . #x5BF8)	; 寸
+      ))
+    (=ucs-var-001	. #x5BFB)	; &U-v001+5BFB;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5BFB)	; 寻
+      ))
+    (ideographic-radical . 41)	; ⼨
+    (ideographic-strokes . 3)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
      ((=ucs		  . #x2B739)	; 𫜹
       )
      ((=ucs		  . #x5BF8)	; 寸
@@ -2215,6 +2232,24 @@
      ((=ucs		  . #x5BF8)	; 寸
       ))
     (=ucs		. #x2D530)	; 𭔰
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2D530)	; 𭔰
+      ))
+    (ideographic-radical . 41)	; ⼨
+    (ideographic-strokes . 7)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs@unicode	  . #x8C46)	; &AJ1-03198;
+      (=adobe-japan1-0	  . 03198)	; &AJ1-03198;
+      )
+     ((=ucs		  . #x5BF8)	; 寸
+      ))
+    (=ucs@JP/hanazono	. #x2D530)	; &hanaJU+2D530;
     (->subsumptive
      ((==ucs@JP/hanazono  . #x2D530)	; &g2-hanaJU+2D530;
       ))
