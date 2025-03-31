@@ -7451,7 +7451,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=big5-cdp-itaiji-001 . #x8DB6)	; &CDP-i001-8DB6;
+     ((=ucs@JP/hanazono	  . #x31594)	; &CDP-i001-8DB6;
+      (=big5-cdp-itaiji-001 . #x8DB6)	; &CDP-i001-8DB6;
       )
      ((=ucs		  . #x6535)	; 攵
       ))
