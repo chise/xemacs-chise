@@ -93,6 +93,23 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=>ucs-itaiji-001	  . #x4E06)	; &A-U-i001+4E06;
+      ))
+    (ideographic-radical . 27)	; ⼚
+    (ideographic-strokes . 1)
+    (total-strokes	 . 3)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs		  . #x5382)	; 厂
+      )
+     ((=ucs		  . #x4E36)	; 丶
+      ))
+    (=ucs-itaiji-001	. #x5382)	; &U-i001+5382;
+    ))
+(define-char
   '((ideographic-radical . 27)	; ⼚
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
