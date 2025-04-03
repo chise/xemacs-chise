@@ -1,7 +1,16 @@
 ;; -*- coding: utf-8-mcs-er -*-
 (define-char
-  '((<-denotational@usage
-     ((==>daijiten	  . 00062)	; &A2-DJT-00062;
+  '((ideographic-radical . 3)	; ⼂
+    (ideographic-strokes . 0)
+    (total-strokes	 . 1)
+    (=>ucs@component	. #x4E36)	; &A-compU+4E36;
+    ))
+(define-char
+  '((<-denotational@component
+     ((=>ucs@component	  . #x4E36)	; &A-compU+4E36;
+      ))
+    (<-denotational@usage
+     ((==>ucs@bucs	  . #x4E36)	; &BUCS+4E36;
       ))
     (ideographic-radical . 3)	; ⼂
     (ideographic-strokes . 0)
@@ -1659,7 +1668,8 @@
     ))
 (define-char
   '((ideographic-radical . 3)	; ⼂
-    (==>daijiten	. 00062)	; &A2-DJT-00062;
+    (==>ucs@bucs	. #x4E36)	; &BUCS+4E36;
+    (==>daijiten	. 00062)	; &BUCS+4E36;
     ))
 (define-char
   '((ideographic-radical . 3)	; ⼂
