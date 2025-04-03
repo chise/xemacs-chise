@@ -6090,16 +6090,8 @@
      ((=ucs		  . #x4E57)	; 乗
       ))
     (ideographic-radical . 4)	; ⼃
-    (===hng-kss		. 02270)	; &HNG064-02270;
-    (<-formed
-     ((=ucs		  . #x4E58)	; 乘
-      ))
-    ))
-(define-char
-  '((<-denotational
-     ((=ucs		  . #x4E57)	; 乗
-      ))
-    (ideographic-radical . 4)	; ⼃
+    (ideographic-strokes . 8)
+    (total-strokes	 . 9)
     (===hng-keg		. 02320)	; &HNG002-02320;
     (<-formed
      ((=ucs		  . #x4E58)	; 乘
@@ -6113,6 +6105,18 @@
     (ideographic-strokes . 9)
     (total-strokes	 . 10)
     (===hng-khm		. 01650)	; &HNG011-01650;
+    (<-formed
+     ((=ucs		  . #x4E58)	; 乘
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x4E57)	; 乗
+      ))
+    (ideographic-radical . 4)	; ⼃
+    (ideographic-strokes . 6)
+    (total-strokes	 . 7)
+    (===hng-kss		. 02270)	; &HNG064-02270;
     (<-formed
      ((=ucs		  . #x4E58)	; 乘
       ))
