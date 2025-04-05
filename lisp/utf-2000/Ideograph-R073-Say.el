@@ -2234,10 +2234,7 @@
       ))
     ))
 (define-char
-  '((<-denotational@usage
-     ((==>ucs@bucs	  . #x66FE)	; &BUCS+66FE;
-      ))
-    (ideographic-radical . 73)	; ⽈
+  '((ideographic-radical . 73)	; ⽈
     (=>ucs@component	. #x66FE)	; &A-compU+66FE;
     (=>iwds-1		.  0187)	; &A-compU+66FE;
     ))
@@ -2245,6 +2242,9 @@
   '((<-denotational
      ((=>ucs@component	  . #x66FE)	; &A-compU+66FE;
       (=>iwds-1		  .  0187)	; &A-compU+66FE;
+      ))
+    (<-denotational@usage
+     ((==>ucs@bucs	  . #x66FE)	; &BUCS+66FE;
       ))
     (ideographic-radical . 73)	; ⽈
     (ideographic-strokes . 8)
@@ -2406,6 +2406,9 @@
   '((<-denotational
      ((=>ucs@component	  . #x66FE)	; &A-compU+66FE;
       (=>iwds-1		  .  0187)	; &A-compU+66FE;
+      ))
+    (<-denotational@usage
+     ((==>ucs@bucs	  . #x66FE)	; &BUCS+66FE;
       ))
     (ideographic-radical . 73)	; ⽈
     (ideographic-strokes . 7)
