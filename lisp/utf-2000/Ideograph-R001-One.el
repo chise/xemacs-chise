@@ -1,6 +1,9 @@
 ;; -*- coding: utf-8-mcs-er -*-
 (define-char
-  '((ideographic-radical . 1)	; ⼀
+  '((<-denotational@component
+     ((=>ucs@component	  . #x4E36)	; &A-compU+4E36;
+      ))
+    (ideographic-radical . 1)	; ⼀
     (ideographic-strokes . 0)
     (total-strokes	 . 1)
     (=>ucs@component	. #x4E00)	; &A-compU+4E00;
@@ -2004,6 +2007,62 @@
     (=>ucs@iwds-1	. #x30002)	; &A-IWDSU+30002;
     (=>big5-cdp		. #x8DC1)	; &A-IWDSU+30002;
     (=>iwds-1		.  0082)	; &A-IWDSU+30002;
+    ))
+(define-char
+  '((<-denotational@component
+     ((=>ucs@component	  . #x2008B)	; &A-compU+2008B;
+      ))
+    (ideographic-radical . 1)	; ⼀
+    (ideographic-strokes . 2)
+    (total-strokes	 . 3)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=>ucs@iwds-1	  . #x4E06)	; &A-IWDSU+4E06;
+      (=>iwds-1		  .  0150)	; &A-IWDSU+4E06;
+      )
+     ((=>ucs@component	  . #x4E36)	; &A-compU+4E36;
+      ))
+    (=>ucs-itaiji-001	. #x4E06)	; &A-U-i001+4E06;
+    (=>ucs-itaiji-002	. #x4E06)	; &A-U-i001+4E06;
+    (<-formed@component
+     ((=ucs		  . #x5382)	; 厂
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs-itaiji-001	  . #x4E06)	; &A-U-i001+4E06;
+      ))
+    (ideographic-radical . 1)	; ⼀
+    (ideographic-strokes . 2)
+    (total-strokes	 . 3)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs		  . #x4E06)	; 丆
+      )
+     ((=ucs		  . #x4E00)	; 一
+      ))
+    (=ucs-itaiji-001	. #x4E06)	; &U-i001+4E06;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs-itaiji-001	  . #x4E06)	; &A-U-i001+4E06;
+      ))
+    (ideographic-radical . 1)	; ⼀
+    (ideographic-strokes . 2)
+    (total-strokes	 . 3)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs		  . #x4E06)	; 丆
+      )
+     ((=ucs		  . #x4E36)	; 丶
+      ))
+    (=ucs-itaiji-002	. #x4E06)	; &U-i002+4E06;
     ))
 (define-char
   '((ideographic-radical . 1)	; ⼀
@@ -10885,6 +10944,36 @@
     ))
 (define-char
   '((ideographic-radical . 1)	; ⼀
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x4E3D)	; 丽
+      )
+     ((=big5-cdp	  . #x8D56)	; &CDP-8D56;
+      ))
+    (=>ucs-itaiji-008	. #x9E97)	; &A-U-i008+9E97;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs-itaiji-008	  . #x9E97)	; &A-U-i008+9E97;
+      ))
+    (ideographic-radical . 1)	; ⼀
+    (ideographic-strokes . 14)
+    (total-strokes	 . 15)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs@cns		  . #x4E3D)	; &MJ006366;
+      (=mj		  . 006366)	; &MJ006366;
+      )
+     ((=big5-cdp	  . #x8D56)	; &CDP-8D56;
+      ))
+    (=ucs-itaiji-008	. #x9E97)	; &U-i008+9E97;
+    ))
+(define-char
+  '((ideographic-radical . 1)	; ⼀
     (=>ucs@cognate	. #x20055)	; &A-cgnU+20055;
     ))
 (define-char
@@ -11180,6 +11269,38 @@
       ))
     (=gt		. 00100)	; &GT-00100;
     (=gt-pj-9		. #x4A6B)	; &GT-00100; [42-75]
+    ))
+(define-char
+  '((ideographic-radical . 1)	; ⼀
+    (ideographic-strokes . 24)
+    (total-strokes	 . 25)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=>ucs-itaiji-008	  . #x9E97)	; &A-U-i008+9E97;
+      )
+     ((=>ucs@iwds-1	  . #x6BB7)	; &A-IWDSU+6BB7;
+      ))
+    (=ucs		. #x3136A)	; 𱍪
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x3136A)	; 𱍪
+      ))
+    (ideographic-radical . 1)	; ⼀
+    (ideographic-strokes . 24)
+    (total-strokes	 . 25)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs-itaiji-008	  . #x9E97)	; &U-i008+9E97;
+      )
+     ((=ucs@unicode	  . #x6BB7)	; &AJ1-05365;
+      (=adobe-japan1-0	  . 05365)	; &AJ1-05365;
+      ))
+    (=ucs@JP/hanazono	. #x3136A)	; &hanaJU+3136A;
     ))
 (define-char
   '((ideographic-radical . 1)	; ⼀

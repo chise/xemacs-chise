@@ -2602,6 +2602,13 @@
     ))
 (define-char
   '((<-denotational
+     ((=>ucs@component	  . #x20A27)	; &A-compU+20A27;
+      ))
+    (ideographic-radical . 49)	; ⼰
+    (=>ucs-itaiji-002	. #x20A27)	; &A-U-i002+20A27;
+    ))
+(define-char
+  '((<-denotational
      ((=>ucs-itaiji-002	  . #x20A27)	; &A-U-i002+20A27;
       ))
     (ideographic-radical . 49)	; ⼰
@@ -2638,13 +2645,6 @@
      ((=ucs		  . #x5DF3)	; 巳
       ))
     (=ucs-itaiji-002	. #x20A27)	; &U-i002+20A27;
-    ))
-(define-char
-  '((<-denotational
-     ((=>ucs@component	  . #x20A27)	; &A-compU+20A27;
-      ))
-    (ideographic-radical . 49)	; ⼰
-    (=>ucs-itaiji-002	. #x20A27)	; &A-U-i002+20A27;
     ))
 (define-char
   '((ideographic-radical . 49)	; ⼰
