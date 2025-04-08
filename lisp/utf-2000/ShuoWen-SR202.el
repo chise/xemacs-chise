@@ -18,6 +18,13 @@
     (=shuowen-jiguge	. 18120)	; &SW-JIGUGE-18120;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x20096)	; 𠂖
+      )
+     ((=ucs		  . #x20099)	; 𠂙
+      ))
+    (<-ancient@shuowen
+     ((=shuowen-jiguge	  . 18119)	; &SW-JIGUGE-18119;
+      )
+     ((=ucs		  . #x5F1F)	; 弟
       ))
     (->subsumptive
      ((===shuowen-jiguge-A30 . 18620)	; &SW-JIGUGE30-18620;
