@@ -313,12 +313,11 @@
     (ideographic-strokes . 1)
     (total-strokes	 . 4)
     (ideographic-structure@apparent
-     ((name		  . "IDEOGRAPHIC DESCRIPTION CHARACTER OVERLAID")
-      (=ucs		  . #x2FFB)	; ⿻
-      )
-     ((=ucs		  . #x53E3)	; 口
+     ((=ucs-itaiji-001	  . #x2FFB)	; &U-i001+2FFB;
       )
      ((=ucs		  . #x4E5A)	; 乚
+      )
+     ((=ucs		  . #x53E3)	; 口
       ))
     (=ucs-itaiji-006	. #x5C6F)	; &U-i006+5C6F;
     (->subsumptive
