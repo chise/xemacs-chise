@@ -845,8 +845,17 @@
     (=big5-cdp		. #x89B3)	; &CDP-89B3;
     ))
 (define-char
-  '((<-denotational@usage
-     ((==>daijiten	  . 00051)	; &A2-DJT-00051;
+  '((ideographic-radical . 2)	; ⼁
+    (ideographic-strokes . 3)
+    (total-strokes	 . 4)
+    (=>ucs@component	. #x4E2D)	; &A-compU+4E2D;
+    ))
+(define-char
+  '((<-denotational@component
+     ((=>ucs@component	  . #x4E2D)	; &A-compU+4E2D;
+      ))
+    (<-denotational@usage
+     ((==>ucs@bucs	  . #x4E2D)	; &BUCS+4E2D;
       ))
     (ideographic-radical . 2)	; ⼁
     (ideographic-strokes . 3)
@@ -2106,7 +2115,32 @@
     (ideographic-radical . 2)	; ⼁
     (ideographic-strokes . 7)
     (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x7531)	; 由
+      )
+     ((=gt-k		  . 00627)	; &GT-K00627;
+      ))
     (=big5-cdp-var-005	. #x89C5)	; &CDP-v005-89C5;
+    ))
+(define-char
+  '((<-denotational
+     ((=>big5-cdp-itaiji-001 . #x89C5)	; &A-CDP-i001-89C5;
+      ))
+    (ideographic-radical . 2)	; ⼁
+    (ideographic-strokes . 7)
+    (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs-var-001	  . #x6BCD)	; &U-v001+6BCD;
+      )
+     ((=gt-k		  . 00627)	; &GT-K00627;
+      ))
+    (=big5-cdp-itaiji-002 . #x89C5)	; &CDP-i002-89C5;
     ))
 (define-char
   '((<-denotational
@@ -2120,9 +2154,10 @@
      ((=>ucs@iwds-1	  . #x6BCC)	; &A-IWDSU+6BCC;
       (=>iwds-1		  .  18283)	; &A-IWDSU+6BCC;
       )
-     ((=ucs		  . #x4E2D)	; 中
+     ((=>ucs@component	  . #x4E2D)	; &A-compU+4E2D;
       ))
     (=>big5-cdp-itaiji-001 . #x89C5)	; &A-CDP-i001-89C5;
+    (=>big5-cdp-itaiji-002 . #x89C5)	; &A-CDP-i001-89C5;
     ))
 (define-char
   '((<-denotational
@@ -2980,7 +3015,8 @@
     ))
 (define-char
   '((ideographic-radical . 2)	; ⼁
-    (==>daijiten	. 00051)	; &A2-DJT-00051;
+    (==>ucs@bucs	. #x4E2D)	; &BUCS+4E2D;
+    (==>daijiten	. 00051)	; &BUCS+4E2D;
     ))
 (define-char
   '((ideographic-radical . 2)	; ⼁
