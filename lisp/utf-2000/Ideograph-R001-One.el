@@ -9250,6 +9250,36 @@
     ))
 (define-char
   '((ideographic-radical . 1)	; ⼀
+    (ideographic-structure
+     ((name		  . "IDEOGRAPHIC DESCRIPTION CHARACTER OVERLAID")
+      (=ucs		  . #x2FFB)	; ⿻
+      )
+     ((=ucs-itaiji-002	  . #x540F)	; &U-i002+540F;
+      )
+     ((name		  . "CJK RADICAL SNOUT TWO")
+      (=ucs		  . #x2E95)	; ⺕
+      ))
+    (=ucs		. #x2A703)	; 𪜃
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2A703)	; 𪜃
+      ))
+    (ideographic-radical . 1)	; ⼀
+    (ideographic-strokes . 7)
+    (total-strokes	 . 8)
+    (ideographic-structure
+     ((name		  . "IDEOGRAPHIC DESCRIPTION CHARACTER OVERLAID")
+      (=ucs		  . #x2FFB)	; ⿻
+      )
+     ((=ucs-itaiji-002	  . #x540F)	; &U-i002+540F;
+      )
+     ((=adobe-japan1-4	  . 15391)	; &AJ1-15391;
+      ))
+    (=ucs@JP/hanazono	. #x2A703)	; &hanaJU+2A703;
+    ))
+(define-char
+  '((ideographic-radical . 1)	; ⼀
     (ideographic-strokes . 7)
     (total-strokes	 . 8)
     (=ucs		. #x2CED4)	; 𬻔
