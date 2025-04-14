@@ -21628,6 +21628,23 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=ucs		  . #x21794)	; 𡞔
+      ))
+    (ideographic-radical . 38)	; ⼥
+    (ideographic-strokes . 9)
+    (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=big5-cdp-itaiji-002 . #x89C5)	; &CDP-i002-89C5;
+      )
+     ((=ucs		  . #x5973)	; 女
+      ))
+    (=ucs-itaiji-001	. #x21794)	; &U-i001+21794;
+    ))
+(define-char
   '((ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
