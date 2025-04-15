@@ -4245,7 +4245,10 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 13)	; ⼌
+  '((<-denotational
+     ((=>ucs@component	  . #x2D068)	; &A-compU+2D068;
+      ))
+    (ideographic-radical . 13)	; ⼌
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
     (ideographic-structure
@@ -4276,6 +4279,12 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
     (=>ucs@component	. #x2D063)	; &A-compU+2D063;
+    ))
+(define-char
+  '((ideographic-radical . 13)	; ⼌
+    (ideographic-strokes . 6)
+    (total-strokes	 . 8)
+    (=>ucs@component	. #x2D068)	; &A-compU+2D068;
     ))
 (define-char
   '((ideographic-radical . 13)	; ⼌
@@ -4365,6 +4374,26 @@
       ))
     (->subsumptive
      ((==ucs-itaiji-002	  . #x2D063)	; &g2-U-i002+2D063;
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@component	  . #x2D068)	; &A-compU+2D068;
+      ))
+    (ideographic-radical . 13)	; ⼌
+    (ideographic-strokes . 6)
+    (total-strokes	 . 8)
+    (ideographic-structure
+     ((name		  . "IDEOGRAPHIC DESCRIPTION CHARACTER OVERLAID")
+      (=ucs		  . #x2FFB)	; ⿻
+      )
+     ((=ucs		  . #x5182)	; 冂
+      )
+     ((=ucs		  . #x7C73)	; 米
+      ))
+    (=big5-cdp		. #x86D8)	; &CDP-86D8;
+    (->subsumptive
+     ((==big5-cdp	  . #x86D8)	; &g2-CDP-86D8;
       ))
     ))
 (define-char
