@@ -166,10 +166,7 @@
     (ideographic-radical . 80)	; ⽏
     (ideographic-strokes . 1)
     (total-strokes	 . 5)
-    (=ucs-itaiji-004	. #x6BCD)	; &U-i004+6BCD;
-    (<-formed@component
-     ((=ucs		  . #x6BCD)	; 母
-      ))
+    (=ucs-var-001	. #x6BCD)	; &U-v001+6BCD;
     ))
 (define-char
   '((<-denotational
@@ -179,7 +176,10 @@
     (ideographic-radical . 80)	; ⽏
     (ideographic-strokes . 1)
     (total-strokes	 . 5)
-    (=ucs-var-001	. #x6BCD)	; &U-v001+6BCD;
+    (=ucs-itaiji-004	. #x6BCD)	; &U-i004+6BCD;
+    (<-formed@component
+     ((=ucs		  . #x6BCD)	; 母
+      ))
     ))
 (define-char
   '((<-denotational@component
