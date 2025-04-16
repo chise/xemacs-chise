@@ -1118,6 +1118,38 @@
     ))
 (define-char
   '((<-denotational
+     ((=>ucs-itaiji-001	  . #x27FC6)	; &A-U-i001+27FC6;
+      ))
+    (ideographic-radical . 77)	; ⽌
+    (ideographic-strokes . 2)
+    (total-strokes	 . 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=mj		  . 014824)	; &MJ014824;
+      )
+     ((=ucs		  . #x353E)	; 㔾
+      ))
+    (=ucs-itaiji-003	. #x27FC6)	; &U-i003+27FC6;
+    ))
+(define-char
+  '((ideographic-radical . 77)	; ⽌
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x6B62)	; 止
+      )
+     ((=>ucs@component	  . #x5DF1)	; &A-compU+5DF1;
+      (=>iwds-1		  .  0120)	; &A-compU+5DF1;
+      ))
+    (=>ucs-itaiji-001	. #x27FC6)	; &A-U-i001+27FC6;
+    (=>ucs-itaiji-002	. #x27FC6)	; &A-U-i001+27FC6;
+    (=>ucs-itaiji-003	. #x27FC6)	; &A-U-i001+27FC6;
+    ))
+(define-char
+  '((<-denotational
      ((=>gt-k		  . 01918)	; &A-GT-K01918;
       ))
     (ideographic-radical . 77)	; ⽌
@@ -1563,6 +1595,40 @@
      ((=ucs		  . #x6B63)	; 正
       ))
     (=>cbeta		. 10927)	; &A-CB10927;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs-itaiji-001	  . #x27FC6)	; &A-U-i001+27FC6;
+      ))
+    (ideographic-radical . 77)	; ⽌
+    (ideographic-strokes . 3)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=mj		  . 014824)	; &MJ014824;
+      )
+     ((=ucs		  . #x5DF3)	; 巳
+      ))
+    (=ucs-itaiji-001	. #x27FC6)	; &U-i001+27FC6;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs-itaiji-001	  . #x27FC6)	; &A-U-i001+27FC6;
+      ))
+    (ideographic-radical . 77)	; ⽌
+    (ideographic-strokes . 3)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=mj		  . 014824)	; &MJ014824;
+      )
+     ((=ucs		  . #x5DF2)	; 已
+      ))
+    (=ucs-itaiji-002	. #x27FC6)	; &U-i002+27FC6;
     ))
 (define-char
   '((ideographic-radical . 77)	; ⽌
