@@ -5458,7 +5458,7 @@
                   ;; =>iso-ir	177
 		  mother	=ucs-itaiji-001
 		  min-code #x2E00
-		  max-code #x9FCC
+		  max-code #x9FFF
 		  registry "ucs\\.itaiji001-0"))
   (make-charset '=ucs-sip-itaiji-001
 		"uXXXX-itaiji-001 glyph-images in SIP"
@@ -5503,7 +5503,7 @@
                   ;; =>iso-ir	177
 		  mother	=>ucs-itaiji-001
 		  min-code #x2E00
-		  max-code #x9FCC
+		  max-code #x9FFF
 		  registry "ucs\\.itaiji001-0"))
   (make-charset '=>ucs-sip-itaiji-001
 		"uXXXX-itaiji-001 characters in SIP"
@@ -5548,7 +5548,7 @@
                   ;; =>iso-ir	177
 		  mother	==ucs-itaiji-001
 		  min-code #x2E00
-		  max-code #x9FCC
+		  max-code #x9FFF
 		  registry "ucs\\.itaiji001-0"))
   (make-charset '==ucs-sip-itaiji-001
 		"uXXXX-itaiji-001's abstract glyph-forms in SIP"
@@ -5582,7 +5582,7 @@
                   ;; =>iso-ir	177
 		  mother	=>ucs-itaiji-001@iwds-1
 		  min-code #x2E00
-		  max-code #x9FCC
+		  max-code #x9FFF
 		  registry "ucs\\.itaiji001-0"))
   (make-charset '=>ucs-sip-itaiji-001@iwds-1
 		"IWDS-1 abstract characters of UCS-itaiji-001 in SIP"
@@ -5617,7 +5617,7 @@
                   ;; =>iso-ir	177
 		  mother	=ucs-itaiji-002
 		  min-code #x2E00
-		  max-code #x9FCC
+		  max-code #x9FFF
 		  registry "ucs\\.itaiji002-0"))
   (make-charset '=ucs-sip-itaiji-002
 		"uXXXX-itaiji-002 glyph-images in SIP"
@@ -5651,7 +5651,7 @@
                   ;; =>iso-ir	177
 		  mother	=>ucs-itaiji-002
 		  min-code #x2E00
-		  max-code #x9FCC
+		  max-code #x9FFF
 		  registry "ucs\\.itaiji002-0"))
   (make-charset '=>ucs-sip-itaiji-002
 		"uXXXX-itaiji-002 characters in SIP"
@@ -5685,7 +5685,7 @@
                   ;; =>iso-ir	177
 		  mother	==ucs-itaiji-002
 		  min-code #x2E00
-		  max-code #x9FCC
+		  max-code #x9FFF
 		  registry "ucs\\.itaiji002-0"))
   (make-charset '==ucs-sip-itaiji-002
 		"uXXXX-itaiji-002's abstract glyph-forms in SIP"
@@ -5719,7 +5719,7 @@
                   ;; =>iso-ir	177
 		  mother	=>ucs-itaiji-002@iwds-1
 		  min-code #x2E00
-		  max-code #x9FCC
+		  max-code #x9FFF
 		  registry "ucs\\.itaiji002-0"))
   (make-charset '=>ucs-sip-itaiji-002@iwds-1
 		"IWDS-1 abstract characters of uXXXX-itaiji-002 in SIP"
@@ -5754,7 +5754,7 @@
                   ;; =>iso-ir	177
 		  mother	=ucs-itaiji-003
 		  min-code #x2E00
-		  max-code #x9FCC
+		  max-code #x9FFF
 		  registry "ucs\\.itaiji003-0"))
   (make-charset '=ucs-sip-itaiji-003
 		"uXXXX-itaiji-003 glyphs in SIP"
@@ -5788,7 +5788,7 @@
                   ;; =>iso-ir	177
 		  mother	=>ucs-itaiji-003
 		  min-code #x2E00
-		  max-code #x9FCC
+		  max-code #x9FFF
 		  registry "ucs\\.itaiji003-0"))
   (make-charset '=>ucs-sip-itaiji-003
 		"uXXXX-itaiji-003's abstract characters in SIP"
@@ -5822,7 +5822,7 @@
                   ;; =>iso-ir	177
 		  mother	==ucs-itaiji-003
 		  min-code #x2E00
-		  max-code #x9FCC
+		  max-code #x9FFF
 		  registry "ucs\\.itaiji003-0"))
   (make-charset '==ucs-sip-itaiji-003
 		"uXXXX-itaiji-003's abstract glyph-forms in SIP"
@@ -5856,7 +5856,7 @@
                   ;; =>iso-ir	177
 		  mother	=>ucs-itaiji-003@iwds-1
 		  min-code #x2E00
-		  max-code #x9FCC
+		  max-code #x9FFF
 		  registry "ucs\\.itaiji003-0"))
   (make-charset '=>ucs-sip-itaiji-003@iwds-1
 		"IWDS-1 abstract characters of UCS-itaiji-003 in SIP"
@@ -5891,7 +5891,7 @@
                   ;; =>iso-ir	177
 		  mother	=ucs-itaiji-004
 		  min-code #x2E00
-		  max-code #x9FCC
+		  max-code #x9FFF
 		  registry "ucs\\.itaiji004-0"))
   (make-charset '=ucs-sip-itaiji-004
 		"uXXXX-itaiji-004 glyph-images in SIP"
@@ -5925,7 +5925,7 @@
                   ;; =>iso-ir	177
 		  mother	=>ucs-itaiji-004
 		  min-code #x2E00
-		  max-code #x9FCC
+		  max-code #x9FFF
 		  registry "ucs\\.itaiji004-0"))
   (make-charset '=>ucs-sip-itaiji-004
 		"uXXXX-itaiji-004 glyph-images in SIP"
@@ -5981,7 +5981,7 @@
                   ;; =>iso-ir	177
 		  mother	=ucs-itaiji-005
 		  min-code #x2E00
-		  max-code #x9FCC
+		  max-code #x9FFF
 		  registry "ucs\\.itaiji005-0"))
   (make-charset '=ucs-sip-itaiji-005
 		"uXXXX-itaiji-005 glyph-images in SIP"
@@ -6015,7 +6015,7 @@
                   ;; =>iso-ir	177
 		  mother	=>ucs-itaiji-005
 		  min-code #x2E00
-		  max-code #x9FCC
+		  max-code #x9FFF
 		  registry "ucs\\.itaiji005-0"))
   (make-charset '=>ucs-sip-itaiji-005
 		"uXXXX-itaiji-005's abstract characters in SIP"
@@ -6049,7 +6049,7 @@
                   ;; =>iso-ir	177
 		  mother	==ucs-itaiji-005
 		  min-code #x2E00
-		  max-code #x9FCC
+		  max-code #x9FFF
 		  registry "ucs\\.itaiji005-0"))
   (make-charset '==ucs-sip-itaiji-005
 		"uXXXX-itaiji-005's abstract glyph-forms in SIP"
@@ -6084,7 +6084,7 @@
                   ;; =>iso-ir	177
 		  mother	=ucs-itaiji-006
 		  min-code #x2E00
-		  max-code #x9FCC
+		  max-code #x9FFF
 		  registry "ucs\\.itaiji006-0"))
   (make-charset '=ucs-sip-itaiji-006
 		"uXXXX-itaiji-006 glyphs in SIP"
@@ -6118,7 +6118,7 @@
                   ;; =>iso-ir	177
 		  mother	==ucs-itaiji-006
 		  min-code #x2E00
-		  max-code #x9FCC
+		  max-code #x9FFF
 		  registry "ucs\\.itaiji006-0"))
   (make-charset '=>ucs-itaiji-006
 		"Abstract characters corresponding with uXXXX-itaiji-006 of GlyphWiki"
@@ -6141,7 +6141,7 @@
                   ;; =>iso-ir	177
 		  mother	=>ucs-itaiji-006
 		  min-code #x2E00
-		  max-code #x9FCC
+		  max-code #x9FFF
 		  registry "ucs\\.itaiji006-0"))
   (make-charset '=>ucs-sip-itaiji-006
 		"uXXXX-itaiji-006's abstract characters in SIP"
@@ -6175,7 +6175,7 @@
                   ;; =>iso-ir	177
 		  mother	=>ucs-itaiji-006@iwds-1
 		  min-code #x2E00
-		  max-code #x9FCC
+		  max-code #x9FFF
 		  registry "ucs\\.itaiji006-0"))
 
   (make-charset '=ucs-itaiji-007
@@ -6199,7 +6199,7 @@
                   ;; =>iso-ir	177
 		  mother	=ucs-itaiji-007
 		  min-code #x2E00
-		  max-code #x9FCC
+		  max-code #x9FFF
 		  registry "ucs\\.itaiji007-0"))
   (make-charset '=ucs-sip-itaiji-007
 		"uXXXX-itaiji-007 glyph-images in SIP"
@@ -6233,7 +6233,7 @@
                   ;; =>iso-ir	177
 		  mother	=>ucs-itaiji-007
 		  min-code #x2E00
-		  max-code #x9FCC
+		  max-code #x9FFF
 		  registry "ucs\\.itaiji007-0"))
   (make-charset '=>ucs-sip-itaiji-007
 		"uXXXX-itaiji-007 characters in SIP"
@@ -6268,7 +6268,7 @@
                   ;; =>iso-ir	177
 		  mother	=ucs-itaiji-008
 		  min-code #x2E00
-		  max-code #x9FCC
+		  max-code #x9FFF
 		  registry "ucs\\.itaiji008-0"))
   (make-charset '=ucs-sip-itaiji-008
 		"uXXXX-itaiji-008 abstract glyphs in SIP"
@@ -6302,7 +6302,7 @@
                   ;; =>iso-ir	177
 		  mother	=>ucs-itaiji-008
 		  min-code #x2E00
-		  max-code #x9FCC
+		  max-code #x9FFF
 		  registry "ucs\\.itaiji008-0"))
   (make-charset '=>ucs-sip-itaiji-008
 		"uXXXX-itaiji-008's abstract characters in SIP"
@@ -6337,7 +6337,7 @@
                   ;; =>iso-ir	177
 		  mother	=ucs-itaiji-009
 		  min-code #x2E00
-		  max-code #x9FCC
+		  max-code #x9FFF
 		  registry "ucs\\.itaiji009-0"))
   (make-charset '=ucs-sip-itaiji-009
 		"uXXXX-itaiji-009 abstract glyphs in SIP"
@@ -6371,7 +6371,7 @@
                   ;; =>iso-ir	177
 		  mother	=>ucs-itaiji-009
 		  min-code #x2E00
-		  max-code #x9FCC
+		  max-code #x9FFF
 		  registry "ucs\\.itaiji009-0"))
   (make-charset '=>ucs-sip-itaiji-009
 		"uXXXX-itaiji-009 abstract characters in SIP"
@@ -6406,7 +6406,7 @@
                   ;; =>iso-ir	177
 		  mother	=ucs-itaiji-010
 		  min-code #x2E00
-		  max-code #x9FCC
+		  max-code #x9FFF
 		  registry "ucs\\.itaiji010-0"))
   (make-charset '=ucs-sip-itaiji-010
 		"uXXXX-itaiji-010 glyphs in SIP"
@@ -6440,7 +6440,7 @@
                   ;; =>iso-ir	177
 		  mother	=>ucs-itaiji-010
 		  min-code #x2E00
-		  max-code #x9FCC
+		  max-code #x9FFF
 		  registry "ucs\\.itaiji010-0"))
   (make-charset '=>ucs-sip-itaiji-010
 		"uXXXX-itaiji-010 abstract characters in SIP"
@@ -6475,7 +6475,7 @@
                   ;; =>iso-ir	177
 		  mother	=ucs-itaiji-011
 		  min-code #x2E00
-		  max-code #x9FCC
+		  max-code #x9FFF
 		  registry "ucs\\.itaiji011-0"))
   (make-charset '=ucs-sip-itaiji-011
 		"uXXXX-itaiji-011 glyphs in SIP"
@@ -6509,7 +6509,7 @@
                   ;; =>iso-ir	177
 		  mother	=>ucs-itaiji-011
 		  min-code #x2E00
-		  max-code #x9FCC
+		  max-code #x9FFF
 		  registry "ucs\\.itaiji011-0"))
 
   (make-charset '=ucs-itaiji-012
@@ -6533,7 +6533,7 @@
                   ;; =>iso-ir	177
 		  mother	=ucs-itaiji-012
 		  min-code #x2E00
-		  max-code #x9FCC
+		  max-code #x9FFF
 		  registry "ucs\\.itaiji012-0"))
   (make-charset '=ucs-sip-itaiji-012
 		"uXXXX-itaiji-012 glyphs in SIP"
@@ -6567,7 +6567,7 @@
                   ;; =>iso-ir	177
 		  mother	=>ucs-itaiji-012
 		  min-code #x2E00
-		  max-code #x9FCC
+		  max-code #x9FFF
 		  registry "ucs\\.itaiji012-0"))1
   (make-charset '=>ucs-sip-itaiji-012
 		"uXXXX-itaiji-012's abstract characters in SIP"
@@ -6602,7 +6602,7 @@
                   ;; =>iso-ir	177
 		  mother	=ucs-itaiji-013
 		  min-code #x2E00
-		  max-code #x9FCC
+		  max-code #x9FFF
 		  registry "ucs\\.itaiji013-0"))
   (make-charset '=ucs-sip-itaiji-013
 		"uXXXX-itaiji-013 glyphs in SIP"
@@ -6637,7 +6637,7 @@
                   ;; =>iso-ir	177
 		  mother	=ucs-itaiji-014
 		  min-code #x2E00
-		  max-code #x9FCC
+		  max-code #x9FFF
 		  registry "ucs\\.itaiji014-0"))
   (make-charset '=ucs-sip-itaiji-014
 		"uXXXX-itaiji-014 glyphs in SIP"
@@ -6671,7 +6671,7 @@
                   ;; =>iso-ir	177
 		  mother	=>ucs-itaiji-014
 		  min-code #x2E00
-		  max-code #x9FCC
+		  max-code #x9FFF
 		  registry "ucs\\.itaiji014-0"))
 
   (make-charset '=ucs-itaiji-015
@@ -6738,7 +6738,7 @@
                   ;; =>iso-ir	177
 		  mother	=ucs-itaiji-016
 		  min-code #x2E00
-		  max-code #x9FCC
+		  max-code #x9FFF
 		  registry "ucs\\.itaiji016-0"))
   (make-charset '=>ucs-itaiji-016
 		"Abstract characters corresponding with uXXXX-itaiji-016 of GlyphWiki"
@@ -6761,7 +6761,7 @@
                   ;; =>iso-ir	177
 		  mother	=>ucs-itaiji-016
 		  min-code #x2E00
-		  max-code #x9FCC
+		  max-code #x9FFF
 		  registry "ucs\\.itaiji016-0"))
 
   (make-charset '=ucs-itaiji-017
@@ -6785,7 +6785,7 @@
                   ;; =>iso-ir	177
 		  mother	=ucs-itaiji-017
 		  min-code #x2E00
-		  max-code #x9FCC
+		  max-code #x9FFF
 		  registry "ucs\\.itaiji017-0"))
 
   (make-charset '=ucs-itaiji-018
@@ -6809,7 +6809,7 @@
                   ;; =>iso-ir	177
 		  mother	=ucs-itaiji-018
 		  min-code #x2E00
-		  max-code #x9FCC
+		  max-code #x9FFF
 		  registry "ucs\\.itaiji018-0"))
 
   (make-charset '=ucs-itaiji-084
@@ -6833,7 +6833,7 @@
                   ;; =>iso-ir	177
 		  mother	=ucs-itaiji-084
 		  min-code #x2E00
-		  max-code #x9FCC
+		  max-code #x9FFF
 		  registry "ucs\\.itaiji084-0"))
 
   (make-charset
@@ -6897,7 +6897,7 @@
 	       mother ucs-bmp
 	       min-code #x2E00
 	       max-code #x9FA5
-	       ;; max-code #x9FCC
+	       ;; max-code #x9FFF
 	       ;; max-code #xA4CF
 	       ))
   (make-charset
@@ -6913,7 +6913,7 @@
 	       mother =ucs@gb
 	       min-code #x2E00
                max-code #x9FA5
-	       ;; max-code #x9FCC
+	       ;; max-code #x9FFF
 	       ;; max-code #xA4CF
 	       ))
   (make-charset
@@ -6929,7 +6929,7 @@
 	       mother ==ucs@gb
 	       min-code #x2E00
                max-code #x9FA5
-	       ;; max-code #x9FCC
+	       ;; max-code #x9FFF
 	       ;; max-code #xA4CF
 	       ))
   (make-charset
@@ -6945,7 +6945,7 @@
 	       mother ===ucs@gb
 	       min-code #x2E00
                max-code #x9FA5
-	       ;; max-code #x9FCC
+	       ;; max-code #x9FFF
 	       ;; max-code #xA4CF
 	       ))
   (make-charset
@@ -6961,7 +6961,7 @@
 	       mother =ucs@cns/2008
 	       min-code #x2E00
 	       max-code #x9FA5
-	       ;; max-code #x9FCC
+	       ;; max-code #x9FFF
 	       ;; max-code #xA4CF
 	       ))
   (make-charset
@@ -6976,7 +6976,7 @@
 	       registry "-ja-.*-ucs-0"
 	       mother =ucs@JP
 	       min-code #x2E00
-               max-code #x9FCC
+               max-code #x9FFF
 	       ;; max-code #xA4CF
 	       ))
   (make-charset
@@ -6991,7 +6991,7 @@
 	       registry "-ja-.*-ucs-0"
 	       mother =ucs@JP/hanazono
 	       min-code #x2E00
-               max-code #x9FFC
+               max-code #x9FFF
 	       ;; max-code #xA4CF
 	       ))
   (make-charset
@@ -7006,7 +7006,7 @@
 	       registry "-ja-.*-ucs-0"
 	       mother ==ucs@JP/hanazono
 	       min-code #x2E00
-               max-code #x9FCC
+               max-code #x9FFF
 	       ;; max-code #xA4CF
 	       ))
   (make-charset
@@ -7022,7 +7022,7 @@
 	       mother =>>ucs@unicode
 	       min-code #x2E00
                max-code #x9FA5
-	       ;; max-code #x9FCC
+	       ;; max-code #x9FFF
 	       ;; max-code #xA4CF
 	       ))
   (make-charset
@@ -7038,7 +7038,7 @@
 	       mother =+>ucs@unicode
 	       min-code #x2E00
                max-code #x9FA5
-	       ;; max-code #x9FCC
+	       ;; max-code #x9FFF
 	       ;; max-code #xA4CF
 	       ))
   (make-charset
@@ -7054,7 +7054,7 @@
 	       mother =>ucs@unicode
 	       min-code #x2E00
                max-code #x9FA5
-	       ;; max-code #x9FCC
+	       ;; max-code #x9FFF
 	       ;; max-code #xA4CF
 	       ))
   (make-charset
@@ -7069,7 +7069,7 @@
 	       registry "-ja-.*-ucs-0"
 	       mother =>ucs@cognate
 	       min-code #x2E00
-               max-code #x9FCC
+               max-code #x9FFF
 	       ;; max-code #xA4CF
 	       ))
   (make-charset
@@ -7084,7 +7084,7 @@
 	       registry "-ja-.*-ucs-0"
 	       mother =>ucs@component
 	       min-code #x2E00
-               max-code #x9FCC
+               max-code #x9FFF
 	       ;; max-code #xA4CF
 	       ))
   (make-charset
@@ -7099,7 +7099,7 @@
 	       registry "-ja-.*-ucs-0"
 	       mother =>ucs@iwds-1
 	       min-code #x2E00
-               max-code #x9FCC
+               max-code #x9FFF
 	       ;; max-code #xA4CF
 	       ))
   (make-charset
@@ -7114,7 +7114,7 @@
 	       registry "-ja-.*-ucs-0"
 	       mother =>ucs@iwds-1/normalized
 	       min-code #x2E00
-               max-code #x9FCC
+               max-code #x9FFF
 	       ;; max-code #xA4CF
 	       ))
   (make-charset
@@ -7130,7 +7130,7 @@
 	       mother ==>ucs@bucs
 	       min-code #x2E00
                max-code #x9FA5
-	       ;; max-code #x9FCC
+	       ;; max-code #x9FFF
 	       ;; max-code #xA4CF
 	       ))
   (make-charset

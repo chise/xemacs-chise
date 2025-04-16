@@ -1,3 +1,18 @@
+2025-04-16  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-conf.el (=ucs-bmp-itaiji-{001...014,016...018,084}):
+	Change `max-code' to #x9FFF.
+	(=>ucs-bmp-itaiji-{001...012,014,016}): Ditto.
+	(==ucs-bmp-itaiji-{001...003,005...006}): Ditto.
+	(=>ucs-bmp-itaiji-{001...003,006}@iwds-1): Ditto.
+	(=ucs-bmp-cjk@JP): Ditto.
+	(=ucs-bmp-cjk@JP/hanazono): Ditto.
+	(==ucs-bmp-cjk@JP/hanazono): Ditto.
+	(=>ucs-bmp-cjk@cognate): Ditto.
+	(=>ucs-bmp-cjk@component): Ditto.
+	(=>ucs-bmp-cjk@iwds-1): Ditto.
+	(=>ucs-bmp-cjk@iwds-1/normalized): Ditto.
+
 2025-01-21  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* mule/mule-charset.el (default-coded-charset-priority-list): Add
