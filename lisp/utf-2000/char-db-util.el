@@ -1456,6 +1456,7 @@
 		   (eq name 'ideographic-structure@apparent)
 		   (eq name 'ideographic-structure@apparent/leftmost)
 		   (eq name 'ideographic-structure@apparent/rightmost)
+		   (eq name 'ideographic-structure@apparent/outermost)
 		   (eq name 'ideographic-combination)
                    ;; (eq name 'ideographic-)
 		   (eq name '=decomposition)
