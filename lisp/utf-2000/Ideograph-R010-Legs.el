@@ -7162,6 +7162,13 @@
     (ideographic-strokes . 10)
     (total-strokes	 . 12)
     (ideographic-structure
+     ((=ucs-itaiji-002	  . #x2FF1)	; &U-i002+2FF1;
+      )
+     ((=ucs		  . #x5317)	; 北
+      )
+     ((=>ucs@iwds-1	  . #x7683)	; &A-IWDSU+7683;
+      ))
+    (ideographic-structure@apparent/outermost
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM BELOW")
       (=ucs		  . #x2FF6)	; ⿶
       )
@@ -7181,6 +7188,14 @@
     (total-strokes	 . 12)
     (hanyu-dazidian	1 274 3)
     (ideographic-structure
+     ((=ucs-itaiji-002	  . #x2FF1)	; &U-i002+2FF1;
+      )
+     ((=ucs@unicode	  . #x5317)	; &AJ1-03706;
+      (=adobe-japan1-0	  . 03706)	; &AJ1-03706;
+      )
+     ((=ucs		  . #x7683)	; 皃
+      ))
+    (ideographic-structure@apparent/outermost
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM BELOW")
       (=ucs		  . #x2FF6)	; ⿶
       )
@@ -7206,7 +7221,6 @@
      ((==ucs@unicode	  . #x5160)	; &g2-MJ007255;
       (==mj		  . 007255)	; &g2-MJ007255;
       (==adobe-japan1-5	  . 17298)	; &g2-MJ007255;
-      (==cns11643-3	  . #x3976)	; &g2-MJ007255; [25-86]
       (==jis-x0213-2	  . #x2326)	; &g2-MJ007255; [03-06]
       (==koseki		  . 016280)	; &g2-MJ007255;
       (==daikanwa	  . 01393)	; &g2-MJ007255;
@@ -7219,12 +7233,13 @@
 	)
        ((===mj		    . 007255)	; &R-MJ007255;
 	)
-       ((===cns11643-3	    . #x3976)	; &R-C3-3976; [25-86]
-	)
        ((===ucs@unicode	    . #x5160)	; &R-UU+5160;
 	)
        ((=hanziku-1	    . #xDEAA)	; &HZK01-DEAA;
 	))
+      )
+     ((==ucs@cns	  . #x5160)	; &g2-CU+5160;
+      (==cns11643-3	  . #x3976)	; &g2-CU+5160; [25-86]
       ))
     ))
 (define-char
