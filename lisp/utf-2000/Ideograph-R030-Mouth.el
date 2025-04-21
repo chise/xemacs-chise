@@ -14683,6 +14683,45 @@
     ))
 (define-char
   '((<-denotational
+     ((=>ucs@cognate	  . #x5468)	; &A-cgnU+5468;
+      ))
+    (<-denotational@usage
+     ((==>ucs@bucs	  . #x5468)	; &BUCS+5468;
+      )
+     ((==>ucs@bucs	  . #x9031)	; &BUCS+9031;
+      ))
+    (ideographic-radical . 30)	; ⼝
+    (ideographic-strokes . 5)
+    (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
+      (=ucs		  . #x2FF5)	; ⿵
+      )
+     ((=>ucs-itaiji-001	  . #x31586)	; &A-U-i001+31586;
+      )
+     ((=ucs		  . #x53E3)	; 口
+      ))
+    (=>ucs-itaiji-002	. #x5468)	; &A-U-i002+5468;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs-itaiji-002	  . #x5468)	; &A-U-i002+5468;
+      ))
+    (ideographic-radical . 30)	; ⼝
+    (ideographic-strokes . 5)
+    (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
+      (=ucs		  . #x2FF5)	; ⿵
+      )
+     ((=ucs-itaiji-001	  . #x31586)	; &U-i001+31586;
+      )
+     ((=ucs		  . #x53E3)	; 口
+      ))
+    (=ucs-itaiji-002	. #x5468)	; &U-i002+5468;
+    ))
+(define-char
+  '((<-denotational
      ((=ucs		  . #x5468)	; 周
       ))
     (ideographic-radical . 30)	; ⼝
