@@ -3483,7 +3483,7 @@
       )
      ((=ucs		  . #x53E3)	; 口
       )
-     ((=>ucs@iwds-1	  . #x5C22)	; &J97-5577;
+     ((=>ucs@component	  . #x21BC1)	; &J97-5577;
       (=>jis-x0208	  . #x5577)	; &J97-5577; [53-87]
       ))
     (=ucs		. #x2B758)	; 𫝘
@@ -100123,7 +100123,11 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 30)	; ⼝
+  '((<-denotational@component
+     ((=>ucs@iwds-1	  . #x4E38)	; &A-IWDSU+4E38;
+      (=>iwds-1		  .  65535)	; &A-IWDSU+4E38;
+      ))
+    (ideographic-radical . 30)	; ⼝
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
