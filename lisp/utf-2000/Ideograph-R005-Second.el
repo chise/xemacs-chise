@@ -551,11 +551,14 @@
   '((<-denotational@component
      ((=>ucs@component	  . #x4E5D)	; &A-compU+4E5D;
       )
-     ((=>ucs@iwds-1	  . #x4E5D)	; &A-IWDSU+4E5D;
-      (=>iwds-1		  .  0203)	; &A-IWDSU+4E5D;
-      )
      ((=>ucs@component	  . #x4E38)	; &A-compU+4E38;
       (=>iwds-1		  .  0249)	; &A-compU+4E38;
+      )
+     ((=>ucs@iwds-1	  . #x5C23)	; &A-IWDSU+5C23;
+      (=>iwds-1		  .  2354)	; &A-IWDSU+5C23;
+      )
+     ((=>ucs@iwds-1	  . #x4E5D)	; &A-IWDSU+4E5D;
+      (=>iwds-1		  .  0203)	; &A-IWDSU+4E5D;
       ))
     (<-denotational@usage
      ((==>daijiten	  . 00107)	; &A2-DJT-00107;
@@ -6551,7 +6554,7 @@
      ((=>ucs@component	  . #x5927)	; &A-compU+5927;
       ))
     (ideographic-radical . 5)	; ⼄
-    (=>iwds-1*note	"22+54+55+56+99+104+117+119+203+214+221+222+236+249+250+346")
+    (=>iwds-1*note	"22+54+55+56+104+117+119+214+221+222+236+249+250+346+354b")
     (=>ucs@iwds-1	. #x4E38)	; &A-IWDSU+4E38;
     (=>iwds-1		.  65535)	; &A-IWDSU+4E38;
     ))
