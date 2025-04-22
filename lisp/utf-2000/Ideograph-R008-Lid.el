@@ -250,7 +250,7 @@
      ((=>ucs@cognate	  . #x4EA2)	; &A-cgnU+4EA2;
       ))
     (<-denotational@component
-     ((=>ucs@iwds-1/normalized . #x4EA2)	; &A-NIWDSU+4EA2;
+     ((=>ucs@iwds-1	  . #x2A720)	; &A-IWDSU+2A720;
       ))
     (ideographic-radical . 8)	; ⼇
     (ideographic-strokes . 2)
@@ -665,7 +665,7 @@
     ))
 (define-char
   '((<-denotational@component
-     ((=>ucs@iwds-1/normalized . #x4EA2)	; &A-NIWDSU+4EA2;
+     ((=>ucs@iwds-1	  . #x2A720)	; &A-IWDSU+2A720;
       ))
     (ideographic-radical . 8)	; ⼇
     (ideographic-strokes . 3)
@@ -8184,7 +8184,11 @@
     (=hanziku-1		. #xE2CB)	; &I-HZK01-E2CB;
     ))
 (define-char
-  '((ideographic-radical . 8)	; ⼇
+  '((<-denotational@component
+     ((=>ucs@iwds-1	  . #x4E38)	; &A-IWDSU+4E38;
+      (=>iwds-1		  .  65535)	; &A-IWDSU+4E38;
+      ))
+    (ideographic-radical . 8)	; ⼇
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
@@ -8194,7 +8198,7 @@
      ((=>ucs@iwds-1	  . #x4E38)	; &A-IWDSU+4E38;
       (=>iwds-1		  .  65535)	; &A-IWDSU+4E38;
       ))
-    (=>ucs@iwds-1/normalized . #x4EA2)	; &A-NIWDSU+4EA2;
+    (=>ucs@iwds-1	. #x2A720)	; &A-IWDSU+2A720;
     ))
 (define-char
   '((ideographic-radical . 8)	; ⼇
