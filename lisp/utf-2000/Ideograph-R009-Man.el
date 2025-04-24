@@ -7435,7 +7435,7 @@
       )
      ((=>ucs@iwds-1	  . #x4ED2)	; &A-IWDSU+4ED2;
       )
-     ((=>big5-cdp	  . #x88AC)	; &A-CDP-88AC;
+     ((=>big5-cdp	  . #x88AC)	; &A-GT-K00134;
       ))
     (=>ucs-itaiji-002	. #x4EFA)	; &A-U-i002+4EFA;
     (=>ucs-itaiji-003	. #x4EFA)	; &A-U-i002+4EFA;
