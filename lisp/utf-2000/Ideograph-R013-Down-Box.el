@@ -2488,6 +2488,16 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=>big5-cdp-itaiji-001 . #x87FE)	; &A-CDP-i001-87FE;
+      ))
+    (ideographic-radical . 13)	; ⼌
+    (ideographic-strokes . 3)
+    (total-strokes	 . 5)
+    (=gt-k		. 01326)	; &GT-K01326;
+    (=gt-pj-k1		. #x384C)	; &GT-K01326; [24-44]
+    ))
+(define-char
   '((<-denotational@usage
      ((==>ucs@bucs	  . #x518C)	; &BUCS+518C;
       ))
@@ -3159,6 +3169,15 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=>big5-cdp-itaiji-001 . #x87FE)	; &A-CDP-i001-87FE;
+      ))
+    (ideographic-radical . 13)	; ⼌
+    (ideographic-strokes . 4)
+    (total-strokes	 . 6)
+    (=big5-cdp-itaiji-001 . #x87FE)	; &CDP-i001-87FE;
+    ))
+(define-char
   '((ideographic-radical . 13)	; ⼌
     (ideographic-strokes . 4)
     (total-strokes	 . 6)
@@ -3172,6 +3191,12 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 6)
     (=big5-cdp-var-001	. #x86B0)	; &CDP-v001-86B0;
+    ))
+(define-char
+  '((ideographic-radical . 13)	; ⼌
+    (ideographic-strokes . 4)
+    (total-strokes	 . 6)
+    (=>big5-cdp-itaiji-001 . #x87FE)	; &A-CDP-i001-87FE;
     ))
 (define-char
   '((ideographic-radical . 13)	; ⼌
