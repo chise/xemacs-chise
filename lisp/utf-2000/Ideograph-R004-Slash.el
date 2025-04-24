@@ -332,6 +332,9 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 1)
     (=ucs-itaiji-001	. #x4E42)	; &U-i001+4E42;
+    (<-unknown
+     ((=gt-k		  . 03229)	; &GT-K03229;
+      ))
     ))
 (define-char
   '((<-denotational@component
@@ -5173,6 +5176,25 @@
       ))
     ))
 (define-char
+  '((ideographic-radical . 4)	; ⼃
+    (ideographic-strokes . 5)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=big5-cdp-itaiji-001 . #x87FE)	; &CDP-i001-87FE;
+      )
+     ((=ucs		  . #x4E42)	; 乂
+      ))
+    (=gt-k		. 03615)	; &GT-K03615;
+    (=gt-pj-k1		. #x634D)	; &GT-K03615; [67-45]
+    (->subsumptive
+     ((==gt-k		  . 03615)	; &g2-GT-K03615;
+      (==gt-pj-k1	  . #x634D)	; &g2-GT-K03615; [67-45]
+      ))
+    ))
+(define-char
   '((<-denotational
      ((=>big5-cdp	  . #x8D55)	; &A-CDP-8D55;
       ))
@@ -5617,6 +5639,24 @@
     (=ucs-itaiji-001	. #x200A1)	; &U-i001+200A1;
     (->subsumptive
      ((==ucs-itaiji-001	  . #x200A1)	; &g2-U-i001+200A1;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 4)	; ⼃
+    (ideographic-strokes . 6)
+    (total-strokes	 . 7)
+    (=gt-k		. 03229)	; &GT-K03229;
+    (=gt-pj-k1		. #x634B)	; &GT-K03229; [67-43]
+    (<-formed@component
+     ((=ucs		  . #x3094D)	; 𰥍
+      ))
+    (<-formed@component*note "It is not a variant of " ?具 ". "
+			     "The bottom component is " ?大
+			     " (a person seen from the front), not " ?廾
+			     " / " ?𠬞 " (two hands).")
+    (->subsumptive
+     ((==gt-k		  . 03229)	; &g2-GT-K03229;
+      (==gt-pj-k1	  . #x634B)	; &g2-GT-K03229; [67-43]
       ))
     ))
 (define-char
