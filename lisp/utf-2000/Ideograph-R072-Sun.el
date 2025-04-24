@@ -31162,10 +31162,23 @@
     ))
 (define-char
   '((ideographic-radical . 72)	; ⽇
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=>ucs@component	  . #x65E5)	; &A-compU+65E5;
+      (=>iwds-1		  .  0118)	; &A-compU+65E5;
+      )
+     ((=>ucs@iwds-1	  . #x7389)	; &A-IWDSU+7389;
+      (=>iwds-1		  .  1252)	; &A-IWDSU+7389;
+      ))
     (=>ucs@iwds-1	. #x65FA)	; &A-IWDSU+65FA;
     ))
 (define-char
-  '((ideographic-radical . 72)	; ⽇
+  '((<-denotational@component
+     ((=>ucs@iwds-1	  . #x65EF)	; &A-IWDSU+65EF;
+      ))
+    (ideographic-radical . 72)	; ⽇
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
@@ -31173,7 +31186,7 @@
      ((=>ucs@component	  . #x65E5)	; &A-compU+65E5;
       (=>iwds-1		  .  0118)	; &A-compU+65E5;
       )
-     ((=>ucs@iwds-1/normalized . #x4EA2)	; &A-NIWDSU+4EA2;
+     ((=>ucs@iwds-1	  . #x2A720)	; &A-IWDSU+2A720;
       ))
     (=>ucs@iwds-1	. #x6617)	; &A-IWDSU+6617;
     ))
