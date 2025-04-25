@@ -1,6 +1,14 @@
 2025-04-25  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`=>ucs-sip-itaiji-014'.
+
+	* mule/mule-conf.el (=>ucs-sip-itaiji-014): New coded-charset for
+	XEmacs CHISE.
+
+2025-04-25  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
 	`=ucs-bmp-var-009'.
 
 	* mule/mule-conf.el (=ucs-var-009): New coded-charset for XEmacs

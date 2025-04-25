@@ -795,7 +795,8 @@
   '((ideographic-radical . 2)	; ⼁
     (ideographic-strokes . 2)
     (total-strokes	 . 3)
-    (=>big5-cdp		. #x88AC)	; &A-CDP-88AC;
+    (=>big5-cdp		. #x88AC)	; &A-GT-K00134;
+    (=>gt-k		. 00134)	; &A-GT-K00134;
     ))
 (define-char
   '((ideographic-radical . 2)	; ⼁
@@ -824,15 +825,22 @@
     ))
 (define-char
   '((<-denotational
-     ((=>big5-cdp	  . #x88AC)	; &A-CDP-88AC;
+     ((=>big5-cdp	  . #x88AC)	; &A-GT-K00134;
       ))
     (ideographic-radical . 2)	; ⼁
     (ideographic-strokes . 2)
     (total-strokes	 . 3)
     (=big5-cdp		. #x88AC)	; &CDP-88AC;
+    (=gt-k		. 00134)	; &I-GT-K00134;
+    (=gt-pj-k1		. #x5B5D)	; &CDP-88AC; [59-61]
     (<-formed@flipped-horizontally
      ((=ucs@unicode	  . #x4E29)	; &AJ1-17237;
       (=adobe-japan1-5	  . 17237)	; &AJ1-17237;
+      ))
+    (->subsumptive
+     ((==big5-cdp	  . #x88AC)	; &g2-CDP-88AC;
+      (==gt-k		  . 00134)	; &g2-CDP-88AC;
+      (==gt-pj-k1	  . #x5B5D)	; &g2-CDP-88AC; [59-61]
       ))
     ))
 (define-char
