@@ -5391,7 +5391,8 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((=ucs		    . #x6708)	; 月
+       ((=ucs@unicode	    . #x6708)	; &MJ013520;
+	(=mj		    . 013520)	; &MJ013520;
 	)
        ((=adobe-japan1-4    . 14041)	; &AJ1-14041;
 	))
@@ -5443,6 +5444,33 @@
     (->subsumptive
      ((==ucs@JP/hanazono  . #x23386)	; &g2-hanaJU+23386;
       ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x23386)	; 𣎆
+      ))
+    (ideographic-radical@ucs . 74)	; ⽉
+    (ideographic-radical@misc . 130)	; ⾁
+    (ideographic-strokes . 9)
+    (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs@jis		  . #x5402)	; &AJ1-21250;
+      (=adobe-japan1-6	  . 21250)	; &AJ1-21250;
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=ucs@unicode	    . #x6708)	; &MJ013520;
+	(=mj		    . 013520)	; &MJ013520;
+	)
+       ((=adobe-japan1-4    . 14041)	; &AJ1-14041;
+	))
+      ))
+    (=ucs-var-002	. #x23386)	; &U-v002+23386;
     ))
 (define-char
   '((ideographic-radical . 74)	; ⽉
