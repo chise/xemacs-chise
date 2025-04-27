@@ -7012,6 +7012,52 @@
       ))
     ))
 (define-char
+  '((ideographic-radical . 27)	; ⼚
+    (ideographic-strokes . 11)
+    (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs		  . #x5382)	; 厂
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=>ucs-itaiji-010   . #x24514)	; &A-U-i010+24514;
+	)
+       ((=>ucs@iwds-1	    . #x4EBA)	; &A-IWDSU+4EBA;
+	(=>iwds-1	    .  14623)	; &A-IWDSU+4EBA;
+	))
+      ))
+    (=ucs		. #x2BA19)	; 𫨙
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2BA19)	; 𫨙
+      ))
+    (ideographic-radical . 27)	; ⼚
+    (ideographic-strokes . 11)
+    (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs		  . #x5382)	; 厂
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=ucs-itaiji-010    . #x24514)	; &U-i010+24514;
+	)
+       ((=ucs		    . #x5165)	; 入
+	))
+      ))
+    (=ucs@JP/hanazono	. #x2BA19)	; &hanaJU+2BA19;
+    ))
+(define-char
   '((<-denotational
      ((=>ucs@iwds-1	  . #x8FB2)	; &A-IWDSU+8FB2;
       ))

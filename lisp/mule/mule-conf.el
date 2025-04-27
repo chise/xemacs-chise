@@ -5654,6 +5654,17 @@
 		  mother	=ucs-itaiji-002
 		  min-code #x20000 max-code #x2FFFF
 		  registry "ucs00\\.itaiji002-2"))
+  (make-charset '=ucs-tip-itaiji-002
+		"uXXXX-itaiji-002 glyph-images in TIP"
+		'(long-name	"UCS-TIP-itaiji-002"
+		  chars		256
+		  dimension	2
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  mother	=ucs-itaiji-002
+		  min-code #x30000 max-code #x3FFFF
+		  registry "ucs00\\.itaiji002-3"))
   (make-charset '=>ucs-itaiji-002
 		"Abstract characters corresponding with uXXXX-itaiji-002 of GlyphWiki"
 		'(long-name	"UCS-itaiji-002"
