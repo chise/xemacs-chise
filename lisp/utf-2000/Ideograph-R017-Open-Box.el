@@ -2208,6 +2208,20 @@
     ))
 (define-char
   '((ideographic-radical . 17)	; ⼐
+    (ideographic-strokes . 8)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM BELOW")
+      (=ucs		  . #x2FF6)	; ⿶
+      )
+     ((=ucs		  . #x51F5)	; 凵
+      )
+     ((=ucs-itaiji-003	  . #x2D5FC)	; &U-i003+2D5FC;
+      ))
+    (=ucs		. #x2D0BC)	; 𭂼
+    ))
+(define-char
+  '((ideographic-radical . 17)	; ⼐
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
