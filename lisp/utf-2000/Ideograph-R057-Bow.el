@@ -7560,13 +7560,47 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 57)	; ⼸
+  '((<-denotational@usage
+     ((==>ucs@bucs	  . #x767C)	; &BUCS+767C;
+      ))
+    (ideographic-radical . 57)	; ⼸
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>ucs@iwds-1	  . #x4E1A)	; &A-IWDSU+4E1A;
+      (=>big5-cdp	  . #x8D6B)	; &A-IWDSU+4E1A;
+      )
+     ((=ucs		  . #x77E4)	; 矤
+      ))
+    (=ucs		. #x5F42)	; 彂
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5F42)	; 彂
+      ))
+    (ideographic-radical . 57)	; ⼸
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
-    (=ucs		. #x5F42)	; 彂
-    (=cns11643-3	. #x4122)	; &I-C3-4122; [33-02]
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x4E1A)	; 业
+      )
+     ((=ucs		  . #x77E4)	; 矤
+      ))
+    (=ucs@unicode	. #x5F42)	; &C3-4122;
+    (=cns11643-3	. #x4122)	; &C3-4122; [33-02]
+    (=daijiten		. 05808)	; &I-DJT-05808;
     (->subsumptive
-     ((==ucs@unicode	  . #x5F42)	; &g2-UU+5F42;
+     ((==ucs@unicode	  . #x5F42)	; &g2-DJT-05808;
+      (==daijiten	  . 05808)	; &g2-DJT-05808;
+      (->subsumptive
+       ((===daijiten	    . 05808)	; &R-DJT-05808;
+	)
+       ((===ucs@unicode	    . #x5F42)	; &R-UU+5F42;
+	))
       )
      ((==ucs@cns	  . #x5F42)	; &g2-CU+5F42;
       (==cns11643-3	  . #x4122)	; &g2-CU+5F42; [33-02]
