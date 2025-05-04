@@ -9281,11 +9281,50 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 40)	; ⼧
+  '((<-denotational@usage
+     ((==>ucs@bucs	  . #x5BEC)	; &BUCS+5BEC;
+      ))
+    (ideographic-radical . 40)	; ⼧
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5B80)	; 宀
+      )
+     ((=ucs		  . #x82CB)	; 苋
+      ))
+    (=ucs		. #x5BBD)	; 宽
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5BBD)	; 宽
+      ))
+    (ideographic-radical . 40)	; ⼧
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
-    (=ucs		. #x5BBD)	; 宽
-    (=gb2312		. #x3F6D)	; &I-G0-3F6D; [31-77]
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5B80)	; 宀
+      )
+     ((=ucs@unicode	  . #x82CB)	; &G0-5C48;
+      (=gb2312		  . #x5C48)	; &G0-5C48; [60-40]
+      ))
+    (=ucs@unicode	. #x5BBD)	; &G0-3F6D;
+    (=gb2312		. #x3F6D)	; &G0-3F6D; [31-77]
+    (<-simplified@CN
+     ((=ucs@unicode	  . #x5BEC)	; &MJ010236;
+      (=mj		  . 010236)	; &MJ010236;
+      (=gb12345		  . #x3F6D)	; &MJ010236; [31-77]
+      ))
+    (->subsumptive
+     ((==ucs@unicode	  . #x5BBD)	; &g2-UU+5BBD;
+      (==gb2312		  . #x3F6D)	; &g2-UU+5BBD; [31-77]
+      (->subsumptive
+       ((===ucs@unicode	    . #x5BBD)	; &R-UU+5BBD;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 40)	; ⼧
@@ -24904,6 +24943,11 @@
     ))
 (define-char
   '((ideographic-radical . 40)	; ⼧
+    (==>ucs@bucs	. #x5BEC)	; &BUCS+5BEC;
+    (==>daijiten	. 02397)	; &BUCS+5BEC;
+    ))
+(define-char
+  '((ideographic-radical . 40)	; ⼧
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
@@ -24959,11 +25003,6 @@
   '((ideographic-radical . 40)	; ⼧
     (==>ucs@bucs	. #x5BD4)	; &BUCS+5BD4;
     (==>daijiten	. 02373)	; &BUCS+5BD4;
-    ))
-(define-char
-  '((ideographic-radical . 40)	; ⼧
-    (==>ucs@bucs	. #x5BEC)	; &BUCS+5BEC;
-    (==>daijiten	. 02397)	; &BUCS+5BEC;
     ))
 (define-char
   '((ideographic-radical . 40)	; ⼧
