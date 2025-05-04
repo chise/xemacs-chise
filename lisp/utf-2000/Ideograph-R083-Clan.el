@@ -410,6 +410,21 @@
     ))
 (define-char
   '((ideographic-radical . 83)	; ⽒
+    (ideographic-strokes . 2)
+    (total-strokes	 . 6)
+    (=ucs		. #x306B7)	; 𰚷
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x306B7)	; 𰚷
+      ))
+    (ideographic-radical . 83)	; ⽒
+    (ideographic-strokes . 2)
+    (total-strokes	 . 6)
+    (=ucs@JP/hanazono	. #x306B7)	; &hanaJU+306B7;
+    ))
+(define-char
+  '((ideographic-radical . 83)	; ⽒
     (ideographic-strokes . 4)
     (total-strokes	 . 8)
     (=ucs		. #x6C13)	; 氓
