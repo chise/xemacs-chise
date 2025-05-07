@@ -2568,6 +2568,11 @@
     (<-Small-Seal@shuowen
      ((=ucs		  . #x24BC1)	; 𤯁
       ))
+    (<-ancient@shuowen
+     ((=shuowen-jiguge	  . 04229)	; &SW-JIGUGE-04229;
+      )
+     ((=ucs		  . #x20BD1)	; 𠯑
+      ))
     (->subsumptive
      ((===shuowen-jiguge-A30 . 04230)	; &SW-JIGUGE30-04230;
       )
