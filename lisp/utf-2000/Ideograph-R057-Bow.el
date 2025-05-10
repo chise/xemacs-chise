@@ -984,8 +984,8 @@
      ((=ucs		  . #x5F3C)	; 弼
       (=daikanwa	  . 09826)	; &I-M-09826;
       )
-     ((=ucs@iso		  . #x295BC)	; &C4-4852;
-      (=cns11643-4	  . #x4852)	; &C4-4852; [40-50]
+     ((=ucs@iso		  . #x295BC)	; &MJ053715;
+      (=mj		  . 053715)	; &MJ053715;
       (=daikanwa	  . 43811)	; &I-M-43811;
       ))
     (<-interchangeable$_1*sources
