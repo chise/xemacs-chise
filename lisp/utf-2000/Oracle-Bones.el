@@ -631,29 +631,21 @@
     ))
 (define-char
   '((shuowen-radical	. 2)	; 上
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=zinbun-oracle	  . 00022)	; &ZOB-0022;
+      )
+     ((=zinbun-oracle	  . 02716)	; &ZOB-2716;
+      ))
     (zinbun-oracle-page . 4)
     (=zinbun-oracle	. 00032)	; &ZOB-0032;
     (<-Oracle-Bones
      ((ideographic-combination
        ((=ucs		    . #x4E0A)	; 上
 	)
-       ((ideographic-structure
-	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	  (=ucs		      . #x2FF1)	; ⿱
-	  )
-	 ((ideographic-structure
-	   ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
-	    (=ucs		. #x2FF3)	; ⿳
-	    )
-	   ((=ucs		. #x2008A)	; 𠂊
-	    )
-	   ((=ucs		. #x2BA4F)	; 𫩏
-	    )
-	   ((=ucs		. #x6BD4)	; 比
-	    ))
-	  )
-	 ((=ucs		      . #x9149)	; 酉
-	  ))
+       ((=ucs		    . #x2CAB9)	; 𬪹
 	))
       ))
     ))
