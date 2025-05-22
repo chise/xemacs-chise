@@ -1350,17 +1350,17 @@
     (=koseki		. 151110)	; &MJ053704;
     (=daikanwa		. 13475)	; &I-M-13475;
     (<-formed
-     ((=ucs@iso		  . #x295A3)	; &C5-4440;
-      (=cns11643-5	  . #x4440)	; &C5-4440; [36-32]
-      (=daikanwa	  . 43775)	; &I-M-43775;
+     ((=ucs@iso		  . #x295A3)	; &MJ053694;
+      (=mj		  . 053694)	; &MJ053694;
+      (=koseki		  . 495640)	; &MJ053694;
       ))
     (<-formed$_1*sources
      koseki)
     (<-formed*sources
      koseki)
     (<-same
-     ((=ucs@iso		  . #x295A3)	; &C5-4440;
-      (=cns11643-5	  . #x4440)	; &C5-4440; [36-32]
+     ((=ucs@iso		  . #x295A3)	; &MJ053694;
+      (=mj		  . 053694)	; &MJ053694;
       (=daikanwa	  . 43775)	; &I-M-43775;
       ))
     (<-same*sources
