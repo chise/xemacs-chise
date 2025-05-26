@@ -3701,6 +3701,20 @@
     (=ucs-itaiji-001	. #x53D8)	; &U-i001+53D8;
     ))
 (define-char
+  '((ideographic-radical . 29)	; ⼜
+    (ideographic-strokes . 5)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5308)	; 匈
+      )
+     ((=ucs		  . #x53C8)	; 又
+      ))
+    (=ucs-itaiji-002	. #x20B38)	; &U-i002+20B38;
+    ))
+(define-char
   '((<-denotational
      ((=>gt-k		  . 03405)	; &A-GT-K03405;
       ))
