@@ -816,6 +816,24 @@
     ))
 (define-char
   '((<-denotational
+     ((=ucs		  . #x6B64)	; 此
+      ))
+    (ideographic-radical . 77)	; ⽌
+    (ideographic-strokes . 2)
+    (total-strokes	 . 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=gt-k		  . 00439)	; &GT-K00439;
+      )
+     ((=ucs@iso		  . #x2090E)	; &AJ1-13523;
+      (=adobe-japan1-4	  . 13523)	; &AJ1-13523;
+      ))
+    (=ucs-var-001	. #x6B64)	; &U-v001+6B64;
+    ))
+(define-char
+  '((<-denotational
      ((=>ucs@cognate	  . #x6B64)	; &A-cgnU+6B64;
       ))
     (ideographic-radical@ucs . 5)	; ⼄
