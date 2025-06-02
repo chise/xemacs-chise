@@ -55124,6 +55124,61 @@
 (define-char
   '((ideographic-radical . 38)	; ⼥
     (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x859C)	; 薜
+      )
+     ((=ucs		  . #x5973)	; 女
+      ))
+    (ideographic-structure@apparent
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x8279)	; 艹
+      )
+     ((=ucs		  . #x5B16)	; 嬖
+      ))
+    (=ucs		. #x2D4AF)	; 𭒯
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2D4AF)	; 𭒯
+      ))
+    (ideographic-radical . 38)	; ⼥
+    (ideographic-strokes . 16)
+    (total-strokes	 . 19)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs@unicode	  . #x859C)	; &MJ022942;
+      (=mj		  . 022942)	; &MJ022942;
+      )
+     ((=ucs		  . #x5973)	; 女
+      ))
+    (ideographic-structure@apparent
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((name		  . "CJK RADICAL GRASS ONE")
+      (=ucs		  . #x2EBE)	; ⺾
+      )
+     ((=ucs		  . #x5B16)	; 嬖
+      ))
+    (=ucs@JP/hanazono	. #x2D4AF)	; &CB00858;
+    (=cbeta		. 00858)	; &CB00858;
+    (->subsumptive
+     ((==ucs@JP/hanazono  . #x2D4AF)	; &g2-CB00858;
+      (==cbeta		  . 00858)	; &g2-CB00858;
+      (->subsumptive
+       ((===cbeta	    . 00858)	; &R-CB00858;
+	))
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 38)	; ⼥
+    (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
