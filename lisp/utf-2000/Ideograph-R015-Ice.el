@@ -3119,6 +3119,10 @@
     (=daikanwa		. 01657)	; &I-M-01657;
     (=daijiten		. 00676)	; &I-DJT-00676;
     (=shinjigen		.  0551)	; &AJ1-02636;
+    (<-vulgar
+     ((=ucs@unicode	  . #x6DD2)	; &AJ1-05444;
+      (=adobe-japan1-0	  . 05444)	; &AJ1-05444;
+      ))
     (->interchangeable
      ((=ucs@unicode	  . #x6DD2)	; &AJ1-05444;
       (=adobe-japan1-0	  . 05444)	; &AJ1-05444;
