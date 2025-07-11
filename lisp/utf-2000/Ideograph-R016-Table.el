@@ -1233,39 +1233,6 @@
     (=>ucs@iwds-1/normalized . #x2D0AC)	; &A-IWDSU+2D0AC;
     ))
 (define-char
-  '((ideographic-radical . 16)	; ⼏
-    (ideographic-strokes . 2)
-    (total-strokes	 . 4)
-    (ideographic-structure
-     ((name		  . "IDEOGRAPHIC DESCRIPTION CHARACTER OVERLAID")
-      (=ucs		  . #x2FFB)	; ⿻
-      )
-     ((=>ucs@component	  . #x51E0)	; &A-compU+51E0;
-      (=>iwds-1		  .  0119)	; &A-compU+51E0;
-      )
-     ((=>ucs@iwds-1	  . #x4E8C)	; &A-IWDSU+4E8C;
-      (=>iwds-1		  .  0047)	; &A-IWDSU+4E8C;
-      ))
-    (=>big5-cdp		. #x87B5)	; &A-CDP-87B5;
-    ))
-(define-char
-  '((<-denotational
-     ((=>big5-cdp	  . #x87B5)	; &A-CDP-87B5;
-      ))
-    (ideographic-radical . 16)	; ⼏
-    (ideographic-strokes . 2)
-    (total-strokes	 . 4)
-    (ideographic-structure
-     ((name		  . "IDEOGRAPHIC DESCRIPTION CHARACTER OVERLAID")
-      (=ucs		  . #x2FFB)	; ⿻
-      )
-     ((=ucs		  . #x51E0)	; 几
-      )
-     ((=ucs		  . #x2011E)	; 𠄞
-      ))
-    (=big5-cdp		. #x87B5)	; &CDP-87B5;
-    ))
-(define-char
   '((<-denotational@component
      ((=>ucs@iwds-1	  . #x5C3B)	; &A-IWDSU+5C3B;
       ))
@@ -1860,7 +1827,7 @@
     ))
 (define-char
   '((<-denotational@component
-     ((=>ucs@iwds-1/normalized . #x5C23)	; &A-NIWDSU+5C23;
+     ((=>ucs@iwds-1	  . #x2063B)	; &A-IWDSU+2063B;
       ))
     (ideographic-radical . 16)	; ⼏
     (ideographic-strokes . 4)
