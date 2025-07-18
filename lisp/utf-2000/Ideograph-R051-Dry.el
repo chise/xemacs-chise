@@ -145,6 +145,9 @@
       )
      ((=ucs@unicode	  . #x5E79)	; &AJ1-01520;
       (=adobe-japan1-0	  . 01520)	; &AJ1-01520;
+      )
+     ((=ucs@unicode	  . #x3D4E)	; &AJ1-07655;
+      (=adobe-japan1-0	  . 07655)	; &AJ1-07655;
       ))
     (->interchangeable$_1*sources
      yunhai)
