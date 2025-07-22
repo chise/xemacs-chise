@@ -854,6 +854,13 @@
     (=shuowen-jiguge	. 41920)	; &SW-JIGUGE-41920;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x39D6)	; 㧖
+      )
+     ((=ucs		  . #x627C)	; 扼
+      ))
+    (<-formed@shuowen
+     ((=shuowen-jiguge	  . 41919)	; &SW-JIGUGE-41919;
+      )
+     ((=ucs		  . #x6439)	; 搹
       ))
     (->subsumptive
      ((===shuowen-jiguge-A30 . 42320)	; &SW-JIGUGE30-42320;
