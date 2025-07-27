@@ -65,7 +65,7 @@
     (<-Small-Seal@shuowen
      ((=ucs		  . #x5364)	; 卤
       ))
-    (<-ancient@shuowen
+    (<-Zhouwen@shuowen
      ((=shuowen-jiguge	  . 41203)	; &SW-JIGUGE-41203;
       )
      ((=ucs		  . #x38B4)	; 㢴
