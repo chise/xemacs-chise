@@ -1148,7 +1148,17 @@
      ((=ucs@unicode	  . #x38B4)	; &C6-307A;
       (=cns11643-6	  . #x307A)	; &C6-307A; [16-90]
       (=daikanwa	  . 09776)	; &I-M-09776;
+      )
+     ((=ucs		  . #x38B4)	; 㢴
+      )
+     ((=ucs		  . #x897F)	; 西
       ))
+    (<-Zhouwen$_1*sources
+     shuowen daikanwa)
+    (<-Zhouwen$_2*sources
+     shuowen daikanwa)
+    (<-Zhouwen$_3*sources
+     shuowen daikanwa)
     (<-Zhouwen*sources
      shuowen daikanwa)
     (<-same
@@ -1415,6 +1425,15 @@
       ))
     (sound@ja/on	"sei")
     (=ucs		. #x5365)	; 卥
+    (<-ancient
+     ((=ucs		  . #x38B4)	; 㢴
+      )
+     ((=ucs		  . #x897F)	; 西
+      ))
+    (<-ancient$_1*sources
+     shuowen)
+    (<-ancient$_2*sources
+     shuowen)
     ))
 (define-char
   '((<-denotational
@@ -1483,6 +1502,8 @@
 	)
        ((=hanziku-1	    . #xB762)	; &HZK01-B762;
 	))
+      )
+     ((===chise-kangxi@kokusho-200014683 . #x0962)	; &R-CHISE-KX-NK1-02402;
       ))
     ))
 (define-char
@@ -1525,9 +1546,36 @@
      ((name		  . "CJK RADICAL DIVINATION")
       (=ucs		  . #x2E8A)	; ⺊
       )
-     ((=gt-k		  . 01840)	; &GT-K01840;
+     ((=>gt-k		  . 01840)	; &A-GT-K01840;
       ))
     (=ucs		. #x209E7)	; 𠧧
+    (<-ancient
+     ((=ucs		  . #x38B4)	; 㢴
+      )
+     ((=ucs		  . #x897F)	; 西
+      ))
+    (<-ancient$_1*sources
+     shuowen)
+    (<-ancient$_2*sources
+     shuowen)
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x209E7)	; 𠧧
+      ))
+    (ideographic-radical . 25)	; ⼘
+    (ideographic-strokes . 6)
+    (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((name		  . "CJK RADICAL DIVINATION")
+      (=ucs		  . #x2E8A)	; ⺊
+      )
+     ((=gt-k		  . 01840)	; &GT-K01840;
+      ))
+    (=ucs@iso		. #x209E7)	; &U-000209E7;
     (->subsumptive
      ((==ucs@iso	  . #x209E7)	; &g2-IU-000209E7;
       ))
