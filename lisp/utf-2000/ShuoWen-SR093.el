@@ -63,6 +63,8 @@
   '((shuowen-radical	. 93)	; 敎
     (=shuowen-jiguge	. 10007)	; &SW-JIGUGE-10007;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x6585)	; 斅
+      )
      ((=ucs		  . #x6586)	; 斆
       ))
     (->subsumptive
@@ -76,6 +78,13 @@
 (define-char
   '((shuowen-radical	. 93)	; 敎
     (=shuowen-jiguge	. 10008)	; &SW-JIGUGE-10008;
+    (<-Small-Seal
+     ((=shuowen-jiguge	  . 10007)	; &SW-JIGUGE-10007;
+      )
+     ((=ucs		  . #x6585)	; 斅
+      )
+     ((=ucs		  . #x6586)	; 斆
+      ))
     (<-Small-Seal@shuowen
      ((=ucs		  . #x5B78)	; 學
       )
