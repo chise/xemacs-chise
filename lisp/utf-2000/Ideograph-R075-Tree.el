@@ -128,8 +128,7 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
     (ideographic-structure
-     ((name		  . "IDEOGRAPHIC DESCRIPTION CHARACTER OVERLAID")
-      (=ucs		  . #x2FFB)	; ⿻
+     ((=ucs-itaiji-001	  . #x2FF1)	; &U-i001+2FF1;
       )
      ((=ucs		  . #x5341)	; 十
       )
@@ -146,8 +145,24 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
     (ideographic-structure
-     ((name		  . "IDEOGRAPHIC DESCRIPTION CHARACTER OVERLAID")
-      (=ucs		  . #x2FFB)	; ⿻
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5341)	; 十
+      )
+     ((=ucs		  . #x516B)	; 八
+      ))
+    (=ucs-itaiji-001	. #x233B3)	; &U-i001+233B3;
+    ))
+(define-char
+  '((<-denotational@component
+     ((=>ucs@component	  . #x6729)	; &A-compU+6729;
+      ))
+    (ideographic-radical . 75)	; ⽊
+    (ideographic-strokes . 0)
+    (total-strokes	 . 4)
+    (ideographic-structure
+     ((=ucs-itaiji-001	  . #x2FF1)	; &U-i001+2FF1;
       )
      ((=ucs		  . #x5341)	; 十
       )
@@ -332,8 +347,24 @@
     (ideographic-strokes . 1)
     (total-strokes	 . 5)
     (ideographic-structure
-     ((name		  . "IDEOGRAPHIC DESCRIPTION CHARACTER OVERLAID")
-      (=ucs		  . #x2FFB)	; ⿻
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #xFA3C)	; 屮
+      )
+     ((=ucs		  . #x516B)	; 八
+      ))
+    (=ucs-itaiji-004	. #x233B5)	; &U-i004+233B5;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x233B5)	; 𣎵
+      ))
+    (ideographic-radical . 75)	; ⽊
+    (ideographic-strokes . 1)
+    (total-strokes	 . 5)
+    (ideographic-structure
+     ((=ucs-itaiji-001	  . #x2FF1)	; &U-i001+2FF1;
       )
      ((=ucs		  . #xFA3C)	; 屮
       )
@@ -354,8 +385,7 @@
     (ideographic-strokes . 1)
     (total-strokes	 . 5)
     (ideographic-structure
-     ((name		  . "IDEOGRAPHIC DESCRIPTION CHARACTER OVERLAID")
-      (=ucs		  . #x2FFB)	; ⿻
+     ((=ucs-itaiji-001	  . #x2FF1)	; &U-i001+2FF1;
       )
      ((=ucs		  . #xFA3C)	; 屮
       )
