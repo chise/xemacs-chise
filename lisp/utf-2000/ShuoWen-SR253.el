@@ -1230,6 +1230,8 @@
   '((shuowen-radical	. 253)	; 禾
     (=shuowen-jiguge	. 23822)	; &SW-JIGUGE-23822;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x79CC)	; 秌
+      )
      ((=ucs		  . #x79CB)	; 秋
       ))
     (->subsumptive
@@ -1244,9 +1246,18 @@
   '((shuowen-radical	. 253)	; 禾
     (=shuowen-jiguge	. 23823)	; &SW-JIGUGE-23823;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x2A6C1)	; 𪛁
+      )
      ((=ucs		  . #x2591A)	; 𥤚
       )
      ((=ucs		  . #x2591B)	; 𥤛
+      ))
+    (<-Zhouwen@shuowen
+     ((=shuowen-jiguge	  . 23822)	; &SW-JIGUGE-23822;
+      )
+     ((=ucs		  . #x79CC)	; 秌
+      )
+     ((=ucs		  . #x79CB)	; 秋
       ))
     (->subsumptive
      ((===shuowen-jiguge-A30 . 24323)	; &SW-JIGUGE30-24323;
