@@ -314,23 +314,6 @@
     (ideographic-radical . 61)	; ⼼
     (ideographic-strokes . 1)
     (total-strokes	 . 5)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
-      (=ucs		  . #x2FF4)	; ⿴
-      )
-     ((=big5-cdp	  . #x85A7)	; &CDP-85A7;
-      )
-     ((=ucs		  . #x4E36)	; 丶
-      ))
-    (=big5-cdp-itaiji-001 . #x85A7)	; &CDP-i001-85A7;
-    ))
-(define-char
-  '((<-denotational
-     ((=>ucs@cognate	  . #x5FC5)	; &A-cgnU+5FC5;
-      ))
-    (ideographic-radical . 61)	; ⼼
-    (ideographic-strokes . 1)
-    (total-strokes	 . 5)
     (=ucs-itaiji-001	. #x5FC5)	; &U-i001+5FC5;
     ))
 (define-char
@@ -341,6 +324,23 @@
     (ideographic-strokes . 1)
     (total-strokes	 . 5)
     (=ucs-itaiji-002	. #x5FC5)	; &U-i002+5FC5;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@cognate	  . #x5FC5)	; &A-cgnU+5FC5;
+      ))
+    (ideographic-radical . 61)	; ⼼
+    (ideographic-strokes . 1)
+    (total-strokes	 . 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
+      (=ucs		  . #x2FF4)	; ⿴
+      )
+     ((=big5-cdp	  . #x85A7)	; &CDP-85A7;
+      )
+     ((=ucs		  . #x4E36)	; 丶
+      ))
+    (=big5-cdp-itaiji-001 . #x85A7)	; &CDP-i001-85A7;
     ))
 (define-char
   '((<-denotational
