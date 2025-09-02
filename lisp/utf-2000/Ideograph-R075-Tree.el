@@ -52696,6 +52696,37 @@
     ))
 (define-char
   '((ideographic-radical . 75)	; ⽊
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x6728)	; 木
+      )
+     ((=ucs		  . #x3779)	; 㝹
+      ))
+    (=ucs		. #x2363D)	; 𣘽
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2363D)	; 𣘽
+      ))
+    (ideographic-radical . 75)	; ⽊
+    (ideographic-strokes . 11)
+    (total-strokes	 . 15)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x6728)	; 木
+      )
+     ((=ucs@cns		  . #x3779)	; &C6-3E64;
+      (=cns11643-6	  . #x3E64)	; &C6-3E64; [30-68]
+      (=daikanwa	  . 07511)	; &I-M-07511;
+      ))
+    (=ucs@iso		. #x2363D)	; &U-0002363D;
+    ))
+(define-char
+  '((ideographic-radical . 75)	; ⽊
     (ideographic-strokes . 11)
     (total-strokes	 . 15)
     (=ucs		. #x2363F)	; 𣘿
