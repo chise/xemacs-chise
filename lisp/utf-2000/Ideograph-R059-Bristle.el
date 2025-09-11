@@ -1048,6 +1048,14 @@
     (ideographic-radical@shinjigen*sources
      shinjigen jis-x0208/b)
     (hanyu-dazidian	1 159 2)
+    (ideographic-structure
+     ((=>ucs@iwds-1	  . #x2FF8)	; &U-v002+2FF1;
+      (=>iwds-1		  .  0305)	; &U-v002+2FF1;
+      )
+     ((=>ucs@iwds-1	  . #x6538)	; &A-IWDSU+6538;
+      )
+     ((=ucs		  . #x5F61)	; 彡
+      ))
     (=ucs		. #x4FEE)	; 修
     (=>jis-x0208	. #x3D24)	; 修 [29-04]
     (=>jis-x0213-1	. #x3D24)	; 修 [29-04]
@@ -1070,7 +1078,18 @@
     (ideographic-strokes@shinjigen*sources
      shinjigen jis-x0208/b)
     (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs@unicode	  . #x6538)	; &MJ012953;
+      (=mj		  . 012953)	; &MJ012953;
+      )
+     ((=ucs		  . #x5F61)	; 彡
+      ))
+    (=ucs@cns		. #x4FEE)	; &AJ1-02350;
     (=ucs@jis		. #x4FEE)	; &AJ1-02350;
+    (=ucs@ks		. #x4FEE)	; &AJ1-02350;
     (=adobe-japan1-0	. 02350)	; &AJ1-02350;
     (=jis-x0208		. #x3D24)	; &I-J90-3D24; [29-04]
     (=ks-x1001		. #x6173)	; &I-K0-6173; [65-83]
@@ -1080,6 +1099,7 @@
     (=gt-k		. 06456)	; &I-GT-K06456;
     (=gt-pj-1		. #x3D24)	; &I-GT-00982; [29-04]
     (=daikanwa		. 00721)	; &I-M-00721;
+    (=daijiten		. 00359)	; &I-DJT-00359;
     (=shinjigen		.  2315)	; &AJ1-02350;
     (->subsumptive
      ((=decomposition@cid
@@ -1098,9 +1118,12 @@
       (==gt		  . 00982)	; &g2-AJ1-02350;
       (==gt-k		  . 06456)	; &g2-AJ1-02350;
       (==daikanwa	  . 00721)	; &g2-AJ1-02350;
+      (==daijiten	  . 00359)	; &g2-AJ1-02350;
       (==shinjigen	  .  2315)	; &g2-AJ1-02350;
       (->subsumptive
        ((===daikanwa	    . 00721)	; &R-M-00721;
+	)
+       ((===daijiten	    . 00359)	; &R-DJT-00359;
 	)
        ((===jis-x0208	    . #x3D24)	; &R-J0-3D24; [29-04]
 	(===jis-x0213-1	    . #x3D24)	; &R-J0-3D24; [29-04]
@@ -3552,6 +3575,7 @@
   '((ideographic-radical@ucs . 9)	; ⼈
     (ideographic-radical@shinjigen . 59)	; ⼺
     (==>ucs@bucs	. #x4FEE)	; &BUCS+4FEE;
+    (==>daijiten	. 00359)	; &BUCS+4FEE;
     ))
 (define-char
   '((ideographic-radical . 59)	; ⼺
