@@ -7350,7 +7350,7 @@
 	       direction l2r
 	       registry "\\(iso10646\\|ucs00\\)-3$"
 	       mother ucs
-	       min-code #x30000 max-code #x323AF
+	       min-code #x30000 max-code #x33479
 	       code-offset #x30000))
   (make-charset
    '=ucs-tip@JP/hanazono
@@ -7363,7 +7363,7 @@
 	       direction l2r
 	       registry "ucs00-3$"
 	       mother =ucs@JP/hanazono
-	       min-code #x30000 max-code #x323AF
+	       min-code #x30000 max-code #x33479
 	       code-offset #x30000))
   (make-charset
    '=>ucs-sip@iwds-1
@@ -7402,7 +7402,7 @@
 	       direction l2r
 	       registry "ucs00-3$"
 	       mother =>ucs@iwds-1
-	       min-code #x30000 max-code #x323AF
+	       min-code #x30000 max-code #x33479
 	       code-offset #x30000))
   (make-charset
    '=>ucs-sip@cognate
@@ -7454,7 +7454,7 @@
 	       direction l2r
 	       registry "ucs00-3$"
 	       mother =>ucs@component
-	       min-code #x30000 max-code #x323AF
+	       min-code #x30000 max-code #x33479
 	       code-offset #x30000))
   (make-charset
    '==>ucs-sip@esu
@@ -7518,7 +7518,7 @@
 	       direction l2r
 	       registry "ucs00-3$"
 	       mother ==ucs@JP/hanazono
-	       min-code #x30000 max-code #x323AF
+	       min-code #x30000 max-code #x33479
 	       code-offset #x30000))
   (make-charset
    '===ucs-sip@iso

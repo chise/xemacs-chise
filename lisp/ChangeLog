@@ -1,3 +1,12 @@
+2025-09-11  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-conf.el (=ucs-tip): Use #x33479 instead of #x323AF as
+	its max-code.
+	(=ucs-tip@JP/hanazono): Likewise.
+	(=>ucs-tip@iwds-1): Likewise.
+	(=>ucs-tip@component): Likewise.
+	(==ucs-tip@JP/hanazono): Likewise.
+
 2025-05-10  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* mule/mule-charset.el (default-coded-charset-priority-list): Add
