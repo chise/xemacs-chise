@@ -772,6 +772,15 @@
     ))
 (define-char
   '((<-denotational@component
+     ((=>ucs@component	  . #x20832)	; &A-compU+20832;
+      ))
+    (ideographic-radical . 5)	; ⼄
+    (ideographic-strokes . 1)
+    (total-strokes	 . 2)
+    (=ucs		. #x323C6)	; 𲏆
+    ))
+(define-char
+  '((<-denotational@component
      ((=ucs		  . #x3018A)	; 𰆊
       ))
     (ideographic-radical . 5)	; ⼄

@@ -9806,7 +9806,9 @@
     (=koseki		. 114850)	; &MJ035869;
     (=daikanwa		. 10166)	; &I-M-10166;
     (<-same
-     ((=ucs@jis		  . #x4FEE)	; &AJ1-02350;
+     ((=ucs@cns		  . #x4FEE)	; &AJ1-02350;
+      (=ucs@jis		  . #x4FEE)	; &AJ1-02350;
+      (=ucs@ks		  . #x4FEE)	; &AJ1-02350;
       (=adobe-japan1-0	  . 02350)	; &AJ1-02350;
       (=daikanwa	  . 00721)	; &I-M-00721;
       ))
