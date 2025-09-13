@@ -4143,10 +4143,7 @@
     (ideographic-strokes@ucs . 7)
     (ideographic-radical@cns . 39)	; ⼦
     (ideographic-strokes@cns . 5)
-    (ideographic-radical@cns*sources
-     daikanwa cns11643)
     (total-strokes	 . 8)
-    (hanyu-dazidian	1 54 2)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -4156,9 +4153,46 @@
      ((=ucs		  . #x4E5A)	; 乚
       ))
     (=ucs		. #x200F1)	; 𠃱
-    (=cns11643-4	. #x2624)	; &I-C4-2624; [06-04]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x200F1)	; 𠃱
+      ))
+    (ideographic-radical@ucs . 5)	; ⼄
+    (ideographic-strokes@ucs . 7)
+    (ideographic-radical@cns . 39)	; ⼦
+    (ideographic-strokes@cns . 5)
+    (ideographic-radical@cns*sources
+     daikanwa cns11643)
+    (total-strokes	 . 8)
+    (hanyu-dazidian	1 54 2)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs@unicode	  . #x5B5B)	; &AJ1-04613;
+      (=adobe-japan1-0	  . 04613)	; &AJ1-04613;
+      )
+     ((name		  . "CJK RADICAL SECOND TWO")
+      (=ucs		  . #x2E83)	; ⺃
+      ))
+    (=ucs@iso		. #x200F1)	; &C4-2624;
+    (=cns11643-4	. #x2624)	; &C4-2624; [06-04]
     (=daikanwa		. 06971)	; &I-M-06971;
-    (=hanziku-1		. #xAF42)	; &I-HZK01-AF42;
+    (->subsumptive
+     ((==ucs@iso	  . #x200F1)	; &g2-M-06971;
+      (==cns11643-4	  . #x2624)	; &g2-M-06971; [06-04]
+      (==daikanwa	  . 06971)	; &g2-M-06971;
+      (->subsumptive
+       ((===daikanwa	    . 06971)	; &R-M-06971;
+	)
+       ((===cns11643-4	    . #x2624)	; &R-C4-2624; [06-04]
+	)
+       ((===ucs@iso	    . #x200F1)	; &R-U-000200F1;
+	)
+       ((=hanziku-1	    . #xAF42)	; &HZK01-AF42;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 5)	; ⼄
