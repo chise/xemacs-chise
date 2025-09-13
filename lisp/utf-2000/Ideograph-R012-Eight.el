@@ -708,6 +708,27 @@
     (ideographic-radical . 12)	; ⼋
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>ucs@component	  . #x4E37)	; &A-compU+4E37;
+      (=>iwds-1		  .  0022)	; &A-compU+4E37;
+      )
+     ((=>ucs@component	  . #x4E37)	; &A-compU+4E37;
+      (=>iwds-1		  .  0022)	; &A-compU+4E37;
+      ))
+    (sound@ja/on/go	"heti")
+    (sound@ja/on/kan	"hetu")
+    (=ucs		. #x20501)	; 𠔁
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x20501)	; 𠔁
+      ))
+    (ideographic-radical . 12)	; ⼋
+    (ideographic-strokes . 2)
+    (total-strokes	 . 4)
     (hanyu-dazidian	1 241 8)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -717,10 +738,8 @@
       )
      ((=ucs		  . #x516B)	; 八
       ))
-    (sound@ja/on/go	"heti")
-    (sound@ja/on/kan	"hetu")
-    (=ucs		. #x20501)	; 𠔁
-    (=cns11643-6	. #x214E)	; &I-C6-214E; [01-46]
+    (=ucs@iso		. #x20501)	; &C6-214E;
+    (=cns11643-6	. #x214E)	; &C6-214E; [01-46]
     (=daikanwa		. 01454)	; &I-M-01454;
     (<-ancient
      ((=ucs		  . #x5225)	; 別
@@ -2773,6 +2792,14 @@
      ((=>ucs@component	  . #x2050C)	; &A-compU+2050C;
       ))
     (ideographic-radical . 12)	; ⼋
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x20501)	; 𠔁
+      )
+     ((=ucs		  . #x53E3)	; 口
+      ))
     (=ucs		. #x2050C)	; 𠔌
     ))
 (define-char
@@ -2787,7 +2814,9 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=ucs		  . #x20501)	; 𠔁
+     ((=ucs@iso		  . #x20501)	; &C6-214E;
+      (=cns11643-6	  . #x214E)	; &C6-214E; [01-46]
+      (=daikanwa	  . 01454)	; &I-M-01454;
       )
      ((=ucs		  . #x53E3)	; 口
       ))
