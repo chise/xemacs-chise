@@ -2890,7 +2890,7 @@
       )
      ((=ucs-itaiji-005	  . #x21FFA)	; &U-i005+21FFA;
       )
-     ((=big5-cdp-itaiji-001 . #x85F3)	; &CDP-i001-85F3;
+     ((=ucs-itaiji-002	  . #x200A1)	; &U-i002+200A1;
       ))
     (=ucs-itaiji-007	. #x22002)	; &U-i007+22002;
     ))
