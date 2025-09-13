@@ -6820,6 +6820,36 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
+     ((=ucs		  . #x6765)	; 来
+      )
+     ((=>ucs@iwds-1	  . #x6534)	; &A-IWDSU+6534;
+      (=>iwds-1		  .  45924)	; &A-IWDSU+6534;
+      ))
+    (=ucs		. #x31858)	; 𱡘
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x31858)	; 𱡘
+      ))
+    (ideographic-radical . 66)	; ⽁
+    (ideographic-strokes . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x6765)	; 来
+      )
+     ((=ucs		  . #x6535)	; 攵
+      ))
+    (=ucs@JP/hanazono	. #x31858)	; &hanaJU+31858;
+    ))
+(define-char
+  '((ideographic-radical . 66)	; ⽁
+    (ideographic-strokes . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
      ((=ucs		  . #x5F1F)	; 弟
       )
      ((=>ucs@component	  . #x5902)	; &A-compU+5902;
