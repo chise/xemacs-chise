@@ -3833,9 +3833,12 @@
       )
      ((=ucs		  . #x30001)	; 𰀁
       ))
-    (=big5-cdp-itaiji-001 . #x85F3)	; &CDP-i001-85F3;
+    (=big5-cdp-itaiji-001 . #x85F3)	; &U-i002+200A1;
+    (=ucs-itaiji-002	. #x200A1)	; &U-i002+200A1;
     (->subsumptive
      ((==big5-cdp-itaiji-001 . #x85F3)	; &g2-CDP-i001-85F3;
+      )
+     ((==ucs-itaiji-002	  . #x200A1)	; &g2-U-i002+200A1;
       ))
     ))
 (define-char
@@ -6514,12 +6517,28 @@
   '((<-denotational
      ((=>ucs@cognate	  . #x200B9)	; &A-cgnU+200B9;
       ))
+    (ideographic-radical . 4)	; ⼃
+    (ideographic-strokes . 9)
+    (total-strokes	 . 10)
+    (=>ucs@component	. #x200B9)	; &A-compU+200B9;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@component	  . #x200B9)	; &A-compU+200B9;
+      ))
     (<-denotational@usage
      ((==>ucs@bucs	  . #x5782)	; &BUCS+5782;
       ))
     (ideographic-radical . 4)	; ⼃
     (ideographic-strokes . 9)
     (total-strokes	 . 10)
+    (ideographic-structure
+     ((=>ucs@component	  . #x2FF6)	; &A-compU+2FF6;
+      )
+     ((=ucs		  . #x2020C)	; 𠈌
+      )
+     ((=>ucs@component	  . #x4EBB)	; &A-compU+4EBB;
+      ))
     (sound@ja/on/go	"zui")
     (sound@ja/on/kan	"sui")
     (=ucs		. #x200B9)	; 𠂹
@@ -6633,21 +6652,16 @@
     (ideographic-radical . 4)	; ⼃
     (ideographic-strokes . 9)
     (total-strokes	 . 10)
+    (ideographic-structure
+     ((=ucs-itaiji-001	  . #x2FF1)	; &U-i001+2FF1;
+      )
+     ((=ucs-itaiji-002	  . #x4EBB)	; &U-i002+4EBB;
+      )
+     ((=ucs@iso		  . #x2020C)	; &C4-2535;
+      (=cns11643-4	  . #x2535)	; &C4-2535; [05-21]
+      (=daikanwa	  . 00611)	; &I-M-00611;
+      ))
     (=ucs-var-001	. #x200B9)	; &U-v001+200B9;
-    ))
-(define-char
-  '((<-denotational
-     ((=ucs		  . #x200B9)	; 𠂹
-      ))
-    (ideographic-radical . 4)	; ⼃
-    (ideographic-strokes . 9)
-    (total-strokes	 . 10)
-    (=hanyo-denshi/tk	. 01000770)	; &HD-TK-01000770;
-    (=hanyo-denshi/tk/mf-01 . #x004D)	; &HD-TK-01000770;
-    (->subsumptive
-     ((==hanyo-denshi/tk  . 01000770)	; &g2-HD-TK-01000770;
-      (==hanyo-denshi/tk/mf-01 . #x004D)	; &g2-HD-TK-01000770;
-      ))
     ))
 (define-char
   '((<-denotational
@@ -6663,11 +6677,12 @@
       )
      ((=ucs		  . #x2020C)	; 𠈌
       ))
-    (=>big5-cdp		. #x85A8)	; &A-CDP-85A8;
+    (=ucs		. #x323C3)	; 𲏃
+    (=>big5-cdp		. #x85A8)	; 𲏃
     ))
 (define-char
   '((<-denotational
-     ((=>big5-cdp	  . #x85A8)	; &A-CDP-85A8;
+     ((=ucs		  . #x323C3)	; 𲏃
       ))
     (ideographic-radical . 4)	; ⼃
     (ideographic-strokes . 9)
@@ -6681,6 +6696,7 @@
       (=cns11643-4	  . #x2535)	; &C4-2535; [05-21]
       (=daikanwa	  . 00611)	; &I-M-00611;
       ))
+    (=ucs@JP/hanazono	. #x323C3)	; &CDP-85A8;
     (=big5-cdp		. #x85A8)	; &CDP-85A8;
     (<-formed@component
      ((=ucs@iso		  . #x200B9)	; &HD-KS-001860;
@@ -6688,7 +6704,11 @@
       (=daikanwa	  . 00155)	; &I-M-00155;
       ))
     (->subsumptive
-     ((==big5-cdp	  . #x85A8)	; &g2-CDP-85A8;
+     ((==ucs@JP/hanazono  . #x323C3)	; &g2-CDP-85A8;
+      (==big5-cdp	  . #x85A8)	; &g2-CDP-85A8;
+      (->subsumptive
+       ((===big5-cdp	    . #x85A8)	; &R-CDP-85A8;
+	))
       ))
     ))
 (define-char
