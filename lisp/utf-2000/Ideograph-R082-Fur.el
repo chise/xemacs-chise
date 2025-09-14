@@ -5917,7 +5917,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=>big5-cdp	  . #x8DAE)	; &A-CB07641;
+     ((=ucs		  . #x3255F)	; 𲕟
       )
      ((=>ucs-itaiji-001	  . #x2DBD6)	; &A-U-i001+2DBD6;
       ))
