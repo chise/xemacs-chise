@@ -1427,6 +1427,38 @@
     (=ucs@JP/hanazono	. #x2B941)	; &hanaJU+2B941;
     ))
 (define-char
+  '((ideographic-radical . 15)	; ⼎
+    (ideographic-strokes . 4)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=>ucs@iwds-1	  . #x51AB)	; &A-IWDSU+51AB;
+      (=>iwds-1		  .  47219)	; &A-IWDSU+51AB;
+      )
+     ((=ucs		  . #x2A7FD)	; 𪟽
+      ))
+    (=ucs		. #x31401)	; 𱐁
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x31401)	; 𱐁
+      ))
+    (ideographic-radical . 15)	; ⼎
+    (ideographic-strokes . 4)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x51AB)	; 冫
+      )
+     ((=ucs		  . #x2A7FD)	; 𪟽
+      ))
+    (=ucs@JP/hanazono	. #x31401)	; &hanaJU+31401;
+    ))
+(define-char
   '((<-denotational@usage
      ((==>daijiten	  . 00143)	; &A2-DJT-00143;
       )
@@ -4978,6 +5010,38 @@
        ((===cns11643-3	    . #x344E)	; &R-C3-344E; [20-46]
 	))
       ))
+    ))
+(define-char
+  '((ideographic-radical . 15)	; ⼎
+    (ideographic-strokes . 9)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=>ucs@iwds-1	  . #x51AB)	; &A-IWDSU+51AB;
+      (=>iwds-1		  .  47219)	; &A-IWDSU+51AB;
+      )
+     ((=>gt-k		  . 06148)	; &A-GT-K06148;
+      ))
+    (=ucs		. #x32495)	; 𲒕
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x32495)	; 𲒕
+      ))
+    (ideographic-radical . 15)	; ⼎
+    (ideographic-strokes . 9)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x51AB)	; 冫
+      )
+     ((=gt-k		  . 06148)	; &GT-K06148;
+      ))
+    (=ucs@JP/hanazono	. #x32495)	; &hanaJU+32495;
     ))
 (define-char
   '((ideographic-radical . 15)	; ⼎
