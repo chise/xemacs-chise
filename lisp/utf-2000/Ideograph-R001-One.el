@@ -5564,6 +5564,28 @@
   '((ideographic-radical . 1)	; ⼀
     (ideographic-strokes . 4)
     (total-strokes	 . 5)
+    (ideographic-structure@apparent
+     ((=ucs-itaiji-001	  . #x2FF1)	; &U-i001+2FF1;
+      )
+     ((=ucs		  . #x4E05)	; 丅
+      )
+     ((=ucs		  . #x53E3)	; 口
+      ))
+    (ideographic-structure@apparent/rightmost
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x4E00)	; 一
+      )
+     ((=big5-cdp	  . #x8679)	; &CDP-8679;
+      (=gt-k		  . 00627)	; &I-GT-K00627;
+      ))
+    (=ucs-itaiji-001	. #x2009D)	; &U-i001+2009D;
+    ))
+(define-char
+  '((ideographic-radical . 1)	; ⼀
+    (ideographic-strokes . 4)
+    (total-strokes	 . 5)
     (=gt-k		. 01514)	; &GT-K01514;
     (=gt-pj-k1		. #x432A)	; &GT-K01514; [35-10]
     (<-formed@component
