@@ -68,6 +68,12 @@
     ))
 (define-char
   '((ideographic-radical . 73)	; ⽈
+    (ideographic-strokes . 0)
+    (total-strokes	 . 4)
+    (=ucs-itaiji-003	. #x66F0)	; &U-i003+66F0;
+    ))
+(define-char
+  '((ideographic-radical . 73)	; ⽈
     (ideographic-strokes . 1)
     (total-strokes	 . 5)
     (=ucs		. #x66F1)	; 曱
