@@ -2872,6 +2872,32 @@
     (=big5-cdp-itaiji-001 . #x876E)	; &CDP-i001-876E;
     ))
 (define-char
+  '((<-denotational
+     ((=>ucs-itaiji-012	  . #x20992)	; &A-U-i012+20992;
+      ))
+    (ideographic-radical . 24)	; ⼗
+    (ideographic-strokes . 4)
+    (total-strokes	 . 6)
+    (ideographic-structure@apparent
+     ((name		  . "IDEOGRAPHIC DESCRIPTION CHARACTER OVERLAID")
+      (=ucs		  . #x2FFB)	; ⿻
+      )
+     ((=ucs		  . #x5E72)	; 干
+      )
+     ((=ucs		  . #x8279)	; 艹
+      ))
+    (=>big5-cdp-itaiji-002 . #x876E)	; &A-CDP-i002-876E;
+    ))
+(define-char
+  '((<-denotational
+     ((=>big5-cdp-itaiji-002 . #x876E)	; &A-CDP-i002-876E;
+      ))
+    (ideographic-radical . 24)	; ⼗
+    (ideographic-strokes . 4)
+    (total-strokes	 . 6)
+    (=big5-cdp-itaiji-002 . #x876E)	; &CDP-i002-876E;
+    ))
+(define-char
   '((ideographic-radical . 24)	; ⼗
     (ideographic-strokes . 4)
     (total-strokes	 . 6)
