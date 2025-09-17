@@ -1,3 +1,12 @@
+2025-09-17  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`=ucs-sip-itaiji-016' and `=>ucs-sip-itaiji-016'.
+
+	* mule/mule-conf.el (=ucs-sip-itaiji-016): New coded-charset for
+	XEmacs CHISE.
+	(=>ucs-sip-itaiji-016): New coded-charset for XEmacs CHISE.
+
 2025-09-11  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* mule/mule-conf.el (=ucs-tip): Use #x33479 instead of #x323AF as
