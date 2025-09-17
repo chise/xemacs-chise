@@ -1923,6 +1923,14 @@
       )
      ((=ucs		  . #x6208)	; 戈
       ))
+    (ideographic-structure@apparent
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x51AB)	; 冫
+      )
+     ((=ucs		  . #x620A)	; 戊
+      ))
     (=big5-cdp		. #x8879)	; &CDP-8879;
     (->subsumptive
      ((==big5-cdp	  . #x8879)	; &g2-CDP-8879;
@@ -4199,6 +4207,35 @@
        ((===ucs@iso	    . #x229CD)	; &R-U-000229CD;
 	))
       ))
+    ))
+(define-char
+  '((ideographic-radical . 62)	; ⼽
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
+      (=ucs		  . #x2FF5)	; ⿵
+      )
+     ((=ucs		  . #x6215)	; 戕
+      )
+     ((=ucs		  . #x5360)	; 占
+      ))
+    (=ucs		. #x3284F)	; 𲡏
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x3284F)	; 𲡏
+      ))
+    (ideographic-radical . 62)	; ⼽
+    (ideographic-strokes . 8)
+    (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
+      (=ucs		  . #x2FF5)	; ⿵
+      )
+     ((=big5-cdp	  . #x8879)	; &CDP-8879;
+      )
+     ((=ucs		  . #x5360)	; 占
+      ))
+    (=ucs@JP/hanazono	. #x3284F)	; &hanaJU+3284F;
     ))
 (define-char
   '((ideographic-radical . 62)	; ⼽
