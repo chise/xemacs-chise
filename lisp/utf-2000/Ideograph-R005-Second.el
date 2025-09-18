@@ -5707,6 +5707,30 @@
     (ideographic-strokes . 10)
     (total-strokes	 . 11)
     (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
+      (=ucs		  . #x2FF9)	; ⿹
+      )
+     ((name		  . "CJK RADICAL SECOND THREE")
+      (=ucs		  . #x2E84)	; ⺄
+      )
+     ((=ucs		  . #x7834)	; 破
+      ))
+    (=ucs		. #x2A718)	; 𪜘
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2A718)	; 𪜘
+      ))
+    (ideographic-radical . 5)	; ⼄
+    (ideographic-strokes . 10)
+    (total-strokes	 . 11)
+    (=ucs@JP/hanazono	. #x2A718)	; &hanaJU+2A718;
+    ))
+(define-char
+  '((ideographic-radical . 5)	; ⼄
+    (ideographic-strokes . 10)
+    (total-strokes	 . 11)
+    (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
@@ -5857,6 +5881,62 @@
       ))
     (=ucs@cns		. #x4E81)	; &C3-396E;
     (=cns11643-3	. #x396E)	; &C3-396E; [25-78]
+    ))
+(define-char
+  '((ideographic-radical . 5)	; ⼄
+    (ideographic-strokes . 11)
+    (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x4E5D)	; 九
+      )
+     ((=ucs		  . #x2DF4E)	; 𭽎
+      ))
+    (=ucs		. #x2A719)	; 𪜙
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2A719)	; 𪜙
+      ))
+    (ideographic-radical . 5)	; ⼄
+    (ideographic-strokes . 11)
+    (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x4E5D)	; 九
+      )
+     ((=ucs@JP/hanazono	  . #x2DF4E)	; &CB01553;
+      (=cbeta		  . 01553)	; &CB01553;
+      ))
+    (=ucs@JP/hanazono	. #x2A719)	; &hanaJU+2A719;
+    ))
+(define-char
+  '((ideographic-radical . 5)	; ⼄
+    (ideographic-strokes . 11)
+    (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
+      (=ucs		  . #x2FF9)	; ⿹
+      )
+     ((name		  . "CJK RADICAL SECOND THREE")
+      (=ucs		  . #x2E84)	; ⺄
+      )
+     ((=ucs		  . #x319B2)	; 𱦲
+      ))
+    (=ucs		. #x2A71A)	; 𪜚
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2A71A)	; 𪜚
+      ))
+    (ideographic-radical . 5)	; ⼄
+    (ideographic-strokes . 11)
+    (total-strokes	 . 12)
+    (=ucs@JP/hanazono	. #x2A71A)	; &hanaJU+2A71A;
     ))
 (define-char
   '((ideographic-radical . 5)	; ⼄

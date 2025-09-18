@@ -1392,7 +1392,6 @@
   '((<-denotational
      ((=ucs		  . #x21FEE)	; 𡿮
       ))
-    (ideographic-radical . 28)	; ⼛
     (ideographic-radical@ucs . 47)	; ⼮
     (ideographic-radical@cns . 28)	; ⼛
     (ideographic-structure
