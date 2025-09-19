@@ -8759,7 +8759,7 @@
      ((=>ucs@iwds-1	  . #x4E06)	; &A-IWDSU+4E06;
       (=>iwds-1		  .  0150)	; &A-IWDSU+4E06;
       )
-     ((=>ucs-itaiji-002	  . #x2E9FB)	; &A-U-i002+2E9FB;
+     ((=ucs		  . #x32EA4)	; 𲺤
       ))
     (=ucs		. #x2A819)	; 𪠙
     ))
@@ -8776,7 +8776,8 @@
       )
      ((=ucs		  . #x5382)	; 厂
       )
-     ((=ucs-itaiji-002	  . #x2E9FB)	; &U-i002+2E9FB;
+     ((=ucs@JP/hanazono	  . #x32EA4)	; &U-i002+2E9FB;
+      (=ucs-itaiji-002	  . #x2E9FB)	; &U-i002+2E9FB;
       ))
     (=ucs@JP/hanazono	. #x2A819)	; &hanaJU+2A819;
     ))
