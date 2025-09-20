@@ -5323,39 +5323,6 @@
 (define-char
   '((ideographic-radical . 43)	; ⼪
     (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((=ucs		  . #x2668F)	; 𦚏
-      )
-     ((=>ucs@iwds-1	  . #x4E38)	; &A-IWDSU+4E38;
-      (=>iwds-1		  .  65535)	; &A-IWDSU+4E38;
-      ))
-    (=>ucs-itaiji-002	. #x2E9FB)	; &A-U-i002+2E9FB;
-    ))
-(define-char
-  '((<-denotational
-     ((=>ucs-itaiji-002	  . #x2E9FB)	; &A-U-i002+2E9FB;
-      ))
-    (ideographic-radical . 43)	; ⼪
-    (ideographic-strokes . 9)
-    (total-strokes	 . 13)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((=ucs		  . #x2668F)	; 𦚏
-      )
-     ((=ucs		  . #x5C24)	; 尤
-      ))
-    (=ucs-itaiji-002	. #x2E9FB)	; &U-i002+2E9FB;
-    (->subsumptive
-     ((==ucs-itaiji-002	  . #x2E9FB)	; &g2-U-i002+2E9FB;
-      ))
-    ))
-(define-char
-  '((ideographic-radical . 43)	; ⼪
-    (ideographic-structure
      ((=>ucs@iwds-1	  . #x2FFA)	; &A-IWDSU+2FFA;
       (=>iwds-1		  .  0307)	; &A-IWDSU+2FFA;
       )
