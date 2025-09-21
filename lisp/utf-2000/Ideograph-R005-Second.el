@@ -4166,6 +4166,7 @@
       )
      ((=ucs		  . #x4E5A)	; 乚
       ))
+    (sound@ja/on	"botu")
     (=ucs		. #x200F1)	; 𠃱
     ))
 (define-char
@@ -4193,6 +4194,13 @@
     (=ucs@iso		. #x200F1)	; &C4-2624;
     (=cns11643-4	. #x2624)	; &C4-2624; [06-04]
     (=daikanwa		. 06971)	; &I-M-06971;
+    (<-wrong
+     ((=ucs@unicode	  . #x52C3)	; &AJ1-03716;
+      (=adobe-japan1-0	  . 03716)	; &AJ1-03716;
+      (=daikanwa	  . 02351)	; &I-M-02351;
+      ))
+    (<-wrong*sources
+     zihui-bu daikanwa)
     (->subsumptive
      ((==ucs@iso	  . #x200F1)	; &g2-M-06971;
       (==cns11643-4	  . #x2624)	; &g2-M-06971; [06-04]

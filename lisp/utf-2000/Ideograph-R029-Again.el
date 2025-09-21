@@ -5577,6 +5577,16 @@
       )
      ((=ucs		  . #x53C8)	; 又
       ))
+    (ideographic-structure@apparent
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
+      (=ucs		  . #x2FF3)	; ⿳
+      )
+     ((=ucs		  . #x7A74)	; 穴
+      )
+     ((=ucs		  . #x201A2)	; 𠆢
+      )
+     ((=ucs		  . #x53C8)	; 又
+      ))
     (=mj		. 057139)	; &MJ057139;
     (=hanyo-denshi/ks	. 036800)	; &MJ057139;
     (->subsumptive

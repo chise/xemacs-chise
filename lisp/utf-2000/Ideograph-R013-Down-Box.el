@@ -1251,6 +1251,28 @@
     (=ucs-itaiji-004	. #x821F)	; &U-i004+821F;
     ))
 (define-char
+  '((<-denotational@usage
+     ((==>ucs@bucs	  . #x5182)	; &BUCS+5182;
+      ))
+    (ideographic-radical . 13)	; ⼌
+    (ideographic-strokes . 2)
+    (total-strokes	 . 4)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
+      (=ucs		  . #x2FF4)	; ⿴
+      )
+     ((=ucs		  . #x5182)	; 冂
+      )
+     ((=big5-cdp	  . #x8C78)	; &CDP-8C78;
+      ))
+    (=gt-k		. 00886)	; &GT-K00886;
+    (=gt-pj-k1		. #x3726)	; &GT-K00886; [23-06]
+    (->subsumptive
+     ((==gt-k		  . 00886)	; &g2-GT-K00886;
+      (==gt-pj-k1	  . #x3726)	; &g2-GT-K00886; [23-06]
+      ))
+    ))
+(define-char
   '((<-denotational
      ((=>ucs@cognate	  . #x5184)	; &A-cgnU+5184;
       ))
