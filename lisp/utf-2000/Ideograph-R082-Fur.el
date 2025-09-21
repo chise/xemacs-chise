@@ -2700,6 +2700,23 @@
     ))
 (define-char
   '((ideographic-radical . 82)	; ⽑
+    (ideographic-strokes . 8)
+    (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5485)	; 咅
+      )
+     ((=ucs		  . #x6BDB)	; 毛
+      ))
+    (=ucs		. #x306A2)	; 𰚢
+    (->subsumptive
+     ((==ucs@iso	  . #x306A2)	; &g2-IU-000306A2;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 82)	; ⽑
     (ideographic-strokes . 9)
     (total-strokes	 . 13)
     (=ucs		. #x6BF7)	; 毷
