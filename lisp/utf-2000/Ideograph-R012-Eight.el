@@ -4921,9 +4921,17 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM BELOW")
       (=ucs		  . #x2FF6)	; ⿶
       )
-     ((=>ucs-itaiji-001	  . #x8201)	; &A-U-i001+8201;
+     ((=ucs		  . #x32ECB)	; 𲻋
       )
      ((=ucs		  . #x4E28)	; 丨
+      ))
+    (ideographic-structure@apparent
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x26954)	; 𦥔
+      )
+     ((=>ucs@iwds-1	  . #x4E0C)	; &A-IWDSU+4E0C;
       ))
     (=ucs		. #x2051C)	; 𠔜
     ))
@@ -4934,7 +4942,7 @@
     (ideographic-radical . 12)	; ⼋
     (ideographic-strokes . 7)
     (total-strokes	 . 9)
-    (ideographic-structure
+    (ideographic-structure@apparent
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
@@ -4968,6 +4976,14 @@
      ((=cbeta		  . 08746)	; &U-i005+8201;
       )
      ((=ucs		  . #x4E28)	; 丨
+      ))
+    (ideographic-structure@apparent
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs-var-002	  . #x26954)	; &U-v002+26954;
+      )
+     ((=gt-k		  . 00264)	; &GT-K00264;
       ))
     (=ucs@cns		. #x2051C)	; &C6-353E;
     (=cns11643-6	. #x353E)	; &C6-353E; [21-30]
