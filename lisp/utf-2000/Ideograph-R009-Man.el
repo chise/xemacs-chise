@@ -60887,6 +60887,14 @@
     (ideographic-radical . 9)	; ⼈
     (ideographic-strokes . 10)
     (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x4EBB)	; 亻
+      )
+     ((=ucs-itaiji-001	  . #x21A1D)	; &U-i001+21A1D;
+      ))
     (=ucs@iso		. #x2030C)	; &C6-4647;
     (=cns11643-6	. #x4647)	; &C6-4647; [38-39]
     (->subsumptive
