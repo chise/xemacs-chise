@@ -1557,6 +1557,20 @@
       ))
     ))
 (define-char
+  '((ideographic-radical . 41)	; ⼨
+    (ideographic-strokes . 6)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x800C)	; 而
+      )
+     ((=ucs		  . #x5BF8)	; 寸
+      ))
+    (=ucs		. #x316A0)	; 𱚠
+    ))
+(define-char
   '((<-denotational@usage
      ((==>daijiten	  . 02421)	; &A2-DJT-02421;
       ))
