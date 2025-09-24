@@ -6576,7 +6576,7 @@
      ((=ucs@iso		  . #x200CA)	; &CDP-8C7B;
       (=big5-cdp	  . #x8C7B)	; &CDP-8C7B;
       )
-     ((=ucs-itaiji-002	  . #x5364)	; &U-i002+5364;
+     ((=ucs-itaiji-009	  . #x9E75)	; &U-i009+9E75;
       ))
     (=ucs@JP/hanazono	. #x30050)	; &hanaJU+30050;
     ))
