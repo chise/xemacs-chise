@@ -7365,6 +7365,27 @@
   '((ideographic-radical . 8)	; ⼇
     (ideographic-strokes . 14)
     (total-strokes	 . 16)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
+      (=ucs		  . #x2FF3)	; ⿳
+      )
+     ((=ucs		  . #x4EA0)	; 亠
+      )
+     ((=big5-cdp	  . #x8553)	; &CDP-8553;
+      )
+     ((=>ucs@iwds-1	  . #x4E0C)	; &A-IWDSU+4E0C;
+      (=>iwds-1		  .  0221)	; &A-IWDSU+4E0C;
+      ))
+    (sound@ja/on	"Au")
+    (=ucs		. #x20191)	; 𠆑
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x20191)	; 𠆑
+      ))
+    (ideographic-radical . 8)	; ⼇
+    (ideographic-strokes . 14)
+    (total-strokes	 . 16)
     (hanyu-dazidian	1 293 3)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
@@ -7374,11 +7395,10 @@
       )
      ((=big5-cdp	  . #x8553)	; &CDP-8553;
       )
-     ((=gt-k		  . 00264)	; &GT-K00264;
+     ((=ucs		  . #x2CEA2)	; 𬺢
       ))
-    (sound@ja/on	"Au")
-    (=ucs		. #x20191)	; 𠆑
-    (=daikanwa		. 00337)	; &I-M-00337;
+    (=ucs@iso		. #x20191)	; &M-00337;
+    (=daikanwa		. 00337)	; &M-00337;
     (->subsumptive
      ((==ucs@iso	  . #x20191)	; &g2-M-00337;
       (==daikanwa	  . 00337)	; &g2-M-00337;
