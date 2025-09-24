@@ -3705,10 +3705,10 @@
     (=cns11643-6	. #x287A)	; &I-C6-287A; [08-90]
     (=daikanwa		. 49525)	; &I-M-49525;
     (<-formed
-     ((=ucs		  . #x2F980)	; 𣍟
+     ((=ucs		  . #x2B73E)	; 𫜾
       ))
     (<-same
-     ((=ucs		  . #x2F980)	; 𣍟
+     ((=ucs		  . #x2B73E)	; 𫜾
       (=daikanwa	  . 29258)	; &I-M-29258;
       ))
     (<-same*sources
@@ -4535,7 +4535,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=gt-k		  . 00264)	; &GT-K00264;
+     ((=ucs		  . #x2CEA2)	; 𬺢
       )
      ((=ucs@unicode	  . #x5189)	; &MJ007308;
       (=mj		  . 007308)	; &MJ007308;
