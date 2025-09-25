@@ -1595,7 +1595,9 @@
      ((=ucs		  . #x6C69)	; 汩
       (=daikanwa	  . 17153)	; &I-M-17153;
       )
-     ((=ucs		  . #x6DE2)	; 淢
+     ((=ucs@unicode	  . #x6DE2)	; &JSP-475F;
+      (=jis-x0212	  . #x475F)	; &JSP-475F; [39-63]
+      (=cns11643-2	  . #x364B)	; &I-C2-364B; [22-43]
       (=daikanwa	  . 17662)	; &I-M-17662;
       ))
     (->formed$_1*sources
@@ -2601,7 +2603,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
       (=ucs		  . #x2FF9)	; ⿹
       )
-     ((=ucs		  . #x6216)	; 或
+     ((=ucs@unicode	  . #x6216)	; &AJ1-01155;
+      (=adobe-japan1-0	  . 01155)	; &AJ1-01155;
       )
      ((=ucs		  . #x5DDB)	; 巛
       ))
@@ -2625,7 +2628,8 @@
     (->interchangeable
      ((=ucs		  . #x5F67)	; 彧
       )
-     ((=ucs		  . #x6216)	; 或
+     ((=ucs@unicode	  . #x6216)	; &AJ1-01155;
+      (=adobe-japan1-0	  . 01155)	; &AJ1-01155;
       ))
     (->interchangeable$_1*sources
      zhengzitong)
