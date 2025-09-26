@@ -4090,6 +4090,47 @@
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
     (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5F13)	; 弓
+      )
+     ((=ucs		  . #x3431)	; 㐱
+      ))
+    (=ucs		. #x2D6AB)	; 𭚫
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2D6AB)	; 𭚫
+      ))
+    (ideographic-radical . 57)	; ⼸
+    (ideographic-strokes . 5)
+    (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5F13)	; 弓
+      )
+     ((=ucs@unicode	  . #x3431)	; &GT-00504;
+      (=cns11643-3	  . #x2175)	; &GT-00504; [01-85]
+      (=daikanwa	  . 00372)	; &I-M-00372;
+      ))
+    (=ucs@JP/hanazono	. #x2D6AB)	; &CB02793;
+    (=cbeta		. 02793)	; &CB02793;
+    (->subsumptive
+     ((==ucs@JP/hanazono  . #x2D6AB)	; &g2-CB02793;
+      (==cbeta		  . 02793)	; &g2-CB02793;
+      (->subsumptive
+       ((===cbeta	    . 02793)	; &R-CB02793;
+	))
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 57)	; ⼸
+    (ideographic-strokes . 5)
+    (total-strokes	 . 8)
+    (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
       (=ucs		  . #x2FF8)	; ⿸
       )
