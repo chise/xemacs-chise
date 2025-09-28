@@ -5489,6 +5489,12 @@
   '((ideographic-radical . 61)	; ⼼
     (ideographic-strokes . 4)
     (total-strokes	 . 8)
+    (=ucs		. #x2BE72)	; 𫹲
+    ))
+(define-char
+  '((ideographic-radical . 61)	; ⼼
+    (ideographic-strokes . 4)
+    (total-strokes	 . 8)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
