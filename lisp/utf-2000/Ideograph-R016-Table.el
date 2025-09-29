@@ -2657,6 +2657,43 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
+     ((=ucs		  . #x51AF)	; 冯
+      )
+     ((=>ucs@component	  . #x51E0)	; &A-compU+51E0;
+      (=>iwds-1		  .  0119)	; &A-compU+51E0;
+      ))
+    (=ucs		. #x2EC09)	; 𮰉
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2EC09)	; 𮰉
+      ))
+    (ideographic-radical . 16)	; ⼏
+    (ideographic-strokes . 5)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs@unicode	  . #x51AF)	; &G0-376B;
+      (=gb2312		  . #x376B)	; &G0-376B; [23-75]
+      )
+     ((=ucs		  . #x51E0)	; 几
+      ))
+    (=ucs@JP/hanazono	. #x2EC09)	; &hanaJU+2EC09;
+    (<-simplified@CN
+     ((=ucs@unicode	  . #x51F4)	; &AJ1-14354;
+      (=adobe-japan1-4	  . 14354)	; &AJ1-14354;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 16)	; ⼏
+    (ideographic-strokes . 5)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
      ((=>cbeta		  . 10451)	; &A-CB10451;
       )
      ((=>ucs@iwds-1	  . #x513F)	; &A-IWDSU+513F;

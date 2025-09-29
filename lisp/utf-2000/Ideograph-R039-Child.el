@@ -1795,6 +1795,38 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
+     ((=ucs		  . #x5B50)	; 子
+      )
+     ((=ucs		  . #x8D1D)	; 贝
+      ))
+    (=ucs		. #x31677)	; 𱙷
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x31677)	; 𱙷
+      ))
+    (ideographic-radical . 39)	; ⼦
+    (ideographic-strokes . 4)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5B50)	; 子
+      )
+     ((name		  . "CJK RADICAL C-SIMPLIFIED SHELL")
+      (=ucs		  . #x2EC9)	; ⻉
+      ))
+    (=ucs@JP/hanazono	. #x31677)	; &hanaJU+31677;
+    ))
+(define-char
+  '((ideographic-radical . 39)	; ⼦
+    (ideographic-strokes . 4)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
      ((=ucs		  . #x4E11)	; 丑
       )
      ((=ucs		  . #x5B50)	; 子
@@ -5603,6 +5635,20 @@
     (ideographic-strokes . 13)
     (total-strokes	 . 16)
     (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x33114)	; 𳄔
+      )
+     ((=ucs		  . #x5B50)	; 子
+      ))
+    (=ucs		. #x2BCB2)	; 𫲲
+    ))
+(define-char
+  '((ideographic-radical . 39)	; ⼦
+    (ideographic-strokes . 13)
+    (total-strokes	 . 16)
+    (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
@@ -5769,6 +5815,20 @@
      ((=ucs-itaiji-001	  . #x2D030)	; &U-i001+2D030;
       ))
     (=ucs@JP/hanazono	. #x2D4DB)	; &hanaJU+2D4DB;
+    ))
+(define-char
+  '((ideographic-radical . 39)	; ⼦
+    (ideographic-strokes . 15)
+    (total-strokes	 . 18)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x378C)	; 㞌
+      )
+     ((=ucs		  . #x21977)	; 𡥷
+      ))
+    (=ucs		. #x30331)	; 𰌱
     ))
 (define-char
   '((ideographic-radical . 39)	; ⼦
