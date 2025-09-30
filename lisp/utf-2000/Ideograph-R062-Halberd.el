@@ -2011,7 +2011,7 @@
       (=daikanwa	  . 03115)	; &I-M-03115;
       )
      ((=ucs@unicode	  . #x570B)	; &AJ1-04467;
-      (=adobe-japan1-0	  . 04467)	; &I-AJ1-04467;
+      (=adobe-japan1-0	  . 04467)	; &AJ1-04467;
       (=daikanwa	  . 04798)	; &I-M-04798;
       ))
     (<-interchangeable$_1*sources
@@ -4083,14 +4083,14 @@
     (=daikanwa		. 11610)	; &I-M-11610;
     (<-ancient
      ((=ucs@unicode	  . #x570B)	; &AJ1-04467;
-      (=adobe-japan1-0	  . 04467)	; &I-AJ1-04467;
+      (=adobe-japan1-0	  . 04467)	; &AJ1-04467;
       (=daikanwa	  . 04798)	; &I-M-04798;
       ))
     (<-ancient*sources
      jiyun daikanwa)
     (<-formed
      ((=ucs@unicode	  . #x570B)	; &AJ1-04467;
-      (=adobe-japan1-0	  . 04467)	; &I-AJ1-04467;
+      (=adobe-japan1-0	  . 04467)	; &AJ1-04467;
       )
      ((=ucs		  . #x56FD)	; 国
       ))
