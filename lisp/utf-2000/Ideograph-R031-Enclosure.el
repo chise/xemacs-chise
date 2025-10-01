@@ -2896,7 +2896,7 @@
     (=shinjigen		.  1321)	; 囯
     (<-vulgar
      ((=ucs@unicode	  . #x570B)	; &AJ1-04467;
-      (=adobe-japan1-0	  . 04467)	; &I-AJ1-04467;
+      (=adobe-japan1-0	  . 04467)	; &AJ1-04467;
       (=jis-x0208	  . #x5422)	; &I-J90-5422; [52-02]
       (=shinjigen	  .  1319)	; &AJ1-04467;
       ))
@@ -4355,7 +4355,7 @@
     (=daikanwa		. 04750)	; &I-M-04750;
     (<-same
      ((=ucs@unicode	  . #x570B)	; &AJ1-04467;
-      (=adobe-japan1-0	  . 04467)	; &I-AJ1-04467;
+      (=adobe-japan1-0	  . 04467)	; &AJ1-04467;
       (=daikanwa	  . 04798)	; &I-M-04798;
       ))
     (<-same*sources
@@ -4444,12 +4444,12 @@
     (=shinjigen		.  1318)	; &AJ1-02051;
     (<-simplified@CN
      ((=ucs@unicode	  . #x570B)	; &AJ1-04467;
-      (=adobe-japan1-0	  . 04467)	; &I-AJ1-04467;
+      (=adobe-japan1-0	  . 04467)	; &AJ1-04467;
       (=gb12345		  . #x397A)	; &AJ1-04467; [25-90]
       ))
     (<-simplified@JP/Jouyou
      ((=ucs@unicode	  . #x570B)	; &AJ1-04467;
-      (=adobe-japan1-0	  . 04467)	; &I-AJ1-04467;
+      (=adobe-japan1-0	  . 04467)	; &AJ1-04467;
       (=jis-x0208	  . #x5422)	; &I-J90-5422; [52-02]
       ))
     (->subsumptive
@@ -4827,7 +4827,7 @@
     (=daikanwa		. 04758)	; &I-M-04758;
     (<-ancient
      ((=ucs@unicode	  . #x570B)	; &AJ1-04467;
-      (=adobe-japan1-0	  . 04467)	; &I-AJ1-04467;
+      (=adobe-japan1-0	  . 04467)	; &AJ1-04467;
       (=daikanwa	  . 04798)	; &I-M-04798;
       ))
     (<-ancient*sources
@@ -4894,13 +4894,13 @@
     (=cbeta		. 03344)	; &I-CB03344;
     (<-ancient
      ((=ucs@unicode	  . #x570B)	; &AJ1-04467;
-      (=adobe-japan1-0	  . 04467)	; &I-AJ1-04467;
+      (=adobe-japan1-0	  . 04467)	; &AJ1-04467;
       ))
     (<-ancient$_1*sources
      yupian daikanwa)
     (<-formed@Zetian
      ((=ucs@unicode	  . #x570B)	; &AJ1-04467;
-      (=adobe-japan1-0	  . 04467)	; &I-AJ1-04467;
+      (=adobe-japan1-0	  . 04467)	; &AJ1-04467;
       (=daikanwa	  . 04798)	; &I-M-04798;
       ))
     (<-formed@Zetian*sources
@@ -6897,7 +6897,7 @@
       (=adobe-japan1-0	  . 01155)	; &AJ1-01155;
       ))
     (=ucs@unicode	. #x570B)	; &AJ1-04467;
-    (=adobe-japan1-0	. 04467)	; &I-AJ1-04467;
+    (=adobe-japan1-0	. 04467)	; &AJ1-04467;
     (=jis-x0208		. #x5422)	; &I-J90-5422; [52-02]
     (=ks-x1001		. #x4F50)	; &I-K0-4F50; [47-48]
     (=cns11643-1	. #x594F)	; &I-C1-594F; [57-47]
