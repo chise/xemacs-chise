@@ -2443,6 +2443,40 @@
     ))
 (define-char
   '((ideographic-radical . 97)	; ⽠
+    (ideographic-strokes . 21)
+    (total-strokes	 . 26)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x8821)	; 蠡
+      )
+     ((=ucs		  . #x74DC)	; 瓜
+      ))
+    (=ucs		. #x2CEAC)	; 𬺬
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2CEAC)	; 𬺬
+      ))
+    (ideographic-radical . 97)	; ⽠
+    (ideographic-strokes . 21)
+    (total-strokes	 . 26)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs@unicode	  . #x8821)	; &MJ023807;
+      (=mj		  . 023807)	; &MJ023807;
+      )
+     ((=ucs@jis		  . #x74DC)	; &AJ1-01245;
+      (=ucs@ks		  . #x74DC)	; &AJ1-01245;
+      (=adobe-japan1-0	  . 01245)	; &AJ1-01245;
+      ))
+    (=ucs@JP/hanazono	. #x2CEAC)	; &hanaJU+2CEAC;
+    ))
+(define-char
+  '((ideographic-radical . 97)	; ⽠
     (==>ucs@bucs	. #x74DC)	; &BUCS+74DC;
     (==>daijiten	. 07403)	; &BUCS+74DC;
     ))
