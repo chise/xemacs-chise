@@ -4868,8 +4868,33 @@
   '((ideographic-radical . 26)	; ⼙
     (ideographic-strokes . 13)
     (total-strokes	 . 15)
+    (sound@ja/on	"Iu")
     (=ucs		. #x20A26)	; 𠨦
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x20A26)	; 𠨦
+      ))
+    (ideographic-radical . 26)	; ⼙
+    (ideographic-strokes . 13)
+    (total-strokes	 . 15)
+    (=ucs@iso		. #x20A26)	; &MJ031840;
+    (=mj		. 031840)	; &MJ031840;
+    (=koseki		. 033480)	; &MJ031840;
     (=daikanwa		. 02888)	; &I-M-02888;
+    (->subsumptive
+     ((==ucs@iso	  . #x20A26)	; &g2-MJ031840;
+      (==mj		  . 031840)	; &g2-MJ031840;
+      (==koseki		  . 033480)	; &g2-MJ031840;
+      (==daikanwa	  . 02888)	; &g2-MJ031840;
+      (->subsumptive
+       ((===daikanwa	    . 02888)	; &R-M-02888;
+	)
+       ((===mj		    . 031840)	; &R-MJ031840;
+	)
+       ((===ucs@iso	    . #x20A26)	; &R-U-00020A26;
+	))
+      ))
     ))
 (define-char
   '((<-denotational@usage
@@ -5028,6 +5053,46 @@
      ((=ucs		  . #x353E)	; 㔾
       ))
     (=ucs@iso		. #x20A29)	; &U-00020A29;
+    ))
+(define-char
+  '((ideographic-radical . 26)	; ⼙
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
+      (=ucs		  . #x2FF3)	; ⿳
+      )
+     ((=ucs		  . #x722B)	; 爫
+      )
+     ((=ucs		  . #x7F52)	; 罒
+      )
+     ((=>ucs@iwds-1	  . #x537D)	; &A-IWDSU+537D;
+      ))
+    (=ucs		. #x2BA00)	; 𫨀
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2BA00)	; 𫨀
+      ))
+    (ideographic-radical . 26)	; ⼙
+    (ideographic-strokes . 16)
+    (total-strokes	 . 18)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
+      (=ucs		  . #x2FF3)	; ⿳
+      )
+     ((=ucs@cns		  . #x722B)	; &GT-25225;
+      (=ucs@jis		  . #x722B)	; &GT-25225;
+      (=jis-x0212	  . #x4A48)	; &GT-25225; [42-40]
+      (=cns11643-4	  . #x2151)	; &I-C4-2151; [01-49]
+      (=jis-x0213-2	  . #x702A)	; &I-JX2-702A; [80-10]
+      (=daikanwa	  . 19655)	; &I-M-19655;
+      )
+     ((name		  . "CJK RADICAL NET TWO")
+      (=ucs		  . #x2EB2)	; ⺲
+      )
+     ((=hanyo-denshi/jt	  . #xAE7B)	; &HD-JT-AE7B;
+      (=daikanwa	  . 02873)	; &I-M-02873;
+      ))
+    (=ucs@JP/hanazono	. #x2BA00)	; &hanaJU+2BA00;
     ))
 (define-char
   '((ideographic-radical . 26)	; ⼙

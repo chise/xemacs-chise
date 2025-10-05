@@ -715,14 +715,11 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=gt-k		  . 02380)	; &GT-K02380;
+     ((=ucs		  . #x2CEA8)	; 𬺨
       )
      ((=ucs		  . #x6BD4)	; 比
       ))
     (=ucs		. #x2DBCD)	; 𭯍
-    (->subsumptive
-     ((==ucs@JP/hanazono  . #x2DBCD)	; &g2-hanaJU+2DBCD;
-      ))
     ))
 (define-char
   '((<-denotational@component
@@ -757,6 +754,28 @@
      ((=ucs		  . #x6BD4)	; 比
       ))
     (=ucs-itaiji-004	. #x3C8B)	; &U-i004+3C8B;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2DBCD)	; 𭯍
+      ))
+    (ideographic-radical . 81)	; ⽐
+    (ideographic-strokes . 6)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs@JP/hanazono	  . #x2CEA8)	; &GT-K02380;
+      (=gt-k		  . 02380)	; &GT-K02380;
+      )
+     ((=ucs@unicode	  . #x6BD4)	; &AJ1-03450;
+      (=adobe-japan1-0	  . 03450)	; &AJ1-03450;
+      ))
+    (=ucs@JP/hanazono	. #x2DBCD)	; &hanaJU+2DBCD;
+    (->subsumptive
+     ((==ucs@JP/hanazono  . #x2DBCD)	; &g2-hanaJU+2DBCD;
+      ))
     ))
 (define-char
   '((ideographic-radical . 81)	; ⽐
@@ -1296,6 +1315,39 @@
     (->subsumptive
      ((==ucs@iso	  . #x23B0C)	; &g2-IU-00023B0C;
       ))
+    ))
+(define-char
+  '((ideographic-radical . 81)	; ⽐
+    (ideographic-strokes . 7)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x3C8B)	; 㲋
+      )
+     ((=ucs		  . #x4E02)	; 丂
+      ))
+    (=ucs		. #x3068B)	; 𰚋
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x3068B)	; 𰚋
+      ))
+    (ideographic-radical . 81)	; ⽐
+    (ideographic-strokes . 7)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs@unicode	  . #x3C8B)	; &C4-297B;
+      (=cns11643-4	  . #x297B)	; &C4-297B; [09-91]
+      (=daikanwa	  . 16751)	; &I-M-16751;
+      )
+     ((=ucs		  . #x4E02)	; 丂
+      ))
+    (=ucs@JP/hanazono	. #x3068B)	; &hanaJU+3068B;
     ))
 (define-char
   '((ideographic-radical . 81)	; ⽐

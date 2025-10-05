@@ -925,6 +925,52 @@
     (=hanziku-1		. #xDCE3)	; &I-HZK01-DCE3;
     ))
 (define-char
+  '((<-denotational@component
+     ((=>ucs@iwds-1	  . #x2CEA7)	; &A-IWDSU+2CEA7;
+      ))
+    (ideographic-radical . 10)	; ⼉
+    (ideographic-radical@r012 . 12)	; ⼋
+    (ideographic-strokes@r012 . 3)
+    (ideographic-strokes . 3)
+    (total-strokes	 . 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x4491)	; 䒑
+      )
+     ((=>ucs@iwds-1	  . #x513F)	; &A-IWDSU+513F;
+      (=>iwds-1		  .  11922)	; &A-IWDSU+513F;
+      ))
+    (ideographic-structure@apparent
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>ucs@iwds-1	  . #x4E37)	; &A-IWDSU+4E37;
+      )
+     ((=>ucs@component	  . #x5140)	; &A-compU+5140;
+      ))
+    (=ucs		. #x2CEA7)	; 𬺧
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2CEA7)	; 𬺧
+      ))
+    (ideographic-radical . 10)	; ⼉
+    (ideographic-strokes . 3)
+    (total-strokes	 . 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs@unicode	  . #x4491)	; &AJ1-18467;
+      (=adobe-japan1-5	  . 18467)	; &AJ1-18467;
+      )
+     ((=ucs		  . #x513F)	; 儿
+      ))
+    (=ucs@JP/hanazono	. #x2CEA7)	; &hanaJU+2CEA7;
+    ))
+(define-char
   '((ideographic-radical . 10)	; ⼉
     (ideographic-strokes . 3)
     (total-strokes	 . 5)
@@ -9625,6 +9671,19 @@
   '((ideographic-radical . 10)	; ⼉
     (==>ucs@bucs	. #x5144)	; &BUCS+5144;
     (==>daijiten	. 00561)	; &BUCS+5144;
+    ))
+(define-char
+  '((ideographic-radical . 10)	; ⼉
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x4491)	; 䒑
+      )
+     ((=>ucs@iwds-1	  . #x4E37)	; &A-IWDSU+4E37;
+      (=>iwds-1		  .  22119)	; &A-IWDSU+4E37;
+      ))
+    (=>ucs@iwds-1	. #x2CEA7)	; &A-IWDSU+2CEA7;
     ))
 (define-char
   '((ideographic-radical . 10)	; ⼉
