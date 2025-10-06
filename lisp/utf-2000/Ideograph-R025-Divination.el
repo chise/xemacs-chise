@@ -827,6 +827,23 @@
     (ideographic-radical . 25)	; ⼘
     (ideographic-strokes . 3)
     (total-strokes	 . 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x535C)	; 卜
+      )
+     ((=ucs		  . #x5C38)	; 尸
+      ))
+    (=ucs		. #x5362)	; 卢
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5362)	; 卢
+      ))
+    (ideographic-radical . 25)	; ⼘
+    (ideographic-strokes . 3)
+    (total-strokes	 . 5)
     (hanyu-dazidian	1 93 3)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -837,8 +854,8 @@
       )
      ((=ucs		  . #x5C38)	; 尸
       ))
-    (=ucs		. #x5362)	; 卢
-    (=gb2312		. #x422C)	; &I-G0-422C; [34-12]
+    (=ucs@unicode	. #x5362)	; &G0-422C;
+    (=gb2312		. #x422C)	; &G0-422C; [34-12]
     (<-simplified@CN
      ((=ucs@unicode	  . #x76E7)	; &AJ1-05807;
       (=adobe-japan1-0	  . 05807)	; &AJ1-05807;
