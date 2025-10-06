@@ -1375,6 +1375,9 @@
   '((<-denotational@component
      ((=>ucs@component	  . #x21FEE)	; &A-compU+21FEE;
       ))
+    (<-denotational@usage
+     ((==>daijiten	  . 06006)	; &A2-DJT-06006;
+      ))
     (ideographic-radical@ucs . 47)	; ⼮
     (ideographic-radical@cns . 28)	; ⼛
     (ideographic-structure
@@ -1387,6 +1390,11 @@
       (=>iwds-1		  .  0270)	; &A-IWDSU+5DDB;
       ))
     (=ucs		. #x21FEE)	; 𡿮
+    (<-formed
+     ((=ucs		  . #x20AD3)	; 𠫓
+      ))
+    (<-formed$_1*sources
+     shuowen)
     ))
 (define-char
   '((<-denotational
