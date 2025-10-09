@@ -1801,6 +1801,11 @@
       ))
     (sound@ja/on	"you")
     (=ucs		. #x3750)	; 㝐
+    (<-ancient
+     ((=ucs		  . #x5BB9)	; 容
+      ))
+    (<-ancient$_1*sources
+     shuowen)
     ))
 (define-char
   '((<-denotational
