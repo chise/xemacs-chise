@@ -1515,7 +1515,12 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 80)	; ⽏
+  '((<-denotational@usage
+     ((==>ucs@bucs	  . #x80B2)	; &BUCS+80B2;
+      )
+     ((==>daijiten	  . 05840)	; &A2-DJT-05840;
+      ))
+    (ideographic-radical . 80)	; ⽏
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -1526,15 +1531,29 @@
      ((=>ucs@component	  . #x342C)	; &A-compU+342C;
       (=>iwds-1		  .  0345)	; &A-compU+342C;
       ))
+    (sound@ja/on	"iku")
     (=ucs		. #x6BD3)	; 毓
     (=>jis-x0208	. #x5D5A)	; 毓 [61-58]
     (=>jis-x0213-1	. #x5D5A)	; 毓 [61-58]
+    (<-formed
+     ((=ucs		  . #x80B2)	; 育
+      ))
+    (<-formed$_1*sources
+     shuowen)
     ))
 (define-char
   '((<-denotational
      ((=ucs		  . #x6BD3)	; 毓
       ))
     (ideographic-radical . 80)	; ⽏
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x6BCF)	; 每
+      )
+     ((=ucs		  . #x342C)	; 㐬
+      ))
     (=+>ucs@unicode	. #x6BD3)	; &o-J0-5D5A;
     (=+>jis-x0208	. #x5D5A)	; &o-J0-5D5A; [61-58]
     (=+>jis-x0213-1	. #x5D5A)	; &o-J0-5D5A; [61-58]
@@ -1562,6 +1581,7 @@
       (=gt		  . 21457)	; &I-GT-21457;
       (=gt-pj-1		  . #x5D5A)	; &I-GT-21457; [61-58]
       (=daikanwa	  . 16740)	; &I-M-16740;
+      (=daijiten	  . 05840)	; &I-DJT-05840;
       (=shinjigen	  .  6433)	; &AJ1-05369;
       (<-ancient
        ((=ucs		    . #x2F982)	; 育
@@ -1570,6 +1590,12 @@
 	))
       (<-ancient*sources
        shinjigen)
+      (<-same
+       ((=ucs		    . #x2F982)	; 育
+	(=daikanwa	    . 29318)	; &I-M-29318;
+	))
+      (<-same*sources
+       zhengzitong daikanwa)
       (->subsumptive
        ((=decomposition@cid
 	 ((=ucs		      . #x6BD3)	; 毓
@@ -1590,9 +1616,12 @@
 	(==hanyo-denshi/ja  . #x5D5A)	; &g2-AJ1-05369; [61-58]
 	(==gt		    . 21457)	; &g2-AJ1-05369;
 	(==daikanwa	    . 16740)	; &g2-AJ1-05369;
+	(==daijiten	    . 05840)	; &g2-AJ1-05369;
 	(==shinjigen	    .  6433)	; &g2-AJ1-05369;
 	(->subsumptive
 	 ((===daikanwa	      . 16740)	; &R-M-16740;
+	  )
+	 ((===daijiten	      . 05840)	; &R-DJT-05840;
 	  )
 	 ((===jis-x0208	      . #x5D5A)	; &R-J0-5D5A; [61-58]
 	  (===jis-x0213-1     . #x5D5A)	; &R-J0-5D5A; [61-58]
@@ -1872,4 +1901,11 @@
   '((ideographic-radical . 80)	; ⽏
     (==>ucs@bucs	. #x6BCF)	; &BUCS+6BCF;
     (==>daijiten	. 05836)	; &BUCS+6BCF;
+    ))
+(define-char
+  '((<-denotational
+     ((==>ucs@bucs	  . #x80B2)	; &BUCS+80B2;
+      ))
+    (ideographic-radical . 80)	; ⽏
+    (==>daijiten	. 05840)	; &A2-DJT-05840;
     ))
