@@ -3499,7 +3499,7 @@
       )
      ((=>ucs-itaiji-001	  . #x6535)	; &A-U-i001+6535;
       ))
-    (ideographic-structure@apparent
+    (ideographic-structure@apparent/leftmost
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
@@ -3525,6 +3525,16 @@
      ((=ucs-itaiji-001	  . #x6535)	; &U-i001+6535;
       ))
     (ideographic-structure@apparent
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
+      (=ucs		  . #x2FF3)	; ⿳
+      )
+     ((=ucs		  . #x53B6)	; 厶
+      )
+     ((=ucs		  . #x5C0F)	; 小
+      )
+     ((=ucs		  . #x53C8)	; 又
+      ))
+    (ideographic-structure@apparent/leftmost
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
