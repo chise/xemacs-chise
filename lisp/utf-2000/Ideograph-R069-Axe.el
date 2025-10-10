@@ -2619,10 +2619,44 @@
       )
      ((=ucs		  . #x65A4)	; 斤
       ))
+    (sound@ja/on	"kWaku")
     (=ucs		. #x230BD)	; 𣂽
-    (=cns11643-5	. #x4D4C)	; &I-C5-4D4C; [45-44]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x230BD)	; 𣂽
+      ))
+    (ideographic-radical . 69)	; ⽄
+    (ideographic-strokes . 11)
+    (total-strokes	 . 15)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs@unicode	  . #x570B)	; &AJ1-04467;
+      (=adobe-japan1-0	  . 04467)	; &AJ1-04467;
+      )
+     ((=ucs		  . #x65A4)	; 斤
+      ))
+    (=ucs@iso		. #x230BD)	; &C5-4D4C;
+    (=cns11643-5	. #x4D4C)	; &C5-4D4C; [45-44]
     (=daikanwa		. 13592)	; &I-M-13592;
     (=cbeta		. 01608)	; &I-CB01608;
+    (->subsumptive
+     ((==ucs@iso	  . #x230BD)	; &g2-M-13592;
+      (==cns11643-5	  . #x4D4C)	; &g2-M-13592; [45-44]
+      (==daikanwa	  . 13592)	; &g2-M-13592;
+      (==cbeta		  . 01608)	; &g2-M-13592;
+      (->subsumptive
+       ((===daikanwa	    . 13592)	; &R-M-13592;
+	)
+       ((===cns11643-5	    . #x4D4C)	; &R-C5-4D4C; [45-44]
+	)
+       ((===ucs@iso	    . #x230BD)	; &R-U-000230BD;
+	)
+       ((===cbeta	    . 01608)	; &R-CB01608;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 69)	; ⽄
