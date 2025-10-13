@@ -101,8 +101,50 @@
     (ideographic-strokes . 2)
     (total-strokes	 . 6)
     (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x6597)	; 斗
+      )
+     ((=ucs		  . #x200CD)	; 𠃍
+      ))
+    (=ucs		. #x3AB2)	; 㪲
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x3AB2)	; 㪲
+      ))
+    (ideographic-radical . 68)	; ⽃
+    (ideographic-strokes . 2)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x6597)	; 斗
+      )
+     ((=ucs@iso		  . #x200CD)	; &CDP-89C8;
+      (=big5-cdp	  . #x89C8)	; &CDP-89C8;
+      ))
+    (=ucs@unicode	. #x3AB2)	; &MJ068003;
+    (=mj		. 068003)	; &MJ068003;
+    (->subsumptive
+     ((==ucs@unicode	  . #x3AB2)	; &g2-MJ068003;
+      (==mj		  . 068003)	; &MJ068003;
+      (->subsumptive
+       ((===mj		    . 068003)	; &MJ068003;
+	)
+       ((===ucs@unicode	    . #x3AB2)	; &R-UU+3AB2;
+	))
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 68)	; ⽃
+    (ideographic-strokes . 2)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
       )
      ((=ucs		  . #x6597)	; 斗
       )
@@ -110,6 +152,16 @@
       (=ucs		  . #x31E3)	; ㇣
       ))
     (=ucs		. #x3AB3)	; 㪳
+    (=mj		. 068004)	; &I-MJ068004;
+    (->subsumptive
+     ((==ucs@unicode	  . #x3AB3)	; &g2-MJ068004;
+      (==mj		  . 068004)	; 㪳
+      (->subsumptive
+       ((===mj		    . 068004)	; 㪳
+	)
+       ((===ucs@unicode	    . #x3AB3)	; &R-UU+3AB3;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 68)	; ⽃
