@@ -5284,7 +5284,18 @@
     (=hanziku-2		. #xCAB3)	; &I-HZK02-CAB3;
     ))
 (define-char
-  '((ideographic-radical . 30)	; ⼝
+  '((<-denotational@usage
+     ((==>ucs@bucs	  . #x540C)	; &BUCS+540C;
+      ))
+    (ideographic-radical . 30)	; ⼝
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
+      (=ucs		  . #x2FF5)	; ⿵
+      )
+     ((=ucs		  . #x2053C)	; 𠔼
+      )
+     ((=ucs		  . #x53E3)	; 口
+      ))
     (=ucs		. #x540C)	; 同
     (=>iwds-1		.  0321)	; 同
     ))
@@ -5300,7 +5311,9 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
       (=ucs		  . #x2FF5)	; ⿵
       )
-     ((=ucs		  . #x2053C)	; 𠔼
+     ((=ucs@iso		  . #x2053C)	; &GT-01977;
+      (=cns11643-4	  . #x212D)	; &GT-01977; [01-13]
+      (=daikanwa	  . 01507)	; &I-M-01507;
       )
      ((=ucs		  . #x53E3)	; 口
       ))
@@ -5316,6 +5329,7 @@
     (=gt-k		. 01675)	; &I-GT-K01675;
     (=gt-pj-1		. #x4631)	; &I-GT-04174; [38-17]
     (=daikanwa		. 03294)	; &I-M-03294;
+    (=daijiten		. 01174)	; &I-DJT-01174;
     (=shinjigen		.  0975)	; &AJ1-03209;
     (->subsumptive
      ((=decomposition@cid
@@ -5333,9 +5347,12 @@
       (==gt		  . 04174)	; &g2-AJ1-03209;
       (==gt-k		  . 01675)	; &g2-AJ1-03209;
       (==daikanwa	  . 03294)	; &g2-AJ1-03209;
+      (==daijiten	  . 01174)	; &g2-AJ1-03209;
       (==shinjigen	  .  0975)	; &g2-AJ1-03209;
       (->subsumptive
        ((===daikanwa	    . 03294)	; &R-M-03294;
+	)
+       ((===daijiten	    . 01174)	; &R-DJT-01174;
 	)
        ((===jis-x0208	    . #x4631)	; &R-J0-4631; [38-17]
 	(===jis-x0213-1	    . #x4631)	; &R-J0-4631; [38-17]
@@ -5371,7 +5388,9 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
       (=ucs		  . #x2FF5)	; ⿵
       )
-     ((=ucs		  . #x2053C)	; 𠔼
+     ((=ucs@iso		  . #x2053C)	; &GT-01977;
+      (=cns11643-4	  . #x212D)	; &GT-01977; [01-13]
+      (=daikanwa	  . 01507)	; &I-M-01507;
       )
      ((=big5-cdp	  . #x8C78)	; &CDP-8C78;
       ))
@@ -102184,6 +102203,11 @@
 (define-char
   '((ideographic-radical . 30)	; ⼝
     (==>ucs@bucs	. #x55AA)	; &BUCS+55AA;
+    ))
+(define-char
+  '((ideographic-radical . 30)	; ⼝
+    (==>ucs@bucs	. #x540C)	; &BUCS+540C;
+    (==>daijiten	. 01174)	; &BUCS+540C;
     ))
 (define-char
   '((ideographic-radical . 30)	; ⼝
