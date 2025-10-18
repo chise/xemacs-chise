@@ -1455,6 +1455,25 @@
      ((=ucs		  . #x2053C)	; 𠔼
       ))
     (=ucs		. #x21D0A)	; 𡴊
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x21D0A)	; 𡴊
+      ))
+    (ideographic-radical . 45)	; ⼬
+    (ideographic-strokes . 4)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs-var-001	  . #x37A2)	; &U-v001+37A2;
+      )
+     ((=ucs@iso		  . #x2053C)	; &GT-01977;
+      (=cns11643-4	  . #x212D)	; &GT-01977; [01-13]
+      (=daikanwa	  . 01507)	; &I-M-01507;
+      ))
+    (=ucs@iso		. #x21D0A)	; &U-00021D0A;
     (->subsumptive
      ((==ucs@iso	  . #x21D0A)	; &g2-IU-00021D0A;
       ))
