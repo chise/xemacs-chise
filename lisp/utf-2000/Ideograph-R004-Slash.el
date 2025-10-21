@@ -4029,6 +4029,29 @@
     (=>ucs@component	. #x200A1)	; &A-compU+200A1;
     ))
 (define-char
+  '((<-denotational
+     ((=>gt-k		  . 01340)	; &A-GT-K01340;
+      ))
+    (ideographic-radical . 4)	; ⼃
+    (ideographic-strokes . 4)
+    (total-strokes	 . 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER RIGHT")
+      (=ucs		  . #x2FFD)	; ⿽
+      )
+     ((=ucs@iso		  . #x27607)	; &CDP-8B67;
+      (=big5-cdp	  . #x8B67)	; &CDP-8B67;
+      )
+     ((=ucs		  . #x4E3F)	; 丿
+      ))
+    (=gt-k		. 01342)	; &GT-K01342;
+    (=gt-pj-k1		. #x5A68)	; &GT-K01342; [58-72]
+    (->subsumptive
+     ((==gt-k		  . 01342)	; &g2-GT-K01342;
+      (==gt-pj-k1	  . #x5A68)	; &g2-GT-K01342; [58-72]
+      ))
+    ))
+(define-char
   '((ideographic-radical . 4)	; ⼃
     (ideographic-strokes . 4)
     (total-strokes	 . 5)
@@ -5057,6 +5080,24 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=+>big5-cdp	  . #x8845)	; &o-CDP-8845;
+      ))
+    (ideographic-radical . 4)	; ⼃
+    (ideographic-strokes . 5)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x4E3F)	; 丿
+      )
+     ((=ucs		  . #x27607)	; 𧘇
+      ))
+    (=>gt-k		. 01340)	; &A-GT-K01340;
+    (=>big5-cdp-itaiji-003 . #x8845)	; &A-GT-K01340;
+    ))
+(define-char
   '((ideographic-radical . 4)	; ⼃
     (ideographic-strokes . 5)
     (total-strokes	 . 6)
@@ -5084,24 +5125,6 @@
      ((=ucs		  . #x27607)	; 𧘇
       ))
     (=>big5-cdp		. #x8D55)	; &A-CDP-8D55;
-    ))
-(define-char
-  '((<-denotational
-     ((=+>big5-cdp	  . #x8845)	; &o-CDP-8845;
-      ))
-    (ideographic-radical . 4)	; ⼃
-    (ideographic-strokes . 5)
-    (total-strokes	 . 6)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-      (=ucs		  . #x2FF1)	; ⿱
-      )
-     ((=ucs		  . #x4E3F)	; 丿
-      )
-     ((=ucs		  . #x27607)	; 𧘇
-      ))
-    (=>gt-k		. 01340)	; &A-GT-K01340;
-    (=>big5-cdp-itaiji-003 . #x8845)	; &A-GT-K01340;
     ))
 (define-char
   '((<-denotational
