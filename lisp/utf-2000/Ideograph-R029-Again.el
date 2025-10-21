@@ -3184,9 +3184,17 @@
     ))
 (define-char
   '((<-denotational@usage
-     ((==>daijiten	  . 01135)	; &A2-DJT-01135;
+     ((==>ucs@bucs	  . #x53DF)	; &BUCS+53DF;
       ))
     (ideographic-radical . 29)	; ⼜
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>ucs@component	  . #x7533)	; &A-compU+7533;
+      )
+     ((=ucs		  . #x53C8)	; 又
+      ))
     (=ucs		. #x53DF)	; 叟
     (=>jis-x0208	. #x5257)	; 叟 [50-55]
     (=>jis-x0213-1	. #x5257)	; 叟 [50-55]
@@ -4666,7 +4674,7 @@
     ))
 (define-char
   '((<-denotational@usage
-     ((==>daijiten	  . 01135)	; &A2-DJT-01135;
+     ((==>ucs@bucs	  . #x53DF)	; &BUCS+53DF;
       ))
     (ideographic-radical . 29)	; ⼜
     (ideographic-strokes . 6)
@@ -10506,6 +10514,11 @@
     ))
 (define-char
   '((ideographic-radical . 29)	; ⼜
+    (==>ucs@bucs	. #x53DF)	; &BUCS+53DF;
+    (==>daijiten	. 01135)	; &BUCS+53DF;
+    ))
+(define-char
+  '((ideographic-radical . 29)	; ⼜
     (==>ucs@bucs	. #x53C8)	; &BUCS+53C8;
     (==>daijiten	. 01108)	; &BUCS+53C8;
     ))
@@ -10537,10 +10550,6 @@
   '((ideographic-radical . 29)	; ⼜
     (==>ucs@bucs	. #x53CD)	; &BUCS+53CD;
     (==>daijiten	. 01116)	; &BUCS+53CD;
-    ))
-(define-char
-  '((ideographic-radical . 29)	; ⼜
-    (==>daijiten	. 01135)	; &A2-DJT-01135;
     ))
 (define-char
   '((ideographic-radical . 29)	; ⼜
