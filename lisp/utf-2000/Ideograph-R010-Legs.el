@@ -2271,11 +2271,29 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
+     ((=>ucs-itaiji-002	  . #x65E7)	; &A-U-i002+65E7;
+      )
+     ((=>ucs@iwds-1	  . #x513F)	; &A-IWDSU+513F;
+      (=>iwds-1		  .  11922)	; &A-IWDSU+513F;
+      ))
+    (=ucs		. #x2B917)	; 𫤗
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2B917)	; 𫤗
+      ))
+    (ideographic-radical . 10)	; ⼉
+    (ideographic-strokes . 4)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
      ((=ucs-itaiji-002	  . #x65E7)	; &U-i002+65E7;
       )
      ((=ucs		  . #x513F)	; 儿
       ))
-    (=ucs		. #x2B917)	; 𫤗
+    (=ucs@JP/hanazono	. #x2B917)	; &hanaJU+2B917;
     ))
 (define-char
   '((ideographic-radical . 10)	; ⼉
