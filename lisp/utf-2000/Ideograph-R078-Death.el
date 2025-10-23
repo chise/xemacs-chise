@@ -143,6 +143,9 @@
   '((<-denotational
      ((=>ucs@cognate	  . #x239B5)	; &A-cgnU+239B5;
       ))
+    (<-denotational@usage
+     ((==>ucs@bucs	  . #x6B79)	; &BUCS+6B79;
+      ))
     (ideographic-radical . 78)	; ⽍
     (ideographic-strokes . 0)
     (total-strokes	 . 5)
@@ -157,13 +160,35 @@
      ((=ucs		  . #x2053C)	; 𠔼
       ))
     (=ucs		. #x239B5)	; 𣦵
-    (=cns11643-5	. #x2171)	; &I-C5-2171; [01-81]
-    (=daikanwa		. 16361)	; &I-M-16361;
     (<-ancient
      ((=ucs		  . #x6B7A)	; 歺
       ))
     (<-ancient*sources
      shuowen)
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x239B5)	; 𣦵
+      ))
+    (ideographic-radical . 78)	; ⽍
+    (ideographic-strokes . 0)
+    (total-strokes	 . 5)
+    (hanyu-dazidian	1 93 1)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((name		  . "CJK RADICAL DIVINATION")
+      (=ucs		  . #x2E8A)	; ⺊
+      )
+     ((=ucs@iso		  . #x2053C)	; &GT-01977;
+      (=cns11643-4	  . #x212D)	; &GT-01977; [01-13]
+      (=daikanwa	  . 01507)	; &I-M-01507;
+      ))
+    (=ucs@iso		. #x239B5)	; &C5-2171;
+    (=cns11643-5	. #x2171)	; &C5-2171; [01-81]
+    (=daikanwa		. 16361)	; &I-M-16361;
+    (=daijiten		. 05680)	; &I-DJT-05680;
     (->ancient
      ((=ucs@iso		  . #x21C2E)	; &C6-2451;
       (=cns11643-6	  . #x2451)	; &C6-2451; [04-49]
@@ -187,6 +212,8 @@
 	  )
 	 ((=hanziku-1	      . #xB6F8)	; &HZK01-B6F8;
 	  ))
+	)
+       ((==daijiten	    . 05680)	; &g2-DJT-05680;
 	))
       )
      ((=>>ucs@iso	  . #x239B5)	; &G-IU+239B5;
@@ -398,6 +425,25 @@
      ((=ucs		  . #x4E0A)	; 上
       )
      ((=ucs		  . #x2053C)	; 𠔼
+      ))
+    (=>ucs-itaiji-003	. #x239B5)	; &A-U-i003+239B5;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs-itaiji-003	  . #x239B5)	; &A-U-i003+239B5;
+      ))
+    (ideographic-radical . 78)	; ⽍
+    (ideographic-strokes . 0)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x4E0A)	; 上
+      )
+     ((=ucs@iso		  . #x2053C)	; &GT-01977;
+      (=cns11643-4	  . #x212D)	; &GT-01977; [01-13]
+      (=daikanwa	  . 01507)	; &I-M-01507;
       ))
     (=ucs-itaiji-003	. #x239B5)	; &U-i003+239B5;
     ))
