@@ -346,6 +346,28 @@
     ))
 (define-char
   '((ideographic-radical . 77)	; ⽌
+    (ideographic-strokes . 0)
+    (total-strokes	 . 3)
+    (ideographic-structure@apparent
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
+      (=ucs		  . #x2FFA)	; ⿺
+      )
+     ((name		  . "CJK RADICAL SECOND TWO")
+      (=ucs		  . #x2E83)	; ⺃
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=ucs		    . #x4E36)	; 丶
+	)
+       ((=ucs		    . #x4E36)	; 丶
+	))
+      ))
+    (=big5-cdp		. #x8962)	; &CDP-8962;
+    ))
+(define-char
+  '((ideographic-radical . 77)	; ⽌
     (ideographic-strokes . 1)
     (=>ucs@cognate	. #x6B63)	; &A-cgnU+6B63;
     ))
