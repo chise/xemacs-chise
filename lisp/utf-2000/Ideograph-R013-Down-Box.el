@@ -6900,6 +6900,54 @@
     ))
 (define-char
   '((ideographic-radical . 13)	; ⼌
+    (ideographic-strokes . 10)
+    (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>ucs@iwds-1	  . #x4E1A)	; &A-IWDSU+4E1A;
+      (=>big5-cdp	  . #x8D6B)	; &A-IWDSU+4E1A;
+      )
+     ((=>big5-cdp	  . #x8C62)	; &A-CDP-8C62;
+      ))
+    (ideographic-structure@apparent/rightmost
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>big5-cdp	  . #x89BB)	; &A-CDP-89BB;
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER OVERLAID")
+	(=ucs		    . #x2FFB)	; ⿻
+	)
+       ((=ucs		    . #x5E00)	; 帀
+	)
+       ((=ucs		    . #x204DC)	; 𠓜
+	))
+      ))
+    (=>ucs-itaiji-001	. #x44E3)	; &A-U-i001+44E3;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs-itaiji-001	  . #x44E3)	; &A-U-i001+44E3;
+      ))
+    (ideographic-radical . 13)	; ⼌
+    (ideographic-strokes . 10)
+    (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs@unicode	  . #x4E1A)	; &G0-5235;
+      (=gb2312		  . #x5235)	; &G0-5235; [50-21]
+      )
+     ((=big5-cdp	  . #x8C62)	; &CDP-8C62;
+      ))
+    (=ucs-itaiji-001	. #x44E3)	; &U-i001+44E3;
+    ))
+(define-char
+  '((ideographic-radical . 13)	; ⼌
     (ideographic-strokes . 11)
     (total-strokes	 . 13)
     (=ucs		. #x34BE)	; 㒾
