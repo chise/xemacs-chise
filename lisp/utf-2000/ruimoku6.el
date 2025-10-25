@@ -3100,7 +3100,9 @@
       )
      ((=ucs		  . #x58EB)	; 士
       )
-     ((=ucs		  . #x2053C)	; 𠔼
+     ((=ucs@iso		  . #x2053C)	; &GT-01977;
+      (=cns11643-4	  . #x212D)	; &GT-01977; [01-13]
+      (=daikanwa	  . 01507)	; &I-M-01507;
       ))
     (=ruimoku-v6	. #xE0BE)	; &RUI6-E0BE;
     (=ucs-var-001	. #x21249)	; &RUI6-E0BE;
