@@ -4997,6 +4997,35 @@
     ))
 (define-char
   '((ideographic-radical . 5)	; ⼄
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x8005)	; 者
+      )
+     ((=ucs		  . #x4E5A)	; 乚
+      ))
+    (=ucs		. #x2A715)	; 𪜕
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2A715)	; 𪜕
+      ))
+    (ideographic-radical . 5)	; ⼄
+    (ideographic-strokes . 9)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #xFA5B)	; 者
+      )
+     ((=ucs		  . #x4E5A)	; 乚
+      ))
+    (=ucs@JP/hanazono	. #x2A715)	; &hanaJU+2A715;
+    ))
+(define-char
+  '((ideographic-radical . 5)	; ⼄
     (ideographic-strokes . 9)
     (total-strokes	 . 10)
     (=gt		. 00269)	; &GT-00269;
