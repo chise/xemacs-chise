@@ -20716,6 +20716,15 @@
      ((=ucs		  . #x6B63)	; 正
       ))
     (=ucs		. #x4F71)	; 佱
+    (<-ancient
+     ((=ucs		  . #x22307)	; 𢌇
+      )
+     ((=ucs		  . #x704B)	; 灋
+      ))
+    (<-ancient$_1*sources
+     shuowen)
+    (<-ancient$_2*sources
+     shuowen)
     ))
 (define-char
   '((<-denotational
@@ -20725,6 +20734,15 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
     (hanyu-dazidian	1 141 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=big5-cdp	  . #x8AFC)	; &CDP-8AFC;
+      )
+     ((=ucs@unicode	  . #x6B63)	; &AJ1-02649;
+      (=adobe-japan1-0	  . 02649)	; &AJ1-02649;
+      ))
     (=ucs@unicode	. #x4F71)	; &AJ1-21101;
     (=adobe-japan1-6	. 21101)	; &AJ1-21101;
     (=jis-x0212		. #x3075)	; &I-JSP-3075; [16-85]
