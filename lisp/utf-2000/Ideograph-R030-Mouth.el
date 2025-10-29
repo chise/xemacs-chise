@@ -32192,27 +32192,57 @@
   '((ideographic-radical . 30)	; ⼝
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x32CCA)	; 𲳊
+      )
+     ((=ucs		  . #x53E3)	; 口
+      ))
+    (=ucs		. #x5518)	; 唘
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5518)	; 唘
+      ))
+    (ideographic-radical . 30)	; ⼝
+    (ideographic-strokes . 7)
+    (total-strokes	 . 10)
     (hanyu-dazidian	1 627 9)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	(=ucs		    . #x2FF0)	; ⿰
-	)
-       ((=ucs		    . #x77F3)	; 石
-	)
-       ((=ucs		    . #x53C8)	; 又
-	))
+     ((=ucs@JP/hanazono	  . #x32CCA)	; &hanaJU+32CCA;
       )
      ((=ucs		  . #x53E3)	; 口
       ))
-    (=ucs		. #x5518)	; 唘
-    (=cns11643-3	. #x2F7E)	; &I-C3-2F7E; [15-94]
+    (=ucs@unicode	. #x5518)	; &C3-2F7E;
+    (=cns11643-3	. #x2F7E)	; &C3-2F7E; [15-94]
     (=daikanwa		. 03746)	; &I-M-03746;
-    (=hanziku-2		. #xD370)	; &I-HZK02-D370;
+    (=chise-hdic-tsj	. #x22FB)	; &C3-2F7E;
     (=cbeta		. 03702)	; &I-CB03702;
+    (->subsumptive
+     ((==ucs@unicode	  . #x5518)	; &g2-M-03746;
+      (==cns11643-3	  . #x2F7E)	; &g2-M-03746; [15-94]
+      (==daikanwa	  . 03746)	; &g2-M-03746;
+      (==cbeta		  . 03702)	; &g2-M-03746;
+      (->subsumptive
+       ((===daikanwa	    . 03746)	; &R-M-03746;
+	)
+       ((===cns11643-3	    . #x2F7E)	; &R-C3-2F7E; [15-94]
+	)
+       ((===ucs@unicode	    . #x5518)	; &R-UU+5518;
+	)
+       ((=hanziku-2	    . #xD370)	; &HZK02-D370;
+	)
+       ((===cbeta	    . 03702)	; &R-CB03702;
+	))
+      )
+     ((hdic-tsj-word-id	  . s0525a405a)
+      (===chise-hdic-tsj  . #x22FB)	; &R-CHISE-HDIC-TSJ22FB;
+      ))
     ))
 (define-char
   '((ideographic-radical . 30)	; ⼝

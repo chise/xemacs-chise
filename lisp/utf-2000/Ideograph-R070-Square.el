@@ -39,7 +39,8 @@
      ((=ucs		  . #x508D)	; 傍
       (=daikanwa	  . 00948)	; &I-M-00948;
       )
-     ((=ucs		  . #x6CD5)	; 法
+     ((=ucs@unicode	  . #x6CD5)	; &AJ1-03663;
+      (=adobe-japan1-0	  . 03663)	; &AJ1-03663;
       (=daikanwa	  . 17290)	; &I-M-17290;
       )
      ((=mj		  . 013549)	; &MJ013549;
