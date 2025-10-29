@@ -518,7 +518,10 @@
     (=cns11643-6	. #x322C)	; &C6-322C; [18-12]
     ))
 (define-char
-  '((ideographic-radical . 82)	; ⽑
+  '((<-denotational@usage
+     ((==>daijiten	  . 05855)	; &A2-DJT-05855;
+      ))
+    (ideographic-radical . 82)	; ⽑
     (ideographic-strokes . 5)
     (total-strokes	 . 9)
     (ideographic-structure
@@ -529,10 +532,51 @@
       )
      ((=ucs		  . #x6BDB)	; 毛
       ))
+    (sound@ja/on/go	"rIyAu" "reN")
+    (sound@ja/on/kan	"rei" "reN")
     (=ucs		. #x23B39)	; 𣬹
-    (=cns11643-5	. #x296E)	; &I-C5-296E; [09-78]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x23B39)	; 𣬹
+      ))
+    (ideographic-radical . 82)	; ⽑
+    (ideographic-strokes . 5)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs@unicode	  . #x4EE4)	; &AJ1-04009;
+      (=adobe-japan1-0	  . 04009)	; &AJ1-04009;
+      )
+     ((=ucs		  . #x6BDB)	; 毛
+      ))
+    (=ucs@iso		. #x23B39)	; &C5-296E;
+    (=cns11643-5	. #x296E)	; &C5-296E; [09-78]
     (=daikanwa		. 16792)	; &I-M-16792;
+    (=daijiten		. 05855)	; &I-DJT-05855;
     (=cbeta		. 05611)	; &I-CB05611;
+    (<-formed
+     ((=ucs@unicode	  . #x6CE0)	; &JX1-765D;
+      (=gb2312		  . #x6376)	; &JX1-765D; [67-86]
+      (=jis-x0212	  . #x4723)	; &I-JSP-4723; [39-03]
+      (=cns11643-1	  . #x4E61)	; &I-C1-4E61; [46-65]
+      (=jis-x0213-1	  . #x765D)	; &I-JX1-765D; [86-61]
+      (=daikanwa	  . 17306)	; &I-M-17306;
+      ))
+    (<-formed$_1*sources
+     jiyun)
+    (<-same
+     ((=ucs@unicode	  . #x6CE0)	; &JX1-765D;
+      (=gb2312		  . #x6376)	; &JX1-765D; [67-86]
+      (=jis-x0212	  . #x4723)	; &I-JSP-4723; [39-03]
+      (=cns11643-1	  . #x4E61)	; &I-C1-4E61; [46-65]
+      (=jis-x0213-1	  . #x765D)	; &I-JX1-765D; [86-61]
+      (=daikanwa	  . 17306)	; &I-M-17306;
+      ))
+    (<-same*sources
+     jiyun daikanwa)
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -548,9 +592,12 @@
       (=>>cbeta		  . 05611)	; &G-CB05611;
       (->subsumptive
        ((==daikanwa	    . 16792)	; &g2-M-16792;
+	(==daijiten	    . 05855)	; &g2-M-16792;
 	(==cbeta	    . 05611)	; &g2-M-16792;
 	(->subsumptive
 	 ((===daikanwa	      . 16792)	; &R-M-16792;
+	  )
+	 ((===daijiten	      . 05855)	; &R-DJT-05855;
 	  )
 	 ((===cbeta	      . 05611)	; &R-CB05611;
 	  ))
@@ -6281,6 +6328,10 @@
   '((ideographic-radical . 82)	; ⽑
     (==>ucs@bucs	. #x6BDF)	; &BUCS+6BDF;
     (==>daijiten	. 05852)	; &BUCS+6BDF;
+    ))
+(define-char
+  '((ideographic-radical . 82)	; ⽑
+    (==>daijiten	. 05855)	; &A2-DJT-05855;
     ))
 (define-char
   '((ideographic-radical . 82)	; ⽑
