@@ -689,6 +689,7 @@
 	  (=>ucs-itaiji-002@iwds-1	"A-IWDSU-i002+" 4 X)
 	  (=>ucs-itaiji-003@iwds-1	"A-IWDSU-i003+" 4 X)
 	  (=>ucs-itaiji-006@iwds-1	"A-IWDSU-i006+" 4 X)
+	  (=>ucs-itaiji-009@component	"A-compU-i009+" 4 X)
 	  (=>big5-cdp@iwds-1		   "A-IWDSCDP-" 4 X)
 	  (=>big5-cdp@component		   "A-compCDP-" 4 X)
 	  (=>big5-cdp@cognate		    "A-cgnCDP-" 4 X)
