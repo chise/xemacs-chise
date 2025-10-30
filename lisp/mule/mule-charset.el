@@ -698,6 +698,7 @@ DESCRIPTION (string) is the description string of the charset."
 	  =>ucs-bmp-itaiji-003@iwds-1
 	  =>ucs-sip-itaiji-003@iwds-1
 	  =>ucs-bmp-itaiji-006@iwds-1
+	  =>ucs-bmp-itaiji-009@component
 	  =>ucs-bmp-var-001
 	  =>ucs-sip-var-001
 	  =>daikanwa
