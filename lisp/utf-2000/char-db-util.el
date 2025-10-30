@@ -429,6 +429,7 @@
     =>ucs-itaiji-002@iwds-1
     =>ucs-itaiji-003@iwds-1
     =>ucs-itaiji-006@iwds-1
+    =>ucs-itaiji-009@component
     =>big5-cdp@component
     =>big5-cdp@cognate
     ==ucs@gb
