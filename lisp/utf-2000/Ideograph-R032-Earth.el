@@ -993,6 +993,57 @@
     (=ucs@iso		. #x21246)	; &U-00021246;
     ))
 (define-char
+  '((ideographic-radical . 32)	; ⼟
+    (ideographic-strokes . 2)
+    (total-strokes	 . 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>ucs@iwds-1	  . #x571F)	; &A-IWDSU+571F;
+      (=>iwds-1		  .  0312)	; &A-IWDSU+571F;
+      )
+     ((=ucs		  . #x535C)	; 卜
+      ))
+    (=ucs		. #x2A8B1)	; 𪢱
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2A8B1)	; 𪢱
+      ))
+    (ideographic-radical . 32)	; ⼟
+    (ideographic-strokes . 2)
+    (total-strokes	 . 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x571F)	; 土
+      )
+     ((=ucs@unicode	  . #x535C)	; &AJ1-03708;
+      (=adobe-japan1-0	  . 03708)	; &AJ1-03708;
+      ))
+    (=ucs@JP/hanazono	. #x2A8B1)	; &hanaJU+2A8B1;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2A8B1)	; 𪢱
+      ))
+    (ideographic-radical . 32)	; ⼟
+    (ideographic-strokes . 2)
+    (total-strokes	 . 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x58EB)	; 士
+      )
+     ((=ucs@unicode	  . #x535C)	; &AJ1-03708;
+      (=adobe-japan1-0	  . 03708)	; &AJ1-03708;
+      ))
+    (=ucs-var-001	. #x2A8B1)	; &U-v001+2A8B1;
+    ))
+(define-char
   '((<-denotational@component
      ((=>ucs@iwds-1	  . #x2BB57)	; &A-IWDSU+2BB57;
       ))
@@ -1609,20 +1660,29 @@
       )
      ((=ucs		  . #x571F)	; 土
       )
-     ((=ucs		  . #x2053C)	; 𠔼
+     ((=ucs@iso		  . #x2053C)	; &GT-01977;
+      (=cns11643-4	  . #x212D)	; &GT-01977; [01-13]
+      (=daikanwa	  . 01507)	; &I-M-01507;
       ))
-    (=ucs@iso		. #x21249)	; &M-04886;
-    (=daikanwa		. 04886)	; &M-04886;
+    (=ucs@iso		. #x21249)	; &MJ032937;
+    (=mj		. 032937)	; &MJ032937;
+    (=koseki		. 055780)	; &MJ032937;
+    (=daikanwa		. 04886)	; &I-M-04886;
     (->original
-     ((=ucs		  . #x20553)	; 𠕓
+     ((=ucs@iso		  . #x20553)	; &C5-233A;
+      (=cns11643-5	  . #x233A)	; &C5-233A; [03-26]
       ))
     (->original*sources
      guangyun daikanwa)
     (->subsumptive
-     ((==ucs@iso	  . #x21249)	; &g2-M-04886;
-      (==daikanwa	  . 04886)	; &g2-M-04886;
+     ((==ucs@iso	  . #x21249)	; &g2-MJ032937;
+      (==mj		  . 032937)	; &g2-MJ032937;
+      (==koseki		  . 055780)	; &g2-MJ032937;
+      (==daikanwa	  . 04886)	; &g2-MJ032937;
       (->subsumptive
        ((===daikanwa	    . 04886)	; &R-M-04886;
+	)
+       ((===mj		    . 032937)	; &R-MJ032937;
 	)
        ((===ucs@iso	    . #x21249)	; &R-U-00021249;
 	))
@@ -1641,7 +1701,9 @@
       )
      ((=ucs		  . #x58EB)	; 士
       )
-     ((=ucs		  . #x2053C)	; 𠔼
+     ((=ucs@iso		  . #x2053C)	; &GT-01977;
+      (=cns11643-4	  . #x212D)	; &GT-01977; [01-13]
+      (=daikanwa	  . 01507)	; &I-M-01507;
       ))
     (=ruimoku-v6	. #xE0BE)	; &RUI6-E0BE;
     (=ucs-var-001	. #x21249)	; &RUI6-E0BE;
@@ -2906,6 +2968,38 @@
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
     (=ucs		. #x21255)	; 𡉕
+    ))
+(define-char
+  '((ideographic-radical . 32)	; ⼟
+    (ideographic-strokes . 3)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=>ucs@iwds-1	  . #x571F)	; &A-IWDSU+571F;
+      (=>iwds-1		  .  0312)	; &A-IWDSU+571F;
+      )
+     ((=ucs		  . #x5F13)	; 弓
+      ))
+    (=ucs		. #x21256)	; 𡉖
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x21256)	; 𡉖
+      ))
+    (ideographic-radical . 32)	; ⼟
+    (ideographic-strokes . 3)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=gt-k		  . 00199)	; &GT-K00199;
+      )
+     ((=ucs		  . #x5F13)	; 弓
+      ))
+    (=ucs@iso		. #x21256)	; &U-00021256;
     ))
 (define-char
   '((<-denotational@component
