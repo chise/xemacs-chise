@@ -6430,6 +6430,29 @@
 		  mother	=>ucs-itaiji-009
 		  min-code #x20000 max-code #x2FFFF
 		  registry "ucs00\\.itaiji009-2"))
+  (make-charset '=>ucs-itaiji-009@component
+		"uXXXX-itaiji-009's abstract characters based on component unifiability"
+		'(long-name	"IWDS-1 abstract characters of UCS-itaiji-009"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+                  ;; =>iso-ir	177
+		  mother	=>ucs-itaiji-009))
+  (make-charset '=>ucs-bmp-itaiji-009@component
+		"Unifiable abstract characters of UCS-itaiji-009 in BMP"
+		'(long-name	"=>ucs-itaiji-009@component in BMP"
+		  chars		256
+		  dimension	2
+		  columns	2
+		  graphic	2
+		  direction	l2r
+                  ;; =>iso-ir	177
+		  mother	=>ucs-itaiji-009@component
+		  min-code #x2E00
+		  max-code #x9FFF
+		  registry "ucs\\.itaiji009-0"))
 
   (make-charset '=ucs-itaiji-010
 		"uXXXX-itaiji-010 glyphs of GlyphWiki"
