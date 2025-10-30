@@ -609,6 +609,7 @@
 	  ( =ucs@jis				  "JU-" 8 X)
 	  ( =ucs@cns				  "CU+" 4 X)
 	  ( =ucs@cns				  "CU-" 8 X)
+	  ( =ucs@cns/2008			"C08U+" 4 X)
 	  ( =ucs@ks				  "KU+" 4 X)
 	  ( =ucs@ks				  "KU-" 8 X)
 	  ( =ucs@JP				 "dJU+" 4 X)
