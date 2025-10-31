@@ -1,6 +1,11 @@
 2025-10-30  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
+	setting for `=ucs@cns/2008'.
+
+2025-10-30  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
 	setting for `=>ucs-itaiji-009@component'.
 
 	* mule/mule-charset.el (default-coded-charset-priority-list): Add
