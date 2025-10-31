@@ -2989,7 +2989,24 @@
     (=hanziku-1		. #xDF61)	; &I-HZK01-DF61;
     ))
 (define-char
-  '((<-denotational@usage
+  '((ideographic-radical . 16)	; ⼏
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
+      (=ucs		  . #x2FF5)	; ⿵
+      )
+     ((=>ucs@component	  . #x51E0)	; &A-compU+51E0;
+      (=>iwds-1		  .  0119)	; &A-compU+51E0;
+      )
+     ((=>ucs@iwds-1	  . #x7F36)	; &A-IWDSU+7F36;
+      (=>iwds-1		  .  39295)	; &A-IWDSU+7F36;
+      ))
+    (=>ucs@iwds-1	. #x20648)	; &A-IWDSU+20648;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@iwds-1	  . #x20648)	; &A-IWDSU+20648;
+      ))
+    (<-denotational@usage
      ((==>ucs@bucs	  . #x98A8)	; &BUCS+98A8;
       ))
     (ideographic-radical . 16)	; ⼏
@@ -3000,8 +3017,8 @@
      ((name		  . "CJK RADICAL TABLE")
       (=ucs		  . #x2E87)	; ⺇
       )
-     ((=>ucs@iwds-1	  . #x7F36)	; &A-IWDSU+7F36;
-      (=>iwds-1		  .  39295)	; &A-IWDSU+7F36;
+     ((=>ucs@iwds-1	  . #x26222)	; &A-IWDSU+26222;
+      (=>iwds-1		  .  0390)	; &A-IWDSU+26222;
       ))
     (sound@ja/on	"huu")
     (=ucs		. #x20648)	; 𠙈
@@ -3050,6 +3067,51 @@
        ((===ucs@iso	    . #x20648)	; &R-U-00020648;
 	)
        ((=hanziku-1	    . #xDF5D)	; &HZK01-DF5D;
+	))
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@iwds-1	  . #x20648)	; &A-IWDSU+20648;
+      ))
+    (ideographic-radical . 16)	; ⼏
+    (ideographic-strokes . 5)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
+      (=ucs		  . #x2FF5)	; ⿵
+      )
+     ((name		  . "CJK RADICAL TABLE")
+      (=ucs		  . #x2E87)	; ⺇
+      )
+     ((=>ucs@component	  . #x2067B)	; &A-compU+2067B;
+      ))
+    (=ucs		. #x20644)	; 𠙄
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x20644)	; 𠙄
+      ))
+    (ideographic-radical . 16)	; ⼏
+    (ideographic-strokes . 5)
+    (total-strokes	 . 7)
+    (hanyu-dazidian	8 9 25)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
+      (=ucs		  . #x2FF5)	; ⿵
+      )
+     ((name		  . "CJK RADICAL TABLE")
+      (=ucs		  . #x2E87)	; ⺇
+      )
+     ((=ucs		  . #x2CF08)	; 𬼈
+      ))
+    (=ucs@iso		. #x20644)	; &U-00020644;
+    (->subsumptive
+     ((==ucs@iso	  . #x20644)	; &g2-IU-00020644;
+      (->subsumptive
+       ((===ucs@iso	    . #x20644)	; &R-U-00020644;
+	)
+       ((=hanziku-12	    . #xEBA8)	; &HZK12-EBA8;
 	))
       ))
     ))
@@ -5433,12 +5495,6 @@
       ))
     (=>ucs@iwds-1	. #x20646)	; &A-IWDSU+20646;
     (=>ucs@iwds-1/normalized . #x20646)	; &A-IWDSU+20646;
-    ))
-(define-char
-  '((ideographic-radical . 16)	; ⼏
-    (hanyu-dazidian	8 9 25)
-    (=ucs		. #x20644)	; 𠙄
-    (=hanziku-12	. #xEBA8)	; &I-HZK12-EBA8;
     ))
 (define-char
   '((ideographic-radical . 16)	; ⼏
