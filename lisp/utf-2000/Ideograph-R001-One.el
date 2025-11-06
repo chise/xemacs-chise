@@ -1098,7 +1098,10 @@
       ))
     ))
 (define-char
-  '((<-denotational@usage
+  '((<-denotational@component
+     ((=>ucs@component	  . #x5F61)	; &A-compU+5F61;
+      ))
+    (<-denotational@usage
      ((==>ucs@bucs	  . #x4E09)	; &BUCS+4E09;
       ))
     (decimal-digit-value . 3)
