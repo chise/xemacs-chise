@@ -13,8 +13,9 @@
       ))
     (ideographic-radical . 121)	; ⽸
     (ideographic-strokes . 0)
-    (=>ucs@iwds-1	. #x2067B)	; &A-IWDSU+2067B;
-    (=>iwds-1		.  0295)	; &A-IWDSU+2067B;
+    (total-strokes	 . 6)
+    (=>ucs@iwds-1	. #x26222)	; &A-IWDSU+26222;
+    (=>iwds-1		.  0390)	; &A-IWDSU+26222;
     ))
 (define-char
   '((<-denotational@component
@@ -23,9 +24,8 @@
       ))
     (ideographic-radical . 121)	; ⽸
     (ideographic-strokes . 0)
-    (total-strokes	 . 6)
-    (=>ucs@iwds-1	. #x26222)	; &A-IWDSU+26222;
-    (=>iwds-1		.  0390)	; &A-IWDSU+26222;
+    (=>ucs@iwds-1	. #x2067B)	; &A-IWDSU+2067B;
+    (=>iwds-1		.  0295)	; &A-IWDSU+2067B;
     ))
 (define-char
   '((<-denotational
