@@ -8558,8 +8558,9 @@
     (=koseki		. 081510)	; &MJ033986;
     (=daikanwa		. 07174)	; &I-M-07174;
     (<-ancient
-     ((=ucs@ks		  . #x97FF)	; &M-43325;
-      (=ks-x1001	  . #x7A42)	; &M-43325; [90-34]
+     ((=ucs@ks		  . #x97FF)	; &AJ1-20246;
+      (=adobe-japan1-4	  . 13726)	; &AJ1-20246;
+      (=adobe-japan1-5	  . 20246)	; &I-AJ1-20246;
       (=daikanwa	  . 43325)	; &I-M-43325;
       ))
     (<-ancient$_1*sources
