@@ -1639,7 +1639,7 @@
      ((=>ucs@cognate	  . #x221ED)	; &A-cgnU+221ED;
       ))
     (<-denotational@usage
-     ((==>daijiten	  . 03550)	; &A2-DJT-03550;
+     ((==>ucs@bucs	  . #x61C9)	; &BUCS+61C9;
       ))
     (ideographic-radical . 53)	; ⼴
     (ideographic-strokes . 4)
