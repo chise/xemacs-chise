@@ -1632,7 +1632,7 @@
       )
      ((=ucs		  . #x5C24)	; 尤
       )
-     ((=ucs		  . #x5F61)	; 彡
+     ((=>ucs@component	  . #x5F61)	; &A-compU+5F61;
       ))
     (sound@ja/on/go	"mAu" "mu")
     (sound@ja/on/kan	"bAu" "bou")
@@ -1721,6 +1721,23 @@
 	(==ucs@JP/hanazono  . nil)
 	))
       ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5C28)	; 尨
+      ))
+    (ideographic-radical . 43)	; ⼪
+    (ideographic-strokes . 4)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
+      (=ucs		  . #x2FF7)	; ⿷
+      )
+     ((=ucs		  . #x5C24)	; 尤
+      )
+     ((=ucs-var-002	  . #x4E09)	; &U-v002+4E09;
+      ))
+    (=ucs-var-007	. #x5C28)	; &U-v007+5C28;
     ))
 (define-char
   '((<-denotational
