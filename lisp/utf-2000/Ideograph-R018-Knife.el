@@ -19980,6 +19980,22 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
       (=ucs		  . #x2FF8)	; ⿸
       )
+     ((=>ucs@iwds-1	  . #x20A7A)	; &A-IWDSU+20A7A;
+      )
+     ((=>ucs@component	  . #x5200)	; &A-compU+5200;
+      (=>iwds-1		  .  0149)	; &A-compU+5200;
+      ))
+    (=>ucs@iwds-1	. #x527A)	; &A-IWDSU+527A;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@iwds-1	  . #x527A)	; &A-IWDSU+527A;
+      ))
+    (ideographic-radical . 18)	; ⼑
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
      ((=ucs		  . #x20A7A)	; 𠩺
       )
      ((=ucs		  . #x5200)	; 刀
@@ -20845,12 +20861,62 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 18)	; ⼑
+  '((<-denotational
+     ((=>ucs@iwds-1	  . #x527A)	; &A-IWDSU+527A;
+      ))
+    (ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 11)
     (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=>gt-k		  . 08344)	; &A-GT-K08344;
+      )
+     ((=ucs		  . #x5200)	; 刀
+      ))
+    (sound@ja/on	"ri")
     (=ucs		. #x207B2)	; 𠞲
-    (=cns11643-6	. #x506B)	; &I-C6-506B; [48-75]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x207B2)	; 𠞲
+      ))
+    (ideographic-radical . 18)	; ⼑
+    (ideographic-strokes . 11)
+    (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=gt-k		  . 08344)	; &GT-K08344;
+      )
+     ((=ucs		  . #x5200)	; 刀
+      ))
+    (=ucs@iso		. #x207B2)	; &C6-506B;
+    (=cns11643-6	. #x506B)	; &C6-506B; [48-75]
     (=daikanwa		. 48941)	; &I-M-48941;
+    (->vulgar
+     ((=ucs@iso		  . #x22FA8)	; &C6-5D49;
+      (=cns11643-6	  . #x5D49)	; &C6-5D49; [61-41]
+      (=daikanwa	  . 13322)	; &I-M-13322;
+      ))
+    (->vulgar$_1*sources
+     daikanwa)
+    (->vulgar*sources
+     daikanwa)
+    (->subsumptive
+     ((==ucs@iso	  . #x207B2)	; &g2-M-48941;
+      (==cns11643-6	  . #x506B)	; &g2-M-48941; [48-75]
+      (==daikanwa	  . 48941)	; &g2-M-48941;
+      (->subsumptive
+       ((===daikanwa	    . 48941)	; &R-M-48941;
+	)
+       ((===cns11643-6	    . #x506B)	; &R-C6-506B; [48-75]
+	)
+       ((===ucs@iso	    . #x207B2)	; &R-U-000207B2;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 18)	; ⼑
