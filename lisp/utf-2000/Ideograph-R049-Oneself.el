@@ -1671,6 +1671,9 @@
   '((<-denotational
      ((=>ucs@iwds-1	  . #x5377)	; &A-IWDSU+5377;
       ))
+    (<-denotational@usage
+     ((==>ucs@bucs	  . #x5377)	; &BUCS+5377;
+      ))
     (ideographic-radical . 49)	; ⼰
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
@@ -1821,15 +1824,33 @@
 	))
       (=mj		  . 057415)	; &MJ057415;
       (=hanyo-denshi/ks	  . 099280)	; &MJ057415;
+      (=daijiten	  . 02793)	; &I-DJT-02793;
       (->subsumptive
        ((==mj		    . 057415)	; &g2-MJ057415;
 	(==hanyo-denshi/ks  . 099280)	; &g2-MJ057415;
+	(==daijiten	    . 02793)	; &g2-MJ057415;
 	(->subsumptive
+	 ((===daijiten	      . 02793)	; &R-DJT-02793;
+	  )
 	 ((===hanyo-denshi/ks . 099280)	; &R-HD-KS-099280;
 	  (=hanyo-denshi/ks/mf . #x26C8)	; &R-HD-KS-099280;
 	  )
 	 ((===mj	      . 057415)	; &R-MJ057415;
 	  ))
+	))
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((=ucs@iso	    . #x20509)	; &MJ030983;
+	(=mj		    . 030983)	; &MJ030983;
+	)
+       ((=ucs		    . #x5DF3)	; 巳
+	))
+      (=ucs-var-002	  . #x5377)	; &U-v002+5377;
+      (->subsumptive
+       ((==ucs-var-002	    . #x5377)	; &g2-U-v002+5377;
 	))
       ))
     ))
