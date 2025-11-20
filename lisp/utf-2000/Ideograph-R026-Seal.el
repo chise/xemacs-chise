@@ -2331,10 +2331,7 @@
     (=hanziku-1		. #xE6E1)	; &I-HZK01-E6E1;
     ))
 (define-char
-  '((<-denotational@usage
-     ((==>ucs@bucs	  . #x5377)	; &BUCS+5377;
-      ))
-    (ideographic-radical . 26)	; ⼙
+  '((ideographic-radical . 26)	; ⼙
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
     (ideographic-structure
@@ -2352,6 +2349,9 @@
 (define-char
   '((<-denotational
      ((=>ucs@iwds-1	  . #x5377)	; &A-IWDSU+5377;
+      ))
+    (<-denotational@usage
+     ((==>ucs@bucs	  . #x5377)	; &BUCS+5377;
       ))
     (ideographic-radical . 26)	; ⼙
     (ideographic-strokes . 6)
