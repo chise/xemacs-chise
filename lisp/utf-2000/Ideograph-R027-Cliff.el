@@ -4875,6 +4875,39 @@
     (ideographic-strokes . 8)
     (total-strokes	 . 10)
     (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x25762)	; 𥝢
+      )
+     ((=ucs		  . #x5382)	; 厂
+      ))
+    (=>ucs-itaiji-005	. #x20A7A)	; &A-U-i005+20A7A;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs-itaiji-005	  . #x20A7A)	; &A-U-i005+20A7A;
+      ))
+    (ideographic-radical . 27)	; ⼚
+    (ideographic-strokes . 8)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs@iso		  . #x25762)	; &C6-2D4A;
+      (=cns11643-6	  . #x2D4A)	; &C6-2D4A; [13-42]
+      (=daikanwa	  . 24936)	; &I-M-24936;
+      )
+     ((=ucs		  . #x5382)	; 厂
+      ))
+    (=ucs-itaiji-005	. #x20A7A)	; &U-i005+20A7A;
+    ))
+(define-char
+  '((ideographic-radical . 27)	; ⼚
+    (ideographic-strokes . 8)
+    (total-strokes	 . 10)
+    (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
       (=ucs		  . #x2FF8)	; ⿸
       )
