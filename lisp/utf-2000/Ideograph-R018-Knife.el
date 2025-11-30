@@ -20038,6 +20038,10 @@
       )
      ((=ucs		  . #x5253)	; 剓
       (=daikanwa	  . 02028)	; &I-M-02028;
+      )
+     ((=ucs@iso		  . #x22FA8)	; &MJ037346;
+      (=mj		  . 037346)	; &MJ037346;
+      (=daikanwa	  . 13322)	; &I-M-13322;
       ))
     (->formed$_1*sources
      shuowen-yizheng daikanwa)
@@ -20893,12 +20897,14 @@
       )
      ((=ucs		  . #x5200)	; 刀
       ))
-    (=ucs@iso		. #x207B2)	; &C6-506B;
-    (=cns11643-6	. #x506B)	; &C6-506B; [48-75]
+    (=ucs@iso		. #x207B2)	; &MJ031415;
+    (=mj		. 031415)	; &MJ031415;
+    (=cns11643-6	. #x506B)	; &I-C6-506B; [48-75]
+    (=koseki		. 025370)	; &MJ031415;
     (=daikanwa		. 48941)	; &I-M-48941;
     (->vulgar
-     ((=ucs@iso		  . #x22FA8)	; &C6-5D49;
-      (=cns11643-6	  . #x5D49)	; &C6-5D49; [61-41]
+     ((=ucs@iso		  . #x22FA8)	; &MJ037346;
+      (=mj		  . 037346)	; &MJ037346;
       (=daikanwa	  . 13322)	; &I-M-13322;
       ))
     (->vulgar$_1*sources
@@ -20906,11 +20912,15 @@
     (->vulgar*sources
      daikanwa)
     (->subsumptive
-     ((==ucs@iso	  . #x207B2)	; &g2-M-48941;
-      (==cns11643-6	  . #x506B)	; &g2-M-48941; [48-75]
-      (==daikanwa	  . 48941)	; &g2-M-48941;
+     ((==ucs@iso	  . #x207B2)	; &g2-MJ031415;
+      (==mj		  . 031415)	; &g2-MJ031415;
+      (==cns11643-6	  . #x506B)	; &g2-MJ031415; [48-75]
+      (==koseki		  . 025370)	; &g2-MJ031415;
+      (==daikanwa	  . 48941)	; &g2-MJ031415;
       (->subsumptive
        ((===daikanwa	    . 48941)	; &R-M-48941;
+	)
+       ((===mj		    . 031415)	; &R-MJ031415;
 	)
        ((===cns11643-6	    . #x506B)	; &R-C6-506B; [48-75]
 	)
