@@ -5827,6 +5827,20 @@
     ))
 (define-char
   '((ideographic-radical . 53)	; ⼴
+    (ideographic-strokes . 7)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs		  . #x5E7F)	; 广
+      )
+     ((=ucs		  . #x8F9B)	; 辛
+      ))
+    (=ucs		. #x327C6)	; 𲟆
+    ))
+(define-char
+  '((ideographic-radical . 53)	; ⼴
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
       (=ucs		  . #x2FF8)	; ⿸
