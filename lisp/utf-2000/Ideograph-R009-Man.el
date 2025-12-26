@@ -13876,12 +13876,35 @@
       )
      ((=ucs		  . #x56DB)	; 四
       ))
+    (sound@ja/on	"kyoku")
     (=ucs		. #x4F35)	; 伵
+    (=mj		. 006603)	; &I-MJ006603;
     (=adobe-japan1-6	. 21093)	; &I-AJ1-21093;
     (=jis-x0212		. #x3061)	; &I-JSP-3061; [16-65]
     (=cns11643-3	. #x244F)	; &I-C3-244F; [04-47]
+    (=koseki		. 005780)	; 伵
     (=daikanwa		. 00477)	; &I-M-00477;
     (=jef-china3	. #x41FA)	; &I-JC3-41FA;
+    (<-formed
+     ((=ucs		  . #x4F90)	; 侐
+      (=mj		  . 006705)	; &I-MJ006705;
+      (=koseki		  . 007050)	; 侐
+      )
+     ((=ucs@unicode	  . #x56DB)	; &AJ1-02203;
+      (=adobe-japan1-0	  . 02203)	; &AJ1-02203;
+      ))
+    (<-formed$_1*sources
+     jiyun koseki)
+    (<-formed$_2*sources
+     koseki mj)
+    (<-formed*sources
+     koseki mj)
+    (<-same
+     ((=ucs		  . #x4F90)	; 侐
+      (=daikanwa	  . 00593)	; &I-M-00593;
+      ))
+    (<-same*sources
+     jiyun daikanwa)
     (->subsumptive
      ((==ucs@cns	  . #x4F35)	; &g2-M-00477;
       (==cns11643-3	  . #x244F)	; &g2-M-00477; [04-47]
@@ -13908,14 +13931,18 @@
 	)
        ((=ucs		    . #xE0100)	; 󠄀
 	))
-      (==ucs@jis	  . #x4F35)	; &g2-AJ1-21093;
+      (==ucs@jis	  . #x4F35)	; &g2-MJ006603;
       (==ucs@JP/hanazono  . nil)
-      (==adobe-japan1-6	  . 21093)	; &g2-AJ1-21093;
-      (==jis-x0212	  . #x3061)	; &g2-AJ1-21093; [16-65]
+      (==mj		  . 006603)	; &g2-MJ006603;
+      (==adobe-japan1-6	  . 21093)	; &g2-MJ006603;
+      (==jis-x0212	  . #x3061)	; &g2-MJ006603; [16-65]
+      (==koseki		  . 005780)	; &g2-MJ006603;
       (->subsumptive
        ((===jis-x0212	    . #x3061)	; &R-JSP-3061; [16-65]
 	)
        ((===adobe-japan1-6  . 21093)	; &R-AJ1-21093;
+	)
+       ((===mj		    . 006603)	; &R-MJ006603;
 	))
       ))
     ))
@@ -23816,7 +23843,10 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 9)	; ⼈
+  '((<-denotational@usage
+     ((==>daijiten	  . 00291)	; &A2-DJT-00291;
+      ))
+    (ideographic-radical . 9)	; ⼈
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
     (hanyu-dazidian	1 149 8)
@@ -23828,24 +23858,54 @@
       )
      ((=ucs		  . #x8840)	; 血
       ))
+    (sound@ja/on/go	"keki" "ki")
+    (sound@ja/on/kan	"kyoku" "ki")
     (=ucs		. #x4F90)	; 侐
+    (=mj		. 006705)	; &I-MJ006705;
     (=adobe-japan1-6	. 21107)	; &I-AJ1-21107;
     (=jis-x0212		. #x3126)	; &I-JSP-3126; [17-06]
     (=cns11643-2	. #x2544)	; &I-C2-2544; [05-36]
     (=big5		. #xCBC4)	; &I-B-CBC4;
+    (=koseki		. 007050)	; 侐
     (=daikanwa		. 00593)	; &I-M-00593;
+    (=daijiten		. 00291)	; &I-DJT-00291;
+    (<-interchangeable
+     ((=ucs@jis/2004	  . #x6EA2)	; &MJ015692;
+      (=ucs@ks		  . #x6EA2)	; &MJ015692;
+      (=mj		  . 015692)	; &MJ015692;
+      ))
+    (->formed
+     ((=ucs		  . #x4997)	; 䦗
+      (=daikanwa	  . 41299)	; &I-M-41299;
+      )
+     ((=ucs		  . #x4F35)	; 伵
+      (=daikanwa	  . 00477)	; &I-M-00477;
+      ))
+    (->formed$_1*sources
+     jiyun daikanwa)
+    (->formed$_2*sources
+     jiyun daikanwa)
+    (->formed*sources
+     jiyun daikanwa)
     (->subsumptive
-     ((==ucs@unicode	  . #x4F90)	; &g2-AJ1-21107;
-      (==adobe-japan1-6	  . 21107)	; &g2-AJ1-21107;
-      (==jis-x0212	  . #x3126)	; &g2-AJ1-21107; [17-06]
-      (==cns11643-2	  . #x2544)	; &g2-AJ1-21107; [05-36]
-      (==daikanwa	  . 00593)	; &g2-AJ1-21107;
+     ((==ucs@unicode	  . #x4F90)	; &g2-MJ006705;
+      (==mj		  . 006705)	; &g2-MJ006705;
+      (==adobe-japan1-6	  . 21107)	; &g2-MJ006705;
+      (==jis-x0212	  . #x3126)	; &g2-MJ006705; [17-06]
+      (==cns11643-2	  . #x2544)	; &g2-MJ006705; [05-36]
+      (==koseki		  . 007050)	; &g2-MJ006705;
+      (==daikanwa	  . 00593)	; &g2-MJ006705;
+      (==daijiten	  . 00291)	; &g2-MJ006705;
       (->subsumptive
        ((===daikanwa	    . 00593)	; &R-M-00593;
+	)
+       ((===daijiten	    . 00291)	; &R-DJT-00291;
 	)
        ((===jis-x0212	    . #x3126)	; &R-JSP-3126; [17-06]
 	)
        ((===adobe-japan1-6  . 21107)	; &R-AJ1-21107;
+	)
+       ((===mj		    . 006705)	; &R-MJ006705;
 	)
        ((===cns11643-2	    . #x2544)	; &R-C2-2544; [05-36]
 	)
@@ -94032,6 +94092,10 @@
   '((ideographic-radical . 9)	; ⼈
     (==>ucs@bucs	. #x4F8F)	; &BUCS+4F8F;
     (==>daijiten	. 00290)	; &BUCS+4F8F;
+    ))
+(define-char
+  '((ideographic-radical . 9)	; ⼈
+    (==>daijiten	. 00291)	; &A2-DJT-00291;
     ))
 (define-char
   '((ideographic-radical . 9)	; ⼈
