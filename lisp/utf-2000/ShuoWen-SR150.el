@@ -47,6 +47,8 @@
   '((shuowen-radical	. 150)	; 甘
     (=shuowen-jiguge	. 15502)	; &SW-JIGUGE-15502;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x2485C)	; 𤡜
+      )
      ((=ucs		  . #x7312)	; 猒
       ))
     (->subsumptive
@@ -62,6 +64,13 @@
     (=shuowen-jiguge	. 15503)	; &SW-JIGUGE-15503;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x247F6)	; 𤟶
+      ))
+    (<-formed@shuowen
+     ((=shuowen-jiguge	  . 15502)	; &SW-JIGUGE-15502;
+      )
+     ((=ucs		  . #x2485C)	; 𤡜
+      )
+     ((=ucs		  . #x7312)	; 猒
       ))
     (->subsumptive
      ((===shuowen-jiguge-A30 . 16003)	; &SW-JIGUGE30-16003;
