@@ -1295,6 +1295,8 @@
   '((shuowen-radical	. 382)	; 火
     (=shuowen-jiguge	. 34826)	; &SW-JIGUGE-34826;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x24225)	; 𤈥
+      )
      ((=ucs		  . #x24211)	; 𤈑
       ))
     (->subsumptive
