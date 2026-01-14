@@ -802,7 +802,8 @@
     (<-interchangeable*sources
      daikanwa)
     (->Zhouwen
-     ((=ucs		  . #x211B7)	; 𡆷
+     ((=ucs@iso		  . #x211B7)	; &C6-2658;
+      (=cns11643-6	  . #x2658)	; &C6-2658; [06-56]
       (=daikanwa	  . 04719)	; &I-M-04719;
       ))
     (->Zhouwen*sources
