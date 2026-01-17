@@ -548,9 +548,51 @@
   '((ideographic-radical . 99)	; ⽢
     (ideographic-strokes . 4)
     (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x6C0F)	; 氏
+      )
+     ((=ucs		  . #x7518)	; 甘
+      ))
+    (sound@ja/on	"kWatu")
     (=ucs		. #x24BC1)	; 𤯁
+    (=mj		. 041289)	; &I-MJ041289;
     (=cns11643-6	. #x3270)	; &I-C6-3270; [18-80]
+    (=koseki		. 242780)	; 𤯁
     (=daikanwa		. 21650)	; &I-M-21650;
+    (<-ancient
+     ((=ucs		  . #x20BD1)	; 𠯑
+      (=daikanwa	  . 03345)	; &I-M-03345;
+      ))
+    (<-ancient$_1*sources
+     shuowen jiyun daikanwa)
+    (<-ancient*sources
+     shuowen jiyun daikanwa)
+    (<-formed
+     ((=ucs		  . #x20BD1)	; 𠯑
+      ))
+    (<-formed$_1*sources
+     koseki)
+    (<-formed*sources
+     koseki)
+    (->subsumptive
+     ((==ucs@iso	  . #x24BC1)	; &g2-MJ041289;
+      (==mj		  . 041289)	; &g2-MJ041289;
+      (==cns11643-6	  . #x3270)	; &g2-MJ041289; [18-80]
+      (==koseki		  . 242780)	; &g2-MJ041289;
+      (==daikanwa	  . 21650)	; &g2-MJ041289;
+      (->subsumptive
+       ((===daikanwa	    . 21650)	; &R-M-21650;
+	)
+       ((===mj		    . 041289)	; &R-MJ041289;
+	)
+       ((===cns11643-6	    . #x3270)	; &R-C6-3270; [18-80]
+	)
+       ((===ucs@iso	    . #x24BC1)	; &R-U-00024BC1;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 99)	; ⽢
