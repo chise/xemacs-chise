@@ -4280,6 +4280,25 @@
       )
      ((=ucs		  . #x5B80)	; 宀
       )
+     ((=ucs		  . #x4E92)	; 互
+      ))
+    (=>mj		. 010122)	; &A-GT-08924;
+    (=>gt		. 08924)	; &A-GT-08924;
+    (=>daikanwa		. 07112)	; &A-GT-08924;
+    ))
+(define-char
+  '((<-denotational
+     ((=>mj		  . 010122)	; &A-GT-08924;
+      ))
+    (ideographic-radical . 40)	; ⼧
+    (ideographic-strokes . 5)
+    (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5B80)	; 宀
+      )
      ((=ucs-var-003	  . #x4E92)	; &U-v003+4E92;
       ))
     (=ucs@cns		. #x5B90)	; &MJ010122;
@@ -4320,6 +4339,29 @@
 	)
        ((===cns11643-4	    . #x2625)	; &R-C4-2625; [06-05]
 	))
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>mj		  . 010122)	; &A-GT-08924;
+      ))
+    (ideographic-radical . 40)	; ⼧
+    (ideographic-strokes . 5)
+    (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5B80)	; 宀
+      )
+     ((=ucs@unicode	  . #x4E92)	; &AJ1-01939;
+      (=adobe-japan1-0	  . 01939)	; &AJ1-01939;
+      ))
+    (=hanyo-denshi/tk	. 01021520)	; &HD-TK-01021520;
+    (=hanyo-denshi/tk/mf-01 . #x0868)	; &HD-TK-01021520;
+    (->subsumptive
+     ((==hanyo-denshi/tk  . 01021520)	; &g2-HD-TK-01021520;
+      (==hanyo-denshi/tk/mf-01 . #x0868)	; &g2-HD-TK-01021520;
       ))
     ))
 (define-char
