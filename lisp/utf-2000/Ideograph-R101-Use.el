@@ -991,6 +991,21 @@
     ))
 (define-char
   '((ideographic-radical . 101)	; ⽤
+    (ideographic-structure
+     ((=>ucs@iwds-1	  . #x2FF8)	; &U-v002+2FF1;
+      (=>iwds-1		  .  0305)	; &U-v002+2FF1;
+      )
+     ((=>ucs@component	  . #x20017)	; &A-compU+20017;
+      )
+     ((=ucs		  . #x7528)	; 用
+      ))
+    (=>ucs@component	. #x24C07)	; &A-compU+24C07;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@component	  . #x24C07)	; &A-compU+24C07;
+      ))
+    (ideographic-radical . 101)	; ⽤
     (ideographic-strokes . 5)
     (total-strokes	 . 10)
     (ideographic-structure
