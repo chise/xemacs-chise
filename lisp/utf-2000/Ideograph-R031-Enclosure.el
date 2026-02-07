@@ -3142,12 +3142,41 @@
     ))
 (define-char
   '((ideographic-radical . 31)	; ⼞
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
+      (=ucs		  . #x2FF4)	; ⿴
+      )
+     ((=ucs		  . #x56D7)	; 囗
+      )
+     ((=ucs		  . #x2CEA3)	; 𬺣
+      ))
+    (sound@ja/on	"kotu")
+    (=ucs		. #x211B7)	; 𡆷
+    (<-Zhouwen
+     ((=ucs		  . #x66F6)	; 曶
+      ))
+    (<-Zhouwen$_1*sources
+     shuowen)
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x211B7)	; 𡆷
+      ))
+    (ideographic-radical . 31)	; ⼞
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
     (hanyu-dazidian	1 714 10)
-    (sound@ja/on	"kotu")
-    (=ucs		. #x211B7)	; 𡆷
-    (=cns11643-6	. #x2658)	; &I-C6-2658; [06-56]
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
+      (=ucs		  . #x2FF4)	; ⿴
+      )
+     ((=ucs		  . #x56D7)	; 囗
+      )
+     ((=ucs@JP/hanazono	  . #x2CEA3)	; &CDP-8BE2;
+      (=big5-cdp	  . #x8BE2)	; &CDP-8BE2;
+      ))
+    (=ucs@iso		. #x211B7)	; &C6-2658;
+    (=cns11643-6	. #x2658)	; &C6-2658; [06-56]
     (=daikanwa		. 04719)	; &I-M-04719;
     (<-Zhouwen
      ((=ucs		  . #x66F6)	; 曶
@@ -3182,16 +3211,64 @@
     ))
 (define-char
   '((ideographic-radical . 31)	; ⼞
+    (sound@ja/on	"kotu")
+    (=ucs		. #x211C6)	; 𡇆
+    (<-Zhouwen
+     ((=ucs		  . #x66F6)	; 曶
+      ))
+    (<-Zhouwen$_1*sources
+     shuowen)
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x211C6)	; 𡇆
+      ))
+    (ideographic-radical . 31)	; ⼞
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
-    (=ucs		. #x211C6)	; 𡇆
+    (hanyu-dazidian	1 716 3)
+    (=ucs@iso		. #x211C6)	; &MJ032833;
+    (=mj		. 032833)	; &MJ032833;
+    (=cns11643-6	. #x2653)	; &I-C6-2653; [06-51]
+    (=koseki		. 053920)	; &MJ032833;
+    (=daikanwa		. 04721)	; &I-M-04721;
+    (<-Zhouwen
+     ((=ucs		  . #x3ADA)	; 㫚
+      ))
+    (<-Zhouwen$_1*sources
+     zihui-bu)
+    (<-formed
+     ((=ucs		  . #x3ADA)	; 㫚
+      ))
+    (<-formed$_1*sources
+     koseki)
+    (<-formed*sources
+     koseki)
+    (<-same
+     ((=ucs		  . #x3ADA)	; 㫚
+      (=daikanwa	  . 13813)	; &I-M-13813;
+      ))
+    (<-same*sources
+     zihui-bu daikanwa)
     (->subsumptive
-     ((hanyu-dazidian	  1 716 3)
-      (=daikanwa	  . 04721)	; &M-04721;
-      (=hanziku-2	  . #xE5A2)	; &I-HZK02-E5A2;
+     ((==mj		  . 032833)	; &g2-MJ032833;
+      (==koseki		  . 053920)	; &g2-MJ032833;
+      (==daikanwa	  . 04721)	; &g2-MJ032833;
+      (->subsumptive
+       ((===daikanwa	    . 04721)	; &R-M-04721;
+	)
+       ((===mj		    . 032833)	; &R-MJ032833;
+	)
+       ((=hanziku-2	    . #xE5A2)	; &HZK02-E5A2;
+	))
       )
-     ((=ucs@iso		  . #x211C6)	; &C6-2653;
-      (=cns11643-6	  . #x2653)	; &C6-2653; [06-51]
+     ((==ucs@iso	  . #x211C6)	; &g2-IU-000211C6;
+      (==cns11643-6	  . #x2653)	; &g2-IU-000211C6; [06-51]
+      (->subsumptive
+       ((===cns11643-6	    . #x2653)	; &R-C6-2653; [06-51]
+	)
+       ((===ucs@iso	    . #x211C6)	; &R-U-000211C6;
+	))
       ))
     ))
 (define-char
@@ -3855,6 +3932,11 @@
       ))
     (sound@ja/on	"totu")
     (=ucs		. #x211C9)	; 𡇉
+    (<-Zhouwen
+     ((=ucs		  . #x66F6)	; 曶
+      ))
+    (<-Zhouwen$_1*sources
+     shuowen)
     ))
 (define-char
   '((<-denotational
