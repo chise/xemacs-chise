@@ -873,6 +873,8 @@
   '((shuowen-radical	. 410)	; 水
     (=shuowen-jiguge	. 37518)	; &SW-JIGUGE-37518;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x3D31)	; 㴱
+      )
      ((=ucs		  . #x6DF1)	; 深
       ))
     (->subsumptive
