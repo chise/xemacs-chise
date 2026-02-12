@@ -22409,7 +22409,6 @@
   '((ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 13)
     (total-strokes	 . 15)
-    (hanyu-dazidian	1 358 8)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -22418,12 +22417,68 @@
       )
      ((=ucs		  . #x5202)	; 刂
       ))
+    (sound@ja/on	"taku")
     (=ucs		. #x5285)	; 劅
-    (=adobe-japan1-6	. 21197)	; &I-AJ1-21197;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5285)	; 劅
+      ))
+    (ideographic-radical . 18)	; ⼑
+    (ideographic-strokes . 13)
+    (total-strokes	 . 15)
+    (hanyu-dazidian	1 358 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs@unicode	  . #x8700)	; &AJ1-06509;
+      (=adobe-japan1-0	  . 06509)	; &AJ1-06509;
+      )
+     ((=ucs		  . #x5202)	; 刂
+      ))
+    (=ucs@unicode	. #x5285)	; &AJ1-21197;
+    (=adobe-japan1-6	. 21197)	; &AJ1-21197;
     (=jis-x0212		. #x334F)	; &I-JSP-334F; [19-47]
     (=cns11643-4	. #x4925)	; &I-C4-4925; [41-05]
     (=daikanwa		. 02212)	; &I-M-02212;
-    (=hanziku-1		. #xEFC2)	; &I-HZK01-EFC2;
+    (<-ancient
+     ((=ucs@unicode	  . #x6580)	; &MJ013030;
+      (=mj		  . 013030)	; &MJ013030;
+      ))
+    (<-ancient$_1*sources
+     jiyun)
+    (<-ancient*sources
+     jiyun)
+    (<-same
+     ((=ucs@unicode	  . #x6580)	; &MJ013030;
+      (=mj		  . 013030)	; &MJ013030;
+      (=daikanwa	  . 13405)	; &I-M-13405;
+      ))
+    (<-same*sources
+     shuowen-zhu jiyun daikanwa)
+    (->subsumptive
+     ((==ucs@unicode	  . #x5285)	; &g2-AJ1-21197;
+      (==adobe-japan1-6	  . 21197)	; &g2-AJ1-21197;
+      (==jis-x0212	  . #x334F)	; &g2-AJ1-21197; [19-47]
+      (==cns11643-4	  . #x4925)	; &g2-AJ1-21197; [41-05]
+      (==daikanwa	  . 02212)	; &g2-AJ1-21197;
+      (->subsumptive
+       ((===daikanwa	    . 02212)	; &R-M-02212;
+	)
+       ((===jis-x0212	    . #x334F)	; &R-JSP-334F; [19-47]
+	)
+       ((===adobe-japan1-6  . 21197)	; &R-AJ1-21197;
+	)
+       ((===cns11643-4	    . #x4925)	; &R-C4-4925; [41-05]
+	)
+       ((===ucs@unicode	    . #x5285)	; &R-UU+5285;
+	)
+       ((=hanziku-1	    . #xEFC2)	; &HZK01-EFC2;
+	)
+       ((===chise-kangxi@kokusho-200014683 . #x0767)	; &R-CHISE-KX-NK1-01895;
+	))
+      ))
     ))
 (define-char
   '((=>ucs		. #x207E7)	; 𠟧
