@@ -228,6 +228,15 @@
     (=daikanwa		. 14281)	; &I-M-14281;
     (=daijiten		. 04652)	; &I-DJT-04652;
     (=shinjigen		.  6611)	; 㬰
+    (<-ancient
+     ((=ucs		  . #x2709F)	; 𧂟
+      )
+     ((=ucs		  . #x8562)	; 蕢
+      ))
+    (<-ancient$_1*sources
+     shuowen)
+    (<-ancient$_2*sources
+     shuowen)
     (<-formed
      ((=ucs		  . #x81FE)	; 臾
       ))
