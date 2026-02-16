@@ -882,6 +882,8 @@
   '((shuowen-radical	. 228)	; 貝
     (=shuowen-jiguge	. 20928)	; &SW-JIGUGE-20928;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x477F)	; 䝿
+      )
      ((=ucs		  . #x8CB4)	; 貴
       ))
     (->subsumptive
