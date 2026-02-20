@@ -26483,6 +26483,35 @@
     ))
 (define-char
   '((ideographic-radical . 38)	; ⼥
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>big5-cdp-itaiji-001 . #x89E5)	; &A-CDP-i001-89E5;
+      )
+     ((=ucs		  . #x5973)	; 女
+      ))
+    (=>ucs-itaiji-004	. #x59BB)	; &A-U-i004+59BB;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs-itaiji-004	  . #x59BB)	; &A-U-i004+59BB;
+      ))
+    (ideographic-radical . 38)	; ⼥
+    (ideographic-strokes . 8)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=big5-cdp-itaiji-001 . #x89E5)	; &CDP-i001-89E5;
+      )
+     ((=ucs		  . #x5973)	; 女
+      ))
+    (=ucs-itaiji-004	. #x59BB)	; &U-i004+59BB;
+    ))
+(define-char
+  '((ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
     (=ucs		. #x5A77)	; 婷
