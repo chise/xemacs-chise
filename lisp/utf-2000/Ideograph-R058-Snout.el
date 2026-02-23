@@ -1997,6 +1997,33 @@
     ))
 (define-char
   '((ideographic-radical . 58)	; ⼹
+    (ideographic-structure
+     ((=ucs-itaiji-001	  . #x2FF1)	; &U-i001+2FF1;
+      )
+     ((=ucs		  . #x30009)	; 𰀉
+      )
+     ((=ucs		  . #x5F50)	; 彐
+      ))
+    (=>big5-cdp-itaiji-001 . #x89E5)	; &A-CDP-i001-89E5;
+    ))
+(define-char
+  '((<-denotational
+     ((=>big5-cdp-itaiji-001 . #x89E5)	; &A-CDP-i001-89E5;
+      ))
+    (ideographic-radical . 58)	; ⼹
+    (ideographic-strokes . 5)
+    (total-strokes	 . 8)
+    (ideographic-structure
+     ((=ucs-itaiji-001	  . #x2FF1)	; &U-i001+2FF1;
+      )
+     ((=ucs		  . #x30009)	; 𰀉
+      )
+     ((=adobe-japan1-4	  . 15391)	; &AJ1-15391;
+      ))
+    (=big5-cdp-itaiji-001 . #x89E5)	; &CDP-i001-89E5;
+    ))
+(define-char
+  '((ideographic-radical . 58)	; ⼹
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
     (ideographic-structure
