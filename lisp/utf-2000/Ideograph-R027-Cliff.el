@@ -4269,6 +4269,11 @@
       ))
     (sound@ja/on	"tai")
     (=ucs		. #x20A6C)	; 𠩬
+    (<-ancient
+     ((=ucs		  . #x6584)	; 斄
+      ))
+    (<-ancient$_1*sources
+     shuowen)
     ))
 (define-char
   '((<-denotational
@@ -4323,6 +4328,8 @@
        ((=hanziku-1	    . #xB2F6)	; &HZK01-B2F6;
 	)
        ((===cns11643-6	    . #x356F)	; &R-C6-356F; [21-79]
+	)
+       ((===chise-kangxi@kokusho-200014683 . #x09F5)	; &R-CHISE-KX-NK1-02549;
 	))
       ))
     ))
