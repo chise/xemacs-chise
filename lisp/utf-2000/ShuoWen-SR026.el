@@ -259,6 +259,8 @@
   '((shuowen-radical	. 26)	; 走
     (=shuowen-jiguge	. 04517)	; &SW-JIGUGE-04517;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x27FB4)	; 𧾴
+      )
      ((=ucs		  . #x27F64)	; 𧽤
       ))
     (->subsumptive
@@ -329,6 +331,8 @@
   '((shuowen-radical	. 26)	; 走
     (=shuowen-jiguge	. 04522)	; &SW-JIGUGE-04522;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x27F9D)	; 𧾝
+      )
      ((=ucs		  . #x27FA9)	; 𧾩
       ))
     (->subsumptive
@@ -413,7 +417,11 @@
   '((shuowen-radical	. 26)	; 走
     (=shuowen-jiguge	. 04528)	; &SW-JIGUGE-04528;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x27F9E)	; 𧾞
+      )
      ((=ucs		  . #x47C8)	; 䟈
+      )
+     ((=ucs		  . #x27F6E)	; 𧽮
       ))
     (->subsumptive
      ((===shuowen-jiguge-A30 . 04528)	; &SW-JIGUGE30-04528;
