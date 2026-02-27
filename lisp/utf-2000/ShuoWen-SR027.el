@@ -34,6 +34,8 @@
     (=shuowen-jiguge	. 04823)	; &SW-JIGUGE-04823;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x47EB)	; 䟫
+      )
+     ((=ucs		  . #x2397A)	; 𣥺
       ))
     (->subsumptive
      ((===shuowen-jiguge-A30 . 04723)	; &SW-JIGUGE30-04723;
@@ -150,6 +152,11 @@
     (=shuowen-jiguge	. 04906)	; &SW-JIGUGE-04906;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x3C55)	; 㱕
+      ))
+    (<-Zhouwen@shuowen
+     ((=shuowen-jiguge	  . 04905)	; &SW-JIGUGE-04905;
+      )
+     ((=ucs		  . #x6B78)	; 歸
       ))
     (->subsumptive
      ((===shuowen-jiguge-A30 . 04806)	; &SW-JIGUGE30-04806;
