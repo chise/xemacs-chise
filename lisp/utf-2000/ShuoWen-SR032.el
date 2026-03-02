@@ -56,6 +56,11 @@
     (<-Small-Seal@shuowen
      ((=ucs		  . #x6107)	; 愇
       ))
+    (<-Zhouwen@shuowen
+     ((=shuowen-jiguge	  . 05102)	; &SW-JIGUGE-05102;
+      )
+     ((=ucs		  . #x97D9)	; 韙
+      ))
     (->subsumptive
      ((===shuowen-jiguge-A30 . 05003)	; &SW-JIGUGE30-05003;
       )
