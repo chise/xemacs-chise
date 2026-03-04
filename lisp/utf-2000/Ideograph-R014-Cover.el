@@ -402,6 +402,30 @@
     (=ucs-var-002	. #x5183)	; &U-v002+5183;
     ))
 (define-char
+  '((<-denotational
+     ((name		  . "CJK RADICAL NET THREE")
+      (=ucs		  . #x2EB3)	; ⺳
+      ))
+    (ideographic-radical . 14)	; ⼍
+    (ideographic-strokes . 2)
+    (total-strokes	 . 4)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5196)	; 冖
+      )
+     ((=ucs		  . #x516B)	; 八
+      ))
+    (=ucs		. #x32487)	; 𲒇
+    (=ucs-var-002	. #x34C1)	; 𲒇
+    (->subsumptive
+     ((==ucs@JP/hanazono  . #x32487)	; &g2-hanaJU+32487;
+      )
+     ((==ucs-var-002	  . #x34C1)	; &g2-U-v002+34C1;
+      ))
+    ))
+(define-char
   '((ideographic-radical . 14)	; ⼍
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
