@@ -506,6 +506,8 @@
   '((shuowen-radical	. 137)	; 刀
     (=shuowen-jiguge	. 14125)	; &SW-JIGUGE-14125;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x206F1)	; 𠛱
+      )
      ((=ucs		  . #x5217)	; 列
       ))
     (->subsumptive
