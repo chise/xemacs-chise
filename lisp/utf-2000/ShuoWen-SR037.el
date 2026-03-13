@@ -60,6 +60,8 @@
     (=shuowen-jiguge	. 05806)	; &SW-JIGUGE-05806;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x27602)	; 𧘂
+      )
+     ((=ucs		  . #x885D)	; 衝
       ))
     (->subsumptive
      ((===shuowen-jiguge-A30 . 05706)	; &SW-JIGUGE30-05706;
@@ -145,6 +147,11 @@
     (<-Small-Seal@shuowen
      ((=ucs		  . #x8852)	; 衒
       ))
+    (<-formed@shuowen
+     ((=shuowen-jiguge	  . 05811)	; &SW-JIGUGE-05811;
+      )
+     ((=ucs		  . #x275F3)	; 𧗳
+      ))
     (->subsumptive
      ((===shuowen-jiguge-A30 . 05712)	; &SW-JIGUGE30-05712;
       )
@@ -171,6 +178,10 @@
   '((shuowen-radical	. 37)	; 行
     (=shuowen-jiguge	. 05814)	; &SW-JIGUGE-05814;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x4619)	; 䘙
+      )
+     ((=ucs		  . #x885E)	; 衞
+      )
      ((=ucs		  . #x885B)	; 衛
       ))
     (->subsumptive
