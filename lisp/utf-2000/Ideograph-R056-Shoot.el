@@ -363,7 +363,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
       (=ucs		  . #x2FF9)	; ⿹
       )
-     ((=ucs		  . #x5F0B)	; 弋
+     ((=gt-k		  . 00233)	; &GT-K00233;
       )
      ((=ucs@unicode	  . #x4E09)	; &AJ1-02174;
       (=adobe-japan1-0	  . 02174)	; &AJ1-02174;
