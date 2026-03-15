@@ -288,7 +288,7 @@
      ((=ucs		  . #x529B)	; 力
       ))
     (=ucs		. #x31429)	; 𱐩
-    (=gt-k		. 00813)	; &GT-K00813;
+    (=gt-k		. 00813)	; &I-GT-K00813;
     (=gt-pj-k2		. #x393F)	; 𱐩 [25-31]
     (<-simplified@CN/component
      ((=ucs		  . #x2C037)	; 𬀷
