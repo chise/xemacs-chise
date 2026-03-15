@@ -992,6 +992,15 @@
       ))
     (sound@ja/on	"gai" "toku")
     (=ucs		. #x3775)	; 㝵
+    (<-ancient
+     ((=ucs		  . #x22536)	; 𢔶
+      )
+     ((=ucs		  . #x5F97)	; 得
+      ))
+    (<-ancient$_1*sources
+     shuowen)
+    (<-ancient$_2*sources
+     shuowen)
     ))
 (define-char
   '((<-denotational
