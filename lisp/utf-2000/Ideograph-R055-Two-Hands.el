@@ -4271,9 +4271,78 @@
   '((ideographic-radical . 55)	; ⼶
     (ideographic-strokes . 13)
     (total-strokes	 . 16)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM BELOW")
+      (=ucs		  . #x2FF6)	; ⿶
+      )
+     ((=ucs		  . #x8201)	; 舁
+      )
+     ((=ucs		  . #x56DF)	; 囟
+      ))
+    (sound@ja/on	"seN")
     (=ucs		. #x22371)	; 𢍱
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x22371)	; 𢍱
+      ))
+    (ideographic-radical . 55)	; ⼶
+    (ideographic-strokes . 13)
+    (total-strokes	 . 16)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM BELOW")
+      (=ucs		  . #x2FF6)	; ⿶
+      )
+     ((=ucs		  . #x2F893)	; 舁
+      )
+     ((=ucs		  . #x56DF)	; 囟
+      ))
+    (=ucs@iso		. #x22371)	; &MJ035535;
+    (=mj		. 035535)	; &MJ035535;
     (=cns11643-5	. #x5445)	; &I-C5-5445; [52-37]
+    (=koseki		. 109160)	; &MJ035535;
     (=daikanwa		. 09650)	; &I-M-09650;
+    (<-same
+     ((=ucs@iso		  . #x26989)	; &C7-3172;
+      (=cns11643-7	  . #x3172)	; &C7-3172; [17-82]
+      (=daikanwa	  . 30230)	; &I-M-30230;
+      ))
+    (<-same*sources
+     daikanwa)
+    (->ancient
+     ((=ucs@iso		  . #x269C2)	; &C7-653F;
+      (=cns11643-7	  . #x653F)	; &C7-653F; [69-31]
+      (=daikanwa	  . 30273)	; &I-M-30273;
+      ))
+    (->ancient$_1*sources
+     shuowen daikanwa)
+    (->ancient*sources
+     shuowen daikanwa)
+    (->formed
+     ((=ucs@iso		  . #x20A27)	; &MJ031841;
+      (=mj		  . 031841)	; &MJ031841;
+      (=daikanwa	  . 02889)	; &I-M-02889;
+      ))
+    (->formed$_1*sources
+     shuowen daikanwa)
+    (->formed*sources
+     shuowen daikanwa)
+    (->subsumptive
+     ((==ucs@iso	  . #x22371)	; &g2-MJ035535;
+      (==mj		  . 035535)	; &g2-MJ035535;
+      (==cns11643-5	  . #x5445)	; &g2-MJ035535; [52-37]
+      (==koseki		  . 109160)	; &g2-MJ035535;
+      (==daikanwa	  . 09650)	; &g2-MJ035535;
+      (->subsumptive
+       ((===daikanwa	    . 09650)	; &R-M-09650;
+	)
+       ((===mj		    . 035535)	; &R-MJ035535;
+	)
+       ((===cns11643-5	    . #x5445)	; &R-C5-5445; [52-37]
+	)
+       ((===ucs@iso	    . #x22371)	; &R-U-00022371;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 55)	; ⼶
