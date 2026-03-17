@@ -228,6 +228,8 @@
   '((shuowen-radical	. 38)	; 齒
     (=shuowen-jiguge	. 05911)	; &SW-JIGUGE-05911;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x2A656)	; 𪙖
+      )
      ((=ucs		  . #x9F64)	; 齤
       ))
     (->subsumptive
@@ -326,6 +328,8 @@
   '((shuowen-radical	. 38)	; 齒
     (=shuowen-jiguge	. 05918)	; &SW-JIGUGE-05918;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x2A66E)	; 𪙮
+      )
      ((=ucs		  . #x9F70)	; 齰
       ))
     (->subsumptive
@@ -341,6 +345,13 @@
     (=shuowen-jiguge	. 05919)	; &SW-JIGUGE-05919;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x9F5A)	; 齚
+      ))
+    (<-formed@shuowen
+     ((=shuowen-jiguge	  . 05918)	; &SW-JIGUGE-05918;
+      )
+     ((=ucs		  . #x2A66E)	; 𪙮
+      )
+     ((=ucs		  . #x9F70)	; 齰
       ))
     (->subsumptive
      ((===shuowen-jiguge-A30 . 05819)	; &SW-JIGUGE30-05819;
@@ -368,6 +379,8 @@
   '((shuowen-radical	. 38)	; 齒
     (=shuowen-jiguge	. 05921)	; &SW-JIGUGE-05921;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x2A61F)	; 𪘟
+      )
      ((=ucs		  . #x9F66)	; 齦
       ))
     (->subsumptive
@@ -410,6 +423,8 @@
   '((shuowen-radical	. 38)	; 齒
     (=shuowen-jiguge	. 05924)	; &SW-JIGUGE-05924;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x2A642)	; 𪙂
+      )
      ((=ucs		  . #x2A5FF)	; 𪗿
       ))
     (->subsumptive
