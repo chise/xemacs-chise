@@ -210,6 +210,11 @@
       ))
     (sound@ja/on	"ga")
     (=ucs		. #x24608)	; 𤘈
+    (<-ancient
+     ((=ucs		  . #x7259)	; 牙
+      ))
+    (<-ancient$_1*sources
+     shuowen)
     ))
 (define-char
   '((<-denotational
