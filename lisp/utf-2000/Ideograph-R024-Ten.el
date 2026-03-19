@@ -212,6 +212,15 @@
     (ideographic-radical . 24)	; ⼗
     (ideographic-strokes . 1)
     (total-strokes	 . 3)
+    (ideographic-structure@apparent
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
+      (=ucs		  . #x2FF9)	; ⿹
+      )
+     ((name		  . "CJK RADICAL SECOND THREE")
+      (=ucs		  . #x2E84)	; ⺄
+      )
+     ((=ucs		  . #x3405)	; 㐅
+      ))
     (=big5-cdp		. #x88EC)	; &CDP-88EC;
     (->subsumptive
      ((==big5-cdp	  . #x88EC)	; &g2-CDP-88EC;
@@ -255,6 +264,25 @@
 (define-char
   '((<-denotational
      ((=>ucs@component	  . #x5342)	; &A-compU+5342;
+      ))
+    (ideographic-radical . 24)	; ⼗
+    (ideographic-strokes . 1)
+    (total-strokes	 . 3)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((name		  . "CJK RADICAL SECOND THREE")
+      (=ucs		  . #x2E84)	; ⺄
+      )
+     ((=>ucs@iwds-1	  . #x5341)	; &A-IWDSU+5341;
+      (=>iwds-1		  .  0037)	; &A-IWDSU+5341;
+      ))
+    (=>ucs-itaiji-001	. #x5342)	; &A-U-i001+5342;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs-itaiji-001	  . #x5342)	; &A-U-i001+5342;
       ))
     (ideographic-radical . 24)	; ⼗
     (ideographic-strokes . 1)
