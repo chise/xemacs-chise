@@ -295,7 +295,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
       (=ucs		  . #x2FF7)	; ⿷
       )
-     ((=ucs		  . #x5338)	; 匸
+     ((=ucs@unicode	  . #x5338)	; &AJ1-04307;
+      (=adobe-japan1-0	  . 04307)	; &AJ1-04307;
       )
      ((=ucs		  . #x3405)	; 㐅
       ))
@@ -312,17 +313,7 @@
     (<-simplified*sources
      daikanwa)
     (->subsumptive
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
-	(=ucs		    . #x2FF7)	; ⿷
-	)
-       ((==ucs@cns	    . #x5338)	; &g2-AJ1-04307;
-	(==ucs@jis	    . #x5338)	; &g2-AJ1-04307;
-	(==adobe-japan1-0   . 04307)	; &g2-AJ1-04307;
-	)
-       ((=ucs		    . #x3405)	; 㐅
-	))
-      (==ucs@cns	  . #x533A)	; &g2-GT-03428;
+     ((==ucs@cns	  . #x533A)	; &g2-GT-03428;
       (==cns11643-3	  . #x2157)	; &g2-GT-03428; [01-55]
       (==gt		  . 03428)	; &g2-GT-03428;
       (==daikanwa	  . 02674)	; &g2-GT-03428;
