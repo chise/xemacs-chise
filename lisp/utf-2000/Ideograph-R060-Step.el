@@ -1054,6 +1054,11 @@
     (sound@ja/on/go	"nAHu" "tai")
     (sound@ja/on/kan	"dAHu" "tai")
     (=ucs		. #x224C7)	; 𢓇
+    (<-formed
+     ((=ucs		  . #x224F4)	; 𢓴
+      ))
+    (<-formed$_1*sources
+     shuowen)
     ))
 (define-char
   '((<-denotational
@@ -6840,6 +6845,23 @@
      ((=ucs		  . #x2125A)	; 𡉚
       ))
     (=ucs		. #x224F8)	; 𢓸
+    (<-ancient
+     ((=ucs		  . #x224F8)	; 𢓸
+      )
+     ((=ucs		  . #x2250E)	; 𢔎
+      )
+     ((=ucs		  . #x5F83)	; 徃
+      )
+     ((=ucs		  . #x5F80)	; 往
+      ))
+    (<-ancient$_1*sources
+     shuowen)
+    (<-ancient$_2*sources
+     shuowen)
+    (<-ancient$_3*sources
+     shuowen)
+    (<-ancient$_4*sources
+     shuowen)
     ))
 (define-char
   '((<-denotational

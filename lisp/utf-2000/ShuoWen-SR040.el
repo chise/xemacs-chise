@@ -168,6 +168,8 @@
   '((shuowen-radical	. 40)	; 足
     (=shuowen-jiguge	. 06110)	; &SW-JIGUGE-06110;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x28166)	; 𨅦
+      )
      ((=ucs		  . #x8E16)	; 踖
       ))
     (->subsumptive
@@ -197,6 +199,8 @@
     (=shuowen-jiguge	. 06112)	; &SW-JIGUGE-06112;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x2811A)	; 𨄚
+      )
+     ((=ucs		  . #x8E61)	; 蹡
       ))
     (->subsumptive
      ((===shuowen-jiguge-A30 . 06012)	; &SW-JIGUGE30-06012;
@@ -210,6 +214,8 @@
   '((shuowen-radical	. 40)	; 足
     (=shuowen-jiguge	. 06113)	; &SW-JIGUGE-06113;
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x8E96)	; 躖
+      )
      ((=ucs		  . #x482A)	; 䠪
       ))
     (->subsumptive
