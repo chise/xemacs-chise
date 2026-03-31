@@ -1342,19 +1342,6 @@
 	 ((===ucs@unicode     . #x34C1)	; &R-UU+34C1;
 	  ))
 	))
-      )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	(=ucs		    . #x2FF1)	; ⿱
-	)
-       ((=ucs		    . #x5196)	; 冖
-	)
-       ((=ucs		    . #x516B)	; 八
-	))
-      (=ucs-var-002	  . #x34C1)	; &U-v002+34C1;
-      (->subsumptive
-       ((==ucs-var-002	    . #x34C1)	; &g2-U-v002+34C1;
-	))
       ))
     ))
 (define-char
