@@ -1513,6 +1513,24 @@
     ))
 (define-char
   '((ideographic-radical . 14)	; ⼍
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5196)	; 冖
+      )
+     ((=>ucs@iwds-1	  . #x7680)	; &A-IWDSU+7680;
+      (=>iwds-1		  .  35699)	; &A-IWDSU+7680;
+      ))
+    (sound@ja/on/go	"syaku")
+    (sound@ja/on/kan	"seki")
+    (=ucs		. #x519F)	; 冟
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x519F)	; 冟
+      ))
+    (ideographic-radical . 14)	; ⼍
     (ideographic-strokes . 7)
     (total-strokes	 . 9)
     (hanyu-dazidian	1 304 3)
@@ -1522,12 +1540,35 @@
       )
      ((=ucs		  . #x5196)	; 冖
       )
-     ((=ucs		  . #x7680)	; 皀
+     ((=ucs@unicode	  . #x7680)	; &AJ1-05786;
+      (=adobe-japan1-0	  . 05786)	; &AJ1-05786;
       ))
-    (=ucs		. #x519F)	; 冟
-    (=cns11643-3	. #x2B39)	; &I-C3-2B39; [11-25]
+    (=ucs@unicode	. #x519F)	; &C3-2B39;
+    (=cns11643-3	. #x2B39)	; &C3-2B39; [11-25]
     (=daikanwa		. 01579)	; &I-M-01579;
-    (=hanziku-1		. #xE4BC)	; &I-HZK01-E4BC;
+    (<-interchangeable
+     ((=ucs@ks		  . #x9069)	; &AJ1-13946;
+      (=adobe-japan1-4	  . 13946)	; &AJ1-13946;
+      (=daikanwa	  . 39076)	; &I-M-39076;
+      ))
+    (<-interchangeable$_1*sources
+     yupian daikanwa)
+    (<-interchangeable*sources
+     yupian daikanwa)
+    (->subsumptive
+     ((==ucs@unicode	  . #x519F)	; &g2-M-01579;
+      (==cns11643-3	  . #x2B39)	; &g2-M-01579; [11-25]
+      (==daikanwa	  . 01579)	; &g2-M-01579;
+      (->subsumptive
+       ((===daikanwa	    . 01579)	; &R-M-01579;
+	)
+       ((===cns11643-3	    . #x2B39)	; &R-C3-2B39; [11-25]
+	)
+       ((===ucs@unicode	    . #x519F)	; &R-UU+519F;
+	)
+       ((=hanziku-1	    . #xE4BC)	; &HZK01-E4BC;
+	))
+      ))
     ))
 (define-char
   '((<-denotational@usage
