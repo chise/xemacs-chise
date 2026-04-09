@@ -662,6 +662,8 @@
     (=daikanwa		. 02779)	; &I-M-02779;
     (<-formed
      ((=ucs		  . #x4E69)	; 乩
+      (=mj		  . 006411)	; &I-MJ006411;
+      (=koseki		  . 002220)	; 乩
       ))
     (<-formed$_1*sources
      koseki mj)

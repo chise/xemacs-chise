@@ -408,7 +408,61 @@
       ))
     (ideographic-radical . 213)	; ⿔
     (ideographic-strokes . 0)
+    (total-strokes	 . 20)
+    (=ucs		. #x2EBDB)	; 𮯛
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@cognate	  . #x9F9C)	; &A-cgnU+9F9C;
+      ))
+    (ideographic-radical . 213)	; ⿔
+    (ideographic-strokes . 0)
+    (total-strokes	 . 22)
+    (=ucs		. #x2EBDC)	; 𮯜
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@cognate	  . #x9F9C)	; &A-cgnU+9F9C;
+      ))
+    (ideographic-radical . 213)	; ⿔
+    (ideographic-strokes . 0)
+    (total-strokes	 . 17)
+    (=ucs		. #x2EBDD)	; 𮯝
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@cognate	  . #x9F9C)	; &A-cgnU+9F9C;
+      ))
+    (ideographic-radical . 213)	; ⿔
+    (ideographic-strokes . 0)
     (=>ucs@cognate	. #x2EBDE)	; &A-cgnU+2EBDE;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2EBDB)	; 𮯛
+      ))
+    (ideographic-radical . 213)	; ⿔
+    (ideographic-strokes . 0)
+    (total-strokes	 . 20)
+    (=ucs@JP/hanazono	. #x2EBDB)	; &hanaJU+2EBDB;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2EBDC)	; 𮯜
+      ))
+    (ideographic-radical . 213)	; ⿔
+    (ideographic-strokes . 0)
+    (total-strokes	 . 22)
+    (=ucs@JP/hanazono	. #x2EBDC)	; &hanaJU+2EBDC;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2EBDD)	; 𮯝
+      ))
+    (ideographic-radical . 213)	; ⿔
+    (ideographic-strokes . 0)
+    (total-strokes	 . 17)
+    (=ucs@JP/hanazono	. #x2EBDD)	; &hanaJU+2EBDD;
     ))
 (define-char
   '((<-denotational
@@ -449,6 +503,27 @@
      ((=ucs		  . #x76EE)	; 目
       ))
     (=ucs		. #x2EBDE)	; 𮯞
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@cognate	  . #x2EBDE)	; &A-cgnU+2EBDE;
+      ))
+    (<-denotational@usage
+     ((==>ucs@bucs	  . #x9F9C)	; &BUCS+9F9C;
+      ))
+    (ideographic-radical . 213)	; ⿔
+    (ideographic-strokes . 0)
+    (total-strokes	 . 15)
+    (=ucs		. #x2EBDF)	; 𮯟
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2EBDF)	; 𮯟
+      ))
+    (ideographic-radical . 213)	; ⿔
+    (ideographic-strokes . 0)
+    (total-strokes	 . 15)
+    (=ucs@JP/hanazono	. #x2EBDF)	; &hanaJU+2EBDF;
     ))
 (define-char
   '((<-denotational
@@ -909,7 +984,7 @@
      ((name		  . "CJK RADICAL KNIFE ONE")
       (=ucs		  . #x2E88)	; ⺈
       )
-     ((=ucs		  . #x2053C)	; 𠔼
+     ((=gt-k		  . 00393)	; &GT-K00393;
       )
      ((=ucs		  . #x4E5A)	; 乚
       ))
@@ -2119,6 +2194,15 @@
       ))
     (sound@ja/on	"sIu")
     (=ucs		. #x2A6C1)	; 𪛁
+    (<-Zhouwen
+     ((=ucs		  . #x79CC)	; 秌
+      )
+     ((=ucs		  . #x79CB)	; 秋
+      ))
+    (<-Zhouwen$_1*sources
+     shuowen)
+    (<-Zhouwen$_2*sources
+     shuowen)
     ))
 (define-char
   '((<-denotational
