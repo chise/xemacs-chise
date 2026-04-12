@@ -1603,12 +1603,32 @@
   '((<-denotational
      ((=>ucs@component	  . #x21BCE)	; &A-compU+21BCE;
       ))
+    (<-denotational@usage
+     ((==>daijiten	  . 14876)	; &BUCS+9F8D;
+      ))
     (ideographic-radical . 43)	; ⼪
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
       (=ucs		  . #x2FF7)	; ⿷
+      )
+     ((=ucs		  . #x5C22)	; 尢
+      )
+     ((=ucs		  . #x5F61)	; 彡
+      ))
+    (=daijiten		. 02457)	; &DJT-02457;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@component	  . #x21BCE)	; &A-compU+21BCE;
+      ))
+    (ideographic-radical . 43)	; ⼪
+    (ideographic-strokes . 3)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name		  . "IDEOGRAPHIC DESCRIPTION CHARACTER OVERLAID")
+      (=ucs		  . #x2FFB)	; ⿻
       )
      ((=ucs		  . #x5C22)	; 尢
       )

@@ -1181,7 +1181,15 @@
      ((=ucs@unicode	  . #x7528)	; &AJ1-03899;
       (=adobe-japan1-0	  . 03899)	; &AJ1-03899;
       ))
-    (=ucs@JP/hanazono	. #x308B1)	; &hanaJU+308B1;
+    (=ucs@JP/hanazono	. #x308B1)	; &CB08265;
+    (=cbeta		. 08265)	; &CB08265;
+    (->subsumptive
+     ((==ucs@JP/hanazono  . #x308B1)	; &g2-CB08265;
+      (==cbeta		  . 08265)	; &g2-CB08265;
+      (->subsumptive
+       ((===cbeta	    . 08265)	; &R-CB08265;
+	))
+      ))
     ))
 (define-char
   '((<-denotational@usage
