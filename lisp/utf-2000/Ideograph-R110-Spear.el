@@ -1601,6 +1601,76 @@
     (=cns11643-4	. #x6C76)	; &I-C4-6C76; [76-86]
     ))
 (define-char
+  '((<-denotational
+     ((=>ucs@cognate	  . #x32CC0)	; &A-cgnU+32CC0;
+      ))
+    (ideographic-radical . 110)	; ⽭
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x77DB)	; 矛
+      )
+     ((=ucs		  . #x32B39)	; 𲬹
+      ))
+    (=ucs		. #x32CC0)	; 𲳀
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x32CC0)	; 𲳀
+      ))
+    (ideographic-radical . 110)	; ⽭
+    (ideographic-strokes . 27)
+    (total-strokes	 . 32)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x77DB)	; 矛
+      )
+     ((=ucs@JP/hanazono	  . #x32B39)	; &CB09694;
+      (=cbeta		  . 09694)	; &CB09694;
+      ))
+    (=ucs@JP/hanazono	. #x32CC0)	; &hanaJU+32CC0;
+    ))
+(define-char
+  '((ideographic-radical . 110)	; ⽭
+    (=>ucs@cognate	. #x32CC0)	; &A-cgnU+32CC0;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@cognate	  . #x32CC0)	; &A-cgnU+32CC0;
+      ))
+    (ideographic-radical . 110)	; ⽭
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x77DB)	; 矛
+      )
+     ((=ucs		  . #x3E11)	; 㸑
+      ))
+    (=>cbeta		. 11293)	; &A-CB11293;
+    ))
+(define-char
+  '((<-denotational
+     ((=>cbeta		  . 11293)	; &A-CB11293;
+      ))
+    (ideographic-radical . 110)	; ⽭
+    (ideographic-strokes . 27)
+    (total-strokes	 . 32)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x77DB)	; 矛
+      )
+     ((=ucs@unicode	  . #x3E11)	; &CB05315;
+      (=cbeta		  . 05315)	; &CB05315;
+      ))
+    (=cbeta		. 11293)	; &CB11293;
+    ))
+(define-char
   '((ideographic-radical . 110)	; ⽭
     (ideographic-strokes . 30)
     (total-strokes	 . 35)
