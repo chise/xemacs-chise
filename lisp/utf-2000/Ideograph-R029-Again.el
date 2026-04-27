@@ -7812,7 +7812,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
       (=ucs		  . #x2FF9)	; ⿹
       )
-     ((=ucs		  . #x239BB)	; 𣦻
+     ((=ucs@iso		  . #x239BB)	; &MJ038737;
+      (=mj		  . 038737)	; &MJ038737;
       )
      ((name		  . "CJK RADICAL C-SIMPLIFIED SHELL")
       (=ucs		  . #x2EC9)	; ⻉
@@ -9003,7 +9004,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
       (=ucs		  . #x2FF9)	; ⿹
       )
-     ((=ucs		  . #x239BB)	; 𣦻
+     ((=ucs@iso		  . #x239BB)	; &MJ038737;
+      (=mj		  . 038737)	; &MJ038737;
       )
      ((=ucs		  . #x8C37)	; 谷
       ))
@@ -9067,7 +9069,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
       (=ucs		  . #x2FF9)	; ⿹
       )
-     ((=ucs		  . #x239BB)	; 𣦻
+     ((=ucs@iso		  . #x239BB)	; &MJ038737;
+      (=mj		  . 038737)	; &MJ038737;
       )
      ((=ucs@iso		  . #x2050C)	; &MJ030987;
       (=mj		  . 030987)	; &MJ030987;
