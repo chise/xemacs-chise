@@ -179,7 +179,10 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 5)	; ⼄
+  '((<-denotational@component
+     ((=>ucs@component	  . #x200D1)	; &A-compU+200D1;
+      ))
+    (ideographic-radical . 5)	; ⼄
     (ideographic-strokes . 0)
     (total-strokes	 . 1)
     (=ucs		. #x200D1)	; 𠃑
@@ -6914,6 +6917,10 @@
        ((=hanziku-1	    . #xAFEA)	; &HZK01-AFEA;
 	))
       ))
+    ))
+(define-char
+  '((ideographic-radical . 5)	; ⼄
+    (=>ucs@component	. #x200D1)	; &A-compU+200D1;
     ))
 (define-char
   '((<-denotational@component
