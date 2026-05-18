@@ -12095,7 +12095,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=cns11643-1	  . #x577B)	; &GT-40387; [55-91]
+     ((=ucs@cns		  . #x8332)	; &GT-40387;
+      (=cns11643-1	  . #x577B)	; &GT-40387; [55-91]
       (=daikanwa	  . 30911)	; &I-M-30911;
       )
      ((=ucs		  . #x5927)	; 大
