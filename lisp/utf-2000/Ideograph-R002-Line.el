@@ -1929,6 +1929,21 @@
     (=ucs-itaiji-003	. #x8001)	; &U-i003+8001;
     ))
 (define-char
+  '((ideographic-radical . 2)	; ⼁
+    (ideographic-strokes . 6)
+    (total-strokes	 . 7)
+    (=>ucs-itaiji-005	. #x8001)	; &A-U-i005+8001;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs-itaiji-005	  . #x8001)	; &A-U-i005+8001;
+      ))
+    (ideographic-radical . 2)	; ⼁
+    (ideographic-strokes . 6)
+    (total-strokes	 . 7)
+    (=ucs-itaiji-005	. #x8001)	; &U-i005+8001;
+    ))
+(define-char
   '((<-denotational
      ((=>big5-cdp	  . #x8A6D)	; &A-CDP-8A6D;
       ))
