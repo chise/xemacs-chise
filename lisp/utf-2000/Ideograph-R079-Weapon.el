@@ -207,6 +207,56 @@
     ))
 (define-char
   '((ideographic-radical . 79)	; ⽎
+    (ideographic-strokes . 3)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5F50)	; 彐
+      )
+     ((=ucs		  . #x6BB3)	; 殳
+      ))
+    (=>ucs-itaiji-007	. #x20B2A)	; &A-U-i007+20B2A;
+    (=>ucs-itaiji-008	. #x20B2A)	; &A-U-i007+20B2A;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs-itaiji-007	  . #x20B2A)	; &A-U-i007+20B2A;
+      ))
+    (ideographic-radical . 79)	; ⽎
+    (ideographic-strokes . 3)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x2B739)	; 𫜹
+      )
+     ((=ucs@unicode	  . #x6BB3)	; &MJ014908;
+      (=mj		  . 014908)	; &MJ014908;
+      ))
+    (=ucs-itaiji-007	. #x20B2A)	; &U-i007+20B2A;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs-itaiji-007	  . #x20B2A)	; &A-U-i007+20B2A;
+      ))
+    (ideographic-radical . 79)	; ⽎
+    (ideographic-strokes . 3)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x2B739)	; 𫜹
+      )
+     ((=mj		  . 014909)	; &MJ014909;
+      ))
+    (=ucs-itaiji-008	. #x20B2A)	; &U-i008+20B2A;
+    ))
+(define-char
+  '((ideographic-radical . 79)	; ⽎
     (ideographic-strokes . 4)
     (total-strokes	 . 8)
     (ideographic-structure
@@ -2044,6 +2094,27 @@
       )
      ((==ucs@cns	  . #x23A8F)	; &g2-CU+23A8F;
       (==cns11643-6	  . #x4076)	; &g2-CU+23A8F; [32-86]
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x23A8F)	; 𣪏
+      ))
+    (ideographic-radical . 79)	; ⽎
+    (ideographic-strokes . 7)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
+      (=ucs		  . #x2FF9)	; ⿹
+      )
+     ((=ucs-itaiji-008	  . #x20B2A)	; &U-i008+20B2A;
+      )
+     ((name		  . "CJK RADICAL MEAT")
+      (=ucs		  . #x2EBC)	; ⺼
+      ))
+    (=ucs-var-003	. #x23A8F)	; &U-v003+23A8F;
+    (->subsumptive
+     ((==ucs-var-003	  . #x23A8F)	; &g2-U-v003+23A8F;
       ))
     ))
 (define-char
