@@ -4339,7 +4339,8 @@
      ((=ucs@JP/hanazono	  . #x2B2A3)	; &RUI6-E119;
       (=ruimoku-v6	  . #xE119)	; &RUI6-E119;
       )
-     ((=ucs		  . #x6534)	; 攴
+     ((=ucs@unicode	  . #x6534)	; &AJ1-05058;
+      (=adobe-japan1-0	  . 05058)	; &AJ1-05058;
       ))
     (=ucs@JP/hanazono	. #x2D910)	; &RUI6-E11A;
     (=cbeta		. 01078)	; &RUI6-E11A;
