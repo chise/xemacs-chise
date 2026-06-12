@@ -1530,6 +1530,8 @@
       )
      ((=ucs		  . #x5EFE)	; 廾
       ))
+    (sound@ja/on/go	"ko")
+    (sound@ja/on/kan	"kyo")
     (=ucs		. #x5F06)	; 弆
     ))
 (define-char
@@ -1543,31 +1545,45 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=ucs		  . #x53BB)	; 去
+     ((=ucs@unicode	  . #x53BB)	; &AJ1-01672;
+      (=adobe-japan1-0	  . 01672)	; &AJ1-01672;
       )
      ((=ucs@unicode	  . #x5EFE)	; &MJ011120;
       (=mj		  . 011120)	; &MJ011120;
       ))
-    (=ucs@unicode	. #x5F06)	; &AJ1-21510;
-    (=adobe-japan1-6	. 21510)	; &AJ1-21510;
+    (=ucs@unicode	. #x5F06)	; &MJ011130;
+    (=mj		. 011130)	; &MJ011130;
+    (=adobe-japan1-6	. 21510)	; &I-AJ1-21510;
     (=jis-x0212		. #x3C5D)	; &I-JSP-3C5D; [28-61]
     (=cns11643-3	. #x286D)	; &I-C3-286D; [08-77]
+    (=koseki		. 108650)	; &MJ011130;
     (=daikanwa		. 09605)	; &I-M-09605;
     (=daijiten		. 03018)	; &I-DJT-03018;
     (=cbeta		. 01765)	; &I-CB01765;
+    (->formed
+     ((=ucs@unicode	  . #x53BB)	; &AJ1-01672;
+      (=adobe-japan1-0	  . 01672)	; &AJ1-01672;
+      (=daikanwa	  . 03070)	; &I-M-03070;
+      ))
+    (->formed$_1*sources
+     jiyun chunqiu-zuoshi-shu daikanwa)
+    (->formed*sources
+     jiyun chunqiu-zuoshi-shu daikanwa)
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x5F06)	; 弆
 	)
        ((=ucs		    . #xE0100)	; 󠄀
 	))
-      (==ucs@unicode	  . #x5F06)	; &g2-AJ1-21510;
-      (==adobe-japan1-6	  . 21510)	; &g2-AJ1-21510;
-      (==jis-x0212	  . #x3C5D)	; &g2-AJ1-21510; [28-61]
-      (==cns11643-3	  . #x286D)	; &g2-AJ1-21510; [08-77]
-      (==daikanwa	  . 09605)	; &g2-AJ1-21510;
-      (==daijiten	  . 03018)	; &g2-AJ1-21510;
-      (==cbeta		  . 01765)	; &g2-AJ1-21510;
+      (==ucs@unicode	  . #x5F06)	; &g2-MJ011130;
+      (==mj		  . 011130)	; &g2-MJ011130;
+      (==adobe-japan1-6	  . 21510)	; &g2-MJ011130;
+      (==jis-x0212	  . #x3C5D)	; &g2-MJ011130; [28-61]
+      (==cns11643-3	  . #x286D)	; &g2-MJ011130; [08-77]
+      (==koseki		  . 108650)	; &g2-MJ011130;
+      (==daikanwa	  . 09605)	; &g2-MJ011130;
+      (==daijiten	  . 03018)	; &g2-MJ011130;
+      (==cbeta		  . 01765)	; &g2-MJ011130;
       (->subsumptive
        ((===daikanwa	    . 09605)	; &R-M-09605;
 	)
@@ -1576,6 +1592,8 @@
        ((===jis-x0212	    . #x3C5D)	; &R-JSP-3C5D; [28-61]
 	)
        ((===adobe-japan1-6  . 21510)	; &R-AJ1-21510;
+	)
+       ((===mj		    . 011130)	; &R-MJ011130;
 	)
        ((===cbeta	    . 01765)	; &R-CB01765;
 	)
