@@ -1519,7 +1519,7 @@
      ((=>ucs@component	  . #x53CE)	; &A-compU+53CE;
       ))
     (<-denotational@usage
-     ((==>daijiten	  . 04224)	; &A2-DJT-04224;
+     ((==>ucs@bucs	  . #x6536)	; &BUCS+6536;
       ))
     (script		JP Jouyou Ideograph)
     (ideographic-radical . 29)	; ⼜
