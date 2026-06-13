@@ -360,6 +360,23 @@
       )
      ((=ucs		  . #x2B820)	; 𫠠
       )
+     ((=ucs		  . #x529B)	; 力
+      ))
+    (=ucs-itaiji-004	. #x620C)	; &U-i004+620C;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs-itaiji-002	  . #x620C)	; &A-U-i002+620C;
+      ))
+    (ideographic-radical . 56)	; ⼷
+    (ideographic-strokes . 2)
+    (total-strokes	 . 4)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
+      (=ucs		  . #x2FF9)	; ⿹
+      )
+     ((=ucs		  . #x2B820)	; 𫠠
+      )
      ((=big5-cdp	  . #x8B6C)	; &CDP-8B6C;
       ))
     (=ucs-itaiji-003	. #x620C)	; &U-i003+620C;
