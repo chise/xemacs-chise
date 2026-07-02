@@ -2318,14 +2318,12 @@
     (=cns11643-3	. #x2341)	; &C3-2341; [03-33]
     (=daikanwa		. 04891)	; &I-M-04891;
     (<-ancient
-     ((=ucs@unicode	  . #x4FD7)	; &AJ1-02831;
-      (=adobe-japan1-0	  . 02831)	; &AJ1-02831;
+     ((=ucs		  . #x4FD7)	; 俗
       ))
     (<-ancient$_1*sources
      jiyun)
     (<-same
-     ((=ucs@unicode	  . #x4FD7)	; &AJ1-02831;
-      (=adobe-japan1-0	  . 02831)	; &AJ1-02831;
+     ((=ucs		  . #x4FD7)	; 俗
       (=daikanwa	  . 00695)	; &I-M-00695;
       ))
     (<-same$_1*sources
