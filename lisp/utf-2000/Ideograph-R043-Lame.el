@@ -1273,8 +1273,7 @@
       )
      ((=ucs		  . #x5C22)	; 尢
       )
-     ((=ucs@unicode	  . #x52FA)	; &MJ007745;
-      (=mj		  . 007745)	; &MJ007745;
+     ((=ucs		  . #xFA77)	; 勺
       ))
     (=ucs@unicode	. #x5C25)	; &C2-2235;
     (=ucs@JP/hanazono	. nil)
@@ -1387,8 +1386,7 @@
      ((name		  . "CJK RADICAL LAME TWO")
       (=ucs		  . #x2E8F)	; ⺏
       )
-     ((=ucs@unicode	  . #x52FA)	; &MJ007745;
-      (=mj		  . 007745)	; &MJ007745;
+     ((=ucs		  . #xFA77)	; 勺
       ))
     (=ucs@unicode	. #x5C26)	; &UU+5C26;
     (=ucs@JP/hanazono	. nil)
