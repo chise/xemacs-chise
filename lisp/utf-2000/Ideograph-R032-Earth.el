@@ -2625,8 +2625,7 @@
       )
      ((=gt-k		  . 00199)	; &GT-K00199;
       )
-     ((=ucs@unicode	  . #x52FA)	; &MJ007745;
-      (=mj		  . 007745)	; &MJ007745;
+     ((=ucs		  . #xFA77)	; 勺
       ))
     (=ucs@unicode	. #x5734)	; &MJ008917;
     (=ucs@JP/hanazono	. nil)
