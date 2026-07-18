@@ -2059,8 +2059,7 @@
       )
      ((=ucs		  . #x5F13)	; 弓
       )
-     ((=ucs@unicode	  . #x52FA)	; &MJ007745;
-      (=mj		  . 007745)	; &MJ007745;
+     ((=ucs		  . #xFA77)	; 勺
       ))
     (=ucs@unicode	. #x38A9)	; &C3-2363;
     (=ucs@JP/hanazono	. nil)
