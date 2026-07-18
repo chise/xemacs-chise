@@ -1,3 +1,9 @@
+2026-07-18  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* char-db-util.el (insert-char-attributes): Format
+	`ideographic-structure@shuowen' with the same format as
+	`ideographic-structure'.
+
 2026-06-13  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R056-Shoot.el (U+620C-itaiji-004): New character; use
