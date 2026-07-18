@@ -709,7 +709,12 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 25)	; ⼘
+  '((<-denotational@usage
+     ((==>ucs@bucs	  . #x5360)	; &BUCS+5360;
+      )
+     ((==>ucs@bucs	  . #x4F54)	; &BUCS+4F54;
+      ))
+    (ideographic-radical . 25)	; ⼘
     (ideographic-strokes . 3)
     (total-strokes	 . 5)
     (hanyu-dazidian	1 92 5)
@@ -720,7 +725,7 @@
      ((name		  . "CJK RADICAL DIVINATION")
       (=ucs		  . #x2E8A)	; ⺊
       )
-     ((=ucs		  . #x56D7)	; 囗
+     ((=ucs		  . #x53E3)	; 口
       ))
     (=ucs		. #x5360)	; 占
     (=adobe-japan1-0	. 02702)	; &I-AJ1-02702;
@@ -734,6 +739,7 @@
     (=gt-k		. 00968)	; &I-GT-K00968;
     (=gt-pj-1		. #x406A)	; &I-GT-03549; [32-74]
     (=daikanwa		. 02780)	; &I-M-02780;
+    (=daijiten		. 01022)	; &I-DJT-01022;
     (=shinjigen		.  0837)	; 占
     (->subsumptive
      ((==ucs@unicode	  . #x5360)	; &g2-AJ1-02702;
@@ -746,9 +752,12 @@
       (==gt		  . 03549)	; &g2-AJ1-02702;
       (==gt-k		  . 00968)	; &g2-AJ1-02702;
       (==daikanwa	  . 02780)	; &g2-AJ1-02702;
+      (==daijiten	  . 01022)	; &g2-AJ1-02702;
       (==shinjigen	  .  0837)	; &g2-AJ1-02702;
       (->subsumptive
        ((===daikanwa	    . 02780)	; &R-M-02780;
+	)
+       ((===daijiten	    . 01022)	; &R-DJT-01022;
 	)
        ((===jis-x0208	    . #x406A)	; &R-J0-406A; [32-74]
 	(===jis-x0213-1	    . #x406A)	; &R-J0-406A; [32-74]
@@ -3635,6 +3644,11 @@
 (define-char
   '((ideographic-radical . 25)	; ⼘
     (==>daijiten	. 01020)	; &A2-DJT-01020;
+    ))
+(define-char
+  '((ideographic-radical . 25)	; ⼘
+    (==>ucs@bucs	. #x5360)	; &BUCS+5360;
+    (==>daijiten	. 01022)	; &BUCS+5360;
     ))
 (define-char
   '((ideographic-radical . 25)	; ⼘
