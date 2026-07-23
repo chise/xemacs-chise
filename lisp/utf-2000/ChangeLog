@@ -4,6 +4,21 @@
 	`ideographic-structure@shuowen' with the same format as
 	`ideographic-structure'.
 
+	* Ideograph-R025-Divination.el (U+5360): Add
+	`<-denotational@usage' for BUCS+5360 and BUCS+4F54; use U+53E3
+	instead of U+56D7 as the bottom component; unify DJT-01022.
+	(BUCS+5360): New abstract node; unify A2-DJT-01022.
+
+2026-07-15  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R028-Private.el (U+53BB): Add `<-denotational@usage'
+	for BUCS+53BB; apply new conventions for glyph granularity.
+	(BUCS+53BB): New abstract node; unify A2-DJT-01101.
+
+	* Ideograph-R020-Wrap.el (U+52FA): Add `<-denotational@usage' for
+	BUCS+52FA; apply new conventions for glyph granularity.
+	(BUCS+52FA): New abstract node; unify A2-DJT-00915.
+
 2026-06-13  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R056-Shoot.el (U+620C-itaiji-004): New character; use
