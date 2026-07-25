@@ -262,26 +262,47 @@
     (<-vulgar*sources
      zhengzitong daikanwa shinjigen@1ed shinjigen@rev)
     (->subsumptive
-     ((==ucs@unicode	  . #x3B30)	; &g2-CDP-8AF3;
-      (==cns11643-3	  . #x2374)	; &g2-CDP-8AF3; [03-84]
-      (==big5-cdp	  . #x8AF3)	; &g2-CDP-8AF3;
-      (==daikanwa	  . 14281)	; &g2-CDP-8AF3;
-      (==daijiten	  . 04652)	; &g2-CDP-8AF3;
+     ((ideographic-radical . 73)	; ⽈
+      (ideographic-strokes . 2)
+      (=>>ucs@unicode	  . #x3B30)	; &G-CDP-8AF3;
+      (=>>cns11643-3	  . #x2374)	; &G-CDP-8AF3; [03-84]
+      (=>>big5-cdp	  . #x8AF3)	; &G-CDP-8AF3;
+      (=>>daikanwa	  . 14281)	; &G-CDP-8AF3;
       (->subsumptive
-       ((===daikanwa	    . 14281)	; &R-M-14281;
+       ((==ucs@unicode	    . #x3B30)	; &g2-CDP-8AF3;
+	(==cns11643-3	    . #x2374)	; &g2-CDP-8AF3; [03-84]
+	(==big5-cdp	    . #x8AF3)	; &g2-CDP-8AF3;
+	(==daikanwa	    . 14281)	; &g2-CDP-8AF3;
+	(==daijiten	    . 04652)	; &g2-CDP-8AF3;
+	(->subsumptive
+	 ((===daikanwa	      . 14281)	; &R-M-14281;
+	  )
+	 ((===daijiten	      . 04652)	; &R-DJT-04652;
+	  )
+	 ((===cns11643-3      . #x2374)	; &R-C3-2374; [03-84]
+	  )
+	 ((===big5-cdp	      . #x8AF3)	; &R-CDP-8AF3;
+	  )
+	 ((===ucs@unicode     . #x3B30)	; &R-UU+3B30;
+	  )
+	 ((===hng-kar	      . 12080)	; &HNG018-12080;
+	  ))
 	)
-       ((===daijiten	    . 04652)	; &R-DJT-04652;
-	)
-       ((===cns11643-3	    . #x2374)	; &R-C3-2374; [03-84]
-	)
-       ((===big5-cdp	    . #x8AF3)	; &R-CDP-8AF3;
-	)
-       ((===ucs@unicode	    . #x3B30)	; &R-UU+3B30;
-	)
-       ((===hng-kar	    . 12080)	; &HNG018-12080;
+       ((===hng-khi	    . 01530)	; &HNG010-01530;
 	))
       )
-     ((===hng-khi	  . 01530)	; &HNG010-01530;
+     ((ideographic-radical . 9)	; ⼈
+      (ideographic-strokes . 4)
+      (=daijiten	  . 00225)	; &DJT-00225;
+      (<-vulgar
+       ((=ucs@unicode	    . #x81FE)	; &C1-4F3B;
+	(=gb2312	    . #x7427)	; &C1-4F3B; [84-07]
+	(=ks-x1001	    . #x6B2C)	; &I-K0-6B2C; [75-12]
+	(=cns11643-1	    . #x4F3B)	; &I-C1-4F3B; [47-27]
+	(=daijiten	    . 09621)	; &I-DJT-09621;
+	))
+      (<-vulgar*sources
+       daijiten)
       ))
     ))
 (define-char
