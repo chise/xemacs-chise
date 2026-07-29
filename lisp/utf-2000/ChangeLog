@@ -24,6 +24,14 @@
 	BUCS+52FA; apply new conventions for glyph granularity.
 	(BUCS+52FA): New abstract node; unify A2-DJT-00915.
 
+2026-07-09  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R005-Second.el (U-000323D8): Unify A-CB09224 and
+	A-U+268DD-itaiji-002.
+	(hanaJU+323D8): Use `<-denotational' instead of
+	`<-denotational@usage' for U-000323D8 [fixed]; unify CB09224 and
+	U+268DD-itaiji-002.
+
 2026-06-13  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R056-Shoot.el (U+620C-itaiji-004): New character; use

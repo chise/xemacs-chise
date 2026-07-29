@@ -3264,9 +3264,11 @@
      ((=ucs		  . #x382F)	; 㠯
       ))
     (=ucs		. #x323D8)	; 𲏘
+    (=>cbeta		. 09224)	; 𲏘
+    (=>ucs-itaiji-002	. #x268DD)	; 𲏘
     ))
 (define-char
-  '((<-denotational@usage
+  '((<-denotational
      ((=ucs		  . #x323D8)	; 𲏘
       ))
     (ideographic-radical . 5)	; ⼄
@@ -3282,7 +3284,21 @@
      ((=ucs@unicode	  . #x382F)	; &MJ000945;
       (=mj		  . 000945)	; &MJ000945;
       ))
-    (=ucs@JP/hanazono	. #x323D8)	; &hanaJU+323D8;
+    (=ucs@JP/hanazono	. #x323D8)	; &U-i002+268DD;
+    (=cbeta		. 09224)	; &U-i002+268DD;
+    (=ucs-itaiji-002	. #x268DD)	; &U-i002+268DD;
+    (<-formed
+     ((=ucs@iso		  . #x268DD)	; &JX2-7556;
+      (=cns11643-6	  . #x287C)	; &JX2-7556; [08-92]
+      (=jis-x0213-2	  . #x7556)	; &I-JX2-7556; [85-54]
+      (=daikanwa	  . 30069)	; &I-M-30069;
+      ))
+    (->subsumptive
+     ((==ucs@JP/hanazono  . #x323D8)	; &g2-U-i002+268DD;
+      (==ucs-itaiji-002	  . #x268DD)	; &g2-U-i002+268DD;
+      )
+     ((==cbeta		  . 09224)	; &g2-CB09224;
+      ))
     ))
 (define-char
   '((ideographic-radical . 5)	; ⼄
