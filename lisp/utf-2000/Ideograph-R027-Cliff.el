@@ -7173,6 +7173,7 @@
     (ideographic-radical . 27)	; ⼚
     (ideographic-strokes . 11)
     (total-strokes	 . 13)
+    (sound@ja/on	"rei")
     (=ucs		. #x20A95)	; 𠪕
     ))
 (define-char
@@ -7186,19 +7187,37 @@
     (=cns11643-6	. #x507E)	; &C6-507E; [48-94]
     (=daikanwa		. 03017)	; &I-M-03017;
     (=daijiten		. 01087)	; &I-DJT-01087;
+    (<-simplified@misc
+     ((=ucs@unicode	  . #x9E97)	; &MJ029807;
+      (=mj		  . 029807)	; &MJ029807;
+      (=daikanwa	  . 47663)	; &I-M-47663;
+      ))
+    (<-simplified@misc*sources
+     daikanwa)
     (->subsumptive
-     ((==daikanwa	  . 03017)	; &g2-M-03017;
-      )
-     ((==ucs@iso	  . #x20A95)	; &g2-DJT-01087;
-      (==cns11643-6	  . #x507E)	; &g2-DJT-01087; [48-94]
-      (==daijiten	  . 01087)	; &g2-DJT-01087;
+     ((ideographic-radical . 27)	; ⼚
+      (ideographic-strokes . 11)
+      (=>>ucs@iso	  . #x20A95)	; &G-IU+20A95;
+      (=>>cns11643-6	  . #x507E)	; &G-IU+20A95; [48-94]
+      (=>>daikanwa	  . 03017)	; &G-IU+20A95;
       (->subsumptive
-       ((===daijiten	    . 01087)	; &R-DJT-01087;
+       ((==daikanwa	    . 03017)	; &g2-M-03017;
 	)
-       ((===cns11643-6	    . #x507E)	; &R-C6-507E; [48-94]
-	)
-       ((===ucs@iso	    . #x20A95)	; &R-U-00020A95;
+       ((==ucs@iso	    . #x20A95)	; &g2-DJT-01087;
+	(==cns11643-6	    . #x507E)	; &g2-DJT-01087; [48-94]
+	(==daijiten	    . 01087)	; &g2-DJT-01087;
+	(->subsumptive
+	 ((===daijiten	      . 01087)	; &R-DJT-01087;
+	  )
+	 ((===cns11643-6      . #x507E)	; &R-C6-507E; [48-94]
+	  )
+	 ((===ucs@iso	      . #x20A95)	; &R-U-00020A95;
+	  ))
 	))
+      )
+     ((ideographic-radical . 1)	; ⼀
+      (ideographic-strokes . 12)
+      (=daijiten	  . 00043)	; &DJT-00043;
       ))
     ))
 (define-char
