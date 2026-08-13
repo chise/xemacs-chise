@@ -53813,6 +53813,9 @@
       (=adobe-japan1-0	  . 06064)	; &AJ1-06064;
       ))
     (=ucs@iso		. #x20DF5)	; &U-00020DF5;
+    (->subsumptive
+     ((==ucs@iso	  . #x20DF5)	; &g2-IU-00020DF5;
+      ))
     ))
 (define-char
   '((ideographic-radical . 30)	; ⼝
