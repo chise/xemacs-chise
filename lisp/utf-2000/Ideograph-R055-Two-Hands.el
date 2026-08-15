@@ -1653,6 +1653,7 @@
     (=cns11643-5	. #x262E)	; &I-C5-262E; [06-14]
     (=gt		. 00083)	; &I-GT-00083;
     (=gt-pj-2		. #x304C)	; &I-GT-00083; [16-44]
+    (=daikanwa		. 09608)	; &I-M-09608;
     (=daijiten		. 03022)	; &I-DJT-03022;
     (=cbeta		. 02228)	; &I-CB02228;
     (=jef-china3	. #x8EF3)	; &I-JC3-8EF3;
@@ -1666,60 +1667,56 @@
     (<-simplified@JP/buddhism*sources
      daijiten daikanwa)
     (->subsumptive
-     ((==ucs@iso	  . #x2233D)	; &g2-GT-00083;
-      (==cns11643-5	  . #x262E)	; &g2-GT-00083; [06-14]
-      (==gt		  . 00083)	; &g2-GT-00083;
-      (==daijiten	  . 03022)	; &g2-GT-00083;
-      (==cbeta		  . 02228)	; &g2-GT-00083;
-      (==jef-china3	  . #x8EF3)	; &g2-GT-00083;
+     ((ideographic-radical . 1)	; ⼀
+      (ideographic-strokes . 7)
+      (=>>gt		  . 00083)	; &M-00060;
+      (=daikanwa	  . 00060)	; &M-00060;
+      (=daijiten	  . 00039)	; &I-DJT-00039;
+      (<-simplified@JP/buddhism
+       ((ideographic-combination
+	 ((=ucs		      . #x6D85)	; 涅
+	  )
+	 ((=ucs		      . #x69C3)	; 槃
+	  ))
+	))
       (->subsumptive
-       ((ideographic-radical . 1)	; ⼀
-	(ideographic-strokes . 7)
-	(=daikanwa	    . 00060)	; &M-00060;
-	(<-simplified@JP/buddhism
-	 ((ideographic-combination
-	   ((=ucs		. #x6D85)	; 涅
-	    )
-	   ((=ucs		. #x69C3)	; 槃
-	    ))
-	  ))
+       ((==gt		    . 00083)	; &g2-GT-00083;
+	(==daikanwa	    . 00060)	; &g2-GT-00083;
+	(==daijiten	    . 00039)	; &g2-GT-00083;
 	(->subsumptive
-	 ((==daikanwa	      . 00060)	; &g2-M-00060;
-	  (->subsumptive
-	   ((===daikanwa	. 00060)	; &R-M-00060;
-	    )
-	   ((===gt		. 00083)	; &R-GT-00083;
-	    ))
+	 ((===daikanwa	      . 00060)	; &R-M-00060;
+	  )
+	 ((===daijiten	      . 00039)	; &R-DJT-00039;
+	  )
+	 ((===gt	      . 00083)	; &R-GT-00083;
 	  ))
-	)
-       ((ideographic-radical . 55)	; ⼶
-	(ideographic-strokes . 5)
-	(=daikanwa	    . 09608)	; &M-09608;
-	(<-simplified@JP/buddhism
-	 ((ideographic-combination
-	   ((=ucs		. #x6D85)	; 涅
-	    )
-	   ((=ucs		. #x69C3)	; 槃
-	    ))
-	  ))
-	(<-simplified@JP/buddhism*sources
-	 daikanwa)
+	))
+      )
+     ((ideographic-radical . 55)	; ⼶
+      (ideographic-strokes . 5)
+      (=>>ucs@iso	  . #x2233D)	; &G-CB02228;
+      (=>>daikanwa	  . 09608)	; &G-CB02228;
+      (=>>cbeta		  . 02228)	; &G-CB02228;
+      (->subsumptive
+       ((==ucs@iso	    . #x2233D)	; &g2-M-09608;
+	(==cns11643-5	    . #x262E)	; &g2-M-09608; [06-14]
+	(==daikanwa	    . 09608)	; &g2-M-09608;
+	(==daijiten	    . 03022)	; &g2-M-09608;
+	(==cbeta	    . 02228)	; &g2-M-09608;
+	(==jef-china3	    . #x8EF3)	; &g2-M-09608;
 	(->subsumptive
-	 ((==daikanwa	      . 09608)	; &g2-M-09608;
-	  (->subsumptive
-	   ((===daikanwa	. 09608)	; &R-M-09608;
-	    )
-	   ((===daijiten	. 03022)	; &R-DJT-03022;
-	    )
-	   ((===cns11643-5	. #x262E)	; &R-C5-262E; [06-14]
-	    )
-	   ((===ucs@iso		. #x2233D)	; &R-U-0002233D;
-	    ))
+	 ((===daikanwa	      . 09608)	; &R-M-09608;
+	  )
+	 ((===daijiten	      . 03022)	; &R-DJT-03022;
+	  )
+	 ((===cns11643-5      . #x262E)	; &R-C5-262E; [06-14]
+	  )
+	 ((===ucs@iso	      . #x2233D)	; &R-U-0002233D;
+	  )
+	 ((===cbeta	      . 02228)	; &R-CB02228;
+	  )
+	 ((===jef-china3      . #x8EF3)	; &R-JC3-8EF3;
 	  ))
-	)
-       ((===jef-china3	    . #x8EF3)	; &R-JC3-8EF3;
-	)
-       ((===cbeta	    . 02228)	; &R-CB02228;
 	))
       ))
     ))

@@ -1,7 +1,39 @@
+2026-08-05  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R055-Two-Hands.el (U-0002233D): Apply new conventions
+	for glyph granularity.
+
+	* Ideograph-R040-Roof.el (U+5BB7): Apply new conventions for glyph
+	granularity.
+	(BC-8D7C): Add `ideographic-structure'.
+	(IU+21A68): Use UU+5BB7 instead of U+5BB7 as a glyph-granularity
+	component.
+	(IU+21A6D): Likewise.
+	(U+5BE9): Modify structure; preserve the previous IDS as an
+	apparent structure.
+	(A2-DJT-02395): Unify BUCS+5BE9.
+	(A2-DJT-02356): Unify BUCS+5BC0.
+
+	* Ideograph-R009-Man.el (U+4ECC): Apply new conventions for glyph
+	granularity; integrate CB07103.
+	(U+4FD7): Add `<-denotational@component' for A-IWDSU+4FD7; add
+	`<-denotational@usage' for BUCS+4FD7; apply new conventions for
+	glyph granularity; unify DJT-00338.
+	(U-0002023B): Add `<-denotational@component' for A-IWDSU+4FD7;
+	apply new conventions for glyph granularity; unify MJ030618 and
+	KOSEKI-008190.
+	(A-IWDSU+4FD7): New abstract node.
+	(BUCS+4FD7): New abstract node; unify A2-DJT-00338.
+
 2026-08-02  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R027-Cliff.el (U-00020A95): Apply new conventions for
 	glyph granularity; integrate DJT-00043.
+
+2026-07-29  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R001-One.el (U-0002233D): Apply new conventions for
+	glyph granularity.
 
 2026-07-23  MORIOKA Tomohiko  <tomo.git@chise.org>
 
