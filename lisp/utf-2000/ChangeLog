@@ -1,3 +1,12 @@
+2026-08-13  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R042-Small.el (U+5C11): Add `<-denotational@usage' for
+	BUCS+5C11; modify structure; preserve the previous IDS as an
+	apparent structure; apply new conventions for glyph granularity.
+	(BUCS+5C11): New abstract node; unify A2-DJT-02440.
+
+	* Ideograph-R030-Mouth.el (IU+20DF5): Add g2-IU+20DF5.
+
 2026-08-05  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R055-Two-Hands.el (U-0002233D): Apply new conventions
