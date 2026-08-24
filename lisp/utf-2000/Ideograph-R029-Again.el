@@ -4360,12 +4360,20 @@
     ))
 (define-char
   '((<-denotational@usage
-     ((==>daijiten	  . 01128)	; &A2-DJT-01128;
+     ((==>ucs@bucs	  . #x53D7)	; &BUCS+53D7;
       ))
     (ideographic-radical . 29)	; ⼜
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
     (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
+      (=ucs		  . #x2FF4)	; ⿴
+      )
+     ((=ucs		  . #x20B2A)	; 𠬪
+      )
+     ((=ucs		  . #x5196)	; 冖
+      ))
+    (ideographic-structure@apparent
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
       (=ucs		  . #x2FF3)	; ⿳
       )
@@ -4375,6 +4383,8 @@
       )
      ((=ucs		  . #x53C8)	; 又
       ))
+    (sound@ja/on/go	"zyu" "tou")
+    (sound@ja/on/kan	"syu" "tAu")
     (=ucs		. #x53D7)	; 受
     ))
 (define-char
@@ -4386,6 +4396,15 @@
     (total-strokes	 . 8)
     (hanyu-dazidian	1 396 2)
     (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
+      (=ucs		  . #x2FF4)	; ⿴
+      )
+     ((=ucs@iso		  . #x20B2A)	; &C4-224B;
+      (=cns11643-4	  . #x224B)	; &C4-224B; [02-43]
+      )
+     ((=ucs		  . #x5196)	; 冖
+      ))
+    (ideographic-structure@apparent/leftmost
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
@@ -4407,6 +4426,36 @@
     (=daikanwa		. 03159)	; &I-M-03159;
     (=daijiten		. 01128)	; &I-DJT-01128;
     (=shinjigen		.  0909)	; &AJ1-02337;
+    (<-interchangeable
+     ((=ucs@unicode	  . #x7D02)	; &AJ1-06064;
+      (=adobe-japan1-0	  . 06064)	; &AJ1-06064;
+      (=daikanwa	  . 27239)	; &I-M-27239;
+      )
+     ((=ucs@unicode	  . #x6388)	; &AJ1-02340;
+      (=adobe-japan1-0	  . 02340)	; &AJ1-02340;
+      (=daikanwa	  . 12242)	; &I-M-12242;
+      ))
+    (<-interchangeable$_1*sources
+     shangshu-kongzhuan daikanwa)
+    (<-interchangeable$_2*sources
+     songshu daikanwa)
+    (<-interchangeable*sources
+     daikanwa)
+    (->ancient
+     ((=ucs@iso		  . #x20B67)	; &M-03192;
+      (=daikanwa	  . 03192)	; &M-03192;
+      ))
+    (->ancient$_1*sources
+     jiyun daikanwa)
+    (->ancient*sources
+     jiyun daikanwa)
+    (->mistakable
+     ((=ucs@iso		  . #x244FE)	; &C5-2A2B;
+      (=cns11643-5	  . #x2A2B)	; &C5-2A2B; [10-11]
+      (=daikanwa	  . 19668)	; &I-M-19668;
+      ))
+    (->mistakable*sources
+     zihui-biansi-2char daikanwa)
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x53D7)	; 受
@@ -4459,25 +4508,16 @@
       ))
     (ideographic-radical . 29)	; ⼜
     (ideographic-strokes . 6)
-    (total-strokes	 . 9)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-      (=ucs		  . #x2FF1)	; ⿱
-      )
-     ((=big5-cdp	  . #x8BB8)	; &CDP-8BB8;
-      )
-     ((=ucs		  . #x4E08)	; 丈
-      ))
-    (===hng-khi		. 02890)	; &HNG010-02890;
-    ))
-(define-char
-  '((<-denotational
-     ((=ucs		  . #x53D7)	; 受
-      ))
-    (ideographic-radical . 29)	; ⼜
-    (ideographic-strokes . 6)
     (total-strokes	 . 8)
     (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
+      (=ucs		  . #x2FF4)	; ⿴
+      )
+     ((=mj		  . 032021)	; &MJ032021;
+      )
+     ((=ucs		  . #x5196)	; 冖
+      ))
+    (ideographic-structure@apparent
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
       (=ucs		  . #x2FF3)	; ⿳
       )
@@ -4498,18 +4538,6 @@
        ((=ucs		    . #x53D7)	; 受
 	)
        ((=ucs		    . #xE0101)	; 󠄁
-	))
-      (ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
-	(=ucs		    . #x2FF3)	; ⿳
-	)
-       ((==ucs@jis	    . #x722B)	; &g2-GT-25225;
-	(==jis-x0213-2	    . #x702A)	; &g2-GT-25225; [80-10]
-	)
-       ((=ucs		    . #x5196)	; 冖
-	)
-       ((==ucs@unicode	    . #x53C8)	; &g2-AJ1-03746;
-	(==adobe-japan1-0   . 03746)	; &g2-AJ1-03746;
 	))
       (==adobe-japan1-4	  . 13813)	; &g2-AJ1-13813;
       ))
@@ -10660,7 +10688,8 @@
     ))
 (define-char
   '((ideographic-radical . 29)	; ⼜
-    (==>daijiten	. 01128)	; &A2-DJT-01128;
+    (==>ucs@bucs	. #x53D7)	; &BUCS+53D7;
+    (==>daijiten	. 01128)	; &BUCS+53D7;
     ))
 (define-char
   '((ideographic-radical . 29)	; ⼜
