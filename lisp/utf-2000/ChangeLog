@@ -1,3 +1,13 @@
+2026-08-15  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R029-Again.el (U+53D7): Modify structure; preserve the
+	previous IDS as an apparent structure; apply new conventions for
+	glyph granularity.
+	(HNG-KHI0289-0): Moved to Ideograph-R087-Claw.el; use
+	`->subsumptive' for IU+244FE instead of `<-denotational' for
+	U+53D7.
+	(A2-DJT-01128): Unify BUCS+53D7.
+
 2026-08-13  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R042-Small.el (U+5C11): Add `<-denotational@usage' for
