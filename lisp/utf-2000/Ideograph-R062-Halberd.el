@@ -1,8 +1,24 @@
 ;; -*- coding: utf-8-mcs-er -*-
 (define-char
-  '((ideographic-radical . 62)	; ⼽
+  '((<-denotational@component
+     ((=>ucs@component	  . #x6208)	; &A-compU+6208;
+      ))
+    (<-denotational@usage
+     ((==>ucs@bucs	  . #x6208)	; &BUCS+6208;
+      ))
+    (ideographic-radical . 62)	; ⼽
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
+    (ideographic-structure@apparent
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
+      (=ucs		  . #x2FFA)	; ⿺
+      )
+     ((=ucs		  . #x2D80D)	; 𭠍
+      )
+     ((=ucs		  . #x4E36)	; 丶
+      ))
+    (sound@ja/kun	"hoko")
+    (sound@ja/on	"kWa")
     (=ucs		. #x6208)	; 戈
     (=adobe-japan1-0	. 04930)	; &I-AJ1-04930;
     (=jis-x0208		. #x5879)	; &I-J90-5879; [56-89]
@@ -15,14 +31,18 @@
     (=gt-k		. 00527)	; &I-GT-K00527;
     (=gt-pj-1		. #x5879)	; &I-GT-14544; [56-89]
     (=daikanwa		. 11530)	; &I-M-11530;
+    (=daijiten		. 03602)	; &I-DJT-03602;
     (=shinjigen		.  2755)	; 戈
     (->subsumptive
      ((==gt		  . 14544)	; &g2-GT-14544;
       (==gt-k		  . 00527)	; &g2-GT-14544;
       (==daikanwa	  . 11530)	; &g2-GT-14544;
+      (==daijiten	  . 03602)	; &g2-GT-14544;
       (==shinjigen	  .  2755)	; &g2-GT-14544;
       (->subsumptive
        ((===daikanwa	    . 11530)	; &R-M-11530;
+	)
+       ((===daijiten	    . 03602)	; &R-DJT-03602;
 	)
        ((===gt		    . 14544)	; &R-GT-14544;
 	(===gt-k	    . 00527)	; &R-GT-14544;
@@ -7866,8 +7886,17 @@
     ))
 (define-char
   '((ideographic-radical . 62)	; ⼽
+    (=>ucs@component	. #x6208)	; &A-compU+6208;
+    ))
+(define-char
+  '((ideographic-radical . 62)	; ⼽
     (==>ucs@bucs	. #x6212)	; &BUCS+6212;
     (==>daijiten	. 03612)	; &BUCS+6212;
+    ))
+(define-char
+  '((ideographic-radical . 62)	; ⼽
+    (==>ucs@bucs	. #x6208)	; &BUCS+6208;
+    (==>daijiten	. 03602)	; &BUCS+6208;
     ))
 (define-char
   '((ideographic-radical . 62)	; ⼽
