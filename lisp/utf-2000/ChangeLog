@@ -1,3 +1,13 @@
+2026-09-07  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R062-Halberd.el (U+6208): Add
+	`<-denotational@component' for A-compU+6208; add
+	`<-denotational@usage' for BUCS+6208; add
+	`ideographic-structure@apparent'; add `sound@ja/on' and
+	`sound@ja/kun'; unify DJT-03602.
+	(A-compU+6208): New abstract node.
+	(BUCS+6208): New abstract node; unify A2-DJT-03602.
+
 2026-08-15  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R029-Again.el (U+53D7): Modify structure; preserve the
