@@ -1,3 +1,12 @@
+2026-09-10  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R060-Step.el (U+5F74): Add `sound@ja/on/{kan|go}'.
+	(UU+5F74): Add `->formed' for UU+4EE2.
+	(DJT-03120): Unify MJ011278 and KOSEKI-113600.
+	(A-IWDSU+5FB5): Modify structure; preserve the previous IDS as an
+	apparent structure.
+	(U+5FB4): Likewise.
+
 2026-09-07  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R062-Halberd.el (U+6208): Add
