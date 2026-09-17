@@ -4,7 +4,7 @@
 ;; Licensed to the Free Software Foundation.
 ;; Copyright (C) 1997, 1999, 2000, 2002, 2003, 2004, 2005, 2006, 2008,
 ;;   2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019,
-;;   2020, 2021, 2022, 2023, 2024, 2025 MORIOKA Tomohiko
+;;   2020, 2021, 2022, 2023, 2024, 2025, 2026 MORIOKA Tomohiko
 
 ;; Keywords: mule, multilingual, character set, coding system
 
@@ -4915,7 +4915,7 @@
 		  graphic	2
 		  direction	l2r
 		  mother	=ucs-var-001
-		  min-code #x30000 max-code #x3FFFF
+		  min-code #x30000 max-code #x3EFFF
 		  registry "ucs00\\.var001-3"))
   (make-charset '=>ucs-var-001
 		"Abstract characters corresponding with uXXXX-var-001 of GlyphWiki"
@@ -5029,7 +5029,7 @@
 		  graphic	2
 		  direction	l2r
 		  mother	=ucs-var-002
-		  min-code #x30000 max-code #x3FFFF
+		  min-code #x30000 max-code #x3EFFF
 		  registry "ucs00\\.var002-3"))
   (make-charset '==ucs-var-002
 		"Abstract glyph-forms corresponding with uXXXX-var-002 of GlyphWiki"
@@ -5109,7 +5109,7 @@
 		  graphic	2
 		  direction	l2r
 		  mother	=ucs-var-003
-		  min-code #x30000 max-code #x3FFFF
+		  min-code #x30000 max-code #x3EFFF
 		  registry "ucs00\\.var003-3"))
   (make-charset '=+>ucs-var-003
 		"uXXXX-var-003's unified glyphs of GlyphWiki"
@@ -5143,7 +5143,7 @@
 		  graphic	2
 		  direction	l2r
 		  mother	=+>ucs-var-003
-		  min-code #x30000 max-code #x3FFFF
+		  min-code #x30000 max-code #x3EFFF
 		  registry "ucs00\\.var003-3"))
   (make-charset '==ucs-var-003
 		"Abstract glyph-forms corresponding with uXXXX-var-003 of GlyphWiki"
@@ -5223,7 +5223,7 @@
 		  graphic	2
 		  direction	l2r
 		  mother	=ucs-var-004
-		  min-code #x30000 max-code #x3FFFF
+		  min-code #x30000 max-code #x3EFFF
 		  registry "ucs00\\.var004-3"))
 
   (make-charset '=ucs-var-005
@@ -5328,7 +5328,7 @@
 		  graphic	2
 		  direction	l2r
 		  mother	=ucs-var-007
-		  min-code #x30000 max-code #x3FFFF
+		  min-code #x30000 max-code #x3EFFF
 		  registry "ucs00\\.var007-3"))
   (make-charset '==ucs-var-007
 		"Abstract glyph-forms corresponding with uXXXX-var-007 of GlyphWiki"
@@ -5504,7 +5504,7 @@
 		  graphic	2
 		  direction	l2r
 		  mother	=ucs-itaiji-001
-		  min-code #x30000 max-code #x3FFFF
+		  min-code #x30000 max-code #x3EFFF
 		  registry "ucs00\\.itaiji001-3"))
   (make-charset '=>ucs-itaiji-001
 		"Abstract characters corresponding with uXXXX-itaiji-001 of GlyphWiki"
@@ -5549,7 +5549,7 @@
 		  graphic	2
 		  direction	l2r
 		  mother	=>ucs-itaiji-001
-		  min-code #x30000 max-code #x3FFFF
+		  min-code #x30000 max-code #x3EFFF
 		  registry "ucs00\\.itaiji001-3"))
   (make-charset '==ucs-itaiji-001
 		"Abstract glyph-forms corresponding with uXXXX-itaiji-001 of GlyphWiki"
@@ -5663,7 +5663,7 @@
 		  graphic	2
 		  direction	l2r
 		  mother	=ucs-itaiji-002
-		  min-code #x30000 max-code #x3FFFF
+		  min-code #x30000 max-code #x3EFFF
 		  registry "ucs00\\.itaiji002-3"))
   (make-charset '=>ucs-itaiji-002
 		"Abstract characters corresponding with uXXXX-itaiji-002 of GlyphWiki"
@@ -5708,7 +5708,7 @@
 		  graphic	2
 		  direction	l2r
 		  mother	=>ucs-itaiji-002
-		  min-code #x30000 max-code #x3FFFF
+		  min-code #x30000 max-code #x3EFFF
 		  registry "ucs00\\.itaiji002-3"))
   (make-charset '==ucs-itaiji-002
 		"Abstract glyph-forms corresponding with uXXXX-itaiji-002 of GlyphWiki"
@@ -7473,7 +7473,7 @@
 	       direction l2r
 	       registry "ucs00-3$"
 	       mother =>ucs@cognate
-	       min-code #x30000 max-code #x3FFFF
+	       min-code #x30000 max-code #x3EFFF
 	       code-offset #x30000))
   (make-charset
    '=>ucs-sip@component
