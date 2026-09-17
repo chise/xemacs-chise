@@ -5,7 +5,7 @@
 ;; Copyright (C) 1996 Sun Microsystems.
 ;; Copyright (C) 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2007, 2008,
 ;;   2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019,
-;;   2020, 2021, 2022, 2023, 2024, 2025 MORIOKA Tomohiko
+;;   2020, 2021, 2022, 2023, 2024, 2025, 2026 MORIOKA Tomohiko
 
 ;; Author: Unknown
 ;; Keywords: i18n, mule, internal
@@ -339,6 +339,11 @@ DESCRIPTION (string) is the description string of the charset."
 	  =jis-x0213-2-2000
 	  ;; chinese-gb12345
 	  =gt-pj-1
+	  =shuowen-jiguge
+	  =>shuowen-jiguge
+	  ===shuowen-jiguge4
+	  ===shuowen-jiguge5
+	  ===shuowen-jiguge-A30
 	  =ucs-bmp-cjk
 	  =ucs-sip-ext-b
 	  =ucs-tip
@@ -627,11 +632,6 @@ DESCRIPTION (string) is the description string of the charset."
 	  ===hng-sgs ; 77
 	  ===hng-sts ; 78
 	  ===hng-kkd ; 79
-	  =shuowen-jiguge
-	  =>shuowen-jiguge
-	  ===shuowen-jiguge4
-	  ===shuowen-jiguge5
-	  ===shuowen-jiguge-A30
 	  ===chise-kangxi@kokusho-200014683
 	  ===cbeta
 	  ===jef-china3
