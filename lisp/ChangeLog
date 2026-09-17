@@ -1,6 +1,21 @@
 2026-09-17  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* mule/mule-conf.el (=ucs-tip-var-001): Change max-code to
+	#x3CFFF.
+	(=ucs-tip-var-002): Ditto.
+	(=ucs-tip-var-003): Ditto.
+	(=+>ucs-tip-var-003): Ditto.
+	(=ucs-tip-var-004): Ditto.
+	(=ucs-tip-var-007): Ditto.
+	(=ucs-tip-itaiji-001): Ditto.
+	(=>ucs-tip-itaiji-001): Ditto.
+	(=ucs-tip-itaiji-002): Ditto.
+	(=>ucs-tip-itaiji-002): Ditto.
+	(=>ucs-tip@cognate): Ditto.
+
+2026-09-17  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-conf.el (=ucs-tip-var-001): Change max-code to
 	#x3EFFF.
 	(=ucs-tip-var-002): Ditto.
 	(=ucs-tip-var-003): Ditto.
