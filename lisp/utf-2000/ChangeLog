@@ -1,3 +1,11 @@
+2026-09-17  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR004.el: Add UCS code-points.
+
+2026-09-17  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR001.el: Add UCS code-points.
+
 2026-09-10  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R060-Step.el (U+5F74): Add `sound@ja/on/{kan|go}'.
