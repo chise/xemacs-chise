@@ -1,3 +1,14 @@
+2026-09-18  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR008.el: Add UCS code-points.
+
+	* ShuoWen-SR005.el: Add UCS code-points.
+
+	* ShuoWen-SR002.el: Add UCS code-points.
+
+	* char-db-util.el (char-db-coded-charset-priority-list): Add
+	`===chise-hdic-ktb'.
+
 2026-09-17  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* ShuoWen-SR004.el: Add UCS code-points.
