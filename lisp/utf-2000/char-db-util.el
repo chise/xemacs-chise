@@ -442,6 +442,7 @@
     =>shuowen-jiguge
     ===shuowen-jiguge5
     ===shuowen-jiguge4
+    ===chise-hdic-ktb
     ===chise-hdic-ktb-seal))
 
 
