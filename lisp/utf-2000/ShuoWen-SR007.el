@@ -5,11 +5,12 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=shuowen-jiguge	  . 00605)	; &SW-JIGUGE-00605;
+     ((=ucs		  . #x3D06D)	; 𽁭
       )
-     ((=shuowen-jiguge	  . 00605)	; &SW-JIGUGE-00605;
+     ((=ucs		  . #x3D06D)	; 𽁭
       ))
-    (=shuowen-jiguge	. 01215)	; &SW-JIGUGE-01215;
+    (=ucs		. #x3D10C)	; 𽄌
+    (=shuowen-jiguge	. 01215)	; 𽄌
     (<-Small-Seal@shuowen
      ((=ucs		  . #x73CF)	; 珏
       )
@@ -31,14 +32,15 @@
       )
      ((=shuowen-jiguge	  . 09412)	; &SW-JIGUGE-09412;
       )
-     ((=shuowen-jiguge	  . 00605)	; &SW-JIGUGE-00605;
+     ((=ucs		  . #x3D06D)	; 𽁭
       ))
-    (=shuowen-jiguge	. 01216)	; &SW-JIGUGE-01216;
+    (=ucs		. #x3D10D)	; 𽄍
+    (=shuowen-jiguge	. 01216)	; 𽄍
     (<-Small-Seal@shuowen
      ((=ucs		  . #x7474)	; 瑴
       ))
     (<-formed@shuowen
-     ((=shuowen-jiguge	  . 01215)	; &SW-JIGUGE-01215;
+     ((=ucs		  . #x3D10C)	; 𽄌
       )
      ((=ucs		  . #x73CF)	; 珏
       ))
@@ -56,12 +58,15 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
       (=ucs		  . #x2FF4)	; ⿴
       )
-     ((=shuowen-jiguge	  . 01215)	; &SW-JIGUGE-01215;
+     ((=ucs		  . #x3D10C)	; 𽄌
       )
      ((=shuowen-jiguge	  . 14010)	; &SW-JIGUGE-14010;
       ))
-    (=shuowen-jiguge	. 01217)	; &SW-JIGUGE-01217;
+    (=ucs		. #x3D10E)	; 𽄎
+    (=shuowen-jiguge	. 01217)	; 𽄎
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x2493B)	; 𤤻
+      )
      ((=ucs		  . #x73ED)	; 班
       ))
     (->subsumptive
@@ -78,11 +83,12 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
       (=ucs		  . #x2FF4)	; ⿴
       )
-     ((=shuowen-jiguge	  . 01215)	; &SW-JIGUGE-01215;
+     ((=ucs		  . #x3D10C)	; 𽄌
       )
      ((=shuowen-jiguge	  . 49806)	; &SW-JIGUGE-49806;
       ))
-    (=shuowen-jiguge	. 01218)	; &SW-JIGUGE-01218;
+    (=ucs		. #x3D10F)	; 𽄏
+    (=shuowen-jiguge	. 01218)	; 𽄏
     (<-Small-Seal@shuowen
      ((=ucs		  . #x28325)	; 𨌥
       ))
