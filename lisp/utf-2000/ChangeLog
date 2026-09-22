@@ -1,3 +1,9 @@
+2026-09-22  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ideograph-util.el (shuowen-radical-chars-vector): New variable.
+	(update-shuowen-radical-table): New function.
+	(small-seal-char<): New function.
+
 2026-09-18  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* ShuoWen-SR010.el: Add UCS code-points.
