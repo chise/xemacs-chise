@@ -4,6 +4,12 @@
 	(update-shuowen-radical-table): New function.
 	(small-seal-char<): New function.
 
+	* ShuoWen-SR009.el: Add UCS code-points.
+
+2026-09-21  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR007.el: Add UCS code-points.
+
 2026-09-18  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* ShuoWen-SR010.el: Add UCS code-points.
