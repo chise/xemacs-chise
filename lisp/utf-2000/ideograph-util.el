@@ -1,7 +1,7 @@
 ;;; ideograph-util.el --- Ideographic Character Database utility
 
 ;; Copyright (C) 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2007, 2008,
-;;   2009, 2010, 2012, 2014, 2015 MORIOKA Tomohiko.
+;;   2009, 2010, 2012, 2014, 2015, 2026 MORIOKA Tomohiko.
 
 ;; Author: MORIOKA Tomohiko <tomo@kanji.zinbun.kyoto-u.ac.jp>
 ;; Keywords: CHISE, Chaon model, ISO/IEC 10646, Unicode, UCS-4, MULE.
@@ -32,6 +32,9 @@
 
 (defvar ideograph-radical-chars-vector
   (make-vector 215 nil))
+
+(defvar shuowen-radical-chars-vector
+  (make-vector 540 nil))
 
 
 ;;;###autoload
@@ -113,6 +116,33 @@
 	     (aset ideograph-radical-chars-vector radical
 		   (cons char ret))))))
      'ideographic-)))
+
+;;;###autoload
+(defun update-shuowen-radical-table ()
+  (interactive)
+  (let ((code 1)
+	chr radical)
+    (while (<= code 52101)
+      (when (setq chr (decode-char '=>shuowen-jiguge code 'defined-only))
+	(setq radical (get-char-attribute chr 'shuowen-radical))
+	(aset shuowen-radical-chars-vector (1- radical)
+	      (adjoin chr (aref shuowen-radical-chars-vector (1- radical))))
+        ;; (aset shuowen-radical-chars-vector (1- radical)
+        ;;       (adjoin (decode-char '=shuowen-jiguge code 'defined-only)
+        ;;               (aref shuowen-radical-chars-vector (1- radical))))
+	)
+      (setq code (1+ code)))
+    (setq code #x3D000)
+    (while (<= code #x3FC3F)
+      (when (and (setq chr (decode-char '=ucs code))
+		 (setq radical (get-char-attribute chr 'shuowen-radical)))
+	(aset shuowen-radical-chars-vector (1- radical)
+	      (adjoin chr (aref shuowen-radical-chars-vector (1- radical))
+		      :test (lambda (a b)
+			      (or (eq a b)
+				  (memq b (get-char-attribute a '->denotational))
+				  (memq a (get-char-attribute b '->denotational)))))))
+      (setq code (1+ code)))))
 
 
 (defun int-list< (a b)
@@ -385,6 +415,80 @@
 			     char-ideographic-strokes-diff char-id)
      '(< morohashi-daikanwa< < < <)
      '(> > > > >))))
+
+;;;###autoload
+(defun small-seal-char< (a b)
+  (let (ret1 ret2 u1 u2)
+    (cond
+     ((setq u1 (encode-char a '=ucs 'defined-only))
+      (cond
+       ((setq u2 (encode-char b '=ucs 'defined-only))
+	(cond
+	 ((= u1 u2)
+	  )
+	 ((< u1 u2)
+	  ))
+	)
+       ((setq ret1 (encode-char a '=>shuowen-jiguge))
+	(cond
+	 ((setq ret2 (encode-char b '=>shuowen-jiguge))
+	  (cond
+	   ((= ret1 ret2)
+	    (cond
+	     ((get-char-attribute a '=>shuowen-jiguge)
+	      ))
+	    )
+	   ((< ret1 ret2)
+	    ))
+	  )
+	 ((find-if
+	   (lambda (cell)
+	     (setq u2 (encode-char cell '=ucs 'defined-only)))
+	   (get-char-attribute b '->denotational))
+	  (cond
+	   ((= u1 u2)
+	    nil)
+	   ((< u1 u2)
+	    ))
+	  ))
+	))
+      )
+     ((find-if
+       (lambda (cell)
+	 (setq u1 (encode-char cell '=ucs 'defined-only)))
+       (get-char-attribute a '->denotational))
+      (cond
+       ((setq u2 (encode-char b '=ucs 'defined-only))
+	(cond
+	 ((= u1 u2)
+	  )
+	 ((< u1 u2)
+	  ))
+	)
+       ((setq ret1 (encode-char a '=>shuowen-jiguge))
+	(cond
+	 ((setq ret2 (encode-char b '=>shuowen-jiguge))
+	  (cond
+	   ((= ret1 ret2)
+	    (cond
+	     ((get-char-attribute a '=>shuowen-jiguge)
+	      ))
+	    )
+	   ((< ret1 ret2)
+	    ))
+	  )
+	 ((find-if
+	   (lambda (cell)
+	     (setq u2 (encode-char cell '=ucs 'defined-only)))
+	   (get-char-attribute b '->denotational))
+	  (cond
+	   ((= u1 u2)
+	    )
+	   ((< u1 u2)
+	    ))
+	  ))
+	))
+      ))))
 
 (defun insert-ideograph-radical-char-data (radical)
   (let ((chars
