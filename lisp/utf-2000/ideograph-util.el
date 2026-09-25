@@ -506,7 +506,37 @@
 	    ))
 	  ))
 	))
-      ))))
+      )
+     ((setq u2 (encode-char b '=ucs 'defined-only))
+      (cond
+       ((setq ret1 (encode-char a '=>shuowen-jiguge))
+	(cond
+	 ((setq ret2 (encode-char b '=>shuowen-jiguge))
+	  (cond
+	   ((= ret1 ret2)
+	    (cond
+	     ((get-char-attribute a '=>shuowen-jiguge)
+	      ))
+	    )
+	   ((< ret1 ret2)
+	    ))
+	  ))
+	))
+      )
+     ((setq ret1 (encode-char a '=>shuowen-jiguge))
+      (cond
+       ((setq ret2 (encode-char b '=>shuowen-jiguge))
+	(cond
+	 ((= ret1 ret2)
+	  (cond
+	   ((get-char-attribute a '=>shuowen-jiguge)
+	    ))
+	  )
+	 ((< ret1 ret2)
+	  ))
+	)
+       ))
+     )))
 
 (defun insert-ideograph-radical-char-data (radical)
   (let ((chars
