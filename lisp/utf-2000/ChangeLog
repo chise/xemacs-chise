@@ -1,3 +1,7 @@
+2026-09-25  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR011.el: Add UCS code-points.
+
 2026-09-22  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* ideograph-util.el (shuowen-radical-chars-vector): New variable.
