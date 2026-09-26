@@ -1,5 +1,7 @@
 2026-09-25  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* ShuoWen-SR006.el: Add UCS code-points.
+
 	* ideograph-util.el (small-seal-char<): Fix problems when UCS
 	code-point is missing.
 
