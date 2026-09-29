@@ -190,7 +190,7 @@
       )
      ((=ucs		  . #x3D06D)	; 𽁭
       )
-     ((=shuowen-jiguge	  . 03401)	; &SW-JIGUGE-03401;
+     ((=ucs		  . #x3D332)	; 𽌲
       ))
     (=ucs		. #x3D075)	; 𽁵
     (=shuowen-jiguge	. 00707)	; 𽁵
@@ -546,7 +546,7 @@
       )
      ((=ucs		  . #x3D06D)	; 𽁭
       )
-     ((=shuowen-jiguge	  . 02408)	; &SW-JIGUGE-02408;
+     ((=ucs		  . #x3D246)	; 𽉆
       ))
     (=ucs		. #x3D084)	; 𽂄
     (=shuowen-jiguge	. 00722)	; 𽂄
@@ -1020,7 +1020,7 @@
       )
      ((=ucs		  . #x3D06D)	; 𽁭
       )
-     ((=shuowen-jiguge	  . 03309)	; &SW-JIGUGE-03309;
+     ((=ucs		  . #x3D32A)	; 𽌪
       ))
     (=ucs		. #x3D099)	; 𽂙
     (=shuowen-jiguge	. 00815)	; 𽂙
@@ -1338,7 +1338,7 @@
       )
      ((=ucs		  . #x3D06D)	; 𽁭
       )
-     ((=shuowen-jiguge	  . 03312)	; &SW-JIGUGE-03312;
+     ((=ucs		  . #x3D32D)	; 𽌭
       ))
     (=ucs		. #x3D0A7)	; 𽂧
     (=shuowen-jiguge	. 00902)	; 𽂧
