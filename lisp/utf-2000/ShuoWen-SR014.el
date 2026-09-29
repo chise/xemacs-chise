@@ -1,7 +1,8 @@
 ;; -*- coding: utf-8-mcs-er -*-
 (define-char
   '((shuowen-radical	. 14)	; 茻
-    (=shuowen-jiguge	. 03114)	; &SW-JIGUGE-03114;
+    (=ucs		. #x3D31C)	; 𽌜
+    (=shuowen-jiguge	. 03114)	; 𽌜
     (<-Small-Seal@shuowen
      ((=ucs		  . #x833B)	; 茻
       )
@@ -25,8 +26,11 @@
     ))
 (define-char
   '((shuowen-radical	. 14)	; 茻
-    (=shuowen-jiguge	. 03115)	; &SW-JIGUGE-03115;
+    (=ucs		. #x3D31D)	; 𽌝
+    (=shuowen-jiguge	. 03115)	; 𽌝
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x26D9B)	; 𦶛
+      )
      ((=ucs		  . #x83AB)	; 莫
       ))
     (->subsumptive
@@ -39,8 +43,11 @@
     ))
 (define-char
   '((shuowen-radical	. 14)	; 茻
-    (=shuowen-jiguge	. 03116)	; &SW-JIGUGE-03116;
+    (=ucs		. #x3D31E)	; 𽌞
+    (=shuowen-jiguge	. 03116)	; 𽌞
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x26DF6)	; 𦷶
+      )
      ((=ucs		  . #x83BD)	; 莽
       ))
     (->subsumptive
@@ -53,7 +60,8 @@
     ))
 (define-char
   '((shuowen-radical	. 14)	; 茻
-    (=shuowen-jiguge	. 03117)	; &SW-JIGUGE-03117;
+    (=ucs		. #x3D31F)	; 𽌟
+    (=shuowen-jiguge	. 03117)	; 𽌟
     (<-Small-Seal@shuowen
      ((=ucs		  . #x846C)	; 葬
       ))
