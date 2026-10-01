@@ -24,7 +24,7 @@
       )
      ((=ucs		  . #x3D110)	; 𽄐
       )
-     ((=shuowen-jiguge	  . 03303)	; &SW-JIGUGE-03303;
+     ((=ucs		  . #x3D324)	; 𽌤
       ))
     (=ucs		. #x3D111)	; 𽄑
     (=shuowen-jiguge	. 01300)	; 𽄑
@@ -47,7 +47,7 @@
       )
      ((=shuowen-jiguge	  . 39700)	; &SW-JIGUGE-39700;
       )
-     ((=shuowen-jiguge	  . 03303)	; &SW-JIGUGE-03303;
+     ((=ucs		  . #x3D324)	; 𽌤
       ))
     (=ucs		. #x3D112)	; 𽄒
     (=shuowen-jiguge	. 01301)	; 𽄒

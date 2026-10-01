@@ -104,7 +104,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
       (=ucs		  . #x2FF8)	; ⿸
       )
-     ((=shuowen-jiguge	  . 01928)	; &SW-JIGUGE-01928;
+     ((=ucs		  . #x3D1B4)	; 𽆴
       )
      ((=shuowen-jiguge	  . 14010)	; &SW-JIGUGE-14010;
       ))
@@ -144,7 +144,7 @@
       )
      ((=ucs		  . #x3D11D)	; 𽄝
       )
-     ((=shuowen-jiguge	  . 03303)	; &SW-JIGUGE-03303;
+     ((=ucs		  . #x3D324)	; 𽌤
       ))
     (=ucs		. #x3D123)	; 𽄣
     (=shuowen-jiguge	. 01504)	; 𽄣
@@ -167,7 +167,7 @@
       )
      ((=ucs		  . #x3D128)	; 𽄨
       )
-     ((=shuowen-jiguge	  . 03303)	; &SW-JIGUGE-03303;
+     ((=ucs		  . #x3D324)	; 𽌤
       ))
     (=ucs		. #x3D124)	; 𽄤
     (=shuowen-jiguge	. 01505)	; 𽄤
