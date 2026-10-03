@@ -23516,6 +23516,9 @@
   '((<-denotational
      ((=>ucs@iwds-1	  . #x5A55)	; &A-IWDSU+5A55;
       ))
+    (<-denotational@usage
+     ((==>ucs@bucs	  . #x5A55)	; &BUCS+5A55;
+      ))
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
@@ -23556,6 +23559,7 @@
     (=big5		. #xD4D0)	; &I-B-D4D0;
     (=koseki		. 073190)	; &MJ009778;
     (=daikanwa		. 06412)	; &I-M-06412;
+    (=daijiten		. 02147)	; &I-DJT-02147;
     (=jef-china3	. #x49D4)	; &I-JC3-49D4;
     (->subsumptive
      ((=decomposition@cid
@@ -23571,9 +23575,12 @@
       (==jis-x0213-2	  . #x255D)	; &g2-MJ009778; [05-61]
       (==koseki		  . 073190)	; &g2-MJ009778;
       (==daikanwa	  . 06412)	; &g2-MJ009778;
+      (==daijiten	  . 02147)	; &g2-MJ009778;
       (==jef-china3	  . #x49D4)	; &g2-MJ009778;
       (->subsumptive
        ((===daikanwa	    . 06412)	; &R-M-06412;
+	)
+       ((===daijiten	    . 02147)	; &R-DJT-02147;
 	)
        ((===jis-x0212	    . #x3961)	; &R-JX2-255D; [25-65]
 	(===jis-x0213-2	    . #x255D)	; &R-JX2-255D; [05-61]
@@ -59144,6 +59151,11 @@
   '((ideographic-radical . 38)	; ⼥
     (==>ucs@bucs	. #x5AF5)	; &BUCS+5AF5;
     (==>daijiten	. 02222)	; &BUCS+5AF5;
+    ))
+(define-char
+  '((ideographic-radical . 38)	; ⼥
+    (==>ucs@bucs	. #x5A55)	; &BUCS+5A55;
+    (==>daijiten	. 02147)	; &BUCS+5A55;
     ))
 (define-char
   '((ideographic-radical . 38)	; ⼥
