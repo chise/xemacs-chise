@@ -4300,6 +4300,8 @@
       )
      ((=ucs		  . #x52FA)	; 勺
       ))
+    (sound@ja/on/go	"baku" "zyaku" "dyaku")
+    (sound@ja/on/kan	"haku" "syaku" "teki")
     (=ucs		. #x4EE2)	; 仢
     ))
 (define-char
@@ -4324,6 +4326,21 @@
     (=jis-x0212		. #x3049)	; &I-JSP-3049; [16-41]
     (=cns11643-4	. #x215A)	; &I-C4-215A; [01-58]
     (=daikanwa		. 00385)	; &I-M-00385;
+    (<-formed
+     ((=ucs@unicode	  . #x5F74)	; &MJ011277;
+      (=mj		  . 011277)	; &MJ011277;
+      ))
+    (<-formed$_1*sources
+     jiyun)
+    (<-same
+     ((=ucs@unicode	  . #x5F74)	; &MJ011277;
+      (=mj		  . 011277)	; &MJ011277;
+      (=daikanwa	  . 10043)	; &I-M-10043;
+      ))
+    (<-same$_1*sources
+     jiyun daikanwa)
+    (<-same*sources
+     jiyun daikanwa)
     (->subsumptive
      ((==ucs@unicode	  . #x4EE2)	; &g2-AJ1-21084;
       (==adobe-japan1-6	  . 21084)	; &g2-AJ1-21084;
