@@ -1,7 +1,8 @@
 ;; -*- coding: utf-8-mcs-er -*-
 (define-char
   '((shuowen-radical	. 21)	; 告
-    (=shuowen-jiguge	. 03616)	; &SW-JIGUGE-03616;
+    (=ucs		. #x3D372)	; 𽍲
+    (=shuowen-jiguge	. 03616)	; 𽍲
     (<-Small-Seal@shuowen
      ((=ucs		  . #x544A)	; 告
       )
@@ -18,7 +19,8 @@
     ))
 (define-char
   '((shuowen-radical	. 21)	; 告
-    (=shuowen-jiguge	. 03700)	; &SW-JIGUGE-03700;
+    (=ucs		. #x3D373)	; 𽍳
+    (=shuowen-jiguge	. 03700)	; 𽍳
     (<-Small-Seal@shuowen
      ((=ucs		  . #x56B3)	; 嚳
       ))
