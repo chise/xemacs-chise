@@ -2,6 +2,13 @@
 
 	* ShuoWen-SR021.el: Add UCS code-points.
 
+2026-10-03  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R038-Woman.el (U+5A55): Add `<-denotational@usage' for
+	BUCS+5A55.
+	(UU+5A55): Unify DJT-02147.
+	(BUCS+5A55): New abstract node; unify A2-DJT-02147.
+
 2026-10-02  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R009-Man.el (U+4EE2): Add `sound@ja/on/{kan|go}'.
