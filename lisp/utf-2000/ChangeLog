@@ -1,3 +1,8 @@
+2026-10-02  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R009-Man.el (U+4EE2): Add `sound@ja/on/{kan|go}'.
+	(UU+4EE2): Add `<-formed' and `<-same' for UU+5F74.
+
 2026-09-29  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* ShuoWen-SR018.el: Add UCS code-points.
