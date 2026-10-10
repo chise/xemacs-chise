@@ -1,3 +1,7 @@
+2026-10-07  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR020.el: Add UCS code-points.
+
 2026-10-05  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R041-Inch.el (U-00032721): New character.
