@@ -1,3 +1,7 @@
+2026-10-13  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR320.el (SW-JIGUGE-29511): Add `ideographic-structure'.
+
 2026-10-07  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* ShuoWen-SR020.el: Add UCS code-points.
