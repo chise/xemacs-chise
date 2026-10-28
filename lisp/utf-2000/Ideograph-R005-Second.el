@@ -6299,6 +6299,9 @@
       )
      ((=mj		  . 036854)	; &MJ036854;
       (=daikanwa	  . 12302)	; &I-M-12302;
+      )
+     ((=mj		  . 037394)	; &MJ037394;
+      (=daikanwa	  . 13381)	; &I-M-13381;
       ))
     (->formed$_1*sources
      yupian daikanwa)
