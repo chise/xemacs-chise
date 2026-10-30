@@ -1,3 +1,7 @@
+2026-10-26  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR025.el: Add UCS code-points.
+
 2026-10-25  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* ShuoWen-SR023.el (SW-JIGUGE-04401): Unify U-0003D448.
