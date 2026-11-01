@@ -1,3 +1,23 @@
+2026-10-30  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R034-Go.el (A-U+2510E-itaiji-002): New abstract node.
+	(U+2510E-itaiji-002): New character; use `<-denotational' for
+	A-U+2510E-itaiji-002.
+	(A-U+2D42C-itaiji-001): New abstract node.
+	(U+2D42C-itaiji-001): New character; use `<-denotational' for
+	A-U+2D42C-itaiji-001.
+
+	* Ideograph-R027-Cliff.el (A-CB12869): New abstract node; use
+	`<-denotational' for A-cgnU+20A7A.
+	(CB12869): New character; use `<-denotational' for A-CB12869.
+
+2026-10-29  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR441.el (SW-JIGUGE-41905): Add `<-formed@shuowen' for
+	SW-JIGUGE-41904.
+
+	* ShuoWen-SR024.el: Add UCS code-points.
+
 2026-10-26  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* ShuoWen-SR025.el: Add UCS code-points.
