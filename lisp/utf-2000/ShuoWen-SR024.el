@@ -1,7 +1,8 @@
 ;; -*- coding: utf-8-mcs-er -*-
 (define-char
   '((shuowen-radical	. 24)	; 吅
-    (=shuowen-jiguge	. 04402)	; &SW-JIGUGE-04402;
+    (=ucs		. #x3D449)	; 𽑉
+    (=shuowen-jiguge	. 04402)	; 𽑉
     (<-Small-Seal@shuowen
      ((=ucs		  . #x5405)	; 吅
       )
@@ -18,7 +19,8 @@
     ))
 (define-char
   '((shuowen-radical	. 24)	; 吅
-    (=shuowen-jiguge	. 04403)	; &SW-JIGUGE-04403;
+    (=ucs		. #x3D44A)	; 𽑊
+    (=shuowen-jiguge	. 04403)	; 𽑊
     (<-Small-Seal@shuowen
      ((=ucs		  . #x24566)	; 𤕦
       ))
@@ -32,12 +34,13 @@
     ))
 (define-char
   '((shuowen-radical	. 24)	; 吅
-    (=shuowen-jiguge	. 04404)	; &SW-JIGUGE-04404;
+    (=ucs		. #x3D44B)	; 𽑋
+    (=shuowen-jiguge	. 04404)	; 𽑋
     (<-Small-Seal@shuowen
      ((=ucs		  . #x24567)	; 𤕧
       ))
     (<-Zhouwen@shuowen
-     ((=shuowen-jiguge	  . 04403)	; &SW-JIGUGE-04403;
+     ((=ucs		  . #x3D44A)	; 𽑊
       )
      ((=ucs		  . #x24566)	; 𤕦
       ))
@@ -51,7 +54,16 @@
     ))
 (define-char
   '((shuowen-radical	. 24)	; 吅
-    (=shuowen-jiguge	. 04405)	; &SW-JIGUGE-04405;
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x3D449)	; 𽑉
+      )
+     ((=shuowen-jiguge	  . 31804)	; &SW-JIGUGE-31804;
+      ))
+    (=ucs		. #x3D44C)	; 𽑌
+    (=shuowen-jiguge	. 04405)	; 𽑌
     (<-Small-Seal@shuowen
      ((=ucs		  . #x210EB)	; 𡃫
       )
@@ -69,12 +81,13 @@
     ))
 (define-char
   '((shuowen-radical	. 24)	; 吅
-    (=shuowen-jiguge	. 04406)	; &SW-JIGUGE-04406;
+    (=ucs		. #x3D44D)	; 𽑍
+    (=shuowen-jiguge	. 04406)	; 𽑍
     (<-Small-Seal@shuowen
      ((=ucs		  . #x2116E)	; 𡅮
       ))
     (<-ancient@shuowen
-     ((=shuowen-jiguge	  . 04405)	; &SW-JIGUGE-04405;
+     ((=ucs		  . #x3D44C)	; 𽑌
       )
      ((=ucs		  . #x210EB)	; 𡃫
       )
@@ -92,7 +105,8 @@
     ))
 (define-char
   '((shuowen-radical	. 24)	; 吅
-    (=shuowen-jiguge	. 04407)	; &SW-JIGUGE-04407;
+    (=ucs		. #x3D44E)	; 𽑎
+    (=shuowen-jiguge	. 04407)	; 𽑎
     (<-Small-Seal@shuowen
      ((=ucs		  . #x35BE)	; 㖾
       )
@@ -108,7 +122,8 @@
     ))
 (define-char
   '((shuowen-radical	. 24)	; 吅
-    (=shuowen-jiguge	. 04408)	; &SW-JIGUGE-04408;
+    (=ucs		. #x3D44F)	; 𽑏
+    (=shuowen-jiguge	. 04408)	; 𽑏
     (<-Small-Seal@shuowen
      ((=ucs		  . #x55AE)	; 單
       )
@@ -126,7 +141,8 @@
     ))
 (define-char
   '((shuowen-radical	. 24)	; 吅
-    (=shuowen-jiguge	. 04409)	; &SW-JIGUGE-04409;
+    (=ucs		. #x3D450)	; 𽑐
+    (=shuowen-jiguge	. 04409)	; 𽑐
     (<-Small-Seal@shuowen
      ((=ucs		  . #x558C)	; 喌
       ))
