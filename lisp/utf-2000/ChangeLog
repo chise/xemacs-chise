@@ -1,3 +1,7 @@
+2026-11-01  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR019.el: Add UCS code-points.
+
 2026-10-30  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R034-Go.el (A-U+2510E-itaiji-002): New abstract node.
