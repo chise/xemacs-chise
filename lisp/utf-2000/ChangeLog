@@ -1,3 +1,21 @@
+2026-11-02  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R035-Go-Slowly.el (U-0002D42C): Modify structure;
+	preserve the previous IDS as an apparent structure.
+
+2026-11-01  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R103-Bolt-Of-Cloth.el (A-cgnU+758C): New abstract
+	node.
+	(U+758C): Add `<-denotational' for A-cgnU+758C; add
+	`<-denotational@usage' for A2-DJT-07555.
+	(UU+758C): Unify DJT-07555.
+	(A-BC-86CD): New abstract node; use `<-denotational' for
+	A-cgnU+758C; unify A-GT-K03980.
+	(GT-K03980): Unify BC-86CD; use A-BC-86CD instead of o-UU+758C as
+	its mother.
+	(A2-DJT-07555): New abstract node.
+
 2026-11-01  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* ShuoWen-SR019.el: Add UCS code-points.

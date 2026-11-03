@@ -3296,6 +3296,14 @@
     (ideographic-strokes . 12)
     (total-strokes	 . 15)
     (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>gt-k		  . 03322)	; &A-GT-K03322;
+      )
+     ((=>ucs-itaiji-002	  . #x2510E)	; &A-U-i002+2510E;
+      ))
+    (ideographic-structure@apparent
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
       (=ucs		  . #x2FF3)	; ⿳
       )
@@ -3316,6 +3324,14 @@
     (ideographic-strokes . 12)
     (total-strokes	 . 15)
     (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=gt-k		  . 03322)	; &GT-K03322;
+      )
+     ((=ucs-itaiji-002	  . #x2510E)	; &U-i002+2510E;
+      ))
+    (ideographic-structure@apparent
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
       (=ucs		  . #x2FF3)	; ⿳
       )
@@ -3325,17 +3341,15 @@
       )
      ((=ucs		  . #x5902)	; 夂
       ))
-    (=ucs@iso		. #x2D42C)	; &MJ057259;
+    (=ucs@JP/hanazono	. #x2D42C)	; &MJ057259;
     (=mj		. 057259)	; &MJ057259;
     (=koseki		. 065720)	; &MJ057259;
     (->subsumptive
-     ((==ucs@iso	  . #x2D42C)	; &g2-MJ057259;
+     ((==ucs@JP/hanazono  . #x2D42C)	; &g2-MJ057259;
       (==mj		  . 057259)	; &g2-MJ057259;
       (==koseki		  . 065720)	; &g2-MJ057259;
       (->subsumptive
        ((===mj		    . 057259)	; &R-MJ057259;
-	)
-       ((===ucs@iso	    . #x2D42C)	; &R-U-0002D42C;
 	))
       ))
     ))
