@@ -1,7 +1,8 @@
 ;; -*- coding: utf-8-mcs-er -*-
 (define-char
   '((shuowen-radical	. 29)	; 步
-    (=shuowen-jiguge	. 04915)	; &SW-JIGUGE-04915;
+    (=ucs		. #x3D4BE)	; 𽒾
+    (=shuowen-jiguge	. 04915)	; 𽒾
     (<-Small-Seal@shuowen
      ((=ucs		  . #x6B65)	; 步
       )
@@ -19,7 +20,8 @@
     ))
 (define-char
   '((shuowen-radical	. 29)	; 步
-    (=shuowen-jiguge	. 04916)	; &SW-JIGUGE-04916;
+    (=ucs		. #x3D4BF)	; 𽒿
+    (=shuowen-jiguge	. 04916)	; 𽒿
     (<-Small-Seal@shuowen
      ((=ucs		  . #x6B72)	; 歲
       )
