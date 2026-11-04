@@ -18,6 +18,11 @@
 
 2026-11-01  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R029-Again.el (A-U+2510E-itaiji-003): New abstract
+	node.
+	(U+2510E-itaiji-003): New character; use `<-denotational' for
+	A-U+2510E-itaiji-003.
+
 	* ShuoWen-SR019.el: Add UCS code-points.
 
 2026-10-30  MORIOKA Tomohiko  <tomo.git@chise.org>
