@@ -81,6 +81,12 @@
 	(A2-DJT-07525): Unify BUCS+756B.
 	(A2-DJT-07514): Unify BUCS+755D.
 
+2026-03-03  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R017-Open-Box.el (GT-K03099): Moved to
+	Ideograph-R102-Field.el; add `<-denotational' for U-000308B5;
+	unify hanaJU+308B5.
+
 2026-11-02  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R035-Go-Slowly.el (U-0002D42C): Modify structure;
