@@ -1,3 +1,12 @@
+2026-11-08  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR031.el (U-0003D4C4): New character; use
+	`<-denotational' for A-SW-JIGUGE-05004.
+	(SW-JIGUGE4-04904): Use `<-subsumptive' for U-0003D4C4 instead of
+	`<-denotational' for A-SW-JIGUGE-05004.
+	(SW-JIGUGE4-05005): Unify U-0003D4C5.
+	(SW-JIGUGE4-05006): Unify U-0003D4C6.
+
 2026-11-05  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* ShuoWen-SR032.el: Add UCS code-points.
