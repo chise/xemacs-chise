@@ -1,5 +1,11 @@
 2026-11-09  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* ShuoWen-SR036.el (SW-JIGUGE-05800): Unify U-0003D5A1; add
+	`ideographic-structure'.
+	(SW-JIGUGE-05801): Unify U-0003D5A2; add `ideographic-structure'.
+
+2026-11-09  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* ShuoWen-SR269.el (SW-JIGUGE-24816): Add `ideographic-structure'.
 
 2026-11-08  MORIOKA Tomohiko  <tomo.git@chise.org>
