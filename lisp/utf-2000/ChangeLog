@@ -1,3 +1,7 @@
+2026-11-09  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR269.el (SW-JIGUGE-24816): Add `ideographic-structure'.
+
 2026-11-08  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* ShuoWen-SR031.el (U-0003D4C4): New character; use
