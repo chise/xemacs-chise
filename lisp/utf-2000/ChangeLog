@@ -1,8 +1,14 @@
+2026-11-10  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR037.el: Add UCS code-points.
+
 2026-11-09  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* ShuoWen-SR036.el (SW-JIGUGE-05800): Unify U-0003D5A1; add
 	`ideographic-structure'.
 	(SW-JIGUGE-05801): Unify U-0003D5A2; add `ideographic-structure'.
+
+	* ShuoWen-SR035.el: Add UCS code-points.
 
 2026-11-09  MORIOKA Tomohiko  <tomo.git@chise.org>
 
