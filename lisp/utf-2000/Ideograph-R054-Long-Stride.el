@@ -147,8 +147,19 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 54)	; ⼵
+  '((<-denotational@component
+     ((=>ucs@component	  . #x5EF6)	; &A-compU+5EF6;
+      ))
+    (ideographic-radical . 54)	; ⼵
     (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
+      (=ucs		  . #x2FFA)	; ⿺
+      )
+     ((=ucs		  . #x389F)	; 㢟
+      )
+     ((=ucs		  . #x4E3F)	; 丿
+      ))
+    (ideographic-structure@apparent
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
       (=ucs		  . #x2FFA)	; ⿺
       )
@@ -168,6 +179,15 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
     (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
+      (=ucs		  . #x2FFA)	; ⿺
+      )
+     ((=ucs@unicode	  . #x389F)	; &MJ001056;
+      (=mj		  . 001056)	; &MJ001056;
+      )
+     ((=ucs		  . #x4E3F)	; 丿
+      ))
+    (ideographic-structure@apparent
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
       (=ucs		  . #x2FFA)	; ⿺
       )
@@ -257,6 +277,15 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
       (=ucs		  . #x2FFA)	; ⿺
       )
+     ((=ucs@cns		  . #x389F)	; &C4-2429;
+      (=cns11643-4	  . #x2429)	; &C4-2429; [04-09]
+      )
+     ((=ucs		  . #x4E3F)	; 丿
+      ))
+    (ideographic-structure@apparent
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
+      (=ucs		  . #x2FFA)	; ⿺
+      )
      ((=ucs		  . #x5EF4)	; 廴
       )
      ((=big5-cdp	  . #x8D62)	; &CDP-8D62;
@@ -327,7 +356,10 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 54)	; ⼵
+  '((<-denotational@component
+     ((=>ucs@component	  . #x5EF6)	; &A-compU+5EF6;
+      ))
+    (ideographic-radical . 54)	; ⼵
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
       (=ucs		  . #x2FFA)	; ⿺
@@ -1380,6 +1412,18 @@
     (->subsumptive
      ((==ucs@JP/hanazono  . #x2BE14)	; &g2-hanaJU+2BE14;
       ))
+    ))
+(define-char
+  '((ideographic-radical . 54)	; ⼵
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
+      (=ucs		  . #x2FFA)	; ⿺
+      )
+     ((=ucs		  . #x389F)	; 㢟
+      )
+     ((=>ucs@component	  . #x4E00)	; &A-compU+4E00;
+      ))
+    (=>ucs@component	. #x5EF6)	; &A-compU+5EF6;
     ))
 (define-char
   '((ideographic-radical . 54)	; ⼵
