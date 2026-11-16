@@ -15,6 +15,14 @@
     ))
 (define-char
   '((shuowen-radical	. 50)	; 㕯
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=shuowen-jiguge	  . 49720)	; &SW-JIGUGE-49720;
+      )
+     ((=shuowen-jiguge	  . 06807)	; &SW-JIGUGE-06807;
+      ))
     (=shuowen-jiguge	. 06808)	; &SW-JIGUGE-06808;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x77DE)	; 矞

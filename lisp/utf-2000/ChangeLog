@@ -1,5 +1,15 @@
 2026-11-11  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R054-Long-Stride.el (U+5EF6): Modify structure;
+	preserve the previous IDS as an apparent structure; add
+	`<-denotational@component' for A-compU+5EF6.
+	(U-0002231B): Add `<-denotational@component' for A-compU+5EF6.
+	(A-compU+5EF6): New abstract node.
+
+2026-11-11  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR050.el (SW-JIGUGE-06808): Add `ideographic-structure'.
+
 	* ShuoWen-SR034.el: Add UCS code-points.
 
 2026-11-10  MORIOKA Tomohiko  <tomo.git@chise.org>
