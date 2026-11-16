@@ -1,3 +1,24 @@
+2026-11-14  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR450.el (SW-JIGUGE-43904): Add `ideographic-structure'.
+
+	* ShuoWen-SR244.el (SW-JIGUGE-23300): Add `ideographic-structure'.
+
+	* ShuoWen-SR228.el (SW-JIGUGE-20927): Add `ideographic-structure'.
+
+	* ShuoWen-SR206.el (SW-JIGUGE-19609): Add `ideographic-structure'.
+
+	* ShuoWen-SR198.el (SW-JIGUGE-17903): Add `ideographic-structure'.
+	(SW-JIGUGE-17907): Add `ideographic-structure'.
+
+2026-11-12  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R008-Lid.el (U-00020171): Apply new conventions for
+	glyph granularity; use `ideographic-{radical|strokes}@cdp' instead
+	of `ideographic-{radical|strokes}'; add
+	`ideographic-{radical|strokes}@ucs'.
+	(U-00020199): Apply new conventions for glyph granularity.
+
 2026-11-11  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R054-Long-Stride.el (U+5EF6): Modify structure;
