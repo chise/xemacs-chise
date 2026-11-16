@@ -1,3 +1,4 @@
+;; -*- coding: utf-8-mcs-er -*-
 (define-char
   '((shuowen-radical	. 540)	; 亥
     (=shuowen-jiguge	. 52100)	; &SW-JIGUGE-52100;

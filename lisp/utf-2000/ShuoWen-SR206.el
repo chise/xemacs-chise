@@ -5410,6 +5410,14 @@
     ))
 (define-char
   '((shuowen-radical	. 206)	; 木
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM BELOW")
+      (=ucs		  . #x2FF6)	; ⿶
+      )
+     ((=zinbun-oracle	  . 01677)	; &ZOB-1677;
+      )
+     ((=shuowen-jiguge	  . 26301)	; &SW-JIGUGE-26301;
+      ))
     (=shuowen-jiguge	. 19609)	; &SW-JIGUGE-19609;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x6A02)	; 樂

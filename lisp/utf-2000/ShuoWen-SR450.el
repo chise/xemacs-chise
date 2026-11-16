@@ -1,6 +1,14 @@
 ;; -*- coding: utf-8-mcs-er -*-
 (define-char
   '((shuowen-radical	. 450)	; 氐
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=shuowen-jiguge	  . 43902)	; &SW-JIGUGE-43902;
+      )
+     ((=ucs		  . #x3D000)	; 𽀀
+      ))
     (=shuowen-jiguge	. 43904)	; &SW-JIGUGE-43904;
     (<-Small-Seal@shuowen
      ((=ucs		  . #x6C10)	; 氐
