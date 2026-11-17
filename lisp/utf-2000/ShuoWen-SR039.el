@@ -1,7 +1,8 @@
 ;; -*- coding: utf-8-mcs-er -*-
 (define-char
   '((shuowen-radical	. 39)	; 牙
-    (=shuowen-jiguge	. 06012)	; &SW-JIGUGE-06012;
+    (=ucs		. #x3D5E0)	; 𽗠
+    (=shuowen-jiguge	. 06012)	; 𽗠
     (<-Small-Seal@shuowen
      ((=ucs		  . #x7259)	; 牙
       ))
@@ -15,12 +16,15 @@
     ))
 (define-char
   '((shuowen-radical	. 39)	; 牙
-    (=shuowen-jiguge	. 06013)	; &SW-JIGUGE-06013;
+    (=ucs		. #x3D5E1)	; 𽗡
+    (=shuowen-jiguge	. 06013)	; 𽗡
     (<-Small-Seal@shuowen
+     ((=ucs		  . #x2460D)	; 𤘍
+      )
      ((=ucs		  . #x24608)	; 𤘈
       ))
     (<-ancient@shuowen
-     ((=shuowen-jiguge	  . 06012)	; &SW-JIGUGE-06012;
+     ((=ucs		  . #x3D5E0)	; 𽗠
       )
      ((=ucs		  . #x7259)	; 牙
       ))
@@ -34,7 +38,16 @@
     ))
 (define-char
   '((shuowen-radical	. 39)	; 牙
-    (=shuowen-jiguge	. 06014)	; &SW-JIGUGE-06014;
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x3D5E0)	; 𽗠
+      )
+     ((=shuowen-jiguge	  . 15607)	; &SW-JIGUGE-15607;
+      ))
+    (=ucs		. #x3D5E2)	; 𽗢
+    (=shuowen-jiguge	. 06014)	; 𽗢
     (<-Small-Seal@shuowen
      ((=ucs		  . #x2460C)	; 𤘌
       ))
@@ -48,7 +61,16 @@
     ))
 (define-char
   '((shuowen-radical	. 39)	; 牙
-    (=shuowen-jiguge	. 06015)	; &SW-JIGUGE-06015;
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x3D5E0)	; 𽗠
+      )
+     ((=shuowen-jiguge	  . 50810)	; &SW-JIGUGE-50810;
+      ))
+    (=ucs		. #x3D5E3)	; 𽗣
+    (=shuowen-jiguge	. 06015)	; 𽗣
     (<-Small-Seal@shuowen
      ((=ucs		  . #x24610)	; 𤘐
       ))
@@ -62,7 +84,16 @@
     ))
 (define-char
   '((shuowen-radical	. 39)	; 牙
-    (=shuowen-jiguge	. 06016)	; &SW-JIGUGE-06016;
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x3D5B0)	; 𽖰
+      )
+     ((=shuowen-jiguge	  . 50810)	; &SW-JIGUGE-50810;
+      ))
+    (=ucs		. #x3D5E4)	; 𽗤
+    (=shuowen-jiguge	. 06016)	; 𽗤
     (<-Small-Seal@shuowen
      ((=ucs		  . #x9F72)	; 齲
       ))
