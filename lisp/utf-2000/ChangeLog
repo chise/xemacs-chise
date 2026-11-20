@@ -1,3 +1,62 @@
+2026-11-17  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR039.el: Add UCS code-points.
+
+2026-11-16  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R066-Rap.el (U+6536): Add `<-denotational@usage' for
+	BUCS+6536; apply new conventions for glyph granularity.
+	(A-CB12488): New abstract node; use `<-denotational' for U+6536.
+	(CB12488): Add `<-denotational' for A-CB12488.
+	(U+653F): Add `<-denotational@usage' for BUCS+653F; apply new
+	conventions for glyph granularity.
+	(A-IWDSU+3A83): New abstract node.
+	(U+3A83): Add `<-denotational' for A-IWDSU+3A83; apply new
+	conventions for glyph granularity.
+	(U-00022F14): Add `<-denotational' for A-IWDSU+3A83.
+	(U-00022F1B): Add `<-denotational@usage' for A2-DJT-03788.
+	(A-IWDSU+6547): New abstract node.
+	(U+6547): Add `<-denotational' for A-IWDSU+6547; add
+	`<-denotational@usage' for BUCS+7B56; apply new conventions for
+	glyph granularity.
+	(U-0002D8EF): New character; use `<-denotational' for
+	A-IWDSU+6547.
+	(A-IWDSU+654A): New abstract node.
+	(U+654A): Add `<-denotational' for A-IWDSU+654A; apply new
+	conventions for glyph granularity.
+	(U-0002D8EC): New character; use `<-denotational' for
+	A-IWDSU+654A.
+	(U+654D): Add `<-denotational@usage' for BUCS+654D; apply new
+	conventions for glyph granularity.
+	(U-00022F3B): Add `<-denotational@usage' for A2-DJT-02050.
+	(U+3A94): Add `<-denotational@usage' for A2-DJT-04278.
+	(U-00022F67): Apply new conventions for glyph granularity.
+	(U-0003185C): New character.
+	(GT-K10129): Add `<-denotational' for U-0003185C.
+	(U+6572): Add `<-denotational@usage' for BUCS+6572.
+	(HD-JT-B24F): New character; use `<-denotational' for U+6572.
+	(A-IWDSU+6578): Omit `<-denotational' for BUCS+6578.
+	(U+6578): Add `<-denotational@usage' for BUCS+6578.
+	(U-00022FD8): Add `<-denotational' for A-IWDSU+6578; add
+	`<-denotational@usage' for BUCS+6578.
+	(U-00022FD9): Add `<-denotational@usage' for BUCS+6578.
+	(U-00022FE2): Add `<-denotational@usage' for BUCS+4E82.
+	(U-00022FEE): Apply new conventions for glyph granularity.
+	(U-00022FE8): Add `<-denotational@usage' for A2-DJT-04280.
+	(BUCS+6536): New abstract node; unify A2-DJT-04224.
+	(BUCS+654D): New abstract node; unify A2-DJT-04258.
+	(BUCS+653F): New abstract node; unify A2-DJT-04235.
+	(A2-DJT-04278): New abstract node.
+	(BUCS+6572): New abstract node; unify A2-DJT-04291.
+	(A2-DJT-04280): New abstract node.
+
+2026-11-16  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R004-Slash.el (A-U+200A1-itaiji-003): New abstract
+	node.
+	(U+200A1-itaiji-003): New character; use `<-denotational' for
+	A-U+200A1-itaiji-003.
+
 2026-11-14  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* ShuoWen-SR450.el (SW-JIGUGE-43904): Add `ideographic-structure'.
