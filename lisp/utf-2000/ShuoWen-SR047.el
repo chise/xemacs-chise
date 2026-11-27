@@ -1,7 +1,8 @@
 ;; -*- coding: utf-8-mcs-er -*-
 (define-char
   '((shuowen-radical	. 47)	; 干
-    (=shuowen-jiguge	. 06711)	; &SW-JIGUGE-06711;
+    (=ucs		. #x3D664)	; 𽙤
+    (=shuowen-jiguge	. 06711)	; 𽙤
     (<-Small-Seal@shuowen
      ((=ucs		  . #x5E72)	; 干
       ))
@@ -15,7 +16,8 @@
     ))
 (define-char
   '((shuowen-radical	. 47)	; 干
-    (=shuowen-jiguge	. 06712)	; &SW-JIGUGE-06712;
+    (=ucs		. #x3D665)	; 𽙥
+    (=shuowen-jiguge	. 06712)	; 𽙥
     (<-Small-Seal@shuowen
      ((=ucs		  . #x22189)	; 𢆉
       ))
@@ -29,7 +31,8 @@
     ))
 (define-char
   '((shuowen-radical	. 47)	; 干
-    (=shuowen-jiguge	. 06713)	; &SW-JIGUGE-06713;
+    (=ucs		. #x3D666)	; 𽙦
+    (=shuowen-jiguge	. 06713)	; 𽙦
     (<-Small-Seal@shuowen
      ((=ucs		  . #x5C70)	; 屰
       ))

@@ -1,4 +1,12 @@
+2026-11-26  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR046.el: Add UCS code-points.
+
+	* ShuoWen-SR044.el: Add UCS code-points.
+
 2026-11-25  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen-SR047.el: Add UCS code-points.
 
 	* ShuoWen-SR045.el: Add UCS code-points.
 
